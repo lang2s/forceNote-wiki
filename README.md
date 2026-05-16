@@ -49,6 +49,24 @@ Salesforce 공식 오픈소스 프로젝트를 직접 분석해 추출한 검증
 | `Flow/` vs `Apex/` 종합 매트릭스 | "언제 Flow, 언제 Apex, 언제 LWC" 한 장 의사결정 가이드 |
 | `Agentforce/` 섹션 신설 | agent-script-recipes 분석 후 생성 |
 
+### 🔲 심화 단계 — 공식 문서 PDF 분석 (프로젝트 분석 완료 후)
+
+`Salesforce Documents/` 폴더의 공식 레퍼런스 PDF를 기반으로 위키 보강.  
+공식 프로젝트 분석으로 채울 수 없는 **스펙 레벨 지식** (한도, 예외 케이스, 옵션 목록 등) 추가.
+
+| PDF | 보강 대상 wiki 섹션 |
+|---|---|
+| `salesforce_apex_developer_guide.pdf` | `Apex/` 전반 — 거버너 한도, 예외 처리 스펙 |
+| `salesforce_apex_reference_guide.pdf` | `Apex/` 클래스별 메서드 옵션 보강 |
+| `api_rest.pdf` | `통합/` — REST API 엔드포인트, 응답 구조 |
+| `api_meta.pdf` | `Flow/`, `통합/` — Metadata API 배포 패턴 |
+| `api_asynch.pdf` | `Apex/비동기/` — Bulk API 한도, Job 상태 |
+| `lightning.pdf` | `LWC/` — 컴포넌트 라이프사이클 스펙, 이벤트 버블링 규칙 |
+| `pkg2_dev.pdf` | `Flow/멀티 패키지 구조` — 패키지 버전 정책 상세 |
+| `sfdx_dev.pdf` | sf-team-framework `ci-workflow` 스킬 보강 |
+| `exp_cloud_lwr.pdf` | `LWC/` — Experience Cloud 전용 패턴 |
+| `caf_dev.pdf` | `Agentforce/` — Agent Action 스펙 상세 |
+
 ---
 
 ## 노트 구조
