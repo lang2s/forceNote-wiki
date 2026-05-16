@@ -1,13 +1,4 @@
-# Obsidian 개인 워크스페이스 (공유 불필요)
-Salesforce wiki/.obsidian/workspace
-Salesforce wiki/.obsidian/workspace.json
-Salesforce wiki/.obsidian/cache
-Salesforce wiki/.obsidian/.trash/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Obsidian 플러그인 (선택적 공유)
-# 공유하려면 아래 줄을 주석 처리
-# Salesforce wiki/.obsidian/plugins/
+Documents.library/
+Salesforce Documents/
+learn-claude-code-main/
+workspace/
