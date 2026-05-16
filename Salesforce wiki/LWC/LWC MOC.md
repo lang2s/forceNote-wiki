@@ -38,6 +38,7 @@ created: 2026-05-17
 - [[NavigationMixin 패턴]] — pageReference 타입별 사용법
 - [[Toast & 모달 패턴]] — ShowToastEvent, variant, 모달 구현
 - [[에러 패널 패턴]] — errorPanel, reduceErrors, 에러 타입별 처리
+- [[공유 JS 모듈]] — c/ 네임스페이스 공유 함수, named export, isExposed: false
 
 ## 🔒 보안 & 권한
 

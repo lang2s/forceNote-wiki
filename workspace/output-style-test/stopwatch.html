@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스톱워치 앱</title>
+    <!-- Tailwind CSS를 CDN으로 불러오기 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-purple-50 to-blue-100 min-h-screen flex items-center justify-center p-4">
+    <!-- 전체 스톱워치 컨테이너 -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+        <!-- 제목 -->
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">
+            ⏱️ 스톱워치
+        </h1>
+
+        <!-- 시간 표시 섹션 -->
+        <div class="bg-gradient-to-r from-purple-100 to-blue-100 rounded-2xl p-8 mb-8 text-center">
+            <!-- 시간 표시 (큰 숫자) -->
+            <div class="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 font-mono tracking-widest">
+                <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="milliseconds">00</span>
+            </div>
+            <!-- 시간 단위 표시 -->
+            <div class="flex justify-center gap-12 mt-4 text-sm font-semibold text-gray-600">
+                <div>분</div>
+                <div>초</div>
+                <div>밀리초</div>
+            </div>
+        </div>
+
+        <!-- 버튼 섹션 -->
+        <div class="flex flex-col gap-3">
+            <!-- 시작/일시정지 버튼 -->
+            <button
+                id="startPauseBtn"
+                class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl transition duration-200 transform hover:scale-105 text-lg shadow-lg"
+            >
+                ▶️ 시작
+            </button>
+
+            <!-- 리셋 버튼 -->
+            <button
+                id="resetBtn"
+                class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-4 px-6 rounded-xl transition duration-200 transform hover:scale-105 text-lg shadow-lg"
+            >
+                🔄 리셋
+            </button>
+        </div>
+
+        <!-- 상태 표시 -->
+        <div class="mt-6 text-center text-sm text-gray-500">
+            <p id="statusMessage">준비 완료 ✨</p>
+        </div>
+    </div>
+
+    <script>
+        // ===== 변수 선언 =====
+
+        // 타이머의 경과 시간을 저장하는 변수 (밀리초 단위)
+        // 0부터 시작해서 10ms씩 증가합니다
+        let elapsedTime = 0;
+
+        // 타이머가 실행 중인지 여부를 저장하는 변수
+        let isRunning = false;
+
+        // setInterval의 ID를 저장하는 변수
+        // 타이머를 멈추려면 이 ID가 필요합니다
+        let intervalId = null;
+
+        // HTML 요소들을 변수에 저장
+        const minutesDisplay = document.getElementById('minutes');
+        const secondsDisplay = document.getElementById('seconds');
+        const millisecondsDisplay = document.getElementById('milliseconds');
+        const startPauseBtn = document.getElementById('startPauseBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const statusMessage = document.getElementById('statusMessage');
+
+        // ===== 함수 정의 =====
+
+        // 1. 시간을 화면에 표시하는 함수
+        function updateDisplay() {
+            // elapsedTime을 시간 단위로 변환합니다
+
+            // 1분 = 60000 밀리초
+            // 1초 = 1000 밀리초
+
+            // 분 계산: 전체 시간을 60000으로 나누고 정수 부분만 취함
+            const minutes = Math.floor(elapsedTime / 60000);
+
+            // 초 계산: 분을 뺀 나머지를 1000으로 나눔
+            // % 는 나머지를 계산하는 연산자입니다
+            const seconds = Math.floor((elapsedTime % 60000) / 1000);
+
+            // 밀리초 계산: 1000으로 나눈 나머지 (0~99)
+            // 10으로 나눠서 10밀리초 단위로 표시합니다
+            const milliseconds = Math.floor((elapsedTime % 1000) / 10);
+
+            // 한 자리 숫자면 앞에 0을 붙입니다 (00:05:03 형식으로 보이도록)
+            minutesDisplay.textContent = String(minutes).padStart(2, '0');
+            secondsDisplay.textContent = String(seconds).padStart(2, '0');
+            millisecondsDisplay.textContent = String(milliseconds).padStart(2, '0');
+        }
+
+        // 2. 시작/일시정지를 처리하는 함수
+        function toggleStartPause() {
+            if (isRunning) {
+                // 현재 실행 중이면 멈춥니다
+                clearInterval(intervalId);  // 타이머 중지
+                isRunning = false;
+                startPauseBtn.textContent = '▶️ 시작';
+                startPauseBtn.classList.remove('from-red-500', 'to-red-600', 'hover:from-red-600', 'hover:to-red-700');
+                startPauseBtn.classList.add('from-purple-500', 'to-purple-600', 'hover:from-purple-600', 'hover:to-purple-700');
+                statusMessage.textContent = '일시정지됨 ⏸️';
+            } else {
+                // 현재 멈춰있으면 시작합니다
+                isRunning = true;
+                startPauseBtn.textContent = '⏸️ 일시정지';
+                startPauseBtn.classList.remove('from-purple-500', 'to-purple-600', 'hover:from-purple-600', 'hover:to-purple-700');
+                startPauseBtn.classList.add('from-red-500', 'to-red-600', 'hover:from-red-600', 'hover:to-red-700');
+                statusMessage.textContent = '실행 중... ▶️';
+
+                // setInterval: 특정 시간마다 반복해서 함수를 실행합니다
+                // 10은 10밀리초마다 실행한다는 뜻입니다
+                intervalId = setInterval(() => {
+                    // 10밀리초마다 경과 시간을 10ms씩 증가시킵니다
+                    elapsedTime += 10;
+                    // 화면을 업데이트합니다
+                    updateDisplay();
+                }, 10);
+            }
+        }
+
+        // 3. 리셋을 처리하는 함수
+        function reset() {
+            // 타이머가 실행 중이면 멈춥니다
+            clearInterval(intervalId);
+
+            // 모든 변수를 초기값으로 되돌립니다
+            elapsedTime = 0;
+            isRunning = false;
+
+            // 버튼을 원래 상태로 되돌립니다
+            startPauseBtn.textContent = '▶️ 시작';
+            startPauseBtn.classList.remove('from-red-500', 'to-red-600', 'hover:from-red-600', 'hover:to-red-700');
+            startPauseBtn.classList.add('from-purple-500', 'to-purple-600', 'hover:from-purple-600', 'hover:to-purple-700');
+
+            // 화면을 업데이트합니다
+            updateDisplay();
+
+            // 상태 메시지를 업데이트합니다
+            statusMessage.textContent = '준비 완료 ✨';
+        }
+
+        // ===== 이벤트 리스너 추가 =====
+
+        // 시작/일시정지 버튼 클릭
+        startPauseBtn.addEventListener('click', toggleStartPause);
+
+        // 리셋 버튼 클릭
+        resetBtn.addEventListener('click', reset);
+
+        // 초기 화면 설정 (00:00:00 표시)
+        updateDisplay();
+    </script>
+</body>
+</html>
