@@ -22,6 +22,8 @@ created: 2026-05-17
 | [[DataSource Namespace]] | Salesforce Connect 커스텀 어댑터 — Provider/Connection/sync/query/search/upsert | #reference |
 | [[ExternalService Namespace]] | OpenAPI 스펙 기반 타입 안전 외부 서비스 호출 — ExternalService.<ServiceName> | #reference |
 | [[Invocable Namespace]] | Apex에서 Flow Action 동적 호출 — createStandardAction, addInvocation, invoke, getDescribe | #reference |
+| [[Process Namespace]] | 레거시 Flow 플러그인 — Process.Plugin 인터페이스 (deprecated, @InvocableMethod 권장) | #reference |
+| [[QuickAction Namespace]] | Quick Action 실행·조회, Case Feed 이메일 기본값 커스터마이징 — performQuickAction, describeAvailableQuickActions | #reference |
 
 ---
 
@@ -34,6 +36,9 @@ created: 2026-05-17
 - 외부 시스템 데이터를 External Object로 연결? → [[DataSource Namespace]]
 - OpenAPI 스펙으로 타입 안전 외부 호출? → [[ExternalService Namespace]]
 - Apex에서 Flow Action / 표준 액션 호출? → [[Invocable Namespace]]
+- Quick Action 프로그래밍적 실행? → [[QuickAction Namespace]]
+- Case Feed 이메일 기본값 커스터마이징? → [[QuickAction Namespace]] → QuickActionDefaultsHandler
+- 레거시 Process.Plugin 마이그레이션? → [[Process Namespace]] (deprecated)
 
 ## 관련 폴더
 

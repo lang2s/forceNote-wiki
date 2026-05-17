@@ -34,6 +34,7 @@ created: 2026-05-17
 - [[Database Namespace 상세]] — SaveResult/UpsertResult/MergeResult/Cursor/PaginationCursor/QueryLocator/DMLOptions/LeadConvert
 - [[Search Namespace]] — Search.find(), Search.suggest(), SearchResult, KnowledgeSuggestionFilter
 - [[FormulaEval Namespace]] — Formula.builder() 동적 수식 평가, getReferencedFields(), 템플릿 모드
+- [[Reports Namespace]] — ReportManager.runReport/runAsyncReport, ReportMetadata 필터 재정의, FactMap 탐색
 
 ## ⚡ 비동기
 
@@ -54,6 +55,8 @@ created: 2026-05-17
 - [[DataSource Namespace]] — Salesforce Connect 커스텀 어댑터, Provider/Connection/sync/query/upsert
 - [[ExternalService Namespace]] — OpenAPI 스펙 기반 타입 안전 외부 서비스 호출
 - [[Invocable Namespace]] — Apex에서 Flow Action 동적 호출, createStandardAction/createCustomAction, invoke
+- [[Process Namespace]] — 레거시 Flow 플러그인 인터페이스 (deprecated, @InvocableMethod 권장)
+- [[QuickAction Namespace]] — performQuickAction, describeAvailableQuickActions, QuickActionDefaultsHandler, Case Feed 이메일 기본값
 
 ## 📦 컬렉션
 
@@ -120,5 +123,7 @@ OpenAPI 타입 호출?     →  [[ExternalService Namespace]]
 동적 수식 평가?        →  [[FormulaEval Namespace]] → Formula.builder()
 Flow Action Apex 호출? →  [[Invocable Namespace]] → createStandardAction
 이벤트 발행 결과 추적? →  [[EventBus Publish Callbacks]] → EventPublishFailureCallback
+Quick Action 실행?      →  [[QuickAction Namespace]] → performQuickAction
+보고서 Apex 실행?       →  [[Reports Namespace]] → ReportManager.runReport
 외부 모킹?             →  [[StubProvider]]
 ```

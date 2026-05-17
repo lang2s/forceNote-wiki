@@ -83,6 +83,7 @@
 |---|---|
 | SOQL, 쿼리 패턴, 벌크 쿼리, 거버너 한도, Database.query, 데이터 조회, SELECT FROM WHERE | `Apex/Data(데이터)/SOQL 패턴.md` |
 | FormulaEval, Formula.builder, 동적 수식 평가, 포뮬러 필드 재계산, DML 없이 수식 계산, getReferencedFields, 수식 평가 Apex, 템플릿 수식, FormulaReturnType, FormulaGlobal | `Apex/Data(데이터)/FormulaEval Namespace.md` |
+| Reports namespace, ReportManager, runReport, runAsyncReport, ReportResults, ReportMetadata, ReportFact, ReportFactWithDetails, SummaryValue, FactMap, 보고서 Apex 실행, 비동기 보고서, 보고서 필터 재정의, getFactMap, ReportFilter, BucketField, ReportInstance | `Apex/Data(데이터)/Reports Namespace.md` |
 | BusinessHours, BusinessHours.diff, 영업시간 계산, SLA 준수 여부, 업무시간 경과, isWithin, nextStartDate, SLA 초과 | `Apex/Data(데이터)/BusinessHours 패턴.md` |
 | Dynamic SOQL, 동적 쿼리, String.escapeSingleQuotes, 바인딩 변수 | `Apex/Data(데이터)/Dynamic SOQL.md` |
 | 페이징, PagedResult, 오프셋, OFFSET LIMIT, 페이지네이션 | `Apex/Data(데이터)/PagedResult 패턴.md` |
@@ -119,6 +120,8 @@
 | DataSource.Connection, DataSource.Provider, Salesforce Connect, External Objects, 커스텀 어댑터, sync, query, search, upsertRows, deleteRows, TableResult, UpsertResult | `Apex/Integration(통합)/DataSource Namespace.md` |
 | ExternalService, OpenAPI Apex, 타입 안전 외부 호출, External Service Registration, 외부 서비스 등록, ExternalService namespace | `Apex/Integration(통합)/ExternalService Namespace.md` |
 | Invocable.Action, createStandardAction, createCustomAction, Apex에서 Flow 액션 호출, 동적 액션 호출, invoke invocable, addInvocation, setInvocationParameter, getDescribe, 액션 메타데이터 | `Apex/Integration(통합)/Invocable Namespace.md` |
+| Process.Plugin, PluginDescribeResult, PluginRequest, PluginResult, 레거시 플로우 플러그인, deprecated 플러그인, Flow 플러그인 Apex | `Apex/Integration(통합)/Process Namespace.md` |
+| QuickAction, performQuickAction, performQuickActions, describeAvailableQuickActions, describeQuickActions, QuickActionRequest, QuickActionResult, QuickActionDefaultsHandler, SendEmailQuickActionDefaults, Case Feed 이메일 기본값, 퀵 액션 실행, 퀵 액션 메타데이터 조회 | `Apex/Integration(통합)/QuickAction Namespace.md` |
 
 ## Apex — 보안 / FLS / DML (Auth 추가)
 
