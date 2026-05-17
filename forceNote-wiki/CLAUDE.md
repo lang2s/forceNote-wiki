@@ -1,13 +1,33 @@
-# Salesforce Wiki — Claude 작업 규칙
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+---
 
 이 디렉토리는 Salesforce 개발 패턴을 정리한 개인 학습 wiki다.
 새 자료 추가·수정 시 아래 규칙을 반드시 따른다.
 
 ---
 
-## 탐색 방법 (질문 받으면 항상 이 순서)
+## 레포 구조 (4층 탐색 아키텍처)
 
-**진입 유형별 경로:**
+```
+Layer 0  00 Home.md              — 전체 진입점
+Layer 1  00 SEARCH_INDEX.md      — 키워드 → 파일 경로 직접 매핑
+         Apex/Apex MOC.md        — Apex 섹션 전체 목차
+         LWC/LWC MOC.md          — LWC 섹션 전체 목차
+         Flow/Flow MOC.md        — Flow 섹션 전체 목차
+         Integration(통합)/통합 MOC.md
+Layer 2  */index.md              — 각 subfolder 로컬 인덱스 (파일 목록 + 빠른 선택)
+Layer 3  개별 패턴 노트 (.md)
+```
+
+섹션: `Apex/`, `LWC/`, `Flow/`, `Integration(통합)/`, `Release/`
+유틸: `_templates/` (노트 템플릿), `_MOC/WIKI_RULES.md` (규칙 상세)
+
+---
+
+## 탐색 방법 (질문 받으면 항상 이 순서)
 
 | 상황 | 읽는 파일 |
 |---|---|
