@@ -4,6 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ---
 
+## 팀 시스템 (멀티에이전트)
+
+이 wiki는 **팀 단위 에이전트 시스템**으로 운영된다. 비자명한 작업은 반드시 팀 파이프라인을 거친다.
+
+- **팀 구성 및 워크플로우:** `TEAM_PROTOCOL.md` 참조
+- **에이전트 정의:** `.claude/agents/` 폴더 (pm, question-clarifier, planner, scout, researcher, classifier, writer, completeness-validator, source-verifier, index-manager, wiki-linter, qa)
+
+### 팀 투입 기준
+
+| 상황 | 처리 방식 |
+|---|---|
+| 요청이 모호함 | `question-clarifier` → `pm` |
+| 새 네임스페이스/섹션 추가 | `pm` → 표준 파이프라인 |
+| 기존 파일 보완 | `pm` → 빠른 파이프라인 |
+| `/lint` 또는 "wiki 점검해줘" | `wiki-linter` → `qa` |
+| 간단한 질문 답변 | 직접 답변 (팀 불필요) |
+
+### 절대 제약 (팀 전체 공통)
+
+- **Metadata 네임스페이스**: 사용자 명시 승인 없이 작업 금지
+- **DevOps 네임스페이스**: 사용자 명시 승인 없이 작업 금지
+
+---
+
 이 디렉토리는 **Salesforce 백과사전**이다. Apex·LWC·Flow에 국한하지 않고 Salesforce 개발자와 어드민이 알아야 할 모든 것 — Admin/Setup, Sales Cloud, Service Cloud, Experience Cloud, Data Cloud, Slack, Agentforce/Einstein, DevOps/CLI, Security, Architecture, Release Updates — 을 다룬다.
 새 자료 추가·수정 시 아래 규칙을 반드시 따른다.
 
