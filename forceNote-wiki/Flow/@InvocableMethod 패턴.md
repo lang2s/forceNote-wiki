@@ -90,6 +90,15 @@ global String fieldName;
 | `required=true` | Flow Builder에서 필수 입력 표시 |
 | `label` | Flow Builder UI 레이블 |
 | `description` | Flow Builder 툴팁 |
+| `defaultValue` | 기본값 지정 *(Summer '24 추가)* |
+| `placeholderText` | 입력 필드 플레이스홀더 텍스트 *(Summer '24 추가)* |
+
+**Summer '24 (v61.0) — `defaultValue` · `placeholderText` 수식자 추가:**
+
+```apex
+@InvocableVariable(label='Account ID' defaultValue='001000000000000' placeholderText='Enter Account ID')
+public String accountId;
+```
 
 ---
 
@@ -218,8 +227,55 @@ static void testFilter() {
 
 ---
 
+## InvocableActionExtension — Flow Builder 커스텀 프로퍼티 에디터 *(Winter '26 추가)*
+
+`InvocableActionExtension` 메타데이터를 사용하면 Flow Builder 내 Apex 액션의 입력 파라미터에 피클리스트 및 커스텀 프로퍼티 에디터를 정의할 수 있다. 별도 LWC 없이 Flow Builder UI에서 동적 선택 옵션을 제공한다.
+
+---
+
+## 파라미터 클래스 no-arg 생성자 필수 *(Summer '26 추가)*
+
+**v67.0+부터 Invocable Action 파라미터 클래스(Request/Response)에 무인자 생성자 선언이 필수.**
+
+| 패키지 유형 | 필요 접근자 |
+|---|---|
+| 비패키지(언매니지드) | `public` |
+| 관리 패키지 | `global` |
+
+```apex
+// ✅ v67.0+ 필수 — no-arg 생성자 명시
+public class FlowRequest {
+    public FlowRequest() {} // no-arg 생성자 필수
+    @InvocableVariable
+    public String accountId;
+}
+
+// ❌ 이전 방식 — v67.0부터 허용 안 됨
+public class FlowRequest {
+    @InvocableVariable
+    public String accountId;
+    // 생성자 없음
+}
+```
+
+---
+
+## Platform Events 발행 접근 레벨 지정 *(Summer '26 추가)*
+
+`EventBus.publishWithAccessLevel()` — Platform Events 발행 시 접근 레벨을 명시적으로 지정하는 신규 메서드.
+
+```apex
+// 구조 예시 — 실제 동작 코드 아님
+EventBus.publishWithAccessLevel(eventList, EventBus.AccessLevel.USER);
+```
+
+---
+
 ## 관련 노트
 
 - [[Flow Screen LWC 패턴]]
 - [[멀티 패키지 구조]]
 - [[Queueable 체이닝]]
+- [[Summer '24]] — @InvocableVariable defaultValue/placeholderText 추가
+- [[Winter '26]] — InvocableActionExtension 메타데이터
+- [[Summer '26]] — no-arg 생성자 필수, EventBus.publishWithAccessLevel

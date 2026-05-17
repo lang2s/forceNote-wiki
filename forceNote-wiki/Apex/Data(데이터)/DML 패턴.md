@@ -25,15 +25,20 @@ aliases: [DML 보안, insert as user]
 
 ## `as user` / `as system` 키워드 (API 57.0+)
 
+> [!important] **Summer '26 (API v67.0) 파괴적 변경**
+> - API v67.0부터 DML 기본 실행 모드가 **USER_MODE**로 변경.
+> - `insert as user`, `update as user` 등 DML 접근 레벨 명시 구문 권장.
+> - `Database.insert()`, `Database.update()` 등 Database 메서드도 기본 USER_MODE 적용.
+
 ```apex
-// ✅ 가장 간결한 FLS/CRUD 적용 — 표준 권장
-insert as user acct;
+// ✅ v67.0+ 권장 — 명시적 user mode DML
+insert as user new Account(Name = 'Test');
 update as user accounts;
-delete as user contacts;
+delete as user [SELECT Id FROM Contact WHERE AccountId = :accId];
 undelete as user contacts;
 upsert as user acct;
 
-// 시스템 모드 (트리거 핸들러 등)
+// 시스템 모드 (트리거 핸들러, 플랫폼 자동화 등 명시적 필요 시)
 insert as system acct;
 update as system accounts;
 ```
@@ -57,6 +62,10 @@ for (Database.SaveResult sr : results) {
 Database.upsert(acct, false, AccessLevel.USER_MODE);
 Database.update(accts, AccessLevel.USER_MODE);
 Database.delete(accts, AccessLevel.USER_MODE);
+
+// ✅ v67.0+ — SYSTEM_MODE 명시도 가능 (의도 명확화)
+Database.insert(new Account(Name = 'Test'), AccessLevel.USER_MODE);
+Database.insert(new Account(Name = 'Test'), AccessLevel.SYSTEM_MODE);
 ```
 
 ---
@@ -104,4 +113,6 @@ update as user decision.getRecords();
 - [[Safely]]
 - [[StripInaccessible]]
 - [[CanTheUser]]
+- [[WITH USER_MODE]] — AccessLevel 열거형 상세
 - [[Batch Apex]] — Database.SaveResult 처리
+- [[Summer '26]] — API v67.0 DML 기본 모드 USER_MODE 변경

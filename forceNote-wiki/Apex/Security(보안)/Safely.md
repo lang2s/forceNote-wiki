@@ -11,6 +11,38 @@ aliases: [Safely.cls, Fluent DML, 안전 DML]
 
 ---
 
+> [!important] Summer '26 (API v67.0) 파괴적 변경 — sharing 기본값 변경
+> v67.0부터 `sharing` 키워드를 선언하지 않은 Apex 클래스는 **`with sharing`으로 기본 동작**한다.
+> 의도적으로 sharing을 제거하려면 반드시 `without sharing`을 **명시적으로** 선언해야 한다.
+> 암묵적인 sharing 없음 동작에 의존한 기존 코드는 동작이 바뀔 수 있으므로 즉시 점검 필요.
+
+---
+
+## v67.0 이후 sharing 선언 원칙
+
+```apex
+// ✅ v67.0 이후 권장 — sharing 의도를 항상 명시
+public with sharing class AccountService {
+    // 공유 규칙 적용 — 일반적인 서비스 레이어
+}
+
+public without sharing class InternalBatchJob {
+    // ❗ 의도적으로 without sharing — 명시 필수
+    // v67.0 이전: 선언 없으면 without sharing이었음
+    // v67.0 이후: 선언 없으면 with sharing으로 동작
+}
+
+public inherited sharing class UtilityClass {
+    // 호출자의 sharing 컨텍스트 상속 (권장 패턴)
+}
+```
+
+> [!warning] 기존 sharing 미선언 클래스 점검
+> v67.0 마이그레이션 시 `sharing` 키워드가 없는 클래스를 검색해 의도를 확인한다.
+> 시스템 모드로 동작해야 한다면 `without sharing`을 즉시 추가.
+
+---
+
 ## 기본 구조
 
 ```apex
@@ -104,4 +136,4 @@ public with sharing class AccountServiceLayer {
 - [[StripInaccessible]]
 - [[CanTheUser]]
 - [[DML 패턴]]
-
+- [[Summer '26]]

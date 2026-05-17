@@ -167,7 +167,63 @@ Flow 요소 설명 예시:
 
 ---
 
-## 9. 테스트 — 실행 사용자로 디버그
+## 9. 외부 API 호출 — HTTP Callout in Flow *(Winter '24 GA)*
+
+External Services + Flow 조합으로 Apex 없이 외부 REST API를 호출할 수 있다. **Apex 없이 통합 가능한 경우 Flow 우선 고려.**
+
+```
+[Get Records: Account]
+  → [External Services Action: POST /orders]  ← Apex 불필요
+      Input: {!Account.Id}, {!Account.Name}
+  → [Decision: IsSuccess]
+      응답 상태 코드 기반 분기
+```
+
+> [!tip] External Services 사용 조건
+> Named Credential 설정 + OpenAPI 3.0 스펙 등록 필요. 복잡한 인증 흐름이나 동적 엔드포인트는 여전히 Apex Invocable 사용.
+
+---
+
+## 10. Winter '26 신기능 — 인라인 Transform · 중첩 루프 · LWC 로컬 액션
+
+### 인라인 Transform 처리 *(Winter '26 추가)*
+
+별도 Transform 요소 없이 액션 설정 안에서 데이터 변환이 가능하다. Flow 캔버스가 단순해지고 중간 변수를 줄일 수 있다.
+
+```
+[이전] [Action] → [Transform 요소] → [다음 Action]
+[이후] [Action (변환 인라인 설정)] → [다음 Action]
+```
+
+### 중첩 루프 Beta *(Winter '26 추가)*
+
+여러 수준의 관련 레코드를 처리할 때 Loop 안에 Loop를 중첩할 수 있다 (Beta).
+
+```
+[LOOP_Accounts]
+  → [LOOP_Contacts (중첩)]     ← Winter '26 Beta
+      → [Assignment: ADD_Contacts]
+```
+
+> [!warning] 중첩 루프 Beta 주의
+> DML을 중첩 루프 안에서 실행하면 거버너 한도 초과 위험. 내부 루프에서는 Collection에 추가하고 외부 루프 이후 한번에 DML.
+
+### LWC 로컬 액션 *(Winter '26 추가)*
+
+LWC로 Screen Flow 내 로컬 액션을 제작할 수 있다. JavaScript로 클라이언트 사이드 처리(파일 다운로드, 클립보드 복사 등)를 Flow에서 직접 실행 가능.
+
+```
+Screen Flow:
+  [Screen] → [LWC Local Action: c/copyToClipboard] → [다음 화면]
+```
+
+### Flow 트랜잭션 자동 결정 *(Winter '26 추가)*
+
+Flow가 실행 컨텍스트를 동적으로 판단하여 트랜잭션 필요 여부를 스스로 결정한다.
+
+---
+
+## 11. 테스트 — 실행 사용자로 디버그
 
 Flow는 배포에 테스트 커버리지가 필요 없지만, 반드시 **실행 사용자 권한으로 테스트**해야 한다.
 

@@ -110,8 +110,36 @@ public class CaseStatusComparator implements Comparator<Case> {
 
 ---
 
+## Collator 클래스 — 로케일 인식 문자열 정렬 *(Winter '24 추가)*
+
+`Collator`는 로케일에 따라 문자열을 정렬한다. 한국어·일본어 등 다국어 데이터를 올바르게 정렬할 때 사용.
+
+```apex
+// 현재 사용자 로케일 기준 정렬
+Collator col = Collator.getInstance();
+
+List<String> names = new List<String>{ '나', '가', '다' };
+names.sort(col);
+// 로케일에 따라 올바른 가나다 순으로 정렬
+
+// 대소문자 무시 비교
+col.setStrength(Collator.SECONDARY);
+Integer result = col.compare('apple', 'APPLE'); // 0 (같음)
+```
+
+`Collator.Strength` 상수:
+| 상수 | 의미 |
+|---|---|
+| `PRIMARY` | 기본 글자 차이만 구분 (a ≠ b, a = á) |
+| `SECONDARY` | 악센트 차이 구분 (a = A, a ≠ á) |
+| `TERTIARY` | 대소문자 구분 (기본값, a ≠ A) |
+| `IDENTICAL` | 완전 일치만 같음으로 처리 |
+
+---
+
 ## 관련 노트
 
 - [[Iterable Iterator]]
 - [[CollectionUtils]]
+- [[Winter '24]] — Comparator·Collator 신규 추가 릴리즈
 

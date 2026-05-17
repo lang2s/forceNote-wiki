@@ -11,6 +11,79 @@ aliases: [Security.stripInaccessible, FLS 필드 제거]
 
 ---
 
+> [!important] Summer '26 (API v67.0) 파괴적 변경 — USER_MODE 기본값
+> v67.0부터 DATABASE 오퍼레이션(SOQL, DML, Database 메서드)의 기본 실행 모드가 **USER_MODE**로 변경됨.
+> `with sharing` 클래스에서 단순 SOQL/DML을 쓰는 경우 FLS 검사가 자동 적용되어 `stripInaccessible` 수동 호출이 불필요해진 상황이 많다.
+> 단, 아래 "여전히 필요한 경우"를 확인해 누락하지 않도록 주의.
+
+---
+
+## v67.0 이후: USER_MODE vs StripInaccessible 비교
+
+| 항목 | `WITH USER_MODE` / `insert as user` | `Security.stripInaccessible` |
+|---|---|---|
+| FLS 위반 처리 | 예외 throw (DmlException) | 필드 **제거** 후 계속 진행 |
+| 제거된 필드 목록 조회 | ❌ 불가 | ✅ `getRemovedFields()` |
+| 서브쿼리 필드 필터링 | ✅ 지원 | ✅ 지원 |
+| `System.runAs()` 내부 적용 | 컨텍스트에 따라 다름 | ✅ 항상 명시적 적용 |
+| JSON 역직렬화 후 처리 | ❌ 불가 | ✅ 필수 |
+| v67.0 기본 동작 | 기본값으로 자동 적용 | 수동 호출 필요 |
+
+---
+
+## 언제 StripInaccessible이 여전히 필요한가?
+
+v67.0에서 USER_MODE가 기본값이 되어도 다음 상황에서는 `stripInaccessible`을 직접 호출해야 한다.
+
+**1. System.runAs() 블록 내부**
+```apex
+// runAs 블록은 USER_MODE 기본값 적용과 무관하게 명시 필요
+System.runAs(testUser) {
+    SObjectAccessDecision decision =
+        Security.stripInaccessible(AccessType.READABLE, records);
+    // decision.getRecords() 사용
+}
+```
+
+**2. without sharing 클래스에서 의도적으로 FLS 검사할 때**
+```apex
+// without sharing이지만 특정 메서드에서만 FLS 적용
+public without sharing class InternalProcessor {
+    public List<Account> getFilteredAccounts() {
+        List<Account> raw = [SELECT Id, Name, AnnualRevenue FROM Account];
+        // USER_MODE 기본값이 without sharing 클래스에선 적용 안 됨
+        return (List<Account>) Security.stripInaccessible(
+            AccessType.READABLE, raw
+        ).getRecords();
+    }
+}
+```
+
+**3. JSON 역직렬화(Dynamic DML) 결과 처리 시**
+```apex
+// JSON.deserialize 결과는 USER_MODE 기본값과 무관
+List<Account> accounts =
+    (List<Account>) JSON.deserialize(jsonText, List<Account>.class);
+
+// stripInaccessible 필수 — 사용자가 권한 없는 필드를 JSON에 포함시킬 수 있음
+SObjectAccessDecision decision =
+    Security.stripInaccessible(AccessType.UPDATABLE, accounts);
+update as user decision.getRecords();
+```
+
+**4. 제거된 필드 목록이 비즈니스 로직에 필요할 때**
+```apex
+SObjectAccessDecision decision =
+    Security.stripInaccessible(AccessType.UPDATABLE, accounts);
+Map<String, Set<String>> removed = decision.getRemovedFields();
+if (!removed.isEmpty()) {
+    // 감사 로그, 사용자 알림 등
+    AuditLogger.log('FLS 필드 제거됨: ' + removed);
+}
+```
+
+---
+
 ## AccessType 종류와 선택 기준
 
 | AccessType | 사용 시점 | 설명 |
@@ -110,10 +183,11 @@ Security.stripInaccessible(AccessType.READABLE, records, true);
 
 | 상황 | 권장 |
 |---|---|
-| 단순 DML 보안 | `insert as user` 키워드 |
+| 단순 DML 보안 (v67.0+) | `insert as user` 또는 USER_MODE 기본값 활용 |
 | 제거 필드 감지 필요 | `Safely().throwIfRemovedFields().doInsert()` |
 | 쿼리 결과 FLS 필터링 | `stripInaccessible(READABLE, ...)` |
 | 사용자 입력 JSON 처리 | `stripInaccessible(UPDATABLE, ...)` → DML |
+| without sharing 내 FLS 검사 | `stripInaccessible(...)` 명시적 호출 |
 
 ---
 
@@ -123,3 +197,4 @@ Security.stripInaccessible(AccessType.READABLE, records, true);
 - [[CanTheUser]]
 - [[DML 패턴]]
 - [[Custom REST Endpoint]] — POST 바디 처리
+- [[Summer '26]]

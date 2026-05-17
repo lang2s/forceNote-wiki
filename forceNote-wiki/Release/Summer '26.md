@@ -226,7 +226,7 @@ public without sharing class MySystemClass {
 
 > 이 릴리즈로 인해 수정이 필요한 기존 노트
 
-- [ ] [[WITH USER_MODE]] — `WITH SECURITY_ENFORCED` 폐기, v67.0 기본 USER_MODE 변경 내용 추가
+- [x] [[WITH USER_MODE]] — `WITH SECURITY_ENFORCED` 폐기, v67.0 기본 USER_MODE 변경 내용 추가
 - [ ] [[SOQL 패턴]] — 기본 모드 변경(USER_MODE) 및 `WITH SECURITY_ENFORCED` 제거 내용 반영
 - [ ] [[DML 패턴]] — `insert as user`, `AccessLevel.USER_MODE` 기본 적용 설명 추가
 - [ ] [[Safely]] — 공유 선언 기본값 변경(v67.0 with sharing) 업데이트

@@ -129,6 +129,37 @@ Flow: Contact-AI-Set Default Fields
 
 ---
 
+## Record-Triggered Flow — 커스텀 에러 메시지 *(Winter '24 추가)*
+
+레코드 저장 실패 시 사용자에게 Salesforce 기본 메시지 대신 커스텀 오류 메시지를 표시할 수 있다. Fault 경로가 아닌 **Custom Error 요소**를 사용한다.
+
+```
+[Decision: 유효성 검사 실패?]
+    └── (Yes) ──→ [Custom Error 요소]
+                    Field: Status__c
+                    Message: "이 상태로는 저장할 수 없습니다."
+```
+
+- 레코드 페이지에서 인라인 오류로 표시됨 (Fault와 별개)
+- 필드 수준 또는 페이지 수준 오류 지정 가능
+- Before-Save Record-Triggered Flow에서 사용 권장 (저장 전 차단)
+
+---
+
+## Persistent Logging / 디버거 개선 *(Winter '26 추가)*
+
+**Persistent Logging** — 더 많은 Flow 유형에서 Flow 실행 데이터를 영속 로그로 저장할 수 있다. Debug 로그 만료 전 문제를 재현하기 어려운 백그라운드 Flow 디버깅에 유용.
+
+**Screen Flow 업데이트 디버거** — Flow Builder에서 화면 Flow 테스트 및 문제 해결 UI 개선. 이전 화면으로 돌아가 값을 수정하면서 디버깅 가능.
+
+```
+Flow Builder → Debug → "Run as Another User" 또는 최신 버전으로 재실행
+→ 각 요소에서 입력/출력값 확인 가능
+→ Persistent Log에서 이전 실행 이력 조회 가능
+```
+
+---
+
 ## 주의 사항
 
 > [!warning] DML·Action 요소마다 Fault 연결
@@ -145,3 +176,5 @@ Flow: Contact-AI-Set Default Fields
 - [[Flow 종류와 변수]] — `$Flow.FaultMessage` 전역 변수
 - [[Flow 설계 베스트 프랙티스]] — 에러 처리 외 설계 원칙
 - [[ConnectApi Chatter 패턴]] — Apex에서 Chatter 게시
+- [[Winter '24]] — Record-Triggered Flow 커스텀 에러 메시지
+- [[Winter '26]] — Persistent Logging, 디버거 개선

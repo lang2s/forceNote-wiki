@@ -349,7 +349,7 @@ export default class ScreenFlowLocalAction extends LightningElement {
 
 ## 연관 패턴 노트 업데이트 필요
 
-- [ ] [[@InvocableMethod 패턴]] — `InvocableActionExtension` 메타데이터로 액션 설정 강화 내용 추가
+- [x] [[@InvocableMethod 패턴]] — `InvocableActionExtension` 메타데이터로 액션 설정 강화 내용 추가
 - [ ] [[Flow 설계 베스트 프랙티스]] — 인라인 Transform 처리, 중첩 루프, LWC Local Action 패턴 추가
 - [ ] [[Flow 에러 처리]] — Persistent Logging 및 디버거 개선 내용 반영
 - [ ] [[Batch Apex]] — Test Discovery/Runner API를 이용한 CI 자동화 패턴 참조 추가
