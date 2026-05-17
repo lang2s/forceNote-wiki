@@ -12,6 +12,8 @@ aliases: [Lightning Base Components, 베이스 컴포넌트, lightning-input, li
 > [!warning] 코드 예시는 로컬 `lwc-recipes-main` (Tier 1) 및 공식 Docs (Tier 2) 기반. 컴포넌트 **목록 전체**는 외부 지식 기반(Tier 3)으로 공식 소스와 전수 대조되지 않았습니다.  
 > 최신 전체 목록: [Salesforce Component Library](https://developer.salesforce.com/docs/component-library/overview/components)
 
+> **각 컴포넌트 상세 레퍼런스** (속성·이벤트·코드 예시·접근성 포함) → `LWC/BaseComponents(베이스컴포넌트)/` 폴더 — [[lightning-accordion]], [[lightning-input]], [[lightning-combobox]], [[lightning-datatable]], [[lightning-modal]], [[lightning-record-form]], [[lightning-record-picker]], [[lightning-button]], [[lightning-card]], [[lightning-spinner]]
+
 ---
 
 ## 1. 입력 (Input)

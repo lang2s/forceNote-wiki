@@ -34,6 +34,21 @@ created: 2026-05-17
 - [[ldsUtils reduceErrors]] — 에러 정규화 유틸리티
 - [[getPicklistValues 패턴]] — Record Type별 Picklist 옵션 로드, 종속 Picklist validFor 필터링
 
+## 📚 Base Components 상세 레퍼런스
+
+> 각 컴포넌트의 속성·이벤트·코드 예시·접근성·사용 고려사항이 담긴 상세 페이지.
+
+- [[lightning-accordion]] — 접고 펼치는 아코디언, sectiontoggle 이벤트, 다중 열기
+- [[lightning-input]] — 14가지 type 변형, 유효성 검사, change·commit 이벤트
+- [[lightning-combobox]] — 단일 선택 드롭다운, options 배열, Picklist 연동
+- [[lightning-datatable]] — 정렬·인라인 편집·행 액션·커스텀 타입, columns 전체 type 목록
+- [[lightning-modal]] — LightningModal 상속, open/close, LightningAlert·Confirm·Prompt
+- [[lightning-record-form]] — record-form·record-edit-form·record-view-form 3종
+- [[lightning-record-picker]] — 레코드 검색 선택, filter, 다중 선택 패턴, dynamic target
+- [[lightning-button]] — button·button-icon·button-menu·button-group·stateful 패밀리
+- [[lightning-card]] — 카드 컨테이너, actions·footer 슬롯
+- [[lightning-spinner]] — isLoading 패턴, try/finally, 인라인·오버레이
+
 ## 🧭 네비게이션 & UI
 
 - [[Lightning Base Components 레퍼런스]] — lightning-* 전체 컴포넌트 목록 및 속성 빠른 참조
