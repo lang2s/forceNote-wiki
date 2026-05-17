@@ -9,16 +9,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 이 wiki는 **팀 단위 에이전트 시스템**으로 운영된다. 비자명한 작업은 반드시 팀 파이프라인을 거친다.
 
 - **팀 구성 및 워크플로우:** `TEAM_PROTOCOL.md` 참조
-- **에이전트 정의:** `.claude/agents/` 폴더 (pm, question-clarifier, planner, scout, researcher, classifier, writer, completeness-validator, source-verifier, index-manager, wiki-linter, qa)
+- **에이전트 정의:** `.claude/agents/` 폴더 (pm, question-clarifier, planner, scout, source-coverage-checker, researcher, classifier, writer, completeness-validator, source-verifier, index-manager, cross-linker, wiki-linter, qa, retrospective-analyst, coverage-analyst)
 
 ### 팀 투입 기준
 
 | 상황 | 처리 방식 |
 |---|---|
 | 요청이 모호함 | `question-clarifier` → `pm` |
-| 새 네임스페이스/섹션 추가 | `pm` → 표준 파이프라인 |
+| 새 네임스페이스/섹션 추가 | `pm` → 표준 파이프라인 (writer + source-coverage-checker 병렬) |
 | 기존 파일 보완 | `pm` → 빠른 파이프라인 |
 | `/lint` 또는 "wiki 점검해줘" | `wiki-linter` → `qa` |
+| "뭐가 없어?" / 큰 그림 공백 파악 | `coverage-analyst` → `pm` |
 | 간단한 질문 답변 | 직접 답변 (팀 불필요) |
 
 ### 절대 제약 (팀 전체 공통)
