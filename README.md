@@ -16,22 +16,22 @@ Salesforce 공식 오픈소스 프로젝트를 직접 분석해 추출한 검증
 | [apex-recipes](https://github.com/trailheadapps/apex-recipes) | Apex 클래스 74개 | `Apex/` 31개 노트 | `apex-write` |
 | [lwc-recipes](https://github.com/trailheadapps/lwc-recipes) | LWC 컴포넌트 133개 | `LWC/` 18개 노트 | `lwc-write`, `role-code-reviewer`, `role-security` |
 | [automation-components](https://github.com/trailheadapps/automation-components) | Flow Action Apex 30개 + Flow Screen LWC 5개 | `Flow/` 8개 노트 | `apex-write`, `lwc-write` |
+| [dreamhouse-lwc](https://github.com/trailheadapps/dreamhouse-lwc) | LWC 실제 앱, Permission Set, CSP/RemoteSite, 모바일, Static Resource, 파일 업로드, PagedResult | `LWC/모바일/`, `LWC/UI패턴/` 3개, `Apex/데이터/`, `Apex/아키텍처/`, `통합/` 신규 노트 | `package-config`, `ci-workflow` |
 
 ### 🔲 미완료 — 공식 프로젝트 분석
 
 | 프로젝트 | 핵심 패턴 | wiki 대상 | 스킬 반영 예상 |
 |---|---|---|---|
-| [dreamhouse-lwc](https://github.com/trailheadapps/dreamhouse-lwc) | LWC + Custom Object + Permission Set + Named Credential 실제 앱 조합 | `LWC/`, `Flow/` 보강 | `role-architect`, `role-security` |
 | [agent-script-recipes](https://github.com/trailheadapps/agent-script-recipes) | Agentforce Agent Action, Prompt Template, Einstein AI | `Agentforce/` 섹션 신설 | 신규 스킬 후보 |
 | [visualforce-to-lwc](https://github.com/trailheadapps/visualforce-to-lwc) | VF → LWC 마이그레이션 패턴 | `LWC/` 마이그레이션 섹션 | `lwc-write` |
 | [ebikes-lwc](https://github.com/trailheadapps/ebikes-lwc) | 대규모 앱 구조, Experience Cloud LWR | `LWC/`, `아키텍처/` | `role-architect` |
 
-### 🔲 미완료 — sf-team-framework 스킬
+### ✅ 완료 — sf-team-framework 스킬
 
-| 파일 | 작업 내용 |
+| 파일 | 완료 내용 |
 |---|---|
-| `package-config/SKILL.md` | `.prettierrc` 공식 표준(trailingComma/singleQuote/tabWidth), Husky + lint-staged 설정 |
-| `ci-workflow/SKILL.md` | GitHub Actions 체인(auto-assign/ci-pr/codetour-watch), Salesforce Code Analyzer 단계 추가 |
+| `package-config/SKILL.md` | `.prettierrc` 공식 표준, Husky + lint-staged (Jest 자동 실행 포함), eslint flat config |
+| `ci-workflow/SKILL.md` | dreamhouse 실전 패턴 10개 추가 (HUSKY=0, Volta CI, Codecov, permset 자동 할당, 패키징 트리거 등) |
 
 ### 🔲 미완료 — sf-team-framework 문서
 

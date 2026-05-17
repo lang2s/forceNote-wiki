@@ -78,8 +78,11 @@ export default class LmsSubscriber extends LightningElement {
             RECORD_SELECTED_CHANNEL,
             (message) => this.handleMessage(message)
         );
-        // MessageContext @wire → 컴포넌트 제거 시 자동 해제
-        // unsubscribe 수동 호출 불필요
+    }
+
+    disconnectedCallback() {
+        unsubscribe(this.subscription); // 방어적 명시 해제 (dreamhouse 공식 패턴)
+        this.subscription = null;
     }
 
     handleMessage(message) {
@@ -88,9 +91,8 @@ export default class LmsSubscriber extends LightningElement {
 }
 ```
 
-> [!note] 자동 구독 해제
-> `MessageContext` @wire 어댑터가 컴포넌트 생명주기를 관리. `disconnectedCallback`에서 `unsubscribe` 수동 호출 불필요.
-> 단, `APPLICATION_SCOPE` 사용 시에는 수동 해제 필요.
+> [!note] 구독 해제
+> `MessageContext` @wire가 컴포넌트 제거 시 자동 해제하지만, 공식 프로젝트(dreamhouse-lwc)는 `disconnectedCallback`에서 명시적 `unsubscribe`를 사용. 방어적 패턴으로 권장.
 
 ---
 
@@ -115,6 +117,65 @@ disconnectedCallback() {
     unsubscribe(this.subscription);
 }
 ```
+
+---
+
+## 듀얼 입력 패턴 (@api recordId + LMS)
+
+레코드 페이지에서는 `@api recordId`로 받고, 목록 페이지의 타일 클릭은 LMS로 받는 컴포넌트:
+
+```javascript
+export default class PropertyMap extends LightningElement {
+    propertyId;
+    subscription = null;
+
+    @wire(MessageContext)
+    messageContext;
+
+    // 레코드 페이지 진입 — @api recordId
+    @api
+    get recordId() { return this.propertyId; }
+    set recordId(propertyId) { this.propertyId = propertyId; }
+
+    // 목록 페이지 — LMS 구독
+    connectedCallback() {
+        this.subscription = subscribe(
+            this.messageContext,
+            PROPERTYSELECTEDMC,
+            (message) => { this.propertyId = message.propertyId; }
+        );
+    }
+
+    disconnectedCallback() {
+        unsubscribe(this.subscription);
+        this.subscription = null;
+    }
+}
+```
+
+---
+
+## Debounce + LMS (입력 최적화)
+
+```javascript
+const DELAY = 350;
+
+handleSearchKeyChange(event) {
+    this.searchKey = event.detail.value;
+    this.fireChangeEvent();
+}
+
+fireChangeEvent() {
+    window.clearTimeout(this.delayTimeout);
+    // eslint-disable-next-line @lwc/lwc/no-async-operation
+    this.delayTimeout = setTimeout(() => {
+        const filters = { searchKey: this.searchKey, maxPrice: this.maxPrice };
+        publish(this.messageContext, FILTERSCHANGEMC, filters);
+    }, DELAY);
+}
+```
+
+> 검색/필터 UI에서 사용자 입력 완료 350ms 후에만 publish — Apex 호출 횟수 대폭 감소.
 
 ---
 

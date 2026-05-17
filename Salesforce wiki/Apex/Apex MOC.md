@@ -14,6 +14,7 @@ created: 2026-05-17
 - [[서비스 레이어 패턴]] — TriggerHandler → ServiceLayer 브로커 분리
 - [[TriggerHandler 패턴]] — abstract class, bypass, 루프 방지
 - [[CMDT 메타데이터 트리거]] — 배포 없이 핸들러 등록/비활성화
+- [[Permission Set 설계]] — objectPermissions, fieldPermissions, classAccesses 구성 표준
 
 ## 🔒 보안
 
@@ -27,6 +28,7 @@ created: 2026-05-17
 - [[SOQL 패턴]] — WITH USER_MODE, SOQL for loop, 청크 반복
 - [[DML 패턴]] — insert as user/system, Database.*(accessLevel)
 - [[Dynamic SOQL]] — queryWithBinds, SOQL 인젝션 방어
+- [[PagedResult 패턴]] — 페이지네이션 DTO, scope='global', ?? null coalescing, LIMIT+OFFSET
 
 ## ⚡ 비동기
 

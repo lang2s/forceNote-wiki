@@ -44,15 +44,27 @@ created: 2026-05-17
 
 - [[LWC 보안 패턴]] — 권한 기반 UI, @api 노출 범위, userId, CSP
 
+## 📱 모바일
+
+- [[모바일 기능 패턴]] — getBarcodeScanner, getLocationService, isAvailable() 가드, mobile/browser fallback
+
+## 📦 Static Resource & 파일
+
+- [[Static Resource 로딩]] — loadScript/loadStyle, renderedCallback 3-state (NOT_LOADED/LOADING/READY)
+- [[파일 업로드와 이미지 처리]] — processImage, FileReader→base64, refreshApex, ContentVersion URL
+
 ---
 
 ## 빠른 의사결정
 
 ```
-Apex 호출?       → [[Wire vs Imperative 선택]]
-@wire 에러?      → [[Wire 패턴]] → function 바인딩
-컴포넌트 통신?   → 부모↔자식: [[CustomEvent 패턴]] | 크로스 컴포넌트: [[Lightning Message Service]]
-레코드 표시?     → [[Record Form 선택]] → lightning-record-form
-레코드 수정?     → [[uiRecordApi]] → updateRecord 또는 [[Record Form 선택]]
-상태 공유?       → [[상태 관리]] → @lwc/state
+Apex 호출?             → [[Wire vs Imperative 선택]]
+@wire 에러?            → [[Wire 패턴]] → function 바인딩
+컴포넌트 통신?         → 부모↔자식: [[CustomEvent 패턴]] | 크로스 컴포넌트: [[Lightning Message Service]]
+레코드 표시?           → [[Record Form 선택]] → lightning-record-form
+레코드 수정?           → [[uiRecordApi]] → updateRecord 또는 [[Record Form 선택]]
+상태 공유?             → [[상태 관리]] → @lwc/state
+서드파티 라이브러리?   → [[Static Resource 로딩]] → loadScript/loadStyle
+파일 업로드?           → [[파일 업로드와 이미지 처리]] → processImage
+모바일 기기?           → [[모바일 기능 패턴]] → isAvailable() 먼저
 ```

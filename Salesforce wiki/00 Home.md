@@ -49,6 +49,9 @@ Lightning Web Component — Wire 어댑터, LDS, 컴포넌트 통신, Flow Scree
 | [[ldsUtils reduceErrors]] | 8가지 에러 타입 정규화 |
 | [[LWC 보안 패턴]] | customPermission, CSP, DOM XSS |
 | [[Flow Screen LWC 패턴]] | FlowAttributeChangeEvent, validate() |
+| [[모바일 기능 패턴]] | getBarcodeScanner, getLocationService, isAvailable() |
+| [[Static Resource 로딩]] | loadScript/loadStyle, renderedCallback 3-state |
+| [[파일 업로드와 이미지 처리]] | processImage, refreshApex, ContentVersion |
 
 ### [[Flow MOC|Flow]]
 Salesforce Flow — 자동화, Screen Flow, Autolaunched Flow, Apex 액션
@@ -68,6 +71,7 @@ Salesforce Flow — 자동화, Screen Flow, Autolaunched Flow, Apex 액션
 |---|---|
 | [[Named Credential]] | External Credential, callout: 접두어 |
 | [[RestClient 패턴]] | virtual class, PATCH 우회 |
+| [[CSP와 RemoteSite]] | CspTrustedSite, RemoteSiteSetting, LWC vs Apex 외부 연동 |
 | [[Custom REST Endpoint]] | @RestResource, RestContext |
 
 ### [[Release MOC|Release Notes]]
