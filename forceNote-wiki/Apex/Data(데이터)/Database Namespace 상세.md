@@ -314,6 +314,191 @@ List<Database.LeadConvertResult> results =
 
 ---
 
+## Database.Batchable / BatchableContext 인터페이스
+
+```apex
+// Database.Batchable<T> 인터페이스 3개 메서드
+public class MyBatch implements Database.Batchable<SObject>, Database.Stateful {
+
+    // start: 처리할 레코드 범위 반환 (QueryLocator 또는 Iterable)
+    public Database.QueryLocator start(Database.BatchableContext bc) {
+        return Database.getQueryLocator('SELECT Id FROM Account');
+    }
+
+    // execute: 각 청크마다 호출
+    public void execute(Database.BatchableContext bc, List<Account> scope) {
+        Id jobId      = bc.getJobId();        // AsyncApexJob ID
+        Id chunkJobId = bc.getChildJobId();   // 현재 청크 ID
+        // scope 처리...
+    }
+
+    // finish: 전체 배치 완료 후 1회 호출
+    public void finish(Database.BatchableContext bc) {
+        Id jobId = bc.getJobId();
+        // 완료 후 이메일 발송 등
+    }
+}
+
+// 실행
+Id jobId = Database.executeBatch(new MyBatch(), 200);
+```
+
+### Database.BatchableContext 인터페이스
+
+| 메서드 | 반환 타입 | 설명 |
+|---|---|---|
+| `getJobId()` | `Id` | AsyncApexJob 레코드 ID |
+| `getChildJobId()` | `Id` | 현재 배치 청크 ID |
+
+---
+
+## Database.DeletedRecord — 삭제된 레코드 정보
+
+`Database.getDeleted(sObjectType, startDate, endDate)`가 반환하는 `GetDeletedResult` 내부에서 사용.
+
+```apex
+Database.GetDeletedResult gdr = Database.getDeleted(
+    Account.sObjectType,
+    Datetime.now().addDays(-7),
+    Datetime.now()
+);
+for (Database.DeletedRecord dr : gdr.getDeletedRecords()) {
+    Id recordId         = dr.getId();
+    Date deletedDate    = dr.getDeletedDate();
+}
+```
+
+| 메서드 | 반환 타입 | 설명 |
+|---|---|---|
+| `getId()` | `Id` | 삭제된 레코드 ID |
+| `getDeletedDate()` | `Date` | 삭제 날짜 |
+
+---
+
+## Database.GetDeletedResult — 삭제 이력 조회
+
+```apex
+Database.GetDeletedResult result = Database.getDeleted(
+    Account.sObjectType,
+    Datetime.now().addDays(-30),
+    Datetime.now()
+);
+
+List<Database.DeletedRecord> deleted = result.getDeletedRecords();
+Date earliest = result.getEarliestDateAvailable();  // 조회 가능한 가장 오래된 날짜
+Date latest   = result.getLatestDateCovered();       // 조회 범위 끝 날짜
+```
+
+| 메서드 | 반환 타입 | 설명 |
+|---|---|---|
+| `getDeletedRecords()` | `List<Database.DeletedRecord>` | 삭제된 레코드 목록 |
+| `getEarliestDateAvailable()` | `Date` | 조회 가능한 가장 오래된 날짜 |
+| `getLatestDateCovered()` | `Date` | 조회 범위 끝 날짜 |
+
+---
+
+## Database.GetUpdatedResult — 수정 이력 조회
+
+```apex
+Database.GetUpdatedResult result = Database.getUpdated(
+    Account.sObjectType,
+    Datetime.now().addDays(-7),
+    Datetime.now()
+);
+
+List<Id> updatedIds  = result.getIds();
+Date latestCovered   = result.getLatestDateCovered();
+```
+
+| 메서드 | 반환 타입 | 설명 |
+|---|---|---|
+| `getIds()` | `List<Id>` | 수정된 레코드 ID 목록 |
+| `getLatestDateCovered()` | `Date` | 조회 범위 끝 날짜 |
+
+---
+
+## Database.DuplicateError — 중복 레코드 오류
+
+중복 감지 규칙 위반 시 `Database.Error` 대신 반환되는 하위 클래스.
+
+```apex
+Database.SaveResult[] results = Database.insert(records, false);
+for (Database.SaveResult sr : results) {
+    if (!sr.isSuccess()) {
+        for (Database.Error err : sr.getErrors()) {
+            if (err instanceof Database.DuplicateError) {
+                Database.DuplicateError dupErr = (Database.DuplicateError) err;
+                Datacloud.DuplicateResult dupResult = dupErr.getDuplicateResult();
+                // 중복 매치 레코드 조회
+                for (Datacloud.MatchResult mr : dupResult.getMatchResults()) {
+                    System.debug('중복 오브젝트: ' + mr.getEntityType());
+                }
+            }
+        }
+    }
+}
+```
+
+| 메서드 | 반환 타입 | 설명 |
+|---|---|---|
+| `getDuplicateResult()` | `Datacloud.DuplicateResult` | 중복 결과 세부 정보 |
+| `getFields()` (상속) | `List<String>` | 오류 관련 필드 목록 |
+| `getMessage()` (상속) | `String` | 오류 메시지 |
+| `getStatusCode()` (상속) | `StatusCode` | 상태 코드 |
+
+---
+
+## LeadConvert 전체 메서드 보완
+
+```apex
+Database.LeadConvert lc = new Database.LeadConvert();
+lc.setLeadId(myLead.Id);
+lc.setConvertedStatus(status);
+
+// 추가 옵션
+lc.setAccountId(existingAccountId);
+lc.setContactId(existingContactId);
+lc.setOpportunityId(existingOppId);       // 기존 기회에 병합
+lc.setOpportunityName('New Deal');         // 신규 기회 이름
+lc.setOwnerId(ownerId);                    // 소유자 재지정
+lc.setRelatedPersonAccountId(personAcctId); // 개인 계정 연결
+lc.setDoNotCreateOpportunity(true);
+lc.setSendNotificationEmail(false);
+lc.setOverwriteLeadSource(false);          // 연락처의 Lead Source 덮어쓰기 여부
+```
+
+### LeadConvert 메서드 전체 목록
+
+| setter | 설명 |
+|---|---|
+| `setLeadId(id)` | 전환할 리드 ID (필수) |
+| `setConvertedStatus(status)` | 전환 상태 (필수) |
+| `setAccountId(id)` | 연결할 기존 계정 ID |
+| `setContactId(id)` | 연결할 기존 연락처 ID |
+| `setOpportunityId(id)` | 연결할 기존 기회 ID |
+| `setOpportunityName(name)` | 신규 기회 이름 |
+| `setOwnerId(id)` | 소유자 User ID |
+| `setRelatedPersonAccountId(id)` | 개인 계정 연결 ID |
+| `setDoNotCreateOpportunity(bool)` | 기회 생성 안함 |
+| `setSendNotificationEmail(bool)` | 알림 이메일 발송 |
+| `setOverwriteLeadSource(bool)` | 연락처 Lead Source 덮어쓰기 |
+
+### LeadConvertResult 메서드 전체 목록
+
+```apex
+Database.LeadConvertResult lcr = Database.convertLead(lc);
+lcr.isSuccess()
+lcr.getErrors()
+lcr.getLeadId()
+lcr.getAccountId()
+lcr.getContactId()
+lcr.getOpportunityId()
+lcr.getRelatedPersonAccountId()   // 개인 계정 ID (있을 경우)
+lcr.getRelatedPersonAccountRecord() // 개인 계정 레코드 ID
+```
+
+---
+
 ## 비교표 — Cursor vs PaginationCursor vs QueryLocator
 
 | 항목 | Cursor | PaginationCursor | QueryLocator |
