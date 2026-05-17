@@ -11,6 +11,8 @@ created: 2026-05-17
 
 ## 🏗 아키텍처 패턴
 
+> 파일 위치: `Architecture(아키텍처)/` (루트 레벨 — Apex·LWC·Flow 공통)
+
 - [[서비스 레이어 패턴]] — TriggerHandler → ServiceLayer 브로커 분리
 - [[TriggerHandler 패턴]] — abstract class, bypass, 루프 방지
 - [[CMDT 메타데이터 트리거]] — 배포 없이 핸들러 등록/비활성화

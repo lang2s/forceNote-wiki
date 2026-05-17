@@ -1,13 +1,13 @@
 ---
-tags: [index, apex, architecture]
+tags: [index, architecture, apex, lwc, flow]
 created: 2026-05-17
 ---
 
 # Architecture(아키텍처) — 로컬 인덱스
 
-> Apex 계층 설계 — 서비스 레이어, 권한 설계
+> Salesforce 설계 패턴 — 서비스 레이어, 권한 설계, 네임스페이스 레퍼런스 (Apex·LWC·Flow 공통)
 
-**상위:** [[Apex MOC]] → [[00 Home]]
+**상위:** [[00 Home]]
 
 ---
 

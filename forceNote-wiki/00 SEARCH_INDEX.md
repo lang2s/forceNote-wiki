@@ -59,10 +59,10 @@
 
 | 키워드 | 파일 |
 |---|---|
-| 서비스 레이어, ServiceLayer, TriggerHandler, Trigger 계층, 비즈니스 로직 분리 | `Apex/Architecture(아키텍처)/서비스 레이어 패턴.md` |
+| 서비스 레이어, ServiceLayer, TriggerHandler, Trigger 계층, 비즈니스 로직 분리 | `Architecture(아키텍처)/서비스 레이어 패턴.md` |
 | TriggerHandler, beforeInsert afterInsert, Trigger.new, 트리거 패턴 | `Apex/Trigger(트리거)/TriggerHandler 패턴.md` |
 | CMDT, Custom Metadata, 트리거 on/off, 메타데이터 트리거 제어 | `Apex/Trigger(트리거)/CMDT 메타데이터 트리거.md` |
-| Permission Set, 권한 설계 | `Apex/Architecture(아키텍처)/Permission Set 설계.md` |
+| Permission Set, 권한 설계 | `Architecture(아키텍처)/Permission Set 설계.md` |
 
 ## Apex — 보안 / FLS / DML (Auth 추가)
 
@@ -154,14 +154,14 @@
 | Platform Event 발행, EventBus.publish, 이벤트 트리거 수신 | `Apex/PlatformEvents(플랫폼이벤트)/Platform Event 발행.md` |
 | ChangeEventHeader, CDC, Change Data Capture, changetype, recordids, changedfields, nulledfields, 변경 데이터 캡처, TriggerContext, RetryableException, TestBroker | `Apex/PlatformEvents(플랫폼이벤트)/ChangeEventHeader.md` |
 | EventPublishFailureCallback, EventPublishSuccessCallback, 이벤트 발행 콜백, 발행 실패 콜백, 발행 성공 콜백, onFailure, onSuccess, getEventUuids, setResumeCheckpoint, 이벤트 부분 처리 재개, Automated Process 콜백 | `Apex/PlatformEvents(플랫폼이벤트)/EventBus Publish Callbacks.md` |
-| Approval.process, ProcessSubmitRequest, ProcessWorkitemRequest, 승인 제출, 승인 프로세스 Apex, Approval.lock, Approval.unlock, LockResult, UnlockResult | `Apex/Architecture(아키텍처)/Approval Namespace.md` |
+| Approval.process, ProcessSubmitRequest, ProcessWorkitemRequest, 승인 제출, 승인 프로세스 Apex, Approval.lock, Approval.unlock, LockResult, UnlockResult | `Architecture(아키텍처)/Approval Namespace.md` |
 | Messaging.sendEmail, SingleEmailMessage, 이메일 발송 Apex, setToAddresses, setHtmlBody, setTemplateId, setTargetObjectId, EmailFileAttachment, 첨부파일 이메일 | `Apex/Messaging(메시징)/SingleEmailMessage.md` |
 | CustomNotification, 커스텀 알림, 인앱 알림, Messaging.CustomNotification, setNotificationTypeId, send 알림, 알림 발송 Apex | `Apex/Messaging(메시징)/CustomNotification.md` |
 | Flow.Interview, createInterview, 플로우 Apex 호출, Apex에서 Flow 실행, getVariableValue, Flow.Interview.start | `Flow/Flow Interview API.md` |
 | SaveResult, UpsertResult, DeleteResult, MergeResult, UndeleteResult, EmptyRecycleBinResult, DML 결과, Database.Error, isSuccess, getErrors, getId, isCreated | `Apex/Data(데이터)/Database Namespace 상세.md` |
 | Database.Cursor, getCursor, fetch, getNumRecords, PaginationCursor, fetchPage, CursorFetchResult, QueryLocator, QueryLocatorIterator, DMLOptions, LeadConvert, convertLead | `Apex/Data(데이터)/Database Namespace 상세.md` |
 | Search.find, SOSL Apex, dynamic SOSL, SearchResult, SearchResults, getSObject, Search.suggest, SuggestionResult, KnowledgeSuggestionFilter, QuestionSuggestionFilter | `Apex/Data(데이터)/Search Namespace.md` |
-| DescribeSObjectResult, DescribeFieldResult, getDescribe, getFields, isAccessible, isCreateable, getLabel, getKeyPrefix, getPicklistValues, RecordTypeInfo, getRecordTypeInfosByDeveloperName, ChildRelationship, getChildRelationships, Schema.getGlobalDescribe, DisplayType | `Apex/Architecture(아키텍처)/Schema Namespace 상세.md` |
+| DescribeSObjectResult, DescribeFieldResult, getDescribe, getFields, isAccessible, isCreateable, getLabel, getKeyPrefix, getPicklistValues, RecordTypeInfo, getRecordTypeInfosByDeveloperName, ChildRelationship, getChildRelationships, Schema.getGlobalDescribe, DisplayType | `Architecture(아키텍처)/Schema Namespace 상세.md` |
 | Collections, CollectionUtils, 컬렉션 유틸 | `Apex/Collections(컬렉션)/CollectionUtils.md` |
 | Comparator, 정렬, List.sort, 커스텀 정렬, 리스트 정렬, 오름차순 내림차순 | `Apex/Collections(컬렉션)/Comparator 인터페이스.md` |
 | Iterable, Iterator, 커스텀 이터레이터 | `Apex/Collections(컬렉션)/Iterable Iterator.md` |
@@ -310,14 +310,14 @@
 | Apex에서 Flow 실행하는 방법 | `Flow/Flow Interview API.md` |
 | Apex에서 이메일 보내는 방법 | `Apex/Messaging(메시징)/SingleEmailMessage.md` |
 | 사용자에게 알림 보내는 방법 Apex | `Apex/Messaging(메시징)/CustomNotification.md` |
-| 승인 프로세스 Apex로 제어 | `Apex/Architecture(아키텍처)/Approval Namespace.md` |
+| 승인 프로세스 Apex로 제어 | `Architecture(아키텍처)/Approval Namespace.md` |
 | CDC 트리거 변경 필드 확인 | `Apex/PlatformEvents(플랫폼이벤트)/ChangeEventHeader.md` |
 | DML 결과 에러 처리 방법 | `Apex/Data(데이터)/Database Namespace 상세.md` |
 | 리드 전환 Apex | `Apex/Data(데이터)/Database Namespace 상세.md` |
 | SOSL 검색 결과 Apex에서 | `Apex/Data(데이터)/Search Namespace.md` |
-| 오브젝트 메타데이터 필드 목록 조회 | `Apex/Architecture(아키텍처)/Schema Namespace 상세.md` |
-| 레코드 타입 ID 코드에서 조회 | `Apex/Architecture(아키텍처)/Schema Namespace 상세.md` |
-| 피클리스트 값 Apex에서 가져오기 | `Apex/Architecture(아키텍처)/Schema Namespace 상세.md` |
+| 오브젝트 메타데이터 필드 목록 조회 | `Architecture(아키텍처)/Schema Namespace 상세.md` |
+| 레코드 타입 ID 코드에서 조회 | `Architecture(아키텍처)/Schema Namespace 상세.md` |
+| 피클리스트 값 Apex에서 가져오기 | `Architecture(아키텍처)/Schema Namespace 상세.md` |
 | 시스템 간 이벤트 연동 | `Integration(통합)/Platform Event 통합 패턴.md` |
 | 레코드 삭제 LWC에서 | `LWC/LDS/uiRecordApi.md` |
 | 정렬 Apex에서 | `Apex/Collections(컬렉션)/Comparator 인터페이스.md` |
