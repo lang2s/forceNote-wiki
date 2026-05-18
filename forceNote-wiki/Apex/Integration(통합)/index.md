@@ -24,6 +24,7 @@ created: 2026-05-17
 | [[Invocable Namespace]] | Apex에서 Flow Action 동적 호출 — createStandardAction, addInvocation, invoke, getDescribe | #reference |
 | [[Process Namespace]] | 레거시 Flow 플러그인 — Process.Plugin 인터페이스 (deprecated, @InvocableMethod 권장) | #reference |
 | [[QuickAction Namespace]] | Quick Action 실행·조회, Case Feed 이메일 기본값 커스터마이징 — performQuickAction, describeAvailableQuickActions | #reference |
+| [[Metadata Namespace]] | CMT 레코드 Apex 배포·조회 — CustomMetadata, DeployContainer, Operations.enqueueDeployment, DeployCallback | #reference |
 
 ---
 
@@ -39,6 +40,7 @@ created: 2026-05-17
 - Quick Action 프로그래밍적 실행? → [[QuickAction Namespace]]
 - Case Feed 이메일 기본값 커스터마이징? → [[QuickAction Namespace]] → QuickActionDefaultsHandler
 - 레거시 Process.Plugin 마이그레이션? → [[Process Namespace]] (deprecated)
+- Apex에서 CMT 레코드 만들거나 배포? → [[Metadata Namespace]]
 
 ## 관련 폴더
 

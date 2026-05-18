@@ -109,6 +109,22 @@
 | @testVisible, 회로차단기, 테스트 전용 플래그, private 접근 | `Apex/Testing(테스트)/testVisible 회로차단기.md` |
 | SOSL 테스트, Test.setFixedSearchResults | `Apex/Testing(테스트)/SOSL 테스트 패턴.md` |
 
+## Apex — Metadata Namespace
+
+| 키워드 | 파일 |
+|---|---|
+| Metadata namespace, CustomMetadata, DeployCallback, DeployContainer, enqueueDeployment, CMT 배포, 메타데이터 배포 Apex, Operations.retrieve, Operations.enqueueDeployment, DeployResult, DeployStatus, 커스텀 메타데이터 레코드 생성 | `Apex/Integration(통합)/Metadata Namespace.md` |
+| CustomMetadataValue, fullName CMT, protected_x, CMT 필드 값 Apex, MetadataType enum | `Apex/Integration(통합)/Metadata Namespace.md` |
+
+## DevOps — Salesforce DX
+
+| 키워드 | 파일 |
+|---|---|
+| Salesforce DX, sfdx-project.json, sf CLI, sf project deploy, sf project retrieve, source format, .forceignore, sourceApiVersion, packageDirectories, DevOps | `DevOps(데브옵스)/Salesforce DX 개요.md` |
+| Scratch Org, org create scratch, project-scratch-def.json, Dev Hub, Scratch Org 생성, Org Shape, Snapshot, org create snapshot, source tracking | `DevOps(데브옵스)/Scratch Org 패턴.md` |
+| Unlocked Package, sf package create, sf package version create, sf package install, 2GP, packageAliases, org-dependent, 패키지 버전, 내부 앱 패키징 | `DevOps(데브옵스)/Unlocked Package 패턴.md` |
+| CI/CD, Jenkins, Jenkinsfile, CircleCI, JWT 인증 자동화, org login jwt, 자동화 파이프라인, 지속적 통합, 패키지 CI 빌드, Connected App JWT | `DevOps(데브옵스)/CI CD 패턴.md` |
+
 ## Apex — 통합 / HTTP
 
 | 키워드 | 파일 |
@@ -326,3 +342,8 @@
 | 캐시 사용하는 방법 | `Apex/PlatformCache(플랫폼캐시)/Platform Cache.md` |
 | 공유 규칙 보안 적용 | `Apex/Security(보안)/Safely.md` |
 | 데이터 조회 쿼리 | `Apex/Data(데이터)/SOQL 패턴.md` |
+| Apex에서 Custom Metadata 레코드 만들기 | `Apex/Integration(통합)/Metadata Namespace.md` |
+| DX 프로젝트 시작하는 방법 | `DevOps(데브옵스)/Salesforce DX 개요.md` |
+| Scratch Org 만드는 방법 | `DevOps(데브옵스)/Scratch Org 패턴.md` |
+| Jenkins로 Salesforce CI 구성 | `DevOps(데브옵스)/CI CD 패턴.md` |
+| 패키지 만들고 설치하는 방법 | `DevOps(데브옵스)/Unlocked Package 패턴.md` |

@@ -59,6 +59,7 @@ created: 2026-05-17
 - [[Invocable Namespace]] — Apex에서 Flow Action 동적 호출, createStandardAction/createCustomAction, invoke
 - [[Process Namespace]] — 레거시 Flow 플러그인 인터페이스 (deprecated, @InvocableMethod 권장)
 - [[QuickAction Namespace]] — performQuickAction, describeAvailableQuickActions, QuickActionDefaultsHandler, Case Feed 이메일 기본값
+- [[Metadata Namespace]] — CMT 레코드 Apex 배포·조회, CustomMetadata/DeployContainer/Operations.enqueueDeployment/DeployCallback
 
 ## 📦 컬렉션
 

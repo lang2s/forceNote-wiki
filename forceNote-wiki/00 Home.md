@@ -64,6 +64,16 @@ Salesforce Flow — 자동화, Screen Flow, Autolaunched Flow, Apex 액션
 | [[Autolaunched Flow 패턴]] | 헤드리스, Agent Action, Apex에서 호출 |
 | [[@InvocableMethod 패턴]] | bulkInvoke, InputParameters, OutputParameters |
 
+### DevOps(데브옵스)
+Salesforce DX — 소스 중심 개발, Scratch Org, Unlocked Package, CI/CD
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[Salesforce DX 개요]] | sfdx-project.json, sf CLI, Source Format |
+| [[Scratch Org 패턴]] | Dev Hub, org create scratch, Snapshot |
+| [[Unlocked Package 패턴]] | sf package create/install, 2GP |
+| [[CI CD 패턴]] | Jenkins, CircleCI, JWT 인증 자동화 |
+
 ### [[통합 MOC|Integration(통합)]]
 외부 시스템 연동 — Named Credential, Callout, REST/SOAP
 
