@@ -53,6 +53,14 @@
 | LWC 보안, CSP 브라우저, 권한 기반 UI, userId | `LWC/Security(보안)/LWC 보안 패턴.md` |
 | 모바일, getBarcodeScanner, 바코드, getLocationService, GPS, isAvailable | `LWC/Mobile(모바일)/모바일 기능 패턴.md` |
 
+## LWC — Jest 테스트
+
+| 키워드 | 파일 |
+|---|---|
+| LWC Jest 테스트, jest wire mock, @wire 테스트, registerTestWireAdapter, emit, emitError | `LWC/Testing(테스트)/Jest 테스트 패턴.md` |
+| LWC DOM 이벤트 테스트, querySelector, dispatchEvent, CustomEvent 검증, 버튼 클릭 테스트 | `LWC/Testing(테스트)/Jest 테스트 패턴.md` |
+| @salesforce/apex mock, jest.mock, mockResolvedValue, mockRejectedValue, virtual true, Apex 모킹 LWC | `LWC/Testing(테스트)/Jest 테스트 패턴.md` |
+
 ---
 
 ## Apex — 아키텍처 / 트리거
@@ -82,6 +90,7 @@
 | 키워드 | 파일 |
 |---|---|
 | SOQL, 쿼리 패턴, 벌크 쿼리, 거버너 한도, Database.query, 데이터 조회, SELECT FROM WHERE | `Apex/Data(데이터)/SOQL 패턴.md` |
+| SOSL, FIND 구문, 전문 검색, IN NAME FIELDS, RETURNING, 여러 오브젝트 검색, List<List<SObject>>, WITH SNIPPET, WITH HIGHLIGHT, SOSL vs SOQL | `Apex/Data(데이터)/SOSL 패턴.md` |
 | FormulaEval, Formula.builder, 동적 수식 평가, 포뮬러 필드 재계산, DML 없이 수식 계산, getReferencedFields, 수식 평가 Apex, 템플릿 수식, FormulaReturnType, FormulaGlobal | `Apex/Data(데이터)/FormulaEval Namespace.md` |
 | Reports namespace, ReportManager, runReport, runAsyncReport, ReportResults, ReportMetadata, ReportFact, ReportFactWithDetails, SummaryValue, FactMap, 보고서 Apex 실행, 비동기 보고서, 보고서 필터 재정의, getFactMap, ReportFilter, BucketField, ReportInstance | `Apex/Data(데이터)/Reports Namespace.md` |
 | BusinessHours, BusinessHours.diff, 영업시간 계산, SLA 준수 여부, 업무시간 경과, isWithin, nextStartDate, SLA 초과 | `Apex/Data(데이터)/BusinessHours 패턴.md` |
@@ -134,6 +143,7 @@
 | RestClient, HTTP 호출 추상화, makeApiCall, HttpVerb, PATCH 우회 | `Apex/Integration(통합)/RestClient 패턴.md` |
 | @RestResource, Inbound REST, HttpGet HttpPost, urlmapping, 외부→SF | `Apex/Integration(통합)/Custom REST Endpoint.md` |
 | ConnectApi, Chatter 게시, postFeedItemWithRichText, Chatter 멘션, ConnectApiHelper, 리치 텍스트 피드 | `Apex/Integration(통합)/ConnectApi Chatter 패턴.md` |
+| ConnectApi Namespace, Connect in Apex, ConnectApi 개요, ChatterFeeds, ChatterGroups, ChatterUsers, EinsteinLLM, CdpQuery, ConnectApi 클래스 목록, Communities, ManagedContent, CommerceCart, 커넥트API 네임스페이스 | `Apex/Integration(통합)/ConnectApi Namespace 개요.md` |
 | Dom.Document, Dom.XmlNode, XML 파싱, XML 생성, DOM XML, createRootElement, addChildElement, load, toXmlString, getChildElement, getText, SOAP XML | `Apex/Integration(통합)/Dom Namespace.md` |
 | DataSource.Connection, DataSource.Provider, Salesforce Connect, External Objects, 커스텀 어댑터, sync, query, search, upsertRows, deleteRows, TableResult, UpsertResult | `Apex/Integration(통합)/DataSource Namespace.md` |
 | ExternalService, OpenAPI Apex, 타입 안전 외부 호출, External Service Registration, 외부 서비스 등록, ExternalService namespace | `Apex/Integration(통합)/ExternalService Namespace.md` |
@@ -173,6 +183,7 @@
 | Platform Event 발행, EventBus.publish, 이벤트 트리거 수신 | `Apex/PlatformEvents(플랫폼이벤트)/Platform Event 발행.md` |
 | ChangeEventHeader, CDC, Change Data Capture, changetype, recordids, changedfields, nulledfields, 변경 데이터 캡처, TriggerContext, RetryableException, TestBroker | `Apex/PlatformEvents(플랫폼이벤트)/ChangeEventHeader.md` |
 | EventPublishFailureCallback, EventPublishSuccessCallback, 이벤트 발행 콜백, 발행 실패 콜백, 발행 성공 콜백, onFailure, onSuccess, getEventUuids, setResumeCheckpoint, 이벤트 부분 처리 재개, Automated Process 콜백 | `Apex/PlatformEvents(플랫폼이벤트)/EventBus Publish Callbacks.md` |
+| EventBus Namespace, EventBus.publish 메서드 목록, TriggerContext, RetryableException, setResumeCheckpoint, publishWithAccessLevel, getOperationId, 이벤트버스 네임스페이스, 트리거 재시도, 이벤트 재개 | `Apex/PlatformEvents(플랫폼이벤트)/EventBus Namespace.md` |
 | Approval.process, ProcessSubmitRequest, ProcessWorkitemRequest, 승인 제출, 승인 프로세스 Apex, Approval.lock, Approval.unlock, LockResult, UnlockResult | `Architecture(아키텍처)/Approval Namespace.md` |
 | Messaging.sendEmail, SingleEmailMessage, 이메일 발송 Apex, setToAddresses, setHtmlBody, setTemplateId, setTargetObjectId, EmailFileAttachment, 첨부파일 이메일 | `Apex/Messaging(메시징)/SingleEmailMessage.md` |
 | CustomNotification, 커스텀 알림, 인앱 알림, Messaging.CustomNotification, setNotificationTypeId, send 알림, 알림 발송 Apex | `Apex/Messaging(메시징)/CustomNotification.md` |
@@ -185,6 +196,26 @@
 | Collections, CollectionUtils, 컬렉션 유틸 | `Apex/Collections(컬렉션)/CollectionUtils.md` |
 | Comparator, 정렬, List.sort, 커스텀 정렬, 리스트 정렬, 오름차순 내림차순 | `Apex/Collections(컬렉션)/Comparator 인터페이스.md` |
 | Iterable, Iterator, 커스텀 이터레이터 | `Apex/Collections(컬렉션)/Iterable Iterator.md` |
+
+---
+
+## Aura(오라) — Aura 컴포넌트
+
+| 키워드 | 파일 |
+|---|---|
+| Aura 컴포넌트, aura:component, .cmp, Controller.js, Helper.js, aura:attribute, aura:handler, aura:registerEvent, Aura 번들 구조, aura:iteration, aura:if | `Aura(오라)/Aura 컴포넌트 구조.md` |
+| Aura 이벤트, Component Event, Application Event, aura:registerEvent, aura:handler, $A.get, force:navigateToSObject, force:showToast, 시스템 이벤트 init change render | `Aura(오라)/Aura 이벤트.md` |
+| Aura vs LWC, Aura 마이그레이션, Aura 비교, 언제 LWC 언제 Aura, Aura 레거시, LWC 우선 정책 | `Aura(오라)/Aura vs LWC.md` |
+
+---
+
+## Admin(어드민) — 일반 사용자 / 관리자
+
+| 키워드 | 파일 |
+|---|---|
+| Salesforce 기초, Org, Object, Record, Field, App, Tab, Cloud, 플랫폼 개요, Sales Cloud, Service Cloud, Agentforce, 환경 종류, Sandbox, Scratch Org, Developer Edition | `Architecture(아키텍처)/Salesforce 플랫폼 개요.md` |
+| Salesforce 네비게이션, App Launcher, 앱 런처, 전역 검색, Global Search, 탐색바, 리스트뷰, 레코드 페이지, Lightning Experience, 홈 페이지 | `Admin(어드민)/Salesforce 네비게이션.md` |
+| MFA, Multi-Factor Authentication, 다중 인증, Salesforce Authenticator, TOTP, 보안 키, FIDO2, Trusted IP Ranges, 신원 확인, 이중 인증, MFA 의무화 | `Admin(어드민)/Salesforce ID 인증.md` |
 
 ---
 
@@ -283,6 +314,11 @@
 | Einstein Copilot Topics, Prompt Builder Flex Template, Anthropic Claude 3 Haiku | `Release/Summer '24.md` |
 | Search Manager GA, FLS in Search, Search Analytics Pilot | `Release/Summer '24.md` |
 | Connect REST API Rate Limit, updateOnly 파라미터, External ID 업데이트 | `Release/Summer '24.md` |
+| Winter '25, 윈터 25, v62.0, API 62, 2024년 10월 릴리즈 | `Release/Winter '25.md` |
+| Agentforce 2.0, Einstein Copilot 리브랜드, Agentforce Studio, Copilot → Agentforce | `Release/Winter '25.md` |
+| Prompt Builder GA, Flex Template, Field Generation Template, Sales Email Template | `Release/Winter '25.md` |
+| Compression Namespace Beta, Zip Beta Apex, ZipWriter Beta | `Release/Winter '25.md` |
+| Restrict User Access to Run Flows, Flow 실행 권한 제한, Maintenance Work Rules | `Release/Winter '25.md` |
 | Spring '25, 스프링 25, v63.0, API 63, 2025년 2월 릴리즈 | `Release/Spring '25.md` |
 | Compression Namespace GA, ZipWriter, ZipReader, Apex 압축 | `Release/Spring '25.md` |
 | FormulaEval GA, Formula.builder, withReturnType, withFormula, 동적 수식 평가 GA | `Release/Spring '25.md` |
@@ -290,6 +326,22 @@
 | LWC Local Dev GA, apiVersion 필수화, Base Components DOM 변경, Native Shadow | `Release/Spring '25.md` |
 | Einstein for Flow GA, Transform Element Join, Send Email 첨부파일 Flow, Flow 화면 진행 표시기 | `Release/Spring '25.md` |
 | Instance URL My Domain 전환 필수, na44.salesforce.com 폐기, Bulk API V2 쿼리 이벤트 | `Release/Spring '25.md` |
+| SLDS 2 Beta, Lightning Design System 2, Salesforce Cosmos 테마, slds-c-* 스타일 훅 | `Release/Spring '25.md` |
+| LWS API Distortion, Lightning Web Security, requestStorageAccess, setHTMLUnsafe | `Release/Spring '25.md` |
+| Flow Builder 키보드 단축키, Undo Redo Save As, Flow UX 개선 | `Release/Spring '25.md` |
+| Prompt Flow Subflow, Autolaunched Flow in Prompt Flow | `Release/Spring '25.md` |
+| Flow Runtime 변경, Data Table 반응성, 동명 변수 상속, API v63 Runtime | `Release/Spring '25.md` |
+| Automation Lightning App Monitor, Flow Interview 실패 일시정지 조회 | `Release/Spring '25.md` |
+| Flow Extensions, setCustomValidity, reportValidity, Flow Screen 컴포넌트 에러 커스텀 | `Release/Spring '25.md` |
+| Flow Orchestration, Fault Path, 인터랙티브 스텝 이메일 알림, Orchestration Run Details | `Release/Spring '25.md` |
+| Flow Approval Processes, Queue 배정 승인, 이메일 회신 승인, 동적 승인 워크플로우 | `Release/Spring '25.md` |
+| MuleSoft for Flow Integration GA, 서드파티 커넥터, Connections 탭, External System Change-Triggered Flow | `Release/Spring '25.md` |
+| Agentforce DX Beta, sf agent generate agent-spec, sf agent create, agent CLI | `Release/Spring '25.md` |
+| Salesforce CLI data bulk, api request rest graphql, Windows ARM64 CLI | `Release/Spring '25.md` |
+| DevOps Testing GA, AI 기반 테스트, 테스트 자산 관리 | `Release/Spring '25.md` |
+| Data Mask Einstein, Run on Refresh, FedRAMP High, 샌드박스 마스킹 | `Release/Spring '25.md` |
+| Database Access Debug Log, Developer Console 로그 카테고리 | `Release/Spring '25.md` |
+| OpenAPI Document sObjects REST API Beta, OpenAPI Specification v63 | `Release/Spring '25.md` |
 | Spring '24, 서프링 24, v60.0, 이전 릴리즈 | `Release/Spring '24.md` |
 | 닐 연산자 ??, UUID, ReleaseSavepoint, Null 병합 연산자 Apex | `Release/Spring '24.md` |
 | lightning-record-picker GA, Workspace API GA, lightning/logger GA | `Release/Spring '24.md` |
@@ -353,6 +405,12 @@
 | 캐시 사용하는 방법 | `Apex/PlatformCache(플랫폼캐시)/Platform Cache.md` |
 | 공유 규칙 보안 적용 | `Apex/Security(보안)/Safely.md` |
 | 데이터 조회 쿼리 | `Apex/Data(데이터)/SOQL 패턴.md` |
+| 여러 오브젝트에서 키워드 검색 | `Apex/Data(데이터)/SOSL 패턴.md` |
+| Aura 컴포넌트 만드는 방법 | `Aura(오라)/Aura 컴포넌트 구조.md` |
+| Aura에서 LWC로 전환하는 방법 | `Aura(오라)/Aura vs LWC.md` |
+| Salesforce 처음 사용법 | `Architecture(아키텍처)/Salesforce 플랫폼 개요.md` |
+| Salesforce 로그인 MFA 설정 | `Admin(어드민)/Salesforce ID 인증.md` |
+| 앱 런처 사용 방법 | `Admin(어드민)/Salesforce 네비게이션.md` |
 | Apex에서 Custom Metadata 레코드 만들기 | `Apex/Integration(통합)/Metadata Namespace.md` |
 | DX 프로젝트 시작하는 방법 | `DevOps(데브옵스)/Salesforce DX 개요.md` |
 | Scratch Org 만드는 방법 | `DevOps(데브옵스)/Scratch Org 패턴.md` |

@@ -163,3 +163,4 @@ static void testCDCTrigger() {
 - [[Platform Event 발행]] — Platform Event 발행·수신 기본 패턴
 - [[Batch Apex]] — CDC 이벤트를 Batch에서 처리하는 패턴
 - [[Queueable]] — CDC 트리거에서 비동기 처리 위임
+- [[EventBus Namespace]] — EventBus.publish 메서드 서명, TriggerContext, RetryableException 상세

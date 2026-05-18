@@ -1,5 +1,5 @@
 ---
-tags: [release, spring25, v63, apex, lwc, flow, agentforce]
+tags: [release, spring25, v63, apex, lwc, flow, agentforce, slds, orchestration, mulesoft, devops, cli]
 source: salesforce_release_notes_5-17-20264.pdf — Salesforce Spring '25 Release Notes
 created: 2026-05-18
 aliases: [Spring '25, Spring25, v63.0, API 63, 스프링 25]
@@ -168,9 +168,232 @@ Developer / Developer Pro 샌드박스에서 Source Tracking을 개별적으로 
 
 ---
 
+
+## LWC — 추가 변경사항
+
+### SLDS 2 (Beta) 지원
+Spring '25부터 베이스 컴포넌트가 Salesforce Lightning Design System 2 (SLDS 2, Beta)를 지원. 고급 테마/브랜딩 기능 제공. `--slds-c-*` 컴포넌트별 스타일 훅은 SLDS 2에서 미지원이므로 주의.
+
+```xml
+<!-- .js-meta.xml — apiVersion 63.0 예시 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>true</isExposed>
+</LightningComponentBundle>
+```
+
+### Lightning Web Security — API Distortion 추가
+LWS에 신규 보안 distortion 추가. ESLint 규칙도 함께 제공.
+
+신규 distortion 대상:
+- `Document.prototype.requestStorageAccess`
+- `Element.prototype.setHTMLUnsafe`
+- `HTMLIFrameElement.prototype.sandbox` (getter/setter)
+
+변경된 distortion 대상:
+- `HTMLIFrameElement.prototype.src` (setter)
+- `Window.open`
+- `Window: securitypolicyviolation` event
+
+### Native Shadow DOM 전환 — Spring '25 추가 컴포넌트
+Spring '25에서 추가로 Native Shadow DOM 준비 완료된 컴포넌트:
+
+| 컴포넌트 | Aura 대응 |
+|---|---|
+| `lightning-carousel`, `lightning-carousel-image` | `lightning:carouselImage` |
+| `lightning-click-to-dial` | `lightning:clickToDial` |
+| `lightning-datatable` | `lightning:datatable` |
+| `lightning-file-upload` | `lightning:fileUpload` |
+| `lightning-input-field`, `lightning-output-field` | `lightning:inputField`, `lightning:outputField` |
+| `lightning-record-form`, `lightning-record-edit-form`, `lightning-record-view-form` | `lightning:recordForm` |
+| `lightning-tree` | `lightning:tree` |
+
+> 테스트가 내부 DOM 구조에 의존하면 즉시 수정 필요.
+
+---
+
+## Flow — 추가 변경사항
+
+### Flow Builder UX 개선
+
+| 기능 | 설명 |
+|---|---|
+| 텍스트 템플릿·수식 리소스 선택 개선 | New Resource 생성 시 그룹핑·레이블 개선, 브레드크럼 경로 표시 |
+| Collection Filter 자식 리소스 탐색 | Apply Filter Conditions 필드에서 자식 리소스 직접 검색·선택 |
+| Undo/Redo/Save As 키보드 단축키 | Ctrl+Z / Cmd+Z (Undo), Ctrl+Y / Cmd+Y (Redo), Shift+Ctrl+S / Shift+Cmd+S (Save As) |
+
+### Prompt Flow 내 Autolaunched Flow Subflow 참조
+Prompt Flow에서 활성화된 Autolaunched Flow를 Subflow로 참조 가능 (Wait 요소 포함 Flow는 미지원). 기존에는 Prompt Flow만 참조 가능했음.
+
+### Flow Runtime 버전 변경사항 (API v63.0 이상)
+
+| 변경 | 설명 |
+|---|---|
+| Data Table 반응성 수정 | Screen Action 출력 컬렉션이 미설정이면 Data Table 내용 자동 초기화 |
+| 동명 변수 상속 금지 | 부모 Flow와 참조 Flow에 동일 API명 변수 존재 시 참조 Flow 변수 독립 유지 (부모 값 상속 안 함) |
+
+### Flow Management 개선
+
+**Data Cloud 트리거드 플로우 → 샌드박스에서 프로덕션 배포**
+Change Set을 통해 Data Cloud 트리거드 플로우 변경사항을 프로덕션으로 배포 가능.
+
+**Automation Lightning App — Monitor 탭**
+신규 Monitor 탭에서 실패·일시정지된 Flow 인터뷰 전체를 한 곳에서 조회. 실패 원인 확인 및 재개 가능.
+
+### Flow Extensions — 커스텀 컴포넌트 유효성 검사 API
+LWC 기반 Flow Screen 컴포넌트에서 에러 메시지를 직접 제어할 수 있는 신규 API:
+
+```javascript
+// @api 인터페이스로 구현
+// 1) validate() — 기존 동작 유지 (다음 화면 이동 전 호출)
+// 2) setCustomValidity(externalErrorMessage: string) — Flow의 입력 유효성 에러 메시지를 컴포넌트가 저장
+// 3) reportValidity() — 에러 렌더링 시점을 컴포넌트가 제어
+import { LightningElement, api } from 'lwc';
+export default class MyScreenComponent extends LightningElement {
+    _externalError = '';
+
+    @api validate() { /* 기존 유효성 로직 */ return { isValid: true }; }
+    @api setCustomValidity(externalErrorMessage) {
+        this._externalError = externalErrorMessage;
+    }
+    @api reportValidity() {
+        // 에러 표시 로직
+        this.template.querySelector('.error-msg').textContent = this._externalError;
+    }
+}
+```
+
+---
+
+## Flow Orchestration
+
+Spring '25에서 Flow Orchestration에 세 가지 주요 개선이 추가되었다.
+
+### 인터랙티브 스텝 — 커스텀 이메일 알림
+각 Interactive Step에서 배정 시 전송할 커스텀 이메일(제목·본문)을 직접 설정 가능. 기존에는 Background Step을 별도로 만들어야 했음.
+
+```
+설정 경로: Interactive Step Properties 패널 → Customize notification email 선택 → 제목·본문 입력
+```
+
+### 오케스트레이션 오류 처리 — Fault Path
+각 Stage에 Fault Path를 추가하여 해당 Stage 또는 그 내부 Step에서 오류 발생 시 실행할 요소를 정의. 오케스트레이션이 오류로 종료될 위험 감소.
+
+```
+설정 경로: 오케스트레이션 캔버스에서 Stage 선택 → Add Fault Path 클릭
+(2025년 3월 17일 이후 사용 가능)
+```
+
+### 개선된 Orchestration Run Details
+Automation Lightning App에서 오케스트레이션 실행 상세 정보 레이아웃 개선:
+- **Run Details 탭**: 모든 Stage·Step 완료 시간 및 배정자 정보
+- **Work Items 탭**: 생성된 Work Item 전체 조회, 재배정 가능
+- 실행 중 오케스트레이션 취소·디버그·일시정지 가능
+
+---
+
+## Flow Approval Processes
+
+Flow Orchestration 기반의 신규 승인 워크플로우. 클래식 Approval Processes보다 유연하고 동적 라우팅 지원.
+
+### 주요 기능
+
+| 기능 | 설명 |
+|---|---|
+| 그룹·Queue 배정 | 승인 스텝을 특정인 대신 Queue 또는 공개 그룹에 배정. 최초 처리자가 완료 시 나머지 접근 불가 |
+| 승인 사용자 알림 이메일 | 제출자 및 승인자·대리인에게 커스텀 이메일 알림 전송 |
+| 이메일 회신으로 승인/반려 | 승인자가 알림 이메일에 회신하여 Work Item 승인 또는 반려 가능 |
+
+---
+
+## MuleSoft for Flow: Integration GA
+
+Flow Builder에서 서드파티 커넥터를 통해 외부 시스템과 노코드로 연동.
+
+### 핵심 기능
+
+| 기능 | 설명 |
+|---|---|
+| 서드파티 커넥터 GA | 40개 이상 커넥터를 Flow 트리거 또는 액션으로 사용 (NetSuite, Jira, Slack, Google Gemini, OpenAI 등) |
+| Connections 탭 | Automation Lightning App의 Connections 탭에서 모든 외부 연결 통합 관리 |
+| External System Change-Triggered Flow | 외부 시스템 변경 감지 시 자동 트리거되는 신규 Flow 타입 |
+| In-line Field Mapping | 커넥터 액션 내에서 Transform 기능으로 필드 매핑 |
+
+```
+라이선스: MuleSoft for Flow: Integration 애드온 라이선스 필요
+권한: Manage Integration Connections 권한 필요
+```
+
+GA 커넥터 예시: Anthropic, Asana, DHL Tracking, Discord, Freshdesk, Google Gemini, HubSpot, Jira, Microsoft Entra ID / Excel / Outlook / Power BI, NetSuite, OpenAI, PayPal, QuickBooks Online, Twilio, Zendesk 등 40여 개.
+
+---
+
+## 개발 도구 추가
+
+### Agentforce DX (Beta)
+Salesforce CLI와 VS Code로 Agent를 프로코드로 생성·테스트. `@salesforce/plugin-agent` 플러그인으로 제공.
+
+```bash
+# 플러그인 설치
+sf plugins install agent
+
+# Agent YAML 스펙 생성
+sf agent generate agent-spec \
+    --type customer \
+    --role "Field customer complaints and manage employee schedules." \
+    --output-file specs/resortManagerAgent.yaml
+
+# Agent 생성
+sf agent create \
+    --agent-name "Resort Manager" \
+    --spec specs/resortManagerAgent.yaml
+```
+
+### Salesforce CLI 주요 개선 (v2.53.6+)
+- **data 명령어 확장**: `data export|import|update resume bulk`, `data bulk results`, `data search` (SOSL), `--output-file` 플래그 추가
+- **api request**: `sf api request rest` / `sf api request graphql` — REST·GraphQL API를 CLI에서 직접 실행 (Beta)
+- **Windows ARM64 지원**: `sf-arm64.exe` 인스톨러 제공
+- **Apex 테스트 커버리지**: `sf apex get test --detailed-coverage` 플래그
+- **Sandbox 생성 옵션 확장**: `activationUserGroupName` / `activationUserGroupId` 지원
+
+### DevOps Testing GA
+DevOps Center에서 AI 기반 테스트·QA 기능 정식 출시. 여러 테스트 제공업체의 테스트 자산을 단일 소스로 관리.
+
+### Data Mask 개선
+- **Einstein 커스텀 라이브러리 생성**: Einstein이 Data Mask 커스텀 라이브러리 자동 생성
+- **Run on Refresh**: 샌드박스 리프레시 시 마스킹 설정 자동 실행 (다운타임 없음)
+- **FedRAMP High 인증**: Salesforce Government Cloud Plus에서 사용 가능
+
+### Database Access Debug Log 카테고리
+Developer Console 디버그 로그에 신규 `Database Access` 카테고리 추가. UI에서 접근하는 객체의 규칙·정책 정보 로깅.
+
+---
+
+## API 추가
+
+### OpenAPI Document for sObjects REST API (Beta)
+최신 OpenAPI Specification으로 sObjects REST API에 대한 OpenAPI 문서 생성 지원. 주요 개선:
+- `/sobjects/{sObject}/updated`, `/query`, `/query/queryLocator` 리소스 포함
+- 6시간 요청 큐 제한 제거
+- 더 짧은 Base URI 사용
+
+---
+
+## Flow Release Updates (강제 적용 예정)
+
+| Release Update | 강제 적용 시기 | 설명 |
+|---|---|---|
+| Restrict User Access to Run Flows | Winter '26 | 프로필·권한 세트 없는 사용자의 Flow 실행 차단. FlowSites org 권한 폐기 |
+| Enforce Permission Req. for Built-In Apex Class Inputs | Summer '26 | Flow 내 Apex 액션에서 내장 Apex 클래스 입력 시 권한 요구 사항 강제 |
+| Enhance Flexibility in Prompt Flows | Spring '25 (강제) | Flex Prompt Template 타입을 Template-Triggered Prompt Flow에서 제거. Manual Input으로 전환 필요 |
+| Enforce Rollbacks for Apex Action Exceptions in REST API | 미정 (권고만) | REST API Apex 액션 예외 시 트랜잭션 롤백. Spring '25부터 강제 적용 안 함, 자발적 활성화 권고 |
+
+---
+
 ## 관련 노트
 
 - [[Summer '25]] — 다음 릴리즈
-- [[Winter '25]] (미작성) — 이전 릴리즈
+- [[Winter '25]] — 이전 릴리즈
 - [[FormulaEval Namespace]] — GA된 동적 수식 평가
 - [[Scheduled Apex]] — pauseJobById/resumeJobById

@@ -16,6 +16,7 @@ created: 2026-05-17
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
 | [[SOQL 패턴]] | WITH USER_MODE, SOQL for loop, 거버너 한도 회피 | #pattern |
+| [[SOSL 패턴]] | FIND 구문, IN 절, RETURNING, 여러 Object 전문 검색 | #pattern |
 | [[DML 패턴]] | insert as user/system, Database.*(accessLevel), 부분 성공 | #pattern |
 | [[Dynamic SOQL]] | queryWithBinds, SOQL 인젝션 방어 | #pattern |
 | [[PagedResult 패턴]] | 페이지네이션 DTO, LIMIT+OFFSET, ?? null coalescing | #pattern |
@@ -30,6 +31,7 @@ created: 2026-05-17
 ## 빠른 선택
 
 - 일반 데이터 조회? → [[SOQL 패턴]]
+- 여러 Object에서 키워드 검색? → [[SOSL 패턴]]
 - 조건이 동적으로 바뀌는 쿼리? → [[Dynamic SOQL]]
 - 레코드 삽입/수정/삭제? → [[DML 패턴]]
 - 목록 페이지에 페이지네이션? → [[PagedResult 패턴]]

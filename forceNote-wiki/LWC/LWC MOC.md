@@ -72,6 +72,12 @@ created: 2026-05-17
 
 ---
 
+## 🧪 테스트
+
+- [[Jest 테스트 패턴]] — @wire 어댑터 mock, DOM 이벤트 검증, @salesforce/apex mock 3종 패턴
+
+---
+
 ## 빠른 의사결정
 
 ```
@@ -85,4 +91,5 @@ Apex 호출?             → [[Wire vs Imperative 선택]]
 서드파티 라이브러리?   → [[Static Resource 로딩]] → loadScript/loadStyle
 파일 업로드?           → [[파일 업로드와 이미지 처리]] → processImage
 모바일 기기?           → [[모바일 기능 패턴]] → isAvailable() 먼저
+LWC 컴포넌트 테스트?   → [[Jest 테스트 패턴]] → wire mock, DOM 이벤트, apex mock
 ```

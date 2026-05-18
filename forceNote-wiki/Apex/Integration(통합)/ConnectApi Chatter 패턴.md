@@ -128,3 +128,4 @@ body = Pattern.compile('<img src="([^"]+)">').matcher(body).replaceAll('image: $
 
 - [[Flow 유틸리티 액션 모음]] — PostRichChatter Invocable Action
 - [[@InvocableMethod 패턴]] — Invocable Action 구조
+- [[ConnectApi Namespace 개요]] — ConnectApi 전체 클래스 목록, EinsteinLLM/CdpQuery/CommerceCart

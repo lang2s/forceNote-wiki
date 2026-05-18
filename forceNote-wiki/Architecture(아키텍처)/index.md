@@ -19,6 +19,7 @@ created: 2026-05-17
 | [[Permission Set 설계]] | objectPermissions, fieldPermissions, classAccesses 구성 표준 | #pattern |
 | [[Approval Namespace]] | Apex에서 승인 프로세스 제출·처리·잠금 — ProcessSubmitRequest, ProcessWorkitemRequest | #reference |
 | [[Schema Namespace 상세]] | DescribeSObjectResult/DescribeFieldResult/RecordTypeInfo/PicklistEntry/ChildRelationship 전체 | #reference |
+| [[Salesforce 플랫폼 개요]] | Org/Object/Record/Field/App, Cloud 종류, 환경 구분 | #concept |
 
 ---
 

@@ -149,10 +149,117 @@ cursor.close();
 
 ---
 
+## TYPEOF — 다형성 관계 쿼리 (API v46.0+)
+
+다형성 관계 필드(예: Task.What, Event.Who)의 실제 타입에 따라 다른 필드를 가져온다.
+
+```apex
+// Task.What은 Account, Opportunity, Case 등 여러 타입이 될 수 있음
+List<Task> tasks = [
+    SELECT Id, Subject,
+        TYPEOF What
+            WHEN Account THEN Id, Name, Phone
+            WHEN Opportunity THEN Id, Name, CloseDate
+            ELSE Id, Name           -- 그 외 타입은 Id, Name만 반환
+        END
+    FROM Task
+    WITH USER_MODE
+];
+```
+
+---
+
+## FOR UPDATE — 레코드 잠금
+
+트랜잭션 중 다른 사용자/프로세스의 동시 수정을 방지한다.
+
+```apex
+// 레코드를 잠그고 업데이트 — 트랜잭션 완료 시 잠금 해제
+Account[] accts = [SELECT Id, Name FROM Account
+                   WHERE Id IN :targetIds
+                   FOR UPDATE];
+// 이후 DML 처리
+```
+
+> [!warning] `FOR UPDATE`와 `ORDER BY`는 함께 사용 불가.
+
+---
+
+## FOR VIEW / FOR REFERENCE — 최근 열람 기록 업데이트
+
+```apex
+// FOR VIEW — LastViewedDate + RecentlyViewed 갱신
+SELECT Name, Id FROM Contact LIMIT 1 FOR VIEW
+
+// FOR REFERENCE — LastReferencedDate + RecentlyViewed 갱신
+// (관련 레코드를 조회할 때 사용)
+SELECT Name, Id FROM Contact LIMIT 1 FOR REFERENCE
+```
+
+---
+
+## Aggregate Functions 전체 목록
+
+| 함수 | 설명 | 예시 |
+|---|---|---|
+| `COUNT()` | 조건 일치 행 수 (null 포함) | `SELECT COUNT() FROM Account` |
+| `COUNT(field)` | 특정 필드의 non-null 행 수 | `SELECT COUNT(Id) FROM Account` |
+| `COUNT_DISTINCT(field)` | 중복 제거 non-null 값 수 | `SELECT COUNT_DISTINCT(Company) FROM Lead` |
+| `SUM(field)` | 합계 | `SELECT SUM(Amount) FROM Opportunity` |
+| `AVG(field)` | 평균 | `SELECT AVG(Amount) FROM Opportunity` |
+| `MIN(field)` | 최솟값 | `SELECT MIN(CreatedDate) FROM Contact` |
+| `MAX(field)` | 최댓값 | `SELECT MAX(Amount) FROM Opportunity` |
+
+> [!note] 모든 집계 함수는 null 값을 무시한다. `COUNT()`와 `COUNT(Id)`만 null 포함.
+
+---
+
+## toLabel() / FORMAT() / GROUPING() / convertTimezone()
+
+```apex
+// toLabel() — 피클리스트 값을 사용자 언어로 번역
+List<AggregateResult> res = [
+    SELECT toLabel(Status), COUNT(Id)
+    FROM Case
+    GROUP BY Status
+    WITH USER_MODE
+];
+
+// FORMAT() — 숫자/날짜/통화 필드를 로캘 형식으로 표시
+List<Opportunity> opps = [
+    SELECT Name, FORMAT(Amount) AmountFormatted,
+           FORMAT(CloseDate) CloseDateFormatted
+    FROM Opportunity
+    WITH USER_MODE
+];
+
+// GROUPING() — ROLLUP/CUBE 그룹화에서 소계 행 여부 판별 (1=소계, 0=일반)
+List<AggregateResult> rollup = [
+    SELECT LeadSource, Rating,
+           GROUPING(LeadSource) grpLS,
+           GROUPING(Rating) grpRating,
+           COUNT(Id) cnt
+    FROM Lead
+    GROUP BY ROLLUP(LeadSource, Rating)
+    WITH USER_MODE
+];
+
+// convertTimezone() — 날짜/시간 필드를 사용자 타임존으로 변환
+List<AggregateResult> byHour = [
+    SELECT HOUR_IN_DAY(convertTimezone(CreatedDate)) hr, COUNT(Id) cnt
+    FROM Opportunity
+    GROUP BY HOUR_IN_DAY(convertTimezone(CreatedDate))
+    WITH USER_MODE
+];
+```
+
+---
+
 ## 관련 노트
 
 - [[Dynamic SOQL]] — 동적 쿼리
 - [[WITH USER_MODE]] — 상세 보안 적용 기준
 - [[DML 패턴]]
+- [[SOSL 패턴]] — 여러 Object 전문 검색
 - [[Summer '26]] — API v67.0 파괴적 변경 (WITH SECURITY_ENFORCED 제거)
 - [[Summer '24]] — Apex Cursor Beta, 5단계 관계 SOQL

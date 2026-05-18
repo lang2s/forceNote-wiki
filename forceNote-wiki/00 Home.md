@@ -64,6 +64,34 @@ Salesforce Flow — 자동화, Screen Flow, Autolaunched Flow, Apex 액션
 | [[Autolaunched Flow 패턴]] | 헤드리스, Agent Action, Apex에서 호출 |
 | [[@InvocableMethod 패턴]] | bulkInvoke, InputParameters, OutputParameters |
 
+### Architecture(아키텍처)
+설계 패턴 / 플랫폼 기초 개념 — 서비스 레이어, 권한 설계, Salesforce 개요
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[Salesforce 플랫폼 개요]] | Org, Object, Record, Cloud 종류, 환경 |
+| [[서비스 레이어 패턴]] | TriggerHandler-ServiceLayer 브로커 |
+| [[Permission Set 설계]] | objectPermissions, fieldPermissions |
+| [[Approval Namespace]] | ProcessSubmitRequest, ProcessWorkitemRequest |
+| [[Schema Namespace 상세]] | DescribeSObjectResult, RecordTypeInfo |
+
+### Aura(오라)
+Aura 컴포넌트 — 레거시 컴포넌트 프레임워크 (신규 개발은 LWC 권장)
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[Aura 컴포넌트 구조]] | aura:component, Controller/Helper 번들 |
+| [[Aura 이벤트]] | Component/Application Event, $A.get |
+| [[Aura vs LWC]] | 기능 비교, 마이그레이션 전략 |
+
+### Admin(어드민)
+일반 사용자 / 관리자 가이드 — 네비게이션, 인증, 기초 개념
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[Salesforce 네비게이션]] | App Launcher, 전역 검색, 리스트뷰 |
+| [[Salesforce ID 인증]] | MFA, Salesforce Authenticator, Trusted IP |
+
 ### DevOps(데브옵스)
 Salesforce DX — 소스 중심 개발, Scratch Org, Unlocked Package, CI/CD
 

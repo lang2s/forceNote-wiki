@@ -18,6 +18,7 @@ created: 2026-05-17
 | [[Platform Event 발행]] | EventBus.publish, 수신 트리거, ReplayId | #pattern |
 | [[ChangeEventHeader]] | CDC 변경 이벤트 헤더 — changetype, recordids, changedfields, TriggerContext, TestBroker | #reference |
 | [[EventBus Publish Callbacks]] | 비동기 발행 최종 결과 콜백 — EventPublishFailureCallback, onFailure, setResumeCheckpoint | #reference |
+| [[EventBus Namespace]] | EventBus.publish 메서드 전체 서명 + TriggerContext + RetryableException + API v67 변경 | #reference |
 
 ---
 
@@ -27,6 +28,8 @@ created: 2026-05-17
 - CDC 변경 필드 확인? → [[ChangeEventHeader]]
 - 발행 성공/실패 최종 결과 수신? → [[EventBus Publish Callbacks]]
 - 트리거 부분 처리 재개? → [[EventBus Publish Callbacks]] → setResumeCheckpoint
+- EventBus 메서드 서명 전체? → [[EventBus Namespace]]
+- TriggerContext.retries 활용? → [[EventBus Namespace]] → RetryableException 비교표
 
 ## 관련 폴더
 

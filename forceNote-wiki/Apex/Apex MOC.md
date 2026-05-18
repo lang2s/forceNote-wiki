@@ -29,6 +29,7 @@ created: 2026-05-17
 ## 📊 데이터 (SOQL / DML)
 
 - [[SOQL 패턴]] — WITH USER_MODE, SOQL for loop, 청크 반복
+- [[SOSL 패턴]] — FIND 구문, IN SearchGroup, RETURNING, 여러 Object 전문 검색
 - [[DML 패턴]] — insert as user/system, Database.*(accessLevel)
 - [[Dynamic SOQL]] — queryWithBinds, SOQL 인젝션 방어
 - [[PagedResult 패턴]] — 페이지네이션 DTO, scope='global', ?? null coalescing, LIMIT+OFFSET
@@ -53,6 +54,7 @@ created: 2026-05-17
 - [[Custom REST Endpoint]] — @RestResource, global inherited sharing, RestContext
 - [[Named Credential]] — External Credential → Principal → NC 순서
 - [[ConnectApi Chatter 패턴]] — postFeedItemWithRichText, @멘션, Flow 리치 텍스트 변환
+- [[ConnectApi Namespace 개요]] — Connect in Apex 전체 클래스 목록, ChatterFeeds/EinsteinLLM/CdpQuery/CommerceCart, 테스트 setTest* 패턴
 - [[Dom Namespace]] — Dom.Document/XmlNode, XML 생성·파싱, HTTP 본문 처리
 - [[DataSource Namespace]] — Salesforce Connect 커스텀 어댑터, Provider/Connection/sync/query/upsert
 - [[ExternalService Namespace]] — OpenAPI 스펙 기반 타입 안전 외부 서비스 호출
@@ -91,6 +93,7 @@ created: 2026-05-17
 - [[Platform Event 발행]] — EventBus.publish, 수신 트리거, ReplayId
 - [[ChangeEventHeader]] — CDC 변경 이벤트 헤더, changetype/recordids/changedfields, TriggerContext
 - [[EventBus Publish Callbacks]] — 비동기 발행 최종 결과 콜백, EventPublishFailureCallback, setResumeCheckpoint
+- [[EventBus Namespace]] — EventBus.publish 메서드 전체 서명, TriggerContext, RetryableException, publishWithAccessLevel, API v67 ACCESS_MODE 변경
 
 ## 💾 플랫폼 캐시
 
@@ -130,6 +133,8 @@ OpenAPI 타입 호출?     →  [[ExternalService Namespace]]
 동적 수식 평가?        →  [[FormulaEval Namespace]] → Formula.builder()
 Flow Action Apex 호출? →  [[Invocable Namespace]] → createStandardAction
 이벤트 발행 결과 추적? →  [[EventBus Publish Callbacks]] → EventPublishFailureCallback
+ConnectApi 클래스 목록?   →  [[ConnectApi Namespace 개요]] → ChatterFeeds/EinsteinLLM/CdpQuery
+EventBus API 시그니처?   →  [[EventBus Namespace]] → TriggerContext, publishWithAccessLevel
 Quick Action 실행?      →  [[QuickAction Namespace]] → performQuickAction
 보고서 Apex 실행?       →  [[Reports Namespace]] → ReportManager.runReport
 외부 모킹?             →  [[StubProvider]]

@@ -159,3 +159,4 @@ static void testTriggerDelivery() {
 
 - [[Platform Event 발행]] — EventBus.publish 기본 패턴, 트랜잭션 경계
 - [[ChangeEventHeader]] — CDC 이벤트 헤더, TriggerContext.retries, RetryableException
+- [[EventBus Namespace]] — EventBus.publish 메서드 전체 서명, publishWithAccessLevel, API v67 변경

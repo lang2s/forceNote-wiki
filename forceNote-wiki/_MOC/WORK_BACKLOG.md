@@ -25,7 +25,7 @@ created: 2026-05-18
 | # | 주제 | 소스 | 상태 | 추가일 | 완료일 |
 |---|---|---|---|---|---|
 | P1-01 | `Apex/Integration(통합)/Compression Namespace.md` | Apex Ref v67.0 p.646 | ✅ 완료 | 2026-05-18 | 2026-05-18 |
-| P1-02 | `LWC/Testing(테스트)/` Jest 테스트 3종 (wire mock, DOM 이벤트, @salesforce/apex mock) | LWC Dev Guide (미확보, Tier 3) | 🔲 대기 | 2026-05-18 | — |
+| P1-02 | `LWC/Testing(테스트)/` Jest 테스트 3종 (wire mock, DOM 이벤트, @salesforce/apex mock) | LWC Dev Guide (미확보, Tier 3) | ✅ 완료 | 2026-05-18 | 2026-05-18 |
 | P1-03 | `Apex/Integration(통합)/DataWeave Namespace.md` | Apex Ref v67.0 p.2841 | ✅ 완료 | 2026-05-18 | 2026-05-18 |
 
 ---
@@ -34,10 +34,10 @@ created: 2026-05-18
 
 | # | 주제 | 소스 | 상태 | 추가일 | 완료일 |
 |---|---|---|---|---|---|
-| P2-01 | `Release/Winter '25.md` (v62.0) | 로컬 PDF 미확보 (확인 필요) | 🔲 대기 | 2026-05-18 | — |
+| P2-01 | `Release/Winter '25.md` (v62.0) | 로컬 PDF 미확보 → Tier 3 (external-knowledge)로 작성 | ✅ 완료 | 2026-05-18 | 2026-05-18 |
 | P2-02 | `Release/Spring '26.md` (v66.0) | 로컬 PDF 미확보 | 🔲 대기 | 2026-05-18 | — |
-| P2-03 | `Apex/PlatformEvents(플랫폼이벤트)/EventBus Namespace.md` (namespace 개요) | Apex Ref v67.0 p.2865 | 🔲 대기 | 2026-05-18 | — |
-| P2-04 | `Apex/Integration(통합)/ConnectApi Namespace 개요.md` | Apex Ref v67.0 p.663 | 🔲 대기 | 2026-05-18 | — |
+| P2-03 | `Apex/PlatformEvents(플랫폼이벤트)/EventBus Namespace.md` (namespace 개요) | Apex Ref v67.0 p.2865 | ✅ 완료 | 2026-05-18 | 2026-05-18 |
+| P2-04 | `Apex/Integration(통합)/ConnectApi Namespace 개요.md` | Apex Ref v67.0 p.663 | ✅ 완료 | 2026-05-18 | 2026-05-18 |
 
 ---
 
