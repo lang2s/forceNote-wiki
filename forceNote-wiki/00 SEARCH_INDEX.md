@@ -165,6 +165,7 @@
 |---|---|
 | Log 싱글턴, 로깅 패턴, Logger, 디버그 로그 | `Apex/Logging(로깅)/Log 싱글턴 패턴.md` |
 | Platform Cache, 캐시, CacheBuilder, Org Cache Session Cache | `Apex/PlatformCache(플랫폼캐시)/Platform Cache.md` |
+| Cache Namespace, Cache.Org, Cache.Session, Cache.OrgPartition, Cache.SessionPartition, Cache.Visibility, 플랫폼 캐시 네임스페이스, doLoad, CacheBuilder 인터페이스 | `Apex/PlatformCache(플랫폼캐시)/Cache Namespace.md` |
 | OrgShape, Org 설정 조회, 샌드박스 여부, 네임스페이스 | `Apex/ExecutionContext(실행컨텍스트)/OrgShape.md` |
 | QuiddityGuard, Quiddity, 실행 컨텍스트, REST Trigger Batch 구분 | `Apex/ExecutionContext(실행컨텍스트)/QuiddityGuard.md` |
 | Platform Event 발행, EventBus.publish, 이벤트 트리거 수신 | `Apex/PlatformEvents(플랫폼이벤트)/Platform Event 발행.md` |
@@ -173,6 +174,7 @@
 | Approval.process, ProcessSubmitRequest, ProcessWorkitemRequest, 승인 제출, 승인 프로세스 Apex, Approval.lock, Approval.unlock, LockResult, UnlockResult | `Architecture(아키텍처)/Approval Namespace.md` |
 | Messaging.sendEmail, SingleEmailMessage, 이메일 발송 Apex, setToAddresses, setHtmlBody, setTemplateId, setTargetObjectId, EmailFileAttachment, 첨부파일 이메일 | `Apex/Messaging(메시징)/SingleEmailMessage.md` |
 | CustomNotification, 커스텀 알림, 인앱 알림, Messaging.CustomNotification, setNotificationTypeId, send 알림, 알림 발송 Apex | `Apex/Messaging(메시징)/CustomNotification.md` |
+| Messaging Namespace, InboundEmail, InboundEmailHandler, InboundEmailResult, InboundEnvelope, 인바운드 이메일, 이메일 서비스, Email Service, ActionableNotification, MassEmailMessage, PushNotification, 인앱 알림 모바일 | `Apex/Messaging(메시징)/Messaging Namespace.md` |
 | Flow.Interview, createInterview, 플로우 Apex 호출, Apex에서 Flow 실행, getVariableValue, Flow.Interview.start | `Flow/Flow Interview API.md` |
 | SaveResult, UpsertResult, DeleteResult, MergeResult, UndeleteResult, EmptyRecycleBinResult, DML 결과, Database.Error, isSuccess, getErrors, getId, isCreated | `Apex/Data(데이터)/Database Namespace 상세.md` |
 | Database.Cursor, getCursor, fetch, getNumRecords, PaginationCursor, fetchPage, CursorFetchResult, QueryLocator, QueryLocatorIterator, DMLOptions, LeadConvert, convertLead | `Apex/Data(데이터)/Database Namespace 상세.md` |
@@ -279,6 +281,13 @@
 | Einstein Copilot Topics, Prompt Builder Flex Template, Anthropic Claude 3 Haiku | `Release/Summer '24.md` |
 | Search Manager GA, FLS in Search, Search Analytics Pilot | `Release/Summer '24.md` |
 | Connect REST API Rate Limit, updateOnly 파라미터, External ID 업데이트 | `Release/Summer '24.md` |
+| Spring '25, 스프링 25, v63.0, API 63, 2025년 2월 릴리즈 | `Release/Spring '25.md` |
+| Compression Namespace GA, ZipWriter, ZipReader, Apex 압축 | `Release/Spring '25.md` |
+| FormulaEval GA, Formula.builder, withReturnType, withFormula, 동적 수식 평가 GA | `Release/Spring '25.md` |
+| System.pauseJobById, pauseJobByName, resumeJobById, resumeJobByName, 스케줄 잡 일시정지 | `Release/Spring '25.md` |
+| LWC Local Dev GA, apiVersion 필수화, Base Components DOM 변경, Native Shadow | `Release/Spring '25.md` |
+| Einstein for Flow GA, Transform Element Join, Send Email 첨부파일 Flow, Flow 화면 진행 표시기 | `Release/Spring '25.md` |
+| Instance URL My Domain 전환 필수, na44.salesforce.com 폐기, Bulk API V2 쿼리 이벤트 | `Release/Spring '25.md` |
 | Spring '24, 서프링 24, v60.0, 이전 릴리즈 | `Release/Spring '24.md` |
 | 닐 연산자 ??, UUID, ReleaseSavepoint, Null 병합 연산자 Apex | `Release/Spring '24.md` |
 | lightning-record-picker GA, Workspace API GA, lightning/logger GA | `Release/Spring '24.md` |

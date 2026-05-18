@@ -16,6 +16,7 @@ created: 2026-05-17
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
 | [[Platform Cache]] | Cache.Org/Session, Cache-Aside 패턴, @CacheBuilder | #pattern |
+| [[Cache Namespace]] | CacheBuilder, Cache.Org/Session, OrgPartition, Visibility Enum 전체 레퍼런스 | #reference |
 
 ---
 
