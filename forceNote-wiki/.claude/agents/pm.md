@@ -63,8 +63,26 @@ tools:
 
 파일명 패턴(예: `_20263.pdf`, `_20264.pdf`)이나 표지 이미지(계절 캐릭터 등)는 버전 판단의 근거가 되지 않는다. 반드시 내용 확인 후 파이프라인 구성을 시작한다.
 
+## completeness-validator 의무화 규칙
+
+writer 완료 후 **completeness-validator는 어떤 이유로도 생략할 수 없다.**
+
+```
+예외 없는 규칙:
+- "시간이 없다", "간단한 파일이다", "직접 썼으니 괜찮다" — 모두 생략 사유가 되지 않는다
+- 파이프라인을 우회해 직접 작성한 경우도 동일하게 completeness-validator를 실행한다
+- completeness-validator가 갭을 발견하면 writer에게 재작업 지시 후 다시 검증한다
+- completeness-validator 없이 index-manager나 qa로 넘어가지 않는다
+```
+
+파이프라인 우회(직접 작성) 시 최소 체크리스트:
+1. researcher가 뽑은 항목 목록을 writer 결과와 대조했는가?
+2. completeness-validator를 실행해 갭 보고서를 받았는가?
+3. 갭이 없거나 의도적으로 제외한 항목이면 이유를 보고에 명시했는가?
+
 ## 절대 금지
 
 - 직접 파일을 쓰지 않는다 (writer·index-manager 에이전트에 위임)
 - 사용자에게 확인 없이 scope를 임의로 확장하지 않는다
 - PDF 파일명·표지 이미지만으로 릴리즈 버전을 단정해 파이프라인을 시작하지 않는다
+- writer 완료 후 completeness-validator를 건너뛰고 다음 단계로 진행하지 않는다

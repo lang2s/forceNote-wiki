@@ -97,9 +97,23 @@ Completeness Validator 전달 정보:
 □ Empty 폴더가 있으면 (placeholder index.md만 있는 경우) → PM에게 보고
 ```
 
+## 작성 완료 후 필수 전달 (completeness-validator)
+
+파일 작성이 끝나면 반드시 다음 정보를 completeness-validator에 전달한다:
+
+```
+1. researcher가 추출한 항목 목록 (클래스명, 메서드명, 섹션명 등)
+2. 작성된 파일 경로
+3. 작성에서 의도적으로 제외한 항목과 이유 (있을 경우)
+```
+
+**completeness-validator를 호출하지 않고 작업 완료를 선언하지 않는다.**  
+이 규칙은 파이프라인 우회(직접 작성) 상황에서도 동일하게 적용된다.
+
 ## 절대 금지
 
 - SEARCH_INDEX, MOC, index.md를 수정하지 않는다 (index-manager 담당)
 - 코드를 임의로 수정·개선하지 않는다
 - Researcher가 제공하지 않은 내용을 추가하지 않는다
 - 훈련 데이터 기반 지식으로 메서드 목록을 "채우지" 않는다
+- completeness-validator 없이 PM에게 "완료" 보고하지 않는다
