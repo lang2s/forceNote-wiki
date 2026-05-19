@@ -65,6 +65,7 @@ created: 2026-05-17
 - [[Compression Namespace]] — ZipWriter/ZipReader로 Apex Zip 압축·해제, Spring '25 GA
 - [[DataWeave Namespace]] — DataWeave.Script.createScript/execute, JSON·XML·CSV 변환, Winter '24 GA
 - [[KbManagement Namespace]] — KbManagement.PublishingService, 아티클 게시·번역·보관·삭제 라이프사이클 API
+- [[Flow Namespace]] — Flow.Interview 클래스 — Apex에서 Flow 실행, createInterview(정적/동적), start(), getVariableValue()
 
 ## 📦 컬렉션
 
@@ -144,6 +145,7 @@ MFA / 로그인 플로우?   →  [[Auth Namespace]] → SessionManagement
 OpenAPI 타입 호출?     →  [[ExternalService Namespace]]
 동적 수식 평가?        →  [[FormulaEval Namespace]] → Formula.builder()
 Flow Action Apex 호출? →  [[Invocable Namespace]] → createStandardAction
+Apex에서 Flow 실행(API 레퍼런스)?  →  [[Flow Namespace]] → Interview.createInterview/start
 이벤트 발행 결과 추적? →  [[EventBus Publish Callbacks]] → EventPublishFailureCallback
 ConnectApi 클래스 목록?   →  [[ConnectApi Namespace 개요]] → ChatterFeeds/EinsteinLLM/CdpQuery
 EventBus API 시그니처?   →  [[EventBus Namespace]] → TriggerContext, publishWithAccessLevel

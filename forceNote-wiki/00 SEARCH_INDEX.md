@@ -184,6 +184,7 @@
 | Invocable.Action, createStandardAction, createCustomAction, Apex에서 Flow 액션 호출, 동적 액션 호출, invoke invocable, addInvocation, setInvocationParameter, getDescribe, 액션 메타데이터 | `Apex/Integration(통합)/Invocable Namespace.md` |
 | Process.Plugin, PluginDescribeResult, PluginRequest, PluginResult, 레거시 플로우 플러그인, deprecated 플러그인, Flow 플러그인 Apex | `Apex/Integration(통합)/Process Namespace.md` |
 | QuickAction, performQuickAction, performQuickActions, describeAvailableQuickActions, describeQuickActions, QuickActionRequest, QuickActionResult, QuickActionDefaultsHandler, SendEmailQuickActionDefaults, Case Feed 이메일 기본값, 퀵 액션 실행, 퀵 액션 메타데이터 조회 | `Apex/Integration(통합)/QuickAction Namespace.md` |
+| Flow Namespace, Flow.Interview 클래스 레퍼런스, createInterview 시그니처, start() 메서드, getVariableValue, Apex에서 Flow 실행 API, Flow Interview 클래스 전체 메서드, User Provisioning Flow 실행 | `Apex/Integration(통합)/Flow Namespace.md` |
 
 ## Apex — 보안 / FLS / DML (Auth 추가)
 

@@ -29,6 +29,7 @@ created: 2026-05-17
 | [[Compression Namespace]] | Apex Zip 압축·해제 — ZipWriter.addEntry/getArchive, ZipReader.extract, Spring '25 GA | #reference |
 | [[DataWeave Namespace]] | Apex에서 DataWeave 스크립트 실행 — Script.createScript, execute, Result.getValueAsString | #reference |
 | [[KbManagement Namespace]] | Knowledge Article 라이프사이클 API — PublishingService, 게시·번역·보관·삭제 전체 메서드 | #reference |
+| [[Flow Namespace]] | Flow.Interview 클래스 — Apex에서 Flow 실행, createInterview(정적/동적), start(), getVariableValue() | #reference |
 
 ---
 
@@ -49,6 +50,7 @@ created: 2026-05-17
 - 파일 여러 개를 Zip으로 묶어야 할 때? → [[Compression Namespace]]
 - JSON/XML/CSV 데이터 변환을 선언적으로? → [[DataWeave Namespace]]
 - Knowledge 아티클 게시·번역·보관을 Apex로? → [[KbManagement Namespace]]
+- Apex에서 Autolaunched Flow 실행? → [[Flow Namespace]] — Interview 클래스 전체 API
 
 ## 관련 폴더
 
