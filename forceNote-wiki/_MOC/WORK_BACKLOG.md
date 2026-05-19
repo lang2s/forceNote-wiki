@@ -105,6 +105,29 @@ updated: 2026-05-20
 
 ---
 
+### V — 기존 파일 Apex Reference 검증 대기
+
+> **규칙:** Apex Reference v67.0 PDF **하나만** 보면서 순서대로 검증. 다른 PDF 병행 금지.
+> 검증 기준: 클래스 전체 포함 여부 / 메서드 시그니처 정확성 / 예제 코드 원문 수록 여부
+
+| # | 파일 | Apex Ref PDF 페이지 | 상태 | 추가일 | 완료일 |
+|---|---|---|---|---|---|
+| V-01 | `Apex/Security(보안)/TxnSecurity Namespace.md` | p.4445~4453 | 🔲 대기 | 2026-05-20 | — |
+| V-02 | `Apex/Integration(통합)/Support Namespace.md` | p.3580~3583 | 🔲 대기 | 2026-05-20 | — |
+| V-03 | `Architecture(아키텍처)/Context Namespace.md` | p.2688 | 🔲 대기 | 2026-05-20 | — |
+| V-04 | `Apex/Data(데이터)/Datacloud Namespace.md` | p.2741~2760 | 🔲 대기 | 2026-05-20 | — |
+| V-05 | `Apex/Integration(통합)/Flow Namespace.md` | p.2880~2884 | 🔲 대기 | 2026-05-20 | — |
+| V-06 | `Apex/Testing(테스트)/Flowtesting Namespace.md` | p.2885~2892 | 🔲 대기 | 2026-05-20 | — |
+| V-07 | `Architecture(아키텍처)/Site Namespace.md` | p.3576~3580 | 🔲 대기 | 2026-05-20 | — |
+| V-08 | `Apex/Integration(통합)/KbManagement Namespace.md` | p.2968~2979 | 🔲 대기 | 2026-05-20 | — |
+| V-09 | `Architecture(아키텍처)/System Namespace.md` | p.3584~4440 | 🔲 대기 | 2026-05-20 | — |
+| V-10 | `Apex/Integration(통합)/ConnectApi Namespace 개요.md` | p.663~2687 | 🔲 대기 | 2026-05-20 | — |
+| V-11 | `Apex/PlatformEvents(플랫폼이벤트)/EventBus Namespace.md` | p.2865~2879 | 🔲 대기 | 2026-05-20 | — |
+| V-12 | `Apex/Integration(통합)/DataWeave Namespace.md` | p.2841~2858 | 🔲 대기 | 2026-05-20 | — |
+| V-13 | `Apex/Integration(통합)/Compression Namespace.md` | p.646~662 | 🔲 대기 | 2026-05-20 | — |
+
+---
+
 ## 상태 범례
 
 | 아이콘 | 의미 |
