@@ -11,6 +11,29 @@ aliases: [Invocable.Action, createStandardAction, createCustomAction, 동적 액
 
 ---
 
+## 개념
+
+`Invocable.Action`은 Apex 코드에서 **Invocable Action**을 동적으로 호출하는 API다. Invocable Action은 원래 Flow Builder의 "Action" 요소에서 사용하도록 설계된 실행 단위지만, 이 네임스페이스를 통해 Apex에서 직접 호출할 수 있다.
+
+### 왜 존재하는가
+
+Flow에서 표준 동작(이메일 전송, 레코드 생성 등)을 처리하는 로직은 이미 Salesforce 표준 액션으로 존재한다. Apex에서 동일 로직을 직접 구현하면 중복이 발생하고, 테스트·유지보수가 이중으로 필요해진다. `Invocable.Action`을 사용하면 Flow에서 호출하는 것과 동일한 액션을 Apex에서 재사용할 수 있다. 반대로 `@InvocableMethod`로 Apex 메서드를 Flow에 노출하는 것과는 방향이 반대다.
+
+### 언제 쓰나
+
+- Apex 코드에서 표준 Salesforce 액션(이메일 전송, 피드 포스팅 등)을 직접 실행해야 할 때
+- `@InvocableMethod`로 작성된 커스텀 액션을 Apex 안에서 동적으로 재사용해야 할 때
+- 액션 타입과 이름이 런타임에 결정되는 동적 실행 시나리오
+- 액션의 파라미터 구조를 코드에서 탐색(`getDescribe()`)해야 할 때
+
+### 주요 제한사항
+
+- `invoke()` 호출은 Apex 트랜잭션 컨텍스트 안에서 실행되므로 해당 액션의 Governor Limits(SOQL 횟수, DML 등)가 동일하게 적용된다.
+- 액션이 callout을 포함하면 `@future(callout=true)` 또는 `Queueable + AllowsCallouts` 안에서 호출해야 한다.
+- 파라미터 이름은 액션의 API 이름과 정확히 일치해야 한다. 오타 시 런타임 오류가 발생한다.
+
+---
+
 ## 기본 호출 패턴 — 표준 액션
 
 ```apex

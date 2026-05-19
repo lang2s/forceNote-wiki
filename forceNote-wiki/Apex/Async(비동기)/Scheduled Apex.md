@@ -11,6 +11,31 @@ aliases: [Scheduled Apex, Schedulable, 스케줄 잡]
 
 ---
 
+## 개념
+
+`Schedulable` 인터페이스를 구현한 Apex 클래스는 **Cron 표현식**으로 지정한 시간에 자동 실행되는 예약 잡이 된다.
+
+### 왜 존재하는가
+
+Salesforce에서는 운영 자동화를 위해 특정 시간(매일 자정, 매주 월요일 등)에 일괄 처리 작업을 실행해야 하는 경우가 많다. Scheduled Apex는 이를 코드로 제어할 수 있게 해준다. `System.schedule()`로 등록하거나 UI(Setup → Apex Classes → Schedule Apex)에서 설정할 수 있다. 가장 흔한 패턴은 Batch Apex를 트리거하는 래퍼로 사용하는 것이다.
+
+### 언제 쓰나
+
+- 매일 자정, 매주 특정 요일 등 정해진 일정에 반복 작업을 실행해야 할 때
+- Batch Apex를 주기적으로 자동 실행해야 할 때
+- 데이터 정리, 리포트 생성, 외부 시스템 동기화 등 배치성 작업을 스케줄링할 때
+
+단발성 비동기 처리는 `Queueable` 또는 `@future`, 즉시 실행 배치는 `Database.executeBatch()`를 직접 사용한다.
+
+### 주요 제한사항
+
+- `execute()` 메서드 안에서는 **Callout을 직접 실행할 수 없다.** Callout이 필요하면 `execute()` 안에서 Batch나 Queueable을 enqueue해야 한다.
+- org 전체에서 동시에 예약된 잡은 최대 **100개**까지만 허용된다.
+- Cron으로 지정 가능한 최소 간격은 **1분**이다 (초 단위 반복 불가).
+- `System.schedule()`로 이미 같은 이름의 잡이 등록되어 있으면 예외가 발생한다. 등록 전 기존 잡을 `System.abortJob()`으로 정리해야 한다.
+
+---
+
 ## 기본 구조
 
 ```apex

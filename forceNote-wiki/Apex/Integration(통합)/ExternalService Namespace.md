@@ -20,6 +20,19 @@ ExternalService.<ServiceName>.<OperationName>
 ExternalService.<ServiceName>.<TypeName>
 ```
 
+### 왜 존재하는가
+
+Apex에서 외부 API를 호출하려면 전통적으로 `HttpRequest`를 수동으로 구성하고, JSON 응답을 직접 역직렬화해야 한다. API 스펙이 바뀌면 직렬화 코드도 함께 수동으로 수정해야 하며, 오타·타입 불일치를 컴파일 타임에 잡을 수 없다. `ExternalService` 네임스페이스는 이 문제를 해결한다. OpenAPI 스펙을 Setup에 등록하면 Salesforce가 타입 안전 Apex 클래스를 자동 생성하므로, 개발자는 HTTP 레이어를 직접 다루지 않고 **컴파일 타임에 검증되는 객체**로 외부 서비스를 호출할 수 있다.
+
+### 언제 쓰나
+
+- 외부 서비스가 OpenAPI 2.0 / 3.0 스펙을 제공하는 경우
+- 여러 오퍼레이션을 반복 호출하며 타입 안전성이 중요한 경우
+- Flow에서도 동일 서비스를 호출해야 하는 경우 (External Service 등록 하나로 Apex·Flow 모두 사용 가능)
+- HTTP 직접 구현 대신 Setup UI 관리 방식을 선호하는 경우 (코드 없이 서비스 등록·수정 가능)
+
+스펙 없이 HTTP를 자유롭게 구성해야 하면 RestClient 패턴을 사용한다.
+
 ---
 
 ## 사용 패턴
@@ -66,6 +79,12 @@ if (response.Code == 200) {
 | Flow 연동 | Flow의 "Action" 요소에서도 동일 서비스 호출 가능 |
 | Named Credential 필수 | 직접 URL 지정 불가 — Named Credential 경유 |
 | 테스트 | `HttpCalloutMock`으로 모킹 가능 |
+
+> [!warning] 흔한 실수 — 클래스명이 스펙 operationId에서 파생됨
+> 등록 후 Apex에서 사용할 클래스·메서드명은 OpenAPI 스펙의 `operationId` 값에서 자동 파생된다. `operationId`가 없거나 비표준 문자를 포함하면 생성된 이름이 예측 불가능해진다. 스펙 등록 전 `operationId`가 명확하고 일관되게 정의되어 있는지 반드시 확인한다.
+
+> [!note] Governor Limits 적용 범위
+> ExternalService 호출은 내부적으로 HTTP Callout을 사용하므로, Apex Callout 한도(트랜잭션당 100회)와 트랜잭션당 Callout 타임아웃이 동일하게 적용된다. `@future(callout=true)`, `Queueable + AllowsCallouts`, `Batch` 안에서 호출해야 하는 경우도 일반 Callout 규칙과 동일하다.
 
 ---
 

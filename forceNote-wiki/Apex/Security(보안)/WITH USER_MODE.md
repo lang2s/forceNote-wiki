@@ -11,6 +11,22 @@ aliases: [WITH USER_MODE, USER_MODE, 사용자 모드 쿼리]
 
 ---
 
+## 개념
+
+Apex SOQL은 기본적으로 시스템 컨텍스트에서 실행된다. 클래스에 `with sharing`이 선언되어 있더라도, 이는 **레코드 가시성(행 필터)** 만 적용할 뿐이다. 즉, 공유 규칙에 의해 접근 불가한 레코드는 걸러지지만, 해당 레코드의 **모든 필드(열)** 는 여전히 시스템 권한으로 조회된다.
+
+`WITH USER_MODE`는 이 격차를 메운다. 쿼리에 이 절을 추가하면 SOQL 실행 시점에 현재 사용자의 **FLS(Field-Level Security)와 CRUD 권한**을 함께 적용한다. 사용자가 접근 불가한 필드는 결과에서 자동으로 제거되며, CRUD가 없는 오브젝트를 조회하면 예외가 발생한다.
+
+### 이 키워드가 필요한 이유
+
+Apex 보안 검토(Security Review)의 공통 실패 원인 중 하나가 FLS 미적용이다. `WITH SECURITY_ENFORCED`가 부분적인 해결책으로 도입되었지만 한계가 많았고, API 57.0(Summer '23)에서 `WITH USER_MODE`가 표준 대안으로 등장했다. v67.0(Summer '26)부터는 **기본 실행 모드 자체가 USER_MODE**로 변경되어, FLS 무시가 예외가 아닌 명시적 선택(`WITH SYSTEM_MODE`)이 된다.
+
+### 적용 범위
+
+`WITH USER_MODE`는 쿼리의 **모든 절**에 FLS/CRUD를 적용한다. `WITH SECURITY_ENFORCED`가 WHERE, ORDER BY 일부만 처리했던 것과 달리, 서브쿼리와 다형성 필드(Polymorphic Fields)도 포함된다. DML에는 `insert as user` / `Database.insert(recs, AccessLevel.USER_MODE)` 패턴을 별도로 사용한다.
+
+---
+
 > [!important] Summer '26 (API v67.0) 파괴적 변경
 > - `WITH SECURITY_ENFORCED`는 v67.0부터 **컴파일 오류** 발생 → 즉시 `WITH USER_MODE`로 교체 필수.
 > - SOQL, DML, Database 메서드의 **기본 실행 모드가 USER_MODE로 변경**됨. 명시적으로 작성하지 않아도 USER_MODE로 동작하지만, 코드 가독성을 위해 명시 권장.

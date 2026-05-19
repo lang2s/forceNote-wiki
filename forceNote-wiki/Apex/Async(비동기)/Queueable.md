@@ -11,6 +11,33 @@ aliases: [queueable, 큐어블, 비동기 체이닝, elastic limits, apex cursor
 
 ---
 
+## 개념
+
+`Queueable`은 `@future`보다 강력한 비동기 처리 인터페이스로, 클래스 구조(SObject 포함)를 파라미터로 전달하고, 체이닝(순차 실행)이 가능하며, `AsyncApexJob`으로 실행 상태를 추적할 수 있다.
+
+### 왜 존재하는가
+
+`@future`는 primitive 타입 파라미터만 허용하고, 체이닝이 불가하며, 실행 상태를 조회할 방법이 없다. 복잡한 비동기 파이프라인(예: Callout → DML → 다음 단계 실행)을 구현하려면 `@future`만으로는 부족하다. `Queueable`은 이 한계를 극복하기 위해 도입되었다. 클래스 인스턴스를 그대로 큐에 넣을 수 있어 상태를 자유롭게 전달하고, `System.enqueueJob()`이 반환하는 `AsyncApexJob` ID로 실행 현황을 모니터링할 수 있다.
+
+### 언제 쓰나
+
+- SObject 리스트나 복잡한 데이터 구조를 비동기로 전달해야 할 때
+- 비동기 작업을 순서대로 체이닝해야 할 때 (예: A 완료 후 B 실행)
+- HTTP Callout과 DML을 같은 비동기 트랜잭션에서 처리해야 할 때 (`Database.AllowsCallouts` 함께 implements)
+- 실행 상태(`AsyncApexJob.Status`)를 UI나 코드에서 조회해야 할 때
+- `Database.Cursor`와 함께 대용량 SOQL 결과를 페이지 단위로 처리할 때
+
+단순 비동기 처리에 SObject 전달이나 체이닝이 불필요하면 `@future`가 더 단순하다. 수만 건 이상 대용량 처리는 Batch Apex를 고려한다.
+
+### 주요 제한사항
+
+- 하나의 `execute()` 안에서 `System.enqueueJob()` 호출은 **1번**만 허용된다. (Summer '24 이전 기준. Cursor 연계 시 동일)
+- 트랜잭션당 최대 50개의 Queueable을 enqueue할 수 있다.
+- Mixed DML: Setup 오브젝트(User, PermissionSet 등)와 일반 오브젝트를 같은 트랜잭션에서 DML하면 오류가 발생한다. 체이닝으로 분리해야 한다.
+- 무한 체이닝은 `System.maxQueueableDepth`로 방지한다. 깊이 제한 없이 체이닝하면 잡이 무한 생성된다.
+
+---
+
 ## 기본 패턴
 
 ```apex

@@ -11,6 +11,26 @@ aliases: [DML 보안, insert as user]
 
 ---
 
+## 개념
+
+### 왜 DML 접근 모드가 중요한가
+
+Apex DML(`insert`, `update`, `delete` 등)은 기본적으로 시스템 컨텍스트에서 실행된다. 이는 클래스에 `with sharing`이 선언되어 있어도 동일하다 — `with sharing`은 **레코드 가시성(공유 규칙)**에만 영향을 주며, DML 실행 시 FLS나 CRUD 권한 확인은 하지 않는다.
+
+따라서 별도의 처리 없이 Apex DML을 수행하면, 사용자가 특정 오브젝트에 Create 권한이 없거나 특정 필드에 접근 권한이 없어도 DML이 성공적으로 실행된다. 이는 **권한 초과(privilege escalation)** 문제이며, Salesforce Security Review의 주요 지적 사항이다.
+
+API 57.0(Summer '23)에서 `insert as user` 키워드와 `Database.*(AccessLevel)` 파라미터가 도입되어, DML 선언 지점에서 직접 접근 모드를 명시할 수 있게 되었다. v67.0(Summer '26)부터는 **DML 기본 모드 자체가 USER_MODE**로 변경된다.
+
+### 언제 어떤 모드를 선택하는가
+
+- **일반 서비스 레이어, @AuraEnabled, REST**: `insert as user` — 가장 간결하고 명확
+- **트리거 핸들러, 플랫폼 자동화, 배치**: `insert as system` 또는 `Database.insert(recs, AccessLevel.SYSTEM_MODE)` — 자동화 컨텍스트에서 사용자 권한과 무관하게 작동해야 할 때
+- **부분 성공(Partial Success) 처리**: `Database.insert(recs, false, AccessLevel.USER_MODE)` — 배치처럼 일부 레코드 실패를 허용하고 성공 레코드만 처리해야 할 때
+- **FLS 위반 필드 감지 필요**: `Safely().throwIfRemovedFields().doInsert()` — 어떤 필드가 제거되었는지 알아야 할 때
+- **외부 입력(JSON) 처리**: `Security.stripInaccessible()` → DML — 사용자가 보낸 데이터를 그대로 DML하기 전 접근 불가 필드를 반드시 제거
+
+---
+
 ## DML 접근 모드 선택 기준
 
 | 패턴 | 코드 | 사용 시점 |

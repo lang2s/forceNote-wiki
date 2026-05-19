@@ -11,6 +11,25 @@ aliases: [DataWeave Namespace, DataWeave in Apex, DataWeave.Script, DataWeave.Re
 
 ---
 
+## 개념
+
+DataWeave는 MuleSoft에서 사용하는 데이터 변환 언어로, Salesforce는 Winter '24에 Apex에서 직접 DataWeave 스크립트를 실행하는 기능을 GA로 제공하기 시작했다.
+
+### 왜 존재하는가
+
+Apex에서 복잡한 JSON/XML 변환을 처리하려면 `JSON.serialize`, `JSON.deserialize`, `Dom.Document` 등을 조합해야 한다. 변환 로직이 복잡해질수록 코드 가독성이 낮아지고 유지보수가 어려워진다. DataWeave 스크립트는 선언형(declarative) 방식으로 변환 규칙을 표현하므로, 복잡한 매핑·필터링·중첩 구조 변환을 훨씬 간결하게 작성할 수 있다. `.dwl` 파일로 변환 로직을 분리해 Apex 클래스와 독립적으로 관리할 수 있다는 장점도 있다.
+
+### 언제 쓰나
+
+- JSON·XML·CSV 형식 간 복잡한 변환이 필요할 때
+- 외부 API 응답을 Salesforce 데이터 모델에 맞게 재구조화할 때
+- 변환 로직을 코드에 하드코딩하지 않고 `.dwl` 파일로 분리해 관리하고 싶을 때
+- MuleSoft와 데이터를 교환하며 이미 DataWeave 스크립트 자산이 있을 때
+
+단순한 JSON 직렬화/역직렬화는 `JSON.serialize`/`JSON.deserialize`로 충분하다. DataWeave는 중첩 구조·조건부 매핑·집계 등 복잡한 변환에 적합하다.
+
+---
+
 ## 클래스 목록
 
 | 클래스 | 설명 |
@@ -136,6 +155,12 @@ String xmlOutput = script.execute(args).getValueAsString();
 - `.dwl` 파일은 Apex 호출 전에 org에 Metadata로 배포되어 있어야 한다
 - DataWeave 스크립트는 `DataWeave Scripts` Metadata 타입으로 패키징
 - Apex 거버너 한도(힙 메모리, CPU 시간)가 스크립트 실행에 적용됨
+
+> [!warning] 스크립트 미배포 시 런타임 오류
+> `DataWeave.Script.createScript('MyTransform')` 호출 시 해당 이름의 `.dwl` 파일이 org에 없으면 런타임 예외가 발생한다. 배포 상태를 사전에 확인하거나 테스트에서 `isTest` 분기 처리가 필요하다.
+
+> [!note] 힙 한도 주의
+> DataWeave 스크립트 실행 결과가 매우 클 경우 Apex 힙 한도(트랜잭션당 6~12MB)에 도달할 수 있다. 대용량 변환은 배치 분할 처리를 고려한다.
 
 ---
 

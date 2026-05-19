@@ -11,6 +11,33 @@ aliases: [동적 SOQL, SOQL 인젝션]
 
 ---
 
+## 개념
+
+### Dynamic SOQL이란
+
+정적 SOQL(`[SELECT Id FROM Account]`)은 컴파일 타임에 구문이 확정된다. 반면 Dynamic SOQL은 **런타임에 문자열로 SOQL을 조립**해 `Database.query()` 등으로 실행한다.
+
+Dynamic SOQL이 필요한 상황:
+- 쿼리 대상 오브젝트 타입을 런타임에 결정해야 할 때
+- 사용자가 선택한 필드 목록에 따라 SELECT 절이 변해야 할 때
+- 조건(WHERE 절)의 유무나 구조 자체가 동적으로 결정될 때
+- Tooling API, Metadata API처럼 정적 SOQL이 지원하지 않는 오브젝트를 대상으로 할 때
+
+### 왜 위험한가 — SOQL Injection
+
+Dynamic SOQL의 가장 큰 위험은 **SOQL Injection**이다. 사용자 입력을 그대로 SOQL 문자열에 연결하면, 악의적인 사용자가 쿼리 구조 자체를 변경할 수 있다. 예를 들어 `Name = 'x' OR 1=1 --` 형태의 입력은 WHERE 절을 무력화해 모든 레코드를 반환하게 만든다.
+
+SQL Injection과 동일한 원리지만, Salesforce 내부 데이터를 대상으로 한다는 점에서 레코드 유출, 공유 규칙 우회, 권한 없는 필드 조회 등의 피해로 이어질 수 있다.
+
+### 안전한 작성의 핵심 원칙
+
+1. **사용자 입력은 반드시 bind 변수로** — `queryWithBinds`의 bindMap 또는 정적 SOQL의 `:변수명` 구문을 사용
+2. **WHERE 절 구조 자체를 사용자가 제어하게 하지 않는다** — 값은 bind로, 절 구조는 코드에서 화이트리스트로 관리
+3. **숫자형 파라미터는 타입캐스팅으로 방어** — `Integer.valueOf(input)`으로 숫자로 강제 변환
+4. **`String.escapeSingleQuotes()`만으로는 부족하다** — 따옴표 이스케이프는 문자열 값에만 유효하며, 숫자 비교나 절 구조 변조에는 효과 없음
+
+---
+
 ## 결정 기준
 
 | 상황 | 사용 패턴 |

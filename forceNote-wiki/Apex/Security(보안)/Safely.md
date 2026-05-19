@@ -11,6 +11,19 @@ aliases: [Safely.cls, Fluent DML, 안전 DML]
 
 ---
 
+## 개념
+
+`insert as user`(API 57.0+)는 FLS 위반 시 즉시 `DmlException`을 던진다. 이는 단순한 경우에는 충분하지만, 다음과 같은 요구사항에서는 한계가 있다.
+
+- **어떤 필드가 제거되었는지 알고 싶다**: `insert as user`는 예외만 던질 뿐, 어떤 필드가 FLS 위반인지 상세 정보를 제공하지 않는다
+- **FLS 위반 필드를 제거하고 나머지는 계속 처리하고 싶다**: `insert as user`는 위반 즉시 전체를 중단하지만, `Safely`는 `Security.stripInaccessible()`로 접근 불가 필드를 제거한 뒤 DML을 계속 진행한다
+- **부분 성공(Partial Success)을 핸들링하고 싶다**: 배치 DML에서 일부 레코드만 성공하고 나머지는 실패하는 경우, `Database.insert(recs, false, AccessLevel.USER_MODE)` 또는 `Safely`의 결과(`List<Database.SaveResult>`)로 각 레코드 성공 여부를 확인해야 한다
+- **예외를 억제하고 결과만 받고 싶다**: `quietMode()`를 체이닝하면 DML 예외 없이 SaveResult 목록으로 결과를 받는다
+
+`Safely`는 `apex-recipes`에서 제공하는 유틸리티 클래스로, 프로젝트 내에 직접 포함해 사용하는 패턴이다. Salesforce 표준 라이브러리가 아니므로, 사용 전 프로젝트 코드베이스에 `Safely.cls`가 존재하는지 확인해야 한다.
+
+---
+
 > [!important] Summer '26 (API v67.0) 파괴적 변경 — sharing 기본값 변경
 > v67.0부터 `sharing` 키워드를 선언하지 않은 Apex 클래스는 **`with sharing`으로 기본 동작**한다.
 > 의도적으로 sharing을 제거하려면 반드시 `without sharing`을 **명시적으로** 선언해야 한다.
