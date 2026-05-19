@@ -57,8 +57,8 @@ created: 2026-05-18
 
 | # | 파일 | 부족한 부분 | 상태 | 추가일 |
 |---|---|---|---|---|
-| F-01 | `Apex/Integration(통합)/ConnectApi Chatter 패턴.md` | Chatter만 있음. Communities/UserProfiles/Files 미커버 | 🔲 대기 | 2026-05-18 |
-| F-02 | `Apex/Async(비동기)/비동기 컨텍스트 선택.md` | Apex Cursor(Summer '24 GA)와 비교 없음 | 🔲 대기 | 2026-05-18 |
+| F-01 | `Apex/Integration(통합)/ConnectApi Chatter 패턴.md` | Chatter만 있음. Communities/UserProfiles/Files 미커버 | ✅ 완료 | 2026-05-18 | 2026-05-19 |
+| F-02 | `Apex/Async(비동기)/비동기 컨텍스트 선택.md` | Apex Cursor(Summer '24 GA)와 비교 없음 | ✅ 완료 | 2026-05-18 | 2026-05-19 |
 
 ---
 

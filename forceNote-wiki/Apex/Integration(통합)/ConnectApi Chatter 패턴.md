@@ -1,13 +1,13 @@
 ---
-tags: [apex, integration, chatter, connect-api, pattern]
-source: automation-components/src-messaging/PostRichChatter.cls, ConnectApiHelper.cls
+tags: [apex, integration, chatter, connect-api, pattern, communities, user-profiles]
+source: automation-components/src-messaging/PostRichChatter.cls, ConnectApiHelper.cls, salesforce_apex_reference_guide_v67
 created: 2026-05-17
-aliases: [ConnectApi, Chatter 게시, postFeedItemWithRichText, Chatter 멘션, ConnectApiHelper]
+aliases: [ConnectApi, Chatter 게시, postFeedItemWithRichText, Chatter 멘션, ConnectApiHelper, getCommunities, getCommunity, getUserProfile, ConnectApi.Communities, ConnectApi.UserProfiles]
 ---
 
 # ConnectApi Chatter 패턴
 
-> Apex에서 ConnectApi 네임스페이스로 Chatter 피드를 게시하는 패턴. 리치 텍스트, @멘션, 인라인 이미지를 지원한다.
+> Apex에서 ConnectApi 네임스페이스로 Chatter 피드를 게시하는 패턴. 리치 텍스트, @멘션, 인라인 이미지를 지원한다. Experience Cloud 사이트 조회(Communities)와 사용자 프로필 접근(UserProfiles)도 다룬다.
 
 ---
 
@@ -101,6 +101,90 @@ body = Pattern.compile('<img src="([^"]+)">').matcher(body).replaceAll('image: $
 
 ---
 
+## Communities Class — Experience Cloud 사이트 조회
+
+> API v28.0부터 지원. Chatter 불필요. 게스트 사용자는 v35.0부터 `getCommunity()` 접근 가능.
+
+```apex
+// 1. 모든 사이트 목록 조회
+ConnectApi.CommunityPage allSites = ConnectApi.Communities.getCommunities();
+
+// 2. 상태 필터 조회 — Live / Inactive / UnderConstruction
+ConnectApi.CommunityPage liveSites = ConnectApi.Communities.getCommunities(
+    ConnectApi.CommunityStatus.Live
+);
+
+// 3. 특정 사이트 단건 조회
+ConnectApi.Community site = ConnectApi.Communities.getCommunity(communityId);
+// communityId는 null 또는 'internal' 불가 — 반드시 실제 사이트 Id
+```
+
+| 메서드 | 시그니처 | API 버전 |
+|---|---|---|
+| `getCommunities()` | `public static ConnectApi.CommunityPage getCommunities()` | v28.0 |
+| `getCommunities(communityStatus)` | `public static ConnectApi.CommunityPage getCommunities(ConnectApi.CommunityStatus communityStatus)` | v28.0 |
+| `getCommunity(communityId)` | `public static ConnectApi.Community getCommunity(String communityId)` | v28.0 |
+
+> [!tip] communityId 활용 패턴
+> `getCommunities()`로 전체 목록을 가져와 이름으로 필터링 후 `community.id`를 다른 ConnectApi 메서드의 `communityId` 파라미터로 전달한다.
+
+---
+
+## UserProfiles Class — 사용자 프로필 및 사진 접근
+
+> Chatter 필수. 모든 메서드가 per-user, per-namespace, per-hour 레이트 한도 적용.
+
+```apex
+// 1. 사용자 프로필 조회 (API v29.0)
+ConnectApi.UserProfile profile = ConnectApi.UserProfiles.getUserProfile(
+    communityId,  // String: Experience Cloud 사이트 Id, 'internal', 또는 null
+    userId        // String: 사용자 Id
+);
+
+// 2. 프로필 사진 조회 (API v35.0, 게스트 사용자도 접근 가능)
+ConnectApi.Photo photo = ConnectApi.UserProfiles.getPhoto(
+    communityId,
+    userId
+);
+
+// 3. 배너 사진 조회 (API v36.0)
+ConnectApi.BannerPhoto banner = ConnectApi.UserProfiles.getBannerPhoto(
+    communityId,
+    userId
+);
+
+// 4. 기존 파일로 프로필 사진 설정 (API v35.0)
+ConnectApi.Photo updatedPhoto = ConnectApi.UserProfiles.setPhoto(
+    communityId,
+    userId,
+    fileId,        // String: 파일 Id (키 prefix 069)
+    versionNumber  // Integer: 파일 버전 번호, null이면 최신 버전
+);
+
+// 5. 기존 파일로 배너 사진 설정 (API v36.0)
+ConnectApi.BannerPhoto updatedBanner = ConnectApi.UserProfiles.setBannerPhoto(
+    communityId,
+    userId,
+    fileId,        // String: 파일 Id (키 prefix 069, 8MB 미만)
+    versionNumber  // Integer: null이면 최신 버전
+);
+```
+
+| 메서드 | 반환 타입 | 설명 |
+|---|---|---|
+| `getUserProfile(communityId, userId)` | `ConnectApi.UserProfile` | Chatter 프로필 페이지 데이터 (연락처 정보, 권한, 앱 탭) |
+| `getPhoto(communityId, userId)` | `ConnectApi.Photo` | 프로필 사진 URL + 메타데이터 |
+| `getBannerPhoto(communityId, userId)` | `ConnectApi.BannerPhoto` | 배너 사진 URL + 메타데이터 |
+| `deletePhoto(communityId, userId)` | `Void` | 프로필 사진 삭제 (v35.0) |
+| `deleteBannerPhoto(communityId, userId)` | `Void` | 배너 사진 삭제 (v36.0) |
+| `setPhoto(communityId, userId, fileId, versionNumber)` | `ConnectApi.Photo` | 업로드된 파일을 프로필 사진으로 설정 |
+| `setBannerPhoto(communityId, userId, fileId, versionNumber)` | `ConnectApi.BannerPhoto` | 업로드된 파일을 배너 사진으로 설정 |
+
+> [!warning] 사진 처리 비동기
+> `setPhoto()`, `setBannerPhoto()` 호출 후 사진이 즉시 표시되지 않을 수 있다. 처리가 비동기적으로 완료된다.
+
+---
+
 ## 비교표 — Chatter 게시 방법
 
 | 상황 | 방법 |
@@ -109,6 +193,9 @@ body = Pattern.compile('<img src="([^"]+)">').matcher(body).replaceAll('image: $
 | 리치 텍스트 (볼드, 목록) | `ConnectApiHelper.postFeedItemWithRichText()` |
 | Flow에서 Chatter 게시 | `PostRichChatter` @InvocableMethod |
 | 파일 첨부 포함 | `ConnectApi.ChatterFeeds.postFeedElement()` 직접 사용 |
+| Experience Cloud 사이트 목록 조회 | `ConnectApi.Communities.getCommunities()` |
+| 사용자 프로필 조회 | `ConnectApi.UserProfiles.getUserProfile()` |
+| 프로필/배너 사진 관리 | `ConnectApi.UserProfiles.setPhoto()` / `setBannerPhoto()` |
 
 ---
 

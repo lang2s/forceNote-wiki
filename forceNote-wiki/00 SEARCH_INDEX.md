@@ -101,7 +101,7 @@
 
 | 키워드 | 파일 |
 |---|---|
-| 비동기 선택, 언제 future 언제 queueable 언제 batch | `Apex/Async(비동기)/비동기 컨텍스트 선택.md` |
+| 비동기 선택, 언제 future 언제 queueable 언제 batch, Cursor vs Batch, Database.Cursor 비동기, 페이지 기반 대용량 처리 | `Apex/Async(비동기)/비동기 컨텍스트 선택.md` |
 | @future, future 메서드, fire and forget, callout=true | `Apex/Async(비동기)/Future 메서드.md` |
 | Queueable, AllowsCallouts, 큐어블, SObject 파라미터 비동기 | `Apex/Async(비동기)/Queueable.md` |
 | Queueable 체이닝, 연속 비동기, 다음 잡 실행 | `Apex/Async(비동기)/Queueable 체이닝.md` |
@@ -159,7 +159,7 @@
 |---|---|
 | RestClient, HTTP 호출 추상화, makeApiCall, HttpVerb, PATCH 우회 | `Apex/Integration(통합)/RestClient 패턴.md` |
 | @RestResource, Inbound REST, HttpGet HttpPost, urlmapping, 외부→SF | `Apex/Integration(통합)/Custom REST Endpoint.md` |
-| ConnectApi, Chatter 게시, postFeedItemWithRichText, Chatter 멘션, ConnectApiHelper, 리치 텍스트 피드 | `Apex/Integration(통합)/ConnectApi Chatter 패턴.md` |
+| ConnectApi, Chatter 게시, postFeedItemWithRichText, Chatter 멘션, ConnectApiHelper, 리치 텍스트 피드, getCommunities, getCommunity, ConnectApi.Communities, ConnectApi.UserProfiles, getUserProfile, getPhoto, getBannerPhoto, Experience Cloud 사이트 조회, 사용자 프로필 사진 | `Apex/Integration(통합)/ConnectApi Chatter 패턴.md` |
 | ConnectApi Namespace, Connect in Apex, ConnectApi 개요, ChatterFeeds, ChatterGroups, ChatterUsers, EinsteinLLM, CdpQuery, ConnectApi 클래스 목록, Communities, ManagedContent, CommerceCart, 커넥트API 네임스페이스 | `Apex/Integration(통합)/ConnectApi Namespace 개요.md` |
 | Dom.Document, Dom.XmlNode, XML 파싱, XML 생성, DOM XML, createRootElement, addChildElement, load, toXmlString, getChildElement, getText, SOAP XML | `Apex/Integration(통합)/Dom Namespace.md` |
 | DataSource.Connection, DataSource.Provider, Salesforce Connect, External Objects, 커스텀 어댑터, sync, query, search, upsertRows, deleteRows, TableResult, UpsertResult | `Apex/Integration(통합)/DataSource Namespace.md` |
