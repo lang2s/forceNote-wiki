@@ -25,6 +25,7 @@ created: 2026-05-17
 | [[Search Namespace]] | SOSL Apex API — Search.find(), Search.suggest(), SearchResult, KnowledgeSuggestionFilter | #reference |
 | [[FormulaEval Namespace]] | Formula.builder() 동적 수식 평가 — evaluate(), getReferencedFields(), 템플릿 모드 | #reference |
 | [[Reports Namespace]] | Apex에서 보고서 실행·조회 — ReportManager.runReport/runAsyncReport, FactMap, ReportMetadata | #reference |
+| [[Datacloud Namespace]] | Duplicate Management API — FindDuplicates/FindDuplicatesByIds, DuplicateResult, MatchRecord (Salesforce Data Cloud 제품과 무관) | #reference |
 
 ---
 
@@ -40,6 +41,8 @@ created: 2026-05-17
 - SOSL 검색, 자동완성 제안? → [[Search Namespace]]
 - 포뮬러 필드 값을 DML 없이 재계산? → [[FormulaEval Namespace]]
 - Apex에서 보고서 실행·결과 분석? → [[Reports Namespace]]
+- 중복 레코드 탐지·차단 처리? → [[Datacloud Namespace]] (Duplicate Management)
+- DML 에러에서 중복 정보 추출? → [[Datacloud Namespace]] → DuplicateResult
 
 ## 보안 연동
 

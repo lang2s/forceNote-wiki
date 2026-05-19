@@ -39,6 +39,7 @@ created: 2026-05-17
 - [[Search Namespace]] — Search.find(), Search.suggest(), SearchResult, KnowledgeSuggestionFilter
 - [[FormulaEval Namespace]] — Formula.builder() 동적 수식 평가, getReferencedFields(), 템플릿 모드
 - [[Reports Namespace]] — ReportManager.runReport/runAsyncReport, ReportMetadata 필터 재정의, FactMap 탐색
+- [[Datacloud Namespace]] — Duplicate Management Apex — FindDuplicates/FindDuplicatesByIds, DuplicateResult, MatchRecord (이름 주의: Salesforce Data Cloud 제품과 무관)
 
 ## ⚡ 비동기
 
