@@ -75,6 +75,9 @@ created: 2026-05-22
 | Custom Object __c 공통 필드, ConnectionReceivedId, ConnectionSentId, LastReferencedDate, LastViewedDate, 커스텀 Object 시스템 필드 | `sObject/4 Custom Objects.md` |
 | Custom Object __Feed 공통 필드, 커스텀 Object 피드, Chatter 피드 커스텀 Object | `sObject/4 Custom Objects.md` |
 | FSL__Time_Dependency__c, Field Service, 서비스 예약 종속성, FSL 종속성, Service Appointment 종속성 | `sObject/4 Custom Objects.md` |
+| Custom Metadata Type 필드 전수, __mdt isProtected 규칙, DeveloperName NamespacePrefix QualifiedApiName SystemModStamp Label Language MasterLabel, 커스텀 메타데이터 서브페이지 | `sObject/Custom Metadata Type (__mdt).md` |
+| Custom Object 표준 필드 전수, __c ConnectionReceivedId ConnectionSentId CreatedById CreatedDate CurrencyIsoCode Id IsDeleted LastActivityDate LastModifiedDate LastModifiedById LastReferencedDate LastViewedDate Name OwnerId RecordTypeId SystemModStamp, 커스텀 Object 시스템 필드 서브페이지 | `sObject/Custom Object Standard Fields (__c).md` |
+| Custom Object Feed 필드 전수, __Feed BestCommentId Body CommentCount ConnectionId ContentData ContentFileName ContentSize ContentType FeedPostId InsertedById IsRichText LikeCount LinkUrl NetworkScope ParentId RelatedRecordId Title Type Visibility, 커스텀 피드 서브페이지 | `sObject/Custom Object Feed (__Feed).md` |
 
 ## Ch5 — Object Interfaces (PriceAdjustmentGroup·PriceAdjustmentItem·SalesTransaction)
 
@@ -86,6 +89,9 @@ created: 2026-05-22
 | AdjustmentType, AdjustmentAmount, AdjustmentPercentage, OverrideAmount, 조정 방식 | `sObject/5 Object Interfaces.md` |
 | Priority, PriceAdjustment 적용 우선순위, 가격 조정 순서, null priority | `sObject/5 Object Interfaces.md` |
 | SalesTransaction, Order WebCart, TotalAmount, TotalListAmount, TotalProductAmount, TotalAdjustmentAmount, 판매 트랜잭션 인터페이스 | `sObject/5 Object Interfaces.md` |
+| PriceAdjustmentGroup 필드 전수, AdjustmentSource Discretionary Promotion Rule System, AdjustmentType AdjustmentValue TotalAmount Priority SalesTransactionId PriceAdjustmentCauseId ImplementorType Description, 가격 조정 그룹 서브페이지 | `sObject/PriceAdjustmentGroup.md` |
+| PriceAdjustmentItem 필드 전수, AdjustmentAmountScope Total Unit, AdjustmentType AdjustmentAmount AdjustmentPercentage OverrideAmount, TotalAmount 수량 구독 기간 계산, PriceAdjustmentGroupId SalesTransactionItemId, 라인 아이템 가격 조정 서브페이지 | `sObject/PriceAdjustmentItem.md` |
+| SalesTransaction 필드 전수, ImplementorType TotalAdjustmentAmount TotalAdjustmentDistAmount TotalAmount TotalListAmount TotalProductAmount, Order WebCart 구현체, 판매 트랜잭션 인터페이스 서브페이지 | `sObject/SalesTransaction.md` |
 
 ## Ch6 — Standard Objects (도메인별 이동 목록)
 

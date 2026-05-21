@@ -83,3 +83,23 @@ aliases: [sObject Reference 인덱스, Object Reference 목차]
 | [[Share Objects]] | Share 필드(AccessLevel·ParentId·RowCause·UserOrGroupId)·OwnerSharingRule 필드(AccessLevel·Description·DeveloperName·GroupId·Name·UserOrGroupId)·RowCause=Manual 전용 쓰기 규칙 |
 | [[ChangeEvent Objects]] | ChangeEventHeader 전체 필드·JSON 이벤트 예제·CDC 지원 오브젝트 목록 전수(100+개)·replayId·schema |
 
+## Chapter 4 세부 페이지
+
+| 파일 | 내용 |
+|---|---|
+| [[Custom Metadata Type (__mdt)]] | 지원 호출·전체 필드 참조표(9개)·isProtected 관리 패키지 접근 규칙·SOQL 패턴 |
+| [[Custom Object Standard Fields (__c)]] | 전체 표준 필드 참조표(16개)·ConnectionSentId 마이그레이션·LastReferencedDate/LastViewedDate 사용 조건 |
+| [[Custom Object Feed (__Feed)]] | 특수 접근 규칙·전체 필드 참조표(19개)·Type picklist 전수(25개)·IsRichText HTML 태그·SOQL 제한 |
+
+---
+
+## Chapter 5 세부 페이지
+
+| 파일 | 내용 |
+|---|---|
+| [[PriceAdjustmentGroup]] | 전체 필드 참조표(9개)·AdjustmentSource picklist 4개·Priority 적용 규칙·SOQL 패턴 |
+| [[PriceAdjustmentItem]] | 전체 필드 참조표(11개)·AdjustmentAmountScope(Total/Unit) 수식·구독 기간 계산·Priority 규칙 |
+| [[SalesTransaction]] | 전체 필드 참조표(6개)·구현체 패턴(Order·WebCart)·가격 계산 관계도·SOQL 패턴 |
+
+---
+

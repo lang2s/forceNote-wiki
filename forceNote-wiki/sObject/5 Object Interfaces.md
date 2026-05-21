@@ -26,7 +26,7 @@ Object 인터페이스(Object Interface)는 특정 비즈니스 로직을 구현
 
 ---
 
-## PriceAdjustmentGroup
+## PriceAdjustmentGroup → [[PriceAdjustmentGroup]]
 
 주문/카트 전체에 적용되는 가격 조정 그룹. 여러 `PriceAdjustmentItem`의 합산 값을 보유.
 
@@ -55,7 +55,7 @@ Object 인터페이스(Object Interface)는 특정 비즈니스 로직을 구현
 
 ---
 
-## PriceAdjustmentItem
+## PriceAdjustmentItem → [[PriceAdjustmentItem]]
 
 주문/카트의 특정 라인 아이템에 적용되는 가격 조정.
 
@@ -98,7 +98,7 @@ TotalAmount = 5 × 12 × (-10) = -600
 
 ---
 
-## SalesTransaction
+## SalesTransaction → [[SalesTransaction]]
 
 판매 트랜잭션을 나타내는 인터페이스. Order 또는 WebCart가 구현.
 
@@ -148,6 +148,9 @@ List<PriceAdjustmentItem> items = [
 
 ## 관련 노트
 
+- [[PriceAdjustmentGroup]] — 주문/카트 레벨 가격 조정 그룹 필드 전수 서브페이지
+- [[PriceAdjustmentItem]] — 라인 아이템 가격 조정 필드·AdjustmentAmountScope 계산 서브페이지
+- [[SalesTransaction]] — 판매 트랜잭션 인터페이스 필드·구현체 패턴 서브페이지
 - [[1 Overview]] — Field 타입·Primitive 타입 기초
 - [[2 Object Behavior]] — Object 그룹·타입 분류
 - [[CommerceOrders Namespace]] — Order 관련 Apex 네임스페이스

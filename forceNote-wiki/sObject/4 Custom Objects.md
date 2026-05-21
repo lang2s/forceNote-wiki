@@ -46,7 +46,7 @@ Field Service 관리 패키지(`FSL`)에 포함된 커스텀 Object. 두 Service
 
 ---
 
-## Custom Metadata Type `__mdt`
+## Custom Metadata Type `__mdt` → [[Custom Metadata Type (__mdt)]]
 
 커스텀 메타데이터 레코드. API v34.0+.
 
@@ -96,7 +96,7 @@ MyConfig__mdt config = MyConfig__mdt.getInstance('MyRecord');
 
 ---
 
-## Custom Object `__c`
+## Custom Object `__c` → [[Custom Object Standard Fields (__c)]]
 
 사용자 정의 Object의 표준 필드.
 
@@ -125,7 +125,7 @@ MyConfig__mdt config = MyConfig__mdt.getInstance('MyRecord');
 
 ---
 
-## Custom Object `__Feed`
+## Custom Object `__Feed` → [[Custom Object Feed (__Feed)]]
 
 커스텀 Object의 Chatter 피드. `CustomObject__Feed` 형식 (예: `Textile__Feed`).
 
@@ -181,6 +181,9 @@ List<Textile__Feed> changes = [
 
 ## 관련 노트
 
+- [[Custom Metadata Type (__mdt)]] — __mdt 전체 필드·isProtected 규칙 서브페이지
+- [[Custom Object Standard Fields (__c)]] — __c 표준 필드 16개 전수 서브페이지
+- [[Custom Object Feed (__Feed)]] — __Feed 필드·Type picklist·SOQL 제한 서브페이지
 - [[1 Overview]] — Field 타입·API 속성 기초
 - [[2 Object Behavior]] — Object 타입·접미어별 분류 (__c/__mdt/__Feed 비교)
 - [[3 Associated Objects]] — Feed·History·Share·ChangeEvent 패턴 상세
