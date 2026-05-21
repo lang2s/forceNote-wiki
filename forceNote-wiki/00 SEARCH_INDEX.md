@@ -63,6 +63,17 @@
 
 ---
 
+## 플랫폼 한도 / API 한도
+
+| 키워드 | 파일 |
+|---|---|
+| Governor Limits 빠른 참조, API 한도, Concurrent API, 동시 API 요청, Total API 호출 수, 일일 API 한도, API 요청 할당, Enterprise API 한도, Unlimited API 한도 | `Architecture(아키텍처)/Governor Limits 빠른 참조.md` |
+| Bulk API 한도, Bulk API 2.0 한도, 배치 할당, Ingest Job 한도, Query Job 한도, 15000 배치, 150000000 레코드, Bulk API 파일 크기 | `Architecture(아키텍처)/Governor Limits 빠른 참조.md` |
+| SOAP API 한도, create 200, merge 200, describeSObjects 100, query 배치 크기 2000, SOAP call limit | `Architecture(아키텍처)/Governor Limits 빠른 참조.md` |
+| Metadata 한도, 배포 파일 10000, zip 39MB, 600MB, Change Set 10000, rootTypesWithDependencies | `Architecture(아키텍처)/Governor Limits 빠른 참조.md` |
+| SOQL 쿼리 길이, SOQL 100000자, junction IDs 500, WHERE 절 4000자, 관계 쿼리 한도, child-to-parent 55, parent-to-child 20, 5단계 깊이 | `Architecture(아키텍처)/Governor Limits 빠른 참조.md` |
+| SOQL query timeout 32분, QUERY_TOO_COMPLICATED, Visualforce 한도, VF 뷰스테이트 170KB, VF 응답 15MB, StandardSetController 10000 | `Architecture(아키텍처)/Governor Limits 빠른 참조.md` |
+
 ## Apex — 아키텍처 / 트리거
 
 | 키워드 | 파일 |
@@ -71,6 +82,13 @@
 | TriggerHandler, beforeInsert afterInsert, Trigger.new, 트리거 패턴 | `Apex/Trigger(트리거)/TriggerHandler 패턴.md` |
 | CMDT, Custom Metadata, 트리거 on/off, 메타데이터 트리거 제어 | `Apex/Trigger(트리거)/CMDT 메타데이터 트리거.md` |
 | Permission Set, 권한 설계 | `Architecture(아키텍처)/Permission Set 설계.md` |
+| Validation Rules, 검증 규칙, 유효성 검사 공식, validation formulas, REGEX 검증, ISPICKVAL, ISCHANGED, PRIORVALUE, ISNEW, 크로스 오브젝트 VLOOKUP, $User 머지 필드, $Profile 머지 필드, $UserRole, $ObjectType VLOOKUP | `Architecture(아키텍처)/Validation Rules 예제.md` |
+| 계정 주소 검증, 우편번호 형식, 캐나다 우편번호 REGEX, 미국 ZIP 코드 REGEX, 주 코드 CONTAINS, ISO 국가코드 검증 | `Architecture(아키텍처)/Validation Rules 예제.md` |
+| 기회 단계 후퇴 방지, Stage regression prevent, StageName CASE 비교, Closed Won 제품 필수, 고액 승인 요청, 할인율 한도, 종료일 과거 불가 | `Architecture(아키텍처)/Validation Rules 예제.md` |
+| SSN 형식 REGEX, 신용카드 번호 REGEX, IP 주소 REGEX, 운전면허 형식, 웹사이트 확장자 검증, 통화코드 CASE | `Architecture(아키텍처)/Validation Rules 예제.md` |
+| 날짜 평일만 허용, 주말만 허용, 현재 월/연도, 마지막 날, MOD 요일 계산, 1년 이내, 종료일 시작일 이후 | `Architecture(아키텍처)/Validation Rules 예제.md` |
+| 숫자 홀짝수 검증, MOD 5의 배수, 정수 ROUND, 음수 방지, 급여 범위, 백분율 0-100 | `Architecture(아키텍처)/Validation Rules 예제.md` |
+| 레코드 소유자만 수정, 관리자만 과거날짜, Owner-only change, Profile Name System Administrator, 역할기반 할인 VLOOKUP | `Architecture(아키텍처)/Validation Rules 예제.md` |
 
 ## Apex — 보안 / FLS / DML (Auth 추가)
 
@@ -96,7 +114,8 @@
 | 키워드 | 파일 |
 |---|---|
 | SOQL, 쿼리 패턴, 벌크 쿼리, 거버너 한도, Database.query, 데이터 조회, SELECT FROM WHERE | `Apex/Data(데이터)/SOQL 패턴.md` |
-| SOSL, FIND 구문, 전문 검색, IN NAME FIELDS, RETURNING, 여러 오브젝트 검색, List<List<SObject>>, WITH SNIPPET, WITH HIGHLIGHT, SOSL vs SOQL | `Apex/Data(데이터)/SOSL 패턴.md` |
+| SOQL 문법 레퍼런스, SOQL SELECT 전체 문법, FIELDS ALL CUSTOM STANDARD, 날짜 리터럴, TODAY YESTERDAY LAST_N_DAYS THIS_FISCAL_YEAR, 날짜 함수, CALENDAR_YEAR DAY_ONLY HOUR_IN_DAY, GROUP BY ROLLUP CUBE, GROUPING 함수, 세미조인, 안티조인, 관계 쿼리, 자식→부모 dot, 부모→자식 서브쿼리, TYPEOF 다형성, TYPEOF 제한사항, USING SCOPE, ContentDocumentLink 제한, Big Object 쿼리, SOQL 오브젝트 제한, FORMAT() SOQL, toLabel() SOQL, convertCurrency() SOQL, DISTANCE GEOLOCATION 위치 기반 쿼리, Location-Based SOQL, 관계 쿼리 제한사항, child-to-parent 55개 제한, KnowledgeArticleVersion 바인딩변수 불가, Data 360 SOQL 제한, UserRecordAccess 쿼리, Vote 쿼리, ContentHubItem 쿼리 | `Apex/Data(데이터)/SOQL 문법 레퍼런스.md` |
+| SOSL, FIND 구문, 전문 검색, IN NAME FIELDS, RETURNING, 여러 오브젝트 검색, List<List<SObject>>, WITH SNIPPET, WITH HIGHLIGHT, SOSL 레퍼런스, SOSL 전체 문법, FIND 와일드카드, SOSL 예약문자 이스케이프, SearchQuery 문자수 제한, SOSL ORDER BY, SOSL OFFSET, SOSL FORMAT(), SOSL toLabel, SOSL convertCurrency, USING Listview SOSL, UPDATE TRACKING SOSL, UPDATE VIEWSTAT SOSL, WITH HIGHLIGHT 지원 필드, WITH METADATA LABELS, WITH DivisionFilter, WITH PricebookId, WITH SPELL_CORRECTION, SOSL 검색 알고리즘, SOSL External Object 제한, SOSL WHERE 연산자, SOSL 이스케이프 시퀀스, SOSL vs SOQL | `Apex/Data(데이터)/SOSL 패턴.md` |
 | FormulaEval, Formula.builder, 동적 수식 평가, 포뮬러 필드 재계산, DML 없이 수식 계산, getReferencedFields, 수식 평가 Apex, 템플릿 수식, FormulaReturnType, FormulaGlobal | `Apex/Data(데이터)/FormulaEval Namespace.md` |
 | Reports namespace, ReportManager, runReport, runAsyncReport, ReportResults, ReportMetadata, ReportFact, ReportFactWithDetails, SummaryValue, FactMap, 보고서 Apex 실행, 비동기 보고서, 보고서 필터 재정의, getFactMap, ReportFilter, BucketField, ReportInstance | `Apex/Data(데이터)/Reports Namespace.md` |
 | BusinessHours, BusinessHours.diff, 영업시간 계산, SLA 준수 여부, 업무시간 경과, isWithin, nextStartDate, SLA 초과 | `Apex/Data(데이터)/BusinessHours 패턴.md` |
@@ -260,7 +279,12 @@
 | runtime_industries_cpq Namespace, Industries CPQ Apex, CPQ 제품 검색 Apex, 제품 카탈로그 카테고리 관리 Apex, managed package cpq namespace | `Apex/Integration(통합)/runtime_industries_cpq Namespace.md` |
 | runtime_industries_insurance Namespace, AddEligibleInsuranceClausesOptions, CreateInsuranceQuoteOptions, CreateInsuranceRatingOptions, GenerateInsuranceClausesOptions, UpdateInsuranceQuoteOptions, Industries Insurance Apex, 보험 견적 생성 Apex, 보험 조항 생성 Apex, 보험 레이팅 Apex, Insurance Cloud managed package | `Apex/Integration(통합)/runtime_industries_insurance Namespace.md` |
 | Sfc Namespace, ContentDownloadContext, ContentDownloadHandler, ContentDownloadHandlerFactory, getContentDownloadHandler, isDownloadAllowed, downloadErrorMessage, redirectUrl, Salesforce Files Apex, 파일 다운로드 커스터마이징 Apex, 콘텐츠 다운로드 제어, IRM 파일 제어, 모바일 다운로드 차단 Apex, CHATTER CONTENT DELIVERY REST_API RETRIEVE S1 SOQL | `Apex/Integration(통합)/Sfc Namespace.md` |
+| Sfdc_Checkout Namespace, AsyncCartProcessor, B2BCheckoutController, IntegrationInfo, IntegrationStatus, licenseCompliance, startCartProcessAsync, CartInventoryValidation, CartPriceCalculations, CartShippingCharges, CartTaxCalculations, B2B Commerce 체크아웃 Apex, 장바구니 비동기 처리 Apex, GMV 추적, B2B 체크아웃 통합 구현 | `Apex/Integration(통합)/Sfdc_Checkout Namespace.md` |
+| Sfdc_Enablement Namespace, LearningEvaluation, LearningEvaluationResult, LearningItemEvaluationHandler, LearningItemProgressStatus, LearningItemSerializeDeserializer, evaluate, serialize, deserialize, NotStarted InProgress Completed, ApexEvaluationHandler, ApexSerializerDeserializer, Enablement 커스텀 Exercise Apex, 학습 진도 추적 Apex, Enablement 프로그램 마이그레이션 직렬화, Sales Programs Apex | `Apex/Integration(통합)/Sfdc_Enablement Namespace.md` |
+| sfdc_surveys Namespace, SurveyInvitationLinkShortener, getShortenedURL, 설문 초대 URL 단축, 설문 링크 단축 Apex, Survey URL Shortener Apex, Bitly Apex 연동, SurveyInvitation, SurveySubject, SurveyResponse Trigger, Feedback Management Apex, 설문 SMS 발송, 설문 WhatsApp 발송 | `Apex/Integration(통합)/sfdc_surveys Namespace.md` |
 | Pref_center Namespace, PreferenceCenterApexHandler, LoadFormData, LoadParameters, SubmitFormData, SubmitParameters, TokenUtility, generateToken, generateTokens, TokenType, ValidationResult, Privacy Center Apex, Preference Manager Apex, 동의 양식 커스터마이징, 개인정보 동의 관리 Apex, 양식 로드 제출 핸들러 | `Apex/Integration(통합)/Pref_center Namespace.md` |
+| renew_assets_summary Namespace, RenewalOpptyDetail, RenewalPriceDetail, 갱신 가능 자산 Apex, 재생 자산 요약 네임스페이스, Renewable Assets Apex, Revenue Cloud 갱신 자산, 갱신 Opportunity 생성 | `Apex/Integration(통합)/renew_assets_summary Namespace.md` |
+| fsccashflow Namespace, FSCCashFlowUtil, FSC CashFlow Apex, 현금흐름 Apex, callable FSC Apex, FSCCashFlow Flexcard, GetPartyIncomeFrequencyLabel, GetPartyIncomeTypeLabel, GetPartyIncomeStatusLabel, CalculateIncomeExpenseSummary, GetPartyExpenseFrequencyLabel, GetPartyExpenseTypeLabel, GetPartyExpenseStatusLabel, PerformIncomeValidation, PerformExpenseValidation, GetDurationDateRange, HandleUpsertError, CheckReadAccess, CheckCrudOnIncome, CheckCrudOnExpense, 파티 수입 지출 Apex, Financial Services Cloud CashFlow, FSC Flexcard callable Apex | `Apex/Integration(통합)/fsccashflow Namespace.md` |
 
 ## Apex — 보안 / FLS / DML (Auth 추가)
 
@@ -294,6 +318,7 @@
 | Governor Limits, 거버너 한도, 실행 한도, SOQL 한도, DML 한도, Heap size, CPU time, Callout 한도, Limits 클래스, getQueries, getDmlStatements, getLimitQueries, getLimitDmlStatements, 거버너 리밋, Apex 실행 한도, 한도 초과 예외, LimitException, Per-Transaction Limits, 비동기 동기 한도 차이, Platform Apex Limits, Static Apex Limits | `Apex/ExecutionContext(실행컨텍스트)/Governor Limits.md` |
 | Platform Event 발행, EventBus.publish, 이벤트 트리거 수신 | `Apex/PlatformEvents(플랫폼이벤트)/Platform Event 발행.md` |
 | ChangeEventHeader, CDC, Change Data Capture, changetype, recordids, changedfields, nulledfields, 변경 데이터 캡처, TriggerContext, RetryableException, TestBroker | `Apex/PlatformEvents(플랫폼이벤트)/ChangeEventHeader.md` |
+| Change Data Capture 개발자 가이드, CDC 설정, CDC 구독 채널, AccountChangeEvent, ChangeEvent 트리거, after insert CDC, Automated Process 트리거, CDC 테스트 enableChangeDataCapture, Test.getEventBus().deliver, Gap Event, Overflow Event, GAP_OVERFLOW, 병합 이벤트, CDC 할당 한도, CDC 이벤트 전달 한도, 50000 이벤트, 25000 이벤트, CDC 보안 권한, EventBusSubscriber, CDC FLS, 실시간 데이터 동기화, CDC Reliability, replayId, 이벤트 신뢰성, 이벤트 보강, EnrichedFields, PlatformEventChannelMember enrichedFields, 필터 스트림, FilterExpression, 커스텀 채널 필터, 트랜잭션 복제, transactionKey sequenceNumber, 복합 필드 변경 이벤트, BillingAddress compound field, Pub/Sub API CDC, gRPC Avro 변경 이벤트, PlatformEventUsageMetric, CHANGE_EVENTS_DELIVERED, 이벤트 사용량 모니터링, diffFields, 대용량 텍스트 diff, 유니파이드 diff SHA-256, 표준 오브젝트 노트, Person Account 변경 이벤트, Lead Conversion 변경 이벤트, PricebookEntry CREATE, User preferences 변경 이벤트, GroupEventType 반복 활동, Event Invitees 이벤트, CDC 애드온 라이선스, 이벤트 전달 계산, API 버전 스키마, GetSchema RPC, 이벤트 스키마 조회 | `Apex/PlatformEvents(플랫폼이벤트)/Change Data Capture.md` |
 | EventPublishFailureCallback, EventPublishSuccessCallback, 이벤트 발행 콜백, 발행 실패 콜백, 발행 성공 콜백, onFailure, onSuccess, getEventUuids, setResumeCheckpoint, 이벤트 부분 처리 재개, Automated Process 콜백 | `Apex/PlatformEvents(플랫폼이벤트)/EventBus Publish Callbacks.md` |
 | EventBus Namespace, EventBus.publish 메서드 목록, TriggerContext, RetryableException, setResumeCheckpoint, publishWithAccessLevel, getOperationId, 이벤트버스 네임스페이스, 트리거 재시도, 이벤트 재개 | `Apex/PlatformEvents(플랫폼이벤트)/EventBus Namespace.md` |
 | Approval.process, ProcessSubmitRequest, ProcessWorkitemRequest, 승인 제출, 승인 프로세스 Apex, Approval.lock, Approval.unlock, LockResult, UnlockResult | `Architecture(아키텍처)/Approval Namespace.md` |
