@@ -39,14 +39,19 @@ created: 2026-05-22
 
 | 키워드 | 파일 |
 |---|---|
-| Object Groups, Salesforce Common Objects, Cloud Objects, High-Scale Objects, External Data Objects, Object 그룹, 오브젝트 그룹 | `sObject/2 Object Behavior.md` |
-| Original Platform Objects, Account Contact Lead Opportunity, 핵심 CRM Object, ACID 트랜잭션 | `sObject/2 Object Behavior.md` |
-| Base Platform Objects, BPO, 플랫폼 오브젝트 | `sObject/2 Object Behavior.md` |
-| Setup Platform Objects, SPO, CompactLayout, CustomField, 설정 오브젝트 | `sObject/2 Object Behavior.md` |
-| Data Cloud Objects, DLO, DMO, CIO, DG, UDLO, UDMO, Unified Objects, Data Lake Object, Data Model Object, Calculated Insight Object, Data Graph, __dlo, __dlm, __cio, __dg, 데이터클라우드 | `sObject/2 Object Behavior.md` |
-| Zero Copy Objects, Snowflake, AWS, 제로 복제, 외부 데이터 연동 | `sObject/2 Object Behavior.md` |
-| Object Types, Object Suffix, __b __c __ChangeEvent __chn __cio __dg __dlm __dlo __dmo __e __Feed __mdt __x, 오브젝트 타입, 오브젝트 접미어 | `sObject/2 Object Behavior.md` |
-| Object Cheatsheet, CRUD 지원, 오브젝트 리스트, Object 비교 쿼리 | `sObject/2 Object Behavior.md` |
+| Object Groups, Salesforce Common Objects, Cloud Objects, High-Scale Objects, External Data Objects, Object 그룹, 오브젝트 그룹, Object 선택 기준 | `sObject/Object Groups.md` |
+| Original Platform Objects, Account Contact Lead Opportunity, 핵심 CRM Object, ACID 트랜잭션, Hero Objects, Legacy Objects | `sObject/Object Groups.md` |
+| Base Platform Objects, BPO, 플랫폼 오브젝트, SocialPersona | `sObject/Object Groups.md` |
+| Setup Platform Objects, SPO, CompactLayout, CustomField, 설정 오브젝트 | `sObject/Object Groups.md` |
+| Objects by Data Flow, Objects by Data Domain, Objects by Transaction Type, ACID OLTP OLAP 분류 | `sObject/Object Groups.md` |
+| Data Cloud Objects, DLO, DMO, CIO, DG, UDLO, UDMO, Unified Objects, Data Lake Object, Data Model Object, Calculated Insight Object, Data Graph, __dlo, __dlm, __cio, __dg, 데이터클라우드 오브젝트 | `sObject/Data Cloud Objects.md` |
+| DMO Object Creation, DMO 생성 흐름, DLO to DMO, Identity Resolution, C360 Data Model, 데이터 모델 오브젝트 생성 | `sObject/Data Cloud Objects.md` |
+| UDMO Object Creation, UDMO 생성 흐름, Unstructured Data Lake Object, RAG GenAI, 비정형 데이터 모델 | `sObject/Data Cloud Objects.md` |
+| Zero Copy Objects, Snowflake, AWS, 제로 복제, 외부 데이터 연동, Zero Copy 생성 흐름 | `sObject/Data Cloud Objects.md` |
+| Object Types, Object Suffix, __b __c __ChangeEvent __chn __cio __dg __dlm __dlo __dmo __dso __e __Feed __hd __History _hst __ka __kav __mdt __pc __pr __r __Share __Tag __ViewStat __VoteStat __x __xo, 오브젝트 타입, 오브젝트 접미어, suffix 표 | `sObject/Object Types Reference.md` |
+| Object Cheatsheet, CRUD 지원, 오브젝트 비교, Object 비교 Packaging Documentation Reference | `sObject/Object Types Reference.md` |
+| Identifying Object Type, Accessing Object, Object Manager, 오브젝트 타입 식별 | `sObject/Object Types Reference.md` |
+| 2 Object Behavior, Object Behavior 개요, Object 선택 프레임워크 | `sObject/2 Object Behavior.md` |
 
 ## Ch3 — Associated Objects (Feed·History·Share·OwnerSharingRule·ChangeEvent)
 

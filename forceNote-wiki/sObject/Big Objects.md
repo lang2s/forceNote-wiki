@@ -149,3 +149,5 @@ Big Object의 복합 기본키(composite primary key)를 정의한다.
 - [[External Objects]] — 외부 시스템 데이터를 실시간으로 접근하는 다른 옵션
 - [[Custom Objects]] — 일반 커스텀 오브젝트 설명 (Big Object와 비교)
 - [[API Field Properties]] — `required`, `createable` 등 필드 속성 상세
+- [[Object Groups]] — Big Objects가 속하는 High-Scale Objects 그룹 분류
+- [[Object Types Reference]] — __b suffix 및 전체 Object 타입 Cheatsheet

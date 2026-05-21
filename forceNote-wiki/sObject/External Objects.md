@@ -102,3 +102,5 @@ Files Connect는 서드파티 콘텐츠 시스템에 접근한다:
 - [[Object Relationships]] — External Lookup·Indirect Lookup 관계 타입 상세
 - [[Custom Objects]] — 외부 오브젝트와 커스텀 오브젝트 비교
 - [[Big Objects]] — 대용량 데이터 처리를 위한 또 다른 옵션
+- [[Object Groups]] — External Data Objects 그룹 분류
+- [[Object Types Reference]] — __x suffix 및 Zero Copy Objects Cheatsheet

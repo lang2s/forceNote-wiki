@@ -27,7 +27,7 @@ aliases: [2 Object Behavior, Object 그룹, Data Cloud Object, Object Types, Obj
 
 ---
 
-## Object 그룹
+## Object 그룹 → [[Object Groups]]
 
 | 그룹 | 설명 | 라이센스 |
 |---|---|---|
@@ -86,7 +86,7 @@ Setup 설정 정보를 저장하는 Object.
 
 ---
 
-## Data Cloud Objects
+## Data Cloud Objects → [[Data Cloud Objects]]
 
 Data Cloud에서 대규모 데이터를 저장·처리하는 Object 타입들.
 
@@ -142,7 +142,7 @@ Snowflake·AWS 등 외부 데이터 소스를 Data Cloud와 Deep Integration.
 
 ---
 
-## Object Types 표 (API 접미사 → 타입)
+## Object Types 표 (API 접미사 → 타입) → [[Object Types Reference]]
 
 | 접미사 | Object 타입 | 그룹 |
 |---|---|---|
@@ -178,7 +178,7 @@ Snowflake·AWS 등 외부 데이터 소스를 Data Cloud와 Deep Integration.
 
 ---
 
-## Object Cheatsheet
+## Object Cheatsheet → [[Object Types Reference]]
 
 | Object 타입 | 그룹 | 커스터마이징 | 패키징 | CRUD |
 |---|---|---|---|---|
@@ -198,6 +198,9 @@ Snowflake·AWS 등 외부 데이터 소스를 Data Cloud와 Deep Integration.
 
 ## 관련 노트
 
+- [[Object Groups]] — Object 그룹 분류 상세 (Common·Cloud·High-Scale·External)
+- [[Data Cloud Objects]] — DLO·DMO·CIO·DG·UDLO·UDMO 전체 상세
+- [[Object Types Reference]] — suffix 전수 표 및 Object Cheatsheet 전체
 - [[1 Overview]] — Field 타입·Primitive 타입 기초
 - [[3 Associated Objects]] — Feed·History·Share 연관 Object 패턴
 - [[4 Custom Objects]] — __mdt·__c·__Feed 표준 필드

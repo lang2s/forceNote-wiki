@@ -53,8 +53,21 @@ aliases: [sObject Reference 인덱스, Object Reference 목차]
 - Master-Detail vs Lookup 비교 → [[Object Relationships]]
 - 외부 시스템 연결(Salesforce Connect) → [[External Objects]]
 - 대용량 아카이브 데이터 → [[Big Objects]]
-- Object 그룹·Data Cloud(DLO·DMO) → [[2 Object Behavior]]
+- Object 그룹 분류(Common/Cloud/High-Scale/External) → [[Object Groups]]
+- Data Cloud(DLO·DMO·CIO·DG·UDLO·UDMO) → [[Data Cloud Objects]]
+- suffix 표·Object Cheatsheet → [[Object Types Reference]]
+- Object 그룹·타입·치트시트 개요 → [[2 Object Behavior]]
 - Feed·History 패턴 → [[3 Associated Objects]]
 - __mdt / __c 표준 필드 목록 → [[4 Custom Objects]]
 - 가격조정 인터페이스(B2B) → [[5 Object Interfaces]]
 - Account·Case·Opportunity 등 표준 Object → [[6 Standard Objects]]
+
+---
+
+## Chapter 2 세부 페이지
+
+| 파일 | 내용 |
+|---|---|
+| [[Object Groups]] | Object 선택 기준 7가지·데이터 도메인별·트랜잭션 유형별(ACID/OLTP/OLAP) 분류·4개 그룹 상세 |
+| [[Data Cloud Objects]] | DLO·DMO·CIO·DG·Unified Objects·UDLO·UDMO·Zero Copy 정의 + DMO/UDMO 생성 흐름 전체 |
+| [[Object Types Reference]] | suffix 전수 표(32개 항목)·Object Cheatsheet(Customizable·Cloud·Packaging·Documentation·Reference) |
