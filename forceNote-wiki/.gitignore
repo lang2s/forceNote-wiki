@@ -1,8 +1,0 @@
-# macOS
-.DS_Store
-
-# Claude Code memory
-memory/
-
-# PDF documents
-*.pdf

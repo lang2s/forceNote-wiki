@@ -4,3 +4,9 @@ workspace/
 
 # Claude Code 로컬 설정 (머신별, 커밋 제외)
 /.claude/
+
+# macOS
+.DS_Store
+
+# Claude Code memory
+forceNote-wiki/memory/
