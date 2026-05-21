@@ -77,6 +77,8 @@ created: 2026-05-21
 | @wire 내부 동작, WireAdapter 인터페이스, WireAdapterConstructor, createConnector, createConfigWatcher, ReactiveObserver, ENABLE_WIRE_SYNC_EMIT, legacy register WireEventTarget ValueChangedEvent, wire 어댑터 구현 | `LWC/Internals(내부구조)/@wire 어댑터 내부 구조.md` |
 | LWC Signals, @lwc/signals, Signal 인터페이스, SignalBaseClass, addTrustedSignal, setTrustedSignalSet, isTrustedSignal, ENABLE_EXPERIMENTAL_SIGNALS, LWC 시그널, 외부 반응형 상태 | `LWC/Internals(내부구조)/LWC Signals.md` |
 | LWC 런타임 플래그, lwcRuntimeFlags, setFeatureFlag, setFeatureFlagForTest, DISABLE_NATIVE_CUSTOM_ELEMENT_LIFECYCLE, ENABLE_WIRE_SYNC_EMIT, DISABLE_SYNTHETIC_SHADOW, ENABLE_FROZEN_TEMPLATE, ENABLE_LEGACY_SCOPE_TOKENS, DISABLE_DETACHED_REHYDRATION, @lwc/features | `LWC/Internals(내부구조)/LWC 런타임 Feature Flags.md` |
+| LWC 템플릿 컴파일러, @lwc/template-compiler, compile() 함수, TemplateCompileResult, RENDER_APIS, api_element api_custom_element api_text api_dynamic_text api_static_fragment, static content optimization, isStaticNode, optimizeStaticExpressions, stcN 호이스팅, LWC HTML 컴파일 출력 | `LWC/Internals(내부구조)/LWC 템플릿 컴파일러 파이프라인.md` |
+| LWC Shadow DOM 모드, native shadow synthetic shadow light DOM 비교, RenderMode Light Shadow, ShadowMode Native Synthetic, shadowSupportMode any reset native, shadow migrate mode, applyShadowMigrateMode, DISABLE_SYNTHETIC_SHADOW, @lwc/synthetic-shadow 폴리필 | `LWC/Internals(내부구조)/LWC Shadow DOM 모드.md` |
 
 ---
 

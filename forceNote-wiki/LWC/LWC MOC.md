@@ -85,6 +85,8 @@ created: 2026-05-17
 - [[@wire 어댑터 내부 구조]] — WireAdapter 인터페이스, createConnector, configWatcher, legacy register()
 - [[LWC Signals]] — Signal 인터페이스, SignalBaseClass, addTrustedSignal, setTrustedSignalSet
 - [[LWC 런타임 Feature Flags]] — 13개 플래그 전체 목록, setFeatureFlag(), lwcRuntimeFlags 글로벌
+- [[LWC 템플릿 컴파일러 파이프라인]] — compile() API, parse→codegen 2단계, RENDER_APIS, static content optimization
+- [[LWC Shadow DOM 모드]] — Native/Synthetic/Light DOM 비교, shadowSupportMode, Shadow Migrate Mode
 
 ---
 
