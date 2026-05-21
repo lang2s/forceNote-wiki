@@ -5,18 +5,22 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 
 ---
 
-## 현황 (2026-05-18 기준)
+## 현황 (2026-05-22 기준)
 
 | 섹션 | 노트 수 | 상태 |
 |---|---|---|
-| Apex | 63 | ✅ 주요 네임스페이스 완료 |
-| LWC | 43 | ✅ 완료 |
-| Flow | 17 | ✅ 완료 |
-| DevOps(데브옵스) | 5 | ✅ 완료 (신규) |
-| Integration(통합) | 5 | ✅ 완료 |
-| Architecture(아키텍처) | 5 | ✅ 완료 |
-| Release | 8 | ✅ 6개 릴리즈 완료 |
-| **합계** | **149** | |
+| Apex | 96 | ✅ 네임스페이스 레퍼런스 + 패턴 |
+| LWC | 33 | ✅ 완료 |
+| Flow | 15 | ✅ 완료 |
+| Architecture(아키텍처) | 12 | ✅ 완료 |
+| Release | 8 | ✅ 8개 릴리즈 완료 |
+| DevOps(데브옵스) | 4 | ✅ 완료 |
+| Integration(통합) | 4 | ✅ 완료 |
+| Aura(오라) | 3 | ✅ 완료 |
+| Admin(어드민) | 2 | ✅ 완료 |
+| **합계** | **179** | |
+
+> Apex 레퍼런스 네임스페이스 커버리지 **~93%** (~70개 중 63개, 핵심 전부 커버). 누락·우선순위는 `_MOC/WORK_BACKLOG.md` "C — 커버리지 재산출" 참조.
 
 ---
 
@@ -61,7 +65,7 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 
 | PDF | 완료된 wiki |
 |---|---|
-| `salesforce_apex_reference_guide.pdf` v67.0 | Apex 13개 네임스페이스 레퍼런스 (Database, Schema, Search, FormulaEval, Reports, Auth, Dom, DataSource, ExternalService, Invocable, Process, QuickAction, Metadata) |
+| `salesforce_apex_reference_guide.pdf` v67.0 | Apex 네임스페이스 레퍼런스 63개 (System·Database·Schema·Auth·ConnectApi 등 핵심 + 커머스·산업 네임스페이스 다수) |
 | `sfdx_dev.pdf` v67.0 | `DevOps(데브옵스)/` 4개 노트 (DX 개요, Scratch Org, Unlocked Package, CI/CD) |
 | `lightningAura.pdf` | `LWC/BaseComponents(베이스컴포넌트)/` 10개 노트 |
 
@@ -72,9 +76,11 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 | Summer '26 | v67.0 | ✅ |
 | Winter '26 | v65.0 | ✅ |
 | Summer '25 | v64.0 | ✅ |
-| Winter '24 | v59.0 | ✅ |
+| Spring '25 | v63.0 | ✅ |
+| Winter '25 | v62.0 | ✅ |
 | Summer '24 | v61.0 | ✅ |
 | Spring '24 | v60.0 | ✅ |
+| Winter '24 | v59.0 | ✅ |
 
 ---
 
@@ -84,8 +90,8 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 |---|---|
 | [agent-script-recipes](https://github.com/trailheadapps/agent-script-recipes) — Agentforce 패턴 | 🔲 |
 | [ebikes-lwc](https://github.com/trailheadapps/ebikes-lwc) — Experience Cloud | 🔲 |
-| Spring '25 / Winter '25 릴리즈 노트 | 🔲 |
 | `Agentforce/` 섹션 신설 | 🔲 |
+| 누락 네임스페이스 6개 (DataRetrieval 등) — `WORK_BACKLOG.md` C-01~C-06 | 🔲 |
 
 ---
 
@@ -94,8 +100,9 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 ```
 forceNote-wiki/
 ├── 00 Home.md              ← 전체 진입점
-├── 00 SEARCH_INDEX.md      ← 키워드 → 파일 경로 매핑
-├── Apex/                   ← 63개 노트
+├── 00 SEARCH_INDEX.md      ← 키워드 라우터 (도메인 → 샤드)
+├── _index/                 ← 키워드 검색 샤드 6개
+├── Apex/                   ← 96개 노트 (네임스페이스 레퍼런스 포함)
 │   ├── Security(보안)/         Safely, CanTheUser, Auth Namespace, WITH USER_MODE
 │   ├── Async(비동기)/          Future, Queueable, Batch, Scheduled
 │   ├── Data(데이터)/           SOQL, DML, Database NS, Search NS, FormulaEval, Reports NS
@@ -109,7 +116,7 @@ forceNote-wiki/
 │   ├── PlatformEvents(플랫폼이벤트)/ Platform Event, CDC, Publish Callbacks
 │   ├── PlatformCache(플랫폼캐시)/   Platform Cache
 │   └── Messaging(메시징)/      SingleEmailMessage, CustomNotification
-├── LWC/                    ← 43개 노트
+├── LWC/                    ← 33개 노트
 │   ├── ApexIntegration(Apex통합)/  Wire, Imperative 호출
 │   ├── BaseComponents(베이스컴포넌트)/ 10개 컴포넌트 상세 레퍼런스
 │   ├── ComponentAPI(컴포넌트API)/  @api, 컴포지션
@@ -119,15 +126,13 @@ forceNote-wiki/
 │   ├── UIPatterns(UI패턴)/        Toast, 모달, Static Resource, 파일 업로드
 │   ├── Mobile(모바일)/            getBarcodeScanner, getLocationService
 │   └── Security(보안)/            customPermission, CSP, DOM XSS
-├── Flow/                   ← 17개 노트
-├── DevOps(데브옵스)/        ← 5개 노트 (신규)
-│   ├── Salesforce DX 개요  sfdx-project.json, sf CLI, Source Format
-│   ├── Scratch Org 패턴    Dev Hub, org create scratch, Snapshot, Org Shape
-│   ├── Unlocked Package 패턴 sf package create/version create/install
-│   └── CI CD 패턴          Jenkins Jenkinsfile, CircleCI, JWT 자동화
-├── Integration(통합)/      ← 5개 노트
-├── Architecture(아키텍처)/  ← 5개 노트
-└── Release/                ← 8개 노트 (6개 릴리즈 완료)
+├── Flow/                   ← 15개 노트
+├── Architecture(아키텍처)/  ← 12개 노트 (System/Schema/ApexPages/Site/Canvas NS, Governor Limits, 서비스 레이어 등)
+├── DevOps(데브옵스)/        ← 4개 노트 (DX 개요, Scratch Org, Unlocked Package, CI/CD)
+├── Integration(통합)/      ← 4개 노트 (Named Credential, CSP/RemoteSite, Queueable+Callout, Platform Event)
+├── Aura(오라)/             ← 3개 노트
+├── Admin(어드민)/          ← 2개 노트
+└── Release/                ← 8개 노트 (8개 릴리즈 완료)
 ```
 
 ---
@@ -141,12 +146,15 @@ forceNote-wiki/
 
 ---
 
-## 탐색 원칙 (4층 아키텍처)
+## 탐색 원칙 (5층 아키텍처)
 
 | Layer | 파일 | 용도 |
 |---|---|---|
 | 0 | `00 Home.md` | 전체 진입점 |
-| 1 | `00 SEARCH_INDEX.md` | 키워드 → 파일 경로 |
-| 1 | `*/MOC.md` | 섹션 목차 |
-| 2 | `*/index.md` | 폴더 로컬 인덱스 |
-| 3 | 개별 `.md` | 패턴 상세 |
+| 1 | `00 SEARCH_INDEX.md` | **라우터** — 도메인 → 샤드 매핑 (개별 페이지 나열 X) |
+| 2 | `_index/{도메인}.md` | 키워드 → 파일 경로 샤드 (frontend·apex-core·apex-namespaces·platform·release·questions) |
+| 2 | `*/MOC.md` | 섹션 목차 (사람용 브라우즈) |
+| 3 | `*/index.md` | 폴더 로컬 인덱스 |
+| 4 | 개별 `.md` | 패턴 상세 |
+
+> 키워드 검색: 라우터에서 도메인 판단 → 해당 샤드 1개만 읽기. 단일 인덱스가 비대해져 truncation 나는 것을 방지. 상세 규칙은 `CLAUDE.md`.

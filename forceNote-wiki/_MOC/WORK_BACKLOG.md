@@ -11,11 +11,13 @@ updated: 2026-05-21
 
 ---
 
-## 커버리지 현황 (2026-05-20 기준)
+## 커버리지 현황 (2026-05-22 재산출 ✅)
 
-| 소스 | 총 작성 대상 | 커버됨 | 미작성 | 커버리지 |
+| 소스 | 공개 대상 | 커버됨 | 작성 대상 누락 | 커버리지 |
 |---|---|---|---|---|
-| Apex Reference v67.0 (71 네임스페이스) | 69개 (내부 전용 2개 제외) | 29개 | 40개 | 42.0% |
+| Apex Reference v67.0 (~70 네임스페이스) | 68개 (내부 전용 2개 제외) | 63개 | 6개 | **~93%** |
+
+> ⚠️ 이전 수치("29개 / 42%")는 낡았음. 2026-05-22 PDF↔위키 재대조 결과 핵심 네임스페이스(System·Database·Schema·Auth·ConnectApi 등) 전부 커버. 누락은 니치 산업/커머스 6개뿐. 상세는 아래 "C — 커버리지 재산출".
 
 ---
 
@@ -164,6 +166,38 @@ updated: 2026-05-21
 | I-04 | Sfdc_Checkout Namespace | `_index/apex-namespaces.md` | `Apex/Integration(통합)/Sfdc_Checkout Namespace.md` | P3 | 🔲 대기 | 2026-05-21 |
 | I-05 | Sfdc_Enablement Namespace | `_index/apex-namespaces.md` | `Apex/Integration(통합)/Sfdc_Enablement Namespace.md` | P3 | 🔲 대기 | 2026-05-21 |
 | I-06 | sfdc_surveys Namespace | `_index/apex-namespaces.md` | `Apex/Integration(통합)/sfdc_surveys Namespace.md` | P3 | 🔲 대기 | 2026-05-21 |
+
+---
+
+### C — 커버리지 재산출 (2026-05-22, wiki-retrospective 모드 B)
+
+> `pdftotext "Salesforce Documents/salesforce_apex_reference_guide.pdf"` → 네임스페이스 헤딩(`^X Namespace$`) 추출 ↔ `find forceNote-wiki -name "*Namespace*.md"` 대조.
+> **~70개 중 63개 커버(~93%).** 핵심은 전부 있음. 누락은 니치뿐.
+
+**내부 전용 — 작성 제외** (PDF가 "reserved for internal use only" 명시):
+- `flowuiruntime`, `setup_flow_performance`
+
+**작성 대상 누락 네임스페이스 6개:**
+
+| # | 네임스페이스 | 설명 (PDF) | 우선순위 | 권장 경로 | 비고 |
+|---|---|---|---|---|---|
+| C-01 | DataRetrieval | 상담원-고객 engagement 상세 + 대화 transcript (Engagement·RecordTranscripts 등) | P2 | `Apex/Integration(통합)/DataRetrieval Namespace.md` | 신규 발견 |
+| C-02 | Sfdc_Checkout | B2B Commerce 체크아웃 (AsyncCartProcessor·B2BCheckoutController 등) | P2 | `Apex/Integration(통합)/Sfdc_Checkout Namespace.md` | = I-04 |
+| C-03 | fsccashflow | FSC CashFlow Flexcard 유틸 (FSCCashFlowUtil) | P3 | `Apex/Integration(통합)/fsccashflow Namespace.md` | = I-02 |
+| C-04 | renew_assets_summary | 갱신 가능 자산 → 갱신 Opportunity (Revenue Cloud) | P3 | `Apex/Integration(통합)/renew_assets_summary Namespace.md` | = I-03 |
+| C-05 | Sfdc_Enablement | Enablement/Sales Programs 학습 평가 (LearningEvaluation 등) | P3 | `Apex/Integration(통합)/Sfdc_Enablement Namespace.md` | = I-05 |
+| C-06 | sfdc_surveys | 설문 초대 링크 단축 (SurveyInvitationLinkShortener) | P3 | `Apex/Integration(통합)/sfdc_surveys Namespace.md` | = I-06 |
+
+**확인 사항:**
+- `industriesNlpSvc`: 위키 커버 확인됨 (헤딩 추출엔 안 잡혔으나 페이지 존재).
+- `RulesAppIn Namespace.md`: PDF 표기는 `RulesAppln` (Rules Application). 위키 파일명이 오타(`I`↔`l`)일 수 있음 — 내용은 커버됨. **파일명 검토 권장**.
+
+**배치 실행 계획 (Step 2/3):**
+- **배치 A (P2, 2개):** C-01 DataRetrieval, C-02 Sfdc_Checkout
+- **배치 B (P3, 4개):** C-03 fsccashflow, C-04 renew_assets_summary, C-05 Sfdc_Enablement, C-06 sfdc_surveys
+- 각 페이지: 표준 파이프라인 1회전 (scout→researcher→classifier→writer ∥ coverage-checker→completeness-validator(깊이)→source-verifier→index-manager(샤드 `apex-namespaces`)→cross-linker→qa→wiki-retrospective A). PDF 소스 라인은 위 grep 기준 — DataRetrieval≈98786, Sfdc_Checkout≈117968, fsccashflow≈101997, renew_assets_summary≈111194, Sfdc_Enablement≈118087, sfdc_surveys≈118337.
+
+> 🔎 **더 높은 가치의 트랙 (권장):** breadth는 ~93%로 충분. 1차 대화의 원래 우려(Database 페이지가 PDF 대비 요약됨)대로 **기존 핵심 네임스페이스 페이지 깊이 감사**가 6개 니치 페이지보다 효용이 큼. completeness-validator 깊이 기준으로 Database·System·Schema·ConnectApi·Auth 등 재점검 권장.
 
 ---
 
