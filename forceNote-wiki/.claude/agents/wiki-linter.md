@@ -91,7 +91,7 @@ grep -rL "^tags:" forceNote-wiki/ --include="*.md"
 
 **허브 판정 (저유지보수 휴리스틱 — 수동 목록 없음):**
 - 파일명이 `… 개요` · `… MOC` · `index` · `… 빠른 참조` · `… 카탈로그`로 끝남, 또는
-- 인바운드 링크 수(fan-in)가 높음(대략 ≥8개 페이지가 링크) → 허브로 간주
+- 인바운드 링크 수(fan-in): **≥8 = 강한 허브 / 5–7 = de-facto 레퍼런스 허브**(여러 페이지가 가리키는 공용 코어 네임스페이스 — 예: Invocable·Search·Context). 둘 다 spoke→hub 단방향이 정상이므로 ❌ 아님
 
 aliases로 연결된 경우(`[[SaveResult]]` 가 `Database Namespace 상세`의 alias)도 역링크 존재로 인정.
 

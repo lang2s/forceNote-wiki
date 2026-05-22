@@ -24,6 +24,7 @@ aliases: [Architecture MOC, 아키텍처 목차, Architecture Map of Content]
 
 - [[Custom Metadata Types]] — CMDT 읽기·쓰기(Metadata.Operations), getInstance, SOQL 조회, isProtected 보호 설정
 - [[Schema Namespace 상세]] — DescribeSObjectResult/DescribeFieldResult/RecordTypeInfo/PicklistEntry/ChildRelationship 전체
+- [[DevOps Center]] — 선언적 변경 추적·배포 관리 UI(Work Item, Change Bundle, 파이프라인 스테이지) — sandbox→prod 릴리스 흐름
 
 ---
 

@@ -31,6 +31,7 @@ created: 2026-05-17
 - [[Auth Namespace]] — JWT/JWS OAuth bearer token flow, MFA TOTP, SessionManagement, RegistrationHandler
 - [[TxnSecurity Namespace]] — EventCondition/AsyncCondition으로 Transaction Security Policy Apex 구현, Real-Time Event Monitoring 기반 차단·알림 정책
 - [[UserProvisioning Namespace]] — 커넥티드 앱 아웃바운드 사용자 프로비저닝: ConnectorTestUtil/UserProvisioningLog/UserProvisioningPlugin(reconOffset 청크)
+- [[Platform Encryption]] — Shield Platform Encryption: 저장 시 암호화(at-rest), Deterministic/Probabilistic, Database Encryption GA, Field Audit Trail 보존 정책
 
 ## 🔍 SOQL / SOSL
 
