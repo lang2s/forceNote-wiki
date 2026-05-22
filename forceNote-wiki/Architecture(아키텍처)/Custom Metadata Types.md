@@ -212,3 +212,4 @@ public class RateCardSelector implements IRateCardSelector {
 - [[Governor Limits]] — CMDT 한도 확인
 - [[Schema Namespace 상세]] — SObject 타입 describe (CMDT도 SObject임)
 - [[Database Namespace 상세]] — DML과 CMDT 비교 (CMDT는 DML 불가)
+- [[CMDT 메타데이터 트리거]] — CMDT 레코드로 트리거 핸들러를 배포 없이 등록·비활성화하는 패턴

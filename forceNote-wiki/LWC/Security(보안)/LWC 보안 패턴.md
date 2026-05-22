@@ -187,3 +187,4 @@ get formattedCurrency() {
 - [[Imperative 호출 패턴]]
 - [[Wire 패턴]]
 - [[NavigationMixin 패턴]]
+- [[Permission Set 설계]] — LWC가 호출하는 Apex 클래스 접근 권한 설계

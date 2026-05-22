@@ -127,3 +127,4 @@ static void searchBooks_returnsResults() {
 - [[HttpCalloutMock]]
 - [[Custom REST Endpoint]]
 - [[Queueable]] — Callout + DML 조합 시
+- [[Queueable + Callout 패턴]] — RestClient를 Queueable 안에서 활용하는 패턴

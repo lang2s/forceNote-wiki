@@ -157,3 +157,4 @@ async openTabHandler() {
 
 - [[Toast & 모달 패턴]]
 - [[LWC 보안 패턴]]
+- [[Screen Flow 설계]] — LWC에서 NavigationMixin으로 Screen Flow를 기동하는 패턴

@@ -266,3 +266,4 @@ List<AggregateResult> byHour = [
 - [[Summer '24]] — Apex Cursor Beta, 5단계 관계 SOQL
 - [[1 Overview]] — Field 타입·API 속성 (Filter·Nillable·Sort 등 SOQL 가용 여부)
 - [[6 Standard Objects]] — 표준 Object API 이름·도메인별 카탈로그
+- [[Apex Best Practices]] — SOQL for loop 힙 메모리 절약, 루프 내 SOQL 금지 원칙

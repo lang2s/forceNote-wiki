@@ -187,3 +187,5 @@ Flow 변수 설계 주의사항:
 - [[Flow 종류와 변수]]
 - [[Flow 요소 참조]]
 - [[@InvocableMethod 패턴]]
+- [[Flow Interview API]] — Apex에서 Flow.Interview로 Autolaunched Flow를 직접 실행하는 패턴
+- [[Flow 설계 베스트 프랙티스]] — 헤드리스 Flow 설계 원칙

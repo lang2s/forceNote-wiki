@@ -137,4 +137,5 @@ ConnectApi.ExternalCredential cred =
 - [[RestClient 패턴]]
 - [[Custom REST Endpoint]]
 - [[StubProvider]] — ConnectApi 래퍼 테스트
+- [[Queueable + Callout 패턴]] — Named Credential을 사용하는 비동기 외부 호출 패턴
 

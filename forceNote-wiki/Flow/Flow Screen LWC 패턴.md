@@ -244,3 +244,4 @@ handleChange(event) {
 - [[@InvocableMethod 패턴]]
 - [[멀티 패키지 구조]]
 - [[@api 패턴]]
+- [[Screen Flow 설계]] — Screen Flow XML에서 커스텀 LWC 컴포넌트를 삽입하는 구조

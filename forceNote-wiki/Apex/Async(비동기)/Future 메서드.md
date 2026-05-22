@@ -144,4 +144,5 @@ static void testFutureMethod() {
 - [[비동기 컨텍스트 선택]]
 - [[Queueable]]
 - [[RestClient 패턴]] — callout=true 패턴
+- [[Queueable + Callout 패턴]] — SObject 전달·체이닝이 필요한 경우의 @future 대안
 

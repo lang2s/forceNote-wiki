@@ -952,3 +952,4 @@ new Auth.JsonValueOutput(stringValue, booleanValue, integerValue, ...)
 - [[RestClient 패턴]] — Bearer token을 Authorization 헤더로 전달
 - [[CanTheUser]] — Apex 내 권한 체크 (인증과 구분)
 - [[HttpCalloutMock]] — Auth namespace HTTP callout 테스트
+- [[TxnSecurity Namespace]] — SessionManagement.setSessionLevel과 연계되는 트랜잭션 보안 정책

@@ -143,4 +143,5 @@ static void getBooks_usesApiService() {
 - [[StubProvider]]
 - [[테스트 전략]]
 - [[QuiddityGuard]] — `testQuiddityOverride` 예시
+- [[Batch Apex]] — `@testVisible private Boolean throwError` 패턴 실제 사용 예시
 

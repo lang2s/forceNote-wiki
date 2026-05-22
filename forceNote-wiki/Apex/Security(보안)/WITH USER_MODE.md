@@ -158,3 +158,5 @@ List<Account> results = Database.queryWithBinds(
 - [[CanTheUser]]
 - [[Safely]]
 - [[Summer '26]]
+- [[Apex Best Practices]] — 공유 모델 명시 원칙 (4번 규칙)
+- [[TxnSecurity Namespace]] — evaluate() 내 SOQL 보안 모드 적용

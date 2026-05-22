@@ -154,3 +154,4 @@ TriggerHandler.clearBypass('AccountTriggerHandler');
 
 - [[CMDT 메타데이터 트리거]]
 - [[서비스 레이어 패턴]]
+- [[Apex Best Practices]] — 객체당 단일 트리거 + 트리거에 비즈니스 로직 금지 원칙

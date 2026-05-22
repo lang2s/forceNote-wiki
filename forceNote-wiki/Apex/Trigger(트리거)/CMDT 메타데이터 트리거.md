@@ -145,3 +145,4 @@ trigger AccountTrigger on Account (
 
 - [[TriggerHandler 패턴]]
 - [[서비스 레이어 패턴]]
+- [[Apex Best Practices]] — 하드코딩 ID 대신 Custom Metadata 활용 원칙
