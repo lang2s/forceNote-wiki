@@ -238,3 +238,5 @@ rm server.key
 - [[Unlocked Package 패턴]] — 패키지 버전 생성·설치
 - [[MetadataAPI(메타데이터API)/Metadata API File-Based 호출]] — deploy/retrieve 원리 이해
 - [[MetadataAPI(메타데이터API)/Metadata API REST]] — REST 방식 배포
+- [[DX 인증 방식]] — JWT Flow 심층 설명 (External Client App 설정·OpenSSL 인증서 생성·Connected App 절차 전수)
+- [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] — CircleCI/Jenkins/Travis CI 전체 설정·Jenkinsfile 완전한 코드·Sample CI 레포 전수

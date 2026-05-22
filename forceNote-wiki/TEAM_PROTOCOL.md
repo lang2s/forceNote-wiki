@@ -26,6 +26,31 @@
 
 ---
 
+## 스쿼드 구조 (5팀 + 조율층)
+
+15개 에이전트는 아래 5개 스쿼드로 묶인다. 아래 파이프라인은 그대로 유지되며, 스쿼드는 그 위에 얹는 **소유·책임 오버레이**다. 각 스쿼드의 입력 계약·출력 DoD·경계는 별도 헌장 파일이 아니라 [[SEAM_MAP]](핸드오프 계약 + 책임 지도)에 통합돼 있다.
+
+| 스쿼드 | 멤버 | 한 줄 소유(DoD) |
+|---|---|---|
+| 기획 | question-clarifier, planner | 요청을 제대로 이해했다 |
+| 소스 | scout, researcher, source-coverage-checker | 놓친 소스 없이 전수 추출했다 |
+| 작성 | classifier, writer | CLAUDE.md대로 완전한 파일을 만들었다 |
+| 검증 | completeness-validator, source-verifier, qa | 틀린 채로 내보내지 않았다 |
+| 탐색·정비 | index-manager, cross-linker, wiki-linter | 모두 찾을 수 있고 도달 가능하다 |
+| *(조율층)* | pm, wiki-retrospective | PM=런타임 라우팅 · 회고=seam 순찰 |
+
+### 팀 사이(seam) 안전장치 — 3겹
+
+팀을 나누면 일이 팀 '안'이 아니라 팀 '사이'에서 샌다. 이를 막는 3겹 장치는 [[SEAM_MAP]]가 관리한다:
+
+1. **핸드오프 계약** — 받는 스쿼드가 게이트키퍼. 불완전한 핸드오프는 반려 → 넘기는 쪽이 끝까지 책임.
+2. **책임 지도(RACI)** — 반복 책임마다 주담당+백업 지정. 지도에 없는 일 = 무주공산 → 회고가 행 추가하며 배정(배정 전까지 PM 임시 소유).
+3. **회고 seam 순찰** — 매 사이클 "팀 사이로 샌 게 뭔가?"를 점검(반려된 계약·무주공산·2회 재발·그물 과부하).
+
+> 정본: 스쿼드 멤버십은 위 표, 경계·핸드오프 계약은 [[SEAM_MAP]]가 정한다.
+
+---
+
 ## 파이프라인
 
 ### A. 표준 파이프라인 — 새 콘텐츠 추가
@@ -203,7 +228,8 @@ pdftotext   (PATH에 있음 — Win: /mingw64/bin, Mac: /opt/homebrew/bin)
 
 ## 버전
 
-- 프로토콜 버전: 1.1
+- 프로토콜 버전: 1.2
 - 최초 작성: 2026-05-18
-- 마지막 업데이트: 2026-05-21 (메타 3종(retrospective-analyst·coverage-analyst·agent-improver) → `wiki-retrospective` 통합; SEARCH_INDEX 라우터+샤드 구조 도입; index-manager 항법 단일 쓰기 주체)
+- 마지막 업데이트: 2026-05-23 (5개 스쿼드 + 조율층 오버레이 도입; seam 안전장치 3겹을 [[SEAM_MAP]] 한 문서로 통합 — 별도 헌장 파일은 두지 않음(중복·드리프트 방지); 백로그 활성/아카이브 분리 — `WORK_BACKLOG` ↔ `WORK_BACKLOG_ARCHIVE`)
+- 이전 업데이트: 2026-05-21 (메타 3종(retrospective-analyst·coverage-analyst·agent-improver) → `wiki-retrospective` 통합; SEARCH_INDEX 라우터+샤드 구조 도입; index-manager 항법 단일 쓰기 주체)
 - 다음 검토: 10개 이상 새 작업 완료 후

@@ -111,6 +111,11 @@ created: 2026-05-17
 - [[runtime_industries_insurance Namespace]] — Industries Insurance 보험 견적·조항·레이팅 옵션 클래스 5개: AddEligibleInsuranceClausesOptions, CreateInsuranceQuoteOptions 등 (⚠️ 스텁)
 - [[Sfc Namespace]] — Salesforce Files 다운로드 커스터마이징: ContentDownloadHandlerFactory 팩토리 패턴, ContentDownloadContext 7개 값, isDownloadAllowed/redirectUrl/downloadErrorMessage
 - [[Pref_center Namespace]] — Privacy Center Preference Manager 커스터마이징 Apex SDK: PreferenceCenterApexHandler(load/submit), LoadFormData/SubmitFormData, TokenUtility.generateToken(EMAIL/STANDARD), ValidationResult
+- [[Sfdc_Checkout Namespace]] — B2B Commerce 체크아웃 통합 Apex 인터페이스·클래스: 비동기 카트 처리, GMV 추적, 통합 상태 관리
+- [[Sfdc_Enablement Namespace]] — Enablement 프로그램 커스텀 학습 항목(Custom Exercise) 진행도 평가·직렬화 Apex 클래스
+- [[fsccashflow Namespace]] — FSCCashFlow FlexCard·자식 FlexCard 유틸리티 클래스: Callable 인터페이스로 수입·지출 데이터 관리·유효성 검사
+- [[renew_assets_summary Namespace]] — 갱신 가능 자산 조회·갱신 Opportunity 생성 Revenue Cloud 네임스페이스 (⚠️ 클래스 목록만, 메서드 상세 없음)
+- [[sfdc_surveys Namespace]] — 설문 초대 링크 단축 인터페이스: SMS·WhatsApp·Facebook Messenger 등 채널 짧은 URL 배포
 
 ## 📦 컬렉션
 

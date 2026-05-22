@@ -45,3 +45,4 @@ aliases: [RulesAppIn, rules app in apex, applyPaymentsAndCreditsByRules, 규칙 
 
 - [[RevSalesTrxn Namespace]] — 동일 Revenue Cloud 그룹: 판매 트랜잭션 생성 Apex
 - [[CommercePayments Namespace]] — Payment Gateway ISV 어댑터 SDK (결제 처리 연관)
+- [[renew_assets_summary Namespace]] — 동일 Revenue Cloud 그룹: 갱신 자산 조회·갱신 Opportunity 생성

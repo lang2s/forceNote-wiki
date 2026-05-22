@@ -799,3 +799,4 @@ String endPoint = 'callout:commerce.tax.TaxTypedNamedCredential:test' + path;
 - [[CommerceExtension Namespace]] — Commerce 확장 포인트 전략
 - [[CommerceOrders Namespace]] — Commerce 주문 생성 Apex
 - [[RestClient 패턴]] — callout: Named Credential 기반 HTTP 호출
+- [[Sfdc_Checkout Namespace]] — B2B 체크아웃 AsyncCartProcessor의 CartTaxCalculations 비동기 통합

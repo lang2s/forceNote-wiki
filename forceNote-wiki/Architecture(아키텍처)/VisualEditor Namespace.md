@@ -174,4 +174,5 @@ global class MyCustomPickList extends VisualEditor.DynamicPickList {
 - [[ApexPages Namespace]] — Visualforce 컨트롤러 레퍼런스
 - [[AppLauncher Namespace]] — App Launcher 가시성·정렬 제어
 - [[Schema Namespace 상세]] — DescribeSObjectResult/DescribeFieldResult
+- [[Canvas Namespace]] — Lightning App Builder에 임베드하는 Canvas 앱 (다른 UI 확장 프레임워크)
 - [[Apex MOC]]

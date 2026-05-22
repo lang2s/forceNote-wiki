@@ -113,6 +113,14 @@ created: 2026-05-21
 
 ---
 
+
+## LWC — SLDS / 디자인 시스템
+
+| 키워드 | 파일 |
+|---|---|
+| SLDS, SLDS 2, Lightning Design System, LWC 디자인 시스템, CSS Styling Hook, 스타일링 훅, CSS Custom Properties, Design Token, 전역 토큰, --slds-g-*, --slds-c-*, Dark Mode, 다크 모드, Density Styling Hook, 밀도 인식, 반응형 디자인, Winter 26 GA | `LWC/UIPatterns(UI패턴)/SLDS LWC 디자인 시스템.md` |
+| SLDS 유틸리티 클래스, slds-grid, slds-col, slds-size, slds-m-*, slds-p-*, slds-text-heading, slds-button, slds-button_brand, slds-button_neutral, slds-button_destructive, slds-icon_container, Shadow DOM CSS 격리, light DOM CSS | `LWC/UIPatterns(UI패턴)/SLDS LWC 디자인 시스템.md` |
+
 ## LWC Base Components 상세 레퍼런스 (개별 페이지)
 
 | 키워드 | 파일 |

@@ -231,3 +231,7 @@ sf package create -t Unlocked -r force-app -n MyPackage --org-dependent
 - [[Salesforce DX 개요]] — sfdx-project.json, sf CLI 기본
 - [[Scratch Org 패턴]] — 버전 생성 시 Scratch Org 사용
 - [[CI CD 패턴]] — 패키지 버전 생성 자동화
+- [[Unlocked Package 개념과 준비]] — 개념·Org-Dependent·사전 준비 체크리스트 심층
+- [[Unlocked Package 생성과 설정]] — sfdx-project.json 18개 파라미터·Keywords·Namespace 전수
+- [[Unlocked Package 개발과 버전]] — 버전 생성 3가지 옵션·Hard-Delete 컴포넌트 전수
+- [[Unlocked Package 릴리스와 설치]] — Push Upgrade·설치·언인스톨·Dev Hub 이전 전수

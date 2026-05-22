@@ -258,3 +258,4 @@ private class AccountQueryConditionTest {
 - [[테스트 전략]] — Apex 테스트 구조 — evaluate() 테스트 패턴 참고
 
 - [[UserProvisioning Namespace]] — 외부 시스템 프로비저닝 (TxnSecurity 정책 트리거 연계)
+- [[Platform Encryption]] — 동일 Salesforce Shield 제품군 — 저장 데이터(at-rest) 암호화

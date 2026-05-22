@@ -588,3 +588,4 @@ tokenResponse.setGatewayToken(plainToken);
 - [[CommerceOrders Namespace]] — B2B/D2C 주문 생성 Apex
 - [[RestClient 패턴]] — 일반 외부 HTTP 호출 패턴
 - [[5 Object Interfaces]] — SalesTransaction·PriceAdjustmentGroup 인터페이스 필드 참조
+- [[Sfdc_Checkout Namespace]] — B2B 체크아웃 AsyncCartProcessor의 CartPriceCalculations 비동기 통합

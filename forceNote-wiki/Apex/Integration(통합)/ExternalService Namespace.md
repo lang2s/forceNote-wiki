@@ -104,3 +104,4 @@ if (response.Code == 200) {
 - [[RestClient 패턴]] — 스펙 없이 HTTP 직접 구현
 - [[Named Credential]] — ExternalService 인증 기반
 - [[HttpCalloutMock]] — 테스트 모킹
+- [[External Services]] — Admin 설정 기반 외부 서비스 등록 가이드

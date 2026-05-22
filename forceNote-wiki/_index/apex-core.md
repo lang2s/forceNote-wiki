@@ -172,6 +172,14 @@ created: 2026-05-21
 | Comparator, 정렬, List.sort, 커스텀 정렬, 리스트 정렬, 오름차순 내림차순 | `Apex/Collections(컬렉션)/Comparator 인터페이스.md` |
 | Iterable, Iterator, 커스텀 이터레이터 | `Apex/Collections(컬렉션)/Iterable Iterator.md` |
 
+
+## Apex — Platform Encryption
+
+| 키워드 | 파일 |
+|---|---|
+| Platform Encryption, 플랫폼 암호화, Shield Platform Encryption, 필드 암호화, 데이터베이스 암호화, Database Encryption GA, Field Audit Trail 보존 정책, AES-256, Tenant Secret, BYOK, Bring Your Own Key, Deterministic Encryption, Probabilistic Encryption, 암호화 필드 SOQL 제한, Tableau Next 암호화, Data Cloud 암호화, Winter 26 암호화 | `Apex/Security(보안)/Platform Encryption.md` |
+| Shield, 규정 준수 암호화, HIPAA 암호화, GDPR 암호화, Crypto 클래스, encryptWithManagedIV, decryptWithManagedIV, generateAesKey, 커스텀 암호화, HMAC 서명, 데이터 무결성 | `Apex/Security(보안)/Platform Encryption.md` |
+
 ## Apex — Best Practices
 
 | 키워드 | 파일 |

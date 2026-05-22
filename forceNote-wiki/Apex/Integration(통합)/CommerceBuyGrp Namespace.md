@@ -125,3 +125,4 @@ public class MyBuyerGroupService extends CommerceBuyGrp.BuyerGroupEvaluationServ
 - [[CommerceOrders Namespace]] — B2B/D2C 주문 생성 Apex
 - [[CommercePayments Namespace]] — 결제 게이트웨이 어댑터 패턴
 - [[CommerceTax Namespace]] — 세금 계산 어댑터 패턴
+- [[Sfdc_Checkout Namespace]] — B2B Commerce 비동기 체크아웃 통합 인터페이스

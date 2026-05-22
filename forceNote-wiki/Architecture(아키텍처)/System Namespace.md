@@ -383,3 +383,4 @@ PDF p.3584–3591 기준 주요 클래스 (총 60개 이상):
 - [[EventBus Namespace]] — EventBus.publish / TriggerContext
 - [[Custom REST Endpoint]] — RestContext / RestRequest / RestResponse
 - [[Summer '26]] — USER_MODE 기본값 변경 파괴적 변경 (v67.0)
+- [[ApexPages Namespace]] — StandardController 반환 타입인 System.PageReference 사용

@@ -223,3 +223,7 @@ CI 파이프라인:
 - [[Salesforce DX 개요]] — sf CLI, sfdx-project.json 설정
 - [[Unlocked Package 패턴]] — Scratch Org를 이용한 패키징
 - [[CI CD 패턴]] — Scratch Org + Jenkins / CircleCI
+- [[Scratch Org 생성과 정의 파일]] — Definition File 옵션 전수, Features 전수, 생성 명령 전수 (심층 레퍼런스)
+- [[Scratch Org Settings 레퍼런스]] — settings 블록 전수 옵션 (심층 레퍼런스)
+- [[Org Shape와 Snapshot]] — Org Shape 생성·Snapshot 전수 (심층 레퍼런스)
+- [[Scratch Org 배포·유저·에러코드]] — Deploy/Retrieve·Users·Error Codes 전수 (심층 레퍼런스)

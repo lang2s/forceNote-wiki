@@ -29,3 +29,4 @@ aliases: [CommerceOrders, CommerceOrders Namespace, B2B Commerce Order Apex, 주
 
 - [[CommercePayments Namespace]] — 결제 게이트웨이 어댑터 패턴
 - [[CommerceTax Namespace]] — 세금 계산 어댑터 패턴
+- [[Sfdc_Checkout Namespace]] — B2B Commerce 체크아웃: Cart-to-Order GMV 추적·비동기 카트 처리

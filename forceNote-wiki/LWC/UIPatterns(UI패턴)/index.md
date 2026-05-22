@@ -21,6 +21,7 @@ created: 2026-05-17
 | [[공유 JS 모듈]] | named export, isExposed: false, c/ 네임스페이스 공유 함수 | #pattern |
 | [[Static Resource 로딩]] | loadScript/loadStyle, renderedCallback 3-state | #pattern |
 | [[파일 업로드와 이미지 처리]] | processImage, FileReader→base64, ContentVersion URL | #pattern |
+| [[SLDS LWC 디자인 시스템]] | SLDS 1·SLDS 2 CSS Styling Hook, Design Token, 다크 모드, 밀도 인식 — Winter '26 GA | #reference |
 
 ---
 
@@ -33,3 +34,4 @@ created: 2026-05-17
 - 여러 컴포넌트 공통 JS 로직? → [[공유 JS 모듈]]
 - 서드파티 라이브러리 (Chart.js 등)? → [[Static Resource 로딩]]
 - 이미지 업로드, 파일 처리? → [[파일 업로드와 이미지 처리]]
+- SLDS 스타일·디자인 토큰·다크 모드? → [[SLDS LWC 디자인 시스템]]

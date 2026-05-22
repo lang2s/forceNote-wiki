@@ -50,3 +50,4 @@ aliases: [RevSalesTrxn, rev sales trxn apex, revenue cloud sales transaction ape
 - [[RevSignaling Namespace]] — 동일 그룹: Procedure Plan 커스텀 로직 확장 Apex
 - [[CommercePayments Namespace]] — 결제 처리 ISV 어댑터 SDK (Revenue 흐름 연관)
 - [[PlaceQuote Namespace]] — Salesforce CPQ Quote 생성·수정 Apex
+- [[renew_assets_summary Namespace]] — 동일 Revenue Cloud 그룹: 갱신 자산 조회·갱신 Opportunity 생성

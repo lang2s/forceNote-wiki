@@ -690,3 +690,4 @@ for (Schema.DescribeTabSetResult app : appDescs) {
 - [[DML 패턴]] — isCreateable/isUpdateable 체크 후 DML
 - [[SOQL 패턴]] — 동적 필드를 이용한 동적 SOQL 구성
 - [[Safely]] — StripInaccessible, CanTheUser — FLS 필드 필터링
+- [[System Namespace]] — 코어 시스템 API — getGlobalDescribe와 함께 쓰는 런타임 클래스 레퍼런스

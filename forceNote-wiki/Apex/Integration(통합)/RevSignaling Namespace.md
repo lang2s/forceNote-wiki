@@ -46,3 +46,4 @@ aliases: [RevSignaling, rev signaling apex, 프로시저 플랜 Apex, procedure 
 
 - [[RevSalesTrxn Namespace]] (미작성) — 동일 그룹: 가격·구성 통합 판매 트랜잭션 생성 Apex
 - [[RichMessaging Namespace]] — Enhanced Messaging 채널 Apex SDK (같은 Apex 참조 가이드 섹션)
+- [[renew_assets_summary Namespace]] — 동일 Revenue Cloud 그룹: 갱신 자산 조회·갱신 Opportunity 생성

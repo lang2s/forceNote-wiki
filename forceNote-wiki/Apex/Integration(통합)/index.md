@@ -59,6 +59,12 @@ created: 2026-05-17
 | [[runtime_industries_cpq Namespace]] | Industries CPQ 제품 검색·카탈로그·카테고리 관리 Apex (managed package, 외부 문서 참조) (⚠️ 스텁) | #reference |
 | [[runtime_industries_insurance Namespace]] | Industries Insurance 보험 견적·조항·레이팅 옵션 클래스 5개 (managed package) (⚠️ 스텁) | #reference |
 | [[Sfc Namespace]] | Salesforce Files 다운로드 커스터마이징 — ContentDownloadHandlerFactory 팩토리 패턴, ContentDownloadContext 7개 값, isDownloadAllowed/redirectUrl/downloadErrorMessage | #reference |
+| [[DataRetrieval Namespace]] | 상담원-고객 인게이지먼트 대화 트랜스크립트 — Engagement, Engagements, RecordTranscripts (⚠️ 스텁) | #reference |
+| [[fsccashflow Namespace]] | FSCCashFlow FlexCard 수입·지출 유틸리티 — FSCCashFlowUtil Callable, 13개 Action(GetPartyIncomeFrequencyLabel·CalculateIncomeExpenseSummary·CheckCrudOnIncome 등) | #reference |
+| [[renew_assets_summary Namespace]] | Revenue Cloud 갱신 자산 요약 — RenewalOpptyDetail, RenewalPriceDetail (스텁, Revenue Cloud 개발자 가이드 참조) | #reference |
+| [[Sfdc_Checkout Namespace]] | B2B Commerce 체크아웃 통합 — AsyncCartProcessor(startCartProcessAsync), B2BCheckoutController(licenseCompliance), IntegrationInfo, IntegrationStatus | #reference |
+| [[Sfdc_Enablement Namespace]] | Enablement 커스텀 Exercise 평가·직렬화 — LearningItemEvaluationHandler(evaluate), LearningEvaluationResult, LearningItemProgressStatus, LearningItemSerializeDeserializer | #reference |
+| [[sfdc_surveys Namespace]] | 설문 초대 URL 단축 인터페이스 — SurveyInvitationLinkShortener.getShortenedURL, Named Credential Bit.ly 구현 예시 | #reference |
 
 ---
 
@@ -117,7 +123,13 @@ created: 2026-05-17
 - Industries CPQ에서 제품 검색·카탈로그 관리 Apex? → [[runtime_industries_cpq Namespace]] → 외부 문서 참조
 - Industries Insurance 보험 견적/조항/레이팅 Apex? → [[runtime_industries_insurance Namespace]] → CreateInsuranceQuoteOptions 등
 - Salesforce Files 다운로드를 모바일/컨텍스트별로 제어? → [[Sfc Namespace]] → ContentDownloadHandlerFactory
-- 파일 다운로드 차단 시 커스텀 오류 메시지 또는 IRM 리디렉션? → [[Sfc Namespace]] → ContentDownloadHandler.downloadErrorMessage / redirectUrl
+- 파일 다운로드 차단 시 커스텀 오류 메시지 또는 IRM 리디렉션? → [[Sfc Namespace]] → ContentDownloadHandler.downloadErrorMessage / redirectUrl- FSCCashFlow FlexCard 수입/지출 유틸리티? → [[fsccashflow Namespace]] → FSCCashFlowUtil Callable
+- Revenue Cloud 갱신 자산 요약? → [[renew_assets_summary Namespace]] → RenewalOpptyDetail
+- B2B Commerce 비동기 카트 처리 통합 구현? → [[Sfdc_Checkout Namespace]] → AsyncCartProcessor.startCartProcessAsync
+- B2B Commerce 자체 Cart-to-Order에서 GMV 추적? → [[Sfdc_Checkout Namespace]] → B2BCheckoutController.licenseCompliance
+- Enablement 커스텀 Exercise 진행도 평가 Apex? → [[Sfdc_Enablement Namespace]] → LearningItemEvaluationHandler.evaluate
+- 설문 초대 URL을 외부 서비스로 단축? → [[sfdc_surveys Namespace]] → SurveyInvitationLinkShortener.getShortenedURL
+
 - 메시징 채널 폼 제출로 레코드 생성? → [[RichMessaging Namespace]] → ProcessFormHandler
 - 메시징 채널 OAuth 인증 흐름? → [[RichMessaging Namespace]] → AuthRequestHandler
 - 반복/지연 결제 타이밍 설정? → [[RichMessaging Namespace]] → RecurringTiming / DeferredTiming

@@ -160,3 +160,4 @@ try {
 - [[ConnectApi Namespace 개요]] — Experience Cloud 사이트 조회 (Communities, UserProfiles)
 - [[System Namespace]] — URL.getOrgDomainUrl, URL.getSalesforceBaseUrl
 - [[ConnectApi Chatter 패턴]] — Experience Cloud 커뮤니티 연동 패턴
+- [[ApexPages Namespace]] — Visualforce/Community 페이지 URL 재작성 컨트롤러

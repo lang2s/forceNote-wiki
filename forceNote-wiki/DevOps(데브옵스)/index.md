@@ -19,6 +19,30 @@ created: 2026-05-18
 | [[Scratch Org 패턴]] | Scratch Org 생성·관리, project-scratch-def.json, Org Shape, Snapshot | #pattern |
 | [[Unlocked Package 패턴]] | sf package create/version create/install, 2GP, Org-Dependent, packageAliases | #pattern |
 | [[CI CD 패턴]] | Jenkins Jenkinsfile, CircleCI, JWT 인증 자동화, 패키지 빌드 파이프라인 | #pattern |
+| [[DX 프로젝트 구조와 소스 포맷]] | DX 프로젝트 생성·디렉토리 구조·소스 포맷·정적 리소스·기존 소스 마이그레이션 전수 | #reference |
+| [[메타데이터 분해와 forceignore]] | Decomposed Metadata Types 전수(기본+선택 Beta), .forceignore 문법·예제 전수 | #reference |
+| [[sfdx-project.json 레퍼런스]] | 모든 필드·기본값, Multiple Package Dirs, String Replacement 전수 | #reference |
+| [[DX 인증 방식]] | org login web·JWT Flow·External Client App·Connected App·SFDX Auth URL·Logout 전수 | #reference |
+| [[Scratch Org 생성과 정의 파일]] | Scratch Org 개념·Editions/Allocations·생성 명령 전수·Definition File 옵션 전수·Features 전수 목록 | #reference |
+| [[Scratch Org Settings 레퍼런스]] | settings 블록 전수 옵션·주요 Settings 예시·Features와 Settings 조합 패턴 | #reference |
+| [[Org Shape와 Snapshot]] | Org Shape 생성·권한·Troubleshoot 전수, Snapshot 생성·관리·릴리즈 버전 결정 전수 | #reference |
+| [[Scratch Org 배포·유저·에러코드]] | project deploy/retrieve start 전수, org create user·User Definition File·비밀번호 관리, Error Codes 전수표 | #reference |
+| [[Source Tracking 변경 추적]] | Org 에디션별 지원·Manage Tracking·Preview·Deploy/Retrieve·Profile 추적 동작·Conflicts 해결·Best Practices·Performance 전수 | #reference |
+| [[DX 개발 워크플로]] | Develop Against Any Org·sf apex generate class/trigger·sf lightning generate component·sf schema generate·Anonymous Apex·Run Tests·Debug Logs 전수 | #reference |
+| [[DX 도구 접근 권한]] | Dev Hub 선택·활성화·추가 기능·라이선스·사용자 추가·Permission Set 권한 전수 | #reference |
+| [[Sandbox 관리]] | org create/clone/refresh/delete sandbox, sandbox-def.json 전체 옵션 전수 | #reference |
+| [[DX 데이터 작업]] | data export/import tree, Bulk API 2.0 전수, record CRUD, SOQL/SOSL CLI, 파일 업로드 | #reference |
+| [[Metadata API 빌드·릴리스 워크플로]] | Org Development Model 4단계·배포 검증·빠른 배포·취소 전수 | #reference |
+| [[Unlocked Package 개념과 준비]] | 패키지 개념·불변 버전·Org 역할·Org-Dependent 비교·사전 준비 체크리스트 전수 | #reference |
+| [[Unlocked Package 생성과 설정]] | sf package create·sfdx-project.json 18개 파라미터·Keywords·Installation Key·Namespace·Profile Settings 전수 | #reference |
+| [[Unlocked Package 개발과 버전]] | 버전 생성 3가지 옵션·버전 번호 가이드·코드 커버리지·브랜치·Hard-Delete 컴포넌트 전수 | #reference |
+| [[Unlocked Package 릴리스와 설치]] | Push Upgrade·CLI/URL 설치·업그레이드 타입·의존성 스크립트·언인스톨·패키지 이전 전수 | #reference |
+| [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] | CircleCI 환경 설정·서버키 암호화·Dev Hub 연결, Jenkins Jenkinsfile 전체 코드, Travis CI, Sample CI 레포 전수 표 | #reference |
+| [[DX 도구 개요와 워크플로 전환]] | DX가 개발 방식을 바꾸는 이유·샘플 레포 시작·신규 프로젝트·마이그레이션 3가지 시작 경로 전수 | #reference |
+| [[Metadata Coverage 보고서]] | Metadata API·Scratch Org Source Tracking·Unlocked Package 등 채널별 메타데이터 지원 여부 공식 참조 | #reference |
+| [[DX MCP Server (Beta)]] | VS Code+Copilot Quick Start·60+ MCP 도구·toolset 14개·Core Tools 12개 전수 | #reference |
+| [[DX 트러블슈팅]] | org login web/jwt 오류 전수(12가지)·No default dev hub·포트 점유·consumer key 중복 해결 | #reference |
+| [[DX 제약사항]] | CLI·Dev Hub·Source Management·배포·1GP/2GP·Unlocked Package 알려진 제약 13건 전수 | #reference |
 
 ### Metadata API (서브폴더 → [[MetadataAPI(메타데이터API)/index]])
 
@@ -49,12 +73,74 @@ created: 2026-05-18
 ## 빠른 선택
 
 - DX 프로젝트 생성부터 배포까지? → [[Salesforce DX 개요]]
+- DX 프로젝트 디렉토리 구조와 소스 포맷 전수? → [[DX 프로젝트 구조와 소스 포맷]]
+- Decomposed Metadata Types 전수 / .forceignore 문법? → [[메타데이터 분해와 forceignore]]
+- sfdx-project.json 모든 필드·String Replacement? → [[sfdx-project.json 레퍼런스]]
 - Scratch Org 만들고 스냅샷 찍기? → [[Scratch Org 패턴]]
 - Unlocked Package 버전 만들고 설치하기? → [[Unlocked Package 패턴]]
 - Jenkins/CircleCI로 자동화 파이프라인 구성? → [[CI CD 패턴]]
-- JWT 인증 설정? → [[Salesforce DX 개요]] → Authorization
-- Org Shape vs Snapshot 차이? → [[Scratch Org 패턴]] → Org Shape
-- Metadata API 전체 둘러보기? → [[MetadataAPI(메타데이터API)/index]]
+- JWT 인증 설정? → [[DX 인증 방식]] — JWT Flow·External Client App·OpenSSL 명령 전수
+- SFDX Auth URL 사용법? → [[DX 인증 방식]] → SFDX Authorization URL
+- Org Shape vs Snapshot 차이? → [[Org Shape와 Snapshot]]
+- Scratch Org Definition File 옵션 전수? → [[Scratch Org 생성과 정의 파일]]
+- Scratch Org Features 전수 목록? → [[Scratch Org 생성과 정의 파일]] → Features 전수 목록
+- Scratch Org settings 블록 옵션? → [[Scratch Org Settings 레퍼런스]]
+- Org Shape 생성·권한 설정? → [[Org Shape와 Snapshot]] → Org Shape
+- Snapshot 생성·관리·CLI 명령? → [[Org Shape와 Snapshot]] → Scratch Org Snapshots
+- project deploy/retrieve start 상세? → [[Scratch Org 배포·유저·에러코드]]
+- Scratch Org 추가 사용자 생성? → [[Scratch Org 배포·유저·에러코드]] → Scratch Org Users
+- Scratch Org 오류 코드 전수? → [[Scratch Org 배포·유저·에러코드]] → Error Codes
+- Source Tracking 활성화·비활성화? → [[Source Tracking 변경 추적]] → Manage Source Tracking
+- 배포 전 충돌 확인·해결? → [[Source Tracking 변경 추적]] → Resolve Conflicts
+- Source Tracking 성능 문제·느린 명령? → [[Source Tracking 변경 추적]] → Performance Considerations
+- Profile 검색이 예상보다 많은 정보를 반환? → [[Source Tracking 변경 추적]] → Retrieve Changes to Profiles
+- CLI에서 Apex 클래스 생성? → [[DX 개발 워크플로]] → Create an Apex Class
+- CLI에서 LWC 또는 Aura 컴포넌트 생성? → [[DX 개발 워크플로]] → Create Lightning Web Components
+- CLI에서 Apex Trigger 생성? → [[DX 개발 워크플로]] → Create an Apex Trigger
+- CLI에서 Custom Object 생성? → [[DX 개발 워크플로]] → Create a Custom Object
+- Anonymous Apex 실행? → [[DX 개발 워크플로]] → Execute Anonymous Apex
+- Apex 테스트 실행·코드 커버리지 확인? → [[DX 개발 워크플로]] → Run Apex Tests
+- Apex Debug Log 조회? → [[DX 개발 워크플로]] → Generate and View Apex Debug Logs
+- Non-Source-Tracked Org에 배포·검색? → [[DX 개발 워크플로]] → Develop Against Any Org
+- Dev Hub 활성화·라이선스 설정? → [[DX 도구 접근 권한]] → Enable Dev Hub
+- Dev Hub Org에 사용자 추가? → [[DX 도구 접근 권한]] → 사용자 추가
+- Sandbox CLI로 생성·클론·새로 고침? → [[Sandbox 관리]]
+- sandbox-def.json 옵션 전수? → [[Sandbox 관리]] → Sandbox Definition File
+- sObject Tree 포맷 소규모 데이터 이동? → [[DX 데이터 작업]] → Small Datasets
+- Bulk API 2.0 대용량 데이터 처리? → [[DX 데이터 작업]] → Large Datasets
+- 단건 레코드 CRUD? → [[DX 데이터 작업]] → Individual Records
+- Sandbox 기반 Org Development Model 배포 파이프라인? → [[Metadata API 빌드·릴리스 워크플로]]
+- project deploy validate / quick / cancel? → [[Metadata API 빌드·릴리스 워크플로]] → Step 3–4
+- Unlocked Package 개념 설명? → [[Unlocked Package 개념과 준비]]
+- Org-Dependent Unlocked Package란? → [[Unlocked Package 개념과 준비]] → Org-Dependent
+- sf package create 명령 상세? → [[Unlocked Package 생성과 설정]]
+- sfdx-project.json 패키지 파라미터 전수? → [[Unlocked Package 생성과 설정]] → sfdx-project.json 패키지 설정 파라미터
+- packageDirectories Keywords NEXT LATEST RELEASED HIGHEST NONE? → [[Unlocked Package 생성과 설정]] → Keywords
+- Installation Key 설정? → [[Unlocked Package 생성과 설정]] → Installation Key
+- 패키지 Namespace 생성·충돌 매트릭스? → [[Unlocked Package 생성과 설정]] → Namespace
+- sf package version create Default/Async/Skip? → [[Unlocked Package 개발과 버전]] → Create New Versions
+- 패키지 버전 번호 MAJOR.MINOR.PATCH.BUILD 가이드? → [[Unlocked Package 개발과 버전]] → Guidance for Package Version Numbering
+- 코드 커버리지 75% 요건 확인? → [[Unlocked Package 개발과 버전]] → Code Coverage
+- sf package version promote 릴리스? → [[Unlocked Package 개발과 버전]] → Release an Unlocked Package
+- Hard-Delete되는 컴포넌트 목록? → [[Unlocked Package 개발과 버전]] → Hard-Deleted Components
+- Push Upgrade 스케줄·추적·취소? → [[Unlocked Package 릴리스와 설치]] → Push Upgrade
+- sf package install --publish-wait --wait 차이? → [[Unlocked Package 릴리스와 설치]] → Control Package Installation Timeouts
+- 의존성 자동 순서 설치 스크립트? → [[Unlocked Package 릴리스와 설치]] → Sample Script
+- 패키지를 다른 Dev Hub로 이전? → [[Unlocked Package 릴리스와 설치]] → Transfer
+- DX 시작 방법 (샘플 레포 vs 신규 프로젝트 vs 마이그레이션)? → [[DX 도구 개요와 워크플로 전환]]
+- dreamhouse-lwc 클론 후 완전한 DX 워크플로? → [[DX 도구 개요와 워크플로 전환]] → 시작 경로 1
+- 메타데이터가 Scratch Org Source Tracking에서 지원되는지? → [[Metadata Coverage 보고서]]
+- LLM + DX CLI 작업 자동화 (MCP)? → [[DX MCP Server (Beta)]]
+- DX MCP Server toolset 목록 전수? → [[DX MCP Server (Beta)]] → MCP 도구 유형
+- org login web/jwt 인증 오류 해결? → [[DX 트러블슈팅]]
+- No default dev hub found 오류? → [[DX 트러블슈팅]] → Error: No default dev hub found
+- consumer key already taken 오류? → [[DX 트러블슈팅]] → Error: The consumer key is already taken
+- DX 알려진 제약사항 전수? → [[DX 제약사항]]
+- RecordType data import 불가 우회 방법? → [[DX 제약사항]] → Salesforce CLI
+- CircleCI 서버 키 암호화 설정? → [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] → CircleCI
+- Jenkins Jenkinsfile 전체 코드 보기? → [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] → Sample Jenkinsfile
+- Sample CI 레포 전체 목록? → [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] → Sample CI Repos
+- - Metadata API 전체 둘러보기? → [[MetadataAPI(메타데이터API)/index]]
 - .zip 파일로 배포하기? → [[MetadataAPI(메타데이터API)/Metadata API File-Based 호출]]
 - REST API로 배포? → [[MetadataAPI(메타데이터API)/Metadata API REST]]
 - 단일 컴포넌트 생성/삭제(CRUD)? → [[MetadataAPI(메타데이터API)/Metadata API CRUD 호출]]

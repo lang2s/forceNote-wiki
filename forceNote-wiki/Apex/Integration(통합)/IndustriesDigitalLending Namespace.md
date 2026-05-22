@@ -48,3 +48,4 @@ industriesDigitalLending 네임스페이스는 FSC Digital Lending 솔루션의 
 
 - [[Context Namespace]] — Industries Cloud 컨텍스트 서비스
 - [[ComplianceMgmt Namespace]] — FSC 규정 준수 룰 프로세서 Apex
+- [[fsccashflow Namespace]] — 동일 FSC 도메인 — CashFlow FlexCard callable 유틸리티

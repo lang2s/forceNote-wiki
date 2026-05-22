@@ -55,11 +55,30 @@ created: 2026-05-21
 | Knowledge 아티클 Apex로 게시하는 방법 | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 번역 제출 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 보관 스케줄 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |
-| 메타데이터 배포하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API File-Based 호출.md` |
-| Metadata API로 검색하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API File-Based 호출.md` |
-| Metadata API Java 클라이언트 연결하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API Quick Start.md` |
-| Metadata API 배포 REST로 하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API REST.md` |
-| Metadata API CustomObject 코드로 생성하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API CRUD 호출.md` |
-| 지원되는 메타데이터 타입 목록 조회하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API Utility Calls.md` |
-| 배포 결과 파싱하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API Result Objects.md` |
-| Metadata API 배포 시 AllOrNone 설정하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API Headers.md` |
+| 메타데이터 배포하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API File-Based 호출.md` |
+| Metadata API로 검색하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API File-Based 호출.md` |
+| Metadata API Java 클라이언트 연결하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Quick Start.md` |
+| Metadata API 배포 REST로 하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API REST.md` |
+| Metadata API CustomObject 코드로 생성하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API CRUD 호출.md` |
+| 지원되는 메타데이터 타입 목록 조회하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Utility Calls.md` |
+| 배포 결과 파싱하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Result Objects.md` |
+| Metadata API 배포 시 AllOrNone 설정하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Headers.md` |
+| Dev Hub 활성화하는 방법 | `DevOps(데브옵스)/DX 도구 접근 권한.md` |
+| DX 도구 사용자 추가하는 방법 | `DevOps(데브옵스)/DX 도구 접근 권한.md` |
+| Sandbox CLI로 생성하는 방법 | `DevOps(데브옵스)/Sandbox 관리.md` |
+| Sandbox 새로고침 CLI 명령 | `DevOps(데브옵스)/Sandbox 관리.md` |
+| CLI로 레코드 조회하는 방법 | `DevOps(데브옵스)/DX 데이터 작업.md` |
+| Bulk API 2.0 대량 데이터 가져오는 방법 | `DevOps(데브옵스)/DX 데이터 작업.md` |
+| sObject Tree 데이터 import하는 방법 | `DevOps(데브옵스)/DX 데이터 작업.md` |
+| Org Development Model 배포 절차 | `DevOps(데브옵스)/Metadata API 빌드·릴리스 워크플로.md` |
+| 배포 검증만 하는 방법 project deploy validate | `DevOps(데브옵스)/Metadata API 빌드·릴리스 워크플로.md` |
+| Unlocked Package 처음 만드는 방법 | `DevOps(데브옵스)/Unlocked Package 개념과 준비.md` |
+| Org-Dependent Unlocked Package란 | `DevOps(데브옵스)/Unlocked Package 개념과 준비.md` |
+| sfdx-project.json 패키지 파라미터 설명 | `DevOps(데브옵스)/Unlocked Package 생성과 설정.md` |
+| 패키지 버전 번호 NEXT 키워드 쓰는 방법 | `DevOps(데브옵스)/Unlocked Package 개발과 버전.md` |
+| 패키지 버전 릴리스 promote하는 방법 | `DevOps(데브옵스)/Unlocked Package 개발과 버전.md` |
+| 패키지 업그레이드 Push Upgrade하는 방법 | `DevOps(데브옵스)/Unlocked Package 릴리스와 설치.md` |
+| 패키지 설치 sf package install 방법 | `DevOps(데브옵스)/Unlocked Package 릴리스와 설치.md` |
+| CircleCI로 Salesforce 배포 자동화하는 방법 | `DevOps(데브옵스)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |
+| Jenkins Jenkinsfile Salesforce DX 예제 | `DevOps(데브옵스)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |
+| 서버 키 암호화해서 CI에 저장하는 방법 | `DevOps(데브옵스)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |

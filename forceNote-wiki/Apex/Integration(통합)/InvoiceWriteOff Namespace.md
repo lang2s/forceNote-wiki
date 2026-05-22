@@ -45,3 +45,4 @@ InvoiceWriteOff 네임스페이스는 Revenue Cloud 환경에서 인보이스를
 
 - [[IssueCreditMemo Namespace]] — 인보이스 분쟁 조정 기반 크레딧 메모 생성
 - [[CommerceOrders Namespace]] — B2B/D2C Commerce 주문 생성 Apex
+- [[renew_assets_summary Namespace]] — 동일 Revenue Cloud 그룹: 갱신 자산 조회·갱신 Opportunity 생성

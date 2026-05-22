@@ -39,6 +39,10 @@ aliases: [통합 MOC, Integration Index]
 
 - [[Platform Event 통합 패턴]] — `EventBus.publish()`, 트리거 수신, LWC 구독
 
+## 선언적 외부 연동
+
+- [[External Services]] — OpenAPI 스펙 등록으로 Apex 클래스·Flow Action 자동 생성
+
 ## 테스트
 
 - [[HttpCalloutMock]] — HTTP 모킹 (SuccessCalloutMock / ErrorCalloutMock)

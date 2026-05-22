@@ -232,3 +232,4 @@ On failure: attempt to fix errors and re-run, up to 3 times.
 - [[Metadata Types — 개요 및 분류]] — Ch13 메타데이터 타입 전체 목록
 - [[CI CD 패턴]] — sf project deploy start 자동화 배포
 - [[Salesforce DX 개요]] — sf CLI 명령어 참조
+- [[DX MCP Server (Beta)]] — Salesforce DX CLI 기반 MCP Server (이 파일과 별개 — DX 전용)

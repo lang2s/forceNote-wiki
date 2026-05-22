@@ -205,7 +205,20 @@ MyProject/
 
 ## 관련 노트
 
+- [[Source Tracking 변경 추적]] — Source Tracking 전수 심층 레퍼런스 (Preview·Conflicts·Profile·Best Practices·Performance)
+- [[DX 프로젝트 구조와 소스 포맷]] — DX 프로젝트 생성·디렉토리 구조·소스 포맷·기존 소스 마이그레이션 전수
+- [[메타데이터 분해와 forceignore]] — Decomposed Metadata Types 전수(기본+선택 Beta), .forceignore 전수
+- [[sfdx-project.json 레퍼런스]] — sfdx-project.json 모든 필드·Multiple Package Dirs·String Replacement 전수
 - [[Scratch Org 패턴]] — scratch org 생성, 설정, 스냅샷
 - [[Unlocked Package 패턴]] — 패키지 생성·버전·배포
 - [[CI CD 패턴]] — Jenkins, CircleCI 연동
 - [[MetadataAPI(메타데이터API)/Metadata API 개요]] — Metadata API 직접 사용법 (deploy/retrieve SOAP+REST)
+- [[DX 인증 방식]] — org login web·JWT Flow·External Client App·SFDX Auth URL·Logout 전수 심층 레퍼런스
+- [[DX 개발 워크플로]] — CLI 소스 파일 생성·배포·Anonymous Apex·테스트 실행·Debug Logs 전수
+- [[DX 도구 개요와 워크플로 전환]] — DX가 개발 방식을 바꾸는 이유·3가지 시작 경로·전체 워크플로 전수
+- [[Metadata Coverage 보고서]] — 채널별 메타데이터 지원 여부 공식 참조
+- [[DX 도구 접근 권한]] — Dev Hub 선택·활성화·라이선스·Permission Set 전수
+- [[Sandbox 관리]] — org create/clone/refresh/delete sandbox, sandbox-def.json 전수
+- [[DX 데이터 작업]] — data tree/bulk/record/query/search/create file 전수
+- [[Metadata API 빌드·릴리스 워크플로]] — Org Development Model 4단계 배포 워크플로
+- [[DevOps Center]] — Git 기반 파이프라인 릴리즈 관리 도구 (Work Item·Bundle·Stage·Promote)

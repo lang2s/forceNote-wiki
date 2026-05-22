@@ -29,6 +29,8 @@ created: 2026-05-17
 | [[Canvas Namespace]] | 외부 웹 앱 임베드 Apex SDK — CanvasLifecycleHandler(excludeContextTypes/onRender), RenderContext, ApplicationContext, EnvironmentContext, Canvas.Test | #reference |
 | [[Custom Metadata Types]] | CMDT 읽기·쓰기(Metadata.Operations), getInstance, SOQL 조회, isProtected 보호 설정 | #reference |
 | [[Validation Rules 예제]] | REGEX, ISBLANK, ISNUMBER, ISCHANGED, PRIORVALUE, VLOOKUP, ISPICKVAL 예제 모음 | #reference |
+| [[DevOps Center]] | Salesforce 릴리즈 관리 도구 — Git 기반 파이프라인, Work Item, Bundle, CLI 배포 | #concept |
+| [[Enhanced Domains]] | Winter '24 강제 적용 도메인 정책 — 모든 URL에 My Domain 포함, 서드파티 쿠키 대응 | #concept |
 
 ---
 
