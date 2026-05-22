@@ -13,3 +13,6 @@ forceNote-wiki/memory/
 
 # Salesforce 원본 소스 문서 (대용량 PDF·노트 — 위키 콘텐츠 아님)
 Salesforce Documents/
+
+# Claude Code 런타임 락 (머신별 임시 파일)
+scheduled_tasks.lock
