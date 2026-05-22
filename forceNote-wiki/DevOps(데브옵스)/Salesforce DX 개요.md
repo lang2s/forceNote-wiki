@@ -208,3 +208,4 @@ MyProject/
 - [[Scratch Org 패턴]] — scratch org 생성, 설정, 스냅샷
 - [[Unlocked Package 패턴]] — 패키지 생성·버전·배포
 - [[CI CD 패턴]] — Jenkins, CircleCI 연동
+- [[MetadataAPI/Metadata API 개요]] — Metadata API 직접 사용법 (deploy/retrieve SOAP+REST)

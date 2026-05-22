@@ -55,6 +55,30 @@ created: 2026-05-21
 | Unlocked Package, sf package create, sf package version create, sf package install, 2GP, packageAliases, org-dependent, 패키지 버전, 내부 앱 패키징 | `DevOps(데브옵스)/Unlocked Package 패턴.md` |
 | CI/CD, Jenkins, Jenkinsfile, CircleCI, JWT 인증 자동화, org login jwt, 자동화 파이프라인, 지속적 통합, 패키지 CI 빌드, Connected App JWT | `DevOps(데브옵스)/CI CD 패턴.md` |
 
+## DevOps — Metadata API
+
+| 키워드 | 파일 |
+|---|---|
+| Metadata API, 메타데이터 API, MDAPI, Metadata API 개요, deploy retrieve, 배포 검색, 메타데이터 배포, v67.0, Summer 26, File-Based API, CRUD Metadata API | `DevOps(데브옵스)/MetadataAPI/Metadata API 개요.md` |
+| Metadata API Quick Start, MetadataLoginUtil, ConnectorConfig, WSC, WSDL Java 클라이언트, MetadataConnection, Metadata API 연결 설정 | `DevOps(데브옵스)/MetadataAPI/Metadata API Quick Start.md` |
+| deploy, checkDeployStatus, cancelDeploy, deployRecentValidation, retrieve, checkRetrieveStatus, package.xml, destructiveChanges.xml, TestLevel, DeployOptions, 배포 옵션 | `DevOps(데브옵스)/MetadataAPI/Metadata API File-Based 호출.md` |
+| createMetadata, readMetadata, updateMetadata, upsertMetadata, deleteMetadata, renameMetadata, CRUD 메타데이터, 동기 메타데이터 호출 | `DevOps(데브옵스)/MetadataAPI/Metadata API CRUD 호출.md` |
+| deployRequest, Metadata API REST, REST 배포, sf metadata rest deploy, POST GET PATCH deployRequest | `DevOps(데브옵스)/MetadataAPI/Metadata API REST.md` |
+| describeMetadata, describeValueType, listMetadata, checkStatus, DescribeMetadataResult, DescribeMetadataObject, ListMetadataQuery, FileProperties | `DevOps(데브옵스)/MetadataAPI/Metadata API Utility Calls.md` |
+| DeployResult, RetrieveResult, RunTestsResult, SaveResult, DeleteResult, UpsertResult, CancelDeployResult, AsyncResult, CodeCoverageResult, DeployMessage, Error 객체 | `DevOps(데브옵스)/MetadataAPI/Metadata API Result Objects.md` |
+| AllOrNoneHeader, CallOptions, DebuggingHeader, SessionHeader, LogInfo, LogCategory, LogCategoryLevel, SOAP 헤더, 메타데이터 헤더 | `DevOps(데브옵스)/MetadataAPI/Metadata API Headers.md` |
+| Metadata API 에러 처리, SOAP fault, INVALID_SESSION_ID, SaveResult errors, DeployMessage problem, RetrieveMessage problem, 세션 만료, 비동기 CRUD 오류, 동기 CRUD 오류 | `DevOps(데브옵스)/MetadataAPI/Metadata API 에러 처리.md` |
+| Metadata API MCP Tool, MCP Tool Beta, salesforce-api-context, get_metadata_type_context, get_metadata_type_fields, search_metadata_types, Agentforce MCP, Cursor MCP, Claude Desktop MCP | `DevOps(데브옵스)/MetadataAPI/Metadata API MCP Tool.md` |
+| Metadata Types 개요, 메타데이터 타입 목록, Metadata Components and Types, 메타데이터 타입 분류, 300 타입, Metadata Type Limits, MetadataWithContent | `DevOps(데브옵스)/MetadataAPI/Metadata Types — 개요 및 분류.md` |
+| ApexClass 메타데이터, ApexTrigger 메타데이터, ApexPage 메타데이터, LightningComponentBundle 메타데이터, AuraDefinitionBundle 메타데이터, StaticResource 메타데이터, Apex 코드 메타데이터 타입, LightningMessageChannel | `DevOps(데브옵스)/MetadataAPI/Metadata Types — Apex & Code.md` |
+| CustomObject 메타데이터, CustomField 메타데이터, RecordType 메타데이터, ValidationRule 메타데이터, CustomLabels 메타데이터, GlobalValueSet 메타데이터, CustomObjectTranslation, StandardValueSet | `DevOps(데브옵스)/MetadataAPI/Metadata Types — Objects & Fields.md` |
+| Flow 메타데이터, WorkflowRule 메타데이터, ApprovalProcess 메타데이터, AssignmentRules 메타데이터, AutoResponseRules, EscalationRules, DuplicateRule, FlowDefinition, CustomNotificationType | `DevOps(데브옵스)/MetadataAPI/Metadata Types — Automation.md` |
+| PermissionSet 메타데이터, Profile 메타데이터, SharingRules 메타데이터, ConnectedApp 메타데이터, Certificate 메타데이터, RestrictionRule, TransactionSecurityPolicy, SamlSsoConfig, CspTrustedSite | `DevOps(데브옵스)/MetadataAPI/Metadata Types — Security & Access.md` |
+| Layout 메타데이터, FlexiPage 메타데이터, CustomApplication 메타데이터, CustomTab 메타데이터, QuickAction, ExperienceBundle, NavigationMenu, HomePageLayout, CustomSite | `DevOps(데브옵스)/MetadataAPI/Metadata Types — UI & Layout.md` |
+| NamedCredential 메타데이터, RemoteSiteSetting 메타데이터, PlatformEventChannel 메타데이터, PlatformCachePartition, InstalledPackage, Settings 메타데이터, EventRelayConfig, ExternalServiceRegistration | `DevOps(데브옵스)/MetadataAPI/Metadata Types — Integration & Platform.md` |
+| WaveApplication 메타데이터, AIApplication 메타데이터, Bot 메타데이터, GenAiPlanner 메타데이터, GenAiPlugin, GenAiFunction, GenAiPromptTemplate, DiscoveryAIModel, Agentforce 메타데이터, Einstein 분석 메타데이터 타입 | `DevOps(데브옵스)/MetadataAPI/Metadata Types — Einstein & Analytics.md` |
+| Metadata 기본 클래스, MetadataWithContent, FuelType, SustainabilityUom, FundraisingConfig, GiftEntryGridTemplate, Scontrol deprecated, 기타 메타데이터 타입 | `DevOps(데브옵스)/MetadataAPI/Metadata Types — Other.md` |
+
 ## Admin(어드민) — 일반 사용자 / 관리자
 
 | 키워드 | 파일 |

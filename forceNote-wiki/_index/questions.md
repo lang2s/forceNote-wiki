@@ -55,3 +55,11 @@ created: 2026-05-21
 | Knowledge 아티클 Apex로 게시하는 방법 | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 번역 제출 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 보관 스케줄 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |
+| 메타데이터 배포하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API File-Based 호출.md` |
+| Metadata API로 검색하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API File-Based 호출.md` |
+| Metadata API Java 클라이언트 연결하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API Quick Start.md` |
+| Metadata API 배포 REST로 하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API REST.md` |
+| Metadata API CustomObject 코드로 생성하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API CRUD 호출.md` |
+| 지원되는 메타데이터 타입 목록 조회하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API Utility Calls.md` |
+| 배포 결과 파싱하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API Result Objects.md` |
+| Metadata API 배포 시 AllOrNone 설정하는 방법 | `DevOps(데브옵스)/MetadataAPI/Metadata API Headers.md` |
