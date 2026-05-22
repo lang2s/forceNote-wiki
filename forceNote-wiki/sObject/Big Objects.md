@@ -2,6 +2,8 @@
 title: Big Objects
 tags: [salesforce, sobject, big-objects, archive, large-scale-data]
 source: object_reference.pdf v67.0 — Ch1 pp.31–34 (물리 pp.73–76)
+created: 2026-05-22
+aliases: [Big Object, __b suffix, FieldHistoryArchive, 빅오브젝트, 대용량 보관]
 ---
 
 # Big Objects

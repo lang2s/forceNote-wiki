@@ -6,7 +6,7 @@ updated: 2026-05-22
 
 # Data(데이터) — 로컬 인덱스
 
-> DML 조작, 페이지네이션, Namespace 레퍼런스. SOQL/SOSL은 [[SOQL(SOQL)/index|SOQL(SOQL)]] 폴더 참조.
+> DML 조작, 페이지네이션, Namespace 레퍼런스. SOQL/SOSL은 [[Apex/SOQL(SOQL)/index|SOQL(SOQL)]] 폴더 참조.
 
 **상위:** [[Apex MOC]] → [[00 Home]]
 
@@ -30,7 +30,7 @@ updated: 2026-05-22
 
 ## 빠른 선택
 
-- SOQL/SOSL 쿼리·패턴? → **[[SOQL(SOQL)/index|SOQL(SOQL) 폴더]]**
+- SOQL/SOSL 쿼리·패턴? → **[[Apex/SOQL(SOQL)/index|SOQL(SOQL) 폴더]]**
 - 레코드 삽입/수정/삭제? → [[DML 패턴]]
 - 목록 페이지에 페이지네이션? → [[PagedResult 패턴]]
 - SLA 경과 시간 / 영업시간 기준 계산? → [[BusinessHours 패턴]]

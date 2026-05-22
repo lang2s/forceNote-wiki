@@ -2,6 +2,8 @@
 title: Custom Objects
 tags: [salesforce, sobject, custom-objects, api, metadata]
 source: object_reference.pdf v67.0 — Ch1 pp.21–23 (물리 pp.63–65)
+created: 2026-05-22
+aliases: [Custom Object, __c object, __Share, __Tag, 커스텀 오브젝트, 사용자 정의 오브젝트]
 ---
 
 # Custom Objects

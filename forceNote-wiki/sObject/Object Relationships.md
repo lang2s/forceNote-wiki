@@ -2,6 +2,8 @@
 title: Object Relationships
 tags: [salesforce, sobject, relationships, master-detail, lookup, many-to-many]
 source: object_reference.pdf v67.0 — Ch1 pp.25–27 (물리 pp.67–69)
+created: 2026-05-22
+aliases: [Object Relationship, Master-Detail, Lookup, Junction Object, 오브젝트 관계, 마스터-디테일, 룩업]
 ---
 
 # Object Relationships

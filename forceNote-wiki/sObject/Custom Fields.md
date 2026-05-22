@@ -2,6 +2,8 @@
 title: Custom Fields
 tags: [salesforce, sobject, custom-fields, api, metadata]
 source: object_reference.pdf v67.0 — Ch1 pp.24–25 (물리 pp.66–67)
+created: 2026-05-22
+aliases: [Custom Field, __c field, External ID, 커스텀 필드, 사용자 정의 필드]
 ---
 
 # Custom Fields

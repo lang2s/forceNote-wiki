@@ -2,6 +2,8 @@
 title: External Objects
 tags: [salesforce, sobject, external-objects, salesforce-connect, odata]
 source: object_reference.pdf v67.0 — Ch1 pp.29–31 (물리 pp.71–73)
+created: 2026-05-22
+aliases: [External Object, __x suffix, Salesforce Connect, OData, External Lookup, 외부 오브젝트]
 ---
 
 # External Objects

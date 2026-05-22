@@ -52,6 +52,7 @@ created: 2026-05-22
 | Object Cheatsheet, CRUD 지원, 오브젝트 비교, Object 비교 Packaging Documentation Reference | `sObject/Object Types Reference.md` |
 | Identifying Object Type, Accessing Object, Object Manager, 오브젝트 타입 식별 | `sObject/Object Types Reference.md` |
 | 2 Object Behavior, Object Behavior 개요, Object 선택 프레임워크 | `sObject/2 Object Behavior.md` |
+| 3 Associated Objects, Associated Objects 개요, Ch3 챕터 개요 | `sObject/3 Associated Objects.md` |
 
 ## Ch3 — Associated Objects (Feed·History·Share·OwnerSharingRule·ChangeEvent)
 

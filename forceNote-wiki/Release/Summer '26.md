@@ -239,5 +239,5 @@ public without sharing class MySystemClass {
 ## 관련 노트
 
 - [[Release MOC]]
-- [[Spring '26]] — 이전 릴리즈
+- [[Spring '26]] (미작성) — 이전 릴리즈
 - [[Winter '26]] — 이전이전 릴리즈
