@@ -602,3 +602,7 @@ lcr.getRelatedPersonAccountRecord() // 개인 계정 레코드 ID
 - [[SOQL 패턴]] — Database.getCursor, WITH USER_MODE
 - [[Batch Apex]] — Database.Batchable, QueryLocator, BatchableContext
 - [[Apex 표준 클래스 레퍼런스]] — Database 섹션 기본 개요
+
+- [[Wave Namespace]] — Wave Analytics(CRM Analytics) Apex API
+- [[Reports Namespace]] — Report, ReportResults, ReportDescribeResult Apex API
+- [[Datacloud Namespace]] — Data Cloud DML 결과, DataSource.SaveResult 연관

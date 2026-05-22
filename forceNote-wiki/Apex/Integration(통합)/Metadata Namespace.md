@@ -353,5 +353,5 @@ Layout 메타데이터를 Apex에서 다룰 때 사용. 주로 ISV/패키지 배
 - [[Custom Metadata Types]] (미작성 — CMDT 설계 가이드)
 - [[Queueable]] — 배포 후 Queueable 체이닝 패턴
 - [[RestClient 패턴]] — 외부 API 호출 패턴
-- [[MetadataAPI/Metadata API 개요]] — Metadata API Developer Guide (SOAP/REST 배포·검색 API)
-- [[MetadataAPI/Metadata API CRUD 호출]] — createMetadata/readMetadata 등 동기 CRUD
+- [[MetadataAPI(메타데이터API)/Metadata API 개요]] — Metadata API Developer Guide (SOAP/REST 배포·검색 API)
+- [[MetadataAPI(메타데이터API)/Metadata API CRUD 호출]] — createMetadata/readMetadata 등 동기 CRUD

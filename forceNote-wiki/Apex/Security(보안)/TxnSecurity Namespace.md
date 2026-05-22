@@ -256,3 +256,5 @@ private class AccountQueryConditionTest {
 - [[Safely]] — DML 보안 패턴 — 트랜잭션 보안과 FLS 보안의 역할 분리
 - [[WITH USER_MODE]] — SOQL 보안 모드 — evaluate() 내 SOQL 작성 시 적용
 - [[테스트 전략]] — Apex 테스트 구조 — evaluate() 테스트 패턴 참고
+
+- [[UserProvisioning Namespace]] — 외부 시스템 프로비저닝 (TxnSecurity 정책 트리거 연계)

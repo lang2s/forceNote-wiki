@@ -152,3 +152,5 @@ get typeOptions() {
 - [[Record Form 선택]]
 - [[Wire 패턴]]
 - [[ldsUtils reduceErrors]]
+
+- [[UI API 개요]] — LDS 전체 구조, 캐시·ETag·HTTP 상태코드

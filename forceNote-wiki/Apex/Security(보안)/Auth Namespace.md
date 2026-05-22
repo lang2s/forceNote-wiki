@@ -953,3 +953,5 @@ new Auth.JsonValueOutput(stringValue, booleanValue, integerValue, ...)
 - [[CanTheUser]] — Apex 내 권한 체크 (인증과 구분)
 - [[HttpCalloutMock]] — Auth namespace HTTP callout 테스트
 - [[TxnSecurity Namespace]] — SessionManagement.setSessionLevel과 연계되는 트랜잭션 보안 정책
+
+- [[UserProvisioning Namespace]] — 외부 시스템 프로비저닝 연계 (Auth 인증 연계)

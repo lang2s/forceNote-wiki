@@ -148,3 +148,5 @@ String name = (String) interview.getVariableValue('name');
 - [[Screen Flow 설계]]
 - [[Autolaunched Flow 패턴]]
 - [[@InvocableMethod 패턴]]
+
+- [[Flow 유틸리티 액션 모음]] — Send Email·Get Record·Duplicate Record 등 유틸리티 액션 전체

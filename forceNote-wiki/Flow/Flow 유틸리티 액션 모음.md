@@ -186,3 +186,5 @@ newInterview.start();  // 동기 실행 (현재 트랜잭션 내)
 - [[Autolaunched Flow 패턴]] — Autolaunched Flow 설계
 - [[Flow 레코드 컬렉션 조작]] — 컬렉션 조작 액션
 - [[Flow 데이터 & 보안 액션]] — 데이터 조회 및 보안 액션
+
+- [[Flow 종류와 변수]] — Flow 유형·변수·리소스·트리거 조건 전체 레퍼런스

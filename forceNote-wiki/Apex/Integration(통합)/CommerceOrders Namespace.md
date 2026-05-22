@@ -26,3 +26,6 @@ aliases: [CommerceOrders, CommerceOrders Namespace, B2B Commerce Order Apex, 주
 - [[CommerceBuyGrp Namespace]] — Buyer Group 배정 커스텀 로직
 - [[CommerceExtension Namespace]] — B2B/D2C Commerce 확장 포인트 해결 전략
 - [[5 Object Interfaces]] — SalesTransaction·PriceAdjustmentGroup·PriceAdjustmentItem 인터페이스 (Order·WebCart 구현)
+
+- [[CommercePayments Namespace]] — 결제 게이트웨이 어댑터 패턴
+- [[CommerceTax Namespace]] — 세금 계산 어댑터 패턴

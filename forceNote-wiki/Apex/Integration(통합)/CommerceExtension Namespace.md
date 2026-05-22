@@ -148,3 +148,7 @@ public class TaxServiceExtensionResolverSample
 
 - [[Apex MOC]]
 - [[CommerceBuyGrp Namespace]] — Buyer Group 배정 커스텀 로직
+
+- [[CommerceOrders Namespace]] — B2B/D2C 주문 생성 Apex
+- [[CommercePayments Namespace]] — 결제 게이트웨이 어댑터 패턴
+- [[CommerceTax Namespace]] — 세금 계산 어댑터 패턴

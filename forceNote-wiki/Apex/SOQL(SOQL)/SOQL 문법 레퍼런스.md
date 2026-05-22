@@ -909,3 +909,7 @@ List<Vote> votes = [SELECT Id FROM Vote WHERE ParentId = :parentId];
 - [[Governor Limits]] — SOQL 행 수·쿼리 수 거버너 한도
 - [[Database Namespace 상세]] — QueryLocator, Cursor 대용량 처리
 - [[Summer '26]] — API v67.0 WITH SECURITY_ENFORCED 제거
+
+- [[SOQL SOSL 소개]] — SOQL·SOSL 기초 개념 및 사용 맥락
+- [[SOQL WITH DATA CATEGORY]] — WITH DATA CATEGORY 절 전체 문법
+- [[Syndication Feed SOQL]] — Syndication Feed 객체 SOQL 전용 문법

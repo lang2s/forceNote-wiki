@@ -121,3 +121,7 @@ public class MyBuyerGroupService extends CommerceBuyGrp.BuyerGroupEvaluationServ
 - [[Apex MOC]]
 - [[CommerceExtension Namespace]] — B2B/D2C Commerce 확장 포인트 Resolution 전략
 - [[5 Object Interfaces]] — PriceAdjustmentGroup·PriceAdjustmentItem 인터페이스 상세 필드
+
+- [[CommerceOrders Namespace]] — B2B/D2C 주문 생성 Apex
+- [[CommercePayments Namespace]] — 결제 게이트웨이 어댑터 패턴
+- [[CommerceTax Namespace]] — 세금 계산 어댑터 패턴

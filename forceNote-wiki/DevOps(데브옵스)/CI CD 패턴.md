@@ -236,5 +236,5 @@ rm server.key
 - [[Salesforce DX 개요]] — JWT 인증, sf CLI 기초
 - [[Scratch Org 패턴]] — CI에서 Scratch Org 관리
 - [[Unlocked Package 패턴]] — 패키지 버전 생성·설치
-- [[MetadataAPI/Metadata API File-Based 호출]] — deploy/retrieve 원리 이해
-- [[MetadataAPI/Metadata API REST]] — REST 방식 배포
+- [[MetadataAPI(메타데이터API)/Metadata API File-Based 호출]] — deploy/retrieve 원리 이해
+- [[MetadataAPI(메타데이터API)/Metadata API REST]] — REST 방식 배포
