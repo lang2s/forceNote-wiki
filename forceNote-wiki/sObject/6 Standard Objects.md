@@ -7,24 +7,39 @@ aliases: [6 Standard Objects, 표준 Object 카탈로그, Standard Object 목록
 
 # 6 Standard Objects — 도메인별 카탈로그
 
-> Object Reference v67.0의 표준 Object를 도메인별로 그룹화 — 주요 Object 선별 (전체 목록은 원본 PDF Ch6 참조)
+> Object Reference v67.0의 표준 Object를 도메인별로 그룹화 — 각 도메인 세부 페이지로 이동.
+
+---
+
+## 도메인 세부 페이지
+
+| 도메인 | 서브페이지 | 주요 Object |
+|---|---|---|
+| Core CRM / Sales Cloud | → [[Core CRM Objects]] | Account·Contact·Lead·Opportunity·Campaign·Contract·Quote·Pricebook2·Product2·Task·Event |
+| Service Cloud | → [[Service Cloud Objects]] | Case·Entitlement·Knowledge·LiveChatTranscript·MessagingSession·AgentWork·Survey·Incident |
+| B2B Commerce | → [[B2B Commerce Objects]] | WebCart·CartItem·OrderSummary·FulfillmentOrder·BuyerGroup·Payment·Promotion |
+| Field Service (FSL) | → [[Field Service Objects]] | ServiceAppointment·ServiceResource·ServiceTerritory·WorkOrder·MaintenancePlan·Asset·Shift |
+| Platform / Admin / Security | → [[Platform Admin Objects]] | User·Group·Profile·PermissionSet·RecordType·FlowRecord·ApexClass·SetupAuditTrail |
+| Files / Content | → [[Files Objects]] | ContentDocument·ContentVersion·ContentDocumentLink·ContentFolder·Attachment |
+| Analytics / Reports | → [[Analytics Objects]] | Report·Dashboard·AnalyticsDashboard·DataUsePurpose·Individual·MLModel·GenAI |
+| Experience Cloud / Chatter | → [[Experience Cloud Objects]] | Network·CollaborationGroup·FeedItem·Idea·Question·ManagedContent |
 
 ---
 
 ## 도메인 목록
 
-- [Core CRM (Sales Cloud)](#core-crm-sales-cloud)
-- [Service Cloud](#service-cloud)
-- [Marketing](#marketing)
-- [Platform / Admin / Security](#platform--admin--security)
-- [Apex / Dev / Metadata](#apex--dev--metadata)
-- [Files / Content](#files--content)
-- [Einstein / AI](#einstein--ai)
-- [B2B Commerce](#b2b-commerce)
-- [Field Service (FSL)](#field-service-fsl)
-- [Analytics / Reports](#analytics--reports)
-- [Experience Cloud / Communities](#experience-cloud--communities)
-- [Collaboration / Chatter](#collaboration--chatter)
+- [Core CRM (Sales Cloud)](#core-crm-sales-cloud) → [[Core CRM Objects]]
+- [Service Cloud](#service-cloud) → [[Service Cloud Objects]]
+- [Marketing](#marketing) (Core CRM Objects에 포함)
+- [Platform / Admin / Security](#platform--admin--security) → [[Platform Admin Objects]]
+- [Apex / Dev / Metadata](#apex--dev--metadata) (Platform Admin Objects에 포함)
+- [Files / Content](#files--content) → [[Files Objects]]
+- [Einstein / AI](#einstein--ai) (Analytics Objects에 포함)
+- [B2B Commerce](#b2b-commerce) → [[B2B Commerce Objects]]
+- [Field Service (FSL)](#field-service-fsl) → [[Field Service Objects]]
+- [Analytics / Reports](#analytics--reports) → [[Analytics Objects]]
+- [Experience Cloud / Communities](#experience-cloud--communities) → [[Experience Cloud Objects]]
+- [Collaboration / Chatter](#collaboration--chatter) (Experience Cloud Objects에 포함)
 
 ---
 

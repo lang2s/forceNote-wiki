@@ -103,3 +103,29 @@ aliases: [sObject Reference 인덱스, Object Reference 목차]
 
 ---
 
+
+## Chapter 6 세부 페이지
+
+| 파일 | 내용 |
+|---|---|
+| [[Core CRM Objects]] | Account·Contact·Lead·Opportunity·Campaign·Contract·Order·Pricebook2·Product2·Quote·Task·Event·Territory2·Forecasting·Partner 등 핵심 CRM Object |
+| [[Service Cloud Objects]] | Case·Entitlement·ServiceContract·Knowledge·OmniChannel·LiveChat·Messaging·VoiceCall·Survey·Incident·Problem·ChangeRequest·Macro·SvcCatalog 등 |
+| [[B2B Commerce Objects]] | BuyerAccount·WebCart·CartItem·OrderSummary·FulfillmentOrder·ReturnOrder·Payment·Shipment·Inventory·Promotion·Subscription 등 커머스 Object |
+| [[Field Service Objects]] | ServiceAppointment·ServiceResource·ServiceTerritory·WorkOrder·MaintenancePlan·Skill·Asset·Shift·AppointmentSchedulingPolicy 등 FSL Object |
+| [[Platform Admin Objects]] | User·Group·Profile·PermissionSet·RecordType·ApexClass·ApexTrigger·FlowRecord·ProcessInstance·SetupAuditTrail·StaticResource 등 |
+| [[Files Objects]] | ContentDocument·ContentVersion·ContentDocumentLink·ContentFolder·ContentWorkspace·ContentDistribution·Attachment·Document·Note 등 |
+| [[Analytics Objects]] | Report·Dashboard·AnalyticsDashboard·AnalyticsWorkspace·EventLogFile·Individual·DataUsePurpose·GenAiFunctionDefinition·MLPredictionDefinition 등 |
+| [[Experience Cloud Objects]] | Network·CollaborationGroup·FeedItem·FeedComment·Idea·Question·ChatterConversation·ManagedContent·Audience·ReputationLevel 등 |
+
+---
+
+## 빠른 선택 — Ch6
+
+- Account·Contact·Lead·Opportunity 영업 핵심 → [[Core CRM Objects]]
+- Case·Knowledge·Entitlement 서비스 → [[Service Cloud Objects]]
+- WebCart·OrderSummary·Payment 커머스 → [[B2B Commerce Objects]]
+- ServiceAppointment·WorkOrder 현장서비스 → [[Field Service Objects]]
+- User·PermissionSet·ApexClass 관리자 → [[Platform Admin Objects]]
+- ContentDocument·ContentVersion 파일 → [[Files Objects]]
+- Report·Dashboard·AnalyticsDashboard 분석 → [[Analytics Objects]]
+- Network·CollaborationGroup·FeedItem 커뮤니티 → [[Experience Cloud Objects]]
