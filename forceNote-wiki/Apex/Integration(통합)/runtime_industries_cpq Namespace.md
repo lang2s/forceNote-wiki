@@ -33,3 +33,4 @@ aliases: [runtime_industries_cpq, industries cpq apex, CPQ 제품 검색 Apex, �
 
 - [[RevSalesTrxn Namespace]] — Revenue Cloud 판매 트랜잭션 생성 Apex (CPQ 흐름 연관)
 - [[PlaceQuote Namespace]] — Salesforce CPQ Quote 생성·수정 Apex
+- [[runtime_industries_insurance Namespace]] — 동일 그룹: Industries managed package 네임스페이스

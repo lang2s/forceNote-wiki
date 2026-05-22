@@ -253,3 +253,4 @@ Quick Action (생성/업데이트). Chatter 게시자에서 사용 가능.
 - [[Metadata Types — Apex & Code]] — LightningComponentBundle, AuraDefinitionBundle
 - [[Metadata Types — Security & Access]] — Profile (레이아웃 배정 관련)
 - [[Metadata Types — Integration & Platform]] — EmbeddedService 관련 타입
+- [[Metadata Types — Objects & Fields]] — CustomObject·CustomField·RecordType (레이아웃이 배치하는 오브젝트 구조)

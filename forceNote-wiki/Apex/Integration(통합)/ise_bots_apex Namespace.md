@@ -82,3 +82,4 @@ List<ise_bots_apex.DynamicMenuItem> menuItems =
 
 - [[Invocable Namespace]] — Apex에서 Flow/Bot Action 동적 호출
 - [[ConnectApi Namespace 개요]] — EinsteinLLM 그룹 AI 연동 클래스
+- [[DataRetrieval Namespace]] — Service Cloud 인게이지먼트·대화 트랜스크립트 조회 (같은 봇/대화 도메인)

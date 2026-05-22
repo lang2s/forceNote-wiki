@@ -267,4 +267,5 @@ export default class RecordFormDynamic extends LightningElement {
 - [[Record Form 선택]] — 세 가지 폼 선택 기준 상세
 - [[uiRecordApi]] — 폼 없이 레코드 CRUD (createRecord, updateRecord)
 - [[lightning-record-picker]] — 레코드 검색·선택 위젯 (record-edit-form과 함께 사용)
+- [[lightning-input]] — 범용 입력 필드 (LDS 미연동 — 수동 폼 구성 시)
 - [[Lightning Base Components 레퍼런스]] — 전체 컴포넌트 목록

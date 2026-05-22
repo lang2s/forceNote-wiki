@@ -151,3 +151,4 @@ global class OutputParameters {
 - [[Queueable]] — Queueable 구현 패턴
 - [[@InvocableMethod 패턴]] — bulkInvoke 구조
 - [[Flow 레코드 컬렉션 조작]] — 컬렉션 조작 액션
+- [[Flow 유틸리티 액션 모음]] — 영업시간·문자열·Chatter·Flow 제어 액션

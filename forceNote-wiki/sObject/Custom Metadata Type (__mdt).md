@@ -115,5 +115,7 @@ List<ProtectedConfig__mdt> records = [
 - [[4 Custom Objects]] — Custom Metadata·Custom Object·Custom Feed 개요 (부모 챕터)
 - [[Custom Objects]] — __c 네이밍·Audit Fields·Managed Package prefix
 - [[Custom Fields]] — External ID·Uniqueness·Default Values
+- [[Custom Object Standard Fields (__c)]] — __c 표준 필드 참조표 (동일 챕터 형제 Object)
+- [[Custom Object Feed (__Feed)]] — __Feed 표준 필드 참조표 (동일 챕터 형제 Object)
 - [[API Field Properties]] — Filter·Group·Sort 등 필드 속성 정의
 - [[System Fields]] — SystemModStamp·CreatedDate 등 시스템 필드 상세

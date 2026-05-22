@@ -73,3 +73,4 @@ Apex Reference Guide v67.0에는 클래스 목록만 수록되어 있습니다. 
 - [[CommercePayments Namespace]] — ISV 어댑터 패턴 참조
 - [[CommerceTax Namespace]] — ISV 어댑터 패턴 참조
 - [[fsccashflow Namespace]] — 동일 FSC 도메인 — CashFlow FlexCard 유틸리티 Apex
+- [[IndustriesDigitalLending Namespace]] — 동일 FSC 도메인 — Digital Lending callable Apex

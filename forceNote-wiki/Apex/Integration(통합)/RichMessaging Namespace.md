@@ -592,3 +592,4 @@ RichMessaging SDK는 같은 데이터를 두 프로퍼티로 이중 노출한다
 
 - [[CommercePayments Namespace]] — Payment Gateway ISV 어댑터 (결제 처리 유사 패턴)
 - [[System Namespace]] — PageReference 클래스 (AuthRequestResult.redirectPageReference 타입)
+- [[DataRetrieval Namespace]] — Service Cloud 인게이지먼트·대화 트랜스크립트 (같은 메시징 채널 도메인)

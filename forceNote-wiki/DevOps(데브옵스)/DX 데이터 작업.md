@@ -460,3 +460,4 @@ sf data create file \
 - [[Sandbox 관리]] — 데이터 이동 대상 Sandbox 생성
 - [[DX 개발 워크플로]] — 개발 사이클에서 데이터 작업 위치
 - [[Unlocked Package 개발과 버전]] — 패키지 버전 생성 시 테스트 데이터 필요
+- [[DX 제약사항]] — data tree import 제약 (RecordType import 불가 등)

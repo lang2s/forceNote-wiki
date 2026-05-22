@@ -1015,3 +1015,4 @@ new Reports.TopRows()  // no-arg, then use setters
 - [[SOQL 패턴]] — 보고서 대신 SOQL 사용 기준
 - [[Dynamic SOQL]] — 동적 쿼리로 집계 구현
 - [[FormulaEval Namespace]] — 수식 기반 동적 계산
+- [[Wave Namespace]] — CRM Analytics SAQL 분석 (표준 보고서 vs CRM Analytics)

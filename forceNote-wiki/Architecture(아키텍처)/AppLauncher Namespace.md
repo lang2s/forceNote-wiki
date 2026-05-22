@@ -114,3 +114,4 @@ AppLauncher.AppMenu.setUserSortOrder(orderedIds);
 
 - [[ApexPages Namespace]] — 같은 Visualforce/UI 계층의 네임스페이스
 - [[System Namespace]] — App Launcher 관련 URL 조회 (`URL.getOrgDomainUrl` 등)
+- [[VisualEditor Namespace]] — Lightning App Builder 동적 피클리스트 (같은 UI 구성 계층)

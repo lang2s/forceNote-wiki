@@ -146,3 +146,4 @@ setFeatureFlag('DISABLE_SYNTHETIC_SHADOW', true);
 - [[@wire 어댑터 내부 구조]] — ENABLE_WIRE_SYNC_EMIT 동작
 - [[LWC 오픈소스 아키텍처]] — @lwc/features 패키지 역할 (공유 패키지)
 - [[LWC VM 내부 구조]] — DISABLE_NATIVE_CUSTOM_ELEMENT_LIFECYCLE 사용 위치
+- [[LWC Shadow DOM 모드]] — DISABLE_SYNTHETIC_SHADOW·ENABLE_FORCE_SHADOW_MIGRATE_MODE 플래그가 제어하는 Shadow 모드

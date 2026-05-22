@@ -597,6 +597,7 @@ throw new DataSource.DataSourceException('외부 API 응답 오류: ' + statusCo
 ## 관련 노트
 
 - [[RestClient 패턴]] — Connection 내 HTTP callout 구현에 사용
+- [[LxScheduler Namespace]] — 외부 캘린더 연동 (외부 데이터·시스템 연동 패턴)
 - [[Named Credential]] — callout 인증 관리
 - [[Dom Namespace]] — XML 응답 파싱
 - [[SOQL 패턴]] — 내부 데이터 쿼리와 구분

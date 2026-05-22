@@ -237,3 +237,4 @@ List<Individual> individuals = [
 - [[Data Cloud Objects]] — DLO·DMO·CIO·DG 데이터 클라우드 Object
 - [[Files Objects]] — ContentDocument (Report·Dashboard 첨부)
 - [[Core CRM Objects]] — 분석 대상 핵심 데이터
+- [[Experience Cloud Objects]] — Community 사용 지표 분석 대상 (Ch6 형제 도메인)

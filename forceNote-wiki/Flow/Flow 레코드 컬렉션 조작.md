@@ -179,4 +179,5 @@ if (input.index == null) {
 
 - [[@InvocableMethod 패턴]] — Invocable Action 구조 설계
 - [[Flow 데이터 & 보안 액션]] — ExecuteSOQLQuery, SaveRecordsAsync
+- [[Flow 유틸리티 액션 모음]] — 영업시간·문자열·Chatter·Flow 제어 액션
 - [[Flow 종류와 변수]] — Flow 변수 설정 (isInput/isOutput)
