@@ -37,6 +37,9 @@ created: 2026-05-18
 | [[Unlocked Package 생성과 설정]] | sf package create·sfdx-project.json 18개 파라미터·Keywords·Installation Key·Namespace·Profile Settings 전수 | #reference |
 | [[Unlocked Package 개발과 버전]] | 버전 생성 3가지 옵션·버전 번호 가이드·코드 커버리지·브랜치·Hard-Delete 컴포넌트 전수 | #reference |
 | [[Unlocked Package 릴리스와 설치]] | Push Upgrade·CLI/URL 설치·업그레이드 타입·의존성 스크립트·언인스톨·패키지 이전 전수 | #reference |
+| [[2GP Managed Package 개념과 1GP 비교]] | managed 2GP 개념·1GP 8가지 변화·Dev Hub/PBO/namespace org·권한 세트·Limited Access 라이선스·Unlocked와의 차이 | #reference |
+| [[2GP Managed Package 개발 환경과 사전 준비]] | Limited Access User 추가·Know Your Orgs·namespace 생성과 Link to Dev Hub·Key Concepts(app/package/metadata, version, install/upgrade)·Manageability Rules·Package Ancestry·의존성 매트릭스 전수 | #reference |
+| [[2GP Managed Package Scratch Org 워크플로]] | Develop(namespaced) vs Test(no-namespace)·ancestor seeding·Definition File vs Org Shape·Snapshot(+managed promote 불가)·Agentforce·Data Cloud scratch org·PBO 할당량·Partner edition 전수 | #reference |
 | [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] | CircleCI 환경 설정·서버키 암호화·Dev Hub 연결, Jenkins Jenkinsfile 전체 코드, Travis CI, Sample CI 레포 전수 표 | #reference |
 | [[DX 도구 개요와 워크플로 전환]] | DX가 개발 방식을 바꾸는 이유·샘플 레포 시작·신규 프로젝트·마이그레이션 3가지 시작 경로 전수 | #reference |
 | [[Metadata Coverage 보고서]] | Metadata API·Scratch Org Source Tracking·Unlocked Package 등 채널별 메타데이터 지원 여부 공식 참조 | #reference |
@@ -113,6 +116,27 @@ created: 2026-05-18
 - project deploy validate / quick / cancel? → [[Metadata API 빌드·릴리스 워크플로]] → Step 3–4
 - Unlocked Package 개념 설명? → [[Unlocked Package 개념과 준비]]
 - Org-Dependent Unlocked Package란? → [[Unlocked Package 개념과 준비]] → Org-Dependent
+- managed 2GP가 뭔가? AppExchange 파트너 패키지 만들기? → [[2GP Managed Package 개념과 1GP 비교]]
+- managed 1GP에서 managed 2GP로 전환 이유? → [[2GP Managed Package 개념과 1GP 비교]] → 1GP에서 2GP로 — 핵심 변화 8가지
+- managed 1GP vs 2GP 비교표? → [[2GP Managed Package 개념과 1GP 비교]] → 1GP vs 2GP 비교표
+- Dev Hub 활성화 절차·sandbox에서 가능? → [[2GP Managed Package 개념과 1GP 비교]] → Dev Hub 활성화 절차
+- @namespaceAccessible 어노테이션은 뭐? → [[2GP Managed Package 개념과 1GP 비교]] → One Namespace Shared Across Multiple Packages
+- 2GP Managed 권한 세트(Package2/Package2VersionCreateRequest)? → [[2GP Managed Package 개념과 1GP 비교]] → managed 2GP 권한 세트 구성
+- Salesforce Limited Access - Free 라이선스 제약? → [[2GP Managed Package 개념과 1GP 비교]] → Salesforce Limited Access - Free 라이선스
+- managed 2GP namespace 생성·Dev Hub link 절차? → [[2GP Managed Package 개발 환경과 사전 준비]] → Namespace
+- 2GP에서 한 namespace로 여러 패키지 공유? → [[2GP Managed Package 개발 환경과 사전 준비]] → Namespace ↔ 패키지 관계
+- Manageability Rules는 뭔가? 어떤 변경이 차단되나? → [[2GP Managed Package 개발 환경과 사전 준비]] → Manageability Rules
+- Package Ancestry란? abandon 가능 조건? → [[2GP Managed Package 개발 환경과 사전 준비]] → Package Ancestry
+- managed 2GP가 unlocked package에 의존 가능? 매트릭스? → [[2GP Managed Package 개발 환경과 사전 준비]] → Package Dependency Matrix
+- managed 2GP에 등장하는 org 종류? → [[2GP Managed Package 개발 환경과 사전 준비]] → Know Your Orgs
+- Limited Access User 추가 절차? → [[2GP Managed Package 개발 환경과 사전 준비]] → Limited Access User 추가
+- managed 2GP에서 namespaced vs no-namespace scratch org는 언제? → [[2GP Managed Package Scratch Org 워크플로]] → Development vs Testing
+- ancestor seeding이란? --no-ancestors 언제 쓰나? → [[2GP Managed Package Scratch Org 워크플로]] → Development
+- 2GP 패키지 build 시간 단축하려면? snapshot 활용? → [[2GP Managed Package Scratch Org 워크플로]] → Snapshots
+- managed 패키지를 snapshot 기반으로 promote 가능? → [[2GP Managed Package Scratch Org 워크플로]] → Snapshot 제약 (불가)
+- Agentforce·Data Cloud scratch org 만들기? → [[2GP Managed Package Scratch Org 워크플로]] → Agentforce·Data Cloud
+- Active PBO 할당량 / --skipvalidation 한도? → [[2GP Managed Package Scratch Org 워크플로]] → Allocations
+- ActiveScratchOrg vs ScratchOrgInfo 차이? → [[2GP Managed Package Scratch Org 워크플로]] → Dev Hub에서 관리
 - sf package create 명령 상세? → [[Unlocked Package 생성과 설정]]
 - sfdx-project.json 패키지 파라미터 전수? → [[Unlocked Package 생성과 설정]] → sfdx-project.json 패키지 설정 파라미터
 - packageDirectories Keywords NEXT LATEST RELEASED HIGHEST NONE? → [[Unlocked Package 생성과 설정]] → Keywords

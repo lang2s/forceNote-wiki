@@ -41,6 +41,73 @@ aliases: [영어키워드, 한국어키워드, ...]
 - [[연결된 파일명]]
 ```
 
+## PDF 기반 작성 — 사전 프로토콜 (4 패턴 예방)
+
+PDF에서 위키를 작성할 때 반복 발현되는 정확도 오류 4가지. **각 메이저 섹션 작성 직전에 적용**한다.
+
+### Pattern A — Source 재추출 discipline + 체크리스트 기반 spot check
+- 각 메이저 섹션 작성 **직전에** 해당 PDF 페이지 범위를 `sed -n 'X,Yp' /tmp/source.txt`로 다시 본다. 작성 흐름 끊겨도 무조건.
+- 표·매트릭스·footnote는 source 텍스트를 **그대로 컨텍스트에 노출**시킨 뒤 변환. 메모리로 변환 금지.
+
+**Post-write spot check — 무작위가 아니라 카테고리별 강제 검증:**
+
+무작위로 3-5개 사실만 고르면 critical claim이 누락될 수 있다 (Task #2의 Snapshot 할당량 사례). 다음 **카테고리 모두**에서 최소 1건씩 source 대조:
+
+```
+□ 모든 numeric value         — 한도·할당량·기간·횟수·percentage (예: 150 / 300 / 75% / 30일)
+□ 모든 list / enumeration    — 지원 edition·feature 이름·CLI flag·enum 값
+□ 모든 footnote 본문          — 본문 길이가 PDF 대비 ≥50% 유지되는지 (한 줄 요약 ❌)
+□ 모든 "such as" / "for example" — PDF가 "예시"라고 말한 걸 "조건"으로 옮겨 적지 않았는가
+□ 모든 강조어 ("only"·"any"·"all"·"always"·"never"·"즉시") — PDF 원문과 강도 일치 확인
+□ 모든 "single source value → N metrics" 매핑 — 한 PDF 값이 여러 metric에 적용되는 경우 각 metric의 매핑이 옳은가 (Pattern B 확장 영역)
+```
+
+기존 무작위 spot check보다 시간이 더 들지만, **critical 사실 누락 위험은 0에 수렴**한다.
+
+### Pattern B — Tabular AND numeric mapping 셀별 검증
+
+격자형 매트릭스뿐 아니라 **PDF가 한 값을 여러 metric에 적용하는 산문형 numeric statement**까지 포함.
+
+**B-1. 격자형 매트릭스 (transpose 케이스)**
+- 변환 시 **PDF → 내 표 매핑을 명시적으로** 컨텍스트에 작성. 예: "PDF Row X Col Y = Z" → "My Row Y Col X = Z'"
+- ✅/❌ binary 기호로 압축하기 **전에** PDF의 모든 unique 값(Yes / No / Not recommended / No1 등)을 나열하고 각각의 대응 기호 미리 정함.
+- 가능하면 **PDF 원래 방향 유지**. transpose 안 하면 오류 가능성 0.
+
+**B-2. 산문형 numeric mapping (single value → N metrics)**
+
+PDF가 산문에서 "한 reference value가 여러 metric에 일괄 적용"되는 경우, 각 metric의 매핑이 옳은지 명시적으로 검증한다.
+
+예시 (Task #2에서 실제 발생한 케이스):
+> PDF 원문: *"The number of snapshots you can create (active and daily) is the same as the active scratch org allocation."*
+>
+> ❌ 잘못된 해석: active snapshot = active scratch org, daily snapshot = daily scratch org (symmetric mapping 가정)
+> ✅ 올바른 해석: **active snapshot AND daily snapshot 둘 다** = active scratch org allocation (한 값을 두 metric에 적용)
+
+검증 절차:
+```
+1. PDF에서 "the same as" / "equal to" / "matches" 같은 reference 표현 식별
+2. 그 reference value가 적용되는 metric을 모두 나열
+3. 작성한 위키에서 각 metric이 동일한 reference value로 매핑되었는지 확인
+4. "metric별로 따로 값이 있을 것" 같은 symmetric 가정 의식적으로 차단
+```
+
+**B-3. 모든 numeric value는 source-quote 권장**
+숫자·percentage·할당량·기한 등을 위키에 옮길 때 PDF 원문 인용을 함께 두면(예: `> PDF 원문: "..."`) 다음 검증에서도 빠르게 대조 가능.
+
+### Pattern C — pdftotext 시각 자료 blind spot
+- PDF 본문에 "see figure/diagram/tree" 같은 시각 자료 단서가 있으면 → 그 부분은 "PDF에 다이어그램 있음 — 본 wiki에는 텍스트 설명만"으로 명시. **추측 fabricate 절대 금지**.
+- 시각 자료가 정말 필요하면 `pdftoppm`으로 이미지화 후 Read 도구로 직접 본다.
+- 직접 만든 모든 구조물(코드·다이어그램·ASCII art·예시 JSON)은 첫 줄에 `// 구조 예시 — 실제 [동작 코드 / 원본 다이어그램 / 동작 설정] 아님` 마커 의무.
+
+### Pattern D — Structure rigidity 회피
+- 첫 draft 완료 후 헤딩만 outline view(`grep '^#' file.md`)로 보면서 **redundancy / depth imbalance** 점검 (5분).
+- 구조는 PDF TOC가 아니라 **독자의 path**에 맞춘다. TOC는 참고만.
+- 너무 짧은 섹션(≤3줄)은 인접 섹션과 합치거나 더 깊은 컨텍스트로 보강.
+
+> 큰 PDF(예: 500쪽급 reference, App Analytics, Components Available 카탈로그)일수록 Pattern A·D가 극심해진다. 매트릭스·비교표가 등장하는 작업에서는 Pattern B를 사전에 의식.
+
+---
+
 ## 필수 체크리스트 (작성 후 자가 검증)
 
 ```
@@ -63,10 +130,15 @@ aliases: [영어키워드, 한국어키워드, ...]
 > [!warning] 이 노트는 외부 지식 기반으로 작성되었으며 공식 소스와 대조되지 않았습니다.
 ```
 
-## 코드 작성 원칙
+## 코드·구조물 작성 원칙
+
+직접 만든 모든 구조물(코드·다이어그램·ASCII art·예시 JSON/YAML·트리 그림)은 적절한 마커가 필요하다.
 
 - **원본 소스에서 발췌한 코드:** 그대로 복사
-- **직접 작성한 구조 예시:** 첫 줄에 `// 구조 예시 — 실제 동작 코드 아님` 주석 추가
+- **직접 작성한 구조 예시 (코드):** 첫 줄에 `// 구조 예시 — 실제 동작 코드 아님` 주석
+- **직접 작성한 다이어그램·ASCII art·트리 그림:** 첫 줄에 `// 구조 예시 — 실제 원본 다이어그램 아님` 주석. PDF에 실제 다이어그램이 있으나 pdftotext가 못 잡아 추측해 그렸다면 본문에도 "PDF에 다이어그램 있음 — 추측 재현" 명시.
+- **직접 작성한 예시 JSON/YAML:** 첫 줄에 `// 구조 예시 — 실제 동작 설정 아님` 주석
+- **매트릭스·비교표:** PDF의 모든 unique 값(Yes/No/Not recommended 등)을 ✅/❌로 압축하기 전에 셀별 매핑 명시 (Pattern B 참조)
 - API명·메서드명·파라미터 순서·반환 타입은 원본과 정확히 일치해야 한다
 - 기억에 의존해 코드 작성 금지 → Tier 3 취급
 

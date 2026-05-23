@@ -16,3 +16,6 @@ Salesforce Documents/
 
 # Claude Code 런타임 락 (머신별 임시 파일)
 scheduled_tasks.lock
+
+# Claude Code 머신별 권한 캐시 (settings.json은 commit, settings.local.json은 제외)
+forceNote-wiki/.claude/settings.local.json

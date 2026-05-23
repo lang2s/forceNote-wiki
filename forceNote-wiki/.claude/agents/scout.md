@@ -68,6 +68,35 @@ find /path/to/project/ -name "*.cls" | sort
 - [항목]: [이유]
 ```
 
+## PDF 시각 자료 식별 (Pattern C — pdftotext blind spot 사전 차단)
+
+pdftotext는 이미지·다이어그램·복잡한 표 layout을 못 잡는다. PDF 내 시각 자료가 있는 위치를 미리 flag 해서 researcher가 silent fabricate를 못 하게 막는다.
+
+### 식별 방법
+
+```bash
+# PDF 안의 이미지 페이지 목록
+pdfimages -list "/path/to/file.pdf" | head -30
+
+# PDF 원문에서 "see figure/diagram/tree" 같은 시각 자료 단서 검색
+grep -n -i "see figure\|see diagram\|see tree\|in this\|shown below\|illustrated" /tmp/output.txt | head
+```
+
+### 출력에 포함할 항목
+
+소스 맵에 **시각 자료 경고 섹션**을 추가한다:
+
+```
+### 시각 자료 경고 (pdftotext 미커버)
+- p.13: ancestry tree 다이어그램 (텍스트로는 "version 1.2 and 1.5 abandoned" 한 줄만 추출됨)
+- p.45: 워크플로우 차트 (텍스트 추출 안 됨)
+- (해당 없음이면 "시각 자료 없음" 명시)
+```
+
+researcher는 이 경고를 받아 다이어그램 부분을 **"PDF에 다이어그램 있음 — 본 추출에는 텍스트만"** 형태로 명시한다. 정말 다이어그램이 필요하면 `pdftoppm`으로 이미지화 후 Read로 직접 본다.
+
+---
+
 ## PDF 버전 확인 필수 절차 (재발 방지 규칙)
 
 PDF를 소스로 식별할 때 **파일명이나 표지 이미지(캐릭터, 배경 그림 등)만으로 릴리즈 버전을 추정하는 것은 금지**한다.
