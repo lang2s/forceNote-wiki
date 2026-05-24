@@ -316,3 +316,6 @@ sf package update \
 - [[2GP — Push Upgrade]] — beta → released 이후 subscriber org에 Push Upgrade 스케줄·관리·Best Practices
 - [[2GP — Advanced Features Part 1]] — Package Ancestors, Dependencies, Keywords, Advanced Config Parameters
 - [[2GP — Advanced Features Part 2]] — Package IDs, Namespace Collisions, Remove Metadata, Transfer Dev Hub
+- [[2GP — Best Practices]] — 2GP 개발 모범 사례 (Dev Hub owner·--tag·Alias·non-GA 주의)
+- [[2GP — LMA Part 1 Get Started]] — License Management App 설치·권한·Lead·License 레코드 관리
+- [[2GP — LMA Part 2 Troubleshoot]] — LMA 트러블슈팅·구독자 지원·ISV Customer Debugger

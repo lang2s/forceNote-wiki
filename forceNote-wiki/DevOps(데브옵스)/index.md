@@ -54,6 +54,10 @@ created: 2026-05-18
 | [[2GP — Install · Uninstall]] | sf package install·sf package uninstall·--publish-wait/--wait 타임아웃·Installation URL·InstallHandler·InstallContext·System.Version·PostInstallScript·의존성 설치 스크립트·Uninstall 제약사항 전수 | #reference |
 | [[2GP — Prepare to Distribute]] | beta→released 승격 전 코드 커버리지 75%·Installation Key 설정·sf package version promote·Release Notes URL·postInstallUrl·AppExchange 파트너 콘솔 연결·패키지 등록·권장 버전 설정 전수 | #reference |
 | [[2GP — Push Upgrade]] | ISV가 subscriber org에 강제 업그레이드를 Push하는 전 과정·CLI 명령·SOAP API·Customized Push Upgrade·Best Practices 전수 | #reference |
+| [[2GP — Best Practices]] | Dev Hub owner 지정·--tag 옵션·Alias 생성·non-GA 컴포넌트 주의·LMA 기능별 접근 요약 | #reference |
+| [[2GP — LMA Part 1 Get Started]] | LMA 설치·패키지 연결·권한 설정·Lead·License 레코드 관리·License Custom Object Fields 전수 | #reference |
+| [[2GP — LMA Part 2 Troubleshoot]] | LMA 트러블슈팅·구독자 Org 로그인·ISV Customer Debugger·LMA 이전·모범 사례 | #reference |
+| [[2GP — Feature Management App]] | FMA 개요·Feature Parameters 3종·XML 예제·System.FeatureManagement API·Custom Objects 숨기기·Considerations | #reference |
 | [[2GP — Advanced Features Part 1]] | Package Ancestors·비선형 버전·Patch Version 제약·Dependencies·calculateTransitiveDependencies·Advanced sfdx-project.json 파라미터·Keywords(NEXT/LATEST/RELEASED/HIGHEST/NONE)·Target Release·Branches·Unpackaged Metadata 전수 | #reference |
 | [[2GP — Advanced Features Part 2]] | Package IDs 4종(033/04t/0Ho/08c)·Namespace Collision 설치 조합 테이블·Remove Metadata Components deprecated/hard-deleted 전수·Delete Package·Frequently Used Operations·Transfer Dev Hub 전 과정·Partner Support 케이스 | #reference |
 | [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] | CircleCI 환경 설정·서버키 암호화·Dev Hub 연결, Jenkins Jenkinsfile 전체 코드, Travis CI, Sample CI 레포 전수 표 | #reference |
@@ -275,6 +279,18 @@ created: 2026-05-18
 - consumer key already taken 오류? → [[DX 트러블슈팅]] → Error: The consumer key is already taken
 - DX 알려진 제약사항 전수? → [[DX 제약사항]]
 - RecordType data import 불가 우회 방법? → [[DX 제약사항]] → Salesforce CLI
+- 2GP 개발 모범 사례 전수? → [[2GP — Best Practices]]
+- LMA란? AppExchange 패키지 라이선스 관리? → [[2GP — LMA Part 1 Get Started]]
+- LMA 설치·패키지 연결 절차? → [[2GP — LMA Part 1 Get Started]] → 섹션 3-4
+- License Custom Object 필드 전수? → [[2GP — LMA Part 1 Get Started]] → 섹션 10
+- LMA에서 lead/license 레코드가 생성 안 됨? → [[2GP — LMA Part 2 Troubleshoot]] → 섹션 1
+- 구독자 org에 로그인해 디버그? ISV Customer Debugger 사용법? → [[2GP — LMA Part 2 Troubleshoot]] → 섹션 3
+- LMA를 다른 org로 이전하는 절차? → [[2GP — LMA Part 2 Troubleshoot]] → 섹션 4
+- Feature Parameters(FMA)란? 구독자별 기능 제어? → [[2GP — Feature Management App]]
+- FeatureParameterBoolean XML 예제? → [[2GP — Feature Management App]] → 섹션 5
+- System.FeatureManagement API 메서드 전수? → [[2GP — Feature Management App]] → 섹션 6
+- Custom Objects/Permissions를 구독자에게 숨기는 방법? → [[2GP — Feature Management App]] → 섹션 7
+- Feature Parameters 200개 한도·24시간 지연 등 Considerations? → [[2GP — Feature Management App]] → 섹션 9
 - CircleCI 서버 키 암호화 설정? → [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] → CircleCI
 - Jenkins Jenkinsfile 전체 코드 보기? → [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] → Sample Jenkinsfile
 - Sample CI 레포 전체 목록? → [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] → Sample CI Repos
