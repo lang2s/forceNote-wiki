@@ -4,8 +4,8 @@ created: 2026-05-18
 updated: 2026-05-24
 ---
 
-> **세션 인계 메모 (2026-05-24 세션 2 종료 시점):**
-> 2GP-5(Specific Metadata Behavior, pkg2_dev.pdf p.314-333) 완료 — 13개 섹션 전수 작성. DevOps(데브옵스)/index.md·platform.md 샤드·역링크 4건 업데이트. 다음 세션은 **2GP-6**(Develop Second-Generation Managed Packages, p.334-347)부터 시작.
+> **세션 인계 메모 (2026-05-24 세션 3 종료 시점):**
+> 2GP-6(Develop, pkg2_dev.pdf p.334-347) 완료 — 8개 섹션 전수 작성(sf package create/version create, 버전 번호 체계, Project Config File 12개 파라미터, Ancestor 3가지 지정, beta→released 75% 커버리지). 역링크 6건·index·샤드 업데이트. 다음 세션은 **2GP-7**(Install · Uninstall, p.348-359)부터 시작.
 
 # WORK_BACKLOG — 활성 작업 추적
 
@@ -65,7 +65,7 @@ updated: 2026-05-24
 | 2GP-4g | `2GP — Components: UI & Layout.md` | pkg2_dev.pdf p.25-313 | 🔲 대기 | 2026-05-23 |
 | 2GP-4h | `2GP — Components: Other.md` | pkg2_dev.pdf p.25-313 | 🔲 대기 | 2026-05-23 |
 | 2GP-5 | `2GP — Specific Metadata Behavior` (Apex/Protected/Permission Sets/Profile) | pkg2_dev.pdf p.314-333 | ✅ 완료 | 2026-05-23 |
-| 2GP-6 | `2GP — Develop (Apex·버전 생성)` | pkg2_dev.pdf p.334-347 | 🔲 대기 | 2026-05-23 |
+| 2GP-6 | `2GP — Develop (Apex·버전 생성)` | pkg2_dev.pdf p.334-347 | ✅ 완료 | 2026-05-23 |
 | 2GP-7 | `2GP — Install · Uninstall` | pkg2_dev.pdf p.348-359 | 🔲 대기 | 2026-05-23 |
 | 2GP-8 | `2GP — Prepare to Distribute` | pkg2_dev.pdf p.360-363 | 🔲 대기 | 2026-05-23 |
 | 2GP-9 | `2GP — Push Upgrade` | pkg2_dev.pdf p.364-373 | 🔲 대기 | 2026-05-23 |

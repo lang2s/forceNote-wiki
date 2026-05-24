@@ -609,3 +609,4 @@ Salesforce는 두 가지 globally unique ID를 제공:
 - [[2GP — Components: Integration & Platform]] — PlatformCachePartition, FeatureParameter, NamedCredential 패키징 규칙
 - [[sfdx-project.json 레퍼런스]] — scopeProfiles, ancestorId, versionNumber, definitionFile 파라미터 전수
 - [[Unlocked Package 개발과 버전]] — sf package version create Async/Skip Validation, 버전 번호 NEXT 키워드
+- [[2GP — Develop]] — sf package create·version create 전수, MAJOR.MINOR.PATCH.BUILD, Ancestor 지정, Promote 75% 커버리지

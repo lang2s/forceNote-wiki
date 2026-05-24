@@ -50,6 +50,7 @@ created: 2026-05-18
 | [[2GP — Components: UI & Layout]] | FlexiPage·CustomApplication·CustomTab·BrandingSet·CommunityTemplateDefinition·CommunityThemeDefinition·DigitalExperienceBundle·LightningMessageChannel·LightningBolt·LightningTypeBundle·ManagedContentType·PathAssistant·QuickAction·HomePageComponent·HomePageLayout·Layout·CompactLayout·ActionLinkGroupTemplate·ActionableListDefinition·Prompt 21종 UI 레이아웃 도메인 Manageability Rules 4속성 전수 | #reference |
 | [[2GP — Components: Other]] | FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 Other 도메인 컴포넌트 Manageability Rules 4속성 전수 | #reference |
 | [[2GP — Specific Metadata Behavior]] | Agentforce Agent Template 패키징·Data Cloud 패키지 요건·보호 컴포넌트·Platform Cache Provider Free 3MB·Metadata Access Apex·Permission Set vs Profile Settings 전수·IP 보호·Salesforce URL DomainCreator·@NamespaceAccessible·외부 서비스·Connected App 패키징·New Order Save Behavior 대응 | #reference |
+| [[2GP — Develop]] | sf package create·sf package version create 3가지 옵션·MAJOR.MINOR.PATCH.BUILD·NEXT 키워드·Project Configuration File 파라미터 전수·Package Ancestor(HIGHEST/NONE)·beta→released 75% 커버리지·sf package version promote 전수 | #reference |
 | [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] | CircleCI 환경 설정·서버키 암호화·Dev Hub 연결, Jenkins Jenkinsfile 전체 코드, Travis CI, Sample CI 레포 전수 표 | #reference |
 | [[DX 도구 개요와 워크플로 전환]] | DX가 개발 방식을 바꾸는 이유·샘플 레포 시작·신규 프로젝트·마이그레이션 3가지 시작 경로 전수 | #reference |
 | [[Metadata Coverage 보고서]] | Metadata API·Scratch Org Source Tracking·Unlocked Package 등 채널별 메타데이터 지원 여부 공식 참조 | #reference |
@@ -193,6 +194,16 @@ created: 2026-05-18
 - 2GP 패키지에 Connected App 포함하는 절차? → [[2GP — Specific Metadata Behavior]] → 12. Package Connected Apps in Second-Generation Managed Packaging
 - New Order Save Behavior 패키지 대응 (scratch org definition file)? → [[2GP — Specific Metadata Behavior]] → 13. Test and Respond to the New Order Save Behavior
 - OrderSaveLogicEnabled / OrderSaveBehaviorBoth feature 설정? → [[2GP — Specific Metadata Behavior]] → 13-3. Order Save Behavior 설정 옵션
+- 2GP managed 패키지 처음 생성하는 CLI 명령? → [[2GP — Develop]] → sf package create
+- sf package version create 3가지 옵션(Default/Async/Skip) 비교? → [[2GP — Develop]] → Create Versions
+- MAJOR.MINOR.PATCH.BUILD 버전 번호 체계? → [[2GP — Develop]] → Guidance for Package Version Numbering
+- NEXT 키워드로 build number 자동 증가? → [[2GP — Develop]] → NEXT 키워드
+- sfdx-project.json packageDirectories 파라미터 전수 (2GP용)? → [[2GP — Develop]] → Project Configuration File
+- Package Ancestor 지정 방법 3가지 (HIGHEST/직접 지정/ancestorId)? → [[2GP — Develop]] → Specify a Package Ancestor
+- beta 버전을 released로 promote하는 75% 커버리지 요건? → [[2GP — Develop]] → Get Ready to Promote
+- sf package version promote 명령? → [[2GP — Develop]] → Promote 명령
+- --skip-ancestor-check 플래그 언제 사용? → [[2GP — Develop]] → Override Linear Package Ancestry
+- NONE 키워드 ancestor 미지정 시 upgrade path 영향? → [[2GP — Develop]] → NONE 키워드
 - sf package create 명령 상세? → [[Unlocked Package 생성과 설정]]
 - sfdx-project.json 패키지 파라미터 전수? → [[Unlocked Package 생성과 설정]] → sfdx-project.json 패키지 설정 파라미터
 - packageDirectories Keywords NEXT LATEST RELEASED HIGHEST NONE? → [[Unlocked Package 생성과 설정]] → Keywords
