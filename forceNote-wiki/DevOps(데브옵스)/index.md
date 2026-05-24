@@ -51,6 +51,7 @@ created: 2026-05-18
 | [[2GP — Components: Other]] | FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 Other 도메인 컴포넌트 Manageability Rules 4속성 전수 | #reference |
 | [[2GP — Specific Metadata Behavior]] | Agentforce Agent Template 패키징·Data Cloud 패키지 요건·보호 컴포넌트·Platform Cache Provider Free 3MB·Metadata Access Apex·Permission Set vs Profile Settings 전수·IP 보호·Salesforce URL DomainCreator·@NamespaceAccessible·외부 서비스·Connected App 패키징·New Order Save Behavior 대응 | #reference |
 | [[2GP — Develop]] | sf package create·sf package version create 3가지 옵션·MAJOR.MINOR.PATCH.BUILD·NEXT 키워드·Project Configuration File 파라미터 전수·Package Ancestor(HIGHEST/NONE)·beta→released 75% 커버리지·sf package version promote 전수 | #reference |
+| [[2GP — Install · Uninstall]] | sf package install·sf package uninstall·--publish-wait/--wait 타임아웃·Installation URL·InstallHandler·InstallContext·System.Version·PostInstallScript·의존성 설치 스크립트·Uninstall 제약사항 전수 | #reference |
 | [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] | CircleCI 환경 설정·서버키 암호화·Dev Hub 연결, Jenkins Jenkinsfile 전체 코드, Travis CI, Sample CI 레포 전수 표 | #reference |
 | [[DX 도구 개요와 워크플로 전환]] | DX가 개발 방식을 바꾸는 이유·샘플 레포 시작·신규 프로젝트·마이그레이션 3가지 시작 경로 전수 | #reference |
 | [[Metadata Coverage 보고서]] | Metadata API·Scratch Org Source Tracking·Unlocked Package 등 채널별 메타데이터 지원 여부 공식 참조 | #reference |
@@ -204,6 +205,20 @@ created: 2026-05-18
 - sf package version promote 명령? → [[2GP — Develop]] → Promote 명령
 - --skip-ancestor-check 플래그 언제 사용? → [[2GP — Develop]] → Override Linear Package Ancestry
 - NONE 키워드 ancestor 미지정 시 upgrade path 영향? → [[2GP — Develop]] → NONE 키워드
+- managed 2GP 패키지를 scratch org에 설치하는 CLI 명령? → [[2GP — Install · Uninstall]] → 섭션 2-1
+- --publish-wait 와 --wait 파라미터 인터렉션? → [[2GP — Install · Uninstall]] → 2-2. 설치 타임아웃 제어
+- Installation URL로 패키지 설치하는 방법? → [[2GP — Install · Uninstall]] → 섭션 3
+- AppExchange 미승인 패키지 설치 알림은? → [[2GP — Install · Uninstall]] → 섭션 4
+- managed 2GP 패키지 업그레이드 시 메타데이터 변경 동작? → [[2GP — Install · Uninstall]] → 섭션 5
+- Apex 테스트 실패로 설치 실패 시 진단 방법? → [[2GP — Install · Uninstall]] → 섭션 6
+- InstallHandler / InstallContext 인터페이스? → [[2GP — Install · Uninstall]] → 7-2 ~ 7-3
+- System.Version compareTo / major / minor / patch 메서드? → [[2GP — Install · Uninstall]] → 7-4. System.Version 클래스 메서드
+- Post Install Script 예시 코드 (PostInstallClass)? → [[2GP — Install · Uninstall]] → 7-5. Post Install Script 예시
+- Test.testInstall 사용법? → [[2GP — Install · Uninstall]] → 7-5. Post Install Script 예시 (테스트 코드)
+- sfdx-project.json에서 postInstallScript / uninstallScript 지정? → [[2GP — Install · Uninstall]] → 섭션 8
+- 의존성 패키지 자동 설치 bash 스크립트? → [[2GP — Install · Uninstall]] → 섭션 9
+- sf package uninstall 명령 / Setup UI 제거 절차? → [[2GP — Install · Uninstall]] → 섭션 10
+- 2GP 패키지 제거 시 제약사항 전수 (커스텀 오브젝트 서브컴포넌트 삭제 등)? → [[2GP — Install · Uninstall]] → 10-3. 제거 시 제약사항
 - sf package create 명령 상세? → [[Unlocked Package 생성과 설정]]
 - sfdx-project.json 패키지 파라미터 전수? → [[Unlocked Package 생성과 설정]] → sfdx-project.json 패키지 설정 파라미터
 - packageDirectories Keywords NEXT LATEST RELEASED HIGHEST NONE? → [[Unlocked Package 생성과 설정]] → Keywords
