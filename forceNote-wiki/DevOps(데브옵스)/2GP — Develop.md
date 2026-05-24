@@ -526,3 +526,4 @@ ancestor를 지정하지 않으려면 `NONE` 키워드를 사용한다. 단, `NO
 - [[sfdx-project.json 레퍼런스]] — sfdx-project.json 전체 파라미터 레퍼런스 (DX 공통)
 - [[Unlocked Package 개발과 버전]] — Unlocked Package 버전 생성 비교 (MAJOR.MINOR.PATCH.BUILD 동일 체계)
 - [[2GP — Install · Uninstall]] — sf package install·sf package uninstall, InstallHandler, 업그레이드 동작, 의존성 스크립트
+- [[2GP — Prepare to Distribute]] — beta→released 승격 후 단계: 코드 커버리지 확인·Installation Key·sf package version promote·AppExchange 등록 절차
