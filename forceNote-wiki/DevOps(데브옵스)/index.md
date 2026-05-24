@@ -49,6 +49,7 @@ created: 2026-05-18
 | [[2GP — Components: Security & Access]] | AccountRelationshipShareRule·ConnectedApp·CorsWhitelistOrigin·CspTrustedSite·ExternalAuthIdentityProvider·ExternalCredential·IdentityVerificationProcDef·LiveChatSensitiveDataRule(1GP only)·PermissionSet·PermissionSetGroup 10종 Manageability Rules 4속성 전수·Certificate 패키징 불가·Profile 2GP 미지원 상세·Permission Set vs Profile Settings 비교 | #reference |
 | [[2GP — Components: UI & Layout]] | FlexiPage·CustomApplication·CustomTab·BrandingSet·CommunityTemplateDefinition·CommunityThemeDefinition·DigitalExperienceBundle·LightningMessageChannel·LightningBolt·LightningTypeBundle·ManagedContentType·PathAssistant·QuickAction·HomePageComponent·HomePageLayout·Layout·CompactLayout·ActionLinkGroupTemplate·ActionableListDefinition·Prompt 21종 UI 레이아웃 도메인 Manageability Rules 4속성 전수 | #reference |
 | [[2GP — Components: Other]] | FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 Other 도메인 컴포넌트 Manageability Rules 4속성 전수 | #reference |
+| [[2GP — Specific Metadata Behavior]] | Agentforce Agent Template 패키징·Data Cloud 패키지 요건·보호 컴포넌트·Platform Cache Provider Free 3MB·Metadata Access Apex·Permission Set vs Profile Settings 전수·IP 보호·Salesforce URL DomainCreator·@NamespaceAccessible·외부 서비스·Connected App 패키징·New Order Save Behavior 대응 | #reference |
 | [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] | CircleCI 환경 설정·서버키 암호화·Dev Hub 연결, Jenkins Jenkinsfile 전체 코드, Travis CI, Sample CI 레포 전수 표 | #reference |
 | [[DX 도구 개요와 워크플로 전환]] | DX가 개발 방식을 바꾸는 이유·샘플 레포 시작·신규 프로젝트·마이그레이션 3가지 시작 경로 전수 | #reference |
 | [[Metadata Coverage 보고서]] | Metadata API·Scratch Org Source Tracking·Unlocked Package 등 채널별 메타데이터 지원 여부 공식 참조 | #reference |
@@ -176,6 +177,22 @@ created: 2026-05-18
 - BenefitAction 2GP IP Protection (Loyalty Management)? → [[2GP — Components: Other]] → Benefit Action
 - TransactionProcessingType 2GP 패키징·언인스톨 시 주의사항? → [[2GP — Components: Other]] → Transaction Processing Type
 - ActivationPlatform 1GP 패키징 (Data Cloud)? → [[2GP — Components: Other]] → Activation Platform
+- Agentforce Agent Template를 managed 2GP 패키지로 만들기? → [[2GP — Specific Metadata Behavior]] → 2. Develop and Package Agent Templates Using Scratch Orgs
+- sf agent generate template 명령 사용법? → [[2GP — Specific Metadata Behavior]] → 2-4. Agentforce 패키지 개발 단계
+- Data Cloud 메타데이터를 managed 패키지에 포함하는 요건? → [[2GP — Specific Metadata Behavior]] → 3. Package Data Cloud Metadata Components
+- Data Cloud One Companion Org에 패키지 설치 가능한가? → [[2GP — Specific Metadata Behavior]] → 3-4. Data Cloud One Companion Connected Orgs 제약
+- Protected Components란? 어떤 컴포넌트를 보호 가능? → [[2GP — Specific Metadata Behavior]] → 4. Protected Components in Managed Packages
+- Platform Cache 3MB Provider Free 용량 할당 절차? → [[2GP — Specific Metadata Behavior]] → 5. Set Up a Platform Cache Partition with Provider Free Capacity
+- Apex에서 메타데이터 접근 제약? Metadata namespace? → [[2GP — Specific Metadata Behavior]] → 6. Metadata Access in Apex Code
+- Permission Set vs Profile Settings 패키지에서 차이? → [[2GP — Specific Metadata Behavior]] → 7. Permission Sets and Profile Settings in Packages
+- Install for Admins Only / All Users / Specific Profiles CLI 명령? → [[2GP — Specific Metadata Behavior]] → 7-4. 2GP에서 Profile Settings 처리 방식
+- 패키지에서 Apex 코드 IP 보호 방법? 난독화 예외? → [[2GP — Specific Metadata Behavior]] → 8. Protecting Your Intellectual Property
+- 패키지에서 Salesforce URL 처리 방법? DomainCreator 사용? → [[2GP — Specific Metadata Behavior]] → 9. Call Salesforce URLs Within a Package
+- getOrgMyDomainHostname / getVisualforceHostname / DomainParser? → [[2GP — Specific Metadata Behavior]] → 9. Call Salesforce URLs Within a Package
+- @NamespaceAccessible annotation 사용 조건과 예외? → [[2GP — Specific Metadata Behavior]] → 10. Namespace-Based Visibility for Apex Classes
+- 2GP 패키지에 Connected App 포함하는 절차? → [[2GP — Specific Metadata Behavior]] → 12. Package Connected Apps in Second-Generation Managed Packaging
+- New Order Save Behavior 패키지 대응 (scratch org definition file)? → [[2GP — Specific Metadata Behavior]] → 13. Test and Respond to the New Order Save Behavior
+- OrderSaveLogicEnabled / OrderSaveBehaviorBoth feature 설정? → [[2GP — Specific Metadata Behavior]] → 13-3. Order Save Behavior 설정 옵션
 - sf package create 명령 상세? → [[Unlocked Package 생성과 설정]]
 - sfdx-project.json 패키지 파라미터 전수? → [[Unlocked Package 생성과 설정]] → sfdx-project.json 패키지 설정 파라미터
 - packageDirectories Keywords NEXT LATEST RELEASED HIGHEST NONE? → [[Unlocked Package 생성과 설정]] → Keywords

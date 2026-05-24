@@ -503,3 +503,4 @@ PDF(pkg2_dev.pdf) Components Available 목차(p.25–313)에 아래 컴포넌트
 - [[2GP — Components: Objects & Fields]] — CustomObject, CustomField 2GP 패키징 규칙
 - [[2GP — Components: UI & Layout]] — ActionLinkGroupTemplate·BrandingSet·CommunityTemplateDefinition·CommunityThemeDefinition·CustomApplication·CustomTab·DigitalExperienceBundle·FlexiPage·LightningMessageChannel·LightningBolt·LightningTypeBundle·ManagedContentType·PathAssistant·QuickAction·Layout·Prompt 등 UI 레이아웃 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
 - [[2GP — Components: Other]] — FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 기타 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Specific Metadata Behavior]] — Permission Set vs Profile Settings 비교 전수·Profile Settings 2GP 처리 방식(scopeProfiles)·Install for Admins Only/All Users/Specific Profiles·Protected Components 목록·IP 보호 규칙

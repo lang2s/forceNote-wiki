@@ -4,8 +4,8 @@ created: 2026-05-18
 updated: 2026-05-24
 ---
 
-> **세션 인계 메모 (2026-05-24 세션 종료 시점):**
-> 2GP Components Available 8분할 전체 완료 (4a~4h). PIPE-2(writer.md Bash 추가)·2GP-3(Workflow)·2GP-4(Apex & Code)·2GP-4b(Automation)·2GP-4c(Einstein & Analytics)·2GP-4d(Integration & Platform)·2GP-4e(Objects & Fields)·2GP-4f(Security & Access)·2GP-4g(UI & Layout)·2GP-4h(Other) 전부 완료. 다음 세션은 2GP-5(Specific Metadata Behavior, p.314-333)부터 시작. 미commit 상태 — 다음 세션 시작 시 commit 결정.
+> **세션 인계 메모 (2026-05-24 세션 2 종료 시점):**
+> 2GP-5(Specific Metadata Behavior, pkg2_dev.pdf p.314-333) 완료 — 13개 섹션 전수 작성. DevOps(데브옵스)/index.md·platform.md 샤드·역링크 4건 업데이트. 다음 세션은 **2GP-6**(Develop Second-Generation Managed Packages, p.334-347)부터 시작.
 
 # WORK_BACKLOG — 활성 작업 추적
 
@@ -64,7 +64,7 @@ updated: 2026-05-24
 | 2GP-4f | `2GP — Components: Security & Access.md` | pkg2_dev.pdf p.25-313 | 🔲 대기 | 2026-05-23 |
 | 2GP-4g | `2GP — Components: UI & Layout.md` | pkg2_dev.pdf p.25-313 | 🔲 대기 | 2026-05-23 |
 | 2GP-4h | `2GP — Components: Other.md` | pkg2_dev.pdf p.25-313 | 🔲 대기 | 2026-05-23 |
-| 2GP-5 | `2GP — Specific Metadata Behavior` (Apex/Protected/Permission Sets/Profile) | pkg2_dev.pdf p.314-333 | 🔲 대기 | 2026-05-23 |
+| 2GP-5 | `2GP — Specific Metadata Behavior` (Apex/Protected/Permission Sets/Profile) | pkg2_dev.pdf p.314-333 | ✅ 완료 | 2026-05-23 |
 | 2GP-6 | `2GP — Develop (Apex·버전 생성)` | pkg2_dev.pdf p.334-347 | 🔲 대기 | 2026-05-23 |
 | 2GP-7 | `2GP — Install · Uninstall` | pkg2_dev.pdf p.348-359 | 🔲 대기 | 2026-05-23 |
 | 2GP-8 | `2GP — Prepare to Distribute` | pkg2_dev.pdf p.360-363 | 🔲 대기 | 2026-05-23 |
