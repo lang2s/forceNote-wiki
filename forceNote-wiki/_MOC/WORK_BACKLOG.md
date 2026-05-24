@@ -42,6 +42,9 @@ updated: 2026-05-24
 |---|---|---|---|---|
 | PIPE-2 | `writer.md` frontmatter에 `Bash` 도구 추가 | 강화된 Pattern A의 "메이저 섹션 직전 sed 재추출"을 writer가 직접 실행할 수 있게 함. 현재 writer는 Read/Write/Edit만 가능 → researcher dump의 raw 인용에 강제 의존. | 🔲 대기 | 2026-05-23 |
 | 2GP-3 | `2GP Managed Package — Workflow.md` 작성 (pkg2_dev.pdf p.23-25) | 강화된 protocol(6 카테고리 spot check + Pattern B-2 산문형 numeric mapping)의 소형 페이지 validation 기회. | 🔲 대기 | 2026-05-23 |
+| LINT-1 | **깨진 wikilink 수정** — `MetadataAPI(...)` 경로 prefix 누락 20건 | 2026-05-25 lint 발견. `DevOps(데브옵스)/index.md`(13건)·`CI CD 패턴.md`(2건)·`Metadata Coverage 보고서.md`(1건)·`Apex/Integration(통합)/Metadata Namespace.md`(2건)에서 `[[MetadataAPI(메타데이터API)/...]]`를 `[[DevOps(데브옵스)/MetadataAPI(메타데이터API)/...]]`로 수정. | 🔲 대기 | 2026-05-25 |
+| LINT-2 | **MOC 누락 항목 추가** — SLDS 디자인 시스템·Enhanced Domains | `LWC/LWC MOC.md`에 `SLDS LWC 디자인 시스템` 행 추가, `Architecture(아키텍처)/Architecture MOC.md`에 `Enhanced Domains` 행 추가. | 🔲 대기 | 2026-05-25 |
+| LINT-3 | **peer 노트 역링크 3건** | `파일 업로드와 이미지 처리.md`←`[[lightning-input]]`, `Approval Namespace.md`←`[[Context Namespace]]`, `모바일 기능 패턴.md`←`[[quickChoice Screen Component]]` 추가. | 🔲 대기 | 2026-05-25 |
 
 ### 🟡 P1 — Task #4(대형 카탈로그) 전 필요
 
