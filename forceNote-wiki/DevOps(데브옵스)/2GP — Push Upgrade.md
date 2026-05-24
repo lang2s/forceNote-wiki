@@ -415,3 +415,4 @@ Push Upgrade는 Partner에게 제공되는 가장 강력한 기능 중 하나다
 - [[2GP — Develop]] — sf package version create, Package Ancestry, beta→released 75% 코드 커버리지
 - [[2GP Managed Package — Workflow]] — 2GP 표준 CLI 10단계 워크플로, Manageability Rules
 - [[Unlocked Package 릴리스와 설치]] — Unlocked Package Push Upgrade 기본 설명
+- [[2GP — Advanced Features Part 2]] — Package Transfer Dev Hub, Remove Metadata, Delete Package, Partner Support 케이스 등록

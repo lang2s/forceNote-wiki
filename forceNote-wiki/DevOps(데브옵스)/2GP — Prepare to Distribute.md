@@ -314,3 +314,5 @@ sf package update \
 - [[2GP Managed Package — Workflow]] — 2GP 표준 CLI 워크플로 10단계, Manageability Rules, Supported Components
 - [[Unlocked Package 개발과 버전]] — Unlocked Package의 코드 커버리지 · sf package version promote
 - [[2GP — Push Upgrade]] — beta → released 이후 subscriber org에 Push Upgrade 스케줄·관리·Best Practices
+- [[2GP — Advanced Features Part 1]] — Package Ancestors, Dependencies, Keywords, Advanced Config Parameters
+- [[2GP — Advanced Features Part 2]] — Package IDs, Namespace Collisions, Remove Metadata, Transfer Dev Hub

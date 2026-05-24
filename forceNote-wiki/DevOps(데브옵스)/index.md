@@ -54,6 +54,8 @@ created: 2026-05-18
 | [[2GP — Install · Uninstall]] | sf package install·sf package uninstall·--publish-wait/--wait 타임아웃·Installation URL·InstallHandler·InstallContext·System.Version·PostInstallScript·의존성 설치 스크립트·Uninstall 제약사항 전수 | #reference |
 | [[2GP — Prepare to Distribute]] | beta→released 승격 전 코드 커버리지 75%·Installation Key 설정·sf package version promote·Release Notes URL·postInstallUrl·AppExchange 파트너 콘솔 연결·패키지 등록·권장 버전 설정 전수 | #reference |
 | [[2GP — Push Upgrade]] | ISV가 subscriber org에 강제 업그레이드를 Push하는 전 과정·CLI 명령·SOAP API·Customized Push Upgrade·Best Practices 전수 | #reference |
+| [[2GP — Advanced Features Part 1]] | Package Ancestors·비선형 버전·Patch Version 제약·Dependencies·calculateTransitiveDependencies·Advanced sfdx-project.json 파라미터·Keywords(NEXT/LATEST/RELEASED/HIGHEST/NONE)·Target Release·Branches·Unpackaged Metadata 전수 | #reference |
+| [[2GP — Advanced Features Part 2]] | Package IDs 4종(033/04t/0Ho/08c)·Namespace Collision 설치 조합 테이블·Remove Metadata Components deprecated/hard-deleted 전수·Delete Package·Frequently Used Operations·Transfer Dev Hub 전 과정·Partner Support 케이스 | #reference |
 | [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] | CircleCI 환경 설정·서버키 암호화·Dev Hub 연결, Jenkins Jenkinsfile 전체 코드, Travis CI, Sample CI 레포 전수 표 | #reference |
 | [[DX 도구 개요와 워크플로 전환]] | DX가 개발 방식을 바꾸는 이유·샘플 레포 시작·신규 프로젝트·마이그레이션 3가지 시작 경로 전수 | #reference |
 | [[Metadata Coverage 보고서]] | Metadata API·Scratch Org Source Tracking·Unlocked Package 등 채널별 메타데이터 지원 여부 공식 참조 | #reference |
@@ -236,6 +238,19 @@ created: 2026-05-18
 - PushUpgradeCustomizationRepository 만료 기간 설정·변경? → [[2GP — Push Upgrade]] → 4-3
 - Push Upgrade 후 신규 기능 접근 권한 자동 할당 스크립트? → [[2GP — Push Upgrade]] → 섹션 6
 - Push Upgrade Best Practices (단계적 배포·고객 신뢰)? → [[2GP — Push Upgrade]] → 섹션 7
+- Package Ancestors·비선형 버전 관리·ancestry tree 시각화? → [[2GP — Advanced Features Part 1]] → Package Ancestors
+- Patch Version 생성 규칙·할 수 없는 작업 전수? → [[2GP — Advanced Features Part 1]] → Patch Versions
+- 2GP 패키지 간 Dependencies 설정 (calculateTransitiveDependencies)? → [[2GP — Advanced Features Part 1]] → Create Dependencies
+- sfdx-project.json 고급 파라미터 전수 (apexTestAccess·scopeProfiles·unpackagedMetadata·branch)? → [[2GP — Advanced Features Part 1]] → Advanced Project Configuration Parameters
+- LATEST/NEXT/RELEASED/HIGHEST/NONE 키워드 용도? → [[2GP — Advanced Features Part 1]] → Keywords
+- 브랜치별 패키지 버전 태깅 (--branch) + 브랜치 의존성? → [[2GP — Advanced Features Part 1]] → Use Branches
+- preview/previous Salesforce 릴리즈 기반 패키지 버전 생성? → [[2GP — Advanced Features Part 1]] → Target Specific Release
+- Package ID 4종 (033/04t/0Ho/08c) 용도? → [[2GP — Advanced Features Part 2]] → Package IDs and Aliases
+- Namespace Collision 설치 가능 조합 테이블? → [[2GP — Advanced Features Part 2]] → Avoid Namespace Collisions
+- 패키지에서 메타데이터 컴포넌트 제거 (deprecated vs hard-deleted)? → [[2GP — Advanced Features Part 2]] → Remove Metadata Components
+- sf package version delete / sf package delete 명령? → [[2GP — Advanced Features Part 2]] → Delete Package
+- 패키지를 다른 Dev Hub org로 이전 (Transfer Dev Hub)? → [[2GP — Advanced Features Part 2]] → Transfer Dev Hub
+- Partner Support에 케이스 등록 필요한 기능 목록? → [[2GP — Advanced Features Part 2]] → Contact Partner Support
 - sf package create 명령 상세? → [[Unlocked Package 생성과 설정]]
 - sfdx-project.json 패키지 파라미터 전수? → [[Unlocked Package 생성과 설정]] → sfdx-project.json 패키지 설정 파라미터
 - packageDirectories Keywords NEXT LATEST RELEASED HIGHEST NONE? → [[Unlocked Package 생성과 설정]] → Keywords
