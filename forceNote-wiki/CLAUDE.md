@@ -47,6 +47,59 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ---
 
+## ⚠️ Windows 파일명 제한 주의사항
+
+Windows NTFS는 아래 문자를 파일명에 허용하지 않는다. Linux/macOS에서 만들어진 git 저장소에 해당 문자가 포함된 파일이 있으면 **Windows에서 git checkout/clone 시 해당 파일이 자동으로 건너뛰어져 디스크에 생성되지 않는다.**
+
+### 절대 사용 불가 문자
+
+| 문자 | 설명 |
+|---|---|
+| `\` | 백슬래시 (경로 구분자) |
+| `/` | 슬래시 (경로 구분자) |
+| `:` | 콜론 — **이번에 문제가 된 문자** |
+| `*` | 애스터리스크 (와일드카드) |
+| `?` | 물음표 (와일드카드) |
+| `"` | 큰따옴표 |
+| `<` | 작은 부등호 |
+| `>` | 큰 부등호 |
+| `\|` | 파이프 |
+| 제어문자 | ASCII 0x00–0x1F |
+
+### 예약 장치 이름 (확장자 무관, 사용 불가)
+
+`CON`, `PRN`, `AUX`, `NUL`, `COM0`–`COM9`, `LPT0`–`LPT9`
+예: `NUL.txt`, `CON.md` 모두 불가
+
+### 추가 제한
+
+- 파일명 끝에 `.` 또는 공백 사용 불가
+- 전체 경로 260자 제한 (MAX_PATH, 긴 경로 지원 활성화 시 32,767자)
+
+### 사전 확인 명령어
+
+외부 저장소 clone 전에 금지 문자 포함 파일 목록을 미리 확인한다:
+
+```powershell
+git ls-tree -r --name-only HEAD | Select-String '[:\\*?"<>|]'
+```
+
+### 이미 건너뛰어진 경우 — 내용 읽기
+
+```powershell
+git show HEAD:"경로/파일명.md"
+```
+
+git 객체 저장소에는 파일이 존재하므로 `git show`로 내용을 읽을 수 있다.
+
+### 실제 발생 사례
+
+`forceNote-wiki/DevOps(데브옵스)/` 하위 12개 파일이 파일명에 `: ` 포함  
+예: `2GP — App Analytics Part 1: Overview & Setup.md`  
+→ Windows에서 clone 시 전부 건너뛰어져 디스크에 없음. `git show HEAD:<경로>`로만 접근 가능.
+
+---
+
 이 디렉토리는 **Salesforce 백과사전**이다. Apex·LWC·Flow에 국한하지 않고 Salesforce 개발자와 어드민이 알아야 할 모든 것 — Admin/Setup, Sales Cloud, Service Cloud, Experience Cloud, Data Cloud, Slack, Agentforce/Einstein, DevOps/CLI, Security, Architecture, Release Updates — 을 다룬다.
 새 자료 추가·수정 시 아래 규칙을 반드시 따른다.
 
