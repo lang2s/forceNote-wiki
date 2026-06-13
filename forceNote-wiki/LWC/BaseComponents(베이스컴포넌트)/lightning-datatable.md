@@ -1,6 +1,6 @@
 ---
 tags: [lwc, base-component, datatable, table, reference]
-source: TrailheadApp/lwc-recipes-main (Tier 1) + external-knowledge (Tier 3)
+source: TrailheadApp/lwc-recipes-main (Tier 1) + cx-router 메타데이터 (Tier 2) + external-knowledge (Tier 3)
 created: 2026-05-17
 aliases: [lightning-datatable, 데이터 테이블, datatable, 인라인 편집]
 ---

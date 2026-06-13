@@ -1,13 +1,13 @@
 ---
 tags: [lwc, base-components, lightning-tabset, tabs, navigation, ui]
-source: external-knowledge
+source: cx-router 메타데이터 (Tier 2) + external-knowledge (Tier 3)
 created: 2026-05-22
 aliases: [lightning-tabset, 탭셋, 탭 컨테이너]
 ---
 
 # lightning-tabset
 
-> [!warning] 이 노트는 외부 지식 기반으로 작성되었으며 공식 소스와 대조되지 않았습니다.
+> [!warning] 상단 예제·설명은 외부 지식 기반(Tier 3)이며 공식 소스와 대조되지 않았습니다. 하단 `## 전체 공식 속성 명세`는 공식 cx-router 메타데이터(Tier 2)입니다.
 
 > 여러 탭(lightning-tab)을 그룹화하는 컨테이너 컴포넌트 — 한 번에 하나의 탭 콘텐츠를 표시한다.
 

@@ -1,6 +1,6 @@
 ---
 tags: [lwc, base-component, modal, overlay, reference]
-source: TrailheadApp/lwc-recipes-main (Tier 1) + external-knowledge (Tier 3)
+source: TrailheadApp/lwc-recipes-main (Tier 1) + cx-router 메타데이터 (Tier 2) + external-knowledge (Tier 3)
 created: 2026-05-17
 aliases: [lightning-modal, LightningModal, 모달, 모달 창, 다이얼로그]
 ---

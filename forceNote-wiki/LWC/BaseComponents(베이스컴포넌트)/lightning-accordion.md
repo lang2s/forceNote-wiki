@@ -1,6 +1,6 @@
 ---
 tags: [lwc, base-component, accordion, layout, reference]
-source: https://developer.salesforce.com/docs/platform/lightning-component-reference/guide/components.html
+source: Salesforce 공식 컴포넌트 레퍼런스 (Tier 2) + cx-router 메타데이터 (Tier 2) — https://developer.salesforce.com/docs/platform/lightning-component-reference/guide/components.html
 created: 2026-05-17
 aliases: [accordion, 아코디언, lightning-accordion-section]
 ---

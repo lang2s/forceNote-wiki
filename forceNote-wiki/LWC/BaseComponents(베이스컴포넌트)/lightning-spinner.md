@@ -1,6 +1,6 @@
 ---
 tags: [lwc, base-component, spinner, loading, reference]
-source: TrailheadApp/lwc-recipes-main (Tier 1) + external-knowledge (Tier 3)
+source: TrailheadApp/lwc-recipes-main (Tier 1) + cx-router 메타데이터 (Tier 2) + external-knowledge (Tier 3)
 created: 2026-05-17
 aliases: [lightning-spinner, 로딩 스피너, 로딩 인디케이터, isLoading]
 ---

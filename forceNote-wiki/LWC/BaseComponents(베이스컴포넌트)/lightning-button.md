@@ -1,6 +1,6 @@
 ---
 tags: [lwc, base-component, button, reference]
-source: TrailheadApp/lwc-recipes-main (Tier 1) + external-knowledge (Tier 3)
+source: TrailheadApp/lwc-recipes-main (Tier 1) + cx-router 메타데이터 (Tier 2) + external-knowledge (Tier 3)
 created: 2026-05-17
 aliases: [lightning-button, lightning-button-icon, lightning-button-menu, 버튼, 아이콘 버튼, 드롭다운 버튼]
 ---
