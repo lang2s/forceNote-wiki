@@ -78,6 +78,13 @@ created: 2026-05-21
 | LWC Local Actions Screen Flow, LWC 로컬 액션, Flow 로컬 액션 LWC | `Release/Winter '26.md` |
 | Agentforce Agent Analytics GA, New Agentforce Builder Beta, MCP Server Beta | `Release/Winter '26.md` |
 | DevOps Center MCP Tools, DX MCP Server, LWC MCP Tools, AI 머지 충돌 | `Release/Winter '26.md` |
+| Spring '26, 스프링 26, v66.0, 2026년 2월 릴리즈 | `Release/Spring '26.md` |
+| Apex Cursors GA, PaginationCursor, fetchPage fetchDeleted, Limits.getApexCursors, 대용량 SOQL 커서 페이지네이션 | `Release/Spring '26.md` |
+| RunRelevantTests Beta, @IsTest critical testFor, 관련 테스트만 실행 배포 속도, testLevel | `Release/Spring '26.md` |
+| getPicklistValuesByRecordType, Record Type별 Picklist 값 추출, ConnectApi RecordUi | `Release/Spring '26.md` |
+| Blob.toPdf Visualforce PDF 렌더링, Named Query API REST 커스텀 SOQL GA, Apex REST AuraEnabled Agent Action GA | `Release/Spring '26.md` |
+| LWC 복합 템플릿 표현식 Beta, Base Component TypeScript 타입 완성, Error Console, Lightning Out 2.0, Lightning Types | `Release/Spring '26.md` |
+| Customized Push Upgrade 2GP, purgeOldAsyncJobs 오버로드, WITH USER_MODE Automated Process User, inputField label XSS Release Update | `Release/Spring '26.md` |
 | Summer '26, 서머 26, v67.0, 2026년 6월 릴리즈, 파괴적 변경 | `Release/Summer '26.md` |
 | USER_MODE 기본값 변경, WITH SECURITY_ENFORCED 폐기, Database 기본 모드 | `Release/Summer '26.md` |
 | with sharing 기본값 v67.0, 공유 선언 없는 클래스, Apex 기본 sharing | `Release/Summer '26.md` |
