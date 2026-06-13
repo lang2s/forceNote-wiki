@@ -161,6 +161,37 @@ aliases: [lightning-card, 카드, 카드 컨테이너, 레이아웃 카드]
 
 ---
 
+
+---
+
+## 전체 공식 속성 명세 (cx-router · Tier 2)
+
+> Salesforce 공식 cx-router 메타데이터에서 추출한 전체 속성·메서드·이벤트·슬롯 명세입니다(Tier 2). 위 예제·패턴은 기존 lwc-recipes Tier 1 큐레이션입니다.
+
+
+### lightning-card
+
+지원 상태: **GA** · 최소 API 버전: 0.0
+
+#### 속성 (Attributes) — 6개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `heading-level` | string \| number |  | 2 | The headingLevel changes the 'aria-level' attribute value of <h2> tag in the markup for the card's title element. It can take values of (1… |
+| `hide-header` | boolean |  |  | Hides the header chunk of the card when set to `true`. Requires you to set the `label` attribute to supplement a non-rendered header. If `… |
+| `icon-name` | string |  |  | The Lightning Design System name of the icon. Specify the name in the format 'utility:down' where 'utility' is the category, and 'down' is… |
+| `label` | string |  |  | Assistive label for the card header. Only shown if `hideHeader` attribute is set to `true`. |
+| `title` | string |  |  | The title can include text, and is displayed in the header. To include additional markup or another component, use the title slot. |
+| `variant` | string |  | base | The variant changes the appearance of the card. Accepted variants include base or narrow. This value defaults to base. |
+
+#### 슬롯 (Slots) — 4개
+
+| 슬롯 | 설명 |
+|---|---|
+| `actions` | Placeholder for actionable components, such as lightning-button or lightning-button-menu. Actions are displayed on the top corner of the c… |
+| `default` | Placeholder for your content in the card body. |
+| `footer` | Placeholder for the card footer, which is displayed at the bottom of the card and is usually optional. For example, the footer can display… |
+| `title` | Placeholder for the card title, which can be represented by a header or h1 element. The title is displayed at the top of the card, after t… |
 ## 관련 노트
 
 - [[Lightning Base Components 레퍼런스]] — 전체 컴포넌트 목록

@@ -204,6 +204,52 @@ handleSave() {
 
 ---
 
+
+---
+
+## 전체 공식 속성 명세 (cx-router · Tier 2)
+
+> Salesforce 공식 cx-router 메타데이터에서 추출한 전체 속성·메서드·이벤트·슬롯 명세입니다(Tier 2). 위 예제·패턴은 기존 lwc-recipes Tier 1 큐레이션입니다.
+
+
+### lightning-combobox
+
+지원 상태: **GA** · 최소 API 버전: 0.0
+
+#### 속성 (Attributes) — 19개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `aria-described-by` | string |  |  | Reserved for internal use. Use the standard aria-describedby instead. A space-separated list of element IDs that provide descriptive label… |
+| `aria-invalid` | boolean |  |  | A Boolean value for aria-invalid. |
+| `aria-labelled-by` | string |  |  | Reserved for internal use. Use the standard aria-labelledby instead. A space-separated list of element IDs that provide labels for the com… |
+| `autocomplete` | string |  |  | Reserved for internal use. Controls auto-filling of the field. |
+| `disabled` | boolean |  | false | If present, the combobox is disabled and users cannot interact with it. |
+| `dropdown-alignment` | string |  | left | Specifies where the drop-down list is aligned with or anchored to the selection field. By default the list is aligned with the selection f… |
+| `field-level-help` | string |  |  | Help text detailing the purpose and function of the combobox. |
+| `icon-name` | string |  |  | The name of the icon displayed in the combobox button. Applies only when variant is 'button'. |
+| `label` |  |  |  | Text label for the combobox. |
+| `message-when-value-missing` | string |  |  | Error message to be displayed when the value is missing and input is required. |
+| `name` | string |  |  | Specifies the name of the combobox. |
+| `options` | object[] | ✔ |  | A list of options that are available for selection. Each option has the following attributes: label and value. |
+| `placeholder` | string |  | Select | Text that is displayed before an option is selected, to prompt the user to select an option. The default is "Select an Option". |
+| `read-only` | boolean |  | false | If present, the combobox is read-only. A read-only combobox is also disabled. |
+| `required` | boolean |  | false | If present, a value must be selected before the form can be submitted. |
+| `spinner-active` | boolean |  | false | If present, a spinner is displayed below the menu items to indicate loading activity. |
+| `validity` | object |  |  | Represents the validity states that an element can be in, with respect to constraint validation. |
+| `value` | string |  |  | Specifies the value of an input element. |
+| `variant` | string |  | standard | The variant changes the appearance of the combobox. Accepted variants include standard, label-hidden, label-inline, label-stacked, and but… |
+
+#### 메서드 (Methods) — 6개
+
+| 메서드 | 설명 |
+|---|---|
+| `blur` | Removes focus from the combobox. |
+| `check-validity` | Returns the valid attribute value (Boolean) on the ValidityState object. |
+| `focus` | Sets focus on the combobox. |
+| `report-validity` | Displays the error messages and returns false if the input is invalid. If the input is valid, reportValidity() clears displayed error mess… |
+| `set-custom-validity` | Sets a custom error message to be displayed when the combobox value is submitted. |
+| `show-help-message-if-invalid` | Shows the help message if the combobox is in an invalid state. |
 ## 관련 노트
 
 - [[Lightning Base Components 레퍼런스]] — 전체 입력 컴포넌트 목록

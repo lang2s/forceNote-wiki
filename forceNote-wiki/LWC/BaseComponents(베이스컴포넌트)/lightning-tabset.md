@@ -89,6 +89,69 @@ handleTabChange(event) {
 
 ---
 
+
+---
+
+## 전체 공식 속성 명세 (cx-router · Tier 2)
+
+> Salesforce 공식 cx-router 메타데이터에서 추출한 전체 속성·메서드·이벤트·슬롯 명세입니다(Tier 2). 위 예제·패턴은 기존 lwc-recipes Tier 1 큐레이션입니다.
+
+
+### lightning-tabset
+
+지원 상태: **GA** · 최소 API 버전: 44.0
+
+#### 속성 (Attributes) — 6개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `active-tab-value` | string |  |  | Sets a specific tab to open by default using a string that matches a tab's value string. If not used, the first tab opens by default. |
+| `heading-label` | string\|null |  |  | Specifies text to use as custom assistive text for the tabset heading. The text is placed in a div element with role="heading" and aria-le… |
+| `heading-level` | number |  |  | Specifies the value to pass through to aria-level when you specify heading-label. Accepts values from 1 to 6. The default value is 2. |
+| `heading-visible` | boolean |  |  | Determines whether the text that's passed with the heading-label attribute is visible above the tabset. This attribute isn't present by de… |
+| `title` | string |  |  | Displays tooltip text when the mouse moves over the tabset. |
+| `variant` | string |  |  | The variant changes the appearance of the tabset. Accepted variants are standard, scoped, and vertical. |
+
+#### 메서드 (Methods) — 1개
+
+| 메서드 | 설명 |
+|---|---|
+| `focus` | Focus currently selected tab. |
+
+#### 슬롯 (Slots) — 1개
+
+| 슬롯 | 설명 |
+|---|---|
+| `default` | Placeholder for lightning-tab. |
+
+### lightning-tab
+
+지원 상태: **GA** · 최소 API 버전: 44.0
+
+#### 속성 (Attributes) — 8개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `end-icon-alternative-text` | string |  |  | The alternative text for the icon specified by end-icon-name. |
+| `end-icon-name` | string |  |  | The Lightning Design System name of an icon to display at the end of the tab label. Specify the name in the format 'utility:check' where '… |
+| `icon-assistive-text` | string |  |  | The alternative text for the icon specified by icon-name. |
+| `icon-name` | string |  |  | The Lightning Design System name of an icon to display at the beginning of the tab label. Specify the name in the format 'utility:down' wh… |
+| `label` | string |  |  | The text displayed in the tab header. |
+| `show-error-indicator` | boolean |  |  | Specifies whether there's an error in the tab content. An error icon is displayed to the right of the tab label. |
+| `title` | string |  |  | Specifies text that displays in a tooltip over the tab content. |
+| `value` | string |  |  | The optional string to identify which tab was clicked during the tab's active event. This string is also used by active-tab-value in tabse… |
+
+#### 메서드 (Methods) — 1개
+
+| 메서드 | 설명 |
+|---|---|
+| `load-content` | Reserved for internal use. |
+
+#### 슬롯 (Slots) — 1개
+
+| 슬롯 | 설명 |
+|---|---|
+| `default` | Placeholder for your content in lightning-tab. |
 ## 관련 노트
 
 - [[lightning-accordion]] — 펼치기/접기 패턴의 대안 컴포넌트
