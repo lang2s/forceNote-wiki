@@ -1,0 +1,33 @@
+---
+tags: [slds, slds2, design-pattern, ux, reference]
+source: SLDS2-Docs — lightningdesignsystem.com SLDS 2 디자인 패턴 (Tier 2)
+created: 2026-06-13
+aliases: [Agentic Experiences (Agentic Patterns), SLDS Agentic Experiences 패턴, agentic-experiences]
+---
+
+# Agentic Experiences (Agentic Patterns)
+
+> 카테고리: SLDS 2 디자인 패턴 · [공식](https://www.lightningdesignsystem.com/2e1ef8501/p/03c548-agentic-patterns)
+
+사용자가 **통제권을 유지**한 채 자율 AI 에이전트가 생성·추천·정제·실행하도록 돕는 경험. 핵심은 "AI가 하되 사람이 승인·수정한다".
+
+## 주요 하위 패턴
+
+- **AI-Enabled Cards** — 페이지 내 상시 AI 콘텐츠. 요약 후 액션 추천. 콘텐츠 생성 전엔 빈 상태 표시, **생성 출처 항상 표기**, 사람 피드백 허용. (복잡한 데이터 한 카드에 몰지 말 것)
+- **Assistant Panels** — 열고 닫는 대화형 AI 다이얼로그. 리사이즈·플로트·핀 가능, 닫아도 히스토리 유지. 프롬프트 컴포저는 하단 도킹. (사용자 동의 없이 데이터 갱신·자동 개폐 금지)
+- **Canvases** — 평어로 요청하는 완전 인터랙티브·멀티모달 맞춤 뷰. 하단 중앙 프롬프트 컴포저. 인사이트별 개별 카드, 이동/리사이즈 시그니파이어. (텍스트만 입력 강제 금지)
+- **Disambiguation** — 모호한 프롬프트를 데이터 특정 요청으로. **라디오 버튼 그룹**으로 그라운딩 옵션 제공(체크박스/텍스트 X, 멀티스텝 X).
+- **Feeds** — 액션·프롬프트를 시간순으로. 아바타로 AI/사람 구분, 타임스탬프·작성자 표기, 히스토리 저장·삭제. (대화 막다른 길·장문 남발 금지)
+- **AI-Enabled Form Fields** — 자동 생성·예측 입력하되 수동 입력 방해 금지. **스파클 아이콘**으로 표시, 수동 오버라이드 항상 허용.
+- **Form Dirty State** — AI 변경분은 확정 전까지 pending으로 시각·프로그래밍 표시. 색상 변경 표시 + undo/확인 제공. (조용한 AI 수정 금지)
+- **Human Feedback** — 👍/👎 항상 둘 다 제공(단일 옵션 X), 장문 입력은 선택. 3차 위치에 배치, 전송 후 확인.
+- **Prompt Composer** — 텍스트 입력 필수(+선택적 음성/미디어). 항상 부모 컨테이너 **하단 중앙**. 작동 중엔 send→stop 버튼.
+- **Onboarding & Discovery** — 첫 상호작용 시 환영 패널+면책. 점진적 공개·가이드 워크스루·적응형 툴팁. 예시 액션 제공.
+
+---
+
+## 관련 노트
+
+- [[SLDS(디자인시스템)/index|SLDS(디자인시스템) 색인]]
+- [[SLDS LWC 디자인 시스템]] — SLDS 2 개념·스타일링 훅·LWC 적용
+- [[LWC MOC]]

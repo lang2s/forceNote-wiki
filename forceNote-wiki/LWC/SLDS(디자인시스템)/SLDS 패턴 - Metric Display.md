@@ -1,0 +1,44 @@
+---
+tags: [slds, slds2, design-pattern, ux, reference]
+source: SLDS2-Docs — lightningdesignsystem.com SLDS 2 디자인 패턴 (Tier 2)
+created: 2026-06-13
+aliases: [Metric Display (Data Visualization), SLDS Metric Display 패턴, metric-display]
+---
+
+# Metric Display (Data Visualization)
+
+> 카테고리: SLDS 2 디자인 패턴(Data Visualization) · [공식](https://www.lightningdesignsystem.com/2e1ef8501/p/594f67-metric-display)
+
+핵심 값·진행 지표를 노출해 성과·상태·변화를 빠르게 파악. 좋은 지표 경험 = **최신 값 + 추세 + 직접 액션**. 지표와 **알림(alert)** 은 한 쌍으로 설계해야 함(대부분 사용자는 지표 화면이 아니라 고가시성 알림으로 모니터링 시작).
+
+## Metric Tile 구성 요소
+- **Label** — 사용자가 알아보는 지표명(백엔드의 난해한 이름을 변환).
+- **Value** — 가장 최근 값. 라벨 바로 옆, 자연 독서 순서로.
+- **Unit** — 단위 필수(100°F vs 100°C 의미가 완전히 다름). 잘 알려진 단위는 약어 OK.
+- **Timestamp** — 측정 시각(수신 시각 아님).
+- **Trend Indicator**(선택) — 방향 아이콘+텍스트+접근성 라벨(↑증가 ↓감소 →무변화). "무엇 대비"인지(1일/1주 전 등)와 "어느 방향이 좋은지"를 색만이 아닌 아이콘/텍스트로.
+- **Note**(선택) — 맥락 설명(`aria-describedby`로 카드에 연결). 전문가 대상이면 생략.
+- **Time Series**(선택) — 추세 라인차트. 각 점 키보드 도달·AT 라벨. Chart 가이드라인 준수.
+- **Range Selector**(선택) — x축 기간 선택(캐시 가능한 범위만).
+
+## 오버레이
+- **Metric on Metric** — 여러 지표를 시간축 정렬해 겹침. 자릿수 다르면 스케일 정규화, 선/범례는 배경·서로 3:1 대비 + 패턴 병행.
+- **Event on Metric** — 타임라인에 이벤트 마커(예: 코드 체크인 ↔ CPU 부하 상관).
+
+## 패턴
+- **Dashboard** — 제목 + 경계 안 균일 격자 타일. 모든 타일은 시간·배경변수 동기화. 반응형(max/min-width로 열 수 조절).
+- **KPI Banner** — 최신 값만 보여주는 한 줄(타임시리즈 없음).
+- **Compact** — popover 안에 타일(클릭으로 열고 포커스 이동, hover/focus만으로 열기 금지 — 접근성).
+- **Inline** — 본문/목록 속 초소형(현재 값 or 스파크라인 중 하나). 텍스트/표 대체 제공.
+
+## 상호작용
+- **Messaging**(발견 공유), **Drill Down**(상세 보기로 이동), **Triggers**(임계값 초과/미만 시 자동화·알림 설정, 디스플레이에서 직접 설정).
+- **Alerts** — 실시간 고가시성 채널(문자/챗)로 주의를 끌고, 필요 시 풍부한 지표 화면으로 바로 이동.
+
+---
+
+## 관련 노트
+
+- [[SLDS(디자인시스템)/index|SLDS(디자인시스템) 색인]]
+- [[SLDS LWC 디자인 시스템]] — SLDS 2 개념·스타일링 훅·LWC 적용
+- [[LWC MOC]]

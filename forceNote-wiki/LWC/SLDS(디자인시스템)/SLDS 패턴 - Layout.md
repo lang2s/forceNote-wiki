@@ -1,0 +1,35 @@
+---
+tags: [slds, slds2, design-pattern, ux, reference]
+source: SLDS2-Docs — lightningdesignsystem.com SLDS 2 디자인 패턴 (Tier 2)
+created: 2026-06-13
+aliases: [Layout, SLDS Layout 패턴, layout]
+---
+
+# Layout
+
+> 카테고리: SLDS 2 디자인 패턴(Builder) · [공식](https://www.lightningdesignsystem.com/2e1ef8501/p/53eb31-layout)
+
+콘텐츠를 조직하는 **행·열 그리드 구조**. (이 문서는 빌더의 레이아웃 편집 관점 — 일반 페이지 레이아웃 유틸리티는 `SLDS-Utilities.md`의 6 Grid/19 Sizing 참고)
+
+## 개념
+- 레이아웃 컴포넌트가 **열(column)** 을 만들고, 그 안에 다른 컴포넌트를 배치. 각 레이아웃은 자신의 열 개수·폭을 제어.
+- 고정형 또는 커스터마이즈형. 설정은 최종 출력 렌더 기술에 매핑돼야 함.
+
+## 레이아웃 설정 패널
+- **열 개수**: 1~12 (12열 그리드). 줄이면 오른쪽 열부터 제거(콘텐츠 있으면 삭제 확인 모달).
+- **열 폭·패딩**: 각 열의 scoped 탭에서 폭(12열 기준)·패딩(px) 조절, 캔버스에 즉시 반영.
+- **열 크기 변경**: 한 열을 키우면 바로 오른쪽 열 값을 조정(0이 되면 그 다음 열 축소). 맨 오른쪽 열이면 왼쪽 기준.
+- **리셋**: "Reset Column Widths and Padding"으로 기본값(균등·무패딩) 복귀. 열 1개면 비활성.
+- **열 간격**: Column Spacing(px)으로 전체 열 사이 간격.
+
+## 스타일
+- **열 정렬**: 콘텐츠 수직 정렬(top/middle/bottom).
+- **행 배경색**: 컬러 피커로 행 배경 지정.
+
+---
+
+## 관련 노트
+
+- [[SLDS(디자인시스템)/index|SLDS(디자인시스템) 색인]]
+- [[SLDS LWC 디자인 시스템]] — SLDS 2 개념·스타일링 훅·LWC 적용
+- [[LWC MOC]]

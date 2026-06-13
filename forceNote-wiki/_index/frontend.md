@@ -120,6 +120,33 @@ created: 2026-05-21
 |---|---|
 | SLDS, SLDS 2, Lightning Design System, LWC 디자인 시스템, CSS Styling Hook, 스타일링 훅, CSS Custom Properties, Design Token, 전역 토큰, --slds-g-*, --slds-c-*, Dark Mode, 다크 모드, Density Styling Hook, 밀도 인식, 반응형 디자인, Winter 26 GA | `LWC/UIPatterns(UI패턴)/SLDS LWC 디자인 시스템.md` |
 | SLDS 유틸리티 클래스, slds-grid, slds-col, slds-size, slds-m-*, slds-p-*, slds-text-heading, slds-button, slds-button_brand, slds-button_neutral, slds-button_destructive, slds-icon_container, Shadow DOM CSS 격리, light DOM CSS | `LWC/UIPatterns(UI패턴)/SLDS LWC 디자인 시스템.md` |
+| SLDS 유틸리티 클래스, slds-m-_, slds-p-_, slds-grid, slds-col, slds-text-heading, slds-box, slds-truncate, 마진 패딩 클래스, 유틸리티 전수, SLDS Utilities | `LWC/SLDS(디자인시스템)/SLDS 유틸리티 클래스 레퍼런스.md` |
+| SLDS 스타일링 훅, Styling Hooks, --slds-g-_, --slds-c-_, CSS Custom Properties, 테마 다크모드 훅, 색상 토큰 | `LWC/SLDS(디자인시스템)/SLDS 스타일링 훅.md` |
+| SLDS 접근성, Accessibility, a11y, 색 대비, 포커스 관리, 키보드 인터랙션, WCAG, 모바일 접근성 | `LWC/SLDS(디자인시스템)/SLDS 접근성.md` |
+| SLDS 모범 사례, Best Practices, SLDS1 vs SLDS2, 3단계 커스터마이즈 모델, 마이그레이션 | `LWC/SLDS(디자인시스템)/SLDS 모범 사례.md` |
+| SLDS 개발 도구, SLDS Tools, Figma Kit, SLDS Linter, SLDS Validator, VS Code 확장 | `LWC/SLDS(디자인시스템)/SLDS 개발 도구.md` |
+| SLDS 블루프린트, Blueprint, CSS 전용 컴포넌트, slds-timeline slds-tree, activity-timeline alert app-launcher, 블루프린트 카탈로그 | `LWC/SLDS(디자인시스템)/SLDS 블루프린트 카탈로그.md` |
+| Agentic Experiences, SLDS Agentic Experiences 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Agentic Experiences.md` |
+| Builder, SLDS Builder 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Builder.md` |
+| Charts, SLDS Charts 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Charts.md` |
+| Conversation Design, SLDS Conversation Design 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Conversation Design.md` |
+| Currency, SLDS Currency 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Currency.md` |
+| Data Entry, SLDS Data Entry 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Data Entry.md` |
+| Displaying Data, SLDS Displaying Data 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Displaying Data.md` |
+| In App Feedback, SLDS In App Feedback 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - In App Feedback.md` |
+| Interface Feedback, SLDS Interface Feedback 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Interface Feedback.md` |
+| Layout, SLDS Layout 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Layout.md` |
+| Loading, SLDS Loading 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Loading.md` |
+| Localization, SLDS Localization 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Localization.md` |
+| Markup and Style, SLDS Markup and Style 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Markup and Style.md` |
+| Messaging UI, SLDS Messaging UI 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Messaging UI.md` |
+| Metric Display, SLDS Metric Display 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Metric Display.md` |
+| Navigation, SLDS Navigation 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Navigation.md` |
+| Notifications, SLDS Notifications 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Notifications.md` |
+| Prompt Design Guide, SLDS Prompt Design Guide 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Prompt Design Guide.md` |
+| Rules, Filters, and Logic, SLDS Rules, Filters, and Logic 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Rules, Filters, and Logic.md` |
+| Search, SLDS Search 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Search.md` |
+| User Engagement, SLDS User Engagement 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - User Engagement.md` |
 
 ## LWC Base Components 상세 레퍼런스 (개별 페이지)
 

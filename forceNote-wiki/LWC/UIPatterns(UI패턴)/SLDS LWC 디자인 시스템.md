@@ -244,6 +244,12 @@ Winter '26에서 밀도 인식(compact/comfortable/spacious) 스타일링 지원
 ---
 
 ## 관련 노트
+
+> **SLDS 2 심화 문서:** [[SLDS(디자인시스템)/index|SLDS(디자인시스템) 색인]] — 유틸리티·패턴·접근성·블루프린트 전체
+
+- [[SLDS 유틸리티 클래스 레퍼런스]] — 유틸리티 클래스 24개 카테고리 전수 (위 "빠른 참조"의 심화)
+- [[SLDS 스타일링 훅]] — `--slds-*` CSS 커스텀 속성 상세
+- [[SLDS 접근성]] · [[SLDS 모범 사례]] · [[SLDS 개발 도구]] · [[SLDS 블루프린트 카탈로그]]
 - [[Lightning Base Components 레퍼런스]]
 - [[Toast & 모달 패턴]]
 - [[LWC 보안 패턴]]

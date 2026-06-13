@@ -1,0 +1,33 @@
+---
+tags: [slds, slds2, design-pattern, ux, reference]
+source: SLDS2-Docs — lightningdesignsystem.com SLDS 2 디자인 패턴 (Tier 2)
+created: 2026-06-13
+aliases: [Loading, SLDS Loading 패턴, loading]
+---
+
+# Loading
+
+> 카테고리: SLDS 2 디자인 패턴 · [공식](https://www.lightningdesignsystem.com/2e1ef8501/p/7473e0-loading)
+
+대기 시간을 투명·예측 가능하게. 시스템이 작동 중임을 시각 피드백으로 안심시켜 인지 부하·불확실성 감소. 도구: **Spinner**와 **Stencil**.
+
+## Spinner
+- 데이터 조회·느린 연산 시. 애니메이션 SVG/GIF. **페이지 새로고침 없는 비동기 업데이트**에 사용.
+- 컨테이너 안 **수평·수직 중앙**. 텍스트/요소 위에 바로 두지 말고 light/dark 마스크 적용 후.
+- 필요 시 텍스트 라벨("데이터 업로드 중 …").
+
+## Stencil (스켈레톤)
+- 콘텐츠 로딩 중 레이아웃을 추상 표현하는 플레이스홀더. **전체 페이지 새로고침**에 사용(비동기 업데이트 X).
+- **300ms 기준**: 300ms 미만이면 그냥 데이터 표시. 301ms 이상이면 stencil 페이드인 → 데이터로 크로스페이드(흰 깜빡임 금지).
+- 데이터 있을 때만 보이는 컴포넌트면 stencil 표시 안 함.
+- 단순·가벼운 모양(버튼 등 UI 요소 배치는 포함 X), 높이 일관, 컨테이너에 반응형으로 채움, 좌상→우하로 로드.
+- **테이블**: 행 stencil 20개 렌더 + 각 행 불투명도 5%씩 감소(100%→0%)로 무한 데이터 페이드 효과.
+- **레코드 상세**: 피드는 5개 인스턴스로 페이드(무한 스크롤 암시), related list는 컴포넌트별 stencil 1개.
+
+---
+
+## 관련 노트
+
+- [[SLDS(디자인시스템)/index|SLDS(디자인시스템) 색인]]
+- [[SLDS LWC 디자인 시스템]] — SLDS 2 개념·스타일링 훅·LWC 적용
+- [[LWC MOC]]

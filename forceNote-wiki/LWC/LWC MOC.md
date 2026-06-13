@@ -115,6 +115,18 @@ created: 2026-05-17
 - [[에러 패널 패턴]] — errorPanel, reduceErrors, 에러 타입별 처리
 - [[공유 JS 모듈]] — c/ 네임스페이스 공유 함수, named export, isExposed: false
 
+## 🎨 SLDS 디자인 시스템
+
+> 전체 색인: [[SLDS(디자인시스템)/index|SLDS(디자인시스템) 색인]] · 개념·LWC 적용: [[SLDS LWC 디자인 시스템]]
+
+- [[SLDS 유틸리티 클래스 레퍼런스]] — 마진·패딩·그리드·타이포 등 24개 카테고리 전수 + HTML 예제
+- [[SLDS 스타일링 훅]] — `--slds-g-*`/`--slds-c-*` CSS 커스텀 속성, 테마·다크모드
+- [[SLDS 접근성]] — 색 대비·포커스·키보드·모바일 9원칙
+- [[SLDS 모범 사례]] — SLDS 1 vs 2, 3단계 커스터마이즈 모델
+- [[SLDS 개발 도구]] — Figma Kit, SLDS Linter/Validator
+- [[SLDS 블루프린트 카탈로그]] — CSS 전용 블루프린트 30종 인덱스
+- **디자인 패턴 21종** (data-entry·search·navigation·charts 등) → [[SLDS(디자인시스템)/index|SLDS(디자인시스템) 색인]]
+
 ## 🔒 보안 & 권한
 
 - [[LWC 보안 패턴]] — 권한 기반 UI, @api 노출 범위, userId, CSP
