@@ -1,6 +1,6 @@
 ---
 tags: [lwc, base-component, modal, overlay, reference]
-source: TrailheadApp/lwc-recipes-main (Tier 1) + external-knowledge (Tier 3)
+source: TrailheadApp/lwc-recipes-main (Tier 1) + cx-router 메타데이터 (Tier 2) + external-knowledge (Tier 3)
 created: 2026-05-17
 aliases: [lightning-modal, LightningModal, 모달, 모달 창, 다이얼로그]
 ---
@@ -274,6 +274,90 @@ const input = await LightningPrompt.open({
 
 ---
 
+
+---
+
+## 전체 공식 속성 명세 (cx-router · Tier 2)
+
+> Salesforce 공식 cx-router 메타데이터에서 추출한 전체 속성·메서드·이벤트·슬롯 명세입니다(Tier 2). 위 예제·패턴은 기존 lwc-recipes Tier 1 큐레이션입니다.
+
+
+### lightning-modal
+
+지원 상태: **GA** · 최소 API 버전: 55.0
+
+#### 속성 (Attributes) — 4개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `description` | string |  | false | Sets the modal's accessible description. |
+| `disable-close` | boolean |  | false | Prevents closing the modal by normal means like the ESC key, the close button, or `.close()`. |
+| `label` | string | ✔ | false | Sets the modal's title and assistive device label. |
+| `size` | string |  | medium | How much of the viewport width the modal uses. Supported values are small, medium, large, or full. You can't change the modal size after t… |
+
+#### 메서드 (Methods) — 1개
+
+| 메서드 | 설명 |
+|---|---|
+| `close` | Closes the modal and resolves with an optional result. |
+
+### lightning-modal-body
+
+지원하는 **속성(attributes) · 메서드(methods) · 이벤트(events) · 슬롯(slots)** 전체 목록은 공식 **Specification** 탭에서 확인하세요. (해당 표는 인터랙티브 페이지에서 렌더링됩니다.)
+
+### lightning-modal-footer
+
+지원하는 **속성(attributes) · 메서드(methods) · 이벤트(events) · 슬롯(slots)** 전체 목록은 공식 **Specification** 탭에서 확인하세요. (해당 표는 인터랙티브 페이지에서 렌더링됩니다.)
+
+### lightning-modal-header
+
+지원 상태: **GA** · 최소 API 버전: 55.0
+
+#### 속성 (Attributes) — 1개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `label` | string |  |  | Text to display as the heading at the top of the modal |
+
+### lightning-alert
+
+지원 상태: **GA** · 최소 API 버전: 54.0
+
+#### 속성 (Attributes) — 4개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `label` | string |  | Alert (Localized Value) | Value to use for header text in "header" variant or aria-label in "headerless" variant. |
+| `message` | string |  |  | Text to display in the alert. |
+| `theme` | string |  | default | Theme to use when variant is "header". Valid values are "default", "shade", "inverse", "alt-inverse", "success", "success", "info", "warni… |
+| `variant` | string |  | header | Variant to use for alert. Valid values are "header" and "headerless". |
+
+### lightning-confirm
+
+지원 상태: **GA** · 최소 API 버전: 54.0
+
+#### 속성 (Attributes) — 4개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `label` | string |  | Confirm (Localized Value) | Value to use for header text in "header" variant or aria-label in "headerless" variant. |
+| `message` | string |  |  | Text to display in the confirm modal. |
+| `theme` | string |  | default | Theme to use when variant is "header". Valid values are "default", "shade", "inverse", "alt-inverse", "success", "info", "warning", "error… |
+| `variant` | string |  | header | Variant to use for the confirm modal. Valid values are "header" and "headerless". |
+
+### lightning-prompt
+
+지원 상태: **GA** · 최소 API 버전: 54.0
+
+#### 속성 (Attributes) — 5개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `default-value` | string |  |  | Default value for input. |
+| `label` | string |  | Prompt (Localized Value) | Value to use for header text in "header" variant or aria-label in "headerless" variant. |
+| `message` | string |  |  | Text to display in the prompt. |
+| `theme` | string |  | default | Theme to use when variant is "header". Valid values are "default", "shade", "inverse", "alt-inverse", "success", "info", "warning", "error… |
+| `variant` | string |  | header | Variant to use for the prompt. Valid values are "header" and "headerless". |
 ## 관련 노트
 
 - [[Toast & 모달 패턴]] — ShowToastEvent, LightningAlert, 전체 모달 패턴

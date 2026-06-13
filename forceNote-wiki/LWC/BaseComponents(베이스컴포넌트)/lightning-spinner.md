@@ -1,6 +1,6 @@
 ---
 tags: [lwc, base-component, spinner, loading, reference]
-source: TrailheadApp/lwc-recipes-main (Tier 1) + external-knowledge (Tier 3)
+source: TrailheadApp/lwc-recipes-main (Tier 1) + cx-router 메타데이터 (Tier 2) + external-knowledge (Tier 3)
 created: 2026-05-17
 aliases: [lightning-spinner, 로딩 스피너, 로딩 인디케이터, isLoading]
 ---
@@ -201,6 +201,25 @@ export default class LoadingPattern extends LightningElement {
 
 ---
 
+
+---
+
+## 전체 공식 속성 명세 (cx-router · Tier 2)
+
+> Salesforce 공식 cx-router 메타데이터에서 추출한 전체 속성·메서드·이벤트·슬롯 명세입니다(Tier 2). 위 예제·패턴은 기존 lwc-recipes Tier 1 큐레이션입니다.
+
+
+### lightning-spinner
+
+지원 상태: **GA** · 최소 API 버전: 0.0
+
+#### 속성 (Attributes) — 3개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `alternative-text` | string |  |  | The alternative text used to describe the reason for the wait and need for a spinner. |
+| `size` | string |  | medium | The size of the spinner. Accepted sizes are xx-small, x-small, small, medium, and large. This value defaults to medium. |
+| `variant` | string |  | base | The variant changes the appearance of the spinner. Accepted variants include base, brand, and inverse. The default is base. |
 ## 관련 노트
 
 - [[Lightning Base Components 레퍼런스]] — 전체 컴포넌트 목록

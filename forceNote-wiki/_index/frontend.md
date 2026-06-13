@@ -136,6 +136,61 @@ created: 2026-05-21
 | lightning-button 상세, variant brand destructive inverse, button-icon, button-menu, menu-item, button-stateful, onselect | `LWC/BaseComponents(베이스컴포넌트)/lightning-button.md` |
 | lightning-card 상세, title icon-name, actions 슬롯, footer 슬롯, variant narrow | `LWC/BaseComponents(베이스컴포넌트)/lightning-card.md` |
 | lightning-spinner 상세, isLoading 패턴, alternative-text, size variant, try finally, 오버레이 스피너 | `LWC/BaseComponents(베이스컴포넌트)/lightning-spinner.md` |
+| lightning-avatar, Avatar, 아바타, 사용자/객체를 나타내는 원형/사각 이미지. | `LWC/BaseComponents(베이스컴포넌트)/lightning-avatar.md` |
+| lightning-badge, Badge, 배지, 상태/카운트를 나타내는 작은 라벨. | `LWC/BaseComponents(베이스컴포넌트)/lightning-badge.md` |
+| lightning-breadcrumb, Breadcrumb, 빵부스러기 항목, 빵부스러기 경로의 개별 항목. | `LWC/BaseComponents(베이스컴포넌트)/lightning-breadcrumb.md` |
+| lightning-breadcrumbs, Breadcrumbs, 빵부스러기 내비, 현재 위치 경로를 보여주는 빵부스러기 내비. | `LWC/BaseComponents(베이스컴포넌트)/lightning-breadcrumbs.md` |
+| lightning-carousel, Carousel, 캐러셀, 이미지를 슬라이드로 넘겨 보는 캐러셀. | `LWC/BaseComponents(베이스컴포넌트)/lightning-carousel.md` |
+| lightning-carousel-image, Carousel Image, 캐러셀 이미지, 캐러셀 안의 개별 이미지. | `LWC/BaseComponents(베이스컴포넌트)/lightning-carousel-image.md` |
+| lightning-checkbox-group, Checkbox Group, 체크박스 그룹, 여러 개를 선택할 수 있는 체크박스 묶음. | `LWC/BaseComponents(베이스컴포넌트)/lightning-checkbox-group.md` |
+| lightning-click-to-dial, Click To Dial, 클릭 투 다이얼, 클릭하면 전화 발신되는 전화번호 링크(Open CTI). | `LWC/BaseComponents(베이스컴포넌트)/lightning-click-to-dial.md` |
+| lightning-dual-listbox, Dual Listbox, 이중 리스트박스, 좌→우로 항목을 옮겨 선택하는 이중 리스트. | `LWC/BaseComponents(베이스컴포넌트)/lightning-dual-listbox.md` |
+| lightning-dynamic-icon, Dynamic Icon, 동적 아이콘, 애니메이션이 있는 동적 아이콘(예: strength, scoreboard). | `LWC/BaseComponents(베이스컴포넌트)/lightning-dynamic-icon.md` |
+| lightning-empty-state, Empty State (Beta), 빈 상태, 데이터가 없을 때 보여주는 빈 상태 화면. | `LWC/BaseComponents(베이스컴포넌트)/lightning-empty-state.md` |
+| lightning-file-upload, File Upload, 파일 업로드, 레코드에 파일을 업로드. | `LWC/BaseComponents(베이스컴포넌트)/lightning-file-upload.md` |
+| lightning-flow, Flow, 플로우 실행, Salesforce Flow를 컴포넌트 안에서 실행. | `LWC/BaseComponents(베이스컴포넌트)/lightning-flow.md` |
+| lightning-formatted-address, Formatted Address, 주소 표시, 주소를 형식에 맞게 표시(지도 링크 옵션). | `LWC/BaseComponents(베이스컴포넌트)/lightning-formatted-address.md` |
+| lightning-formatted-date-time, Formatted Date Time, 날짜시간 표시, 날짜/시간을 로케일 형식으로 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-formatted-date-time.md` |
+| lightning-formatted-email, Formatted Email, 이메일 표시, 이메일을 mailto 링크로 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-formatted-email.md` |
+| lightning-formatted-location, Formatted Location, 위치 표시, 위도/경도 좌표를 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-formatted-location.md` |
+| lightning-formatted-name, Formatted Name, 이름 표시, 이름을 로케일 순서로 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-formatted-name.md` |
+| lightning-formatted-number, Formatted Number, 숫자/통화 표시, 숫자/통화/백분율을 로케일 형식으로 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-formatted-number.md` |
+| lightning-formatted-phone, Formatted Phone, 전화 표시, 전화번호를 tel 링크로 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-formatted-phone.md` |
+| lightning-formatted-rich-text, Formatted Rich Text, 리치텍스트 표시, HTML 서식 텍스트를 안전하게 렌더링. | `LWC/BaseComponents(베이스컴포넌트)/lightning-formatted-rich-text.md` |
+| lightning-formatted-text, Formatted Text, 텍스트 표시, URL/이메일/전화를 자동 링크화해 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-formatted-text.md` |
+| lightning-formatted-time, Formatted Time, 시간 표시, 시간을 로케일 형식으로 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-formatted-time.md` |
+| lightning-formatted-url, Formatted URL, URL 표시, URL을 하이퍼링크로 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-formatted-url.md` |
+| lightning-helptext, Helptext, 도움말 툴팁, 물음표 아이콘에 마우스를 올리면 뜨는 도움말 툴팁. | `LWC/BaseComponents(베이스컴포넌트)/lightning-helptext.md` |
+| lightning-icon, Icon, 아이콘, SLDS 아이콘을 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-icon.md` |
+| lightning-illustration, Illustration (Beta), 일러스트, 빈 상태/오류 등을 위한 일러스트 + 메시지. | `LWC/BaseComponents(베이스컴포넌트)/lightning-illustration.md` |
+| lightning-input-rich-text, Input Rich Text, 리치 텍스트 에디터, 서식 있는 텍스트(리치 텍스트) 편집기. | `LWC/BaseComponents(베이스컴포넌트)/lightning-input-rich-text.md` |
+| lightning-layout, Layout, 레이아웃, 행/열 기반 반응형 레이아웃 컨테이너(flex). | `LWC/BaseComponents(베이스컴포넌트)/lightning-layout.md` |
+| lightning-layout-item, Layout Item, 레이아웃 아이템, Layout 안의 개별 칸(크기/패딩 지정). | `LWC/BaseComponents(베이스컴포넌트)/lightning-layout-item.md` |
+| lightning-map, Map, 지도, 지도에 마커를 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-map.md` |
+| lightning-pill, Pill, 필 태그, 제거 가능한 라벨(태그) 칩. | `LWC/BaseComponents(베이스컴포넌트)/lightning-pill.md` |
+| lightning-pill-container, Pill Container, 필 컨테이너, 여러 pill을 묶어서 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-pill-container.md` |
+| lightning-platform-show-toast-event, Platform Show Toast Event, 토스트 이벤트, Aura/이벤트 방식으로 토스트를 띄우는 이벤트. | `LWC/BaseComponents(베이스컴포넌트)/lightning-platform-show-toast-event.md` |
+| lightning-progress-bar, Progress Bar, 진행 막대, 수평 진행 막대. | `LWC/BaseComponents(베이스컴포넌트)/lightning-progress-bar.md` |
+| lightning-progress-indicator, Progress Indicator, 진행 인디케이터, 여러 단계의 진행 상태(스텝). | `LWC/BaseComponents(베이스컴포넌트)/lightning-progress-indicator.md` |
+| lightning-progress-ring, Progress Ring, 원형 진행, 원형 진행 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-progress-ring.md` |
+| lightning-progress-step, Progress Step, 진행 단계, 진행 인디케이터 안의 개별 단계. | `LWC/BaseComponents(베이스컴포넌트)/lightning-progress-step.md` |
+| lightning-quick-action-panel, Quick Action Panel, 빠른 작업 패널, 화면 액션(Screen Action)의 본문 패널. | `LWC/BaseComponents(베이스컴포넌트)/lightning-quick-action-panel.md` |
+| lightning-radio-group, Radio Group, 라디오 그룹, 하나만 선택하는 라디오 버튼 묶음. | `LWC/BaseComponents(베이스컴포넌트)/lightning-radio-group.md` |
+| lightning-relative-date-time, Relative Date Time, 상대 시간, '3분 전'처럼 상대 시간으로 표시. | `LWC/BaseComponents(베이스컴포넌트)/lightning-relative-date-time.md` |
+| lightning-rich-text-toolbar-button, Rich Text Toolbar Button, 리치텍스트 툴바 버튼, 리치 텍스트 편집기에 추가하는 커스텀 툴바 버튼. | `LWC/BaseComponents(베이스컴포넌트)/lightning-rich-text-toolbar-button.md` |
+| lightning-rich-text-toolbar-button-group, Rich Text Toolbar Button Group, 리치텍스트 툴바 그룹, 커스텀 툴바 버튼들의 그룹. | `LWC/BaseComponents(베이스컴포넌트)/lightning-rich-text-toolbar-button-group.md` |
+| lightning-select, Select, 네이티브 셀렉트, 네이티브 HTML select 기반 드롭다운. | `LWC/BaseComponents(베이스컴포넌트)/lightning-select.md` |
+| lightning-slider, Slider, 슬라이더, 범위 값을 드래그로 조절하는 슬라이더. | `LWC/BaseComponents(베이스컴포넌트)/lightning-slider.md` |
+| lightning-textarea, Text Area, 텍스트영역, 여러 줄 텍스트 입력. | `LWC/BaseComponents(베이스컴포넌트)/lightning-textarea.md` |
+| lightning-tile, Tile, 타일, 레코드 요약을 보여주는 타일. | `LWC/BaseComponents(베이스컴포넌트)/lightning-tile.md` |
+| lightning-toast, Toast, 토스트, 화면 모서리에 잠깐 뜨는 알림(LWR 사이트용). | `LWC/BaseComponents(베이스컴포넌트)/lightning-toast.md` |
+| lightning-toast-container, Toast Container, 토스트 컨테이너, 여러 토스트의 위치/스택을 관리하는 컨테이너(LWR). | `LWC/BaseComponents(베이스컴포넌트)/lightning-toast-container.md` |
+| lightning-tree, Tree, 트리, 펼침/접힘이 되는 계층 트리. | `LWC/BaseComponents(베이스컴포넌트)/lightning-tree.md` |
+| lightning-tree-grid, Tree Grid, 트리 그리드, 트리 + 표가 결합된 계층형 데이터 그리드. | `LWC/BaseComponents(베이스컴포넌트)/lightning-tree-grid.md` |
+| lightning-vertical-navigation, Vertical Navigation, 세로 내비게이션, 세로 사이드 내비게이션 메뉴. | `LWC/BaseComponents(베이스컴포넌트)/lightning-vertical-navigation.md` |
+| lightning-vertical-navigation-item, Vertical Navigation Item, 세로 내비 항목, 세로 내비의 개별 항목. | `LWC/BaseComponents(베이스컴포넌트)/lightning-vertical-navigation-item.md` |
+| lightning-vertical-navigation-item-badge, Vertical Navigation Item Badge, 세로 내비 배지, 배지(숫자)가 붙는 세로 내비 항목. | `LWC/BaseComponents(베이스컴포넌트)/lightning-vertical-navigation-item-badge.md` |
+| lightning-vertical-navigation-item-icon, Vertical Navigation Item Icon, 세로 내비 아이콘, 아이콘이 붙는 세로 내비 항목. | `LWC/BaseComponents(베이스컴포넌트)/lightning-vertical-navigation-item-icon.md` |
 
 ## LWC Base Components (베이스 컴포넌트)
 

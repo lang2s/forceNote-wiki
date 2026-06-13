@@ -1,6 +1,6 @@
 ---
 tags: [lwc, base-component, accordion, layout, reference]
-source: https://developer.salesforce.com/docs/platform/lightning-component-reference/guide/components.html
+source: Salesforce 공식 컴포넌트 레퍼런스 (Tier 2) + cx-router 메타데이터 (Tier 2) — https://developer.salesforce.com/docs/platform/lightning-component-reference/guide/components.html
 created: 2026-05-17
 aliases: [accordion, 아코디언, lightning-accordion-section]
 ---
@@ -279,6 +279,51 @@ SLDS 유틸리티 클래스를 `class` 속성에 적용해 추가 스타일을 �
 
 ---
 
+
+---
+
+## 전체 공식 속성 명세 (cx-router · Tier 2)
+
+> Salesforce 공식 cx-router 메타데이터에서 추출한 전체 속성·메서드·이벤트·슬롯 명세입니다(Tier 2). 위 예제·패턴은 기존 lwc-recipes Tier 1 큐레이션입니다.
+
+
+### lightning-accordion
+
+지원 상태: **GA** · 최소 API 버전: 41.0
+
+#### 속성 (Attributes) — 3개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `active-section-name` | array\|string |  |  | Expands the specified accordion sections. Pass in a string for a single section or a list of section names. Section names are case-sensiti… |
+| `allow-multiple-sections-open` | boolean |  | false | If present, the accordion allows multiple open sections. Otherwise, opening a section closes another that's currently open. |
+| `title` | string |  |  | Displays tooltip text when the mouse moves over the element. |
+
+#### 슬롯 (Slots) — 1개
+
+| 슬롯 | 설명 |
+|---|---|
+| `default` | Placeholder for accordion-section components. |
+
+### lightning-accordion-section
+
+지원 상태: **GA** · 최소 API 버전: 41.0
+
+#### 속성 (Attributes) — 4개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `heading-level` | string \| number |  |  | Changes the 'aria-level' attribute value for the <h2> markup tag in the card's title element. Supported values are (1, 2, 3, 4, 5, 6). |
+| `label` | string |  |  | The text that displays as the title of the section. |
+| `name` | string |  |  | The unique section name to use with the active-section-name attribute in the accordion component. If you use the sectiontoggle event, prov… |
+| `title` | string |  |  | Reserved for internal use. |
+
+#### 슬롯 (Slots) — 2개
+
+| 슬롯 | 설명 |
+|---|---|
+| `actions` | Placeholder for actionable components, such as lightning-button or lightning-button-menu. Actions are displayed at the top right corner of… |
+| `default` | Placeholder for your content in the accordion section. |
 ## 관련 노트
 
 - [[Lightning Base Components 레퍼런스]] — 전체 컴포넌트 빠른 선택 가이드
