@@ -100,13 +100,51 @@ updated: 2026-05-24
 | ADMIN-3 | **Profiles · Page Layouts · Record Types** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
 | ADMIN-4 | **OWD · Sharing Rules** (선언적 공유 모델 전체) | `Permission Set 설계`만 있음, 공유 모델 종합 없음 | 🔲 대기 | 2026-06-14 |
 | ADMIN-5 | **Reports & Dashboards** (선언적) | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
-| ADMIN-6 | **Data Loader · Import Wizard** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
+| ADMIN-6 | **Data Loader**(~~완료~~) · Import Wizard | **Data Loader ✅ 완료 (2026-06-14)**: `Admin(어드민)/Data Loader.md` (salesforce_data_loader.pdf v67.0, Tier 2 — UI/CLI·Bulk API·작업·process-conf.xml·vs Import Wizard 비교). Import Wizard 전용 노트는 미작성(현재 비교표로만 커버) | 🟡 부분 | 2026-06-14 |
 | ADMIN-7 | **Duplicate · Matching Rules** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
 | ADMIN-8 | **Schema Builder** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
 | ADMIN-9 | **Sales Cloud · Service Cloud** (기능 레벨 가이드) | `Service Cloud Objects`(sObject)만, 기능 가이드 없음 | 🔲 대기 | 2026-06-14 |
 | DEV-GAP-1 | ~~**Data Skew** (account/lookup/ownership skew)~~ | **✅ 완료 (2026-06-14)**: `Architecture(아키텍처)/Data Skew.md` — LDV 가이드(Tier 2)에서 account data/ownership skew 1만 건 임계값·record-locking·defer sharing·케이스 스터디 추출. lookup skew는 메커니즘만(가이드 미명시 명시). | ✅ 완료 | 2026-06-14 |
 | DEV-GAP-2 | ~~**Trigger 재귀 방지** 전용 노트~~ | **✅ 완료 (2026-06-14)**: `Apex/Trigger(트리거)/Trigger 재귀 방지.md` — Apex Dev Guide(Tier 2)의 static 변수 재귀 제어(firstRun 원문 예제)·스택 깊이 16·롤백 캐비엇 + TriggerHandler setMaxLoopCount(Tier 1) 교차참조. | ✅ 완료 | 2026-06-14 |
 | QA-GAP-1 | 면접 Q&A → `_index/questions.md` 보강 검토 | 컬렉션의 회사별(TCS·Deloitte 등)·시나리오 면접 Q&A. reference 아님 + Tier 3 → 보존 가치 낮음. 자연어 질문 라우팅 키워드만 선별 흡수 검토 | 🔲 대기 | 2026-06-14 |
+
+### 🟢 INGEST — Salesforce Documents 공식 PDF 인제스트 (2026-06-14 시작)
+
+> **목표:** 로컬 `Salesforce Documents/`의 공식 PDF(Tier 2)를 한 개씩 위키화. 파이프라인: 버전 내용 검증 → 전수 추출 → 구조 매칭 작성 → 네비 → 링크 검증 → 커밋.
+> **이미 채굴됨(제외):** apex_reference_guide(57노트)·object_reference(38)·sfdx_dev(28)·pkg2_dev(28)·api_meta(19)·soql_sosl·lightningAura·basics·apex_developer_guide·large_data_volumes_bp·릴리즈노트. **대형(분할 필요):** chatter_rest(2350p)·extend_click_automate(1027p)·api_tooling(1006p)·pages_dev(817p)·lightning(553p).
+
+| # | PDF (페이지) | 도메인 | 상태 |
+|---|---|---|---|
+| ING-01 | ~~salesforce_data_loader (58)~~ | Admin/Data | **✅ 완료 (2026-06-14)** → `Admin(어드민)/Data Loader.md` |
+| ING-02 | Salesforce-Flow-Best-Practices 백서 (19) | Flow | 🔲 대기 |
+| ING-03 | platform_events (628) | Apex/PlatformEvents (분할) | 🔲 대기 |
+| ING-04 | api_rest (430) | Integration (분할) | 🔲 대기 |
+| ING-05 | api_action (151) | Integration/Actions | 🔲 대기 |
+| ING-06 | api_asynch (182) | Integration/Bulk·Async | 🔲 대기 |
+| ING-07 | salesforce_recipes_api (180) | Data 360 | 🔲 대기 |
+| ING-08 | salesforce_analytics_rest_api (310) | Analytics | 🔲 대기 |
+| ING-09 | salesforce_knowledge_dev_guide (209) | Service/Knowledge | 🔲 대기 |
+| ING-10 | communities_dev (105) / exp_cloud_lwr (106) | Experience Cloud | 🔲 대기 |
+| ING-11 | mobile_offline (258) | Mobile | 🔲 대기 |
+| ING-12 | lightning_knowledge_guide (91) | Service | 🔲 대기 |
+| ING-13 | chat_rest (66) / salesforce_chatter_rest_api (2350, 분할) | Chatter/Connect | 🔲 대기 |
+| ING-14 | case_feed_dev_guide (45) | Service | 🔲 대기 |
+| ING-15 | caf_dev (27) | Service (Case Feed) | 🔲 대기 |
+| ING-16 | bi_dev_guide_lwc_in_db (23) | Analytics/LWC | 🔲 대기 |
+| ING-17 | draes (15) | (확인 필요) | 🔲 대기 |
+| ING-18 | esm_developer_guide (55) | Service (Embedded) | 🔲 대기 |
+| ING-19 | service_presence_developer_guide (23) / _administrators (124) | Service (Omni-Presence) | 🔲 대기 |
+| ING-20 | omnichannel_supervisor (32) | Service | 🔲 대기 |
+| ING-21 | salesforce_guided_engagement (40) | Service | 🔲 대기 |
+| ING-22 | cpq_developer_guide (112) | Revenue/CPQ | 🔲 대기 |
+| ING-23 | salesforce_mobile_push_notifications (57) | Mobile | 🔲 대기 |
+| ING-24 | api_console (346) | Integration/Console | 🔲 대기 |
+| ING-25 | extend_click_automate (1027, 분할) | Automation/Flow | 🔲 대기 |
+| ING-26 | api_tooling (1006, 분할) | Dev Tools | 🔲 대기 |
+| ING-27 | salesforce_pages_developers_guide (817, 분할) | Visualforce | 🔲 대기 |
+| ING-28 | lightning (553, 분할) | Aura/LWC | 🔲 대기 |
+
+> ADMIN 갭(ADMIN-1~9)은 별도 — 공식 Admin 가이드 PDF 확보 시 진행. 위 INGEST는 이미 보유한 PDF 대상.
 
 ### ⚪ P4 — 장기 (큰 인프라 결정)
 
