@@ -1,0 +1,74 @@
+---
+tags: [lwc, base-components, button, button-icon-stateful, action-menu, reference]
+source: SLDS2-Docs/components/lightning-button-icon-stateful.md (Tier 2)
+created: 2026-06-14
+aliases: [lightning-button-icon-stateful, button-icon-stateful, 상태 아이콘 버튼, 토글 아이콘 버튼, 좋아요 버튼]
+---
+
+# lightning-button-icon-stateful
+
+> 눌림(선택) 상태를 토글하는 아이콘 버튼 (예: 좋아요). 카테고리: **Action & Menu**.
+
+---
+
+## 기본 예제
+
+```html
+<!-- 구조 예시 — SLDS2-Docs 소스 기본 예제 -->
+<lightning-button-icon-stateful
+    icon-name="utility:like"
+    selected={liked}
+    onclick={toggleLike}
+    alternative-text="좋아요"
+></lightning-button-icon-stateful>
+```
+
+> 위는 대표적인 기본 사용 예입니다. 실행 가능한 전체 예제와 모든 변형(variant)은 공식 **Example** 탭에서 직접 확인/편집할 수 있습니다.
+
+`lightning-button-icon-stateful`은 SLDS 블루프린트를 구현하며, 조직 테마에 따라 SLDS 1 또는 SLDS 2 스타일로 렌더링됩니다. `selected` 값으로 눌림/안눌림 상태를 토글하며, 아이콘만 표시되므로 `alternative-text`로 접근성을 보장합니다.
+
+---
+
+## 명세 (Specification)
+
+공식 cx-router 메타데이터에서 추출한 전체 명세입니다.
+
+> [!note] 속성 설명은 소스(SLDS2-Docs)에서 **약 140자에서 잘려** 있습니다(`…`로 표기). 전체 문장은 아래 Specification 링크를 참고하세요.
+
+지원 상태: **GA** · 최소 API 버전: 41.0
+
+### 속성 (Attributes) — 8개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `alternative-text` | string |  |  | The alternative text used to describe the icon. This text should describe what happens when you click the button, for example 'Upload File… |
+| `icon-name` | string |  |  | The Lightning Design System name of the icon. Names are written in the format 'utility:down' where 'utility' is the category, and 'down' i… |
+| `name` | string |  |  | The name for the button element. This value is optional and can be used to identify the button in a callback. |
+| `selected` | boolean |  |  | Specifies whether the button is in a selected state. This value defaults to false. |
+| `size` | string |  | medium | The size of the button-icon component. Options include xx-small, x-small, small, and medium. This value defaults to medium. |
+| `tooltip` | string |  |  | Text to display when the user mouses over or focuses on the button. The tooltip is auto-positioned relative to the button and screen space. |
+| `value` | string |  |  | The value for the button element. This value is optional and can be used when submitting a form. |
+| `variant` | string |  | border | The variant changes the appearance of button-icon. Accepted variants include border, border-filled, and border-inverse. This value default… |
+
+### 메서드 (Methods) — 1개
+
+| 메서드 | 설명 |
+|---|---|
+| `focus` | Sets focus on the button. |
+
+---
+
+## 공식 문서 링크
+
+- ▶ **Example (실행 예제):** https://developer.salesforce.com/docs/component-library/bundle/lightning-button-icon-stateful/example
+- 📖 **Develop (개발 가이드):** https://developer.salesforce.com/docs/component-library/bundle/lightning-button-icon-stateful/documentation
+- 📋 **Specification (명세):** https://developer.salesforce.com/docs/component-library/bundle/lightning-button-icon-stateful/specification
+- 📚 가이드 페이지: https://developer.salesforce.com/docs/platform/lightning-component-reference/guide/lightning-button-icon-stateful.html
+
+---
+
+## 관련 노트
+
+- [[lightning-button-icon]] — 상태 토글이 없는 아이콘 버튼
+- [[lightning-button-stateful]] — 텍스트 라벨로 상태를 토글하는 버튼
+- [[lightning-button]] — 표준 텍스트 버튼

@@ -49,6 +49,20 @@ created: 2026-05-17
 - [[lightning-record-form]] — record-form·record-edit-form·record-view-form 3종
 - [[lightning-record-picker]] — 레코드 검색 선택, filter, 다중 선택 패턴, dynamic target
 - [[lightning-button]] — button·button-icon·button-menu·button-group·stateful 패밀리
+- [[lightning-button-icon]] — 아이콘만 있는 버튼, alternative-text 필수
+- [[lightning-button-group]] — 연관 버튼을 한 묶음으로 붙여 표시하는 컨테이너
+- [[lightning-button-stateful]] — 선택/비선택에 따라 라벨·아이콘이 바뀌는 버튼(팔로우/팔로잉)
+- [[lightning-button-icon-stateful]] — 눌림(선택) 상태를 토글하는 아이콘 버튼(좋아요)
+- [[lightning-button-menu]] — 드롭다운 메뉴 버튼 + menu-item·menu-divider·menu-subheader
+- [[lightning-tab]] — tabset 안의 개별 탭, label·value·icon-name
+- [[lightning-accordion-section]] — 아코디언 안의 개별 섹션, actions 슬롯
+- [[lightning-input-field]] — edit form 안에서 객체 필드 하나를 편집
+- [[lightning-output-field]] — view form 안에서 객체 필드 하나를 읽기 전용 표시
+- [[lightning-record-edit-form]] — 레코드 생성·편집 폼, input-field 자식 배치
+- [[lightning-record-view-form]] — 레코드 읽기 전용 폼, output-field 자식 배치
+- [[lightning-alert]] — LightningAlert.open() 정적 메서드 호출형 알림 모달(OK)
+- [[lightning-confirm]] — LightningConfirm.open() 확인/취소 모달, boolean 반환
+- [[lightning-prompt]] — LightningPrompt.open() 입력 프롬프트 모달, 문자열 반환
 - [[lightning-card]] — 카드 컨테이너, actions·footer 슬롯
 - [[lightning-spinner]] — isLoading 패턴, try/finally, 인라인·오버레이
 - [[lightning-avatar]] — 사용자/객체를 나타내는 원형/사각 이미지.

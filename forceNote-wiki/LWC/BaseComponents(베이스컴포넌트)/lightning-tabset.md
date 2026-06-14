@@ -154,5 +154,6 @@ handleTabChange(event) {
 | `default` | Placeholder for your content in lightning-tab. |
 ## 관련 노트
 
+- [[lightning-tab]] — 탭셋 안에 배치하는 개별 탭 컴포넌트
 - [[lightning-accordion]] — 펼치기/접기 패턴의 대안 컴포넌트
 - [[lightning-card]] — 탭 내부에 카드 배치 패턴

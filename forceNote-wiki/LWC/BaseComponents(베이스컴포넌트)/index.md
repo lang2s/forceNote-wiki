@@ -37,6 +37,11 @@ created: 2026-06-13
 |---|---|
 | [[lightning-click-to-dial]] | 클릭하면 전화 발신되는 전화번호 링크(Open CTI). |
 | [[lightning-flow]] | Salesforce Flow를 컴포넌트 안에서 실행. |
+| [[lightning-button-icon]] | 아이콘만 있는 버튼(alternative-text 필수). |
+| [[lightning-button-group]] | 연관 버튼을 한 묶음으로 붙여 표시하는 컨테이너. |
+| [[lightning-button-stateful]] | 선택/비선택에 따라 라벨·아이콘이 바뀌는 버튼(팔로우/팔로잉). |
+| [[lightning-button-icon-stateful]] | 눌림(선택) 상태를 토글하는 아이콘 버튼(좋아요). |
+| [[lightning-button-menu]] | 드롭다운 메뉴 버튼 + menu-item·menu-divider·menu-subheader. |
 
 ### Container
 
@@ -48,6 +53,8 @@ created: 2026-06-13
 | [[lightning-layout-item]] | Layout 안의 개별 칸(크기/패딩 지정). |
 | [[lightning-quick-action-panel]] | 화면 액션(Screen Action)의 본문 패널. |
 | [[lightning-tile]] | 레코드 요약을 보여주는 타일. |
+| [[lightning-tab]] | tabset 안의 개별 탭(label·value·icon-name). |
+| [[lightning-accordion-section]] | 아코디언 안의 개별 섹션(actions 슬롯). |
 
 ### Visual
 
@@ -79,6 +86,15 @@ created: 2026-06-13
 | [[lightning-slider]] | 범위 값을 드래그로 조절하는 슬라이더. |
 | [[lightning-textarea]] | 여러 줄 텍스트 입력. |
 
+### Form
+
+| 파일 | 한 줄 요약 |
+|---|---|
+| [[lightning-record-edit-form]] | 레코드 생성·편집 폼(input-field 자식 배치). |
+| [[lightning-record-view-form]] | 레코드 읽기 전용 폼(output-field 자식 배치). |
+| [[lightning-input-field]] | edit form 안에서 객체 필드 하나를 편집. |
+| [[lightning-output-field]] | view form 안에서 객체 필드 하나를 읽기 전용 표시. |
+
 ### Navigation
 
 | 파일 | 한 줄 요약 |
@@ -97,6 +113,9 @@ created: 2026-06-13
 | [[lightning-platform-show-toast-event]] | Aura/이벤트 방식으로 토스트를 띄우는 이벤트. |
 | [[lightning-toast]] | 화면 모서리에 잠깐 뜨는 알림(LWR 사이트용). |
 | [[lightning-toast-container]] | 여러 토스트의 위치/스택을 관리하는 컨테이너(LWR). |
+| [[lightning-alert]] | LightningAlert.open() 정적 메서드 호출형 알림 모달(OK). |
+| [[lightning-confirm]] | LightningConfirm.open() 확인/취소 모달, boolean 반환. |
+| [[lightning-prompt]] | LightningPrompt.open() 입력 프롬프트 모달, 문자열 반환. |
 
 ### Output
 

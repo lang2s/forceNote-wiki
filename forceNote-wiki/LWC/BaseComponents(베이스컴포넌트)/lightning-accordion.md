@@ -327,5 +327,6 @@ SLDS 유틸리티 클래스를 `class` 속성에 적용해 추가 스타일을 �
 ## 관련 노트
 
 - [[Lightning Base Components 레퍼런스]] — 전체 컴포넌트 빠른 선택 가이드
+- [[lightning-accordion-section]] — 아코디언 안에 배치하는 개별 섹션 컴포넌트
 - [[lightning-tabset]] — 탭 방식 대안 레이아웃
 - [[lightning-card]] — 아코디언 섹션 내 카드 컨테이너 활용

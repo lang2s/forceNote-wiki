@@ -165,6 +165,20 @@ created: 2026-05-21
 | lightning-record-form 상세, lightning-record-edit-form, lightning-record-view-form, lightning-input-field, lightning-output-field, onsubmit onsuccess onerror | `LWC/BaseComponents(베이스컴포넌트)/lightning-record-form.md` |
 | lightning-record-picker 상세, filter criteria, clearSelection, displayInfo matchingInfo, 다중 선택 pills, dynamic target | `LWC/BaseComponents(베이스컴포넌트)/lightning-record-picker.md` |
 | lightning-button 상세, variant brand destructive inverse, button-icon, button-menu, menu-item, button-stateful, onselect | `LWC/BaseComponents(베이스컴포넌트)/lightning-button.md` |
+| lightning-button-icon, Button Icon, 아이콘 버튼, 아이콘 전용 버튼, alternative-text 필수, icon-name, 텍스트 없는 버튼 어떻게 만드나 | `LWC/BaseComponents(베이스컴포넌트)/lightning-button-icon.md` |
+| lightning-button-group, Button Group, 버튼 그룹, 버튼 묶음, 버튼 여러 개 붙이기, 연관 버튼 한 묶음으로 | `LWC/BaseComponents(베이스컴포넌트)/lightning-button-group.md` |
+| lightning-button-stateful, Button Stateful, 상태 버튼, 토글 버튼, 팔로우 버튼, label-when-on label-when-off, 선택 상태 라벨 바뀌는 버튼 | `LWC/BaseComponents(베이스컴포넌트)/lightning-button-stateful.md` |
+| lightning-button-icon-stateful, Button Icon Stateful, 상태 아이콘 버튼, 토글 아이콘 버튼, 좋아요 버튼, selected, 눌림 상태 토글 아이콘 | `LWC/BaseComponents(베이스컴포넌트)/lightning-button-icon-stateful.md` |
+| lightning-button-menu, Button Menu, 버튼 메뉴, 드롭다운 메뉴, lightning-menu-item, lightning-menu-divider, lightning-menu-subheader, 메뉴 항목 구분선 소제목, onselect, 드롭다운 액션 메뉴 어떻게 | `LWC/BaseComponents(베이스컴포넌트)/lightning-button-menu.md` |
+| lightning-tab, Tab, 개별 탭, 탭 하나, tabset 안의 탭, label value icon-name, 탭 콘텐츠 | `LWC/BaseComponents(베이스컴포넌트)/lightning-tab.md` |
+| lightning-accordion-section, Accordion Section, 아코디언 섹션, 개별 섹션, actions 슬롯, name label, 접고 펼치는 섹션 하나 | `LWC/BaseComponents(베이스컴포넌트)/lightning-accordion-section.md` |
+| lightning-input-field, Input Field, 입력 필드, 레코드 입력 필드, edit form 필드, field-name, edit form 안에서 필드 편집 어떻게 | `LWC/BaseComponents(베이스컴포넌트)/lightning-input-field.md` |
+| lightning-output-field, Output Field, 출력 필드, 읽기 전용 필드, view form 필드, field-name, 레코드 필드 읽기 전용으로 표시 | `LWC/BaseComponents(베이스컴포넌트)/lightning-output-field.md` |
+| lightning-record-edit-form, Record Edit Form, 레코드 편집 폼, 레코드 생성 폼, edit form, onsubmit onsuccess onerror, record-id object-api-name, 레코드 만들거나 수정하는 폼 | `LWC/BaseComponents(베이스컴포넌트)/lightning-record-edit-form.md` |
+| lightning-record-view-form, Record View Form, 레코드 보기 폼, 읽기 전용 폼, view form, record-id object-api-name, 레코드 읽기 전용으로 보여주는 폼 | `LWC/BaseComponents(베이스컴포넌트)/lightning-record-view-form.md` |
+| lightning-alert, LightningAlert, 알림, 경고창, 알림 모달, LightningAlert.open, OK 버튼만 있는 알림 어떻게 띄우나 | `LWC/BaseComponents(베이스컴포넌트)/lightning-alert.md` |
+| lightning-confirm, LightningConfirm, 확인, 확인 모달, 확인 다이얼로그, LightningConfirm.open, 확인 취소 묻는 다이얼로그 boolean 반환 | `LWC/BaseComponents(베이스컴포넌트)/lightning-confirm.md` |
+| lightning-prompt, LightningPrompt, 프롬프트, 입력 모달, 입력 프롬프트, LightningPrompt.open, default-value, 사용자 입력값 받는 모달 어떻게 | `LWC/BaseComponents(베이스컴포넌트)/lightning-prompt.md` |
 | lightning-card 상세, title icon-name, actions 슬롯, footer 슬롯, variant narrow | `LWC/BaseComponents(베이스컴포넌트)/lightning-card.md` |
 | lightning-spinner 상세, isLoading 패턴, alternative-text, size variant, try finally, 오버레이 스피너 | `LWC/BaseComponents(베이스컴포넌트)/lightning-spinner.md` |
 | lightning-avatar, Avatar, 아바타, 사용자/객체를 나타내는 원형/사각 이미지. | `LWC/BaseComponents(베이스컴포넌트)/lightning-avatar.md` |

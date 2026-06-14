@@ -255,6 +255,55 @@ const input = await LightningPrompt.open({
 
 ---
 
+## 하위 요소 (모달 슬롯)
+
+모달 컴포넌트(`LightningModal` 상속) 템플릿 내부에 배치하는 3종의 슬롯 컴포넌트. (소스: `SLDS2-Docs/components/lightning-modal-{body,footer,header}.md` — Tier 2)
+
+### lightning-modal-header *(모달 상단 제목 영역)*
+
+카테고리: **Container** · 지원 상태: **GA** · 최소 API 버전: **55.0**
+
+```html
+<!-- 소스 예제 (SLDS2-Docs) — Tier 2 -->
+<lightning-modal-header label="제목"></lightning-modal-header>
+```
+
+#### 속성 (Attributes) — 1개
+
+| 속성 (kebab) | 타입 | 필수 | 기본값 | 설명 |
+|---|---|---|---|---|
+| `label` | string |  |  | Text to display as the heading at the top of the modal |
+
+### lightning-modal-body *(모달 본문 영역)*
+
+카테고리: **Container** · 모달의 본문 영역(긴 콘텐츠는 스크롤).
+
+```html
+<!-- 소스 예제 (SLDS2-Docs) — Tier 2 -->
+<lightning-modal-body>본문 내용</lightning-modal-body>
+```
+
+> 소스 명세에 따르면 `lightning-modal-body`의 속성·메서드·이벤트·슬롯 전체 목록은 공식 **Specification** 탭(인터랙티브 페이지)에서 렌더링되며, 정적 텍스트로 추출되지 않았습니다. 전수 명세는 아래 Specification 링크 참고.
+>
+> 📋 https://developer.salesforce.com/docs/component-library/bundle/lightning-modal-body/specification
+
+### lightning-modal-footer *(모달 하단 버튼 영역)*
+
+카테고리: **Container** · 모달 하단 버튼 영역.
+
+```html
+<!-- 소스 예제 (SLDS2-Docs) — Tier 2 -->
+<lightning-modal-footer>
+  <lightning-button label="닫기" onclick={close}></lightning-button>
+</lightning-modal-footer>
+```
+
+> 소스 명세에 따르면 `lightning-modal-footer`의 속성·메서드·이벤트·슬롯 전체 목록은 공식 **Specification** 탭(인터랙티브 페이지)에서 렌더링되며, 정적 텍스트로 추출되지 않았습니다. 전수 명세는 아래 Specification 링크 참고.
+>
+> 📋 https://developer.salesforce.com/docs/component-library/bundle/lightning-modal-footer/specification
+
+---
+
 ## 접근성 (Accessibility)
 
 - `description` 옵션: 스크린리더가 모달 용도를 읽을 수 있도록 제공 권장
@@ -363,3 +412,6 @@ const input = await LightningPrompt.open({
 - [[Toast & 모달 패턴]] — ShowToastEvent, LightningAlert, 전체 모달 패턴
 - [[Lightning Base Components 레퍼런스]] — 전체 컴포넌트 목록
 - [[lightning-button]] — 모달 내 버튼 variant 선택
+- [[lightning-alert]] — OK 버튼만 있는 내장 알림 모달
+- [[lightning-confirm]] — OK/Cancel을 묻는 내장 확인 모달
+- [[lightning-prompt]] — 입력값을 받는 내장 프롬프트 모달
