@@ -45,9 +45,13 @@ aliases: [Unlocking the Power of Asynchronous Apex]
 ## Future 메서드
 - @future로 비동기 표시, 별도 스레드, void만, 기본 타입 매개변수만, 레코드 ID 전달 가능, sObject 불가(직렬화 불안정), 리소스 가용 시 실행, Job ID 미반환(모니터링 불가), 실행 순서 미보장, 체이닝 불가, Batch에서 호출 불가.
 
-**제한:** Apex 호출당 50개, 24시간당 250,000회 또는 200 × 사용자 라이선스.
+**제한:**
 
-**한도 관리:** `Limits.getFutureCalls()`, `Limits.getLimitFutureCalls()`, `System.isFuture()`.
+Apex 호출당 50개, 24시간당 250,000회 또는 200 × 사용자 라이선스.
+
+**한도 관리:**
+
+`Limits.getFutureCalls()`, `Limits.getLimitFutureCalls()`, `System.isFuture()`.
 
 ```apex
 global class FutureClass {
@@ -106,7 +110,9 @@ public class MixedDMLErrorExample {
 ## Queueable Apex
 체이닝, Batch 통합, SObject 전달, Job ID 모니터링, Transaction Finalizer(완료 처리·실패 재시도 5회·잠금).
 
-**사용 시점:** 순차 체이닝, 복잡 매개변수, 별도 스레드, 대량 데이터.
+**사용 시점:**
+
+순차 체이닝, 복잡 매개변수, 별도 스레드, 대량 데이터.
 
 ```apex
 public class DemoQueueable implements Queueable {
@@ -128,7 +134,9 @@ public class TestCallout implements Queueable, Database.AllowsCallouts {
 }
 ```
 
-**기억할 점:** Queueable에서 1개만 enqueue(무한 체이닝 방지), 단일 트랜잭션 최대 50개, Dev Edition 스택 깊이 5(부모 포함), 테스트에서 체이닝 미지원(`Test.isRunningTest()` 처리).
+**기억할 점:**
+
+Queueable에서 1개만 enqueue(무한 체이닝 방지), 단일 트랜잭션 최대 50개, Dev Edition 스택 깊이 5(부모 포함), 테스트에서 체이닝 미지원(`Test.isRunningTest()` 처리).
 
 ### 체이닝 시나리오: 작년 Contact·Account 삭제
 ```apex
@@ -183,9 +191,13 @@ public class QueueableDemo implements Queueable {
 - **execute**: 작업 분리, 여러 번.
 - **finish**: 모든 배치 후, 1회(알림).
 
-**구성 방식:** Query Locator(단순 쿼리), Iterator(복잡 기준).
+**구성 방식:**
 
-**인터페이스:** Database.Stateful(상태 유지), Database.RaisesPlatformEvents(BatchApexErrorEvent 발행), Database.AllowsCallouts(콜아웃, DML 전 실행). AsyncApexJob으로 진행 조회. finish에서 executeBatch/scheduleBatch로 체이닝.
+Query Locator(단순 쿼리), Iterator(복잡 기준).
+
+**인터페이스:**
+
+Database.Stateful(상태 유지), Database.RaisesPlatformEvents(BatchApexErrorEvent 발행), Database.AllowsCallouts(콜아웃, DML 전 실행). AsyncApexJob으로 진행 조회. finish에서 executeBatch/scheduleBatch로 체이닝.
 
 **시나리오: Phone 빈 Account에 기본값 설정**
 ```apex
@@ -204,7 +216,9 @@ public class UpdateAccountPhoneBatch implements Database.Batchable<sObject> {
 Database.executeBatch(new UpdateAccountPhoneBatch(), 100);
 ```
 
-**오류 처리:** DML 오류(SaveResult/Error 객체로 로깅), Non-DML(Database.update). DML 예외는 try-catch 또는 Platform Event(BatchApexErrorEvent 트리거).
+**오류 처리:**
+
+DML 오류(SaveResult/Error 객체로 로깅), Non-DML(Database.update). DML 예외는 try-catch 또는 Platform Event(BatchApexErrorEvent 트리거).
 
 ## 면접 질문 요약
 1. **비동기 Apex?** 백그라운드 실행으로 사용자 대기 없이 복잡·시간 소요 작업. Future/Batch/Queueable/Scheduled.

@@ -17,7 +17,9 @@ Salesforce에서 데이터를 효과적으로 관리·정리하는 것은 생산
 
 Lead, Account, Contact, Opportunity 등 다양한 레코드에 할당할 수 있는 사용자 생성 태그입니다. 개인 기준과 선호에 따라 레코드를 빠르게 식별·그룹화하는 데 도움이 됩니다. 예: 영업 담당자가 "High Priority", "Needs Follow Up", "New Lead" 같은 라벨로 워크플로우 개선.
 
-**사용 사례:** Lead 상태가 "Working & Contacted"인 Lead를 빠르고 효율적으로 분류.
+**사용 사례:**
+
+Lead 상태가 "Working & Contacted"인 Lead를 빠르고 효율적으로 분류.
 
 ## 개인 라벨 생성 단계
 

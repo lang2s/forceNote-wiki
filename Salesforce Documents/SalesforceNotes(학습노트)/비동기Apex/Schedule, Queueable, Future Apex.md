@@ -29,7 +29,9 @@ MyQueueableJob job = new MyQueueableJob();
 System.enqueueJob(job);
 ```
 
-**체이닝:** Queueable 작업이 다른 Queueable 작업을 등록.
+**체이닝:**
+
+Queueable 작업이 다른 Queueable 작업을 등록.
 ```apex
 public void execute(QueueableContext context) {
     System.debug('Executing Job 1');
@@ -84,4 +86,6 @@ FutureExample.updateAccounts(new Set<Id>{'001XX00000345ABCDE'});
 | 체이닝 | 미지원 | 지원 |
 | 콜아웃 | 지원(callout=true) | 지원 |
 
-**Future 사용 시점:** 추적이 필요 없는 경량 작업, 단순 비동기(레코드 업데이트·콜아웃).
+**Future 사용 시점:**
+
+추적이 필요 없는 경량 작업, 단순 비동기(레코드 업데이트·콜아웃).

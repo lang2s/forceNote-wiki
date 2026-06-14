@@ -20,7 +20,9 @@ aliases: [Data Validation Rules in Salesforce]
 - 커스텀 오류 메시지 표시
 - 레코드 저장 전 발동
 
-**사용 예:** 과거 날짜의 Close Date로 Opportunity 생성 방지, 전화번호를 항상 올바른 형식으로 입력하도록 보장, 10% 초과 할인에 관리자 승인 요구.
+**사용 예:**
+
+과거 날짜의 Close Date로 Opportunity 생성 방지, 전화번호를 항상 올바른 형식으로 입력하도록 보장, 10% 초과 할인에 관리자 승인 요구.
 
 ## 2. 작동 방식
 

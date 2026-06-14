@@ -16,17 +16,31 @@ aliases: [Top-Salesforce-Integration-Questions-xe09i5]
 # Part A. 시나리오 기반 질문 (1~20)
 
 ## 1. 양방향 통합에서 순환 의존성 처리
-**질문:** Salesforce와 외부 시스템 간 양방향 통합에서 순환 의존성을 어떻게 처리하나?
-**답변:** 업데이트 출처를 추적하고 재처리를 막기 위해 상관관계 ID(correlation ID)를 쓴다. 이미 처리된 레코드를 식별하는 플래그/상태 필드를 둔다. 미들웨어로 흐름 오케스트레이션과 순환 의존성 차단을 활용한다. LastModifiedDate/SystemModstamp 비교로 변경을 검증한다.
-**팁:** 멱등(idempotent) API 설계가 핵심 / 리플레이·중복 제거 제어를 위해 CDC나 Platform Events를 쓰라.
+**질문:**
+
+Salesforce와 외부 시스템 간 양방향 통합에서 순환 의존성을 어떻게 처리하나?
+**답변:**
+
+업데이트 출처를 추적하고 재처리를 막기 위해 상관관계 ID(correlation ID)를 쓴다. 이미 처리된 레코드를 식별하는 플래그/상태 필드를 둔다. 미들웨어로 흐름 오케스트레이션과 순환 의존성 차단을 활용한다. LastModifiedDate/SystemModstamp 비교로 변경을 검증한다.
+**팁:**
+
+멱등(idempotent) API 설계가 핵심 / 리플레이·중복 제거 제어를 위해 CDC나 Platform Events를 쓰라.
 
 ## 2. 높은 API 호출량이 거버너 한도에 미치는 영향
-**질문:** 높은 API 호출량이 Salesforce 거버너 한도에 어떤 영향을 주며 어떻게 최적화하나?
-**답변:** 높은 API 볼륨은 일일 org 한도나 사용자별 한도(24시간 롤링 API 호출 한도)를 초과할 수 있다. 해결: 대용량 적재에 Bulk API(v2), 여러 요청 결합에 Composite API, 불필요한 호출을 줄이는 캐싱·데이터 가상화(Salesforce Connect), Salesforce API를 소비하는 외부 시스템에 rate limiting 구현.
-**팁:** Setup → System Overview → API Usage로 사용량 모니터링 / 외부 API 인증에 Named Credentials 사용 / 폴링보다 CDC 선호.
+**질문:**
+
+높은 API 호출량이 Salesforce 거버너 한도에 어떤 영향을 주며 어떻게 최적화하나?
+**답변:**
+
+높은 API 볼륨은 일일 org 한도나 사용자별 한도(24시간 롤링 API 호출 한도)를 초과할 수 있다. 해결: 대용량 적재에 Bulk API(v2), 여러 요청 결합에 Composite API, 불필요한 호출을 줄이는 캐싱·데이터 가상화(Salesforce Connect), Salesforce API를 소비하는 외부 시스템에 rate limiting 구현.
+**팁:**
+
+Setup → System Overview → API Usage로 사용량 모니터링 / 외부 API 인증에 Named Credentials 사용 / 폴링보다 CDC 선호.
 
 ## 3. Platform Events vs CDC vs Outbound Messages
-**질문:** Platform Events, CDC, Outbound Messages의 차이와 각각 언제 쓰는지 설명하라.
+**질문:**
+
+Platform Events, CDC, Outbound Messages의 차이와 각각 언제 쓰는지 설명하라.
 
 | 특징 | Platform Events | CDC | Outbound Messages |
 |---|---|---|---|
@@ -35,93 +49,199 @@ aliases: [Top-Salesforce-Integration-Questions-xe09i5]
 | 사용 사례 | 실시간 알림 | 외부 DB 동기화 | 레거시 워크플로우 |
 | 트랜잭션 바운드 | 예 | 예 | 예 |
 
-**언제 쓰나:** 커스텀 이벤트 기반 통합(실시간 마이크로서비스)에는 Platform Events, Salesforce 레코드 변경 동기화에는 CDC, 선언적·로우코드 알림이 필요하면 Outbound Messages.
-**팁:** CDC + Platform Events는 함께 잘 동작 / 복잡한 통합에는 Outbound Messages 대신 Platform Events + 미들웨어.
+**언제 쓰나:**
+
+커스텀 이벤트 기반 통합(실시간 마이크로서비스)에는 Platform Events, Salesforce 레코드 변경 동기화에는 CDC, 선언적·로우코드 알림이 필요하면 Outbound Messages.
+**팁:**
+
+CDC + Platform Events는 함께 잘 동작 / 복잡한 통합에는 Outbound Messages 대신 Platform Events + 미들웨어.
 
 ## 4. OAuth 2.0 JWT Bearer Flow 구현
-**질문:** 외부 시스템과의 안전한 통합을 위해 OAuth 2.0 JWT Bearer Flow를 어떻게 구현하나?
-**답변:** (1) 자체 서명 인증서 생성 → Salesforce에 업로드. (2) JWT Bearer가 활성화된 Connected App 등록. (3) 필수 claim(iss, aud, sub, exp)으로 JWT assertion 생성. (4) 외부 시스템이 JWT 서명 → Salesforce 토큰 엔드포인트로 전송 → 액세스 토큰 수신. (5) API 호출에 토큰 사용.
-**팁:** JWT는 사용자 상호작용이 없는 서버 간 통합에 이상적 / 개인 키는 가급적 AWS KMS나 Azure Key Vault에 안전하게 저장.
+**질문:**
+
+외부 시스템과의 안전한 통합을 위해 OAuth 2.0 JWT Bearer Flow를 어떻게 구현하나?
+**답변:**
+
+(1) 자체 서명 인증서 생성 → Salesforce에 업로드. (2) JWT Bearer가 활성화된 Connected App 등록. (3) 필수 claim(iss, aud, sub, exp)으로 JWT assertion 생성. (4) 외부 시스템이 JWT 서명 → Salesforce 토큰 엔드포인트로 전송 → 액세스 토큰 수신. (5) API 호출에 토큰 사용.
+**팁:**
+
+JWT는 사용자 상호작용이 없는 서버 간 통합에 이상적 / 개인 키는 가급적 AWS KMS나 Azure Key Vault에 안전하게 저장.
 
 ## 5. 속도 제한과 재시도 관리 베스트 프랙티스
-**질문:** Salesforce 통합에서 rate limit과 재시도를 관리하는 베스트 프랙티스는?
-**답변:** 재시도에 백오프 전략(Exponential Backoff + Jitter). HTTP 429(Too Many Requests) → 재시도 메커니즘 트리거. 미들웨어로 스로틀링·큐 관리. 가능한 곳에서 API 호출 벌크화.
-**팁:** 안정적 인증을 위해 OAuth refresh token이 있는 Named Credentials / Event Monitoring → API Usage로 모니터링 / 외부 폴링보다 CDC 푸시 선호.
+**질문:**
+
+Salesforce 통합에서 rate limit과 재시도를 관리하는 베스트 프랙티스는?
+**답변:**
+
+재시도에 백오프 전략(Exponential Backoff + Jitter). HTTP 429(Too Many Requests) → 재시도 메커니즘 트리거. 미들웨어로 스로틀링·큐 관리. 가능한 곳에서 API 호출 벌크화.
+**팁:**
+
+안정적 인증을 위해 OAuth refresh token이 있는 Named Credentials / Event Monitoring → API Usage로 모니터링 / 외부 폴링보다 CDC 푸시 선호.
 
 ## 6. 대용량 데이터 전송(수백만 건) 처리
-**질문:** 수백만 건의 Salesforce와 외부 시스템 간 대용량 데이터 전송을 어떻게 처리하나?
-**답변:** Bulk API v2(대용량 최적화). 비동기 패턴 처리. 레코드 잠금에 주의하며 병렬 배치. 익스포트는 Data Export Service(전체/부분 샌드박스 백업)나 Heroku Connect.
-**팁:** 큰 트랜잭션을 작은 배치로 분할(예: 배치당 1만 건) / 성능 튜닝을 위해 partial 샌드박스에서 먼저 테스트 / 효율적 upsert를 위해 외부 시스템 인덱싱.
+**질문:**
+
+수백만 건의 Salesforce와 외부 시스템 간 대용량 데이터 전송을 어떻게 처리하나?
+**답변:**
+
+Bulk API v2(대용량 최적화). 비동기 패턴 처리. 레코드 잠금에 주의하며 병렬 배치. 익스포트는 Data Export Service(전체/부분 샌드박스 백업)나 Heroku Connect.
+**팁:**
+
+큰 트랜잭션을 작은 배치로 분할(예: 배치당 1만 건) / 성능 튜닝을 위해 partial 샌드박스에서 먼저 테스트 / 효율적 upsert를 위해 외부 시스템 인덱싱.
 
 ## 7. Named Credentials vs Custom Metadata 인증
-**질문:** 통합에서 Named Credentials와 Custom Metadata 기반 인증의 역할은?
-**답변:** Named Credentials: 엔드포인트·OAuth 토큰을 안전하게 관리하는 내장 기능, Apex에 URL·시크릿 하드코딩 불필요. Custom Metadata Types: 외부 시스템 매핑·구성 같은 동적 값 저장, 시크릿 직접 저장 불가(필요시 Protected Custom Metadata와 함께).
-**팁:** 외부 엔드포인트의 안전·선언적 관리에는 Named Credentials 선호 / Custom Metadata는 구성용, 민감 시크릿을 평문 필드에 저장 금지.
+**질문:**
+
+통합에서 Named Credentials와 Custom Metadata 기반 인증의 역할은?
+**답변:**
+
+Named Credentials: 엔드포인트·OAuth 토큰을 안전하게 관리하는 내장 기능, Apex에 URL·시크릿 하드코딩 불필요. Custom Metadata Types: 외부 시스템 매핑·구성 같은 동적 값 저장, 시크릿 직접 저장 불가(필요시 Protected Custom Metadata와 함께).
+**팁:**
+
+외부 엔드포인트의 안전·선언적 관리에는 Named Credentials 선호 / Custom Metadata는 구성용, 민감 시크릿을 평문 필드에 저장 금지.
 
 ## 8. Salesforce External Objects(OData 4.0) 이점과 도전
-**질문:** OData 4.0을 사용하는 External Objects의 이점과 도전을 설명하라.
-**답변:** 이점: 외부 데이터에 실시간 접근(Salesforce에 저장 불필요), 표준 SOQL로 외부 데이터 쿼리. 도전: External Object에 트리거·Apex 불가, 외부 시스템 응답성에 따른 성능 병목, OData 4.0 또는 커스텀 어댑터로 제한.
-**팁:** 참조 데이터(가격, 재고)에 적합 / 자주 접근하는 데이터셋에는 캐싱·미러링.
+**질문:**
+
+OData 4.0을 사용하는 External Objects의 이점과 도전을 설명하라.
+**답변:**
+
+이점: 외부 데이터에 실시간 접근(Salesforce에 저장 불필요), 표준 SOQL로 외부 데이터 쿼리. 도전: External Object에 트리거·Apex 불가, 외부 시스템 응답성에 따른 성능 병목, OData 4.0 또는 커스텀 어댑터로 제한.
+**팁:**
+
+참조 데이터(가격, 재고)에 적합 / 자주 접근하는 데이터셋에는 캐싱·미러링.
 
 ## 9. Salesforce 통합에서 Heroku Connect
-**질문:** Heroku Connect는 통합에 어떻게 도움이 되며 한계는?
-**답변:** Salesforce 오브젝트를 Heroku의 Postgres DB와 양방향 동기화. 관계형 DB가 필요한 고객 대면 앱·마이크로서비스에 이상적. 한계: Postgres 쓰기에 커스텀 Apex 트리거 미지원, Heroku 라이선스 + 추가 비용 필요, 동기화는 준실시간이나 즉시는 아님.
-**팁:** Heroku Connect → CDC → AWS Lambda → 실시간 동기화 패턴이 고급 사례에 잘 동작 / 데이터 스큐와 Postgres 인덱싱 이슈 주의.
+**질문:**
+
+Heroku Connect는 통합에 어떻게 도움이 되며 한계는?
+**답변:**
+
+Salesforce 오브젝트를 Heroku의 Postgres DB와 양방향 동기화. 관계형 DB가 필요한 고객 대면 앱·마이크로서비스에 이상적. 한계: Postgres 쓰기에 커스텀 Apex 트리거 미지원, Heroku 라이선스 + 추가 비용 필요, 동기화는 준실시간이나 즉시는 아님.
+**팁:**
+
+Heroku Connect → CDC → AWS Lambda → 실시간 동기화 패턴이 고급 사례에 잘 동작 / 데이터 스큐와 Postgres 인덱싱 이슈 주의.
 
 ## 10. Salesforce에서 Pub/Sub 패턴 구현
-**질문:** 외부 시스템과 실시간 데이터 동기화를 위해 Salesforce에서 Pub/Sub 패턴을 어떻게 구현하나?
-**답변:** Platform Events나 Change Data Capture를 발행자(publisher)로 사용. 미들웨어나 외부 구독자(AWS Lambda, Kafka)가 이벤트 처리. 실시간 구독에 CometD 프로토콜이나 Pub/Sub API 사용.
-**팁:** 확장 가능한 이벤트 소비에 Pub/Sub API(2024 GA) 선호 / 다중 소비자 모델에는 Kafka Connect → Salesforce CDC → 다운스트림.
+**질문:**
+
+외부 시스템과 실시간 데이터 동기화를 위해 Salesforce에서 Pub/Sub 패턴을 어떻게 구현하나?
+**답변:**
+
+Platform Events나 Change Data Capture를 발행자(publisher)로 사용. 미들웨어나 외부 구독자(AWS Lambda, Kafka)가 이벤트 처리. 실시간 구독에 CometD 프로토콜이나 Pub/Sub API 사용.
+**팁:**
+
+확장 가능한 이벤트 소비에 Pub/Sub API(2024 GA) 선호 / 다중 소비자 모델에는 Kafka Connect → Salesforce CDC → 다운스트림.
 
 ## 11. REST API에서 민감 데이터 보호
-**질문:** REST API로 전송 시 민감 데이터를 보호하는 최선의 방법은?
-**답변:** TLS(HTTPS) 필수. 민감 데이터에 페이로드 수준 암호화(AES-256). 인증에 OAuth 2.0 또는 mutual TLS(mTLS). 저장 데이터에 필드 수준 암호화(Shield Platform Encryption).
-**팁:** URL 쿼리 문자열에 토큰·민감 데이터 노출 금지 / 입출력 검증과 로깅 마스킹(redaction) 구현.
+**질문:**
+
+REST API로 전송 시 민감 데이터를 보호하는 최선의 방법은?
+**답변:**
+
+TLS(HTTPS) 필수. 민감 데이터에 페이로드 수준 암호화(AES-256). 인증에 OAuth 2.0 또는 mutual TLS(mTLS). 저장 데이터에 필드 수준 암호화(Shield Platform Encryption).
+**팁:**
+
+URL 쿼리 문자열에 토큰·민감 데이터 노출 금지 / 입출력 검증과 로깅 마스킹(redaction) 구현.
 
 ## 12. 동시 API 요청과 경쟁 조건 처리
-**질문:** Salesforce는 동시 API 요청을 어떻게 처리하며 경쟁 조건(race condition)을 어떻게 방지하나?
-**답변:** Salesforce는 API 요청을 독립적으로 처리하지만 레코드 수준 업데이트는 레코드 잠금을 유발할 수 있다. 방지: Optimistic Locking(If-Unmodified-Since 헤더), 멱등 업데이트를 위한 External ID, 중요한 작업 직렬화에 Platform Events.
-**팁:** 중요 오브젝트에는 버전 필드나 eTag로 제어 / 부모-자식 master-detail 오브젝트의 병렬 빈번한 업데이트를 피하라.
+**질문:**
+
+Salesforce는 동시 API 요청을 어떻게 처리하며 경쟁 조건(race condition)을 어떻게 방지하나?
+**답변:**
+
+Salesforce는 API 요청을 독립적으로 처리하지만 레코드 수준 업데이트는 레코드 잠금을 유발할 수 있다. 방지: Optimistic Locking(If-Unmodified-Since 헤더), 멱등 업데이트를 위한 External ID, 중요한 작업 직렬화에 Platform Events.
+**팁:**
+
+중요 오브젝트에는 버전 필드나 eTag로 제어 / 부모-자식 master-detail 오브젝트의 병렬 빈번한 업데이트를 피하라.
 
 ## 13. 동기 vs 비동기 Apex 콜아웃
-**질문:** 동기 vs 비동기 Apex 콜아웃의 차이와 각각 언제 쓰는지 설명하라.
-**답변:** 동기: 실시간 사용자 컨텍스트에서 발생, 응답 기대, UI 주도 작업(스크린 Flow)에 사용. 비동기(Future, Queueable, Batch): 논블로킹, 대용량이나 서드파티 지연에 적합, @future는 반환값 불가.
-**팁:** 체인·배치 콜아웃에 Queueable Apex / 트리거 안 동기 콜아웃을 피하라.
+**질문:**
+
+동기 vs 비동기 Apex 콜아웃의 차이와 각각 언제 쓰는지 설명하라.
+**답변:**
+
+동기: 실시간 사용자 컨텍스트에서 발생, 응답 기대, UI 주도 작업(스크린 Flow)에 사용. 비동기(Future, Queueable, Batch): 논블로킹, 대용량이나 서드파티 지연에 적합, @future는 반환값 불가.
+**팁:**
+
+체인·배치 콜아웃에 Queueable Apex / 트리거 안 동기 콜아웃을 피하라.
 
 ## 14. AWS EventBridge와 Salesforce 통합
-**질문:** AWS EventBridge로 Salesforce 이벤트 기반 통합을 어떻게 가능하게 하나?
-**답변:** Change Data Capture → CometD → AWS Lambda → EventBridge. 또는 MuleSoft나 Heroku → Webhook → Lambda → EventBridge 흐름.
-**팁:** 회복탄력성을 위해 Event Replay ID 사용 / 실시간이 중요하지 않으면 선언적 통합에 AWS AppFlow 고려.
+**질문:**
+
+AWS EventBridge로 Salesforce 이벤트 기반 통합을 어떻게 가능하게 하나?
+**답변:**
+
+Change Data Capture → CometD → AWS Lambda → EventBridge. 또는 MuleSoft나 Heroku → Webhook → Lambda → EventBridge 흐름.
+**팁:**
+
+회복탄력성을 위해 Event Replay ID 사용 / 실시간이 중요하지 않으면 선언적 통합에 AWS AppFlow 고려.
 
 ## 15. Salesforce Connect의 한계
-**질문:** Salesforce Connect의 한계와 커스텀 API 통합 대비 언제 쓰나?
-**답변:** 한계: 트리거/Apex 로직 불가, 외부 소스 응답성에 묶인 성능, 제한된 오프라인 기능. 참조 데이터나 경량 통합에 Salesforce Connect 사용.
-**팁:** 고성능이나 복잡한 워크플로우에는 커스텀 API를 구축하라.
+**질문:**
+
+Salesforce Connect의 한계와 커스텀 API 통합 대비 언제 쓰나?
+**답변:**
+
+한계: 트리거/Apex 로직 불가, 외부 소스 응답성에 묶인 성능, 제한된 오프라인 기능. 참조 데이터나 경량 통합에 Salesforce Connect 사용.
+**팁:**
+
+고성능이나 복잡한 워크플로우에는 커스텀 API를 구축하라.
 
 ## 16. 외부 API 통합의 오류 처리 설계
-**질문:** 외부 API 통합의 오류 처리 프레임워크를 어떻게 설계하나?
-**답변:** 중앙화된 로깅 프레임워크(커스텀 오브젝트나 외부 도구) 구현. 재시도 큐(커스텀 또는 Platform Events DLQ 패턴) 사용. 오류를 복구 가능 vs 복구 불가로 분류.
-**팁:** Kafka/SQS 같은 메시징 시스템 사용 시 DLQ(Dead Letter Queue) 고려.
+**질문:**
+
+외부 API 통합의 오류 처리 프레임워크를 어떻게 설계하나?
+**답변:**
+
+중앙화된 로깅 프레임워크(커스텀 오브젝트나 외부 도구) 구현. 재시도 큐(커스텀 또는 Platform Events DLQ 패턴) 사용. 오류를 복구 가능 vs 복구 불가로 분류.
+**팁:**
+
+Kafka/SQS 같은 메시징 시스템 사용 시 DLQ(Dead Letter Queue) 고려.
 
 ## 17. Salesforce에서 GraphQL vs REST API
-**질문:** Salesforce 통합 맥락에서 GraphQL vs REST를 설명하라.
-**답변:** REST: 고정된 응답, CRUD 작업에 좋음. GraphQL: 클라이언트가 필요한 필드 지정 가능, 페이로드 최적화·왕복 감소.
-**팁:** 모바일이나 프런트엔드 중심 앱에 Salesforce GraphQL API(2024 기준 파일럿) 사용.
+**질문:**
+
+Salesforce 통합 맥락에서 GraphQL vs REST를 설명하라.
+**답변:**
+
+REST: 고정된 응답, CRUD 작업에 좋음. GraphQL: 클라이언트가 필요한 필드 지정 가능, 페이로드 최적화·왕복 감소.
+**팁:**
+
+모바일이나 프런트엔드 중심 앱에 Salesforce GraphQL API(2024 기준 파일럿) 사용.
 
 ## 18. 멀티-org Salesforce-to-Salesforce 통합
-**질문:** 멀티-org Salesforce-to-Salesforce 통합을 어떻게 구현하나?
-**답변:** 옵션: Salesforce-to-Salesforce(신규 설정엔 폐기), Platform Events + CDC + 미들웨어, org 간 MuleSoft나 커스텀 REST API.
-**팁:** 실시간 동기화에는 이벤트 기반 아키텍처 선호.
+**질문:**
+
+멀티-org Salesforce-to-Salesforce 통합을 어떻게 구현하나?
+**답변:**
+
+옵션: Salesforce-to-Salesforce(신규 설정엔 폐기), Platform Events + CDC + 미들웨어, org 간 MuleSoft나 커스텀 REST API.
+**팁:**
+
+실시간 동기화에는 이벤트 기반 아키텍처 선호.
 
 ## 19. 실시간 vs 배치 통합 최적화
-**질문:** 성능과 신뢰성을 위해 실시간 vs 배치 통합을 어떻게 최적화하나?
-**답변:** 실시간: CDC/Platform Events + 미들웨어. 배치: 대용량 트랜잭션에 Bulk API, 야간 스케줄.
-**팁:** 중요+비중요 데이터에는 하이브리드 접근이 가장 좋다.
+**질문:**
+
+성능과 신뢰성을 위해 실시간 vs 배치 통합을 어떻게 최적화하나?
+**답변:**
+
+실시간: CDC/Platform Events + 미들웨어. 배치: 대용량 트랜잭션에 Bulk API, 야간 스케줄.
+**팁:**
+
+중요+비중요 데이터에는 하이브리드 접근이 가장 좋다.
 
 ## 20. Salesforce 통합에서 Webhook 실패 처리
-**질문:** Salesforce 통합에서 webhook 실패를 처리하는 최선의 접근은?
-**답변:** 지수 백오프 재시도 구현. 실패한 페이로드 저장 → 수동/자동 재시도. 미들웨어 큐(Kafka, SQS) 사용.
-**팁:** DLQ로 데이터 무손실 보장 / 지원되면 Replay ID(CDC) 사용.
+**질문:**
+
+Salesforce 통합에서 webhook 실패를 처리하는 최선의 접근은?
+**답변:**
+
+지수 백오프 재시도 구현. 실패한 페이로드 저장 → 수동/자동 재시도. 미들웨어 큐(Kafka, SQS) 사용.
+**팁:**
+
+DLQ로 데이터 무손실 보장 / 지원되면 Replay ID(CDC) 사용.
 
 ---
 
@@ -154,7 +274,9 @@ ERP 통합(주문 동기화), 마케팅 자동화(Salesforce → Marketo), 결�
 | JSON/XML | 엄격히 XML |
 | 모바일에 쉬움 | 레거시 시스템 |
 
-**팁:** REST → 신규 시스템 / SOAP → 레거시 ERP/CRM.
+**팁:**
+
+REST → 신규 시스템 / SOAP → 레거시 ERP/CRM.
 
 ### 7. Apex에서 REST API 콜아웃을 어떻게 하나?
 HttpRequest 사용, 엔드포인트·메서드 설정, 헤더 추가, Http.send()로 전송.
@@ -165,7 +287,9 @@ req.setMethod('GET');
 Http http = new Http();
 HttpResponse res = http.send(req);
 ```
-**팁:** 엔드포인트 인가에 Remote Site Settings/Named Credentials를 언급하라.
+**팁:**
+
+엔드포인트 인가에 Remote Site Settings/Named Credentials를 언급하라.
 
 ### 8. Apex의 HttpRequest와 HttpResponse란?
 HttpRequest: HTTP 콜아웃을 구성. HttpResponse: 콜아웃의 응답(상태 코드, 본문, 헤더) 보유. **팁:** 상태 코드 → 성공/실패 처리를 설명하라.
@@ -187,7 +311,9 @@ WSDL은 SOAP 웹 서비스의 XML 설명. Salesforce에서 "Generate Apex from W
 | 파싱 빠름 | 강한 타이핑 |
 | REST 친화적 | SOAP 표준 |
 
-**팁:** 현대 API에는 JSON 선호.
+**팁:**
+
+현대 API에는 JSON 선호.
 
 ### 13. Workbench의 REST Explorer란?
 브라우저에서 직접 REST API 요청(GET, POST, PATCH, DELETE)을 테스트하는 Workbench 도구. **팁:** 빠른 API 디버깅에 유용.
@@ -228,7 +354,9 @@ Named Credential + Auth Provider 사용 시 Salesforce가 자동 처리. 수동�
 | Access Token | 임시 API 접근 부여(단기) |
 | Refresh Token | 새 Access Token 획득에 사용 |
 
-**팁:** Access Token 만료 → Refresh Token으로 재인증.
+**팁:**
+
+Access Token 만료 → Refresh Token으로 재인증.
 
 ### 24. Auth Provider vs Named Credential 차이?
 Auth Provider: OAuth/OpenID Connect 세부(인가 엔드포인트, scope 등) 정의. Named Credential: Salesforce가 호출할 위치(엔드포인트 URL)와 방법(인증 방식) 정의. **팁:** 함께 → 완전한 안전 통합 설정.
@@ -401,7 +529,9 @@ Salesforce 레코드 변경(생성·갱신·삭제·복원)을 준실시간으�
 | CRUD 변경 캡처 | 비즈니스 이벤트 발생 |
 | 변경 헤더 메타데이터 보유 | before/after 미포함 |
 
-**팁:** 레코드 변경을 외부에 미러링하려면 CDC / 도메인·비즈니스 이벤트 모델(OrderPlaced, PaymentFailed)엔 Platform Events.
+**팁:**
+
+레코드 변경을 외부에 미러링하려면 CDC / 도메인·비즈니스 이벤트 모델(OrderPlaced, PaymentFailed)엔 Platform Events.
 
 ### 75. Shield Event Monitoring이란?
 Salesforce Shield의 일부로 사용자 활동(로그인, 데이터 익스포트, API 호출, 리포트 실행)을 감사 수준으로 추적. EventLogFile 오브젝트로 전달, API나 스트리밍 접근. **팁:** 보안 감사·이상 탐지·컴플라이언스에 유용 / Splunk·SIEM·Event Monitoring Analytics App과 결합 / Salesforce Shield 라이선스 필요.
@@ -419,7 +549,9 @@ HTTP 콜아웃 최대 타임아웃 120초(2분).
 ```apex
 req.setTimeout(120000);
 ```
-**팁:** 장시간 통합엔 Continuation(비동기) 고려 / 불필요한 실행 시간 소비를 피하려 짧은 타임아웃 선호.
+**팁:**
+
+장시간 통합엔 Continuation(비동기) 고려 / 불필요한 실행 시간 소비를 피하려 짧은 타임아웃 선호.
 
 ### 79. 통합 재시도 메커니즘을 어떻게 구축하나?
 (1) Queueable Apex + 페이로드 저장 커스텀 오브젝트, (2) 재시도 횟수·간격 필드, (3) Exponential Backoff, (4) 영구 실패용 DLQ 개념, (5) 비동기 알림용 Platform Events. **팁:** 무한 루프 방지로 재시도 횟수 제한 / 최종 실패 후 관리자 팀에 알림 / 복잡한 재시도엔 미들웨어.

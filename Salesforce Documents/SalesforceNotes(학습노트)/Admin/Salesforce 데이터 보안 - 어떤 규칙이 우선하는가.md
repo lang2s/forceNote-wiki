@@ -20,9 +20,13 @@ aliases: [Salesforce Data Security Which Rule Takes Priority]
 
 ## 다양한 수준의 보안 구현
 
-**1. 오브젝트 수준 보안(Profile & Permission Set):** 누가 오브젝트를 보기·생성·편집·삭제할 수 있는지 제어. 프로필이 기본 권한 정의, 권한 집합이 프로필 변경 없이 추가 권한 부여. 예: 영업 담당자 프로필이 Opportunity 접근하지만, 권한 집합으로 선택된 사용자만 'Amount' 필드 편집.
+**1. 오브젝트 수준 보안(Profile & Permission Set):**
 
-**2. 필드 수준 보안:** 오브젝트 내 특정 필드 접근 제어. 사용자가 오브젝트는 보지만 모든 필드는 못 봄. 예: 영업 담당자가 레코드는 보지만 'Opportunity Amount' 필드는 숨겨짐.
+누가 오브젝트를 보기·생성·편집·삭제할 수 있는지 제어. 프로필이 기본 권한 정의, 권한 집합이 프로필 변경 없이 추가 권한 부여. 예: 영업 담당자 프로필이 Opportunity 접근하지만, 권한 집합으로 선택된 사용자만 'Amount' 필드 편집.
+
+**2. 필드 수준 보안:**
+
+오브젝트 내 특정 필드 접근 제어. 사용자가 오브젝트는 보지만 모든 필드는 못 봄. 예: 영업 담당자가 레코드는 보지만 'Opportunity Amount' 필드는 숨겨짐.
 
 **3. 레코드 수준 보안(누가 특정 레코드를 보는가?):**
 - **OWD:** 기준 수준 정의(Private, Public Read Only, Public Read/Write).
@@ -55,4 +59,6 @@ aliases: [Salesforce Data Security Which Rule Takes Priority]
 
 예: 프로필이 Opportunity에 Read/Write이지만 OWD가 Private이고 공유 규칙이 Read-Only만 부여하면, 사용자는 다른 사용자의 Opportunity를 편집할 수 없습니다.
 
-**핵심 정리:** 공유 규칙이 Read-Only이면 프로필이 전체 오브젝트 권한을 가져도 보기만 가능. Read/Write로 업데이트하면 편집 가능. 레코드 삭제는 해당 오브젝트의 View All 또는 Modify All 권한 필요.
+**핵심 정리:**
+
+공유 규칙이 Read-Only이면 프로필이 전체 오브젝트 권한을 가져도 보기만 가능. Read/Write로 업데이트하면 편집 가능. 레코드 삭제는 해당 오브젝트의 View All 또는 Modify All 권한 필요.

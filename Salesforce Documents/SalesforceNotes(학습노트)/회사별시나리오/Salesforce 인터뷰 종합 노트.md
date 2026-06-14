@@ -12,17 +12,31 @@ aliases: [Interview Notes]
 > Salesforce 전 영역을 망라하는 종합 학습 노트입니다.
 
 ## 기본 개념
-**Force.com IDE:** Apex·Visualforce·메타데이터 개발 통합 환경(마법사·코드 에디터·테스트·배포·디버거).
-**Sales Cloud:** 영업·마케팅·Lead 생성·고객 지원 CRM(B2B/B2C). 완전 커스터마이즈, SaaS(브라우저·모바일).
-**Org Id:** 샌드박스 새로고침 시마다 변경.
+**Force.com IDE:**
+
+Apex·Visualforce·메타데이터 개발 통합 환경(마법사·코드 에디터·테스트·배포·디버거).
+**Sales Cloud:**
+
+영업·마케팅·Lead 생성·고객 지원 CRM(B2B/B2C). 완전 커스터마이즈, SaaS(브라우저·모바일).
+**Org Id:**
+
+샌드박스 새로고침 시마다 변경.
 
 ## 관계
 
-**Lookup:** 두 오브젝트 연결, 오브젝트당 25개, 부모 비필수, 보안·삭제 영향 없음, 다층 가능.
-**Master-Detail:** 부모-자식, 마스터 필수, 부모 삭제 시 자식 삭제. 롤업 요약(SUM·MAX·MIN·COUNT, AVG 불가) 마스터에만, 오브젝트당 2개. 부모 접근이 자식 접근 결정.
+**Lookup:**
+
+두 오브젝트 연결, 오브젝트당 25개, 부모 비필수, 보안·삭제 영향 없음, 다층 가능.
+**Master-Detail:**
+
+부모-자식, 마스터 필수, 부모 삭제 시 자식 삭제. 롤업 요약(SUM·MAX·MIN·COUNT, AVG 불가) 마스터에만, 오브젝트당 2개. 부모 접근이 자식 접근 결정.
 - SUM: Number·Currency·Percent. MIN/MAX: + Date·Date/Time.
-**Many-to-Many:** Junction 오브젝트(Master-Detail 2개)로 구현.
-**Controlled by Parent:** 자식 OWD가 부모 접근 복사.
+**Many-to-Many:**
+
+Junction 오브젝트(Master-Detail 2개)로 구현.
+**Controlled by Parent:**
+
+자식 OWD가 부모 접근 복사.
 
 | Lookup | Master-Detail |
 |---|---|
@@ -41,7 +55,9 @@ aliases: [Interview Notes]
 - 마스터-디테일에 롤업 요약 없으면 Lookup으로 변환 가능.
 - 오브젝트가 Lookup·Master-Detail 둘 다 가질 수 있음.
 
-**External Object:** 외부 데이터 매핑. Lookup·External Lookup·Indirect Lookup만(Cascade-delete·Lookup 필터 없음).
+**External Object:**
+
+외부 데이터 매핑. Lookup·External Lookup·Indirect Lookup만(Cascade-delete·Lookup 필터 없음).
 
 ## Insert vs Database.Insert
 | Insert | Database.Insert |
@@ -51,7 +67,9 @@ aliases: [Interview Notes]
 | 오류 시 전체 중단 | allOrNone(기본 true) 옵션 |
 
 ## 수식 필드
-**Custom Formula vs Cross-Object Formula:** Cross-Object는 관련 오브젝트 참조(최대 15 관계 거리, 보안·공유 우회, 롤업 요약에 참조 불가).
+**Custom Formula vs Cross-Object Formula:**
+
+Cross-Object는 관련 오브젝트 참조(최대 15 관계 거리, 보안·공유 우회, 롤업 요약에 참조 불가).
 
 ## De-Activation vs Freezing
 De-Activation은 라이선스 조직 반환(커스텀 계층 필드면 freeze 후), 비활성 사용자가 running user면 리포트 미실행. Freezing은 라이선스 유지, 리포트 실행.
@@ -104,7 +122,9 @@ Master-Detail 2개로 다대다. Primary Master(색상·아이콘·소유권 상
 ## Import Wizard vs Data Loader
 Import Wizard: 웹 기반·5만 건·중복 불가·Master-Detail 자식 안 보임. Data Loader: Insert/Update/Upsert/Delete/Hard Delete/Export/Export All, 배치 최소 1·최대 2000·기본 200(Bulk API 활성 시 2000).
 
-**필수 필드 누락 import:** 페이지 레이아웃 필수만이면 전체 성공, 필드 수준 필수면 해당 레코드 제외.
+**필수 필드 누락 import:**
+
+페이지 레이아웃 필수만이면 전체 성공, 필드 수준 필수면 해당 레코드 제외.
 
 ## External ID
 외부 시스템 고유 식별 필드(Text·Number·Auto-Number·Email). upsert 시 일치하면 업데이트, 없으면 삽입. 오브젝트당 Unique+External ID ≤ 7개.
@@ -117,15 +137,21 @@ Model-View-Controller. Visualforce가 MVC 인터페이스 제공.
 
 ## Approval Process
 승인 단계·승인자·액션 자동화. 액션 4개(Task·Field Update·Email·Outbound). 최대 15단계, 단계당 25명. Assigned/Delegated Approver. Email Approval Response(YES 응답). Process Instance/Node.
-**Parallel Approval Routing:** 단일 단계 다중 승인자. **Dynamic Approval:** lookup 필드에 승인자 동적 할당(승인 매트릭스 + Apex).
+**Parallel Approval Routing:**
+
+단일 단계 다중 승인자. **Dynamic Approval:** lookup 필드에 승인자 동적 할당(승인 매트릭스 + Apex).
 
 ## Account Team
 Account 관련 사용자 정보 저장. 기본은 소유자 정보. Account-Contact는 Lookup이나 CascadeDelete=true(부모 삭제 시 Contact 삭제).
 
 ## Validation Rule
 저장 전 데이터 검증(True 반환 시 오류). 한 번에 전체 실행. import 시 비활성화. 
-**건너뛰는 경우:** Lead 전환 활동, 캠페인 계층, Mass Transfer, 워크플로우·프로세스 필드 업데이트.
-**모범 사례:** 프로덕션 직접 생성 금지, 좁게 적용, 사용자 알림, ID 하드코딩 금지, 테스트.
+**건너뛰는 경우:**
+
+Lead 전환 활동, 캠페인 계층, Mass Transfer, 워크플로우·프로세스 필드 업데이트.
+**모범 사례:**
+
+프로덕션 직접 생성 금지, 좁게 적용, 사용자 알림, ID 하드코딩 금지, 테스트.
 
 수식 예: 캐나다 우편번호 REGEX, VLOOKUP으로 ZipCode 검증, 평일 검증 `CASE(MOD(My_Date__c - DATE(1900,1,7),7), 0,0, 6,0, 1)=0`, `Begin_Date__c > End_Date__c` 등.
 
@@ -140,7 +166,9 @@ Master-Detail/Lookup, 최대 15 관계 거리, 보안·공유 우회, 롤업 요
 
 ## Future 메서드
 독립적 장기 작업. 규칙: @future·static·void·기본 타입만·Queue 추가 후 실행·콜아웃은 @future(callout=true)·AsyncApexJob 등록. 호출: `FutureClass.method()`(객체 없이).
-**단점:** sObject 전달 금지(실행 시점 변경 위험), Job Id 미반환, Future에서 Future 호출 불가.
+**단점:**
+
+sObject 전달 금지(실행 시점 변경 위험), Job Id 미반환, Future에서 Future 호출 불가.
 
 ## Mixed DML 예외
 한 트랜잭션에서 Setup·Non-Setup 오브젝트 DML 혼합 시. Setup 오브젝트(Group·GroupMember·User·PermissionSet·Territory 등)는 다른 사용자 권한에 영향. 해결: 하나를 @future로 분리.
@@ -202,8 +230,12 @@ public class Queue_Example implements Queueable {
 - **start:** 데이터 수집(QueryLocator는 5천만 우회, Iterable은 한도 적용·복잡 범위).
 - **execute:** 배치별 비즈니스 로직(기본 200, scope).
 - **finish:** 확인 이메일·후처리.
-**한도:** 동시 5개, Flex Queue 100개, 한 배치 실패 시 해당만 실패, finish 실패 시 execute 변경 커밋, Future 호출 불가, finish에서 Batch 호출 가능, 콜아웃은 Database.AllowsCallouts.
-**Database.Stateful:** execute 간 비static 데이터 상태 유지(카운팅).
+**한도:**
+
+동시 5개, Flex Queue 100개, 한 배치 실패 시 해당만 실패, finish 실패 시 execute 변경 커밋, Future 호출 불가, finish에서 Batch 호출 가능, 콜아웃은 Database.AllowsCallouts.
+**Database.Stateful:**
+
+execute 간 비static 데이터 상태 유지(카운팅).
 ```apex
 global class Batch_Example_4 implements Database.Batchable<sobject>, Database.Stateful {
     global Integer count=0;
@@ -224,11 +256,21 @@ global class Batch_Example_4 implements Database.Batchable<sobject>, Database.St
 지정 시간 실행. Schedulable 인터페이스·execute(SchedulableContext). System.schedule(name, cron, instance).
 
 ## 리포트·대시보드
-**폴더:** Standard, My Personal Custom, Custom(공유), Public.
-**Bucketing 필드:** 수식 없이 레코드 분류.
-**리포트 유형:** Tabular(테이블), Summary(행 그룹화 최대 3), Matrix(행·열), Joined(2개+). Joined는 직접 export 불가(printable view→xls).
-**Report Type:** Standard, Custom.
-**대시보드:** Summary·Matrix 리포트 소스, Running User가 접근 결정, 스케줄·이메일 가능, 최대 20개 리포트. 컴포넌트: Chart·Table·Metric·Gauge.
+**폴더:**
+
+Standard, My Personal Custom, Custom(공유), Public.
+**Bucketing 필드:**
+
+수식 없이 레코드 분류.
+**리포트 유형:**
+
+Tabular(테이블), Summary(행 그룹화 최대 3), Matrix(행·열), Joined(2개+). Joined는 직접 export 불가(printable view→xls).
+**Report Type:**
+
+Standard, Custom.
+**대시보드:**
+
+Summary·Matrix 리포트 소스, Running User가 접근 결정, 스케줄·이메일 가능, 최대 20개 리포트. 컴포넌트: Chart·Table·Metric·Gauge.
 
 ## Record Type
 오브젝트의 선택 목록·페이지 레이아웃 제한. 레코드 타입으로만 다중 페이지 레이아웃 할당. 프로필별 다른 레이아웃 가능.
@@ -237,10 +279,18 @@ global class Batch_Example_4 implements Database.Batchable<sobject>, Database.St
 레코드 페이지 레이아웃(버튼·필드·관련 목록·VF). 필드 가시성·읽기 전용·필수 결정.
 
 ## 보안 (4계층)
-**1. 조직:** 인증 사용자·비밀번호 정책·로그인 실패 한도·시간·위치(Org은 OTP, Profile은 차단)·이메일 도메인. Health Check.
-**2. 오브젝트:** Profile(직무), Permission Set(추가).
-**3. 필드:** 프로필 FLS·Permission Set·Field Accessibility. (Universally required는 FLS 무관, 롤업·수식은 읽기 전용·항상 계산.) 페이지 레이아웃은 상세·편집만, FLS는 List View·검색·관련 목록·VF·리포트 등 모든 곳.
-**4. 레코드:** OWD → Role Hierarchy → Sharing Rule → Manual Sharing.
+**1. 조직:**
+
+인증 사용자·비밀번호 정책·로그인 실패 한도·시간·위치(Org은 OTP, Profile은 차단)·이메일 도메인. Health Check.
+**2. 오브젝트:**
+
+Profile(직무), Permission Set(추가).
+**3. 필드:**
+
+프로필 FLS·Permission Set·Field Accessibility. (Universally required는 FLS 무관, 롤업·수식은 읽기 전용·항상 계산.) 페이지 레이아웃은 상세·편집만, FLS는 List View·검색·관련 목록·VF·리포트 등 모든 곳.
+**4. 레코드:**
+
+OWD → Role Hierarchy → Sharing Rule → Manual Sharing.
 
 ### OWD
 Private(소유자·상위), Public Read Only, Public Read/Write(소유자만 삭제), Public Read/Write/Transfer(Case·Lead), Public Full Access(Campaign), Controlled by Parent.
@@ -255,7 +305,9 @@ Private(소유자·상위), Public Read Only, Public Read/Write(소유자만 삭
 특정 사용자에게 프로그래밍 공유.
 
 ## Groups & Queues
-**Public Groups:** 관리자 생성. **Collaborative Groups:** 개인. **Queues:** Lead·Case·Order·커스텀 관리, 멤버가 소유권 가져갈 때까지 보관.
+**Public Groups:**
+
+관리자 생성. **Collaborative Groups:** 개인. **Queues:** Lead·Case·Order·커스텀 관리, 멤버가 소유권 가져갈 때까지 보관.
 
 ## Platform Events
 앱 내·외부 알림(이벤트 기반). 발행(프로세스·Flow·Apex·외부 앱), 구독(프로세스·Flow·트리거·CometD). __e 접미사. Apex 코드 트리거·외부 시스템 통신.
@@ -276,7 +328,9 @@ trigger AccountTrigger on Account (before insert, before update) {
 }
 ```
 
-**Account의 Contact 수 카운트 트리거** — 자식 수 집계 후 부모 업데이트.
+**Account의 Contact 수 카운트 트리거**
+
+— 자식 수 집계 후 부모 업데이트.
 
 **재귀 방지:**
 ```apex
@@ -309,15 +363,29 @@ Account a = (Account) JSON.deserialize(jsonStr, Account.class);
 ```
 
 ## REST/SOAP 통합
-**REST API:** 경량·JSON/XML·HTTP. 커스텀: @RestResource(urlMapping), @HttpGet/Post/Patch/Put/Delete. 소비자가 JSON 전송→역직렬화. JSONGenerator/JSONParser로 본문 생성·파싱.
-**SOAP:** XML 인코딩 데이터 전달 프로토콜.
-**통합 인증:** Authorization Code, Client Credentials(FaceBook), Connected App, Named Credential. 서드파티(Box·FaceBook) 동적 통합.
+**REST API:**
+
+경량·JSON/XML·HTTP. 커스텀: @RestResource(urlMapping), @HttpGet/Post/Patch/Put/Delete. 소비자가 JSON 전송→역직렬화. JSONGenerator/JSONParser로 본문 생성·파싱.
+**SOAP:**
+
+XML 인코딩 데이터 전달 프로토콜.
+**통합 인증:**
+
+Authorization Code, Client Credentials(FaceBook), Connected App, Named Credential. 서드파티(Box·FaceBook) 동적 통합.
 
 ## Aura
-**Aura?** Salesforce 오픈소스 UI 프레임워크(동적 웹 앱). Lightning 컴포넌트는 Aura의 부분집합. aura: 네임스페이스.
-**@AuraEnabled:** Apex 컨트롤러 메서드를 Aura/LWC에 노출(static·인스턴스 메서드·속성).
-**번들:** Component·Controller·Helper·Style·Documentation·Renderer·Design·SVG.
-**배포:** Change Set·메타데이터 API. AuraDefinitionBundle.
+**Aura?**
+
+Salesforce 오픈소스 UI 프레임워크(동적 웹 앱). Lightning 컴포넌트는 Aura의 부분집합. aura: 네임스페이스.
+**@AuraEnabled:**
+
+Apex 컨트롤러 메서드를 Aura/LWC에 노출(static·인스턴스 메서드·속성).
+**번들:**
+
+Component·Controller·Helper·Style·Documentation·Renderer·Design·SVG.
+**배포:**
+
+Change Set·메타데이터 API. AuraDefinitionBundle.
 
 ## Sandbox
 | 유형 | 스토리지 | 새로고침 |

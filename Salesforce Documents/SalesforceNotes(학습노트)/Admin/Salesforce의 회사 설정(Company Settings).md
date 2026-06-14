@@ -30,11 +30,17 @@ Locale Setting 탭에서 Default Locale, Default Language, Default Time Zone, Cu
 
 ## 3. 통화 설정(Currency Settings)
 
-**Corporate Currency(기업 통화):** 조직 본사가 보고하는 매출 통화입니다. 다중 통화를 사용하는 조직에서 활성화되며, 그렇지 않으면 조직의 로컬 통화를 표시합니다(예: 호주는 AUD). 조직이 거래하는 통화를 결정하는 중요한 기능입니다.
+**Corporate Currency(기업 통화):**
 
-**기업 통화 변경:** Setup | Administer | Company Profile | Manage Currencies → Change Corporate → 새 기업 통화 선택.
+조직 본사가 보고하는 매출 통화입니다. 다중 통화를 사용하는 조직에서 활성화되며, 그렇지 않으면 조직의 로컬 통화를 표시합니다(예: 호주는 AUD). 조직이 거래하는 통화를 결정하는 중요한 기능입니다.
 
-**다중 통화(Multiple Currencies):** Salesforce의 고급 기능. 활성화하면 영업 담당자가 Opportunity 필드에 자신의 로컬 통화로 금액을 입력할 수 있습니다. Opportunity, 예측, 리포트, 견적 등에서 다중 통화 사용 가능. 관리자는 본사 통화를 반영하는 기업 통화를 설정하고 활성 통화 목록과 환율을 유지합니다.
+**기업 통화 변경:**
+
+Setup | Administer | Company Profile | Manage Currencies → Change Corporate → 새 기업 통화 선택.
+
+**다중 통화(Multiple Currencies):**
+
+Salesforce의 고급 기능. 활성화하면 영업 담당자가 Opportunity 필드에 자신의 로컬 통화로 금액을 입력할 수 있습니다. Opportunity, 예측, 리포트, 견적 등에서 다중 통화 사용 가능. 관리자는 본사 통화를 반영하는 기업 통화를 설정하고 활성 통화 목록과 환율을 유지합니다.
 
 **다중 통화 활성화의 영향:**
 - 한 번 활성화하면 비활성화 불가.
@@ -44,18 +50,26 @@ Locale Setting 탭에서 Default Locale, Default Language, Default Time Zone, Cu
 - 지원 통화 목록에 추가된 통화는 비활성화해도 제거 불가.
 - 사용자가 개인 기본 통화(secondary currency) 설정 가능.
 
-**다중 통화 활성화 방법:** Help and Training → Contact Support → Open a Case → Product Topics에서 "Limits & Feature Activations" 선택 → 사유 입력 → 제출. 이후 조직 관리자가 Organization ID, 기본 통화, 비활성화 불가 이해 확인, 권한 있는 시스템 관리자 확인 등을 이메일로 제공하면 Salesforce가 활성화.
+**다중 통화 활성화 방법:**
 
-**새 통화 추가:** Setup | Administer | Company Profile | Manage Currencies → Add New → Currency Type, Conversion Rate, Decimal places 선택.
+Help and Training → Contact Support → Open a Case → Product Topics에서 "Limits & Feature Activations" 선택 → 사유 입력 → 제출. 이후 조직 관리자가 Organization ID, 기본 통화, 비활성화 불가 이해 확인, 권한 있는 시스템 관리자 확인 등을 이메일로 제공하면 Salesforce가 활성화.
+
+**새 통화 추가:**
+
+Setup | Administer | Company Profile | Manage Currencies → Add New → Currency Type, Conversion Rate, Decimal places 선택.
 
 ## 4. 회계 연도(Fiscal Year)와 커스터마이징
 
 회계 연도는 연간 재무제표 계산에 사용되는 기간입니다. 두 유형 지원: 표준, 커스텀.
 
-**표준 회계 연도(Standard Fiscal Year):** 기본은 그레고리력. 조직에 따라 시작 월 변경 필요(예: 4월 시작). 아무 월의 첫날에 시작 가능. 선택한 월의 시작/끝 기준 정의 가능.
+**표준 회계 연도(Standard Fiscal Year):**
+
+기본은 그레고리력. 조직에 따라 시작 월 변경 필요(예: 4월 시작). 아무 월의 첫날에 시작 가능. 선택한 월의 시작/끝 기준 정의 가능.
 경로: Setup | Administer | Company Profile | Fiscal Year → Standard Fiscal Year 선택 → 시작 월 선택 → 월의 시작/끝 기준 선택 → (선택) Apply to all Forecasts and Quotas → Save.
 
-**커스텀 회계 연도(Custom Fiscal Year):** 표준이 요구를 충족하지 못할 때 사용. 활성화해야 함. 복잡한 회계 연도 구조 구현 가능. 활성화 후 모든 커스텀 회계 연도를 직접 정의해야 함.
+**커스텀 회계 연도(Custom Fiscal Year):**
+
+표준이 요구를 충족하지 못할 때 사용. 활성화해야 함. 복잡한 회계 연도 구조 구현 가능. 활성화 후 모든 커스텀 회계 연도를 직접 정의해야 함.
 활성화: Fiscal Year → Custom Fiscal Year 선택 → 영향 이해 체크박스 선택 → Enable Custom Fiscal Years → OK.
 새 정의: Fiscal Year → New → 템플릿 유형 선택 → Continue → 회계 연도 이름·시작 요일 설정 → Save.
 
@@ -73,7 +87,9 @@ Locale Setting 탭에서 Default Locale, Default Language, Default Time Zone, Cu
 
 설정: Setup | Administer | Company Profile | Holidays → New → Holiday Name, Description, Date, Time 입력. 반복 휴일 설정 가능(Recurring Holiday 체크, Frequency·시작·종료일).
 
-**영업 시간과 휴일 연결:** Salesforce가 관련 에스컬레이션 규칙을 일시 중단하도록 연결.
+**영업 시간과 휴일 연결:**
+
+Salesforce가 관련 에스컬레이션 규칙을 일시 중단하도록 연결.
 - 방법 1: Holidays에서 휴일 선택 → Add/Remove → 영업 시간 추가(하나의 휴일을 여러 영업 시간에 연결).
 - 방법 2: Business Hours에서 영업 시간 선택 → Holidays 목록 Add/Remove(여러 휴일을 하나의 영업 시간에 연결).
 
@@ -81,9 +97,13 @@ Locale Setting 탭에서 Default Locale, Default Language, Default Time Zone, Cu
 
 Salesforce는 전 세계에서 사용되어 다중 언어를 지원합니다.
 
-**개인 설정:** 사용자가 기본 언어를 로컬 언어로 변경 가능. 경로: Name | My Settings | Personal | Language & Time zone → Language 드롭다운에서 선택.
+**개인 설정:**
 
-**조직 기본 언어 설정:** 관리자가 여러 언어를 활성화하면 사용자가 선호 언어를 선택 가능. 세 가지 지원 수준:
+사용자가 기본 언어를 로컬 언어로 변경 가능. 경로: Name | My Settings | Personal | Language & Time zone → Language 드롭다운에서 선택.
+
+**조직 기본 언어 설정:**
+
+관리자가 여러 언어를 활성화하면 사용자가 선호 언어를 선택 가능. 세 가지 지원 수준:
 - **완전 지원 언어(Fully supported):** 사용자 기능과 도움말 페이지가 완전히 번역됨(태국어, 러시아어, 영어, 덴마크어 등).
 - **End User Languages(EUL):** 다국어 조직에서 본사와 다른 언어를 쓰는 사용자용. 앱은 그 언어로 접근하되 Setup 메뉴는 접근하지 않음. 활성화: Language Settings → Enable End User Languages 체크 → Save.
 - **Platform-Only Languages:** Salesforce 플랫폼에서 만든 커스텀 기능(앱)을 현지화. Salesforce가 번역을 제공하지 않는 언어에 대해 Translation Workbench로 자체 번역 제공. 활성화: Language Settings → Enable Platform Only Languages 체크 → Save. (활성화 시 End User Language도 자동 활성화됨.)

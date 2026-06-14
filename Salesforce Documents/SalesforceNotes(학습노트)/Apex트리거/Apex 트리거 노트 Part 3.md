@@ -83,4 +83,6 @@ trigger AccountTrigger on Account (before update, after insert, after update, be
 }
 ```
 
-**적용된 모범 사례:** 핸들러 클래스로 로직 분리, static 변수로 중복 처리 방지, 벌크 처리. 추가로 try-catch 오류 처리, Custom Setting/Metadata로 StageName 구성 가능, 루프 안 SOQL 회피.
+**적용된 모범 사례:**
+
+핸들러 클래스로 로직 분리, static 변수로 중복 처리 방지, 벌크 처리. 추가로 try-catch 오류 처리, Custom Setting/Metadata로 StageName 구성 가능, 루프 안 SOQL 회피.

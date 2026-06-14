@@ -13,7 +13,9 @@ aliases: [SOAP API Implementation Guide SF]
 
 ## SOAP API란?
 XML over HTTP/HTTPS 프로토콜. CRUD, 메타데이터 배포·조회, 레거시 통합.
-**특징:** XML 전용, 계약 기반(WSDL), 엄격 표준, 트랜잭션 무결성.
+**특징:**
+
+XML 전용, 계약 기반(WSDL), 엄격 표준, 트랜잭션 무결성.
 
 ## WSDL
 웹 서비스를 기술하는 XML 문서(message·port type·binding). 메서드·입출력·데이터 타입·엔드포인트 정의.
@@ -27,7 +29,9 @@ XML over HTTP/HTTPS 프로토콜. CRUD, 메타데이터 배포·조회, 레거�
 4. **Apex SOAP API:** 커스텀 Apex 메서드를 SOAP 웹 서비스로 노출.
 
 ## Inbound SOAP API (외부 → Salesforce)
-**단계:** ① WSDL 다운로드(Setup → API → Generate WSDL), ② 외부 시스템과 공유, ③ Session ID(login()) 또는 OAuth 2.0 인증, ④ SOAP UI·Postman 테스트.
+**단계:**
+
+① WSDL 다운로드(Setup → API → Generate WSDL), ② 외부 시스템과 공유, ③ Session ID(login()) 또는 OAuth 2.0 인증, ④ SOAP UI·Postman 테스트.
 
 **Account 생성 요청:**
 ```xml
@@ -77,7 +81,9 @@ public class AccountWebServiceTest {
 ```
 
 ## Outbound SOAP API (Salesforce → 외부)
-**단계:** ① 외부 WSDL 다운로드, ② Setup → Apex Classes → Generate from WSDL → 파싱·이름 변경·생성, ③ Apex로 SOAP 요청, ④ Developer Console·테스트.
+**단계:**
+
+① 외부 WSDL 다운로드, ② Setup → Apex Classes → Generate from WSDL → 파싱·이름 변경·생성, ③ Apex로 SOAP 요청, ④ Developer Console·테스트.
 
 ```apex
 public class PaymentIntegration {

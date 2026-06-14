@@ -28,4 +28,6 @@ aliases: [LIGHTNING WEB COMPONENTS SCENARIOBASED INTERVIEW QUESTION]
 3. **사용자 친화 UI:** 데드라인·타이머가 있는 목록.
 4. **반응성:** 새로고침 없이 타이머 업데이트.
 
-**배포:** TaskController 배포 → taskManager LWC(.html·.js·.css) 배포 → App Builder로 Lightning 페이지에 추가.
+**배포:**
+
+TaskController 배포 → taskManager LWC(.html·.js·.css) 배포 → App Builder로 Lightning 페이지에 추가.

@@ -31,10 +31,18 @@ XML 인코딩, SOAP Envelope·Encoding 네임스페이스, DTD 참조·XML 처�
 </soap:Envelope>
 ```
 
-**Envelope:** 메시지 시작·끝 표시(패키징). 루트, 정확히 하나의 Body. Header 있으면 첫 자식.
-**Header:** 선택, 다중 가능, 새 기능 추가. 속성: actor(수신 노드 지정), mustUnderstand(필수 여부, 1이면 처리 또는 fault).
-**Body:** 필수, 애플리케이션 XML 데이터.
-**Fault:** 오류 시 반환(코드·설명·SOAP 프로세서 주소). 메시지당 fault 1개. HTTP 200~299=성공, 500~599=fault.
+**Envelope:**
+
+메시지 시작·끝 표시(패키징). 루트, 정확히 하나의 Body. Header 있으면 첫 자식.
+**Header:**
+
+선택, 다중 가능, 새 기능 추가. 속성: actor(수신 노드 지정), mustUnderstand(필수 여부, 1이면 처리 또는 fault).
+**Body:**
+
+필수, 애플리케이션 XML 데이터.
+**Fault:**
+
+오류 시 반환(코드·설명·SOAP 프로세서 주소). 메시지당 fault 1개. HTTP 200~299=성공, 500~599=fault.
 
 ```xml
 <!-- 요청 -->
@@ -45,7 +53,9 @@ XML 인코딩, SOAP Envelope·Encoding 네임스페이스, DTD 참조·XML 처�
 
 ## 예: Global Weather (WSDL 소비)
 URL: http://www.webserviceX.NET
-**WSDL 소비:** Setup → Apex Classes → Generate from WSDL.
+**WSDL 소비:**
+
+Setup → Apex Classes → Generate from WSDL.
 
 생성된 클래스(wsdl2apex)는 GlobalWeather.GlobalWeatherSoap에 GetWeather·GetCitiesByCountry 메서드 포함, WebServiceCallout.invoke로 콜아웃.
 

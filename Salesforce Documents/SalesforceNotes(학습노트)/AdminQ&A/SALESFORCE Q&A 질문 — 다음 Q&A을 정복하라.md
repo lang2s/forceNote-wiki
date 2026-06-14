@@ -233,9 +233,13 @@ Roll-up Summary는 자식 레코드의 Count·Sum·Min·Max 계산, Master 오�
 
 Role Hierarchy, OWD, Manual Sharing(OWD가 private일 때만 버튼 표시), Criteria Based Sharing Rules, Apex Sharing(각 오브젝트의 Share 오브젝트 — 예: AccountShare에 레코드 생성).
 
-**VF의 renderAs로 생성되는 PDF의 최대 크기는?** 15MB.
+**VF의 renderAs로 생성되는 PDF의 최대 크기는?**
 
-**Visualforce 페이지에서 컨트롤러는 몇 개?** 하나의 컨트롤러와 여러 확장 컨트롤러.
+15MB.
+
+**Visualforce 페이지에서 컨트롤러는 몇 개?**
+
+하나의 컨트롤러와 여러 확장 컨트롤러.
 
 **Action Support와 Action Function의 차이는?**
 
@@ -254,15 +258,25 @@ insert는 한 레코드에 오류 발생 시 전체 실패. Database.insert는 �
 
 이미지·zip·jar·JavaScript·CSS 파일 업로드. 조직당 최대 250MB. VF에서 사용: `<apex:includeScript value="{!$Resource.fileName}"/>`.
 
-**VF에서 형식화된 숫자/날짜 표시는?** `<apex:outputText>` 컴포넌트 사용.
+**VF에서 형식화된 숫자/날짜 표시는?**
 
-**암호화 필드를 apex:outputText로 표시하면?** 평문으로 표시됨(View Encrypted Data 권한 무시). 대신 `<apex:outputField>` 사용.
+`<apex:outputText>` 컴포넌트 사용.
 
-**`SELECT COUNT(Id), Name, Address__c FROM Opportunity GROUP BY Name`는 작동하나요?** 오류 발생. GROUP BY에서 선택된 열은 GROUP BY나 집계 함수에 사용되어야 함(Address__c가 둘 다 아니므로 "Malformed Query").
+**암호화 필드를 apex:outputText로 표시하면?**
 
-**COUNT()와 COUNT(fieldName)의 차이는?** COUNT()는 SELECT의 유일한 요소여야 하고 ORDER BY/GROUP BY 불가. COUNT(fieldName)은 ORDER BY/GROUP BY 가능.
+평문으로 표시됨(View Encrypted Data 권한 무시). 대신 `<apex:outputField>` 사용.
 
-**GROUP BY와 함께 WHERE 절은?** WHERE 대신 HAVING 절 사용. 예: `SELECT COUNT(Id), Name FROM Opportunity GROUP BY Name HAVING COUNT(Id) > 1 AND Name LIKE '%ABC%'`.
+**`SELECT COUNT(Id), Name, Address__c FROM Opportunity GROUP BY Name`는 작동하나요?**
+
+오류 발생. GROUP BY에서 선택된 열은 GROUP BY나 집계 함수에 사용되어야 함(Address__c가 둘 다 아니므로 "Malformed Query").
+
+**COUNT()와 COUNT(fieldName)의 차이는?**
+
+COUNT()는 SELECT의 유일한 요소여야 하고 ORDER BY/GROUP BY 불가. COUNT(fieldName)은 ORDER BY/GROUP BY 가능.
+
+**GROUP BY와 함께 WHERE 절은?**
+
+WHERE 대신 HAVING 절 사용. 예: `SELECT COUNT(Id), Name FROM Opportunity GROUP BY Name HAVING COUNT(Id) > 1 AND Name LIKE '%ABC%'`.
 
 **Apex에서 Lead 할당 규칙을 강제하려면?**
 ```apex
@@ -271,61 +285,113 @@ dmlOptn.assignmentRuleHeader.useDefaultRule = true;
 leadObj.setOptions(dmlOptn);
 ```
 
-**Custom Controller가 필요한 이유는?** 공유 설정을 적용하지 않으려면(without sharing) Custom Controller만 가능. 표준 오브젝트가 필요 없거나 여러 표준 오브젝트가 필요한 기능에 필요.
+**Custom Controller가 필요한 이유는?**
 
-**with sharing을 쓰지 않으면 system 모드인데 왜 without sharing이 있나요?** classA(with sharing)가 classB를 호출하면 classB는 기본적으로 with sharing이 적용됨. 이를 피하려면 classB를 명시적으로 without sharing으로 선언.
+공유 설정을 적용하지 않으려면(without sharing) Custom Controller만 가능. 표준 오브젝트가 필요 없거나 여러 표준 오브젝트가 필요한 기능에 필요.
 
-**share 오브젝트가 생성되지 않는 경우는?** OWD가 가장 관대한 수준(커스텀 오브젝트의 경우 Public Read/Write)으로 설정된 경우.
+**with sharing을 쓰지 않으면 system 모드인데 왜 without sharing이 있나요?**
 
-**Apex에서 선택 목록 값을 가져오려면?** Dynamic Apex 사용: `getDescribe()` → `getPicklistValues()`로 반복하여 List<SelectOption> 생성.
+classA(with sharing)가 classB를 호출하면 classB는 기본적으로 with sharing이 적용됨. 이를 피하려면 classB를 명시적으로 without sharing으로 선언.
 
-**Visualforce 컨트롤러의 유형은?** Standard Controller, Custom Controller.
+**share 오브젝트가 생성되지 않는 경우는?**
 
-**System.runAs()를 설명하세요.** 테스트 메서드에서 사용자 컨텍스트를 변경해 해당 사용자의 레코드 공유를 강제. 테스트 메서드에서만 사용 가능.
+OWD가 가장 관대한 수준(커스텀 오브젝트의 경우 Public Read/Write)으로 설정된 경우.
 
-**Test.setPage()를 설명하세요.** 현재 페이지로 컨텍스트 설정, VF 컨트롤러 테스트에 사용.
+**Apex에서 선택 목록 값을 가져오려면?**
 
-**Apex에서 double을 소수점 2자리로 반올림하려면?** `Decimal d = 100/3; Double ans = d.setScale(2);`
+Dynamic Apex 사용: `getDescribe()` → `getPicklistValues()`로 반복하여 List<SelectOption> 생성.
 
-**static 변수의 범위는?** 클래스 로드 시 한 번 초기화. 요청 범위 내에서만 static(서버나 조직 전체가 아님). VF view state에 전송되지 않음.
+**Visualforce 컨트롤러의 유형은?**
 
-**SOQL/SOSL 외에 Custom Settings를 가져오는 방법은?** 자체 메서드: `getInstance('INDIA')`, `getAll()` 등.
+Standard Controller, Custom Controller.
 
-**자식이 두 master를 갖고 하나가 삭제되면?** 자식 레코드가 삭제됨.
+**System.runAs()를 설명하세요.**
 
-**render, rerender, renderAs의 차이는?** render(CSS display처럼 표시/숨김), rerender(AJAX 후 새로 고칠 컴포넌트), renderAs(페이지를 PDF/doc/excel로 렌더링).
+테스트 메서드에서 사용자 컨텍스트를 변경해 해당 사용자의 레코드 공유를 강제. 테스트 메서드에서만 사용 가능.
 
-**Dynamic Apex로 모든 sObject 목록을 가져오려면?** `Map<String, Schema.SObjectType> m = Schema.getGlobalDescribe();`
+**Test.setPage()를 설명하세요.**
 
-**sObject 인스턴스를 동적으로 생성하려면?** `gd.get(t).newSObject();`
+현재 페이지로 컨텍스트 설정, VF 컨트롤러 테스트에 사용.
 
-**Apex의 Property란?** `public String name {get; set;}` — Java의 getter/setter를 C# 스타일로 한 줄로 캡슐화. 코드 라인 수 절약.
+**Apex에서 double을 소수점 2자리로 반올림하려면?**
 
-**Controller Extension이란?** Custom/Standard Controller 오브젝트를 단일 인자로 받는 public 생성자를 가진 Apex 클래스. VF는 하나의 컨트롤러와 여러 확장을 가질 수 있음.
+`Decimal d = 100/3; Double ans = d.setScale(2);`
 
-**URL에서 파라미터 값을 읽으려면?** `Apexpages.currentPage().getParameters().get('RecordType');`
+**static 변수의 범위는?**
 
-**한 오브젝트에 before insert 트리거 2개가 있으면 실행 순서를 제어할 수 있나요?** 트리거 순서는 사전 정의 불가. 모범 사례: 오브젝트당 트리거 하나, 주석으로 로직 분리.
+클래스 로드 시 한 번 초기화. 요청 범위 내에서만 static(서버나 조직 전체가 아님). VF view state에 전송되지 않음.
+
+**SOQL/SOSL 외에 Custom Settings를 가져오는 방법은?**
+
+자체 메서드: `getInstance('INDIA')`, `getAll()` 등.
+
+**자식이 두 master를 갖고 하나가 삭제되면?**
+
+자식 레코드가 삭제됨.
+
+**render, rerender, renderAs의 차이는?**
+
+render(CSS display처럼 표시/숨김), rerender(AJAX 후 새로 고칠 컴포넌트), renderAs(페이지를 PDF/doc/excel로 렌더링).
+
+**Dynamic Apex로 모든 sObject 목록을 가져오려면?**
+
+`Map<String, Schema.SObjectType> m = Schema.getGlobalDescribe();`
+
+**sObject 인스턴스를 동적으로 생성하려면?**
+
+`gd.get(t).newSObject();`
+
+**Apex의 Property란?**
+
+`public String name {get; set;}` — Java의 getter/setter를 C# 스타일로 한 줄로 캡슐화. 코드 라인 수 절약.
+
+**Controller Extension이란?**
+
+Custom/Standard Controller 오브젝트를 단일 인자로 받는 public 생성자를 가진 Apex 클래스. VF는 하나의 컨트롤러와 여러 확장을 가질 수 있음.
+
+**URL에서 파라미터 값을 읽으려면?**
+
+`Apexpages.currentPage().getParameters().get('RecordType');`
+
+**한 오브젝트에 before insert 트리거 2개가 있으면 실행 순서를 제어할 수 있나요?**
+
+트리거 순서는 사전 정의 불가. 모범 사례: 오브젝트당 트리거 하나, 주석으로 로직 분리.
 
 **Trigger.new와 Trigger.old의 차이는?**
 - Trigger.new: 새 버전 레코드 목록. insert·update 트리거에서만, before에서만 수정 가능.
 - Trigger.old: 이전 버전 레코드 목록. update·delete 트리거에서만.
 
-**트리거를 한 번만 실행하려면?** 정적 boolean 변수를 헬퍼 클래스에 두고 체크. (트리거는 워크플로우 전후로 두 번 발동 가능.)
+**트리거를 한 번만 실행하려면?**
 
-**Global 변수란?** 현재 사용자/조직 정보를 참조하는 변수(예: `{!$User.Name}`). $Action, $Api, $Component, $CurrentPage, $Label, $ObjectType, $Organization, $Page, $Profile, $Resource, $Setup, $Site, $User, $UserRole 등.
+정적 boolean 변수를 헬퍼 클래스에 두고 체크. (트리거는 워크플로우 전후로 두 번 발동 가능.)
 
-**Many-to-Many 관계를 만들려면?** 직접 불가. 두 오브젝트를 만들고, 정션 오브젝트(auto number 고유 식별, 두 master 관계)를 만든 뒤 양쪽 오브젝트에 관련 목록으로 추가.
+**Global 변수란?**
 
-**S-Control이란?** JavaScript 기반 위젯으로 salesforce가 호스팅하지만 클라이언트 측 실행. 현재 Visualforce로 대체됨.
+현재 사용자/조직 정보를 참조하는 변수(예: `{!$User.Name}`). $Action, $Api, $Component, $CurrentPage, $Label, $ObjectType, $Organization, $Page, $Profile, $Resource, $Setup, $Site, $User, $UserRole 등.
 
-**Visualforce Page란?** Salesforce의 마크업 언어로 표준 스타일을 렌더링. 모든 태그는 "apex" 네임스페이스로 시작. 비즈니스 로직은 커스텀 컨트롤러에 작성.
+**Many-to-Many 관계를 만들려면?**
 
-**Merge Field란?** 이메일 템플릿·메일 머지·커스텀 링크·수식 필드에 넣어 레코드 값을 통합하는 필드. 예: `{!CustomObject.FieldName__c}`.
+직접 불가. 두 오브젝트를 만들고, 정션 오브젝트(auto number 고유 식별, 두 master 관계)를 만든 뒤 양쪽 오브젝트에 관련 목록으로 추가.
 
-**ISNULL과 ISBLANK의 차이는?** ISNULL은 표현식이 null이면 TRUE(텍스트 필드는 항상 false). ISBLANK는 값이 없으면 TRUE이며 텍스트 필드도 지원. 새 수식에는 ISBLANK 권장.
+**S-Control이란?**
 
-**Apex 클래스를 예약하려면?** Schedulable 인터페이스 구현 후 System.schedule(작업명, cron 표현식, 클래스). 한 번에 최대 25개 클래스 예약. 예: `System.schedule('Hourly Sync', '0 0 * * * ?', sch);`
+JavaScript 기반 위젯으로 salesforce가 호스팅하지만 클라이언트 측 실행. 현재 Visualforce로 대체됨.
+
+**Visualforce Page란?**
+
+Salesforce의 마크업 언어로 표준 스타일을 렌더링. 모든 태그는 "apex" 네임스페이스로 시작. 비즈니스 로직은 커스텀 컨트롤러에 작성.
+
+**Merge Field란?**
+
+이메일 템플릿·메일 머지·커스텀 링크·수식 필드에 넣어 레코드 값을 통합하는 필드. 예: `{!CustomObject.FieldName__c}`.
+
+**ISNULL과 ISBLANK의 차이는?**
+
+ISNULL은 표현식이 null이면 TRUE(텍스트 필드는 항상 false). ISBLANK는 값이 없으면 TRUE이며 텍스트 필드도 지원. 새 수식에는 ISBLANK 권장.
+
+**Apex 클래스를 예약하려면?**
+
+Schedulable 인터페이스 구현 후 System.schedule(작업명, cron 표현식, 클래스). 한 번에 최대 25개 클래스 예약. 예: `System.schedule('Hourly Sync', '0 0 * * * ?', sch);`
 
 **salesforce.com의 다양한 API는?**
 
@@ -337,16 +403,30 @@ leadObj.setOptions(dmlOptn);
 - **Streaming API:** SOQL 쿼리와 일치하는 데이터 변경 알림 푸시.
 - **Apex REST API / Apex SOAP API:** Apex 클래스·메서드를 외부에 노출(OAuth 2.0/Session ID 지원).
 
-**VF 페이지에 오류 메시지를 표시하려면?** `<apex:pageMessages />` 태그 + 컨트롤러에서 `ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, '...'))`.
+**VF 페이지에 오류 메시지를 표시하려면?**
 
-**Apex 거버너 한도란?** Apex 런타임 엔진이 공유 멀티테넌트 환경에서 리소스 독점을 막기 위해 적용하는 런타임 한도(메모리, DB 리소스, 스크립트 문 수, 처리 레코드 수). 초과 시 런타임 예외. 모든 인스턴스(체험·개발·운영·샌드박스)에 적용되나 코드 커버리지·테스트는 운영 배포 시에만 강제.
+`<apex:pageMessages />` 태그 + 컨트롤러에서 `ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, '...'))`.
 
-**UI에서 Apex 코드를 작성할 수 있나요?** Developer Edition, Enterprise 체험, 샌드박스에서만 UI로 가능. 운영에서는 Metadata API deploy, Force.com IDE, Migration Tool로만 변경.
+**Apex 거버너 한도란?**
 
-**Apex란?** salesforce.com의 자체 기술로 Java와 유사한 객체 지향 언어. Salesforce 서버에서 네이티브 실행되어 JavaScript/AJAX보다 강력·빠름. 트리거에 작성 가능(DB 저장 프로시저처럼), 단위 테스트 내장 지원. DML(INSERT/UPDATE/DELETE), 인라인 SOQL/SOSL, 대량 처리 루프, 레코드 잠금 구문 지원. Java와 공통점(클래스·상속·다형성, 컴파일·강타입·트랜잭션)과 차이점(멀티테넌트·거버너 한도, 대소문자 구분 안 함, 온디맨드, 비즈니스 로직 전용, 운영 배포 시 단위 테스트 필수).
+Apex 런타임 엔진이 공유 멀티테넌트 환경에서 리소스 독점을 막기 위해 적용하는 런타임 한도(메모리, DB 리소스, 스크립트 문 수, 처리 레코드 수). 초과 시 런타임 예외. 모든 인스턴스(체험·개발·운영·샌드박스)에 적용되나 코드 커버리지·테스트는 운영 배포 시에만 강제.
 
-**Apex DML 작업이란?** DB에서 데이터 삽입·업데이트·삭제·복원. 두 형태: DML 문(insert sObject[]) — 오류 시 예외 발생, DML 데이터베이스 메서드(Database.insert()) — 부분 성공 허용.
+**UI에서 Apex 코드를 작성할 수 있나요?**
 
-**관련 오브젝트가 있는 커스텀 오브젝트 리포트의 조건은?** 두 오브젝트 모두 Reports 옵션 활성화, 관계가 Master-Detail이어야 함. 부모가 표준 오브젝트면 해당 섹션에, 둘 다 커스텀이면 "Other Reports" 섹션에 표시.
+Developer Edition, Enterprise 체험, 샌드박스에서만 UI로 가능. 운영에서는 Metadata API deploy, Force.com IDE, Migration Tool로만 변경.
 
-**Public Site에서 사용자 인증을 제공하려면?** Customer Portal을 사용해 공개 사이트에 인증 제공.
+**Apex란?**
+
+salesforce.com의 자체 기술로 Java와 유사한 객체 지향 언어. Salesforce 서버에서 네이티브 실행되어 JavaScript/AJAX보다 강력·빠름. 트리거에 작성 가능(DB 저장 프로시저처럼), 단위 테스트 내장 지원. DML(INSERT/UPDATE/DELETE), 인라인 SOQL/SOSL, 대량 처리 루프, 레코드 잠금 구문 지원. Java와 공통점(클래스·상속·다형성, 컴파일·강타입·트랜잭션)과 차이점(멀티테넌트·거버너 한도, 대소문자 구분 안 함, 온디맨드, 비즈니스 로직 전용, 운영 배포 시 단위 테스트 필수).
+
+**Apex DML 작업이란?**
+
+DB에서 데이터 삽입·업데이트·삭제·복원. 두 형태: DML 문(insert sObject[]) — 오류 시 예외 발생, DML 데이터베이스 메서드(Database.insert()) — 부분 성공 허용.
+
+**관련 오브젝트가 있는 커스텀 오브젝트 리포트의 조건은?**
+
+두 오브젝트 모두 Reports 옵션 활성화, 관계가 Master-Detail이어야 함. 부모가 표준 오브젝트면 해당 섹션에, 둘 다 커스텀이면 "Other Reports" 섹션에 표시.
+
+**Public Site에서 사용자 인증을 제공하려면?**
+
+Customer Portal을 사용해 공개 사이트에 인증 제공.

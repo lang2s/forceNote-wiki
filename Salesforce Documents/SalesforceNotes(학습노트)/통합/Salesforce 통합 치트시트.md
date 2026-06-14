@@ -21,11 +21,21 @@ Salesforce를 외부 시스템과 연결해 데이터 공유. 유형: Real-time(
 - **External Services:** OpenAPI 스펙으로 선언적 통합.
 
 ## 3. 도구·API
-**REST API:** 경량, JSON/XML. `GET /services/data/v57.0/sobjects/Account/001xx... Authorization: Bearer <Token>`
-**SOAP API:** XML, WSDL 필요. `<create><sObjects><type>Lead</type>...</sObjects></create>`
-**Bulk API:** 대량 데이터. 1.0(CSV), 2.0(JSON).
-**Streaming API:** 실시간 알림. PushTopic·Platform Events.
-**도구:** Postman, Workbench, Data Loader.
+**REST API:**
+
+경량, JSON/XML. `GET /services/data/v57.0/sobjects/Account/001xx... Authorization: Bearer <Token>`
+**SOAP API:**
+
+XML, WSDL 필요. `<create><sObjects><type>Lead</type>...</sObjects></create>`
+**Bulk API:**
+
+대량 데이터. 1.0(CSV), 2.0(JSON).
+**Streaming API:**
+
+실시간 알림. PushTopic·Platform Events.
+**도구:**
+
+Postman, Workbench, Data Loader.
 
 ## 4. 통합 디자인 패턴
 - **Remote Process Invocation:** Request and Reply(응답 대기), Fire and Forget(대기 없음).
@@ -49,8 +59,12 @@ Salesforce를 외부 시스템과 연결해 데이터 공유. 유형: Real-time(
 - **모니터링:** API 사용 알림, Event Monitoring.
 
 ## 8. 예시
-**REST로 Account 조회:** `GET /services/data/v57.0/sobjects/Account/001xx...` → `{"Id":"...", "Name":"Acme Corporation", "Phone":"123-456-7890"}`
-**워크플로우 Outbound Message:** 레코드 업데이트 시 외부 호출, 엔드포인트 URL 필요.
+**REST로 Account 조회:**
+
+`GET /services/data/v57.0/sobjects/Account/001xx...` → `{"Id":"...", "Name":"Acme Corporation", "Phone":"123-456-7890"}`
+**워크플로우 Outbound Message:**
+
+레코드 업데이트 시 외부 호출, 엔드포인트 URL 필요.
 
 ## 9. FAQ
 - **REST vs SOAP?** REST는 경량·JSON, SOAP은 견고·XML.

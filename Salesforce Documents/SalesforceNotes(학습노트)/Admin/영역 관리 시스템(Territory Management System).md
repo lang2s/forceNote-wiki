@@ -38,7 +38,9 @@ Salesforce의 영역 관리 시스템은 조직이 영업팀에 영역을 효과
 
 ## 사용 사례 예시
 
-**시나리오:** 인도 전역에 제품을 판매하는 회사가 영업 커버리지 최적화를 원함.
+**시나리오:**
+
+인도 전역에 제품을 판매하는 회사가 영업 커버리지 최적화를 원함.
 - **영역 구조:** Level 1=India, Level 2=North/South/East/West, Level 3=개별 주(예: Maharashtra, Tamil Nadu).
 - **할당 규칙:** 주와 매출 규모에 따라 계정 할당.
 - **사용자:** "Maharashtra – High Revenue" 또는 "South Region – Small Accounts" 같은 영역에 할당.

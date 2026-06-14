@@ -19,4 +19,6 @@ aliases: [USE OF ISNULL and ISBLANK functions in Salesforce]
 6. **Checkbox 필드:** ISNULL/ISBLANK로 선택되지 않았는지 확인.
 7. **Number 필드:** ISBLANK는 보통 사용하지 않으나(기본값 존재), ISNULL로 null 확인 가능.
 
-**선택 기준:** 필드가 null일 수 있으면 ISNULL, 값이 있어야 하지만 비어 있을 수 있으면 ISBLANK. 복잡한 검증 규칙에서 결합 사용 가능.
+**선택 기준:**
+
+필드가 null일 수 있으면 ISNULL, 값이 있어야 하지만 비어 있을 수 있으면 ISBLANK. 복잡한 검증 규칙에서 결합 사용 가능.

@@ -13,7 +13,9 @@ aliases: [Lightning App Builder in Salesforce]
 
 코드 작성 없이 Lightning 페이지를 만들고 커스터마이징할 수 있는 드래그 앤 드롭 도구입니다. 레이아웃을 구성하고 컴포넌트를 추가해 사용자 경험을 향상시킵니다.
 
-**주요 기능:** 포인트 앤 클릭 커스터마이징(코딩 불필요), 드래그 앤 드롭 컴포넌트, 표준·커스텀 컴포넌트 지원, Lightning Experience·모바일에서 사용 가능.
+**주요 기능:**
+
+포인트 앤 클릭 커스터마이징(코딩 불필요), 드래그 앤 드롭 컴포넌트, 표준·커스텀 컴포넌트 지원, Lightning Experience·모바일에서 사용 가능.
 
 ## 2. Lightning 페이지 유형
 
@@ -23,9 +25,13 @@ aliases: [Lightning App Builder in Salesforce]
 
 Lightning 페이지는 컴포넌트로 구성됩니다. Standard, Custom, 또는 Third-Party(AppExchange) 컴포넌트가 있습니다.
 
-**표준 컴포넌트:** Recent Items(최근 접근 레코드), Related Lists(관련 레코드), Report Chart(리포트 차트 임베드), Rich Text(텍스트·이미지), Tabs(섹션 정리).
+**표준 컴포넌트:**
 
-**커스텀 컴포넌트:** Lightning 컴포넌트(Aura/LWC, 개발자가 구축), 서드파티 컴포넌트(AppExchange에서 설치).
+Recent Items(최근 접근 레코드), Related Lists(관련 레코드), Report Chart(리포트 차트 임베드), Rich Text(텍스트·이미지), Tabs(섹션 정리).
+
+**커스텀 컴포넌트:**
+
+Lightning 컴포넌트(Aura/LWC, 개발자가 구축), 서드파티 컴포넌트(AppExchange에서 설치).
 
 ## 4. Lightning 페이지 생성
 
@@ -36,9 +42,13 @@ Lightning 페이지는 컴포넌트로 구성됩니다. Standard, Custom, 또는
 
 ## 5. Dynamic Forms & Dynamic Actions
 
-**Dynamic Forms란?** 사용자 프로필, 레코드 값, 기기 유형에 따라 필드를 조건부로 표시해 레코드 페이지를 커스터마이징합니다. 예: "Discount Field"를 영업 관리자에게만 표시, Case가 High Priority일 때만 "Escalation Reason" 표시.
+**Dynamic Forms란?**
 
-**Dynamic Actions란?** 조건에 따라 버튼을 표시/숨김합니다. 예: "Approve" 버튼을 관리자에게만 표시, 상태가 "Pending"일 때만 "Escalate Case" 표시.
+사용자 프로필, 레코드 값, 기기 유형에 따라 필드를 조건부로 표시해 레코드 페이지를 커스터마이징합니다. 예: "Discount Field"를 영업 관리자에게만 표시, Case가 High Priority일 때만 "Escalation Reason" 표시.
+
+**Dynamic Actions란?**
+
+조건에 따라 버튼을 표시/숨김합니다. 예: "Approve" 버튼을 관리자에게만 표시, 상태가 "Pending"일 때만 "Escalate Case" 표시.
 
 ## 모범 사례
 

@@ -89,6 +89,10 @@ wiredRecord({ error, data }) {
 }
 ```
 
-**핵심 어댑터:** getRecord(단일 레코드), getObjectInfo(메타데이터), getPicklistValues(선택 목록), getListUi(리스트 뷰), 커스텀 Apex(커스텀 로직).
+**핵심 어댑터:**
 
-**선택:** 표준 데이터는 Wire 어댑터, 커스텀 로직·필터링은 Wire 함수. 대부분 둘 다 사용.
+getRecord(단일 레코드), getObjectInfo(메타데이터), getPicklistValues(선택 목록), getListUi(리스트 뷰), 커스텀 Apex(커스텀 로직).
+
+**선택:**
+
+표준 데이터는 Wire 어댑터, 커스텀 로직·필터링은 Wire 함수. 대부분 둘 다 사용.

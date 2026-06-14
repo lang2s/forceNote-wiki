@@ -54,4 +54,6 @@ Salesforce 환경 내에서 사용자가 갖는 기준 접근 수준으로, 어�
 | 비용 영향 | 높음(전체 접근) | 중간(기능에 따라) | 낮음(기존에 특정 기능 추가) |
 | 결합 | Feature·Permission Set와 결합 가능 | User License와 결합 필요 | 항상 User License 위에 적용(독립 불가) |
 
-**핵심 팁:** User License는 기본 접근(필수), Feature License는 그 위의 특정 기능 애드온, Permission Set License는 기본 라이선스 변경 없이 추가 기능·권한 부여.
+**핵심 팁:**
+
+User License는 기본 접근(필수), Feature License는 그 위의 특정 기능 애드온, Permission Set License는 기본 라이선스 변경 없이 추가 기능·권한 부여.

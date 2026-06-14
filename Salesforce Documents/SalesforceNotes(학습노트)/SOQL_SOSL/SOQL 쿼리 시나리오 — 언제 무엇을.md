@@ -11,19 +11,27 @@ aliases: [Scenarios for SOQL Queries When to do What]
 
 ## 연산자
 
-**LIKE:** 지정 필드 값이 텍스트 패턴과 일치하면 true. 부분 문자열·와일드카드(% 0개 이상, _ 정확히 1개). 작은따옴표 필수, 문자열 필드만, 대소문자 무시.
+**LIKE:**
+
+지정 필드 값이 텍스트 패턴과 일치하면 true. 부분 문자열·와일드카드(% 0개 이상, _ 정확히 1개). 작은따옴표 필수, 문자열 필드만, 대소문자 무시.
 ```sql
 SELECT AccountId, FirstName, LastName FROM Contact WHERE LastName LIKE 'test_%'
 ```
-**IN:** WHERE에서 지정 값 중 하나와 같으면.
+**IN:**
+
+WHERE에서 지정 값 중 하나와 같으면.
 ```sql
 SELECT Name FROM Account WHERE BillingState IN ('California', 'New York')
 ```
-**NOT IN:** 지정 값 중 어느 것과도 같지 않으면.
+**NOT IN:**
+
+지정 값 중 어느 것과도 같지 않으면.
 ```sql
 SELECT Name FROM Account WHERE BillingState NOT IN ('California', 'New York')
 ```
-**INCLUDES:** (다중 선택 목록)
+**INCLUDES:**
+
+(다중 선택 목록)
 ```sql
 SELECT Customer_Name__c, Balance__c FROM Customer__c WHERE Proof__c INCLUDES ('Aadhar Card'), ('PAN Card')
 ```

@@ -73,10 +73,18 @@ Apex 없이 CRUD. lightning-record-form/view-form/edit-form.
 @api(public·반응형), @track(private 반응형), @wire(데이터 조회·재렌더링).
 
 ## SOQL 최적화·거버너 한도
-**타임아웃·거버너 한도:** 과도 리소스 방지. 타임아웃(쿼리 지연 종료), 거버너 한도(트랜잭션당 SOQL·레코드 제한).
-**타임아웃 회피:** WHERE·LIMIT·OFFSET 필터, 인덱스(Id·Name·OwnerId 자동, External ID·Unique 커스텀), 선택적 쿼리, Query Plan 도구.
-**거버너 한도 회피:** 벌크화·컬렉션, 트리거·Batch, 캐싱·static 변수, @future·Queueable.
-**모니터링:** Developer Console, Apex Debugger, Apex Profiler, Execution Overview, Salesforce Optimizer.
+**타임아웃·거버너 한도:**
+
+과도 리소스 방지. 타임아웃(쿼리 지연 종료), 거버너 한도(트랜잭션당 SOQL·레코드 제한).
+**타임아웃 회피:**
+
+WHERE·LIMIT·OFFSET 필터, 인덱스(Id·Name·OwnerId 자동, External ID·Unique 커스텀), 선택적 쿼리, Query Plan 도구.
+**거버너 한도 회피:**
+
+벌크화·컬렉션, 트리거·Batch, 캐싱·static 변수, @future·Queueable.
+**모니터링:**
+
+Developer Console, Apex Debugger, Apex Profiler, Execution Overview, Salesforce Optimizer.
 
 ## Batch 체이닝
 finish 메서드에서 다른 Batch 호출. 또는 Queueable.
@@ -117,14 +125,26 @@ public class UtilFutureDemo {
 VF 페이지 데이터가 먼저 view state 거쳐 표시. 한도 170KB(초과 시 오류). 페이지네이션(SOQL limit·offset, offset 최대 2000)으로 회피.
 
 ## Flow
-**요소:** Data(Create/Update/Get/Delete), Interaction(Screen/Action/Subflow), Logic.
-**Fault Connector:** 오류·예외 처리.
-**디버그:** Flow Builder의 Debug 버튼(실제 실행됨).
+**요소:**
+
+Data(Create/Update/Get/Delete), Interaction(Screen/Action/Subflow), Logic.
+**Fault Connector:**
+
+오류·예외 처리.
+**디버그:**
+
+Flow Builder의 Debug 버튼(실제 실행됨).
 
 ## 인증
-**SSO:** 한 번 로그인으로 여러 앱 접근(Identity Flows).
-**Social Sign-On:** 소셜 미디어 자격 증명으로 로그인.
-**Connected Apps:** SAML·OAuth·OpenID Connect로 외부 앱 통합·SSO.
+**SSO:**
+
+한 번 로그인으로 여러 앱 접근(Identity Flows).
+**Social Sign-On:**
+
+소셜 미디어 자격 증명으로 로그인.
+**Connected Apps:**
+
+SAML·OAuth·OpenID Connect로 외부 앱 통합·SSO.
 
 ## Aura
 

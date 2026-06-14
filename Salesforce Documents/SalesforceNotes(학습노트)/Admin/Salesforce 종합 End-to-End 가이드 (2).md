@@ -39,9 +39,13 @@ aliases: [A Complete End-to-End Salesforce Guide]
 
 ## 암호화 방식
 
-**Classic Encrypted Fields:** Text(Encrypted) 타입만 지원. "View Encrypted Data" 권한 사용자만 조회. unique·external ID·기본값 불가. 175자 제한. 많은 기능에서 미지원. 기존 필드를 암호화 필드로 변환 불가.
+**Classic Encrypted Fields:**
 
-**Shield Platform Encryption:** 플랫폼 기능을 보존하며 보안 계층 추가. HSM 기반 키 파생 시스템으로 암호화. 플로우·프로세스에서 참조 가능. Account, Contact, Case, Case Comment의 특정 필드 암호화. email·phone·url·datetime·텍스트 타입 커스텀 필드 암호화 가능. 일부 SF 앱(Heroku, CPQ, Data.com, Marketing Cloud)에서 미지원.
+Text(Encrypted) 타입만 지원. "View Encrypted Data" 권한 사용자만 조회. unique·external ID·기본값 불가. 175자 제한. 많은 기능에서 미지원. 기존 필드를 암호화 필드로 변환 불가.
+
+**Shield Platform Encryption:**
+
+플랫폼 기능을 보존하며 보안 계층 추가. HSM 기반 키 파생 시스템으로 암호화. 플로우·프로세스에서 참조 가능. Account, Contact, Case, Case Comment의 특정 필드 암호화. email·phone·url·datetime·텍스트 타입 커스텀 필드 암호화 가능. 일부 SF 앱(Heroku, CPQ, Data.com, Marketing Cloud)에서 미지원.
 
 ## 오브젝트 관계 유형
 
@@ -54,9 +58,13 @@ aliases: [A Complete End-to-End Salesforce Guide]
 
 ## 조직 전략(Org Strategy)
 
-**Single-Org:** (장점) 부서 간 협업, 공유 Chatter, 정렬된 프로세스·리포트, 데이터 공유, 통합 리포팅, 단일 로그인. (단점) 복잡성 증가, 조직 한도 도달 가능, 조직 전체 설정 관리 어려움, 회귀 테스트 증가.
+**Single-Org:**
 
-**Multi-Org:** (장점) 논리적 데이터 분리, 한도 초과 위험 감소, 설정 관리 용이, 성능 개선, 빠른 출시. (단점) 전역 프로세스 정의 어려움, 코드 재사용 감소, 협업 저하, 관리 중복, SSO 복잡성, 조직 병합·분할 어려움.
+(장점) 부서 간 협업, 공유 Chatter, 정렬된 프로세스·리포트, 데이터 공유, 통합 리포팅, 단일 로그인. (단점) 복잡성 증가, 조직 한도 도달 가능, 조직 전체 설정 관리 어려움, 회귀 테스트 증가.
+
+**Multi-Org:**
+
+(장점) 논리적 데이터 분리, 한도 초과 위험 감소, 설정 관리 용이, 성능 개선, 빠른 출시. (단점) 전역 프로세스 정의 어려움, 코드 재사용 감소, 협업 저하, 관리 중복, SSO 복잡성, 조직 병합·분할 어려움.
 
 Multi-Org 접근: 1) 완전 자율(각 조직 비연결), 2) Master-Child(마스터가 자식에 데이터 푸시), 3) 중앙 조직 없음(Salesforce2Salesforce 통합으로 직접 연결).
 
@@ -109,25 +117,39 @@ Profiles, Permission Sets, Organization Wide Defaults, Role Hierarchy, Sharing R
 
 ## ETL & ESB 통합
 
-**ETL:** 여러 소스의 대량 데이터 추출·변환·로드(배치·예약·임시). 예: Talend, Informatica, Jitterbit. **ESB:** 애플리케이션 컴포넌트 간 작업 분배 미들웨어. 예: MuleSoft. 통합 지점이 2개 이상, 여러 프로토콜(FTP·HTTP·Web Service·JMS) 사용, 메시지 내용 기반 라우팅 시 사용. 5대 원칙: Orchestration, Transformation, Transportation, Mediation, Non-functional consistency.
+**ETL:**
+
+여러 소스의 대량 데이터 추출·변환·로드(배치·예약·임시). 예: Talend, Informatica, Jitterbit. **ESB:** 애플리케이션 컴포넌트 간 작업 분배 미들웨어. 예: MuleSoft. 통합 지점이 2개 이상, 여러 프로토콜(FTP·HTTP·Web Service·JMS) 사용, 메시지 내용 기반 라우팅 시 사용. 5대 원칙: Orchestration, Transformation, Transportation, Mediation, Non-functional consistency.
 
 ## 계정 모델
 
-**B2C:** Person Accounts(개인 정보, 되돌릴 수 없음), Private Contact(권장 안 함), Household model(NPSP 기본·권장), 1-to-1 Account Model, Bucket model(모든 Contact를 하나의 Account에).
+**B2C:**
 
-**Account Hierarchy:** Global Enterprise Account(하나의 전역 계정), Location-Specific Accounts(위치별 계정).
+Person Accounts(개인 정보, 되돌릴 수 없음), Private Contact(권장 안 함), Household model(NPSP 기본·권장), 1-to-1 Account Model, Bucket model(모든 Contact를 하나의 Account에).
 
-**Contacts to Multiple Accounts:** Account Contact Roles(커스텀 미지원), Contacts to Multiple Accounts(커스텀 지원), Custom Junction Object(전체 기능, 커스텀 개발 필요).
+**Account Hierarchy:**
+
+Global Enterprise Account(하나의 전역 계정), Location-Specific Accounts(위치별 계정).
+
+**Contacts to Multiple Accounts:**
+
+Account Contact Roles(커스텀 미지원), Contacts to Multiple Accounts(커스텀 지원), Custom Junction Object(전체 기능, 커스텀 개발 필요).
 
 ## 데이터 마이그레이션 & 백업
 
-**데이터 로딩 모범 사례:** 수천 건 이상은 Bulk API, 가장 빠른 작업 우선(Insert > Update > Upsert), Public Read/Write로 공유 계산 회피, 트리거·워크플로우·검증 비활성화, 자식은 부모 ID로 그룹화, defer-sharing 사용, 로드 후 공유 규칙 활성화(하나씩), 감사 필드는 insert 시에만 채움.
+**데이터 로딩 모범 사례:**
 
-**백업 유형:** Full, Incremental, Partial. **아카이빙:** BigObject, Salesforce 외부, 주간 export, Data Loader, Reporting snapshot.
+수천 건 이상은 Bulk API, 가장 빠른 작업 우선(Insert > Update > Upsert), Public Read/Write로 공유 계산 회피, 트리거·워크플로우·검증 비활성화, 자식은 부모 ID로 그룹화, defer-sharing 사용, 로드 후 공유 규칙 활성화(하나씩), 감사 필드는 insert 시에만 채움.
+
+**백업 유형:**
+
+Full, Incremental, Partial. **아카이빙:** BigObject, Salesforce 외부, 주간 export, Data Loader, Reporting snapshot.
 
 ## 데이터 거버넌스 & 스튜어드십
 
-**데이터 거버넌스:** 데이터 자산의 사용성·품질·정책 준수를 보장하는 프로세스. **데이터 스튜어드십:** 거버넌스 규칙 준수를 위한 교차 기능 역할. **마스터 데이터 관리(MDM):** 단일 마스터 참조 소스 생성(3대 축: 데이터, 데이터 관계, 이벤트 마스터링).
+**데이터 거버넌스:**
+
+데이터 자산의 사용성·품질·정책 준수를 보장하는 프로세스. **데이터 스튜어드십:** 거버넌스 규칙 준수를 위한 교차 기능 역할. **마스터 데이터 관리(MDM):** 단일 마스터 참조 소스 생성(3대 축: 데이터, 데이터 관계, 이벤트 마스터링).
 
 ## 사용자 프로비저닝 방법
 
@@ -139,13 +161,21 @@ SSO with multiple Orgs(내부 사용자만), SSO with AD(Identity Connect/ADFS),
 
 ## 데이터 품질 & 중복 관리
 
-**품질 속성:** Age, Completeness, Accuracy, Consistency, Duplication, Usage.
+**품질 속성:**
 
-**안전한 삭제:** 의심 격리 → 제거 표시·색상 코드 → 보안으로 숨김 → 대기(약 3개월) → 백업 → 삭제.
+Age, Completeness, Accuracy, Consistency, Duplication, Usage.
 
-**중복 제거 순서:** Accounts vs Accounts → Account 내 Contacts → Account 간 Contacts → Accounts vs Accounts → Leads → Leads to Contacts.
+**안전한 삭제:**
 
-**도구:** Data.com, Duplicate Rules, Merging records. **아카이브 전략:** In-place, External, Hybrid(데이터 티어링).
+의심 격리 → 제거 표시·색상 코드 → 보안으로 숨김 → 대기(약 3개월) → 백업 → 삭제.
+
+**중복 제거 순서:**
+
+Accounts vs Accounts → Account 내 Contacts → Account 간 Contacts → Accounts vs Accounts → Leads → Leads to Contacts.
+
+**도구:**
+
+Data.com, Duplicate Rules, Merging records. **아카이브 전략:** In-place, External, Hybrid(데이터 티어링).
 
 ## 2단계 인증(2FA)
 
@@ -161,15 +191,25 @@ Native(빠름, App Store, 카메라·알림 지원, ObjectiveC/Java), HTML5(느�
 
 ## Salesforce Communities
 
-**템플릿:** Visualforce+Tabs, Customer Service(Napili), Kokua & Koa, Lightning Communities, Partner Central, Customer Account Portal.
-**롤아웃 단계:** Establish → Manage → Engage → Measure.
-**브랜딩:** 색 구성, 이메일 커스터마이징, 로고, 로그인 페이지, 커스텀 도메인.
+**템플릿:**
+
+Visualforce+Tabs, Customer Service(Napili), Kokua & Koa, Lightning Communities, Partner Central, Customer Account Portal.
+**롤아웃 단계:**
+
+Establish → Manage → Engage → Measure.
+**브랜딩:**
+
+색 구성, 이메일 커스터마이징, 로고, 로그인 페이지, 커스텀 도메인.
 
 ## 프로젝트 방법론
 
-**Agile vs Waterfall.** 산출물: 중앙 협업·문서 저장소, 요구사항 추적, 거버넌스 수준(Steering Committee, COE, Architectural Review Board), 품질 관리(설계 표준, 피어 리뷰, 코드 리뷰, 배포 체크리스트), 테스트 전략, 의존성 관리. 핵심 도구: 프로젝트 관리 SW(MS Project, Agile Accelerator), 요구사항 저장소(Rally, Jira, Excel), Traceability Matrix, Test Suite 관리.
+**Agile vs Waterfall.**
 
-**Center of Excellence(COE):** 비즈니스 프로세스·CRM·도메인 전문가 팀. 유형: Best Practice Centers(공유자), DevOps Centers(실행자), Competency Centers(안내자), Innovation Centers(창조자).
+산출물: 중앙 협업·문서 저장소, 요구사항 추적, 거버넌스 수준(Steering Committee, COE, Architectural Review Board), 품질 관리(설계 표준, 피어 리뷰, 코드 리뷰, 배포 체크리스트), 테스트 전략, 의존성 관리. 핵심 도구: 프로젝트 관리 SW(MS Project, Agile Accelerator), 요구사항 저장소(Rally, Jira, Excel), Traceability Matrix, Test Suite 관리.
+
+**Center of Excellence(COE):**
+
+비즈니스 프로세스·CRM·도메인 전문가 팀. 유형: Best Practice Centers(공유자), DevOps Centers(실행자), Competency Centers(안내자), Innovation Centers(창조자).
 
 ## Chatter 기능
 
@@ -187,15 +227,23 @@ Title → Agenda → About me → About company → Requirements → Assumptions
 
 ## 리포트와 대시보드
 
-**리포트 형식:** Tabular(단순·총합), Summary(그룹·소계·차트), Matrix(행·열 그룹화), Joined(여러 블록). *리포트는 최대 3단계 그룹화.
+**리포트 형식:**
 
-**대시보드 컴포넌트:** Chart, Gauge, Metric, Table(정렬·조건부 강조), Visualforce Page(StandardSetController 또는 CustomController 필요).
+Tabular(단순·총합), Summary(그룹·소계·차트), Matrix(행·열 그룹화), Joined(여러 블록). *리포트는 최대 3단계 그룹화.
+
+**대시보드 컴포넌트:**
+
+Chart, Gauge, Metric, Table(정렬·조건부 강조), Visualforce Page(StandardSetController 또는 CustomController 필요).
 
 ## 통합(Integration)
 
-**유형:** UI 통합, 데이터 통합, 보안 통합, 비즈니스 프로세스 통합. **설계 패턴:** API Wrapper class, Delegator class, 선택 컴포넌트(로깅·매핑·세션·예외 처리).
+**유형:**
 
-**메커니즘:** External Objects(Salesforce Connect Adapters: Cross-org, OData 2.0/4.0, Custom), Canvas(서드파티 앱 통합), Push Notifications, REST API, SOAP API, Chatter REST API, Bulk API, Metadata API, Streaming API(PushTopics), Web Service API, Tooling API, Apex Callouts, Outbound Messages(SOAP, Session ID, 24시간 재시도), Email(InboundEmailHandler), Middleware(ESB/ETL).
+UI 통합, 데이터 통합, 보안 통합, 비즈니스 프로세스 통합. **설계 패턴:** API Wrapper class, Delegator class, 선택 컴포넌트(로깅·매핑·세션·예외 처리).
+
+**메커니즘:**
+
+External Objects(Salesforce Connect Adapters: Cross-org, OData 2.0/4.0, Custom), Canvas(서드파티 앱 통합), Push Notifications, REST API, SOAP API, Chatter REST API, Bulk API, Metadata API, Streaming API(PushTopics), Web Service API, Tooling API, Apex Callouts, Outbound Messages(SOAP, Session ID, 24시간 재시도), Email(InboundEmailHandler), Middleware(ESB/ETL).
 
 ## OAuth & SSO 플로우
 

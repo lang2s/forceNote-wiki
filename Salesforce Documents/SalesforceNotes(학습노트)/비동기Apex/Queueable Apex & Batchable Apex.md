@@ -14,7 +14,9 @@ aliases: [Queueable Apex and Batchable Apex]
 ## 1. Queueable Apex
 즉시 실행이 필요 없고 시간이 걸릴 수 있는 비동기 코드 실행. @future의 향상판으로 더 많은 제어·유연성 제공.
 
-**핵심 기능:** 작업 체이닝(한 작업이 다른 작업 큐잉), 복잡한 입력 타입(객체 전달), Batch보다 단순, UI에서 진행 모니터링, 큐 작업 수 무제한이나 동시 실행/큐는 50개.
+**핵심 기능:**
+
+작업 체이닝(한 작업이 다른 작업 큐잉), 복잡한 입력 타입(객체 전달), Batch보다 단순, UI에서 진행 모니터링, 큐 작업 수 무제한이나 동시 실행/큐는 50개.
 
 ```apex
 public class MyQueueableJob implements Queueable {
@@ -27,13 +29,19 @@ public class MyQueueableJob implements Queueable {
 ID jobId = System.enqueueJob(new MyQueueableJob());
 ```
 
-**사용 시점:** 배치 복잡도가 불필요한 비동기 처리, 체이닝 필요, 복합 타입(sObject·커스텀) 전달 시.
-**장점:** 체이닝(최대 50개), 유연성(List<sObject>·커스텀 타입 전달), 단순성.
+**사용 시점:**
+
+배치 복잡도가 불필요한 비동기 처리, 체이닝 필요, 복합 타입(sObject·커스텀) 전달 시.
+**장점:**
+
+체이닝(최대 50개), 유연성(List<sObject>·커스텀 타입 전달), 단순성.
 
 ## 2. Batchable Apex
 대량 데이터(5천만 건 이상)를 비동기 처리. 작업을 작은 청크(배치)로 나눠 거버너 한도 준수.
 
-**핵심 기능:** 대량 데이터를 배치로 분할, 거버너 한도 회피, 특정 시간 스케줄 가능.
+**핵심 기능:**
+
+대량 데이터를 배치로 분할, 거버너 한도 회피, 특정 시간 스케줄 가능.
 
 ```apex
 public class MyBatchClass implements Database.Batchable<sObject> {
@@ -51,8 +59,12 @@ public class MyBatchClass implements Database.Batchable<sObject> {
 Database.executeBatch(new MyBatchClass(), 100);
 ```
 
-**사용 시점:** 대량 데이터셋(수백만 건), 거버너 한도 없이 대량 처리, 주기적 스케줄, 시스템 한도 복원력(실패 배치 자동 재시도).
-**장점:** 효율(200건 청크), 확장성(수백만 건), 후처리(finish).
+**사용 시점:**
+
+대량 데이터셋(수백만 건), 거버너 한도 없이 대량 처리, 주기적 스케줄, 시스템 한도 복원력(실패 배치 자동 재시도).
+**장점:**
+
+효율(200건 청크), 확장성(수백만 건), 후처리(finish).
 
 ## 어느 것을 쓸까?
 - **Queueable**: 작은 데이터셋, 체이닝 필요, 복합 타입 전달.

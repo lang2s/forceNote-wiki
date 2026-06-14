@@ -49,14 +49,18 @@ const allAvailable = products.every(product => product.available);
 
 ## 배열 메서드 결합
 
-**map() + filter():** 사용 가능한 제품을 필터링하고 이름을 대문자로 변환.
+**map() + filter():**
+
+사용 가능한 제품을 필터링하고 이름을 대문자로 변환.
 ```javascript
 const availableNames = products
     .filter(product => product.available)
     .map(product => product.name.toUpperCase());
 ```
 
-**filter() + reduce():** 재고가 있는 모든 제품의 총 가격 계산.
+**filter() + reduce():**
+
+재고가 있는 모든 제품의 총 가격 계산.
 ```javascript
 const total = products
     .filter(product => product.stock > 0)

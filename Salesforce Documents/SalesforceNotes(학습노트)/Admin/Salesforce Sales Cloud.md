@@ -21,11 +21,17 @@ aliases: [Salesforce Sales Cloud]
 - 각 이니셔티브별로 Lead와 Contact, 그리고 그들의 응답을 추적합니다.
 - 관리자(Admin)는 Marketing User 프로필을 활성화해야 캠페인을 생성할 수 있습니다.
 
-**Campaign Member란?** 각 캠페인에서 타겟팅하는 잠재 고객(Lead, Contact, Person Account 추가).
+**Campaign Member란?**
 
-**Campaign Hierarchy:** 부모 멤버에 연결되는 관련 캠페인.
+각 캠페인에서 타겟팅하는 잠재 고객(Lead, Contact, Person Account 추가).
 
-**Campaign Report가 유용한 이유:** 내장 리포트가 캠페인 성과와 강도 추적에 매우 유용. 비즈니스·마케팅 분석가가 리포트 기반으로 의사 결정. 과거 데이터가 새 캠페인에 도움.
+**Campaign Hierarchy:**
+
+부모 멤버에 연결되는 관련 캠페인.
+
+**Campaign Report가 유용한 이유:**
+
+내장 리포트가 캠페인 성과와 강도 추적에 매우 유용. 비즈니스·마케팅 분석가가 리포트 기반으로 의사 결정. 과거 데이터가 새 캠페인에 도움.
 
 ## Lead(리드)
 
@@ -35,7 +41,9 @@ aliases: [Salesforce Sales Cloud]
 - Lead 생성은 비즈니스에 중요합니다.
 - Lead는 Lead라는 오브젝트에 모든 레코드를 저장합니다.
 
-**Lead 캡처:** Setup → Web-to-Lead. reCAPTCHA(스팸 방지)를 활성화해야 합니다. Lead 양식 생성 시 코드가 생성되며, 이를 복사해 웹 페이지에 저장합니다.
+**Lead 캡처:**
+
+Setup → Web-to-Lead. reCAPTCHA(스팸 방지)를 활성화해야 합니다. Lead 양식 생성 시 코드가 생성되며, 이를 복사해 웹 페이지에 저장합니다.
 
 **중요 포인트:**
 - Lead 생성 시 모든 universally required 필드에 값이 있어야 함.
@@ -54,4 +62,6 @@ aliases: [Salesforce Sales Cloud]
 - 3개의 전환 레코드 생성: Account, Contact(표준 오브젝트), Opportunity.
 - Opportunity의 마감 데이터는 Lead 전환 시 계산됩니다. Opportunity가 마감되면 마감 데이터가 자동으로 마지막 날과 회계 분기로 변환됩니다.
 
-**Lead 매핑:** 커스텀 필드를 Account의 커스텀 필드에 매핑하려면 새 필드를 생성합니다.
+**Lead 매핑:**
+
+커스텀 필드를 Account의 커스텀 필드에 매핑하려면 새 필드를 생성합니다.

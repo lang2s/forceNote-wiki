@@ -13,10 +13,18 @@ aliases: [𝙍𝙀𝙎𝙏 𝘼𝙋𝙄 𝙉𝙊𝙏𝙀𝙎]
 
 REST = Representational State Transfer. 클라이언트가 HTTP 메서드로 요청하면 서버가 응답·HTTP 상태 코드 반환.
 
-**HTTP 메서드:** GET, POST, PUT, DELETE, PATCH, HEAD, TRACE, OPTIONS, CONNECT.
-**상태 코드:** 200, 201, 403, 404, 500 등.
-**HTTP 요청:** Request Method, Headers, Body.
-**HTTP 응답:** Status, Headers, Body.
+**HTTP 메서드:**
+
+GET, POST, PUT, DELETE, PATCH, HEAD, TRACE, OPTIONS, CONNECT.
+**상태 코드:**
+
+200, 201, 403, 404, 500 등.
+**HTTP 요청:**
+
+Request Method, Headers, Body.
+**HTTP 응답:**
+
+Status, Headers, Body.
 
 ## REST API 제약
 - **Uniform Interface:** 공통 프로토콜 준수, 제3자 해석 불필요.
@@ -31,13 +39,23 @@ REST = Representational State Transfer. 클라이언트가 HTTP 메서드로 요
 - **Response Headers(서→클).**
 - **Representation/Payload.**
 
-**널리 쓰는 헤더:** Content-Type(미디어 타입), Host(도메인명), Access-Control-Allow-Origin(허용 origin), Access-Control-Allow-Methods(허용 메서드).
+**널리 쓰는 헤더:**
+
+Content-Type(미디어 타입), Host(도메인명), Access-Control-Allow-Origin(허용 origin), Access-Control-Allow-Methods(허용 메서드).
 
 ## HTTP 상태 코드
-**성공(2xx):** 200 OK(정상), 201 Created(새 리소스 생성).
-**리디렉션(3xx):** 301 Moved Permanently(영구 이동).
-**클라이언트 오류(4xx):** 400 Bad Request(잘못된 구문), 401 Unauthorized(자격 증명 오류), 403 Forbidden(권한 없음), 404 Not Found(잘못된 URL), 429 Too Many Requests(과도 요청).
-**서버 오류(5xx):** 500 Internal Server Error(예상치 못한 상황 처리 불가).
+**성공(2xx):**
+
+200 OK(정상), 201 Created(새 리소스 생성).
+**리디렉션(3xx):**
+
+301 Moved Permanently(영구 이동).
+**클라이언트 오류(4xx):**
+
+400 Bad Request(잘못된 구문), 401 Unauthorized(자격 증명 오류), 403 Forbidden(권한 없음), 404 Not Found(잘못된 URL), 429 Too Many Requests(과도 요청).
+**서버 오류(5xx):**
+
+500 Internal Server Error(예상치 못한 상황 처리 불가).
 
 ## HTTP 요청 메서드
 - **GET:** 리소스 조회(가장 일반적).

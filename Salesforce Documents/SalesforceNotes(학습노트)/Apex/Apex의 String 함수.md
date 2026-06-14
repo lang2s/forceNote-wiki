@@ -13,41 +13,59 @@ Apex의 String 클래스는 문자열을 조작·처리하는 다양한 메서�
 
 ## 1. 문자열 조작 함수
 
-**toUpperCase() & toLowerCase():** 대/소문자 변환.
+**toUpperCase() & toLowerCase():**
+
+대/소문자 변환.
 ```apex
 'Hello Apex'.toUpperCase(); // "HELLO APEX"
 'Hello Apex'.toLowerCase(); // "hello apex"
 ```
 
-**trim() & trimLeft() & trimRight():** 공백 제거(양쪽/왼쪽/오른쪽).
+**trim() & trimLeft() & trimRight():**
 
-**replace() & replaceAll():** 문자열 일부 교체.
+공백 제거(양쪽/왼쪽/오른쪽).
+
+**replace() & replaceAll():**
+
+문자열 일부 교체.
 ```apex
 'Hello Apex'.replace('Apex', 'Salesforce'); // "Hello Salesforce"
 '123456789'.replaceAll('\\d', '*'); // "*********"
 ```
 
-**substring(start, end):** 부분 문자열 추출.
+**substring(start, end):**
+
+부분 문자열 추출.
 ```apex
 'Salesforce'.substring(0, 5); // "Sales"
 'Salesforce'.substring(5);    // "force"
 ```
 
-**split(regex):** 문자열을 리스트로 분할.
+**split(regex):**
+
+문자열을 리스트로 분할.
 ```apex
 'Apex,Java,Python'.split(','); // (Apex, Java, Python)
 ```
 
-**String.join(List, separator):** 리스트를 하나의 문자열로 결합.
+**String.join(List, separator):**
+
+리스트를 하나의 문자열로 결합.
 ```apex
 String.join(new List<String>{'Hello', 'Apex', 'World'}, ' '); // "Hello Apex World"
 ```
 
 ## 2. 문자열 검색 함수
 
-**contains():** 부분 문자열 포함 여부.
-**startsWith() & endsWith():** 시작/끝 확인.
-**indexOf() & lastIndexOf():** 부분 문자열 첫/마지막 위치.
+**contains():**
+
+부분 문자열 포함 여부.
+**startsWith() & endsWith():**
+
+시작/끝 확인.
+**indexOf() & lastIndexOf():**
+
+부분 문자열 첫/마지막 위치.
 ```apex
 'Apex is great, and Apex is powerful'.indexOf('Apex');     // 0
 'Apex is great, and Apex is powerful'.lastIndexOf('Apex'); // 18 (예시)
@@ -55,23 +73,35 @@ String.join(new List<String>{'Hello', 'Apex', 'World'}, ' '); // "Hello Apex Wor
 
 ## 3. 문자열 비교 함수
 
-**equals() & equalsIgnoreCase():** 두 문자열 비교(대소문자 무시 여부).
+**equals() & equalsIgnoreCase():**
+
+두 문자열 비교(대소문자 무시 여부).
 ```apex
 'Hello'.equals('hello');            // false
 'Hello'.equalsIgnoreCase('hello');  // true
 ```
 
-**compareTo() & compareToIgnoreCase():** 사전순 비교(음수/양수).
+**compareTo() & compareToIgnoreCase():**
 
-**deleteWhitespace():** 문자열의 공백 제거. `'Hello World'.deleteWhitespace(); // HelloWorld`
+사전순 비교(음수/양수).
+
+**deleteWhitespace():**
+
+문자열의 공백 제거. `'Hello World'.deleteWhitespace(); // HelloWorld`
 
 ## 4. 기타 유용한 함수
 
-**isBlank() & isEmpty():** 빈 문자열·공백 확인. isEmpty()는 ""일 때만 true, isBlank()는 빈 문자열이거나 공백만 있어도 true.
+**isBlank() & isEmpty():**
 
-**valueOf():** 다른 데이터 타입을 문자열로 변환. `String.valueOf(100); // "100"`
+빈 문자열·공백 확인. isEmpty()는 ""일 때만 true, isBlank()는 빈 문자열이거나 공백만 있어도 true.
 
-**String.format():** 플레이스홀더({0}, {1})로 문자열 형식화.
+**valueOf():**
+
+다른 데이터 타입을 문자열로 변환. `String.valueOf(100); // "100"`
+
+**String.format():**
+
+플레이스홀더({0}, {1})로 문자열 형식화.
 ```apex
 String.format('Hello {0}, welcome to {1}!', new List<Object>{'Muthu', 'Apex'});
 // "Hello Muthu, welcome to Apex!"

@@ -21,19 +21,33 @@ Salesforce 보안은 데이터가 보호되고 적절한 사용자가 적절한 
 
 ## 보안 유형
 
-**1. 조직 수준 보안:** Salesforce 환경 접근 제어. 로그인 접근(IP 제한, 로그인 시간), 인증(MFA, SSO), 비밀번호 정책(복잡성·만료·이력).
+**1. 조직 수준 보안:**
 
-**2. 오브젝트 수준 보안:** 사용자가 어떤 오브젝트를 보기·생성·편집·삭제할 수 있는지 결정. Profiles(그룹 권한), Permission Sets(프로필 변경 없이 추가), Permission Set Groups(묶음), 표준·커스텀 오브젝트에 적용.
+Salesforce 환경 접근 제어. 로그인 접근(IP 제한, 로그인 시간), 인증(MFA, SSO), 비밀번호 정책(복잡성·만료·이력).
 
-**3. 필드 수준 보안:** 오브젝트의 어떤 필드를 보기·편집할 수 있는지 제어. Visible(보기·편집), Read-Only(보기만), Hidden(불가). 사용 예: 주민번호·급여 같은 민감 필드 숨김.
+**2. 오브젝트 수준 보안:**
 
-**4. 레코드 수준 보안:** 개별 레코드 접근 제어. OWD(기준 수준), Role Hierarchy(하위 레코드 접근), Sharing Rules(기준 기반 확장), Manual Sharing(개별 공유), Territory Management(영역 기반).
+사용자가 어떤 오브젝트를 보기·생성·편집·삭제할 수 있는지 결정. Profiles(그룹 권한), Permission Sets(프로필 변경 없이 추가), Permission Set Groups(묶음), 표준·커스텀 오브젝트에 적용.
 
-**5. 데이터 암호화:** 저장·전송 중 민감 데이터 보호. Shield Platform Encryption(필드·첨부), TLS(전송 중).
+**3. 필드 수준 보안:**
 
-**6. 감사 및 모니터링:** 데이터·구성 변경 추적. Field History Tracking, Audit Trail, Event Monitoring, Login History.
+오브젝트의 어떤 필드를 보기·편집할 수 있는지 제어. Visible(보기·편집), Read-Only(보기만), Hidden(불가). 사용 예: 주민번호·급여 같은 민감 필드 숨김.
 
-**7. 보안 모범 사례:** Profiles·Permission Sets로 최소 권한, 모든 사용자 MFA, 필드 수준 보안·공유 설정 정기 감사, 민감 데이터에 Shield Encryption, 보안 인식 교육.
+**4. 레코드 수준 보안:**
+
+개별 레코드 접근 제어. OWD(기준 수준), Role Hierarchy(하위 레코드 접근), Sharing Rules(기준 기반 확장), Manual Sharing(개별 공유), Territory Management(영역 기반).
+
+**5. 데이터 암호화:**
+
+저장·전송 중 민감 데이터 보호. Shield Platform Encryption(필드·첨부), TLS(전송 중).
+
+**6. 감사 및 모니터링:**
+
+데이터·구성 변경 추적. Field History Tracking, Audit Trail, Event Monitoring, Login History.
+
+**7. 보안 모범 사례:**
+
+Profiles·Permission Sets로 최소 권한, 모든 사용자 MFA, 필드 수준 보안·공유 설정 정기 감사, 민감 데이터에 Shield Encryption, 보안 인식 교육.
 
 ## 보안 개념 요약표
 

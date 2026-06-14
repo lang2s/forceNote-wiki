@@ -32,7 +32,9 @@ SELECT FieldList FROM ObjectName
 -- 표준→표준
 SELECT Name, (SELECT LastName, Email FROM Contacts) FROM Account
 ```
-**1단계만 지원** — 자식 서브쿼리 내 또 다른 서브쿼리 중첩 불가.
+**1단계만 지원**
+
+— 자식 서브쿼리 내 또 다른 서브쿼리 중첩 불가.
 ```sql
 -- 불가
 SELECT Name, (SELECT LastName, (SELECT Name FROM Tasks) FROM Contacts) FROM Account

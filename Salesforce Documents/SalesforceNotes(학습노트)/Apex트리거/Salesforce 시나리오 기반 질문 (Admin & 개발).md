@@ -273,9 +273,13 @@ Approval.ProcessResult result = Approval.process(req1);
 ## 트리거 실행 순서
 데이터 로드 → 시스템 검증 → before 트리거 → 커스텀 검증 → sObject 저장 → after 트리거 → 할당 규칙 → 자동 응답 규칙 → 워크플로우 규칙(필드 업데이트 시 before/after 트리거 재실행) → 에스컬레이션 → 롤업 요약 → 기준 기반 공유 → 레코드 커밋 → 이메일 액션.
 
-**특정 사용자/프로필별 트리거 제어:** Custom Settings(계층형) 사용.
+**특정 사용자/프로필별 트리거 제어:**
 
-**트리거에서 자주 겪는 오류:** System.LimitException(SOQL 101), NullPointerException, 재귀 트리거, 필수 필드 누락.
+Custom Settings(계층형) 사용.
+
+**트리거에서 자주 겪는 오류:**
+
+System.LimitException(SOQL 101), NullPointerException, 재귀 트리거, 필수 필드 누락.
 
 ## 테스트 클래스 모범 사례
 - @isTest 어노테이션 필수(클래스 버전 25 이상), @testVisible·@testSetup 지원
@@ -361,55 +365,105 @@ ID jobID = System.enqueueJob(new AsyncExecutionExample());
 
 ## 기타 개념
 
-**Wrapper 클래스:** 다른 객체들의 컬렉션을 인스턴스로 갖는 클래스.
+**Wrapper 클래스:**
 
-**Custom Label:** 커스텀 텍스트 값, 다국어 지원. Apex `System.Label.labelName`, VF `{!$Label.labelName}`.
+다른 객체들의 컬렉션을 인스턴스로 갖는 클래스.
 
-**리포트(4종):** Tabular(소계 없는 목록), Summary(행 그룹화·요약), Matrix(행·열 그룹화), Joined(여러 리포트 타입, 최대 5블록). 표준/커스텀 리포트는 한 폴더에 함께 저장 불가. Running user(실행자) vs Viewing user(조회자). 내보내기: .csv/xls, 최대 50,000건.
+**Custom Label:**
 
-**Sales Cloud vs Service Cloud:** Sales는 영업·마케팅(Lead, Account, Contact, Opportunity, Quote). Service는 고객 지원(Case, Solution, Knowledge, Web-to-Case). Service Cloud는 Sales Cloud의 상위 집합.
+커스텀 텍스트 값, 다국어 지원. Apex `System.Label.labelName`, VF `{!$Label.labelName}`.
 
-**환경:** Developer, Testing, Production. **샌드박스(4종):** Developer(200MB, 메타데이터, 일일), Developer Pro(1GB, 일일), Partial Copy(5GB, 5일, 테이블당 1만 건), Full(프로덕션 크기, 29일, 전체 데이터).
+**리포트(4종):**
 
-**Document vs Static Resource:** Document는 이미지·파일 업로드(로고 20KB 이하). Static Resource는 VF에서 참조할 콘텐츠(zip/jar/이미지/CSS/JS). `<apex:image url="{!$Resource.TestImage}"/>`.
+Tabular(소계 없는 목록), Summary(행 그룹화·요약), Matrix(행·열 그룹화), Joined(여러 리포트 타입, 최대 5블록). 표준/커스텀 리포트는 한 폴더에 함께 저장 불가. Running user(실행자) vs Viewing user(조회자). 내보내기: .csv/xls, 최대 50,000건.
 
-**Setup Audit Trail:** 최근 설정 변경 추적. **System Log/Developer Console:** 실시간 요청·익명 Apex 실행. **Debug Log:** DB 작업·시스템 프로세스·오류 기록.
+**Sales Cloud vs Service Cloud:**
 
-**DML:** insert/update/delete/upsert/undelete/merge. Atomic(하나 실패 시 전체 실패) vs Non-atomic(부분 실패 허용, `Database.insert(list, false)`). 휴지통 비우기: `Database.emptyRecycleBin`. 151 예외 회피: 벌크화. Lead 전환: `Database.convertLead()`.
+Sales는 영업·마케팅(Lead, Account, Contact, Opportunity, Quote). Service는 고객 지원(Case, Solution, Knowledge, Web-to-Case). Service Cloud는 Sales Cloud의 상위 집합.
 
-**Data Loader vs Import Wizard:** Data Loader는 ETL(가져오기·내보내기), 모든 오브젝트, 500만 건, 중복 허용, 삭제 가능. Import Wizard는 가져오기만, Account/Contact/Lead/Solution, 5만 건, 중복 불가.
+**환경:**
 
-**External ID:** 가져오기 시 중복 방지용 외부 시스템 고유 식별 필드(Number/Text/Email). Upsert 시 일치하면 업데이트, 없으면 생성, 여러 개 일치하면 오류.
+Developer, Testing, Production. **샌드박스(4종):** Developer(200MB, 메타데이터, 일일), Developer Pro(1GB, 일일), Partial Copy(5GB, 5일, 테이블당 1만 건), Full(프로덕션 크기, 29일, 전체 데이터).
 
-**Package:** 컴포넌트 묶음. Unmanaged(오픈소스, 설치 후 편집 가능, 업그레이드 불가), Managed(판매·라이선스, 완전 업그레이드 가능, 파괴적 변경 제한).
+**Document vs Static Resource:**
 
-**배포(ANT):** build.properties(자격 증명), build.xml(명령/타겟), package.xml(컴포넌트 매니페스트). Eclipse: Force.com 우클릭 배포. Jira: 프로젝트/티켓 추적.
+Document는 이미지·파일 업로드(로고 20KB 이하). Static Resource는 VF에서 참조할 콘텐츠(zip/jar/이미지/CSS/JS). `<apex:image url="{!$Resource.TestImage}"/>`.
 
-**예외 유형(try-catch 외):** AsyncException, CalloutException, DmlException, NullPointerException, XmlException, SecurityException, TypeException, StringException, SObjectException, SearchException.
+**Setup Audit Trail:**
 
-**Salesforce:** 클라우드 컴퓨팅 SaaS 제공자. 장점: 비용 절감, 스토리지 증가, 유연성, 어디서나 접근, 낮은 유지보수, 멀티테넌트. SaaS/PaaS/IaaS 구분.
+최근 설정 변경 추적. **System Log/Developer Console:** 실시간 요청·익명 Apex 실행. **Debug Log:** DB 작업·시스템 프로세스·오류 기록.
 
-**Freeze vs Deactivate:** Freeze는 로그인 불가하나 라이선스 유지. Deactivate는 라이선스 조직 반환.
+**DML:**
 
-**OWD:** Private, Public Read Only, Public Read/Write, Public Read/Write/Transfer, Public Full Access, Controlled by Parent. Grant Access using hierarchy로 상위 계층 접근.
+insert/update/delete/upsert/undelete/merge. Atomic(하나 실패 시 전체 실패) vs Non-atomic(부분 실패 허용, `Database.insert(list, false)`). 휴지통 비우기: `Database.emptyRecycleBin`. 151 예외 회피: 벌크화. Lead 전환: `Database.convertLead()`.
 
-**Queue vs Public Group:** Queue는 레코드 소유자로 사용자 그룹 할당.
+**Data Loader vs Import Wizard:**
 
-**Approval Process:** 자동화 프로세스. Parallel(단일 단계 다중 사용자): First Response(첫 응답이 최종), Unanimous(전원 승인 필요).
+Data Loader는 ETL(가져오기·내보내기), 모든 오브젝트, 500만 건, 중복 허용, 삭제 가능. Import Wizard는 가져오기만, Account/Contact/Lead/Solution, 5만 건, 중복 불가.
 
-**ISBLANK vs ISNULL:** ISBLANK는 빈 값(텍스트/숫자) true, ISNULL은 null(숫자) true.
+**External ID:**
 
-**Field Dependency:** 한 필드 값이 다른 필드 값 제어. 종속 필드는 선택 목록/다중 선택 목록.
+가져오기 시 중복 방지용 외부 시스템 고유 식별 필드(Number/Text/Email). Upsert 시 일치하면 업데이트, 없으면 생성, 여러 개 일치하면 오류.
 
-**접근 제어자:** private(클래스 내), public(앱 내), global(클래스 접근 가능 어디서나), protected(확장 내부 클래스).
+**Package:**
 
-**컨트롤러(3종):** Standard(표준·커스텀), Custom(전체 로직 구현), Extension(기존 컨트롤러 기능 추가).
+컴포넌트 묶음. Unmanaged(오픈소스, 설치 후 편집 가능, 업그레이드 불가), Managed(판매·라이선스, 완전 업그레이드 가능, 파괴적 변경 제한).
 
-**render/renderAs/reRender:** render(컴포넌트 표시·숨김), renderAs(PDF 변환), reRender(부분 새로고침). contentType으로 Word/Excel 변환.
+**배포(ANT):**
 
-**이메일 서비스:** Outbound(SF→외부), Inbound(외부→SF). Single Email Message(단일, 최대 100), Mass Email Message(다중, 최대 250). Inbound: Messaging.InboundEmailHandler 인터페이스 구현.
+build.properties(자격 증명), build.xml(명령/타겟), package.xml(컴포넌트 매니페스트). Eclipse: Force.com 우클릭 배포. Jira: 프로젝트/티켓 추적.
 
-**Analytic Snapshot:** 과거 데이터 리포트. Source Report(Tabular/Summary) + Custom Object + Snapshot 정의.
+**예외 유형(try-catch 외):**
+
+AsyncException, CalloutException, DmlException, NullPointerException, XmlException, SecurityException, TypeException, StringException, SObjectException, SearchException.
+
+**Salesforce:**
+
+클라우드 컴퓨팅 SaaS 제공자. 장점: 비용 절감, 스토리지 증가, 유연성, 어디서나 접근, 낮은 유지보수, 멀티테넌트. SaaS/PaaS/IaaS 구분.
+
+**Freeze vs Deactivate:**
+
+Freeze는 로그인 불가하나 라이선스 유지. Deactivate는 라이선스 조직 반환.
+
+**OWD:**
+
+Private, Public Read Only, Public Read/Write, Public Read/Write/Transfer, Public Full Access, Controlled by Parent. Grant Access using hierarchy로 상위 계층 접근.
+
+**Queue vs Public Group:**
+
+Queue는 레코드 소유자로 사용자 그룹 할당.
+
+**Approval Process:**
+
+자동화 프로세스. Parallel(단일 단계 다중 사용자): First Response(첫 응답이 최종), Unanimous(전원 승인 필요).
+
+**ISBLANK vs ISNULL:**
+
+ISBLANK는 빈 값(텍스트/숫자) true, ISNULL은 null(숫자) true.
+
+**Field Dependency:**
+
+한 필드 값이 다른 필드 값 제어. 종속 필드는 선택 목록/다중 선택 목록.
+
+**접근 제어자:**
+
+private(클래스 내), public(앱 내), global(클래스 접근 가능 어디서나), protected(확장 내부 클래스).
+
+**컨트롤러(3종):**
+
+Standard(표준·커스텀), Custom(전체 로직 구현), Extension(기존 컨트롤러 기능 추가).
+
+**render/renderAs/reRender:**
+
+render(컴포넌트 표시·숨김), renderAs(PDF 변환), reRender(부분 새로고침). contentType으로 Word/Excel 변환.
+
+**이메일 서비스:**
+
+Outbound(SF→외부), Inbound(외부→SF). Single Email Message(단일, 최대 100), Mass Email Message(다중, 최대 250). Inbound: Messaging.InboundEmailHandler 인터페이스 구현.
+
+**Analytic Snapshot:**
+
+과거 데이터 리포트. Source Report(Tabular/Summary) + Custom Object + Snapshot 정의.
 
 ## 빠른 Q&A
 - 다중 extension에서 동명 메서드: 왼쪽(컨트롤러)에 정의된 것 호출.

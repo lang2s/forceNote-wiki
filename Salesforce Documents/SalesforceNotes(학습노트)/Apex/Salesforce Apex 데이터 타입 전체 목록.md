@@ -53,28 +53,50 @@ fruitCounts.put('Apple', 15); // 값 업데이트
 
 ## 각 타입 상세
 
-**Integer:** 소수점 없는 32비트 정수(-2,147,483,648 ~ 2,147,483,647). 카운팅·루프 반복에 사용. 예: 장바구니 itemCount.
+**Integer:**
 
-**Boolean:** true/false/null. 제어문에서 프로그램 흐름 결정. 예: 할인 자격 isDiscountApplicable.
+소수점 없는 32비트 정수(-2,147,483,648 ~ 2,147,483,647). 카운팅·루프 반복에 사용. 예: 장바구니 itemCount.
 
-**Date:** 시간 정보 없는 날짜. 날짜+시간은 DateTime. 예: `Date projectDeadline = projectStart.addDays(30);`
+**Boolean:**
 
-**Long:** 큰 정수 저장용 64비트 숫자. 예: 센트 단위 거래 금액 `Long totalTransactionAmountInCents = 2500000000L;`
+true/false/null. 제어문에서 프로그램 흐름 결정. 예: 할인 자격 isDiscountApplicable.
 
-**Decimal:** 고정밀 64비트 숫자(금융 계산). 예: `Decimal totalPrice = itemPrice + (itemPrice * taxRate);`
+**Date:**
 
-**Double:** 큰 범위·소수점 64비트 숫자(과학 계산, 정밀도 덜 중요). 예: 천문 거리.
+시간 정보 없는 날짜. 날짜+시간은 DateTime. 예: `Date projectDeadline = projectStart.addDays(30);`
 
-**Time:** 날짜와 무관한 시간. 예: `Time reminderTime = Time.newInstance(14, 30, 0, 0); // 2:30 PM`
+**Long:**
 
-**Enum:** 상수 집합 정의. 가독성 향상·값 제한. 예:
+큰 정수 저장용 64비트 숫자. 예: 센트 단위 거래 금액 `Long totalTransactionAmountInCents = 2500000000L;`
+
+**Decimal:**
+
+고정밀 64비트 숫자(금융 계산). 예: `Decimal totalPrice = itemPrice + (itemPrice * taxRate);`
+
+**Double:**
+
+큰 범위·소수점 64비트 숫자(과학 계산, 정밀도 덜 중요). 예: 천문 거리.
+
+**Time:**
+
+날짜와 무관한 시간. 예: `Time reminderTime = Time.newInstance(14, 30, 0, 0); // 2:30 PM`
+
+**Enum:**
+
+상수 집합 정의. 가독성 향상·값 제한. 예:
 ```apex
 public Enum TicketStatus { NEW, OPEN, PENDING, RESOLVED, CLOSED }
 TicketStatus currentStatus = TicketStatus.NEW;
 ```
 
-**String:** 텍스트. 예: `String customerName = 'Jane Doe';`
+**String:**
 
-**ID:** Salesforce 레코드 고유 식별. 예: `ID contactId = '0031N00001bXkQ9QAK';`
+텍스트. 예: `String customerName = 'Jane Doe';`
 
-**Blob:** 바이너리 데이터(파일·이미지). 예: `Blob fileContent = Blob.valueOf('...');`
+**ID:**
+
+Salesforce 레코드 고유 식별. 예: `ID contactId = '0031N00001bXkQ9QAK';`
+
+**Blob:**
+
+바이너리 데이터(파일·이미지). 예: `Blob fileContent = Blob.valueOf('...');`

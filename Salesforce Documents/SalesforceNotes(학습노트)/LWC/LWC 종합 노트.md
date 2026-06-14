@@ -10,9 +10,13 @@ aliases: [Comprehensive LWC Notes]
 > [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## 1. LWC 소개
-**LWC란?** HTML·JavaScript·CSS 표준 웹 기술로 Lightning 컴포넌트를 만드는 현대 프레임워크. Web Components 표준 기반·경량·빠름·안전. Aura의 후속.
+**LWC란?**
 
-**장점:** 성능(빠른 렌더링), 표준 기반(Custom Elements·Shadow DOM·ES6+), 재사용성, 보안(Locker Service), 개발 경험. 데스크톱·모바일 최적화.
+HTML·JavaScript·CSS 표준 웹 기술로 Lightning 컴포넌트를 만드는 현대 프레임워크. Web Components 표준 기반·경량·빠름·안전. Aura의 후속.
+
+**장점:**
+
+성능(빠른 렌더링), 표준 기반(Custom Elements·Shadow DOM·ES6+), 재사용성, 보안(Locker Service), 개발 경험. 데스크톱·모바일 최적화.
 
 ## 2. 통신
 - **Parent → Child:** @api 데코레이터로 데이터 전달.

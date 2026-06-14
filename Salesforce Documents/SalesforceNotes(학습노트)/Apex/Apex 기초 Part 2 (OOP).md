@@ -44,7 +44,9 @@ public class MathOperations {
 
 인스턴스 생성 시 오브젝트 상태를 초기화하는 특별 메서드. 오브젝트 생성 시 자동 호출. 반환 타입 없음, 오버로딩 지원.
 
-**기본 생성자(no-argument):** 기본값으로 초기화.
+**기본 생성자(no-argument):**
+
+기본값으로 초기화.
 ```apex
 public class ATM {
     private String accountNumber;
@@ -61,13 +63,17 @@ public Adder(Integer num1, Integer num2) {
 
 ## Static 변수와 메서드
 
-**Static 변수:** 인스턴스가 아닌 클래스에 연결된 클래스 수준 변수. 모든 인스턴스가 같은 메모리 공유. 클래스 이름으로 접근, 한 번만 초기화, 마지막 값 유지. 용도: 인스턴스 카운팅, 데이터 공유.
+**Static 변수:**
+
+인스턴스가 아닌 클래스에 연결된 클래스 수준 변수. 모든 인스턴스가 같은 메모리 공유. 클래스 이름으로 접근, 한 번만 초기화, 마지막 값 유지. 용도: 인스턴스 카운팅, 데이터 공유.
 ```apex
 public class MathOperations { public static Integer staticNumber = 10; }
 MathOperations.staticNumber += 10; // 클래스 이름으로 접근
 ```
 
-**Static 메서드:** 오브젝트가 아닌 클래스에 연결. 인스턴스 생성 없이 호출 가능. 예: `Name.length()`(String 클래스의 메서드). 특정 오브젝트와 무관한 연산(수학 연산 등)에 사용.
+**Static 메서드:**
+
+오브젝트가 아닌 클래스에 연결. 인스턴스 생성 없이 호출 가능. 예: `Name.length()`(String 클래스의 메서드). 특정 오브젝트와 무관한 연산(수학 연산 등)에 사용.
 
 ## 캡슐화(Encapsulation)
 
@@ -96,7 +102,9 @@ public class Withdrawal extends BankTransaction {
     public void withdraw(Decimal amount) { ... }
 }
 ```
-**private vs protected:** private은 자식 클래스에서 접근 불가, protected는 자식 클래스에서 사용 가능. `super(initialBalance)`는 부모 생성자를 호출해 초기화.
+**private vs protected:**
+
+private은 자식 클래스에서 접근 불가, protected는 자식 클래스에서 사용 가능. `super(initialBalance)`는 부모 생성자를 호출해 초기화.
 
 ## 다형성(Polymorphism)
 
@@ -114,7 +122,9 @@ public class Cat extends Animal {
 
 구현 세부사항을 숨기고 기능만 사용자에게 표시. 달성 방법: 추상 클래스, 인터페이스.
 
-**추상 클래스:** abstract 키워드로 선언. 추상 메서드(본문 없음, 자식이 재정의 필수)와 일반 메서드 모두 가능. 인스턴스 생성 불가.
+**추상 클래스:**
+
+abstract 키워드로 선언. 추상 메서드(본문 없음, 자식이 재정의 필수)와 일반 메서드 모두 가능. 인스턴스 생성 불가.
 ```apex
 public abstract class Employee {
     protected String name;
@@ -125,7 +135,9 @@ public class PartTimeEmployee extends Employee {
 }
 ```
 
-**인터페이스:** 추상화·다중 상속 달성 메커니즘. 추상 메서드만 가능(본문 없음). Apex 인터페이스 메서드는 암묵적으로 public·abstract. 변수 선언 불가. 한 클래스가 여러 인터페이스 구현 가능(implements).
+**인터페이스:**
+
+추상화·다중 상속 달성 메커니즘. 추상 메서드만 가능(본문 없음). Apex 인터페이스 메서드는 암묵적으로 public·abstract. 변수 선언 불가. 한 클래스가 여러 인터페이스 구현 가능(implements).
 ```apex
 public interface IShape { void draw(); }
 public interface IColor { String getColor(); }

@@ -52,16 +52,22 @@ Apex는 강타입 언어로 변수의 데이터 타입이 할당 값과 호환�
 
 ## 조건문
 
-**if-else:** 짝수/홀수 확인.
+**if-else:**
+
+짝수/홀수 확인.
 ```apex
 Integer num = 20;
 if (num % 2 == 0) { System.debug('Even'); }
 else { System.debug('Odd'); }
 ```
 
-**Nested IF:** 여러 조건을 계층적으로 확인(예: 금액 구간별 할인율).
+**Nested IF:**
 
-**Switch:** 표현식이 여러 값 중 하나와 일치하는지 테스트. 일치하지 않으면 `when else` 실행. 표현식 타입은 Integer, Long, sObject, String, Enum만 가능(Decimal·Boolean 불가).
+여러 조건을 계층적으로 확인(예: 금액 구간별 할인율).
+
+**Switch:**
+
+표현식이 여러 값 중 하나와 일치하는지 테스트. 일치하지 않으면 `when else` 실행. 표현식 타입은 Integer, Long, sObject, String, Enum만 가능(Decimal·Boolean 불가).
 ```apex
 Switch on fruitName {
     When 'Apple' { System.debug('sweet and crisp'); }
@@ -75,15 +81,25 @@ Switch on fruitName {
 
 ## 루프
 
-**For 루프:** `for (initialization; condition; increment) { }`. i가 5를 초과하면 자연스럽게 종료.
+**For 루프:**
 
-**While 루프:** 조건이 참인 동안 반복. 처음부터 거짓이면 아무것도 실행 안 함.
+`for (initialization; condition; increment) { }`. i가 5를 초과하면 자연스럽게 종료.
 
-**Do-While:** 본문을 최소 한 번 실행 후 조건 확인. (최소 한 번 실행이 필요하면 do-while, 처음부터 조건 불충족 시 건너뛰려면 while.)
+**While 루프:**
 
-**Break:** 루프 종료. 과도한 사용은 가독성을 해침.
+조건이 참인 동안 반복. 처음부터 거짓이면 아무것도 실행 안 함.
 
-**Continue:** 현재 반복의 나머지를 건너뛰고 다음 반복으로. (continue 전에 증감을 하지 않으면 무한 루프로 CPU 시간 한도 초과 가능.)
+**Do-While:**
+
+본문을 최소 한 번 실행 후 조건 확인. (최소 한 번 실행이 필요하면 do-while, 처음부터 조건 불충족 시 건너뛰려면 while.)
+
+**Break:**
+
+루프 종료. 과도한 사용은 가독성을 해침.
+
+**Continue:**
+
+현재 반복의 나머지를 건너뛰고 다음 반복으로. (continue 전에 증감을 하지 않으면 무한 루프로 CPU 시간 한도 초과 가능.)
 
 ## 루프의 장점
 

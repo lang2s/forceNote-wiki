@@ -12,14 +12,20 @@ aliases: [Salesforce Lightning Components Tutorial]
 ## Salesforce 소개
 Salesforce는 클라우드 기반 CRM. 영업·서비스·마케팅에 사용. 장점: 빠름(몇 달 내 배포), 쉬움, 효과적(커스터마이즈).
 
-**앱 구축 2가지:** ① Classic Application Architecture(모바일 클라이언트), ② Lightning Application Architecture(모든 디바이스, 단일 페이지 앱·동적).
+**앱 구축 2가지:**
+
+① Classic Application Architecture(모바일 클라이언트), ② Lightning Application Architecture(모든 디바이스, 단일 페이지 앱·동적).
 
 ## Lightning 소개
 컴포넌트 기반 프레임워크. UI 개발·동적 웹 앱(모바일·데스크톱). Single Page Application 아키텍처. 3구성: 클라이언트(JavaScript), Salesforce Cloud, 서버(Apex Controller). Aura Component 기반.
 
-**사용 이유:** 기본 제공 컴포넌트, 빠른 성능, 이벤트 기반, 반응형·재사용, 크로스 브라우저, 아름다운 UI.
+**사용 이유:**
 
-**배포 가능:** Lightning Experience, Salesforce1 앱, Lightning 페이지·앱, Visualforce, Lightning Out, 독립 앱, Community Builder, Lightning 탭, 모바일 하이브리드 SDK. (외부 사이트 불가)
+기본 제공 컴포넌트, 빠른 성능, 이벤트 기반, 반응형·재사용, 크로스 브라우저, 아름다운 UI.
+
+**배포 가능:**
+
+Lightning Experience, Salesforce1 앱, Lightning 페이지·앱, Visualforce, Lightning Out, 독립 앱, Community Builder, Lightning 탭, 모바일 하이브리드 SDK. (외부 사이트 불가)
 
 ## 아키텍처 구성
 1. **Lightning Application:** 여러 컴포넌트를 담는 독립 페이지(HTML 유사 마크업, Developer Console).
@@ -56,17 +62,27 @@ Salesforce는 클라우드 기반 CRM. 영업·서비스·마케팅에 사용. �
 컴포넌트 번들에서 Preview로 출력 확인.
 
 ## 속성과 표현식
-**Attribute:** 값을 저장하는 변수(`<aura:attribute>`). 명명 규칙: 알파벳/언더스코어로 시작, 영숫자·언더스코어만.
-**Expression:** 속성 값·정보로 계산·동적 출력. `{!v.whom}`. 대소문자 구분.
+**Attribute:**
 
-**속성 유형:** 기본, 함수, 객체, 표준·커스텀, 컬렉션, 커스텀 Apex 클래스, 프레임워크 특정.
+값을 저장하는 변수(`<aura:attribute>`). 명명 규칙: 알파벳/언더스코어로 시작, 영숫자·언더스코어만.
+**Expression:**
+
+속성 값·정보로 계산·동적 출력. `{!v.whom}`. 대소문자 구분.
+
+**속성 유형:**
+
+기본, 함수, 객체, 표준·커스텀, 컬렉션, 커스텀 Apex 클래스, 프레임워크 특정.
 
 ## 컨트롤러로 액션 처리
-**Action:** 특정 작업 수행 함수.
+**Action:**
+
+특정 작업 수행 함수.
 ```xml
 <lightning:button label="Click Me" onclick="{!c.handleClick}" />
 ```
-**Event:** 액션 수행 시 알림. 클라이언트 측 컨트롤러(JS)가 제어.
+**Event:**
+
+액션 수행 시 알림. 클라이언트 측 컨트롤러(JS)가 제어.
 ```javascript
 ({
     myAction : function(cmp, event, helper) { /* 액션 */ },

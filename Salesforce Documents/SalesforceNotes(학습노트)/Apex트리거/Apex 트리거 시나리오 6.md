@@ -45,4 +45,6 @@ public class TriggerHandlerOnAccount {
 }
 ```
 
-**동작:** Account를 designation과 함께 생성하면 관련 Contact 생성. 다른 designation(Ukraine) 추가 시 해당 Contact 생성(중복 방지). designation(Singapore) 제거 시 해당 관련 Contact 자동 삭제.
+**동작:**
+
+Account를 designation과 함께 생성하면 관련 Contact 생성. 다른 designation(Ukraine) 추가 시 해당 Contact 생성(중복 방지). designation(Singapore) 제거 시 해당 관련 Contact 자동 삭제.

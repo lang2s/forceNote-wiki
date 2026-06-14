@@ -43,4 +43,6 @@ Salesforce가 이벤트 발행, 외부가 구독(송수신 디커플링). 이벤
 ### 4. 미들웨어
 데이터 변환·라우팅·오케스트레이션. MuleSoft, Jitterbit, Dell Boomi, Informatica.
 
-**요약:** Outbound는 Salesforce→외부, Inbound는 외부→Salesforce, Bidirectional은 양방향. 미들웨어는 복잡·대규모 양방향 통합에 사용.
+**요약:**
+
+Outbound는 Salesforce→외부, Inbound는 외부→Salesforce, Bidirectional은 양방향. 미들웨어는 복잡·대규모 양방향 통합에 사용.

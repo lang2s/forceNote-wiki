@@ -13,9 +13,13 @@ aliases: [Report Scheduling & Subscriptions in Salesforce]
 
 특정 시간과 빈도(매일·매주·매월)로 사용자에게 이메일로 리포트 전달을 자동화합니다.
 
-**사용 예:** 영업 관리자가 모든 열린 Opportunity 리포트를 매일 이메일로 받음, 지원 팀장이 미해결 Case 주간 요약을 받음.
+**사용 예:**
 
-**주요 기능:** 리포트 전달 자동화(수동 실행 불필요), 이메일로 전송, 여러 수신자 지원(팀·개인), Tabular·Summary·Matrix 리포트 지원(Joined 리포트는 불가).
+영업 관리자가 모든 열린 Opportunity 리포트를 매일 이메일로 받음, 지원 팀장이 미해결 Case 주간 요약을 받음.
+
+**주요 기능:**
+
+리포트 전달 자동화(수동 실행 불필요), 이메일로 전송, 여러 수신자 지원(팀·개인), Tabular·Summary·Matrix 리포트 지원(Joined 리포트는 불가).
 
 **예약 단계:**
 1. Reports → 예약할 리포트 열기

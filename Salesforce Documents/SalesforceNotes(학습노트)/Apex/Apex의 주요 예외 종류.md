@@ -47,7 +47,9 @@ for(Teacher__c tch: teacherList){ system.debug(tch.Name); } // Name 미선택 �
 
 ## LimitException (거버너 한도 초과)
 
-**Too many DML statements: 151:** 단일 트랜잭션에서 최대 DML 문(150개)을 초과할 때. 회피: 루프 밖에서 삽입(벌크화).
+**Too many DML statements: 151:**
+
+단일 트랜잭션에서 최대 DML 문(150개)을 초과할 때. 회피: 루프 밖에서 삽입(벌크화).
 ```apex
 List<Contact> contactList = new List<Contact>();
 for(integer i= 0; i<151; i++){
@@ -57,7 +59,9 @@ for(integer i= 0; i<151; i++){
 if(!contactList.isEmpty()){ insert contactList; }
 ```
 
-**Too many SOQL queries: 101:** 단일 트랜잭션에서 최대 SOQL 쿼리(100개)를 초과할 때. 회피: 루프 밖으로 SOQL 이동.
+**Too many SOQL queries: 101:**
+
+단일 트랜잭션에서 최대 SOQL 쿼리(100개)를 초과할 때. 회피: 루프 밖으로 SOQL 이동.
 ```apex
 List<Contact> con = [SELECT Id, Name FROM Contact WHERE Name Like '%contact%'];
 for (integer i = 0; i < 101; i++){ system.debug(con[0].Name); }

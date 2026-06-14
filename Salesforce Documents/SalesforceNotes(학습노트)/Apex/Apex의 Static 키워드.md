@@ -13,7 +13,9 @@ aliases: [Static keyword in Apex]
 
 Static은 두 가지 경우에만 사용됩니다: 변수(Variables), 메서드(Methods).
 
-**간단히:** Static = 클래스의 모든 인스턴스 간에 공유됨.
+**간단히:**
+
+Static = 클래스의 모든 인스턴스 간에 공유됨.
 
 - 클래스(Class) = 청사진/개념(예: "Person")
 - 오브젝트(Objects) = 실제 인스턴스(실제 사람들)

@@ -62,7 +62,9 @@ for(Account acct : accountsList){
 
 ## 관계 쿼리 (Cross-Object)
 관계로 두 오브젝트 필드 반환. 자식→부모(child-to-parent), 부모→자식(parent-to-child).
-**Master-Detail:** 마스터(부모)는 다수 디테일(자식), 디테일은 마스터 하나. 예: Contact의 AccountId(Lookup(Account)).
+**Master-Detail:**
+
+마스터(부모)는 다수 디테일(자식), 디테일은 마스터 하나. 예: Contact의 AccountId(Lookup(Account)).
 
 **Child→Parent:**
 ```sql

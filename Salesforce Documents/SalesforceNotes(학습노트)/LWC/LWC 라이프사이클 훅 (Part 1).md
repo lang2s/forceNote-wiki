@@ -14,12 +14,18 @@ aliases: [LifeCycle Hooks in LWC Part -1]
 ## @wire vs Imperative Apex
 @wire는 매개변수 변경 시 자동 조회·업데이트. 단, 반응형 매개변수가 undefined면 wire 핸들러 미실행(연쇄 렌더링).
 
-**@wire 시퀀스:** constructor → @wire(빈 데이터 {data: undefined, error: undefined}) → connectedCallback → render → renderedCallback → @wire 서버 데이터 제공(추가 렌더링 가능). 최소 2번 렌더링.
+**@wire 시퀀스:**
 
-**Imperative Apex 시퀀스:** constructor → connectedCallback(콜아웃 실행) → render → renderedCallback → Apex 반환(DOM 영향 시 추가 렌더링). connectedCallback에 두고 promise로 비동기 제어.
+constructor → @wire(빈 데이터 {data: undefined, error: undefined}) → connectedCallback → render → renderedCallback → @wire 서버 데이터 제공(추가 렌더링 가능). 최소 2번 렌더링.
+
+**Imperative Apex 시퀀스:**
+
+constructor → connectedCallback(콜아웃 실행) → render → renderedCallback → Apex 반환(DOM 영향 시 추가 렌더링). connectedCallback에 두고 promise로 비동기 제어.
 
 ## 3개 컴포넌트 예 (A 부모, B 자식, C 손자)
-**실행 순서:** A constructor → A @wire(no data) → A connectedCallback → B constructor → B @wire(no data) → B connectedCallback → C constructor → C @wire(no data) → C connectedCallback → C renderedCallback → B renderedCallback → A renderedCallback → (이후 @wire 데이터 제공으로 추가 사이클).
+**실행 순서:**
+
+A constructor → A @wire(no data) → A connectedCallback → B constructor → B @wire(no data) → B connectedCallback → C constructor → C @wire(no data) → C connectedCallback → C renderedCallback → B renderedCallback → A renderedCallback → (이후 @wire 데이터 제공으로 추가 사이클).
 
 ## 핵심
 - @wire는 빈 데이터 객체 생성, 반응형 매개변수 정의 전 미실행. 데이터 업데이트 시 다중 render·renderedCallback.

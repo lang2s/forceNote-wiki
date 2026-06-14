@@ -18,9 +18,13 @@ aliases: [Sandbox and Deployment]
 
 라이프사이클: 계획(Plan) → 구축(Build) → 테스트(Test) → 배포(Deploy) → 릴리스(Release).
 
-**사용 사례:** 개발(앱·자동화 구축·테스트), 테스트(단위·통합·UAT), 교육(안전한 직원 교육 환경), 데이터 마이그레이션(운영 적용 전 임포트·통합 테스트).
+**사용 사례:**
 
-**환경 유형:** Production → 라이브(login.salesforce.com), 개발·테스트 → test.salesforce.com(샌드박스).
+개발(앱·자동화 구축·테스트), 테스트(단위·통합·UAT), 교육(안전한 직원 교육 환경), 데이터 마이그레이션(운영 적용 전 임포트·통합 테스트).
+
+**환경 유형:**
+
+Production → 라이브(login.salesforce.com), 개발·테스트 → test.salesforce.com(샌드박스).
 
 ## 샌드박스 유형
 

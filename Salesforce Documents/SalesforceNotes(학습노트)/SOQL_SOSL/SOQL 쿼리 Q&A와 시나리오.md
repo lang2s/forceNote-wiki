@@ -11,23 +11,41 @@ aliases: [SOQL Queries]
 
 ## 질문
 
-**SOQL Query란?** Salesforce 오브젝트에서 레코드를 검색·조회하는 쿼리 언어. SQL 유사, Salesforce 전용.
+**SOQL Query란?**
 
-**모든 필드 조회?** SOQL은 `SELECT *`를 지원하지 않음(원문엔 *로 언급되나 실제로는 필드 명시 필요).
+Salesforce 오브젝트에서 레코드를 검색·조회하는 쿼리 언어. SQL 유사, Salesforce 전용.
 
-**SOQL vs SOSL?** SOQL은 한 번에 단일 오브젝트 검색·조회(SELECT). SOSL은 여러 오브젝트에 텍스트 검색.
+**모든 필드 조회?**
 
-**조건 필터?** WHERE 절. `SELECT Name FROM Account WHERE Industry = 'Technology'`
+SOQL은 `SELECT *`를 지원하지 않음(원문엔 *로 언급되나 실제로는 필드 명시 필요).
 
-**관계 레코드 조회?** 관계 필드·점 표기. `SELECT Name, Account__r.Name FROM Invoice__c`
+**SOQL vs SOSL?**
 
-**레코드 수 제한?** LIMIT. `SELECT Name FROM Account LIMIT 10`
+SOQL은 한 번에 단일 오브젝트 검색·조회(SELECT). SOSL은 여러 오브젝트에 텍스트 검색.
 
-**정렬?** ORDER BY(ASC/DESC). `SELECT Name FROM Account ORDER BY Name DESC`
+**조건 필터?**
 
-**쿼리 vs 서브쿼리?** 쿼리는 단일 오브젝트, 서브쿼리는 다른 쿼리에 중첩(관련 오브젝트 조회·필터).
+WHERE 절. `SELECT Name FROM Account WHERE Industry = 'Technology'`
 
-**Aggregate 함수?** COUNT, SUM, AVG, MAX, MIN.
+**관계 레코드 조회?**
+
+관계 필드·점 표기. `SELECT Name, Account__r.Name FROM Invoice__c`
+
+**레코드 수 제한?**
+
+LIMIT. `SELECT Name FROM Account LIMIT 10`
+
+**정렬?**
+
+ORDER BY(ASC/DESC). `SELECT Name FROM Account ORDER BY Name DESC`
+
+**쿼리 vs 서브쿼리?**
+
+쿼리는 단일 오브젝트, 서브쿼리는 다른 쿼리에 중첩(관련 오브젝트 조회·필터).
+
+**Aggregate 함수?**
+
+COUNT, SUM, AVG, MAX, MIN.
 
 ## 시나리오
 

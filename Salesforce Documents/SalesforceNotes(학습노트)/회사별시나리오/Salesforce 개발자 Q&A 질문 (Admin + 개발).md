@@ -39,8 +39,12 @@ aliases: [TCS Interview Question PPT]
 > 단일 사용자에 다중 프로필·역할 할당 불가. Professional Edition은 커스텀 프로필 생성 불가.
 
 ## Q3. Data Loader vs Import Wizard
-**Import Wizard:** 5만 건 이하 단순 import, 일부 표준 오브젝트(Account·Contact·Lead·Solution)+커스텀, 삭제 불가, 설치 불필요, 중복 무시 가능, 웹 기반.
-**Data Loader:** 5만 건 초과 복잡 import, 모든 표준·커스텀, 삭제 가능, 설치 필요, 중복 무시 불가. 작업: Insert/Update/Upsert/Delete/Hard Delete/Export/Export All. 배치 크기 최소 1·최대 2000·기본 200.
+**Import Wizard:**
+
+5만 건 이하 단순 import, 일부 표준 오브젝트(Account·Contact·Lead·Solution)+커스텀, 삭제 불가, 설치 불필요, 중복 무시 가능, 웹 기반.
+**Data Loader:**
+
+5만 건 초과 복잡 import, 모든 표준·커스텀, 삭제 가능, 설치 필요, 중복 무시 불가. 작업: Insert/Update/Upsert/Delete/Hard Delete/Export/Export All. 배치 크기 최소 1·최대 2000·기본 200.
 
 ## Q4. Flow 유형
 - **Screen Flow**: 사용자 가이드·입력 수집.
@@ -51,9 +55,13 @@ aliases: [TCS Interview Question PPT]
 
 ## Q5. Sharing Setting / OWD / Role Hierarchy / 기타
 
-**레코드 수준 접근 4가지:** OWD → Role Hierarchy → Sharing Rule → Manual Sharing.
+**레코드 수준 접근 4가지:**
 
-**OWD(조직 전체 기본값):** 모든 사용자의 최소·기준 접근. 가장 제한적으로 잠근 후 다른 도구로 선택적 개방.
+OWD → Role Hierarchy → Sharing Rule → Manual Sharing.
+
+**OWD(조직 전체 기본값):**
+
+모든 사용자의 최소·기준 접근. 가장 제한적으로 잠근 후 다른 도구로 선택적 개방.
 - Private: 소유자·상위 역할만 보기·편집.
 - Public Read Only: 모두 보기, 소유자·상위만 편집.
 - Public Read/Write: 모두 보기·편집, 소유자만 삭제.
@@ -61,19 +69,33 @@ aliases: [TCS Interview Question PPT]
 - Public Full Access: Campaign만.
 - Controlled by Parent: Master-Detail 자식이 부모 접근 복사.
 
-**Role Hierarchy:** 상위 역할이 하위 소유 레코드 접근.
+**Role Hierarchy:**
 
-**Sharing Rules:** 공개 그룹·역할·영역에 접근 확장(OWD보다 엄격할 수 없음). 오브젝트당 최대 300개(criteria 기반 50개). Owner-Based·Criteria-Based.
+상위 역할이 하위 소유 레코드 접근.
 
-**Manual Sharing:** share 버튼으로 수동 공유. 소유자·상위 역할·Full 접근·관리자만. OWD가 Private/Read Only일 때만 활성(Lightning 미지원).
+**Sharing Rules:**
 
-**Groups:** Public Groups(관리자 생성), Collaborative Groups(개인 생성). 구성원: 사용자·다른 그룹·역할·영역.
+공개 그룹·역할·영역에 접근 확장(OWD보다 엄격할 수 없음). 오브젝트당 최대 300개(criteria 기반 50개). Owner-Based·Criteria-Based.
 
-**Queues:** Lead·Order·Case·Service Contract·커스텀 오브젝트 관리용. 큐 멤버가 소유권 가져갈 때까지 보관. Lead·Case만 자동 할당 규칙.
+**Manual Sharing:**
 
-**Login Hours:** 비로그인 시간 제한. 로그인 중 시간 종료 시 현재 페이지는 보되 추가 작업 불가.
+share 버튼으로 수동 공유. 소유자·상위 역할·Full 접근·관리자만. OWD가 Private/Read Only일 때만 활성(Lightning 미지원).
 
-**Session Settings:** 세션 보안·만료 타임아웃(Setup → Security Controls → Session Settings).
+**Groups:**
+
+Public Groups(관리자 생성), Collaborative Groups(개인 생성). 구성원: 사용자·다른 그룹·역할·영역.
+
+**Queues:**
+
+Lead·Order·Case·Service Contract·커스텀 오브젝트 관리용. 큐 멤버가 소유권 가져갈 때까지 보관. Lead·Case만 자동 할당 규칙.
+
+**Login Hours:**
+
+비로그인 시간 제한. 로그인 중 시간 종료 시 현재 페이지는 보되 추가 작업 불가.
+
+**Session Settings:**
+
+세션 보안·만료 타임아웃(Setup → Security Controls → Session Settings).
 
 ## 개발
 
@@ -129,7 +151,9 @@ global class MyBatchClass implements Database.Batchable<sObject> {
 ```
 
 ### 예외 유형
-**DmlException:** 필수 필드 누락, Mixed DML(setup·non-setup 한 트랜잭션), Invalid Data(insert에 Id 지정). **System.FinalException:** Record is read-only(after 트리거에서 Trigger.new 편집). **ListException:** index out of bounds(size로 회피). **NullPointerException:** null 역참조. **QueryException:** 행 없음/대용량 비선택 쿼리. **SObjectException:** 미쿼리 필드 접근. **LimitException:** Too Many SOQL(101), DML(151), CPU 시간, Query rows(50001) — 잡을 수 없는 하드 한도. **StringException** (Invalid Id → null 사용), **JSONException**(Wrapper로 역직렬화), **UnexpectedException**, **FlowException**.
+**DmlException:**
+
+필수 필드 누락, Mixed DML(setup·non-setup 한 트랜잭션), Invalid Data(insert에 Id 지정). **System.FinalException:** Record is read-only(after 트리거에서 Trigger.new 편집). **ListException:** index out of bounds(size로 회피). **NullPointerException:** null 역참조. **QueryException:** 행 없음/대용량 비선택 쿼리. **SObjectException:** 미쿼리 필드 접근. **LimitException:** Too Many SOQL(101), DML(151), CPU 시간, Query rows(50001) — 잡을 수 없는 하드 한도. **StringException** (Invalid Id → null 사용), **JSONException**(Wrapper로 역직렬화), **UnexpectedException**, **FlowException**.
 
 ```apex
 // 필수 필드 누락 처리

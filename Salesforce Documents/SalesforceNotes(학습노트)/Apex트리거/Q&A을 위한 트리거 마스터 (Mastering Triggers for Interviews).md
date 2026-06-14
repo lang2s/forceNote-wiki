@@ -37,23 +37,39 @@ isBefore, isAfter, isInsert, isUpdate, isDelete, isUndelete (Boolean), new/old (
 
 ## Flow vs Apex 트리거
 
-**Flow 사용 시점:** 단순 자동화(알림·필드 업데이트·레코드 생성), 화면 상호작용, 선언적 해결, 저volume 업데이트.
+**Flow 사용 시점:**
 
-**트리거 사용 시점:** 복잡한 로직(다중 조건·루프·관련 오브젝트 계산), 벌크 처리, 교차 오브젝트 작업, 실시간 처리.
+단순 자동화(알림·필드 업데이트·레코드 생성), 화면 상호작용, 선언적 해결, 저volume 업데이트.
+
+**트리거 사용 시점:**
+
+복잡한 로직(다중 조건·루프·관련 오브젝트 계산), 벌크 처리, 교차 오브젝트 작업, 실시간 처리.
 
 ## 기억할 점
 
-**트리거 청크 크기:** 200건 단위로 처리. 210건 삽입 시 두 번 실행(200 + 10).
+**트리거 청크 크기:**
 
-**재귀 방지:** ① 정적 변수, ② 정적 ID Set(200건 초과 처리에 더 적합).
+200건 단위로 처리. 210건 삽입 시 두 번 실행(200 + 10).
 
-**정적 변수 vs 정적 Set:** 정적 변수만 쓰면 처음 200건만 처리되고 나머지는 오류 없이 누락될 수 있음. **정적 ID Set**을 쓰면 모든 청크가 처리됨.
+**재귀 방지:**
 
-**일반 오류:** "Maximum Trigger Depth Exceeded" — 재귀 미제어 시 발생. (예: After 트리거에서 Customer Priority=High일 때 Rating=Hot 설정 → 재귀)
+① 정적 변수, ② 정적 ID Set(200건 초과 처리에 더 적합).
 
-**Before vs After:** Before는 검증·같은 레코드 업데이트·오류 추가. After는 관련 레코드 생성·이메일·로깅(컨텍스트 변수 읽기 전용).
+**정적 변수 vs 정적 Set:**
 
-**참고:** Flow에서는 undelete 후 자동화 미지원. 콜아웃은 트리거가 동기이므로 Future 메서드 사용.
+정적 변수만 쓰면 처음 200건만 처리되고 나머지는 오류 없이 누락될 수 있음. **정적 ID Set**을 쓰면 모든 청크가 처리됨.
+
+**일반 오류:**
+
+"Maximum Trigger Depth Exceeded" — 재귀 미제어 시 발생. (예: After 트리거에서 Customer Priority=High일 때 Rating=Hot 설정 → 재귀)
+
+**Before vs After:**
+
+Before는 검증·같은 레코드 업데이트·오류 추가. After는 관련 레코드 생성·이메일·로깅(컨텍스트 변수 읽기 전용).
+
+**참고:**
+
+Flow에서는 undelete 후 자동화 미지원. 콜아웃은 트리거가 동기이므로 Future 메서드 사용.
 
 ## 모범 사례
 1. 오브젝트당 트리거 하나(실행 순서 제어)
@@ -108,7 +124,9 @@ trigger AccountTrigger on Account (before insert, after insert, before update,
     handler.doAction();
 }
 ```
-**장점:** 모듈화, 유지보수·확장성, 오류 처리·가독성 향상. 각 메서드는 벌크 처리. Trigger.operationType으로 컨텍스트 판단.
+**장점:**
+
+모듈화, 유지보수·확장성, 오류 처리·가독성 향상. 각 메서드는 벌크 처리. Trigger.operationType으로 컨텍스트 판단.
 
 ## 메서드별 예제
 
@@ -247,9 +265,13 @@ public static void updateCountOfOpportunity() {
 
 ### Recursive Handler — 재귀 제어
 
-**시나리오:** Flow(Customer Priority=High → Rating=Hot), Before Update(Type=Customer-Direct → Customer Priority=High), After Update(후속 Task 생성)가 서로를 재발동시켜 무한 루프 발생.
+**시나리오:**
 
-**해결:** 정적 Set으로 처리한 ID 추적.
+Flow(Customer Priority=High → Rating=Hot), Before Update(Type=Customer-Direct → Customer Priority=High), After Update(후속 Task 생성)가 서로를 재발동시켜 무한 루프 발생.
+
+**해결:**
+
+정적 Set으로 처리한 ID 추적.
 ```apex
 public class AccountRecursiveCheck {
     public static Set<Id> setIds = new Set<Id>();
@@ -280,36 +302,70 @@ trigger AccountTrigger on Account (before update, after update) {
 
 ## 면접 질문
 
-**1. 트리거란?** 지정된 DML 이벤트 전후 실행되는 Apex 코드.
+**1. 트리거란?**
 
-**2. 트리거 코드란?** insert·update·delete·undelete 같은 DML 이벤트 응답으로 검증·자동화·수정 로직 구현.
+지정된 DML 이벤트 전후 실행되는 Apex 코드.
 
-**3. 유형?** Before(저장 전 검증·변경), After(저장 후 시스템 설정 필드 접근·관련 레코드 수정).
+**2. 트리거 코드란?**
 
-**4. 실행 순서?** 레코드 로드 → 시스템 검증 → Before 트리거 → 커스텀 검증 → 중복 규칙 → 저장(미커밋) → After 트리거 → 할당 규칙 → 자동 응답 → 워크플로우 → 레코드 업데이트(재검증) → 프로세스·Flow → 에스컬레이션 → 엔타이틀먼트 → 부모/조부모 롤업 → 기준 기반 공유 → 커밋 → 커밋 후 로직.
+insert·update·delete·undelete 같은 DML 이벤트 응답으로 검증·자동화·수정 로직 구현.
 
-**5. Trigger.new vs old?** new는 삽입·업데이트될 새 레코드, old는 업데이트·삭제 전 이전 값.
+**3. 유형?**
 
-**6. 벌크화 가능?** 예, 항상 다중 레코드 처리 고려. 루프 안 SOQL/DML 회피.
+Before(저장 전 검증·변경), After(저장 후 시스템 설정 필드 접근·관련 레코드 수정).
 
-**7. 재귀 트리거와 방지?** 자신을 호출해 무한 루프. 정적 boolean 변수로 실행 여부 추적.
+**4. 실행 순서?**
 
-**8. Trigger.isExecuting?** 현재 컨텍스트가 트리거면 true 반환.
+레코드 로드 → 시스템 검증 → Before 트리거 → 커스텀 검증 → 중복 규칙 → 저장(미커밋) → After 트리거 → 할당 규칙 → 자동 응답 → 워크플로우 → 레코드 업데이트(재검증) → 프로세스·Flow → 에스컬레이션 → 엔타이틀먼트 → 부모/조부모 롤업 → 기준 기반 공유 → 커밋 → 커밋 후 로직.
 
-**9. new vs newMap?** new는 레코드 목록, newMap은 ID→레코드 맵.
+**5. Trigger.new vs old?**
 
-**10. 트리거에서 DML?** 가능하나 거버너 한도 회피 위해 컬렉션으로 벌크 처리.
+new는 삽입·업데이트될 새 레코드, old는 업데이트·삭제 전 이전 값.
 
-**11. 다중 실행 방지?** 정적 변수를 플래그로 사용.
+**6. 벌크화 가능?**
 
-**13. 벌크 안전 보장?** 루프 안 DML/SOQL 회피, 컬렉션에 수집 후 루프 밖에서 처리.
+예, 항상 다중 레코드 처리 고려. 루프 안 SOQL/DML 회피.
 
-**15. 동일 오브젝트 다중 트리거 제어?** 가능하나 실행 순서 미보장. 오브젝트당 트리거 하나 + Handler 클래스 권장.
+**7. 재귀 트리거와 방지?**
 
-**16. 트리거 테스트?** 테스트 클래스 작성, 테스트 데이터로 DML 수행, System.assert로 검증.
+자신을 호출해 무한 루프. 정적 boolean 변수로 실행 여부 추적.
 
-**17. 트리거에서 배치 호출?** Database.executeBatch 가능하나 비권장. Queueable·Future 권장.
+**8. Trigger.isExecuting?**
 
-**21. 런타임 예외 발생 시?** 전체 트랜잭션 롤백.
+현재 컨텍스트가 트리거면 true 반환.
 
-**23. 한도?** 거버너 한도, 재귀 위험, 선택적 처리 어려움, 디버깅 어려움.
+**9. new vs newMap?**
+
+new는 레코드 목록, newMap은 ID→레코드 맵.
+
+**10. 트리거에서 DML?**
+
+가능하나 거버너 한도 회피 위해 컬렉션으로 벌크 처리.
+
+**11. 다중 실행 방지?**
+
+정적 변수를 플래그로 사용.
+
+**13. 벌크 안전 보장?**
+
+루프 안 DML/SOQL 회피, 컬렉션에 수집 후 루프 밖에서 처리.
+
+**15. 동일 오브젝트 다중 트리거 제어?**
+
+가능하나 실행 순서 미보장. 오브젝트당 트리거 하나 + Handler 클래스 권장.
+
+**16. 트리거 테스트?**
+
+테스트 클래스 작성, 테스트 데이터로 DML 수행, System.assert로 검증.
+
+**17. 트리거에서 배치 호출?**
+
+Database.executeBatch 가능하나 비권장. Queueable·Future 권장.
+
+**21. 런타임 예외 발생 시?**
+
+전체 트랜잭션 롤백.
+
+**23. 한도?**
+
+거버너 한도, 재귀 위험, 선택적 처리 어려움, 디버깅 어려움.

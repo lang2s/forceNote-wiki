@@ -13,7 +13,9 @@ aliases: [Salesforce Admin Notes]
 
 오브젝트는 조직에 특화된 데이터를 저장하는 데이터베이스 테이블입니다. 생성: Setup → Object Manager → Create New Object.
 
-**오브젝트 한도:** Developer 200개, Enterprise/Unlimited/Performance 2,000개. Professional은 커스텀 오브젝트 생성 불가(기존 표준·커스텀 오브젝트 사용).
+**오브젝트 한도:**
+
+Developer 200개, Enterprise/Unlimited/Performance 2,000개. Professional은 커스텀 오브젝트 생성 불가(기존 표준·커스텀 오브젝트 사용).
 
 **두 가지 유형:**
 - **표준 오브젝트:** Salesforce 제공(Account, Contact, Lead, Opportunity, Case). 커스터마이징 가능하나 제거 불가.
@@ -21,7 +23,9 @@ aliases: [Salesforce Admin Notes]
 
 커스텀 오브젝트 생성 시 기본 3개 계층 제공: 테이블(5개 표준 필드: Id, Name, Owner, Created By, Last Modified By), 탭(레코드 관리 UI), 비즈니스 로직(페이지 레이아웃). 표준+커스텀 오브젝트를 통칭 sObject(Salesforce Object)라 합니다.
 
-**생성 옵션:** Singular/Plural Label 입력 → Save. Optional Features(Allow Reports, Allow Activities, Track Field History, Allow in Chatter Groups), Deployment Status(In Development/Deployed), Object Creation Options(Notes & Attachments 관련 목록 추가, Launch New Custom Tab Wizard).
+**생성 옵션:**
+
+Singular/Plural Label 입력 → Save. Optional Features(Allow Reports, Allow Activities, Track Field History, Allow in Chatter Groups), Deployment Status(In Development/Deployed), Object Creation Options(Notes & Attachments 관련 목록 추가, Launch New Custom Tab Wizard).
 
 > 참고: "Launch New Custom Tab Wizard" 체크박스를 선택하지 않으면 탭이 생성되지 않으며 이후 3단계가 진행되지 않습니다(나중에 Tabs 섹션에서 별도 생성).
 
@@ -32,7 +36,9 @@ aliases: [Salesforce Admin Notes]
 - **표준 필드:** 기본 제공(Id, Name, Owner 등). 라벨 변경 가능, 제거 불가.
 - **커스텀 필드:** 관리자/개발자가 추가(`__c`). 커스터마이징·제거 가능.
 
-**필드 한도:** Developer 100, Enterprise 500, Unlimited/Performance 800, Professional 100(오브젝트별 상이).
+**필드 한도:**
+
+Developer 100, Enterprise 500, Unlimited/Performance 800, Professional 100(오브젝트별 상이).
 
 ### 데이터 타입
 
@@ -56,15 +62,23 @@ aliases: [Salesforce Admin Notes]
 18. **Auto Number:** 자동 번호.
 19. **Phone:** 전화번호.
 
-**필드를 필수로 만드는 5가지 방법:** 필드 생성 시 Required 체크, Page Layout 커스터마이징, Validation Rule, Apex Trigger, Visualforce/Aura/LWC.
+**필드를 필수로 만드는 5가지 방법:**
+
+필드 생성 시 Required 체크, Page Layout 커스터마이징, Validation Rule, Apex Trigger, Visualforce/Aura/LWC.
 
 ## DAY 3 — 탭, Schema Builder, List View
 
-**Tab:** Salesforce 앱에서 오브젝트에 접근하는 UI 요소. 경로: Quick Find에서 "Tabs" → Custom Object Tabs → New → 오브젝트 선택.
+**Tab:**
 
-**Schema Builder:** 오브젝트를 만드는 또 다른 방법. 단점: 탭을 제공하지 않음(별도 생성 필요), 필수 필드만 페이지 레이아웃에 표시, global picklist 값 불가, 필드 수준 보안 불가.
+Salesforce 앱에서 오브젝트에 접근하는 UI 요소. 경로: Quick Find에서 "Tabs" → Custom Object Tabs → New → 오브젝트 선택.
 
-**List View:** 오브젝트 내 필터·정렬된 레코드 목록. 표시할 열·필드를 정의. 모든 오브젝트에서 사용 가능. 표준 List View(Salesforce 제공, 일부 편집 불가)와 커스텀 List View(관리자/개발팀 생성).
+**Schema Builder:**
+
+오브젝트를 만드는 또 다른 방법. 단점: 탭을 제공하지 않음(별도 생성 필요), 필수 필드만 페이지 레이아웃에 표시, global picklist 값 불가, 필드 수준 보안 불가.
+
+**List View:**
+
+오브젝트 내 필터·정렬된 레코드 목록. 표시할 열·필드를 정의. 모든 오브젝트에서 사용 가능. 표준 List View(Salesforce 제공, 일부 편집 불가)와 커스텀 List View(관리자/개발팀 생성).
 
 ## DAY 4 — 오브젝트 관계(Relationships)
 
@@ -96,9 +110,13 @@ Salesforce 레코드를 외부 시스템 레코드와 연결. External Object는
 
 ## DAY 5 — Lookup Dialog 구성과 Lookup Filter
 
-**Lookup Dialog:** 기본적으로 부모 레코드 이름 표시. Classic은 필요한 열 표시, Lightning은 두 필드(기본 Name + 두 번째 줄 정보(Text/Number만)). 기본 최대 200개 레코드. 경로: Object Manager → 부모 오브젝트 → Fields & Relationships → Search Layouts → 편집.
+**Lookup Dialog:**
 
-**Lookup Filter:** 자식 레코드 생성 시 lookup 아이콘 클릭 시 표시되는 부모 레코드를 사용자 정의 조건으로 제한. 예: `Position.Location == HiringManager.Location`. 경로: 자식 오브젝트 → Lookup 관계 필드 Edit → Show Filter Settings → 필터 지정 → Enable the Filter 체크 → Save. 필터 유형: Required(일치해야 저장), Optional(필터 제거 가능).
+기본적으로 부모 레코드 이름 표시. Classic은 필요한 열 표시, Lightning은 두 필드(기본 Name + 두 번째 줄 정보(Text/Number만)). 기본 최대 200개 레코드. 경로: Object Manager → 부모 오브젝트 → Fields & Relationships → Search Layouts → 편집.
+
+**Lookup Filter:**
+
+자식 레코드 생성 시 lookup 아이콘 클릭 시 표시되는 부모 레코드를 사용자 정의 조건으로 제한. 예: `Position.Location == HiringManager.Location`. 경로: 자식 오브젝트 → Lookup 관계 필드 Edit → Show Filter Settings → 필터 지정 → Enable the Filter 체크 → Save. 필터 유형: Required(일치해야 저장), Optional(필터 제거 가능).
 
 ## Rollup Summary
 
@@ -108,11 +126,21 @@ Master-Detail 관계에서 자식 레코드 값을 계산해 부모에 표시하
 
 지정된 수식으로 계산을 수행하는 읽기 전용 시스템 생성 필드. 데이터 타입으로 "Formula" 선택. 소스 필드 변경 시 재계산. 상세 페이지에 표시. 결과 타입 8가지: Number, Checkbox, Percent, Currency, Text, Date, Time, DateTime. 함수 카테고리: Date & Time, Logical, Math, Text, Advanced. Simple/Advanced 두 방식.
 
-**Date & Time 함수:** ADDMONTHS, MONTH, DAY, TODAY, YEAR.
-**Logical 함수:** ISBLANK(숫자·텍스트 지원), ISNULL(숫자만), CASE, IF.
-**Math 함수:** ABS, ROUND, CEILING, FLOOR, POWER, SQRT, EXP, LOG, MAX, MIN.
-**Text 함수:** CONCATENATE, LEFT/RIGHT 등으로 문자열 연결·조작.
-**Advanced 함수:** 여러 논리·수학·텍스트 함수 결합(중첩 수식, 조건부 로직).
+**Date & Time 함수:**
+
+ADDMONTHS, MONTH, DAY, TODAY, YEAR.
+**Logical 함수:**
+
+ISBLANK(숫자·텍스트 지원), ISNULL(숫자만), CASE, IF.
+**Math 함수:**
+
+ABS, ROUND, CEILING, FLOOR, POWER, SQRT, EXP, LOG, MAX, MIN.
+**Text 함수:**
+
+CONCATENATE, LEFT/RIGHT 등으로 문자열 연결·조작.
+**Advanced 함수:**
+
+여러 논리·수학·텍스트 함수 결합(중첩 수식, 조건부 로직).
 
 예: 이름 길이가 10자리 초과면 REVERSE로 역순 출력, 아니면 "No Reverse Function" (IF + LEN + REVERSE 사용).
 
@@ -128,17 +156,29 @@ Master-Detail 관계에서 자식 레코드 값을 계산해 부모에 표시하
 
 Salesforce에 로그인하는 자격 증명을 가진 사람. 모든 사용자는 사용자 계정을 가지며, 정확히 하나의 User License를 가짐(접근 가능 기능 결정).
 
-**생성:** Setup → Administer → Manage Users → New User → 필수 필드 입력 → Profile 선택 → Save.
+**생성:**
 
-**비활성화(Deactivate):** 사용자 삭제 불가, 비활성화로 로그인 차단. 비활성화된 사용자는 모든 레코드 접근 상실(데이터는 다른 사용자에게 이전 가능). 경로: Users → Edit → Active 체크 해제 → Save.
+Setup → Administer → Manage Users → New User → 필수 필드 입력 → Profile 선택 → Save.
 
-**동결(Freeze):** 즉시 비활성화할 수 없을 때(커스텀 계층 필드에 선택된 경우 등) 로그인 차단. 경로: Users → 사용자명 → Freeze.
+**비활성화(Deactivate):**
 
-**비밀번호 정책:** 만료 기간, 복잡성, 비밀번호 재설정, 로그인 시도·잠금 기간 설정.
+사용자 삭제 불가, 비활성화로 로그인 차단. 비활성화된 사용자는 모든 레코드 접근 상실(데이터는 다른 사용자에게 이전 가능). 경로: Users → Edit → Active 체크 해제 → Save.
 
-**IP 주소로 로그인 제한:** Setup → Profiles → 프로필 → Login IP Ranges → New → 신뢰 IP 범위 시작·끝 입력 → Save.
+**동결(Freeze):**
 
-**시간으로 로그인 제한:** Profiles → 프로필 → Login Hours → Edit → 로그인 가능 요일·시간 설정.
+즉시 비활성화할 수 없을 때(커스텀 계층 필드에 선택된 경우 등) 로그인 차단. 경로: Users → 사용자명 → Freeze.
+
+**비밀번호 정책:**
+
+만료 기간, 복잡성, 비밀번호 재설정, 로그인 시도·잠금 기간 설정.
+
+**IP 주소로 로그인 제한:**
+
+Setup → Profiles → 프로필 → Login IP Ranges → New → 신뢰 IP 범위 시작·끝 입력 → Save.
+
+**시간으로 로그인 제한:**
+
+Profiles → 프로필 → Login Hours → Edit → 로그인 가능 요일·시간 설정.
 
 ## DAY 9 — 보안 모델(Security Models)
 

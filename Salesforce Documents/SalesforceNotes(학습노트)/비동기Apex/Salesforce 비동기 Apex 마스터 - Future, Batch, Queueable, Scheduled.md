@@ -21,7 +21,9 @@ aliases: [Asynchronous Apex]
 - 트리거 콜아웃·경량 작업에 사용.
 - 체이닝·작업 추적 미지원.
 
-**실전 시나리오:** Case 종료 시 외부 시스템에 API 요청 필요(트리거 내 콜아웃 불가). → @future 메서드로 콜아웃 비동기 처리.
+**실전 시나리오:**
+
+Case 종료 시 외부 시스템에 API 요청 필요(트리거 내 콜아웃 불가). → @future 메서드로 콜아웃 비동기 처리.
 ```apex
 public class CaseUpdateHelper {
     @future(callout=true)
@@ -43,7 +45,9 @@ public class CaseUpdateHelper {
 - 각 실행이 별도 트랜잭션이라 거버너 한도 문제 방지.
 - 데이터 정리·대량 업데이트·복잡 리포트에 이상적.
 
-**실전 시나리오:** 부동산 관리 프로젝트에서 시장 동향 기반으로 수천 건 가격 업데이트(표준 DML은 한도 초과). → Batch Apex.
+**실전 시나리오:**
+
+부동산 관리 프로젝트에서 시장 동향 기반으로 수천 건 가격 업데이트(표준 DML은 한도 초과). → Batch Apex.
 ```apex
 global class UpdatePropertyPricesBatch implements Database.Batchable<sObject> {
     global Database.QueryLocator start(Database.BatchableContext BC) {
@@ -64,7 +68,9 @@ global class UpdatePropertyPricesBatch implements Database.Batchable<sObject> {
 - 복잡한 SObject·커스텀 객체를 매개변수로 전달.
 - stateful 실행이 필요한 장기 작업에 이상적.
 
-**실전 시나리오:** WiFi/데이터 네트워크 프로젝트에서 신규 고객에게 고유 데이터 플랜 생성·할당(다단계). → Queueable.
+**실전 시나리오:**
+
+WiFi/데이터 네트워크 프로젝트에서 신규 고객에게 고유 데이터 플랜 생성·할당(다단계). → Queueable.
 ```apex
 public class AssignDataPlanQueueable implements Queueable {
     private Id customerId;
@@ -82,7 +88,9 @@ public class AssignDataPlanQueueable implements Queueable {
 - Batch·Queueable과 연계.
 - 데이터 정리·리포트·알림에 유용.
 
-**실전 시나리오:** Edutech LMS에서 학생에게 주간 과정 완료 알림 발송.
+**실전 시나리오:**
+
+Edutech LMS에서 학생에게 주간 과정 완료 알림 발송.
 ```apex
 global class WeeklyReminderScheduler implements Schedulable {
     global void execute(SchedulableContext SC) {
@@ -100,7 +108,9 @@ global class WeeklyReminderScheduler implements Schedulable {
 
 ## 5. 모든 비동기 Apex를 함께 사용
 
-**Case 관리 워크플로우:** ① Case 종료 시 외부 시스템 API 업데이트(Future), ② 대량 Case 상태 업데이트(Batch), ③ 업데이트 후 후속 Task 할당(Queueable), ④ 일일 Case 에스컬레이션(Scheduled).
+**Case 관리 워크플로우:**
+
+① Case 종료 시 외부 시스템 API 업데이트(Future), ② 대량 Case 상태 업데이트(Batch), ③ 업데이트 후 후속 Task 할당(Queueable), ④ 일일 Case 에스컬레이션(Scheduled).
 
 ```apex
 // Batch 완료 후 Queueable 체이닝

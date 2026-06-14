@@ -18,7 +18,9 @@ aliases: [Salesforce Cloud Computing Interview Q & A]
 3. 즉, Salesforce는 기업과 고객을 연결하는 클라우드 기반 CRM 솔루션입니다.
 4. 세계 1위 CRM 플랫폼으로, 마케팅·영업·커머스·서비스·IT 팀이 어디서나 하나처럼 일할 수 있게 해 고객을 어디서나 만족시킬 수 있습니다.
 
-**Salesforce의 버전:** 1) Lightning(현재 사용하는 최신 버전), 2) Classic(이전 버전).
+**Salesforce의 버전:**
+
+1) Lightning(현재 사용하는 최신 버전), 2) Classic(이전 버전).
 
 **Salesforce가 1위 CRM인 이유는?**
 
@@ -49,7 +51,9 @@ Customer Relationship Management(고객 관계 관리). CRM = 마케팅 + 영업
 - **클라우드(Cloud)란:** 인터넷을 통해 접근하는 서버와, 그 서버에서 실행되는 소프트웨어 및 데이터베이스를 의미합니다. (예: 인쇄 설비를 직접 갖추는 것보다 인터넷 카페에서 출력하는 것이 저렴한 것처럼, 모든 하드웨어·소프트웨어를 직접 유지하는 것보다 필요에 따라 제공하는 클라우드 제공자를 사용하는 것이 쉽습니다.)
 - **컴퓨팅(Computing)이란:** 컴퓨터를 사용해 정보를 관리·처리·전달하는 모든 활동으로, 하드웨어와 소프트웨어를 모두 포함합니다.
 
-**클라우드 컴퓨팅의 장점:** 1) 비용, 2) 속도, 3) 성능, 4) 보안.
+**클라우드 컴퓨팅의 장점:**
+
+1) 비용, 2) 속도, 3) 성능, 4) 보안.
 
 ## 클라우드 서비스의 전달 모델/유형
 
@@ -297,4 +301,6 @@ OR(ISBLANK(AnnualRevenue), ISNEW())
 
 12) IF(logical_test, value_if_true, value_if_false): 예) `if(ISBLANK(AnnualRevenue), true, false)` — AnnualRevenue가 비어 있으면 true가 반환되어 검증이 발동.
 
-**AND vs OR 사용 시점:** OR는 둘 중 하나라도 참이면 오류, AND는 두 조건이 모두 충족될 때 오류.
+**AND vs OR 사용 시점:**
+
+OR는 둘 중 하나라도 참이면 오류, AND는 두 조건이 모두 충족될 때 오류.

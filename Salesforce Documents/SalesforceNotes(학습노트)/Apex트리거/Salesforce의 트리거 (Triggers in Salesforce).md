@@ -13,9 +13,13 @@ Apex 트리거는 Salesforce 레코드의 삽입·업데이트·삭제 같은 �
 
 ## 트리거 유형
 
-**Before 트리거** — 레코드가 DB에 저장되기 전에 레코드를 업데이트·검증할 때 사용.
+**Before 트리거**
 
-**After 트리거** — 시스템이 설정한 필드 값에 접근하거나, 다른 레코드에 변경을 적용할 때 사용.
+— 레코드가 DB에 저장되기 전에 레코드를 업데이트·검증할 때 사용.
+
+**After 트리거**
+
+— 시스템이 설정한 필드 값에 접근하거나, 다른 레코드에 변경을 적용할 때 사용.
 
 ## Before vs After 사용 시점
 
@@ -24,9 +28,13 @@ Apex 트리거는 Salesforce 레코드의 삽입·업데이트·삭제 같은 �
 | 레코드가 DB에 커밋되기 전 실행. 추가 DML 없이 업데이트 중인 레코드를 수정 가능. | 레코드가 DB에 커밋된 후 실행. 업데이트된 레코드를 바꾸려면 추가 DML이 필요. |
 | 업데이트 중인 레코드 자체를 변경할 때 | 관련(다른) 오브젝트를 변경할 때 |
 
-**Before 제한:** Before 트리거에서는 새 레코드의 Id 필드 접근 불가, 수식(Formula) 필드 미계산.
+**Before 제한:**
 
-**After 제한:** 추가 DML 없이 레코드 필드 업데이트 불가, 롤업 요약 사용 불가.
+Before 트리거에서는 새 레코드의 Id 필드 접근 불가, 수식(Formula) 필드 미계산.
+
+**After 제한:**
+
+추가 DML 없이 레코드 필드 업데이트 불가, 롤업 요약 사용 불가.
 
 ## 트리거 이벤트
 
@@ -79,7 +87,9 @@ trigger TriggerName on ObjectName (trigger_events) {
 - **Trigger.newMap**: record Id→레코드 Map. ID가 채워진 후에만 조회 가능 → Before Insert에서는 접근 불가. After insert, before update, after undelete에서 지원.
 - **Trigger.operationType**: System.TriggerOperation enum 반환(BEFORE_INSERT, BEFORE_UPDATE, BEFORE_DELETE, AFTER_INSERT, AFTER_UPDATE, AFTER_DELETE, AFTER_UNDELETE). switch 문과 함께 사용 권장.
 
-**주의사항:** trigger.new/old는 DML에 직접 사용 불가. before 트리거에서만 trigger.new로 자기 필드 변경 가능. trigger.old는 항상 읽기 전용. trigger.new는 삭제 불가.
+**주의사항:**
+
+trigger.new/old는 DML에 직접 사용 불가. before 트리거에서만 trigger.new로 자기 필드 변경 가능. trigger.old는 항상 읽기 전용. trigger.new는 삭제 불가.
 
 ## 트리거 관련 시나리오
 

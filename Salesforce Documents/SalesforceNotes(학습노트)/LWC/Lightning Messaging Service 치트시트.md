@@ -12,7 +12,9 @@ aliases: [Lightning Message Channel Cheat Sheet]
 > 원본은 이미지 PDF로 OCR 추출했습니다.
 
 ## 소개
-**목적:** Salesforce 앱의 서로 다른 부분(Aura·LWC)이 직접 연결 없이 메시지를 주고받게 함.
+**목적:**
+
+Salesforce 앱의 서로 다른 부분(Aura·LWC)이 직접 연결 없이 메시지를 주고받게 함.
 
 **핵심 개념:**
 1. **Message Channel:** org에 정의하는 통신 매체.

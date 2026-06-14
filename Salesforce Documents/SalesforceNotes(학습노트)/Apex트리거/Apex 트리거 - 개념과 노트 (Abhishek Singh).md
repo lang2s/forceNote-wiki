@@ -30,7 +30,9 @@ aliases: [Apex Trigger Notes by Abhishek Singh]
 | After Undelete | 복원 후 작업 | 알림, 롤업 요약 갱신 |
 
 ### Before Undelete가 없는 이유
-**도서관 비유:** 책(레코드)을 창고(휴지통)에서 꺼내 그대로 책장에 다시 놓는다. 꺼내기 *전에* 검사·변경할 게 없으므로 "Before Undelete"는 불필요. 하지만 복원 *후* 책이 다시 이용 가능함을 알리거나 카탈로그를 갱신할 수 있어 "After Undelete"는 존재.
+**도서관 비유:**
+
+책(레코드)을 창고(휴지통)에서 꺼내 그대로 책장에 다시 놓는다. 꺼내기 *전에* 검사·변경할 게 없으므로 "Before Undelete"는 불필요. 하지만 복원 *후* 책이 다시 이용 가능함을 알리거나 카탈로그를 갱신할 수 있어 "After Undelete"는 존재.
 
 ## 구문
 ```apex

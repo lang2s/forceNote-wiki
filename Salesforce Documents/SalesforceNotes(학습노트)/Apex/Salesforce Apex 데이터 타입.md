@@ -11,7 +11,9 @@ aliases: [Apex Data Types in Salesforce]
 
 Apex는 변수 사용 전 선언이 필요한 강타입(tightly coupled) 언어입니다. 변수 정의 시 데이터 타입을 지정해야 하며, 데이터 타입은 1) 변수가 담을 수 있는 데이터 유형과 2) 값 저장에 필요한 메모리를 설명합니다.
 
-**데이터 유형:** Primitive, sObject, Collection, Enum.
+**데이터 유형:**
+
+Primitive, sObject, Collection, Enum.
 
 ## Primitive 데이터 타입
 

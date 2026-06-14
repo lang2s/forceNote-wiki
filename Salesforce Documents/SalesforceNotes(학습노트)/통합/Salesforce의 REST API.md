@@ -78,8 +78,12 @@ public class WeatherService {
 - **Outbound:** Slack·Teams 알림, ERP 송장 전송.
 
 ## 설정·테스트
-**Inbound:** API 접근 활성화 → 커스텀 REST(@RestResource) → OAuth 2.0 → Postman 테스트.
-**Outbound:** Named Credentials → HttpRequest/Response Apex → Developer Console 테스트 → 오류 처리(404·500).
+**Inbound:**
+
+API 접근 활성화 → 커스텀 REST(@RestResource) → OAuth 2.0 → Postman 테스트.
+**Outbound:**
+
+Named Credentials → HttpRequest/Response Apex → Developer Console 테스트 → 오류 처리(404·500).
 
 ## 모범 사례
 OAuth 2.0, 의미 있는 오류·상태 코드, 필요 필드만, Composite/Batch로 한도 관리, 프로필·권한 집합, 한도 모니터링, Named Credentials.

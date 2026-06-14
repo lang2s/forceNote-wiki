@@ -28,7 +28,9 @@ new Promise((resolve, reject) => {
 ```
 > promise 생성 시 콜백 함수 전달은 피할 수 없으나, 콜백 헬은 피할 수 있다.
 
-**사용:** `.then`(resolve 값)·`.catch`(reject 값).
+**사용:**
+
+`.then`(resolve 값)·`.catch`(reject 값).
 ```javascript
 promise
   .then(value => console.log(value))

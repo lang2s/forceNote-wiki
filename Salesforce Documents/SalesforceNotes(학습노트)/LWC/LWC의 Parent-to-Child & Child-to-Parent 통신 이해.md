@@ -14,9 +14,13 @@ aliases: [Understand Parent To Child - Child To Parent]
 ## Parent → Child 통신
 부모가 자식에 데이터를 공유하거나 메서드를 호출. 폼·대시보드·재사용 임베드 컴포넌트에 필수.
 
-**예:** 부모가 고객 상세(이름·이메일)를 자식에 전달, 자식이 카드로 표시. 부모가 reset 액션으로 초기화.
+**예:**
 
-**자식(customerChildComponentLwc):** @api로 public 속성(name·email) 노출, 부모가 호출 가능한 reset() 메서드.
+부모가 고객 상세(이름·이메일)를 자식에 전달, 자식이 카드로 표시. 부모가 reset 액션으로 초기화.
+
+**자식(customerChildComponentLwc):**
+
+@api로 public 속성(name·email) 노출, 부모가 호출 가능한 reset() 메서드.
 ```javascript
 import { LightningElement, api } from 'lwc';
 export default class CustomerChildComponentLwc extends LightningElement {
@@ -36,7 +40,9 @@ export default class CustomerChildComponentLwc extends LightningElement {
 </template>
 ```
 
-**부모(customerParentComponentLwc):** customerName·customerEmail 전달, querySelector로 자식 접근·reset() 호출.
+**부모(customerParentComponentLwc):**
+
+customerName·customerEmail 전달, querySelector로 자식 접근·reset() 호출.
 ```html
 <template>
     <c-customer-child-component-lwc name={customerName} email={customerEmail}></c-customer-child-component-lwc>
@@ -57,9 +63,13 @@ export default class CustomerParentComponentLwc extends LightningElement {
 ## Child → Parent 통신
 자식의 액션(사용자 상호작용·상태 변경)을 부모가 처리해야 할 때. Custom Event 사용.
 
-**예:** 자식이 입력으로 피드백 수집·제출 시 부모에 알림, 부모가 표시.
+**예:**
 
-**자식(feedbackChildComponentLwc):** custom event(feedbacksubmit)로 알림.
+자식이 입력으로 피드백 수집·제출 시 부모에 알림, 부모가 표시.
+
+**자식(feedbackChildComponentLwc):**
+
+custom event(feedbacksubmit)로 알림.
 ```javascript
 import { LightningElement } from 'lwc';
 export default class FeedbackChildComponentLwc extends LightningElement {
@@ -78,7 +88,9 @@ export default class FeedbackChildComponentLwc extends LightningElement {
 </template>
 ```
 
-**부모(feedbackParentComponentLwc):** onfeedbacksubmit으로 수신.
+**부모(feedbackParentComponentLwc):**
+
+onfeedbacksubmit으로 수신.
 ```html
 <template>
     <lightning-card title="Submit Your Feedback" icon-name="standard:feedback">

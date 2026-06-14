@@ -43,4 +43,6 @@ Winter'20 도입. 컴포넌트 계층에서 직접 관계 없는 컴포넌트 �
   - listener: 메시지 발행 시 처리 함수.
   - subscriberOptions: `{scope: APPLICATION_SCOPE}`면 앱 어디서나 수신(lightning/messageService에서 import).
 
-**요약:** Modi의 'Mitron' 메시지 → messageContext → messageChannel → Rahul의 listener. subscriberOptions로 위치 무관 수신 보장.
+**요약:**
+
+Modi의 'Mitron' 메시지 → messageContext → messageChannel → Rahul의 listener. subscriberOptions로 위치 무관 수신 보장.

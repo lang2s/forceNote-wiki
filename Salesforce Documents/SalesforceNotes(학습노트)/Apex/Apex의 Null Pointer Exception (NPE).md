@@ -15,29 +15,47 @@ NPE는 초기화되지 않아 null인 오브젝트·변수·컬렉션에 접근�
 
 ## NPE 발생 원인
 
-**1. 초기화되지 않은 변수 사용:** 선언만 하고 값을 할당하지 않은 변수의 속성·메서드 접근. 예: SOQL 결과 확인 없이 레코드 필드 접근.
+**1. 초기화되지 않은 변수 사용:**
+
+선언만 하고 값을 할당하지 않은 변수의 속성·메서드 접근. 예: SOQL 결과 확인 없이 레코드 필드 접근.
 ```apex
 Account acc; // 선언만 됨
 System.debug(acc.Name); // NPE
 ```
 
-**2. Null 컬렉션 작업:** 초기화되지 않은 컬렉션에 .size(), .put() 등 호출 시. 예: 트리거에서 초기화되지 않은 리스트를 for 루프에 사용.
+**2. Null 컬렉션 작업:**
 
-**3. Null SObject 필드 접근:** 명시적으로 채워지지 않았거나 쿼리되지 않은 필드는 null. 검증 없이 SOQL로 가져온 필드 사용 시.
+초기화되지 않은 컬렉션에 .size(), .put() 등 호출 시. 예: 트리거에서 초기화되지 않은 리스트를 for 루프에 사용.
 
-**4. 할당 없이 변수 역참조:** String, Integer, Decimal 등도 초기화 없이 사용하면 NPE.
+**3. Null SObject 필드 접근:**
+
+명시적으로 채워지지 않았거나 쿼리되지 않은 필드는 null. 검증 없이 SOQL로 가져온 필드 사용 시.
+
+**4. 할당 없이 변수 역참조:**
+
+String, Integer, Decimal 등도 초기화 없이 사용하면 NPE.
 
 ## NPE 방지 방법
 
-**1. 변수·오브젝트 초기화:** 선언 시 항상 초기화. 예: 트리거에서 컬렉션 초기화 `Map<Id, List<Contact>> accountContacts = new Map<Id, List<Contact>>();`
+**1. 변수·오브젝트 초기화:**
 
-**2. Null 체크:** 필드·메서드 접근 전 검증. 예: 트리거에서 Trigger.oldMap/newMap null 확인.
+선언 시 항상 초기화. 예: 트리거에서 컬렉션 초기화 `Map<Id, List<Contact>> accountContacts = new Map<Id, List<Contact>>();`
 
-**3. Safe Navigation Operator (?.):** 오브젝트가 null이면 단락(short-circuit)하여 NPE 방지. 예: `System.debug(opportunity?.Account?.Name);`
+**2. Null 체크:**
 
-**4. 기본값 설정:** 변수에 기본값 할당. 예: before insert 트리거에서 `if (newLead.Status == null) { newLead.Status = 'New'; }`
+필드·메서드 접근 전 검증. 예: 트리거에서 Trigger.oldMap/newMap null 확인.
 
-**5. Try-Catch로 예외 처리:** NPE를 잡아 우아하게 처리.
+**3. Safe Navigation Operator (?.):**
+
+오브젝트가 null이면 단락(short-circuit)하여 NPE 방지. 예: `System.debug(opportunity?.Account?.Name);`
+
+**4. 기본값 설정:**
+
+변수에 기본값 할당. 예: before insert 트리거에서 `if (newLead.Status == null) { newLead.Status = 'New'; }`
+
+**5. Try-Catch로 예외 처리:**
+
+NPE를 잡아 우아하게 처리.
 ```apex
 try {
     System.debug(acc.Name);
@@ -48,9 +66,15 @@ try {
 
 ## Salesforce 시나리오
 
-**트리거:** LeadSource 변경에 따라 체크박스 설정 시 Trigger.oldMap이 null인지 확인.
-**API 통합:** 응답이 null이 아닌지 검증 후 처리. `if (response != null && response.getStatusCode() == 200)`
-**LWC 컨트롤러:** Apex 메서드에서 레코드 반환 전 null 확인.
+**트리거:**
+
+LeadSource 변경에 따라 체크박스 설정 시 Trigger.oldMap이 null인지 확인.
+**API 통합:**
+
+응답이 null이 아닌지 검증 후 처리. `if (response != null && response.getStatusCode() == 200)`
+**LWC 컨트롤러:**
+
+Apex 메서드에서 레코드 반환 전 null 확인.
 
 ## 핵심 정리
 

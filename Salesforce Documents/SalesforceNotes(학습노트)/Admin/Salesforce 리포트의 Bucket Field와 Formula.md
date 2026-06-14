@@ -18,7 +18,9 @@ Bucket Field는 오브젝트에 커스텀 필드를 만들지 않고 리포트 �
 - Salesforce가 자동으로 레코드를 해당 버킷에 할당
 - 복잡한 수식이나 커스텀 필드 불필요
 
-**사용 예:** "Amount" 값이 있는 Opportunity 리포트에서 원시 숫자 대신 Bucket Field로 분류 — Small Deals($0~$10,000), Medium Deals($10,001~$50,000), Large Deals($50,001+).
+**사용 예:**
+
+"Amount" 값이 있는 Opportunity 리포트에서 원시 숫자 대신 Bucket Field로 분류 — Small Deals($0~$10,000), Medium Deals($10,001~$50,000), Large Deals($50,001+).
 
 **생성 단계:**
 1. 리포트 열기
@@ -28,7 +30,9 @@ Bucket Field는 오브젝트에 커스텀 필드를 만들지 않고 리포트 �
 5. 각 버킷의 값 범위 정의
 6. Apply & Save
 
-**장점:** 커스텀 필드 불필요, 빠른 데이터 그룹화, Summary·Matrix 리포트에서 사용 가능, 리포트 내에서 동적·편집 가능.
+**장점:**
+
+커스텀 필드 불필요, 빠른 데이터 그룹화, Summary·Matrix 리포트에서 사용 가능, 리포트 내에서 동적·편집 가능.
 
 ## 2. 리포트의 Formula Field란?
 
@@ -38,7 +42,9 @@ Bucket Field는 오브젝트에 커스텀 필드를 만들지 않고 리포트 �
 - **Row-Level Formula:** 리포트의 각 행에 대해 값 계산
 - **Summary Formula:** 그룹화된 데이터에 대해 계산 수행
 
-**사용 예:** Row-Level Formula로 Profit = Amount − Cost 계산. Summary Formula로 Win Rate(%) = (Closed Won / Total Opportunities) × 100 계산.
+**사용 예:**
+
+Row-Level Formula로 Profit = Amount − Cost 계산. Summary Formula로 Win Rate(%) = (Closed Won / Total Opportunities) × 100 계산.
 
 **Row-Level Formula 생성:**
 1. 리포트 열기

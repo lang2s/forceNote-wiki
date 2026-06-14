@@ -34,7 +34,9 @@ for (Integer i=0; i<listOfNumbers.size(); i++) {
 ```
 - for-each 루프: 단순히 각 요소 접근 시 더 깔끔. (단, for-each에서 num 값을 바꿔도 원본 리스트는 변경되지 않음. 인덱스로 접근해야 수정 가능.)
 
-**Index vs Size:** Index는 요소의 위치(0부터 시작), Size는 총 요소 수.
+**Index vs Size:**
+
+Index는 요소의 위치(0부터 시작), Size는 총 요소 수.
 
 **리스트 복제:**
 - Shallow copy(얕은 복사): `StockList2 = StockList1;` — 같은 메모리 공유(참조). 한쪽 변경이 다른 쪽에도 반영됨.
@@ -74,9 +76,13 @@ Courses.put(103, 'C++');
 System.debug(Courses.get(101)); // Java
 ```
 
-**Map 검색이 List보다 빠른 이유:** 키-값 구조로 해싱을 사용해 상수 시간(O(1))에 접근. List는 선형 검색으로 평균 O(n).
+**Map 검색이 List보다 빠른 이유:**
 
-**키는 중복 불가:** 기존 키에 새 값을 put하면 값이 업데이트됨(103: C++ → Salesforce).
+키-값 구조로 해싱을 사용해 상수 시간(O(1))에 접근. List는 선형 검색으로 평균 O(n).
+
+**키는 중복 불가:**
+
+기존 키에 새 값을 put하면 값이 업데이트됨(103: C++ → Salesforce).
 
 **주요 메서드:**
 - `get(key)`: 키의 값 조회

@@ -369,7 +369,9 @@ public class APIRequestHelper{
 
 아니요, future 메서드는 트리거에서 직접 호출할 수 없습니다. Future 메서드는 비동기로 실행되며 다른 비동기 컨텍스트(future 메서드나 batch 메서드 등)에서 큐에 넣을 수 없습니다("Future method cannot be called from a future or batch method" 오류). 트리거에서 future 메서드를 호출하면 오류가 발생합니다.
 
-**해결책:** future 메서드 대신 Queueable Apex 사용:
+**해결책:**
+
+future 메서드 대신 Queueable Apex 사용:
 ```apex
 public class MyQueueableJob implements Queueable{
     public void execute(QueueableContext context){

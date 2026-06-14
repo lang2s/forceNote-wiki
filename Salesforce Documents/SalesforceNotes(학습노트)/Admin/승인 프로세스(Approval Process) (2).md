@@ -54,7 +54,9 @@ Salesforce의 승인 프로세스는 중요한 레코드가 체계적으로 승�
 1. **단일 승인자(Single Approver):** 요청이 한 사람에게 감. 승인/거부/재할당 가능. 승인 시 진행, 거부 시 Salesforce가 레코드 업데이트·알림.
 2. **다중 승인자(Multiple Approvers):** 요청이 여러 사람에게 감. 두 규칙: First Response Wins(첫 승인/거부가 최종 결정), All Must Approve(모두 승인해야 진행).
 
-**기타 액션:** Reassign(다른 사람에게 요청 전달), Recall(제출자가 승인 전 변경을 위해 요청 회수).
+**기타 액션:**
+
+Reassign(다른 사람에게 요청 전달), Recall(제출자가 승인 전 변경을 위해 요청 회수).
 
 ## 승인 단계(Approval Steps)
 

@@ -13,47 +13,87 @@ Apex, 트리거, 거버너 한도 중심의 면접 질문 모음.
 
 ## Apex 기초
 
-**1. Apex란?** Salesforce가 개발한 강타입·객체지향 언어. API 호출과 함께 Salesforce 서버에서 흐름·트랜잭션 제어 실행. Java와 유사한 구문.
+**1. Apex란?**
 
-**2. 거버너 한도란?** 공유 리소스 독점 방지를 위해 Salesforce가 강제하는 런타임 한도(SOQL, DML, 힙 크기, CPU 시간 등).
+Salesforce가 개발한 강타입·객체지향 언어. API 호출과 함께 Salesforce 서버에서 흐름·트랜잭션 제어 실행. Java와 유사한 구문.
 
-**3. Apex 컬렉션?** List(순서 있음), Set(고유 값, 순서 없음), Map(키-값 쌍).
+**2. 거버너 한도란?**
 
-**4. SOQL vs SOSL?** SOQL은 단일/관련 오브젝트에서 레코드 조회. SOSL은 여러 오브젝트 텍스트 검색.
+공유 리소스 독점 방지를 위해 Salesforce가 강제하는 런타임 한도(SOQL, DML, 힙 크기, CPU 시간 등).
 
-**5. DML 문?** 데이터 조작: insert, update, delete, upsert, merge.
+**3. Apex 컬렉션?**
 
-**6. @future 어노테이션?** 메서드 비동기 실행. DML 후 외부 콜아웃, 대량 데이터 처리에 사용.
+List(순서 있음), Set(고유 값, 순서 없음), Map(키-값 쌍).
 
-**7. 커스텀 예외?** 사용자 정의 예외 클래스로 표준 예외 외 자체 오류 처리.
+**4. SOQL vs SOSL?**
 
-**8. Database 클래스?** 더 세밀한 제어의 DML 제공(Database.insert/update). allOrNone 플래그로 부분 처리 가능.
+SOQL은 단일/관련 오브젝트에서 레코드 조회. SOSL은 여러 오브젝트 텍스트 검색.
 
-**9. Wrapper 클래스?** 객체·속성을 담는 커스텀 클래스. 서로 다른 타입을 단일 컬렉션으로 처리, 복잡한 데이터 구조 생성.
+**5. DML 문?**
 
-**10. with sharing 키워드?** 공유 규칙 강제. 사용자 권한·접근 존중.
+데이터 조작: insert, update, delete, upsert, merge.
+
+**6. @future 어노테이션?**
+
+메서드 비동기 실행. DML 후 외부 콜아웃, 대량 데이터 처리에 사용.
+
+**7. 커스텀 예외?**
+
+사용자 정의 예외 클래스로 표준 예외 외 자체 오류 처리.
+
+**8. Database 클래스?**
+
+더 세밀한 제어의 DML 제공(Database.insert/update). allOrNone 플래그로 부분 처리 가능.
+
+**9. Wrapper 클래스?**
+
+객체·속성을 담는 커스텀 클래스. 서로 다른 타입을 단일 컬렉션으로 처리, 복잡한 데이터 구조 생성.
+
+**10. with sharing 키워드?**
+
+공유 규칙 강제. 사용자 권한·접근 존중.
 
 ## 트리거
 
-**11. 트리거란?** 레코드의 특정 DB 이벤트(before/after insert·update 등) 전후 실행되는 Apex 코드.
+**11. 트리거란?**
 
-**12. 트리거 컨텍스트 변수?** Trigger.new, Trigger.old, Trigger.isInsert, Trigger.isUpdate 등 작업 컨텍스트 제공 변수.
+레코드의 특정 DB 이벤트(before/after insert·update 등) 전후 실행되는 Apex 코드.
 
-**13. 트리거 유형?** Before(저장 전 검증·수정), After(시스템 설정 필드 접근, 관련 레코드 작업).
+**12. 트리거 컨텍스트 변수?**
 
-**14. Trigger.new vs Trigger.old?** new는 insert·update의 새 버전 목록, old는 update·delete의 이전 버전 목록.
+Trigger.new, Trigger.old, Trigger.isInsert, Trigger.isUpdate 등 작업 컨텍스트 제공 변수.
 
-**15. 재귀 트리거란?** 다른 트리거 실행으로 인한 데이터 변경이 자신을 반복 호출. 무한 루프 위험.
+**13. 트리거 유형?**
 
-**16. 재귀 방지?** 헬퍼 클래스의 static Boolean 변수로 실행 여부 확인.
+Before(저장 전 검증·수정), After(시스템 설정 필드 접근, 관련 레코드 작업).
 
-**17. Trigger Handler 클래스?** 트리거 로직을 별도 처리. 단일 책임 원칙, 재사용성·가독성·디버깅 용이.
+**14. Trigger.new vs Trigger.old?**
 
-**18. Trigger.new vs newMap?** new는 새 레코드 목록, newMap은 ID→레코드 맵. newMap은 before update·after update에서만 사용 가능.
+new는 insert·update의 새 버전 목록, old는 update·delete의 이전 버전 목록.
 
-**19. 트리거 예외 처리?** try-catch 블록. 커스텀 예외 throw 가능.
+**15. 재귀 트리거란?**
 
-**20. 트리거 실행 제한?** 거버너 한도(DML, SOQL, CPU 시간, 힙 크기) 적용.
+다른 트리거 실행으로 인한 데이터 변경이 자신을 반복 호출. 무한 루프 위험.
+
+**16. 재귀 방지?**
+
+헬퍼 클래스의 static Boolean 변수로 실행 여부 확인.
+
+**17. Trigger Handler 클래스?**
+
+트리거 로직을 별도 처리. 단일 책임 원칙, 재사용성·가독성·디버깅 용이.
+
+**18. Trigger.new vs newMap?**
+
+new는 새 레코드 목록, newMap은 ID→레코드 맵. newMap은 before update·after update에서만 사용 가능.
+
+**19. 트리거 예외 처리?**
+
+try-catch 블록. 커스텀 예외 throw 가능.
+
+**20. 트리거 실행 제한?**
+
+거버너 한도(DML, SOQL, CPU 시간, 힙 크기) 적용.
 
 ## 거버너 한도
 
@@ -69,53 +109,95 @@ Apex, 트리거, 거버너 한도 중심의 면접 질문 모음.
 | SOQL 반환 레코드 | 트랜잭션당 50,000건 |
 | 콜아웃 수 | 트랜잭션당 100회 |
 
-**27. Limit 클래스?** Limits.getQueries(), Limits.getDMLStatements() 등으로 현재 리소스 소비 확인.
+**27. Limit 클래스?**
+
+Limits.getQueries(), Limits.getDMLStatements() 등으로 현재 리소스 소비 확인.
 
 ## 고급 Apex
 
-**31. Batch Apex?** 대량 레코드를 200건 배치로 비동기 처리, 거버너 한도 관리.
+**31. Batch Apex?**
 
-**32. Queueable Apex?** 작업 체이닝 가능한 비동기 Apex, 순차 실행·리소스 제어.
+대량 레코드를 200건 배치로 비동기 처리, 거버너 한도 관리.
 
-**33. Scheduled Apex?** 특정 시간에 Apex 클래스 실행 예약, 반복 작업 자동화.
+**32. Queueable Apex?**
 
-**34. Apex에서 웹 서비스 호출?** HttpRequest, HttpResponse, Http 클래스로 외부 콜아웃.
+작업 체이닝 가능한 비동기 Apex, 순차 실행·리소스 제어.
 
-**35. Platform Events?** 실시간 통합. Flow·프로세스·트리거 발동, 비동기 이벤트 기반 통신.
+**33. Scheduled Apex?**
+
+특정 시간에 Apex 클래스 실행 예약, 반복 작업 자동화.
+
+**34. Apex에서 웹 서비스 호출?**
+
+HttpRequest, HttpResponse, Http 클래스로 외부 콜아웃.
+
+**35. Platform Events?**
+
+실시간 통합. Flow·프로세스·트리거 발동, 비동기 이벤트 기반 통신.
 
 ## 모범 사례
 
-**36. 벌크화 중요성?** 대량 데이터 처리, 거버너 한도 회피. 효율적·확장 가능한 코드의 핵심.
+**36. 벌크화 중요성?**
 
-**37. Transient 키워드?** Visualforce 컨트롤러에서 뷰 상태 직렬화에 불필요한 변수 선언, 뷰 상태 크기 감소.
+대량 데이터 처리, 거버너 한도 회피. 효율적·확장 가능한 코드의 핵심.
 
-**38. @AuraEnabled vs @InvocableMethod?** AuraEnabled는 Lightning 컴포넌트에서 접근, InvocableMethod는 Process Builder·Flow에서 사용.
+**37. Transient 키워드?**
 
-**39. SOQL 대량 처리?** LIMIT, OFFSET 페이지네이션, FOR 루프 활용.
+Visualforce 컨트롤러에서 뷰 상태 직렬화에 불필요한 변수 선언, 뷰 상태 크기 감소.
 
-**40. @TestVisible?** private 변수·메서드를 테스트 클래스에 노출, 커버리지 보장.
+**38. @AuraEnabled vs @InvocableMethod?**
+
+AuraEnabled는 Lightning 컴포넌트에서 접근, InvocableMethod는 Process Builder·Flow에서 사용.
+
+**39. SOQL 대량 처리?**
+
+LIMIT, OFFSET 페이지네이션, FOR 루프 활용.
+
+**40. @TestVisible?**
+
+private 변수·메서드를 테스트 클래스에 노출, 커버리지 보장.
 
 ## 시나리오 질문
 
-**41. 무한 루프 방지?** 헬퍼 클래스의 static Boolean 플래그.
+**41. 무한 루프 방지?**
 
-**42. Database.SaveResult?** allOrNone=false인 DML의 성공·실패 정보 포함.
+헬퍼 클래스의 static Boolean 플래그.
 
-**43. @isTest?** Apex 클래스/메서드를 테스트로 표시. 테스트 환경에서만 실행, 배포 커버리지 보장.
+**42. Database.SaveResult?**
 
-**44. SOQL for 루프?** 200건 배치로 레코드 조회, 대량 처리 시 성능·메모리 개선.
+allOrNone=false인 DML의 성공·실패 정보 포함.
 
-**45. 거버너 한도 초과 최적화?** 효율적 SOQL·DML, 트리거 벌크화, 비동기 처리, Limit 클래스 모니터링.
+**43. @isTest?**
 
-**46. Custom Metadata Types?** 커스텀 데이터 타입 정의·메타데이터 레코드로 앱 구성 저장, 유지보수·이식성 향상.
+Apex 클래스/메서드를 테스트로 표시. 테스트 환경에서만 실행, 배포 커버리지 보장.
 
-**47. Batch Apex vs 트리거 대량 처리?** Batch는 200건 청크로 비동기 처리, 동기 트리거보다 거버너 한도에 유리.
+**44. SOQL for 루프?**
 
-**48. 비동기 Apex?** Batch, Queueable, Scheduled. 백그라운드 실행, 대량 처리·콜아웃 효율화.
+200건 배치로 레코드 조회, 대량 처리 시 성능·메모리 개선.
 
-**49. Custom Labels?** Apex·Visualforce에서 참조 가능한 커스텀 텍스트. 다국어 지원.
+**45. 거버너 한도 초과 최적화?**
 
-**50. Apex 디버깅?** 디버그 로그, System.debug, Developer Console.
+효율적 SOQL·DML, 트리거 벌크화, 비동기 처리, Limit 클래스 모니터링.
+
+**46. Custom Metadata Types?**
+
+커스텀 데이터 타입 정의·메타데이터 레코드로 앱 구성 저장, 유지보수·이식성 향상.
+
+**47. Batch Apex vs 트리거 대량 처리?**
+
+Batch는 200건 청크로 비동기 처리, 동기 트리거보다 거버너 한도에 유리.
+
+**48. 비동기 Apex?**
+
+Batch, Queueable, Scheduled. 백그라운드 실행, 대량 처리·콜아웃 효율화.
+
+**49. Custom Labels?**
+
+Apex·Visualforce에서 참조 가능한 커스텀 텍스트. 다국어 지원.
+
+**50. Apex 디버깅?**
+
+디버그 로그, System.debug, Developer Console.
 
 ## 실시간 시나리오 기반 질문
 

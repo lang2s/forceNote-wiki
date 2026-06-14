@@ -87,9 +87,13 @@ isBefore, isAfter, isInsert, isUpdate, isDelete, isUndelete, size, isExecuting, 
 
 ## LWC
 
-**@wire / @track / @api 목적?** @api(public 속성), @track(private 반응형), @wire(반응형 데이터 조회·재렌더링).
+**@wire / @track / @api 목적?**
 
-**실행 순서(워크플로우+Process Builder+트리거 한 트랜잭션):** 트리거 → 워크플로우 → 워크플로우 업데이트 후 before 트리거 1회. 총 3회.
+@api(public 속성), @track(private 반응형), @wire(반응형 데이터 조회·재렌더링).
+
+**실행 순서(워크플로우+Process Builder+트리거 한 트랜잭션):**
+
+트리거 → 워크플로우 → 워크플로우 업데이트 후 before 트리거 1회. 총 3회.
 
 ### 통신: Parent → Child
 속성 바인딩으로 부모가 자식에 데이터 전달.
@@ -110,7 +114,9 @@ handleClick() {
 
 ### LMS (Lightning Message Service)
 Visualforce·Aura·LWC 간 통신(Lightning Experience만). message channel·payload. 관계 없는 컴포넌트 간 통신.
-**제약:** 모바일 앱·AppExchange·Lightning Out·Communities 미통합, Classic·iframe 미작동, UI에서 채널 직접 생성 불가.
+**제약:**
+
+모바일 앱·AppExchange·Lightning Out·Communities 미통합, Classic·iframe 미작동, UI에서 채널 직접 생성 불가.
 
 ### connectedCallback()
 컴포넌트가 DOM에 삽입될 때 호출. 초기화·데이터 조회·이벤트 등록.
@@ -120,11 +126,17 @@ connectedCallback(DOM 삽입), renderedCallback(템플릿 렌더링 후), discon
 
 ## Aura
 
-**Aura vs LWC?** Aura는 ES6 이전 출시, Aura 전용 코드 작성→네이티브 JS 생성. LWC는 네이티브 JS 작성→성능 향상, ES6 업데이트 즉시 사용.
+**Aura vs LWC?**
 
-**컴포넌트 번들:** Component(UI), Controller JS(클라이언트), Helper JS, Style(CSS), Documentation, Renderer, Design, SVG. 각 컨트롤러 액션은 component·event·helper 3개 매개변수. `{!c.myAction}`으로 호출, helper는 `helper.myActionHelper()`로 호출(컨트롤러에서 컨트롤러 함수·재귀 호출 불가).
+Aura는 ES6 이전 출시, Aura 전용 코드 작성→네이티브 JS 생성. LWC는 네이티브 JS 작성→성능 향상, ES6 업데이트 즉시 사용.
 
-**Design 파일 목적?** 관리자가 UI로 매개변수 값 설정.
+**컴포넌트 번들:**
+
+Component(UI), Controller JS(클라이언트), Helper JS, Style(CSS), Documentation, Renderer, Design, SVG. 각 컨트롤러 액션은 component·event·helper 3개 매개변수. `{!c.myAction}`으로 호출, helper는 `helper.myActionHelper()`로 호출(컨트롤러에서 컨트롤러 함수·재귀 호출 불가).
+
+**Design 파일 목적?**
+
+관리자가 UI로 매개변수 값 설정.
 
 ### Component Event
 같은 컴포넌트 또는 상위 컴포넌트가 처리. 자식에서 등록·부모에서 처리.
@@ -196,7 +208,9 @@ global class FutureClass {
 ## Platform Events
 Salesforce 내·외부 앱에 알림 전달. 이벤트 기반 아키텍처. point-to-point 통합 과제·거버너 한도 극복. __e 접미사. Pub/Sub, 폴링 불필요, ReplayId로 재생. 필드: Checkbox·Date·Date/Time·Number·Text·Text Area만.
 
-**용어:** Event(상태 변화), Event message/Notification, Event producer(발행자), Channel(event bus), Event consumer(구독자).
+**용어:**
+
+Event(상태 변화), Event message/Notification, Event producer(발행자), Channel(event bus), Event consumer(구독자).
 
 | SObject__c | Platform Events__e |
 |---|---|
@@ -205,7 +219,9 @@ Salesforce 내·외부 앱에 알림 전달. 이벤트 기반 아키텍처. poin
 | Triggers | Subscribers |
 | 병렬 컨텍스트 | 보장된 실행 순서 |
 
-**고려사항:** __e 접미사, SOQL/SOSL 쿼리 불가, 리포트·리스트 뷰·검색 불가(탭 없음), 롤백 불가, 필드 읽기 전용, after insert 트리거만, API·선언적 접근, 프로필·권한 제어.
+**고려사항:**
+
+__e 접미사, SOQL/SOSL 쿼리 불가, 리포트·리스트 뷰·검색 불가(탭 없음), 롤백 불가, 필드 읽기 전용, after insert 트리거만, API·선언적 접근, 프로필·권한 제어.
 
 ## 예외 유형
 DmlException(필수 필드 누락·Mixed DML·Invalid Data), System.FinalException(Record read-only), ListException(index out of bounds), NullPointerException, QueryException(행 없음·비선택 쿼리), SObjectException(미쿼리 필드), LimitException(SOQL 101·DML 151·CPU 시간·Query rows 50001), StringException, JSONException, UnexpectedException, FlowException.

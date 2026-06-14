@@ -22,7 +22,9 @@ sObject는 "Salesforce Object"를 의미합니다. Salesforce에서 데이터베
 
 ## 핵심 포인트
 
-**1. 선언:** sObject는 해당 오브젝트 타입으로 명시적 선언.
+**1. 선언:**
+
+sObject는 해당 오브젝트 타입으로 명시적 선언.
 ```apex
 Account ac;       // 표준 오브젝트
 Contact con;      // 표준 오브젝트
@@ -53,17 +55,23 @@ ac.Industry = 'Technology';
 insert ac;
 ```
 
-**초기화가 중요한 이유:** 오브젝트가 데이터를 저장할 메모리 위치를 생성. 초기화 없이는 sObject 레코드를 삽입할 수 없습니다.
+**초기화가 중요한 이유:**
+
+오브젝트가 데이터를 저장할 메모리 위치를 생성. 초기화 없이는 sObject 레코드를 삽입할 수 없습니다.
 
 ## 초기화가 필요 없는 경우
 
-**1. 기존 레코드 쿼리:** SOQL이 반환한 sObject는 이미 초기화됨.
+**1. 기존 레코드 쿼리:**
+
+SOQL이 반환한 sObject는 이미 초기화됨.
 ```apex
 Account acc = [SELECT Name FROM Account WHERE Name = 'Santosh' LIMIT 1];
 System.debug(acc.Name);
 ```
 
-**2. Insert 외 DML 작업:** SOQL로 조회한 레코드는 이미 초기화되어 있어 직접 수행 가능.
+**2. Insert 외 DML 작업:**
+
+SOQL로 조회한 레코드는 이미 초기화되어 있어 직접 수행 가능.
 ```apex
 Account acc = [SELECT Name, Phone FROM Account LIMIT 1];
 acc.Phone = '9876543210';

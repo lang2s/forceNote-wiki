@@ -18,9 +18,13 @@ Facebook·Google 광고 폼에서 Salesforce로 Lead를 캡처하는 2가지 방
 AppExchange에서 Lead Capture 앱(Sales Cloud) 다운로드.
 
 ### 접근 허용 2단계
-**① OAuth 설정 변경:** Setup → "Manage Connected Apps" → Salesforce Lead Capture App → Edit → OAuth policies에서 "Admin approved users are pre-authorised" 선택.
+**① OAuth 설정 변경:**
 
-**② 권한 집합 할당:** Setup → "Permission Sets" → "Salesforce Lead Capture" → Manage Assignment → 사용자 추가.
+Setup → "Manage Connected Apps" → Salesforce Lead Capture App → Edit → OAuth policies에서 "Admin approved users are pre-authorised" 선택.
+
+**② 권한 집합 할당:**
+
+Setup → "Permission Sets" → "Salesforce Lead Capture" → Manage Assignment → 사용자 추가.
 
 ### 사용
 App Launcher → "Lead Capture" → New Task → Lead Source 선택:

@@ -9,11 +9,17 @@ aliases: [Deloitte Interview Questions (Part -1)]
 
 > [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
-**OFFSET이란? 예시·용도?** SOQL 절. offset 사용 시 첫 배치만 반환, 다음 배치는 더 높은 OFFSET으로 재실행. 예: `[SELECT Id, Name FROM Account LIMIT 10 OFFSET 10]` → 11~20번째 반환.
+**OFFSET이란? 예시·용도?**
 
-**Lookup을 Master-Detail로 변환?** 가능. 단 lookup 필드에 빈 값이 없어야 함(빈 값이면 채운 후 변환).
+SOQL 절. offset 사용 시 첫 배치만 반환, 다음 배치는 더 높은 OFFSET으로 재실행. 예: `[SELECT Id, Name FROM Account LIMIT 10 OFFSET 10]` → 11~20번째 반환.
 
-**Batch에서 삽입/업데이트된 레코드 확인?** SaveResult 클래스. `Database.SaveResult[] srLst = Database.update(lstData, false);` — isSuccess()로 성공, getError()로 오류, getId()로 실패 레코드 ID.
+**Lookup을 Master-Detail로 변환?**
+
+가능. 단 lookup 필드에 빈 값이 없어야 함(빈 값이면 채운 후 변환).
+
+**Batch에서 삽입/업데이트된 레코드 확인?**
+
+SaveResult 클래스. `Database.SaveResult[] srLst = Database.update(lstData, false);` — isSuccess()로 성공, getError()로 오류, getId()로 실패 레코드 ID.
 
 ## REST API
 RESTful 원칙 기반 웹 서비스. CRUD·검색·메타데이터·한도 조회. XML·JSON 지원. 모바일·외부 클라이언트에 이상적. Apex REST로 Force.com 웹 서비스 생성 가능.
@@ -104,7 +110,9 @@ global class MyClass {
     public static void myFutureMethod(){ }
 }
 ```
-**시나리오(대량 데이터 처리):** 트리거에서 대량 레코드를 동기 처리 시 CPU 한도 초과 위험 → future 메서드에 레코드 전달, 백그라운드 비동기 처리.
+**시나리오(대량 데이터 처리):**
+
+트리거에서 대량 레코드를 동기 처리 시 CPU 한도 초과 위험 → future 메서드에 레코드 전달, 백그라운드 비동기 처리.
 ```apex
 trigger MyObjectTrigger on MyObject__c (after insert, after update) {
     List<MyObject__c> recordsToProcess = new List<MyObject__c>();
@@ -144,12 +152,20 @@ Person personData = (Person) JSON.deserialize(jsonString, Person.class);
 | 대형 엔터프라이즈 | 모바일 디바이스 |
 
 ## 기타
-**Role vs Profile?** Role은 가시성, Profile은 수행 가능 작업.
-**프로필 없이 User 생성?** 불가.
+**Role vs Profile?**
 
-**insert vs Database.insert()?** insert는 오류 시 전체 롤백(try-catch). Database.insert(list, false)는 부분 성공. Database.insert(list, true)는 insert DML처럼 동작(오류 시 전체 롤백).
+Role은 가시성, Profile은 수행 가능 작업.
+**프로필 없이 User 생성?**
 
-**4건 중 3 성공·4번째 실패 시 Database.insert()?** 성공 레코드는 삽입, 오류 레코드는 미삽입(false일 때).
+불가.
+
+**insert vs Database.insert()?**
+
+insert는 오류 시 전체 롤백(try-catch). Database.insert(list, false)는 부분 성공. Database.insert(list, true)는 insert DML처럼 동작(오류 시 전체 롤백).
+
+**4건 중 3 성공·4번째 실패 시 Database.insert()?**
+
+성공 레코드는 삽입, 오류 레코드는 미삽입(false일 때).
 
 **VF 페이지네이션(20개를 5개씩):**
 ```apex
@@ -178,11 +194,17 @@ public class PaginationController {
 }
 ```
 
-**선택 목록을 텍스트로 변경?** 가능.
+**선택 목록을 텍스트로 변경?**
 
-**이메일 템플릿에서 자식 데이터?** 교차 오브젝트 이메일 템플릿 불가. Visualforce 이메일 템플릿으로만 부모의 자식 레코드 표시.
+가능.
 
-**두 User lookup 중 하나에 할당된 사용자만 편집:** 검증 규칙 + 트리거.
+**이메일 템플릿에서 자식 데이터?**
+
+교차 오브젝트 이메일 템플릿 불가. Visualforce 이메일 템플릿으로만 부모의 자식 레코드 표시.
+
+**두 User lookup 중 하나에 할당된 사용자만 편집:**
+
+검증 규칙 + 트리거.
 ```apex
 trigger RestrictEditOnObject on Your_Object__c (before update) {
     for (Your_Object__c obj : Trigger.new) {
@@ -193,9 +215,17 @@ trigger RestrictEditOnObject on Your_Object__c (before update) {
 }
 ```
 
-**HAVING 절?** aggregate 함수 결과 필터(GROUP BY와 함께). `[SELECT LeadSource, count(Name) FROM Lead GROUP BY LeadSource HAVING count(Name) > 6]`
+**HAVING 절?**
 
-**SOSL 반환 타입?** List<List<SObject>>.
-**Aggregate 쿼리 반환?** AggregateResult[].
+aggregate 함수 결과 필터(GROUP BY와 함께). `[SELECT LeadSource, count(Name) FROM Lead GROUP BY LeadSource HAVING count(Name) > 6]`
 
-**Soft vs Hard Delete?** Hard Delete는 휴지통 미보관(영구 삭제). Soft Delete는 휴지통에서 15일 내 복원 가능.
+**SOSL 반환 타입?**
+
+List<List<SObject>>.
+**Aggregate 쿼리 반환?**
+
+AggregateResult[].
+
+**Soft vs Hard Delete?**
+
+Hard Delete는 휴지통 미보관(영구 삭제). Soft Delete는 휴지통에서 15일 내 복원 가능.

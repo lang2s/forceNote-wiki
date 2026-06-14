@@ -9,9 +9,13 @@ aliases: [Salesforce Apex Clean Code Tips]
 
 > [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
-**1. Apex 명명 규칙:** 클래스는 PascalCase(AccountTriggerHandler), 메서드·변수는 camelCase(calculateDiscount), 상수는 UPPER_CASE(MAX_RECORDS).
+**1. Apex 명명 규칙:**
 
-**2. 루프 안 SOQL/DML 회피:** 컬렉션에 모은 뒤 루프 밖에서 한 번에 처리.
+클래스는 PascalCase(AccountTriggerHandler), 메서드·변수는 camelCase(calculateDiscount), 상수는 UPPER_CASE(MAX_RECORDS).
+
+**2. 루프 안 SOQL/DML 회피:**
+
+컬렉션에 모은 뒤 루프 밖에서 한 번에 처리.
 ```apex
 List<Contact> contacts = new List<Contact>();
 for (Account acc : accountList) {
@@ -20,9 +24,13 @@ for (Account acc : accountList) {
 insert contacts;
 ```
 
-**3. Apex 트리거 프레임워크 사용:** 트리거 핸들러 패턴으로 조직화(Trigger는 핸들러 메서드 호출, Handler 클래스가 beforeInsert·afterUpdate 등 로직 관리).
+**3. Apex 트리거 프레임워크 사용:**
 
-**4. 설명적 주석·문서화:** 메서드 목적·매개변수·반환값 포함.
+트리거 핸들러 패턴으로 조직화(Trigger는 핸들러 메서드 호출, Handler 클래스가 beforeInsert·afterUpdate 등 로직 관리).
+
+**4. 설명적 주석·문서화:**
+
+메서드 목적·매개변수·반환값 포함.
 ```apex
 /**
  * 주문의 총 할인 계산.
@@ -31,28 +39,50 @@ insert contacts;
  */
 ```
 
-**5. 하드코딩 회피:** 한도·임계값 같은 구성 값에 Custom Metadata Type·Custom Settings 사용.
+**5. 하드코딩 회피:**
 
-**6. 오류 처리:** try-catch로 예외 관리, System.debug나 커스텀 로깅으로 오류 기록.
+한도·임계값 같은 구성 값에 Custom Metadata Type·Custom Settings 사용.
 
-**7. 거버너 한도 사용 제한:** Limits 클래스로 모니터링.
+**6. 오류 처리:**
+
+try-catch로 예외 관리, System.debug나 커스텀 로깅으로 오류 기록.
+
+**7. 거버너 한도 사용 제한:**
+
+Limits 클래스로 모니터링.
 ```apex
 System.debug('Queries used: ' + Limits.getQueries());
 System.debug('DML statements used: ' + Limits.getDMLStatements());
 ```
 
-**8. 코드 중복 회피:** 공통 로직을 재사용 가능한 헬퍼 클래스·메서드로 추출.
+**8. 코드 중복 회피:**
 
-**9. 비동기 처리 활용:** 장시간 작업에 @future, Queueable, Batch Apex 사용.
+공통 로직을 재사용 가능한 헬퍼 클래스·메서드로 추출.
 
-**10. 코드 벌크화:** 트리거·메서드에서 항상 여러 레코드 처리. 컬렉션과 SOQL for 루프 사용.
+**9. 비동기 처리 활용:**
 
-**11. 테스트 주도 개발(TDD):** assertion이 있는 의미 있는 단위 테스트, 긍정·부정·경계 케이스, 75%+ 커버리지.
+장시간 작업에 @future, Queueable, Batch Apex 사용.
 
-**12. SOQL 쿼리 최적화:** 필요한 필드만 조회.
+**10. 코드 벌크화:**
 
-**13. 커스텀 예외 사용:** 고유 시나리오를 위한 특정 예외 생성. `public class CustomException extends Exception {}`
+트리거·메서드에서 항상 여러 레코드 처리. 컬렉션과 SOQL for 루프 사용.
 
-**14. 트랜잭션 경계 존중:** 트리거·배치·queueable이 거버너 한도를 초과하지 않게.
+**11. 테스트 주도 개발(TDD):**
 
-**15. 성능 모니터링·로깅:** 디버그 로그로 실행 시간 추적, 느린 프로세스 최적화.
+assertion이 있는 의미 있는 단위 테스트, 긍정·부정·경계 케이스, 75%+ 커버리지.
+
+**12. SOQL 쿼리 최적화:**
+
+필요한 필드만 조회.
+
+**13. 커스텀 예외 사용:**
+
+고유 시나리오를 위한 특정 예외 생성. `public class CustomException extends Exception {}`
+
+**14. 트랜잭션 경계 존중:**
+
+트리거·배치·queueable이 거버너 한도를 초과하지 않게.
+
+**15. 성능 모니터링·로깅:**
+
+디버그 로그로 실행 시간 추적, 느린 프로세스 최적화.

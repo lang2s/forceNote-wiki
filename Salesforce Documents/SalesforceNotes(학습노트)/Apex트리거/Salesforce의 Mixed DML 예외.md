@@ -26,7 +26,9 @@ aliases: [Mixed DML Scenerio]
 
 ## 해결 방법
 
-**1. 별도 트랜잭션 사용:** DML 작업을 분리. 비동기 프로세스 활용:
+**1. 별도 트랜잭션 사용:**
+
+DML 작업을 분리. 비동기 프로세스 활용:
 - **Future Methods:** 별도 트랜잭션에서 실행.
 ```apex
 public class DmlOperations {
@@ -55,7 +57,9 @@ public class UserUpdateJob implements Queueable {
 ```
 - **Batch Apex:** 대용량 작업을 별도 배치로 분리.
 
-**2. Platform Events 사용:** 한 트랜잭션에서 이벤트를 발행하고(예: Case 업데이트 후), 별도 트랜잭션에서 이벤트 트리거 Flow나 Apex 구독자로 setup 오브젝트 업데이트 처리.
+**2. Platform Events 사용:**
+
+한 트랜잭션에서 이벤트를 발행하고(예: Case 업데이트 후), 별도 트랜잭션에서 이벤트 트리거 Flow나 Apex 구독자로 setup 오브젝트 업데이트 처리.
 
 ## 결론
 
