@@ -33,6 +33,7 @@ aliases: [통합 MOC, Integration Index]
 
 ## Inbound (외부 → Salesforce)
 
+- [[REST API]] — 표준 REST(sObjects CRUD·SOQL·Composite·sObject Tree/Collections), OAuth 2.0
 - [[Custom REST Endpoint]] — `@RestResource`, `@HttpGet/@HttpPost` 글로벌 클래스
 
 ## 대량 데이터 (Bulk)

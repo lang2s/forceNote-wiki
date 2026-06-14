@@ -118,7 +118,7 @@ updated: 2026-05-24
 | ING-01 | ~~salesforce_data_loader (58)~~ | Admin/Data | **✅ 완료 (2026-06-14)** → `Admin(어드민)/Data Loader.md` |
 | ING-02 | ~~Salesforce-Flow-Best-Practices 백서 (19)~~ | Flow | **✅ 이미 완료(기존)** — `Flow 설계 베스트 프랙티스`·`Flow 네이밍 컨벤션`·`Flow 에러 처리` 3노트가 이 백서 출처. (※ source에 `.pdf` 미기재라 초기 탐지서 누락됐던 거짓양성) |
 | ING-03 | ~~platform_events (628)~~ | Apex/PlatformEvents (분할) | **✅ 완료 (2026-06-14)** — 기존 4노트(발행·EventBus·콜백·CDC) + 신규 3노트(`Platform Event 정의와 구독`·`Platform Event Apex 테스트`·`Platform Event 한도와 고려사항`) = 정의·구독·테스트·한도·비교 전 영역 커버 |
-| ING-04 | api_rest (430) | Integration (분할) | 🔲 대기 |
+| ING-04 | ~~api_rest (430)~~ = REST API Developer Guide | Integration | **✅ 완료 (2026-06-14)** → `Integration(통합)/REST API.md` (핵심 digest: sObjects CRUD·SOQL·Composite/Graph/Batch·sObject Tree/Collections·헤더·API 비교) |
 | ING-05 | api_action (151) | Integration/Actions | 🔲 대기 |
 | ING-06 | ~~api_asynch (182)~~ = Bulk API 2.0 and Bulk API | Integration/Bulk·Async | **✅ 완료 (2026-06-14)** → `Integration(통합)/Bulk API 2.0.md` (핵심 digest: 2.0 vs v1·잡 상태·ingest/query REST·PK chunking·한도) |
 | ING-07 | salesforce_recipes_api (180) | Data 360 | 🔲 대기 |
