@@ -1,6 +1,7 @@
 ---
 tags: [apex, platform-events, testing, test-event-bus, callback]
 source: platform_events.pdf (Platform Events Developer Guide v67.0, Summer '26, Tier 2)
+official_doc: https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/
 created: 2026-06-14
 aliases: [Platform Event 테스트, Test.getEventBus, deliver, fail, test event bus, onSuccess onFailure 테스트, 플랫폼 이벤트 테스트]
 ---
@@ -76,6 +77,7 @@ public class MyCallbackTest {
 
 ## 관련 노트
 
+- 📖 공식: [Platform Events Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/)
 - [[Platform Event 정의와 구독]] — after insert 트리거·재시도
 - [[EventBus Publish Callbacks]] — onSuccess/onFailure 콜백 구현
 - [[Platform Event 발행]] — EventBus.publish

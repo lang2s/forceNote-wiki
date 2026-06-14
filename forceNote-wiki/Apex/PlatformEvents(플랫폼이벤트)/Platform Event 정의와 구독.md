@@ -1,6 +1,7 @@
 ---
 tags: [apex, platform-events, pub-sub, trigger, subscribe, event-driven]
 source: platform_events.pdf (Platform Events Developer Guide v67.0, Summer '26, Tier 2)
+official_doc: https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/
 created: 2026-06-14
 aliases: [Platform Event 정의, Platform Event 구독, Publish Behavior, high-volume platform event, Low_Ink__e, after insert trigger, ReplayId, EventUuid, setResumeCheckpoint, RetryableException]
 ---
@@ -64,10 +65,15 @@ trigger LowInkTrigger on Low_Ink__e (after insert) {
 > 트리거 실행 사용자는 기본 **Automated Process**. 생성 레코드 소유자를 명시하거나 실행 사용자를 오버라이드한다.
 
 ### 다른 구독 방식
-- **Pub/Sub API** — gRPC 기반, ReplayId로 스트림 재생(replay) 지원
-- **CometD** — 스트리밍 API 구독
+- **Pub/Sub API** — gRPC / HTTP2 기반, 이벤트를 **Apache Avro 바이너리**로 효율 전송. 발행 RPC: `Publish`(unary) / `PublishStream`(양방향 스트리밍, 높은 발행률). 구독·발행·스키마 조회를 1 API로. **11개 언어**(Python·Java·Go·Node 등) 클라이언트 지원. ReplayId로 스트림 재생(replay).
+- **CometD** — Streaming API 구독(롱폴링)
 - **Flow / Process** — 선언적 구독 (플랫폼 이벤트 트리거 플로우)
-- **Lightning Components** — `empApi`로 구독
+- **Lightning Components** — `lightning/empApi`로 구독
+
+### 이벤트 스트림 그룹·필터 (커스텀 채널)
+- **커스텀 채널**에 **필터 표현식**을 설정하면, 구독자는 표현식에 맞는 이벤트만 받는다(서버측 필터링 → 트래픽·처리 절감).
+- **지원 구독자**: **Pub/Sub API · Streaming API(CometD) · event relay 만**. ❌ Apex 트리거·Flow·Process는 커스텀 채널을 지원하지 않아 스트림 필터링 불가(표준 채널 `/event/{EventName}__e`만).
+- 여러 이벤트를 묶는 **채널 그룹**으로 한 구독에서 여러 이벤트 타입 수신 가능.
 
 ---
 
@@ -89,6 +95,7 @@ EventBus.TriggerContext.currentContext().setResumeCheckpoint(replayId);
 
 ## 관련 노트
 
+- 📖 공식: [Platform Events Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/)
 - [[Platform Event 발행]] — EventBus.publish, apex-recipes 발행 패턴
 - [[EventBus Namespace]] — publish/TriggerContext API 시그니처
 - [[EventBus Publish Callbacks]] — onSuccess/onFailure 콜백

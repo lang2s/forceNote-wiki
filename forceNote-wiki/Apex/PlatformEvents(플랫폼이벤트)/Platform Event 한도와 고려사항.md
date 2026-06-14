@@ -1,6 +1,7 @@
 ---
 tags: [apex, platform-events, limits, considerations, allocations, cdc]
 source: platform_events.pdf (Platform Events Developer Guide v67.0, Summer '26, Tier 2)
+official_doc: https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/
 created: 2026-06-14
 aliases: [Platform Event 한도, Platform Event 고려사항, Platform Event Allocations, 디커플드 발행 구독, decoupled publishing, PE vs CDC, 이벤트 종류 비교, 72시간 보관]
 ---
@@ -67,8 +68,16 @@ Salesforce에는 이벤트 기반 기능이 여러 가지이며, 일부는 표�
 
 ---
 
+## 표준 플랫폼 이벤트 객체 & 에러 코드
+
+- **표준 플랫폼 이벤트 객체**: Salesforce 제공 표준 이벤트(예: 로그인/로그아웃 이벤트 등). 공통 시스템 필드 — `EventUuid`(메시지 고유 UUID, v52.0+), `ReplayId`, `LoginKey`(로그인 세션 묶음), `Message` 등. 전체 목록·필드는 공식 가이드 *Standard Platform Event Objects* 참조.
+- **발행 상태 코드**: 비동기 발행 시 `EventBus.publish`의 `Database.SaveResult`에 즉시 결과로 **`OPERATION_ENQUEUED`**(큐잉 성공) 반환(최종 결과 아님). 콜백 사용 시 `OPERATION_WITH_CALLBACK_ENQUEUED`. 최종 결과는 [[EventBus Publish Callbacks]] 참조.
+
+---
+
 ## 관련 노트
 
+- 📖 공식: [Platform Events Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/)
 - [[Platform Event 정의와 구독]] — 정의·Publish Behavior·구독 트리거
 - [[Platform Event Apex 테스트]] — Test.getEventBus
 - [[Platform Event 발행]] · [[EventBus Namespace]] — Apex 발행
