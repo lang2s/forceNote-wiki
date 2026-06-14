@@ -98,7 +98,7 @@ updated: 2026-05-24
 | ADMIN-1 | **Approval Process** (선언적 승인 워크플로) | `Approval Namespace`(Apex)만 존재, 선언적 설정 how-to 없음. 공식 소스 필요 | 🔲 대기 | 2026-06-14 |
 | ADMIN-2 | **Formula / Roll-Up Summary 필드** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
 | ADMIN-3 | **Profiles · Page Layouts · Record Types** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
-| ADMIN-4 | **OWD · Sharing Rules** (선언적 공유 모델 전체) | `Permission Set 설계`만 있음, 공유 모델 종합 없음 | 🔲 대기 | 2026-06-14 |
+| ADMIN-4 | **OWD · Sharing Rules** (선언적 공유 모델 전체) | `Permission Set 설계` + **`레코드 액세스 설계 (Enterprise Scale)`(공유 재계산·implicit sharing·skew, draes Tier 2)** 추가. 선언적 OWD/Sharing Rule **설정 how-to**(공유 규칙 유형·기준 기반/소유 기반)는 여전히 미작성 | 🟡 부분 | 2026-06-14 |
 | ADMIN-5 | **Reports & Dashboards** (선언적) | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
 | ADMIN-6 | **Data Loader**(~~완료~~) · Import Wizard | **Data Loader ✅ 완료 (2026-06-14)**: `Admin(어드민)/Data Loader.md` (salesforce_data_loader.pdf v67.0, Tier 2 — UI/CLI·Bulk API·작업·process-conf.xml·vs Import Wizard 비교). Import Wizard 전용 노트는 미작성(현재 비교표로만 커버) | 🟡 부분 | 2026-06-14 |
 | ADMIN-7 | **Duplicate · Matching Rules** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
@@ -116,8 +116,8 @@ updated: 2026-05-24
 | # | PDF (페이지) | 도메인 | 상태 |
 |---|---|---|---|
 | ING-01 | ~~salesforce_data_loader (58)~~ | Admin/Data | **✅ 완료 (2026-06-14)** → `Admin(어드민)/Data Loader.md` |
-| ING-02 | Salesforce-Flow-Best-Practices 백서 (19) | Flow | 🔲 대기 |
-| ING-03 | platform_events (628) | Apex/PlatformEvents (분할) | 🔲 대기 |
+| ING-02 | ~~Salesforce-Flow-Best-Practices 백서 (19)~~ | Flow | **✅ 이미 완료(기존)** — `Flow 설계 베스트 프랙티스`·`Flow 네이밍 컨벤션`·`Flow 에러 처리` 3노트가 이 백서 출처. (※ source에 `.pdf` 미기재라 초기 탐지서 누락됐던 거짓양성) |
+| ING-03 | platform_events (628) | Apex/PlatformEvents (분할) | 🟡 부분 — `EventBus Publish Callbacks` 1노트가 인용. 628p 대부분 미채굴 |
 | ING-04 | api_rest (430) | Integration (분할) | 🔲 대기 |
 | ING-05 | api_action (151) | Integration/Actions | 🔲 대기 |
 | ING-06 | api_asynch (182) | Integration/Bulk·Async | 🔲 대기 |
@@ -131,7 +131,7 @@ updated: 2026-05-24
 | ING-14 | case_feed_dev_guide (45) | Service | 🔲 대기 |
 | ING-15 | caf_dev (27) | Service (Case Feed) | 🔲 대기 |
 | ING-16 | bi_dev_guide_lwc_in_db (23) | Analytics/LWC | 🔲 대기 |
-| ING-17 | draes (15) | (확인 필요) | 🔲 대기 |
+| ING-17 | ~~draes (15)~~ = Designing Record Access for Enterprise Scale | Architecture/Security | **✅ 완료 (2026-06-14)** → `Architecture(아키텍처)/레코드 액세스 설계 (Enterprise Scale).md`. ADMIN-4 부분 충족 |
 | ING-18 | esm_developer_guide (55) | Service (Embedded) | 🔲 대기 |
 | ING-19 | service_presence_developer_guide (23) / _administrators (124) | Service (Omni-Presence) | 🔲 대기 |
 | ING-20 | omnichannel_supervisor (32) | Service | 🔲 대기 |

@@ -38,6 +38,7 @@ aliases: [Architecture MOC, 아키텍처 목차, Architecture Map of Content]
 
 - [[Salesforce 플랫폼 개요]] — Org/Object/Record/Field/App, Cloud 종류, 거버너 한도, 환경 분리
 - [[Data Skew]] — 데이터 편중(부모당/사용자당 1만 건 초과) → 레코드 잠금·공유 재계산 병목, LDV 모범 사례
+- [[레코드 액세스 설계 (Enterprise Scale)]] — 그룹 멤버십·공유 재계산, ownership skew, implicit sharing, deferred sharing calc
 
 ---
 

@@ -145,6 +145,7 @@ created: 2026-05-21
 |---|---|
 | Salesforce 기초, Org, Object, Record, Field, App, Tab, Cloud, 플랫폼 개요, Sales Cloud, Service Cloud, Agentforce, 환경 종류, Sandbox, Scratch Org, Developer Edition | `Architecture(아키텍처)/Salesforce 플랫폼 개요.md` |
 | Data Skew, 데이터 스큐, Account Data Skew, Ownership Skew, Lookup Skew, 소유권 스큐, 부모 레코드 잠금, record locking, 공유 재계산, defer sharing calculation, LDV 대용량 데이터, 1만 건 임계값 | `Architecture(아키텍처)/Data Skew.md` |
+| 레코드 액세스 설계, Record Access, 공유 재계산, sharing recalculation, 그룹 멤버십, group membership, 역할 계층 이동, implicit sharing, 암시적 공유, ownership data skew, deferred sharing calculation, 대규모 재편 realignment, record-level locking | `Architecture(아키텍처)/레코드 액세스 설계 (Enterprise Scale).md` |
 | Salesforce 네비게이션, App Launcher, 앱 런처, 전역 검색, Global Search, 탐색바, 리스트뷰, 레코드 페이지, Lightning Experience, 홈 페이지 | `Admin(어드민)/Salesforce 네비게이션.md` |
 | Data Loader, 데이터 로더, 대량 적재, CSV 임포트, bulk import export, insert update upsert delete, hard delete, Bulk API 2.0, process-conf.xml, CLI 배치, Data Import Wizard 비교, 1.5억 건 | `Admin(어드민)/Data Loader.md` |
 | MFA, Multi-Factor Authentication, 다중 인증, Salesforce Authenticator, TOTP, 보안 키, FIDO2, Trusted IP Ranges, 신원 확인, 이중 인증, MFA 의무화 | `Admin(어드민)/Salesforce ID 인증.md` |

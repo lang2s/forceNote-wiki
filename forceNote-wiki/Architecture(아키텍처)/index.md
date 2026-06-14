@@ -21,6 +21,7 @@ created: 2026-05-17
 | [[Schema Namespace 상세]] | DescribeSObjectResult/DescribeFieldResult/RecordTypeInfo/PicklistEntry/ChildRelationship 전체 | #reference |
 | [[Salesforce 플랫폼 개요]] | Org/Object/Record/Field/App, Cloud 종류, 환경 구분 | #concept |
 | [[Data Skew]] | 부모당/사용자당 1만 건 초과 시 레코드 잠금·공유 재계산 병목 (LDV) | #concept |
+| [[레코드 액세스 설계 (Enterprise Scale)]] | 그룹 멤버십·공유 재계산, ownership skew, implicit sharing, deferred sharing | #concept |
 | [[System Namespace]] | System 네임스페이스 전체 클래스 레퍼런스 — AccessLevel, Assert, AsyncOptions, UserInfo, UUID, Callable, FeatureManagement | #reference |
 | [[Site Namespace]] | Salesforce Sites URL 재작성 인터페이스 — UrlRewriter (generateUrlFor, mapRequestUrl), Site.ExternalUserCreateException | #reference |
 | [[Context Namespace]] | Industries Cloud Context Service Apex — IndustriesContext 클래스, 비즈니스 컨텍스트 데이터 공유 | #reference |
