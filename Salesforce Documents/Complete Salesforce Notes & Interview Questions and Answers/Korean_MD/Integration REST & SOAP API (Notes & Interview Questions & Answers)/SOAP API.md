@@ -1,4 +1,13 @@
+---
+tags: [integration, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [SOAP API]
+---
+
 # SOAP API
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## SOAP API란?
 Simple Object Access Protocol. XML 기반 개방 표준 메시징 프로토콜. 플랫폼·언어 독립, 단순·확장 가능, stateless. 레코드 생성·조회·업데이트·삭제.

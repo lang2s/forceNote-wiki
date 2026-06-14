@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Company Settings In Salesforce]
+---
+
 # Salesforce의 회사 설정(Company Settings)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 회사 설정은 Salesforce를 사용하는 조직을 설명하는 전역 속성의 모음입니다. 회사, 통화, 회계 연도, 지원, 로케일 설정으로 구성됩니다.
 

@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [5 Asynchronous Apex Scenarios]
+---
+
 # 알아야 할 5가지 비동기 Apex 시나리오
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## 1. 대량 이메일 전송
 50,000명 연락처에 프로모션 이메일을 한 번에 전송. 동기 실행 시 거버너 한도 초과.

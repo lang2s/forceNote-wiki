@@ -1,4 +1,13 @@
+---
+tags: [apex, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Salesforce Apex Magic Real-world Business Scenarios! 🚀]
+---
+
 # Salesforce Apex 실전 비즈니스 시나리오 모음 🚀
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 > Apex의 다양한 기능을 보여주는 실전 코드 예제 모음입니다. (코드는 원문 유지, 설명은 한글)
 

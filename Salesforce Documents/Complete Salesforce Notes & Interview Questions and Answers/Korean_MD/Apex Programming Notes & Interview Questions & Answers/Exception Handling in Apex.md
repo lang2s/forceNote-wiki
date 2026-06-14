@@ -1,4 +1,13 @@
+---
+tags: [apex, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Exception Handling in Apex]
+---
+
 # Apex의 예외 처리(Exception Handling)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 Apex에서 예외 처리는 코드 실행 중 오류를 관리하는 것입니다. 예기치 못한 상황을 능숙하게 처리하는 견고한 코드 작성에 필수적입니다.
 

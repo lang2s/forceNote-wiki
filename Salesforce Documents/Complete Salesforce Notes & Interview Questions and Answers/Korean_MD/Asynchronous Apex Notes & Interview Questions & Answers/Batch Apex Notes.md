@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Batch Apex Notes]
+---
+
 # Batch Apex 노트
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## 개요
 Batch 클래스는 `Database.Batchable<SObject>` 표준 인터페이스를 구현해 대량 데이터를 처리. 세 메서드를 정의·구현해야 함: `start()`, `execute()`, `finish()`.

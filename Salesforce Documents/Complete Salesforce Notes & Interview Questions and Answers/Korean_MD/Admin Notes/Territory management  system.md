@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Territory management  system]
+---
+
 # 영역 관리 시스템(Territory Management System)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 Salesforce의 영역 관리 시스템은 조직이 영업팀에 영역을 효과적으로 관리·할당하도록 돕는 기능입니다. 지리, 산업, 계정 규모, 기타 커스텀 기준에 따라 영업 담당자·계정·기회를 조직하고 정렬하는 구조화된 방법을 제공합니다. 더 나은 계정 커버리지, 공평한 업무 분배, 더 정확한 예측·리포팅을 보장합니다.
 

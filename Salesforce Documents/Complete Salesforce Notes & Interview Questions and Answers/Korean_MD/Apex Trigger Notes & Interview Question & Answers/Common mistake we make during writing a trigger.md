@@ -1,4 +1,13 @@
+---
+tags: [apex, trigger, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Common mistake we make during writing a trigger]
+---
+
 # 트리거 작성 시 흔한 실수
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 1. **트리거 미벌크화:** 대량 작업 미처리로 거버너 한도 도달. → 항상 대량 작업 처리 가능하게.
 2. **루프 안 SOQL/DML:** 리소스 빠르게 소비. → 쿼리·DML을 루프 밖으로 벌크화.

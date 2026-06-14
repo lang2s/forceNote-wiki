@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Report Types in Salesforce]
+---
+
 # Salesforce의 리포트 유형(Report Types)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 Salesforce는 데이터 분석을 돕는 4가지 리포트 유형을 제공합니다:
 1. **Tabular Report** — 단순 레코드 목록(스프레드시트 같음)

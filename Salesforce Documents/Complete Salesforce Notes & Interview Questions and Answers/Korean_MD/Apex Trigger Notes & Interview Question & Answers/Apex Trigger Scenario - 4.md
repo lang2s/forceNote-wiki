@@ -1,4 +1,13 @@
+---
+tags: [apex, trigger, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Apex Trigger Scenario - 4]
+---
+
 # Apex 트리거 시나리오 4
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **시나리오: Account가 특정 Status로 생성/업데이트될 때 관련 Contact를 같은 status로 자동 업데이트. 관련 Contact가 없으면 새 Contact를 생성해 데이터 무결성 유지.**
 

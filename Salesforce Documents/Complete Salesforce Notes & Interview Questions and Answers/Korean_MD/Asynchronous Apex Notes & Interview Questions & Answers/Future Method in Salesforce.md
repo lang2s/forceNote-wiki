@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Future Method in Salesforce]
+---
+
 # Salesforce의 Future 메서드
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## 1. Future 메서드란?
 시스템 리소스가 가용해지는 나중 시점에 별도 스레드에서 프로세스를 실행. 기술적으로 @future 어노테이션으로 비동기 메서드를 식별.

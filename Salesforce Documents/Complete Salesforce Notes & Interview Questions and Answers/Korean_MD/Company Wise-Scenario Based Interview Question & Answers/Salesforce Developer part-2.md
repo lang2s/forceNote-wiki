@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Salesforce Developer part-2]
+---
+
 # Salesforce 면접 질문/답변 (Developer Part 2)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## Q1. 실행 순서
 데이터 조회 → 시스템 검증(편집 페이지 미실행) → 사용자 정의 검증 → before 트리거 → 검증 규칙(커스텀+표준) → 중복 규칙 → 레코드 저장(미커밋) → after 트리거 → 할당 규칙 → 자동 응답 → 워크플로우(필드 업데이트 시 before/after update·시스템 검증 재실행) → 프로세스·Flow → 에스컬레이션 → 엔타이틀먼트 → 교차 오브젝트 수식 → 롤업 요약 → 기준 기반 공유 → DB 커밋 → 커밋 후 로직(이메일).

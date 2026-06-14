@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Interview Questions]
+---
+
 # 면접 질문 모음 (주제별)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## Batch Apex
 Batch Apex란? 거버너 한도? 인터페이스란? Database.Batchable 인터페이스? 메서드들? Iterable 인터페이스? Database.QueryLocator? start 메서드 목적? Database.BatchableContext? execute 메서드와 호출 횟수·매개변수? execute에서 Future 호출 가능? 이메일·콜아웃 호출? finish 메서드? finish에서 Future·콜아웃·다른 Batch 호출? Batch 직렬화? Batch에서 Future 선언? Database.AllowsCallouts? 동시 추가 가능 작업 수? 모범 사례? 테스트 클래스 작성? Test.startTest/stopTest? Spring 15 flex 개념? 프로젝트 시나리오·선택 이유? 기본·최대·최소 배치 크기? start로 조회 가능 최대 레코드? Batch당 콜아웃 수(10)? AsyncApexJob?

@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Capgemini Salesforce Developer LWC]
+---
+
 # Capgemini Salesforce 개발자 — LWC 시나리오 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## Q: Account의 Industry 선택 목록 값을 동적으로 가져오기
 `lightning/uiObjectInfoApi`의 getPicklistValues 사용.

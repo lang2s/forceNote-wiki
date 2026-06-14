@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [CGI Salesforce Developer]
+---
+
 # CGI Salesforce 개발자 — 시나리오 기반 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 1. **다중 통화 + 기업 통화 자동 변환** — 다중 통화 설정과 정확한 리포팅 구성 방법?
 2. **지역·산업별 Account를 영업 담당에 할당** — Enterprise Territory Management 구현?

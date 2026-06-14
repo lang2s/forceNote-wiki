@@ -1,4 +1,13 @@
+---
+tags: [general, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [500Top-MNC-Company-Wise-Interview-Questions-Answers]
+---
+
 # 500+ MNC 회사별 Salesforce 인터뷰 질문 & 답변
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 > 회사별로 구성된 실무 인터뷰 Q&A 모음입니다. 각 항목은 "질문 / 답변 / 팁" 구조이며, 코드는 원문 그대로 보존했습니다.
 

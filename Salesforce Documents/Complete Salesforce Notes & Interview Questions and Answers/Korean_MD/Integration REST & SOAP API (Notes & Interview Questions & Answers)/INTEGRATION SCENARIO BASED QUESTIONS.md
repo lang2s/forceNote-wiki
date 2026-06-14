@@ -1,4 +1,13 @@
+---
+tags: [integration, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [INTEGRATION SCENARIO BASED QUESTIONS]
+---
+
 # 통합 시나리오 기반 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## Q: 외부 시스템에서 대량 데이터(예: 100만 건)를 Salesforce로 처리·통합. Batch Apex 작성
 **의도:** Batch Apex·대량 데이터·성능 최적화·거버너 한도·오류 처리 이해.

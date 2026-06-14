@@ -1,4 +1,13 @@
+---
+tags: [apex, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Mix DML Error]
+---
+
 # Mixed DML Error(혼합 DML 오류)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 Non-setup 오브젝트, setup 오브젝트, Mixed DML 예외와 회피 방법을 다룹니다.
 

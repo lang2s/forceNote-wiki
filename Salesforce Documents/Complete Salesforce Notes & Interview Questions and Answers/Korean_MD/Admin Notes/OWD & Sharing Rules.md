@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [OWD & Sharing Rules]
+---
+
 # 조직 전체 기본값(OWD)과 공유 규칙(Sharing Rules)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 조직 전체 기본값(OWD)은 Salesforce 레코드에 대한 사용자의 기본 접근 수준을 결정합니다. 특정 오브젝트의 모든 레코드에 대한 기준 접근을 정의합니다.
 

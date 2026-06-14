@@ -1,4 +1,13 @@
+---
+tags: [integration, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Salesforce Integration Interview questions]
+---
+
 # Salesforce 통합 면접 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **1. 통합이란?** 둘 이상의 애플리케이션 연결. 데이터·비즈니스 로직·표현·보안 계층 통합.
 

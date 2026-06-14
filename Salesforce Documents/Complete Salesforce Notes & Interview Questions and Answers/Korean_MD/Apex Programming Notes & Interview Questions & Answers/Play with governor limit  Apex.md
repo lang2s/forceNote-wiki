@@ -1,4 +1,13 @@
+---
+tags: [apex, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Play with governor limit  Apex]
+---
+
 # 거버너 한도 다루기 (Apex)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 커스텀 오브젝트 testobject__c에 50,000개 레코드를 만들어 보며 한도를 실험합니다. 단일 트랜잭션 한도: DML 문 150개, DML 작업(행) 10,000개.
 

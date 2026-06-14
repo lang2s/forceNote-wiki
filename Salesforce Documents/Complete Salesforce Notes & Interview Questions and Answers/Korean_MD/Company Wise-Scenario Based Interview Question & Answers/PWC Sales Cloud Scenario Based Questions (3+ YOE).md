@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [PWC Sales Cloud Scenario Based Questions (3+ YOE)]
+---
+
 # PWC Sales Cloud 시나리오 질문 (3년+ 경력)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 1. **할인이 승률에 미치는 영향 분석** → Opportunity 할인율 필드, 승률 vs 할인 리포트, 트렌드 대시보드.
 2. **분기 성과 대시보드(파이프라인·마감·실주)** → 분기별 Opportunity 리포트(Stage·Amount·승패 사유), 차트·테이블 대시보드.

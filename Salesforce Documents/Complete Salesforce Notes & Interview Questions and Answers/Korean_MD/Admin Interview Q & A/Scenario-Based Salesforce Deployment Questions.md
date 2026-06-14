@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Scenario-Based Salesforce Deployment Questions]
+---
+
 # 시나리오 기반 Salesforce 배포(Deployment) 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **시나리오: 새로운 Territory Management(영역 관리) 모델을 배포했지만 Account가 올바르게 할당되지 않습니다. 어떻게 해결하나요?**
 

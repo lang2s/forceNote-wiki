@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [SALESFORCE LWC INTERVIEW QUESTION SCENARIO BASED]
+---
+
 # Salesforce LWC 시나리오 면접 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **시나리오 1: 입력 필드 값에 따라 버튼 표시/숨김?** 조건부 렌더링으로 특정 값일 때만 버튼 표시. `if:true` 디렉티브로 조건부 렌더링.
 

@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Deloitte Interview Questions (Part-2)]
+---
+
 # Deloitte 면접 질문 (Part 2)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **with sharing vs without sharing?** with sharing은 현재 사용자 공유 규칙만 적용(오브젝트·필드 권한 X). without sharing은 공유 규칙 미적용.
 

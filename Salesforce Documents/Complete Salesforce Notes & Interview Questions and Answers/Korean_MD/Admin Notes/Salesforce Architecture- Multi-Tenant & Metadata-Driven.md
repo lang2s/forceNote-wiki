@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Salesforce Architecture- Multi-Tenant & Metadata-Driven]
+---
+
 # Salesforce 아키텍처: 멀티테넌트 & 메타데이터 기반
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 Salesforce는 여러 조직을 효율적으로 서비스하도록 설계된 확장성 높고 안전한 아키텍처의 클라우드 기반 CRM입니다. 두 가지 핵심 원칙: 1) 멀티테넌트 아키텍처, 2) 메타데이터 기반 모델.
 

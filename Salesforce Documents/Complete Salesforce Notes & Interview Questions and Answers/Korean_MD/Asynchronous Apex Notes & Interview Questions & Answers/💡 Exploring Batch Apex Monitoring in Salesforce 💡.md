@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [💡 Exploring Batch Apex Monitoring in Salesforce 💡]
+---
+
 # Salesforce에서 Batch Apex 모니터링 살펴보기
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 작업을 추적하기 위한 커스텀 로그 오브젝트를 사용하는 Batch 클래스 예제. `Database.Stateful`로 상태를 유지하고, finish 메서드에서 작업 요약을 커스텀 로그 오브젝트(AsyncJobLogs__c)에 기록하고 이메일을 전송.
 

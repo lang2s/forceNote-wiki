@@ -1,4 +1,13 @@
+---
+tags: [integration, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Salesforce Integration Guide]
+---
+
 # Salesforce 통합 완전 가이드
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 외부 시스템과의 연결로 데이터 동기화·워크플로우 자동화. 다룰 내용: 통합 유형, API(REST·SOAP·Bulk·Streaming·GraphQL), 인증(OAuth·Named Credentials·Connected Apps), 미들웨어·이벤트 기반, 고급 패턴, 모범 사례·보안.
 

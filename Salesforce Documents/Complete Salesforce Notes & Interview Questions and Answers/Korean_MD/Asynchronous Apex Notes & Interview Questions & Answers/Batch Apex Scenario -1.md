@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Batch Apex Scenario -1]
+---
+
 # Batch Apex 시나리오 1
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **문제: Account의 모든 레코드에서 SLA__c 필드를 Gold로 업데이트**
 

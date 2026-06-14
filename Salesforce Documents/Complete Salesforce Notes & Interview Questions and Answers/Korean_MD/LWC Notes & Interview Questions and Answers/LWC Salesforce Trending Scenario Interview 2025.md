@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [LWC Salesforce Trending Scenario Interview 2025]
+---
+
 # LWC 트렌딩 시나리오 면접 2025
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 1. **Apex 호출 오류 처리** — 서버 오류(권한·잘못된 입력)를 컴포넌트에 표시·재시도 UI 설계.
 2. **Record Form 커스터마이즈** — lightning-record-form으로 생성·편집 폼, 커스텀 검증·성공/오류 메시지.

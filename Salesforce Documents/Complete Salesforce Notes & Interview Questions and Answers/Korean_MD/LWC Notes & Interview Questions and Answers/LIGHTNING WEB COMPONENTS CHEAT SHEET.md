@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [LIGHTNING WEB COMPONENTS CHEAT SHEET]
+---
+
 # LWC 치트시트 (Santanu Boral)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## 개요
 LWC는 HTML·최신 JavaScript(ES7+)를 쓰는 커스텀 HTML element. Salesforce 지원 모든 브라우저. Aura와 공존·상호운용. 웹 표준·고성능.

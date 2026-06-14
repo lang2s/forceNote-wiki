@@ -1,4 +1,13 @@
+---
+tags: [general, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Top-100-Scenario-Based-Questions-Real-Time-Experience-Based-2026]
+---
+
 # Salesforce 인터뷰 준비 2026 — 시나리오 기반 질문 Top 100+ (실무·경험 기반)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 > 각 항목은 "그들이 물어본 것 / 내가 인터뷰에서 답한 것 / 팁" 구조이며, 코드는 원문 그대로 보존했습니다.
 

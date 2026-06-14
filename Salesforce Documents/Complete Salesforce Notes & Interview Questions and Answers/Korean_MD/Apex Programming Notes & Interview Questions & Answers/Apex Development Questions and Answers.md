@@ -1,4 +1,13 @@
+---
+tags: [apex, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Apex Development Questions and Answers]
+---
+
 # Apex 개발 질문과 답변
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **1. Apex 언어란?** 멀티테넌트 환경에 존재하는 다목적 프로그래밍 언어. 세계 최초의 클라우드 기반 언어. 모든 OOP 원칙을 지원하는 객체 지향 언어.
 

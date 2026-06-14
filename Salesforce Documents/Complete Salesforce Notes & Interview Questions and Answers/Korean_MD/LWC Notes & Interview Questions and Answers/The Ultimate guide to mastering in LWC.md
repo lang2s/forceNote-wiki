@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [The Ultimate guide to mastering in LWC]
+---
+
 # LWC 마스터 완전 가이드 (면접)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 > 원본은 이미지 PDF로 OCR 추출했습니다. 질문 1~62는 "SALESFORCE LWC INTERVIEW QUESTIONS & ANSWERS"와 동일하며, 여기서는 핵심 코드 예제를 함께 정리합니다.
 

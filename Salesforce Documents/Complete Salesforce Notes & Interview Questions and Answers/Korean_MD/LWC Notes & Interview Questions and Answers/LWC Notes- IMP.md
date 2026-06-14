@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [LWC Notes- IMP]
+---
+
 # LWC 핵심 노트 (IMP)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## 주제
 1. LWC란? 2. Aura vs LWC 3. 라이프사이클 훅 4. 속성·HTML 템플릿 5. 데코레이터 6. 데이터 바인딩 7. LWC에서 Apex 호출(Wire 속성·Wire 함수·Imperative) 8. @AuraEnabled(cacheable=true) 9. Parent→Child 10. Child→Parent 11. 관계 없는 컴포넌트 통신(Pub-sub·LMS) 12. Lightning Data Service

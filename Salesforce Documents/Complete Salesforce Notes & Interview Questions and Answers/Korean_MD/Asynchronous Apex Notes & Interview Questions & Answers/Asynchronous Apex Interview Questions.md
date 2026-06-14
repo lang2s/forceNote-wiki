@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Asynchronous Apex Interview Questions]
+---
+
 # 비동기 Apex 면접 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **Database.BatchableContext의 용도?** 현재 실행 중인 배치 작업 정보(특히 ID)에 접근하는 인터페이스. 진행 추적·대량 데이터를 작은 배치로 처리해 거버너 한도 회피.
 

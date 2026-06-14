@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [PWC Salesforce Developer LWC Scenario Based Questions]
+---
+
 # PWC Salesforce 개발자 — LWC 시나리오 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## Q: 두 리스트 간 드래그앤드롭 LWC
 **의도:** HTML5 드래그앤드롭 API, JS 이벤트(dragstart·dragover·drop), 동적 UI 업데이트.

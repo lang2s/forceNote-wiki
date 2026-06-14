@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [All Types Funtions Formula Usage]
+---
+
 # Salesforce 수식 함수 종합 가이드
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 > Account 오브젝트 예시와 함께 Salesforce 함수 목록을 정리했습니다. (수식과 예시는 원문 유지, 시나리오 설명은 한글 번역)
 

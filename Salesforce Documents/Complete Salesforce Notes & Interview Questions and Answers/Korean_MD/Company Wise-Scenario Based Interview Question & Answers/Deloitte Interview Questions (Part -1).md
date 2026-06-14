@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Deloitte Interview Questions (Part -1)]
+---
+
 # Deloitte 면접 질문 (Part 1)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **OFFSET이란? 예시·용도?** SOQL 절. offset 사용 시 첫 배치만 반환, 다음 배치는 더 높은 OFFSET으로 재실행. 예: `[SELECT Id, Name FROM Account LIMIT 10 OFFSET 10]` → 11~20번째 반환.
 

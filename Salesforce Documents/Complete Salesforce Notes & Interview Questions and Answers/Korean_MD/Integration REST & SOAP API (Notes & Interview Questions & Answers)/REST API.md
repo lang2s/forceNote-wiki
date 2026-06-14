@@ -1,4 +1,13 @@
+---
+tags: [integration, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [REST API]
+---
+
 # REST API
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## REST API란?
 API는 애플리케이션 간 연결·통신 정의. REST(Representational State Transfer)는 HTTP 요청 메서드로 데이터를 접근·조작하는 아키텍처 스타일. 메서드: GET, POST, PUT, DELETE, PATCH, HEAD, TRACE, CONNECT, OPTIONS.

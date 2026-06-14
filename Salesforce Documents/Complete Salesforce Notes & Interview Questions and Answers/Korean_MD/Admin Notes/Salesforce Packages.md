@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Salesforce Packages]
+---
+
 # Salesforce의 패키지(Packages)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 - 패키지는 개별 컴포넌트처럼 작은 것부터 관련 앱 세트처럼 큰 것까지 담는 컨테이너입니다.
 - 패키지를 만든 후 회사 외부를 포함한 다른 Salesforce 사용자·조직에 배포할 수 있습니다.

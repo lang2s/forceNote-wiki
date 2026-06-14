@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Persistent LWC SBQ]
+---
+
 # Persistent Salesforce 개발자 — LWC 시나리오 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 1. **다중 컬럼 정렬 datatable** — LWC 다중 컬럼 정렬 구현? 대용량 정렬 로직 최적화?
 2. **커스텀 네비게이션·동적 콘텐츠 탭** — 탭별 동적 렌더링 관리? 부드러운 네비게이션?

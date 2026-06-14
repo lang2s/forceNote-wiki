@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Bulkyfying your code Apex]
+---
+
 # Apex 코드 벌크화
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## 1. 코드 벌크화
 **이유:** 대량 데이터를 효과적으로 처리. **방법:** List·Set·Map 컬렉션 사용.

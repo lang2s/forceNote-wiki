@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Lightning Components Cheatsheet]
+---
+
 # Lightning Components(Aura) 치트시트
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## 개요
 Lightning Component 프레임워크로 Force.com 앱의 반응형 UI 구축. 클라이언트=JavaScript, 서버=Apex. Aura 오픈소스 프레임워크 기반.

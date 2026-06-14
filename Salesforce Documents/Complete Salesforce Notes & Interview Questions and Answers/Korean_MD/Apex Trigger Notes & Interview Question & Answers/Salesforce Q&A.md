@@ -1,4 +1,13 @@
+---
+tags: [apex, trigger, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Salesforce Q&A]
+---
+
 # Salesforce 질문과 답변 (100선)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **1. Apex 구문?** INSERT·UPDATE·DELETE 등 DML과 DML 예외 처리 내장. 인라인 SOQL/SOSL 지원(sObject 레코드 집합 반환). Java와 유사한 구문(변수 선언·루프·조건문).
 

@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Salesoforce Admin Interview Q & A 2025]
+---
+
 # Salesforce 관리자(Admin) 면접 Q & A 2025
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 > ⚠️ 원본은 이미지 PDF로, 일부 답변이 그래픽 이미지에 포함되어 OCR로 완전히 추출되지 않았습니다. 추출된 질문·답변에 표준적인 보충 설명을 더해 정리했습니다.
 

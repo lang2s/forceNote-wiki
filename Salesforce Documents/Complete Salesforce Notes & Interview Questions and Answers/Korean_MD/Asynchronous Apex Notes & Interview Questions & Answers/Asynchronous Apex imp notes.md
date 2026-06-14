@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Asynchronous Apex imp notes]
+---
+
 # 비동기 Apex 핵심 노트
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 비동기 Apex는 사용자 경험을 방해하지 않고 백그라운드에서 프로세스를 실행하는 기능. 장기 실행 프로세스, 복잡한 계산, 거버너 한도를 초과할 수 있는 작업에 유용. 온라인 주문 후 배송 시 이메일을 받는 것처럼, 실시간으로 완료를 기다릴 필요가 없다.
 

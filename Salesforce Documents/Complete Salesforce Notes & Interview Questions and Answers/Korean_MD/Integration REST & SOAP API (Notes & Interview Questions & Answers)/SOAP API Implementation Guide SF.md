@@ -1,4 +1,13 @@
+---
+tags: [integration, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [SOAP API Implementation Guide SF]
+---
+
 # Salesforce SOAP API 구현
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 구조화·신뢰성·레거시 통합(엄격한 계약 정의 필요)에 SOAP API, 경량·모바일은 REST.
 

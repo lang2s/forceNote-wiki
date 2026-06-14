@@ -1,4 +1,13 @@
+---
+tags: [apex, trigger, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Apex Trigger Scenario - 1]
+---
+
 # Apex 트리거 시나리오 1
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **시나리오: 어떤 Account에 Case가 생성될 때마다 가장 최근 Case 번호를 Account의 Latest Case Number 필드에 기록.**
 

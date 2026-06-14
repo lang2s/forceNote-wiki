@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Decorators and Lifecycle Hooks in LWC]
+---
+
 # LWC의 데코레이터와 라이프사이클 훅
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## 데코레이터란?
 JavaScript 객체에 동작을 추가하는 디자인 패턴(ECMAScript). 기능을 동적으로 변경. LWC 3종: @api, @track, @wire.

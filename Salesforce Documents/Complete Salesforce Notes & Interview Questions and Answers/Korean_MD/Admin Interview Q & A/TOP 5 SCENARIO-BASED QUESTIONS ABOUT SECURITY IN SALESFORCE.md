@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [TOP 5 SCENARIO-BASED QUESTIONS ABOUT SECURITY IN SALESFORCE]
+---
+
 # Salesforce 보안 관련 시나리오 기반 질문 TOP 5
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **Q1. 영업팀과 마케팅팀에서 각각 한 명의 사용자가 있습니다. 두 사람 모두 같은 Account에 접근해야 하지만 서로 다른 필드를 봐야 합니다. Salesforce에서 어떻게 구성하시겠습니까?**
 

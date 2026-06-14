@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [LifeCycle Hooks in LWC Part -1]
+---
+
 # LWC 라이프사이클 훅 (Part 1)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 라이프사이클 훅은 컴포넌트 생애 단계를 정의하고, @wire는 컴포넌트를 Salesforce 데이터에 반응형 연결해 데이터 변경 시 UI 업데이트.
 

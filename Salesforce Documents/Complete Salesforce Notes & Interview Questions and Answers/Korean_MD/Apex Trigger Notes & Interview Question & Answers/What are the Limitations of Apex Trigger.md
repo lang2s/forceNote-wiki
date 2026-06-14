@@ -1,4 +1,13 @@
+---
+tags: [apex, trigger, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [What are the Limitations of Apex Trigger]
+---
+
 # Apex 트리거의 한계
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 1. **거버너 한도:** SOQL(트랜잭션당 100), DML(150), heap 크기, CPU 시간 제약 준수 필요.
 2. **직접 사용자 상호작용 없음:** 백그라운드 실행, 사용자에게 직접 오류·UI 표시 불가.

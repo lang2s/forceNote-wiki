@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Flows in Salesforce Notes]
+---
+
 # Salesforce의 Flow (노트)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 Flow는 시각적 인터페이스로 복잡한 비즈니스 프로세스를 구축하는 강력한 자동화 도구입니다. 코드 없이 데이터 수집, 업데이트, 의사 결정 등 다양한 작업을 자동화합니다.
 

@@ -1,4 +1,13 @@
+---
+tags: [apex, trigger, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Interview Apex Trigger - Solved Scenarios]
+---
+
 # 면접 Apex 트리거 — 해결 시나리오 (41선)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 > 원본은 이미지 PDF(24p)로 OCR 추출했습니다. 시나리오 1~14는 "Salesforce scenario based questions" 문서와 동일하며, 코드는 거기서 확인하세요. 아래는 전체 시나리오 목록과 핵심 코드입니다.
 

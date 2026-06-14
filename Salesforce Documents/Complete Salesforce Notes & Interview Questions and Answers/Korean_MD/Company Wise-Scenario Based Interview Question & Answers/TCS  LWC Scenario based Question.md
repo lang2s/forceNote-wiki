@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [TCS  LWC Scenario based Question]
+---
+
 # TCS — Lightning Web Component 시나리오 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 1. **Apex 메서드 예외 처리** — 의미 있는 피드백? imperative vs @wire 오류 처리 차이? 오류 시 컴포넌트 반응성 유지?
 2. **이름으로 Account 검색바(동적 결과)** — 디바운싱으로 과도 Apex 호출 방지? 대용량 검색 최적화? "결과 없음" 표시?

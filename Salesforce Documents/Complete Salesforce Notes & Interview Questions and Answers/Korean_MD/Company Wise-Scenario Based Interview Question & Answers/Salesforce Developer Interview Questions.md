@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Salesforce Developer Interview Questions]
+---
+
 # Salesforce 개발(Development) 면접 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **1. 거버너 한도란? 왜 존재하나요?** 멀티테넌트 환경에서 효율적 리소스 사용을 보장하는 런타임 한도. 예: SOQL 트랜잭션당 100개, DML 150개, Heap 6MB(동기)/12MB(비동기), CPU 10,000ms. 시스템 성능·안정성·데이터 보안 유지를 위해 존재.
 

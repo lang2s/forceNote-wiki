@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Lightning Message Service in LWC - Modi Mitron Fun Project]
+---
+
 # LWC의 Lightning Message Service (Modi Mitron 프로젝트)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## LMS 개요
 Winter'20 도입. 컴포넌트 계층에서 직접 관계 없는 컴포넌트 간 통신. Visualforce·Aura·LWC(유틸리티 바 팝업 포함) 간 대화 가능. 발행 컴포넌트가 데이터 브로드캐스트, 구독 컴포넌트가 수신.

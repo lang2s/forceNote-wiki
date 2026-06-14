@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [LWC Interview questions IMP]
+---
+
 # LWC 면접 질문 (중요)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **1. LWC와 Aura 차이?** LWC는 ES6 기반 현대 웹 표준 모델. Aura보다 나은 성능·단순 모델.
 

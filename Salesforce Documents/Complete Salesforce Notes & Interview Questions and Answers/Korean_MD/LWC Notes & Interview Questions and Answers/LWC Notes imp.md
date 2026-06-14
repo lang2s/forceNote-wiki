@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [LWC Notes imp]
+---
+
 # LWC 핵심 노트
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 LWC는 ES6·Custom Elements·Shadow DOM 같은 웹 표준으로 만든 현대 JavaScript 프레임워크. 재사용·빠름·동적 UI. Aura보다 경량·빠름. 표준 JavaScript로 복잡도 감소.
 

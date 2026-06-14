@@ -1,4 +1,13 @@
+---
+tags: [apex, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Understanding Wrapper classes in Apex]
+---
+
 # Apex의 Wrapper Class 이해와 통합에서의 역할
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 Wrapper class는 여러 변수나 데이터 타입을 하나의 오브젝트로 그룹화하는 커스텀 클래스입니다. 여러 관련 값을 함께 담는 컨테이너로, 복잡한 데이터 구조를 다루기 쉽게 합니다.
 

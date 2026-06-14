@@ -1,4 +1,13 @@
+---
+tags: [integration, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Integrate apps, systems to Salesforce]
+---
+
 # 앱·시스템을 Salesforce와 통합하는 단계
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 외부 앱/시스템을 Salesforce와 연결해 데이터 교환·워크플로우를 가능하게 하는 단계별 가이드.
 

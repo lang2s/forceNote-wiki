@@ -1,4 +1,13 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Wire adapters and Wire functions]
+---
+
 # Wire 어댑터와 Wire 함수
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 LWC에서 wire 어댑터·wire 함수는 컴포넌트를 Salesforce org 데이터에 연결하는 선언적 방법.
 

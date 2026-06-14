@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Reports in salesforce]
+---
+
 # Salesforce의 리포트(Reports)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 리포트는 데이터를 조직화된 방식으로 보여주는 도구입니다. Salesforce 정보를 살펴보고 분석하여 더 나은 결정을 내릴 수 있게 합니다. 매출 수치, 고객 정보, 열린 지원 Case 등을 명확한 형식으로 표시하는 데이터 스냅샷이라고 생각할 수 있습니다.
 

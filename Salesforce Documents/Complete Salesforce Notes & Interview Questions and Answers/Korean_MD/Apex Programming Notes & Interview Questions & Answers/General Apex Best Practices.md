@@ -1,4 +1,13 @@
+---
+tags: [apex, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [General Apex Best Practices]
+---
+
 # 일반 Apex 모범 사례
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **Bulkification:** 거버너 한도를 피하기 위해 대량 작업을 효율적으로 처리하도록 설계. 루프 안 쿼리·DML 최소화(루프 안 SOQL·DML 회피).
 

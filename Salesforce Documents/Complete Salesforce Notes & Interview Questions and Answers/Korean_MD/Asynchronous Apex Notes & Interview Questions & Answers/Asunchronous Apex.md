@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Asunchronous Apex]
+---
+
 # 비동기 Apex
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 비동기 Apex 메서드는 UI를 차단하거나 실시간 트랜잭션 성능에 영향을 주지 않고 백그라운드에서 작업을 실행할 때 사용. 대량 데이터 처리, 콜아웃, 이메일 전송 같은 장기 작업에 유용. 4가지 주요 유형: Future, Batch, Queueable, Scheduled.
 

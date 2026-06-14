@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Asynchronous Apex Notes]
+---
+
 # 비동기 Apex 노트
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 백그라운드에서 실행되는 Apex 코드로, 작업 완료를 기다리지 않고 프로세스가 계속되게 함. 리소스 집약적·시간 소요·즉시 결과 불필요한 작업에 적합.
 

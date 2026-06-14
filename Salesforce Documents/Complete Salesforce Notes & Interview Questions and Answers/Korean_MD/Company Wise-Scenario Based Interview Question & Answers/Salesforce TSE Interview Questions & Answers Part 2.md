@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Salesforce TSE Interview Questions & Answers Part 2]
+---
+
 # Salesforce 면접 질문 (Technical Support Engineer L1 - Top 15)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **1. 트리거와 자동화 규칙 실행 순서?**
 DB에서 이전 레코드 로드 → 새 값 덮어쓰기 → 시스템 검증 규칙 → before 트리거 → 커스텀 검증 → 레코드 저장(미커밋) → after 트리거 → 할당 규칙 → 자동 응답 규칙 → 워크플로우 규칙 → 에스컬레이션 → 부모 롤업 요약 → DB 커밋.

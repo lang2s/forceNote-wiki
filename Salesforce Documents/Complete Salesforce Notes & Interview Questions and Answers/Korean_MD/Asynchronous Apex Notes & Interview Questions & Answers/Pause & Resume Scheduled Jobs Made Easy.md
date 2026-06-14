@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Pause & Resume Scheduled Jobs Made Easy]
+---
+
 # 예약 작업 일시정지·재개 쉽게 하기 (Spring '25)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 🚀 **Salesforce Spring '25 업데이트:** 이제 예약 작업을 프로그래밍으로 일시정지·재개할 수 있어 예약 작업에 대한 유연성·제어력이 향상됨.
 

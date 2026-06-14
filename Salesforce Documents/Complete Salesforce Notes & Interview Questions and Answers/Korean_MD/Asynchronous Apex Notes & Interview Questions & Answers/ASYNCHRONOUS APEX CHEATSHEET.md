@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [ASYNCHRONOUS APEX CHEATSHEET]
+---
+
 # 비동기 Apex 치트시트
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## 소개
 비동기 Apex는 메인 UI와 분리된 백그라운드에서 프로세스를 실행한다. 장기 실행 작업을 사용자 경험 방해 없이 처리. Future 메서드, Batch Apex, Queueable Apex, Scheduled Apex 포함.

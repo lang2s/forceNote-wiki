@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [TCS SF Interview Q &A]
+---
+
 # TCS Salesforce 개발자 면접 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **1. Trigger.new/old/newMap/oldMap 차이?** Trigger.new는 새 레코드, Trigger.old는 업데이트 전 데이터. newMap은 ID 포함 새 레코드, oldMap은 ID 포함 이전 데이터.
 

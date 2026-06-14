@@ -1,4 +1,13 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [15 Asynchronous Apex Interview Questions and Answers]
+---
+
 # 비동기 Apex 면접 질문 15선
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **1. 비동기 Apex란?** 사용자 트랜잭션과 분리되어 백그라운드에서 실행되는 Apex 코드. 대량 데이터 처리·이메일 전송 등 장기 작업을 UI 지연 없이 실행해 플랫폼 반응성·효율 유지.
 

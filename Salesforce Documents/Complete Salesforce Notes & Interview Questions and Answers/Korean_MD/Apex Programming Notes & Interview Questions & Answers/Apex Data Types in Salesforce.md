@@ -1,4 +1,13 @@
+---
+tags: [apex, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Apex Data Types in Salesforce]
+---
+
 # Salesforce Apex 데이터 타입
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 Apex는 변수 사용 전 선언이 필요한 강타입(tightly coupled) 언어입니다. 변수 정의 시 데이터 타입을 지정해야 하며, 데이터 타입은 1) 변수가 담을 수 있는 데이터 유형과 2) 값 저장에 필요한 메모리를 설명합니다.
 

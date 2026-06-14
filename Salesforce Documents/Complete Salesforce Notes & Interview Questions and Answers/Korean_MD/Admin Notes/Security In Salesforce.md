@@ -1,4 +1,13 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Security In Salesforce]
+---
+
 # Salesforce의 보안(Security)
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 Salesforce 보안은 데이터가 보호되고 적절한 사용자가 적절한 시간에만 접근하도록 보장합니다. 다루는 범위: 1) 누가 접근하는가(로그인 제한, IP), 2) 무엇을 할 수 있는가(보기·편집·삭제), 3) 어떤 데이터를 보는가(레코드·필드), 4) 어떻게 추적·보호되는가(감사 로그, 암호화).
 

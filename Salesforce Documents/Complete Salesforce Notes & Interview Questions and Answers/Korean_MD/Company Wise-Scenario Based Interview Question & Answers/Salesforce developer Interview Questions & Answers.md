@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Salesforce developer Interview Questions & Answers]
+---
+
 # Salesforce 개발 면접 질문과 답변
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 **1. 거버너 한도와 존재 이유?** 멀티테넌트 환경에서 효율적 리소스 사용을 위한 런타임 한도. SOQL 100/트랜잭션, DML 150/트랜잭션, 힙 동기 6MB·비동기 12MB, CPU 시간 10,000ms.
 

@@ -1,4 +1,13 @@
+---
+tags: [scenario, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Infosys Integration SBQ]
+---
+
 # Infosys Salesforce 개발자 — 통합 시나리오 질문
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
 
 ## Q: Queueable Apex로 외부 시스템 비동기 통합
 **예상 로직:** Queueable로 장기 콜아웃을 동기 실행에서 분리, execute에서 재시도·오류 처리.
