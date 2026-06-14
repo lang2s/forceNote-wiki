@@ -128,6 +128,7 @@ process.bat "C:\dl\conf" csvAccountUpsert
 
 ## 관련 노트
 
+- [[Bulk API 2.0]] — Data Loader가 내부적으로 쓰는 비동기 대량 API
 - [[Salesforce 네비게이션]] — Admin 도구·Setup 탐색
 - [[Object Relationships]] — upsert 외부 ID·관계 적재 시 참고
 - [[Salesforce 플랫폼 개요]] — 에디션·환경

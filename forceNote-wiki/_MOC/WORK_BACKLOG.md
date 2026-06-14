@@ -120,7 +120,7 @@ updated: 2026-05-24
 | ING-03 | platform_events (628) | Apex/PlatformEvents (분할) | 🟡 부분 — `EventBus Publish Callbacks` 1노트가 인용. 628p 대부분 미채굴 |
 | ING-04 | api_rest (430) | Integration (분할) | 🔲 대기 |
 | ING-05 | api_action (151) | Integration/Actions | 🔲 대기 |
-| ING-06 | api_asynch (182) | Integration/Bulk·Async | 🔲 대기 |
+| ING-06 | ~~api_asynch (182)~~ = Bulk API 2.0 and Bulk API | Integration/Bulk·Async | **✅ 완료 (2026-06-14)** → `Integration(통합)/Bulk API 2.0.md` (핵심 digest: 2.0 vs v1·잡 상태·ingest/query REST·PK chunking·한도) |
 | ING-07 | salesforce_recipes_api (180) | Data 360 | 🔲 대기 |
 | ING-08 | salesforce_analytics_rest_api (310) | Analytics | 🔲 대기 |
 | ING-09 | salesforce_knowledge_dev_guide (209) | Service/Knowledge | 🔲 대기 |

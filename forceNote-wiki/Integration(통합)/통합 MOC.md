@@ -35,6 +35,11 @@ aliases: [통합 MOC, Integration Index]
 
 - [[Custom REST Endpoint]] — `@RestResource`, `@HttpGet/@HttpPost` 글로벌 클래스
 
+## 대량 데이터 (Bulk)
+
+- [[Bulk API 2.0]] — 비동기 잡 기반 대량 ingest/query, 자동 배치·병렬, CSV, PK chunking
+- [[Data Loader]] — Bulk API를 UI·CLI로 사용하는 클라이언트 (최대 1.5억 건)
+
 ## 이벤트 기반
 
 - [[Platform Event 통합 패턴]] — `EventBus.publish()`, 트리거 수신, LWC 구독

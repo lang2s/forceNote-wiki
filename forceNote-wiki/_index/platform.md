@@ -157,6 +157,7 @@ created: 2026-05-21
 | 키워드 | 파일 |
 |---|---|
 | Named Credential, callout:, 네임드 크레덴셜, 외부 URL 인증 | `Integration(통합)/Named Credential.md` |
+| Bulk API 2.0, Bulk API, 벌크 API, 대량 데이터 적재, ingest job, query job, 비동기 잡, job state, UploadComplete, PK chunking, lineEnding LF CRLF, CSV 대량 import, 외부 시스템 대량 동기화 | `Integration(통합)/Bulk API 2.0.md` |
 | CSP Trusted Site, Remote Site, 외부 이미지 로드, 외부 API 브라우저 | `Integration(통합)/CSP와 RemoteSite.md` |
 | Queueable Callout, 비동기 외부 호출, DML+Callout 조합 | `Integration(통합)/Queueable + Callout 패턴.md` |
 | Platform Event 통합, 이벤트 기반 통합, 시스템 간 느슨한 결합, LWC empApi | `Integration(통합)/Platform Event 통합 패턴.md` |
