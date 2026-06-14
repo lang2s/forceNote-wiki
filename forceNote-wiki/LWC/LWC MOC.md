@@ -116,6 +116,7 @@ created: 2026-05-17
 - [[에러 패널 패턴]] — errorPanel, reduceErrors, 에러 타입별 처리
 - [[공유 JS 모듈]] — c/ 네임스페이스 공유 함수, named export, isExposed: false
 - [[CRM Analytics 대시보드용 LWC]] — analytics__Dashboard 타깃, step 쿼리 주입, hasStep, bindings
+- [[LWR Sites (Experience Cloud)]] — Experience Cloud LWR 사이트, lightningCommunity__ 타깃, --dxp 브랜딩 훅
 
 ## 🎨 SLDS 디자인 시스템
 

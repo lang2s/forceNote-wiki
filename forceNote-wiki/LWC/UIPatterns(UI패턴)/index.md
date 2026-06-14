@@ -23,6 +23,7 @@ created: 2026-05-17
 | [[파일 업로드와 이미지 처리]] | processImage, FileReader→base64, ContentVersion URL | #pattern |
 | [[SLDS LWC 디자인 시스템]] | SLDS 1·SLDS 2 CSS Styling Hook, Design Token, 다크 모드, 밀도 인식 — Winter '26 GA | #reference |
 | [[CRM Analytics 대시보드용 LWC]] | analytics__Dashboard 타깃, step 쿼리 주입, hasStep, bindings 동적 속성 | #reference |
+| [[LWR Sites (Experience Cloud)]] | Experience Cloud LWR 사이트, lightningCommunity__ 타깃, --dxp 브랜딩 훅 | #reference |
 
 ---
 
@@ -37,3 +38,4 @@ created: 2026-05-17
 - 이미지 업로드, 파일 처리? → [[파일 업로드와 이미지 처리]]
 - SLDS 스타일·디자인 토큰·다크 모드? → [[SLDS LWC 디자인 시스템]]
 - CRM Analytics 대시보드에 커스텀 위젯? → [[CRM Analytics 대시보드용 LWC]]
+- Experience Cloud LWR 사이트 컴포넌트·브랜딩? → [[LWR Sites (Experience Cloud)]]

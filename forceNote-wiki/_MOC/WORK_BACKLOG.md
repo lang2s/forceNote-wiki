@@ -124,7 +124,8 @@ updated: 2026-05-24
 | ING-07 | salesforce_recipes_api (180) | Data 360 | 🔲 대기 |
 | ING-08 | salesforce_analytics_rest_api (310) | Analytics | 🔲 대기 |
 | ING-09 | salesforce_knowledge_dev_guide (209) | Service/Knowledge | 🔲 대기 |
-| ING-10 | communities_dev (105) / exp_cloud_lwr (106) | Experience Cloud | 🔲 대기 |
+| ING-10a | ~~exp_cloud_lwr (106)~~ = LWR Sites for Experience Cloud | LWC/Experience | **✅ 전수 완료 (2026-06-14)** → `LWC/UIPatterns(UI패턴)/LWR Sites (Experience Cloud).md` (LWR 템플릿·lightningCommunity__ 타깃 4종·@salesforce 모듈·--dxp 훅·다국어) + 공식 링크 |
+| ING-10b | communities_dev (105) = Experience Cloud Developer Guide | Experience Cloud | 🔲 대기 |
 | ING-11 | mobile_offline (258) | Mobile | 🔲 대기 |
 | ING-12 | lightning_knowledge_guide (91) | Service | 🔲 대기 |
 | ING-13 | chat_rest (66) / salesforce_chatter_rest_api (2350, 분할) | Chatter/Connect | 🔲 대기 |
@@ -132,7 +133,7 @@ updated: 2026-05-24
 | ING-15 | caf_dev (27) | Service (Case Feed) | 🔲 대기 |
 | ING-16 | ~~bi_dev_guide_lwc_in_db (23)~~ = LWC in CRM Analytics Dashboards | Analytics/LWC | **✅ 완료 (2026-06-14)** → `LWC/UIPatterns(UI패턴)/CRM Analytics 대시보드용 LWC.md` |
 | ING-17 | ~~draes (15)~~ = Designing Record Access for Enterprise Scale | Architecture/Security | **✅ 완료 (2026-06-14)** → `Architecture(아키텍처)/레코드 액세스 설계 (Enterprise Scale).md`. ADMIN-4 부분 충족 |
-| ING-18 | esm_developer_guide (55) | Service (Embedded) | 🔲 대기 |
+| ING-18 | esm_developer_guide (55) = **Enterprise Sales Management** (Industries CME) | Sales/Industries | ⏸️ 후순위(niche) — 파일명과 달리 Embedded Service 아님. Industries CME 버티컬의 네임드 API(b2bExpress_*·ESM_* 수십 개) 솔루션. 일반 dev 가치 낮아 보류 |
 | ING-19 | service_presence_developer_guide (23) / _administrators (124) | Service (Omni-Presence) | 🔲 대기 |
 | ING-20 | omnichannel_supervisor (32) | Service | 🔲 대기 |
 | ING-21 | salesforce_guided_engagement (40) | Service | 🔲 대기 |
