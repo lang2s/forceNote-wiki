@@ -5,20 +5,21 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 
 ---
 
-## 현황 (2026-05-22 기준)
+## 현황 (2026-06-14 기준)
 
 | 섹션 | 노트 수 | 상태 |
 |---|---|---|
-| Apex | 96 | ✅ 네임스페이스 레퍼런스 + 패턴 |
-| LWC | 33 | ✅ 완료 |
+| LWC (SLDS 27 포함) | 132 | ✅ BaseComponents 66 + SLDS 디자인시스템 + 패턴 |
+| Apex | 110 | ✅ 네임스페이스 레퍼런스 + 패턴 |
+| DevOps(데브옵스) | 74 | ✅ 2GP 시리즈 + Metadata API |
+| sObject | 37 | ✅ 표준 오브젝트·관계·필드 |
+| Architecture(아키텍처) | 18 | ✅ 플랫폼·공유·레코드 액세스 |
 | Flow | 15 | ✅ 완료 |
-| Architecture(아키텍처) | 12 | ✅ 완료 |
-| Release | 8 | ✅ 8개 릴리즈 완료 |
-| DevOps(데브옵스) | 4 | ✅ 완료 |
-| Integration(통합) | 4 | ✅ 완료 |
+| Release | 9 | ✅ Spring '24 ~ Summer '26 |
+| Integration(통합) | 8 | ✅ REST·Bulk·Actions·Named Credential 등 |
+| Admin(어드민) | 3 | 🟡 선언적 어드민 일부 (Data Loader 등) |
 | Aura(오라) | 3 | ✅ 완료 |
-| Admin(어드민) | 2 | ✅ 완료 |
-| **합계** | **179** | |
+| **합계** | **~408** | |
 
 > Apex 레퍼런스 네임스페이스 커버리지 **~93%** (~70개 중 63개, 핵심 전부 커버). 누락·우선순위는 `_MOC/WORK_BACKLOG.md` "C — 커버리지 재산출" 참조.
 
@@ -101,7 +102,7 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 forceNote-wiki/
 ├── 00 Home.md              ← 전체 진입점
 ├── 00 SEARCH_INDEX.md      ← 키워드 라우터 (도메인 → 샤드)
-├── _index/                 ← 키워드 검색 샤드 6개
+├── _index/                 ← 키워드 검색 샤드 7개
 ├── Apex/                   ← 96개 노트 (네임스페이스 레퍼런스 포함)
 │   ├── Security(보안)/         Safely, CanTheUser, Auth Namespace, WITH USER_MODE
 │   ├── Async(비동기)/          Future, Queueable, Batch, Scheduled

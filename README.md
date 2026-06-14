@@ -13,12 +13,15 @@ forceNote-wiki-main/
 ├── forceNote-wiki/          ← 위키 본체 (Obsidian vault) · 상세는 forceNote-wiki/README.md
 │   ├── 00 Home.md               전체 진입점
 │   ├── 00 SEARCH_INDEX.md       키워드 라우터 → _index/ 도메인 샤드
-│   ├── _index/                  키워드 검색 샤드 (6개)
-│   ├── Apex/ LWC/ Flow/ …       섹션별 패턴 노트 (179개)
+│   ├── _index/                  키워드 검색 샤드 (7개)
+│   ├── Apex/ LWC/ Flow/ …       섹션별 노트 (413개 · 패턴 + 레퍼런스)
 │   ├── CLAUDE.md                위키 작성 규칙 + 환경 부트스트랩
 │   ├── CLAUDE.local.md          로컬 환경 설정 (Mac/Win 경로 확인)
 │   └── .claude/agents/          위키 작성 멀티에이전트 (15개)
-├── Salesforce Documents/    ← 공식 레퍼런스 PDF 42종 (위키 작성 소스, Tier 2)
+├── Salesforce Documents/    ← 위키 작성 소스
+│   ├── *.pdf                    공식 레퍼런스 PDF 44종 (Tier 2)
+│   ├── ReleaseNote/             릴리즈 노트 PDF
+│   └── Complete Salesforce Notes …/  제3자 학습 노트·면접 Q&A 모음 (Tier 3, 갭 분석용)
 ├── README.md                ← 이 파일 (저장소 전체 개요)
 └── .gitignore
 ```
