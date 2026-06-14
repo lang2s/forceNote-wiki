@@ -8,6 +8,8 @@ aliases: [Object Relationship, Master-Detail, Lookup, Junction Object, 오브젝
 
 # Object Relationships
 
+> 오브젝트를 연결하는 관계 — Master-Detail·Lookup·다대다(Junction). 관계 타입이 삭제 동작·소유권·보안·필수 여부를 결정한다.
+
 ## 개요
 
 Salesforce에서 관계는 오브젝트와 오브젝트를 연결한다. 예: 커스텀 Issues 오브젝트와 Case 표준 오브젝트 연결.
@@ -161,3 +163,4 @@ SELECT Id, Contact.Name FROM AccountContactRole
 - [[Field Types]] — `reference`, `JunctionIdList` 필드 타입 상세
 - [[System Fields]] — OwnerId 동작 및 소유권 이전 규칙
 - [[External Objects]] — External Lookup·Indirect Lookup 관계 유형
+- [[Data Skew]] — master-detail/lookup 편중이 일으키는 레코드 잠금·공유 재계산 병목 (LDV)

@@ -104,7 +104,7 @@ updated: 2026-05-24
 | ADMIN-7 | **Duplicate · Matching Rules** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
 | ADMIN-8 | **Schema Builder** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
 | ADMIN-9 | **Sales Cloud · Service Cloud** (기능 레벨 가이드) | `Service Cloud Objects`(sObject)만, 기능 가이드 없음 | 🔲 대기 | 2026-06-14 |
-| DEV-GAP-1 | **Data Skew** (account/lookup/ownership skew) | 전용 노트 없음. 공식/LDV 가이드(`salesforce_large_data_volumes_bp.pdf` 보유)로 작성 가능 | 🔲 대기 | 2026-06-14 |
+| DEV-GAP-1 | ~~**Data Skew** (account/lookup/ownership skew)~~ | **✅ 완료 (2026-06-14)**: `Architecture(아키텍처)/Data Skew.md` — LDV 가이드(Tier 2)에서 account data/ownership skew 1만 건 임계값·record-locking·defer sharing·케이스 스터디 추출. lookup skew는 메커니즘만(가이드 미명시 명시). | ✅ 완료 | 2026-06-14 |
 | DEV-GAP-2 | **Trigger 재귀 방지** 전용 노트 | `Apex/Trigger` 내 섹션일 수는 있으나 전용 노트 부재 — 확인 후 보강 | 🔲 대기 | 2026-06-14 |
 | QA-GAP-1 | 면접 Q&A → `_index/questions.md` 보강 검토 | 컬렉션의 회사별(TCS·Deloitte 등)·시나리오 면접 Q&A. reference 아님 + Tier 3 → 보존 가치 낮음. 자연어 질문 라우팅 키워드만 선별 흡수 검토 | 🔲 대기 | 2026-06-14 |
 
