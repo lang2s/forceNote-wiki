@@ -85,6 +85,23 @@ handleSelect(event) {
 |---|---|
 | `default` | Placeholder for menu-item |
 
+## 이벤트
+
+`lightning-button-menu`는 공통 버튼 이벤트(`click` / `focus` / `blur`) 외에 다음 메뉴 고유 이벤트를 발생시킨다.
+
+| 이벤트 | 설명 |
+|---|---|
+| `select` | 메뉴 항목 선택 (`event.detail.value`) |
+| `open` | 드롭다운 열림 |
+| `close` | 드롭다운 닫힘 |
+
+```javascript
+// 구조 예시 — 실제 동작 코드 아님
+handleSelect(event) {
+    const selectedValue = event.detail.value; // 선택된 menu-item의 value
+}
+```
+
 ---
 
 ## 하위 요소

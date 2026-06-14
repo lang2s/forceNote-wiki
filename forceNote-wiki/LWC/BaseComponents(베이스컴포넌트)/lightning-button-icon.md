@@ -52,6 +52,20 @@ aliases: [lightning-button-icon, button-icon, 아이콘 버튼, 아이콘 전용
 | `value` | string |  |  | The value for the button element. This value is optional and can be used when submitting a form. |
 | `variant` | string |  | border | The variant changes the appearance of button-icon. Accepted variants include bare, container, brand, border, border-filled, bare-inverse, … |
 
+#### variant 설명표
+
+위 명세의 `variant` 설명은 소스에서 `…`로 잘려 있어, 각 값의 의미를 한글로 정리한다(기본값: `border`).
+
+| variant | 설명 |
+|---|---|
+| `bare` | 테두리 없음, 배경 없음 |
+| `container` | 정사각형 배경 |
+| `brand` | 파란 채운 원 |
+| `border` | 테두리 있는 정사각형 |
+| `border-filled` | 테두리 + 채운 배경 |
+| `border-inverse` | 흰색 아이콘, 어두운 배경 |
+| `inverse` | 흰색 아이콘 |
+
 ### 메서드 (Methods) — 2개
 
 | 메서드 | 설명 |
