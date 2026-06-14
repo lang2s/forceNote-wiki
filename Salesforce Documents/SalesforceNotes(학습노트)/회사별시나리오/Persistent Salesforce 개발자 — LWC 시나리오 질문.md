@@ -48,7 +48,7 @@ handleSort(event) {
 
 **6. 역할·권한 기반 동적 필드·레이아웃 렌더링**
 - **Q:** 동적 레이아웃 조회·렌더링? 민감 필드 노출 방지?
-- **A:** `getRecordUi`/`getObjectInfo`(uiObjectInfoApi) 또는 Custom Metadata로 역할별 필드 집합 조회해 동적 렌더. 민감 필드는 **FLS 강제**(Apex `Security.stripInaccessible`, `WITH USER_MODE`)로 노출 차단.
+- **A:** `getObjectInfo`/`getPicklistValues`(`lightning/uiObjectInfoApi`) 또는 Custom Metadata로 역할별 필드 집합 조회해 동적 렌더. 민감 필드는 **FLS 강제**(Apex `Security.stripInaccessible`, `WITH USER_MODE`)로 노출 차단.
 
 **7. 로깅·API 호출 공통 서비스 의존성 주입**
 - **Q:** LWC 서비스 클래스 설계·공유? 주입 서비스 컴포넌트 테스트?
@@ -123,7 +123,7 @@ List<List<SObject>> results = [FIND :searchKey IN ALL FIELDS
 
 **23. 오브젝트 선택 목록 값 동적 표시**
 - **Q:** Apex로 조회·드롭다운 바인딩?
-- **A:** `getPicklistValues`(lightning/uiObjectInfoApi)로 record type별 picklist 조회(권장, 캐시됨). 또는 Apex `Schema.DescribeFieldResult.getPicklistValues()`. `lightning-combobox`에 `options`로 바인딩.
+- **A:** `getPicklistValues`(lightning/uiObjectInfoApi)로 record type별 picklist 조회(권장, 캐시됨; **`recordTypeId`·`fieldApiName` 필수**, 마스터 RT는 objectInfo의 defaultRecordTypeId 사용). 또는 Apex `Schema.DescribeFieldResult.getPicklistValues()`. `lightning-combobox`에 `options`로 바인딩.
 
 **24. 공유 규칙 기반 민감 데이터 표시**
 - **Q:** 레코드 공유·보안 강제? Apex 조회 고려?

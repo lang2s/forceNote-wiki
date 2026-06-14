@@ -72,7 +72,7 @@ aliases: [Virtusa Salesforce Developer Scenario Based Questions]
 
 **15. 이메일에 Opportunity 상세 PDF 첨부**
 - **Q:** PDF 생성·첨부?
-- **A:** **Visualforce `renderAs="pdf"`** 페이지 또는 Apex `Blob.toPdf()`로 PDF 생성 → `Messaging.EmailFileAttachment`로 첨부해 `sendEmail`.
+- **A:** **Visualforce `renderAs="pdf"`** 페이지를 만들고 Apex에서 `PageReference.getContentAsPDF()`로 렌더링 → `Messaging.EmailFileAttachment`로 첨부해 `sendEmail`. (`Blob.toPdf()`는 스타일 없는 텍스트 PDF만 생성하므로 상세 레이아웃엔 부적합.)
 
 **16. 커스텀 오브젝트가 두 오브젝트와 다대다**
 - **Q:** 데이터 모델 설계?

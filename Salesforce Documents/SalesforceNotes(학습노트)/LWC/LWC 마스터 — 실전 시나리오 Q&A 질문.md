@@ -70,7 +70,7 @@ aliases: [Mastering LWC Scenario Based Questions]
 
 **현장 팀 지오펜싱 알림**
 - **Q:** 위치 추적? Google Maps 지오펜싱?
-- **A:** 모바일 LWC의 **Geolocation**(getLocationService 또는 navigator) + Google Maps Geofencing API(콜아웃). 경계 진입/이탈 시 Platform Event/푸시 알림.
+- **A:** 모바일 LWC의 **Geolocation**(`getLocationService`(`lightning/mobileCapabilities`) 또는 navigator) + Google Maps Geofencing API(콜아웃). 경계 진입/이탈 시 Platform Event/푸시 알림.
 
 **블록체인 디지털 서명**
 - **Q:** 블록체인 API 통합? 법적 구속력?

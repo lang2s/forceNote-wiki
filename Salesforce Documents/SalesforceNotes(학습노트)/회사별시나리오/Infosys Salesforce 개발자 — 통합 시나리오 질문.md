@@ -118,4 +118,4 @@ Google Drive API + OAuth 2.0, 파일 링크를 Salesforce에 저장.
 
 OAuth 2.0 오용, 액세스 토큰 하드코딩(동적 갱신 안 함), 파일 크기·rate limit 무시.
 
-- **A:** **Named Credential + External Credential**(Google OAuth)로 Drive API에 콜아웃(토큰 하드코딩 금지·자동 갱신). 업로드 후 응답의 `webViewLink`/`fileId`를 Salesforce 필드(또는 `ContentDocumentLink`)에 저장. 대용량은 resumable upload, Google **rate limit**·heap 한도(콜아웃 응답 6MB) 유의.
+- **A:** **Named Credential + External Credential**(Google OAuth)로 Drive API에 콜아웃(토큰 하드코딩 금지·자동 갱신). 업로드 후 응답의 `webViewLink`/`fileId`를 Salesforce 필드(또는 `ContentDocumentLink`)에 저장. 대용량은 resumable upload, Google **rate limit**·콜아웃 응답 크기 한도(**동기 6MB / 비동기 12MB**) 유의.
