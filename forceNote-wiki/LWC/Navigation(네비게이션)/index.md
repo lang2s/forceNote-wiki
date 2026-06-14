@@ -16,6 +16,7 @@ created: 2026-05-17
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
 | [[NavigationMixin 패턴]] | 레코드/리스트뷰/Flow/외부 URL 이동, pageReference 타입별 | #pattern |
+| [[Lightning Console JS API]] | 콘솔 워크스페이스 탭/서브탭·유틸리티 바 제어(workspaceAPI/platformWorkspaceApi) | #reference |
 
 ---
 

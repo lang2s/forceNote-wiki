@@ -138,7 +138,7 @@ updated: 2026-05-24
 | ING-21 | salesforce_guided_engagement (40) | Service | 🔲 대기 |
 | ING-22 | cpq_developer_guide (112) | Revenue/CPQ | 🔲 대기 |
 | ING-23 | salesforce_mobile_push_notifications (57) | Mobile | 🔲 대기 |
-| ING-24 | api_console (346) | Integration/Console | 🔲 대기 |
+| ING-24 | api_console (346) = Salesforce Console Developer Guide | LWC/Navigation | **✅ 전수 완료 (2026-06-14)** → `LWC/Navigation(네비게이션)/Lightning Console JS API.md` (Lightning Console API: workspaceAPI/utilityBarAPI/navigationItemAPI 메서드 전수·Aura/LWC·LMS 탭이벤트·Classic 레거시) + 공식 링크 |
 | ING-25 | extend_click_automate (1027, 분할) | Automation/Flow | 🔲 대기 |
 | ING-26 | api_tooling (1006, 분할) | Dev Tools | 🔲 대기 |
 | ING-27 | salesforce_pages_developers_guide (817, 분할) | Visualforce | 🔲 대기 |
