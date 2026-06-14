@@ -24,6 +24,7 @@ created: 2026-05-21
 |---|---|
 | 서비스 레이어, ServiceLayer, TriggerHandler, Trigger 계층, 비즈니스 로직 분리 | `Architecture(아키텍처)/서비스 레이어 패턴.md` |
 | TriggerHandler, beforeInsert afterInsert, Trigger.new, 트리거 패턴 | `Apex/Trigger(트리거)/TriggerHandler 패턴.md` |
+| Trigger 재귀 방지, 트리거 재귀, recursion, static 변수 firstRun, hasRun 플래그, Set<Id> 처리, 스택 깊이 16, maximum trigger depth, setMaxLoopCount, 무한 루프 트리거 | `Apex/Trigger(트리거)/Trigger 재귀 방지.md` |
 | CMDT, Custom Metadata, 트리거 on/off, 메타데이터 트리거 제어 | `Apex/Trigger(트리거)/CMDT 메타데이터 트리거.md` |
 | Custom Metadata Types 상세, __mdt, CustomMetadata__mdt, getAll, getInstance, 커스텀 메타데이터 Apex 조회, Metadata.CustomMetadata, Metadata.DeployContainer, enqueueDeployment, CMDT 배포, CMDT 캐시, 커스텀 메타데이터 타입 vs 커스텀 설정, 기능 플래그, Feature Flag, 요율표, 매핑 테이블, Protected Custom Metadata | `Architecture(아키텍처)/Custom Metadata Types.md` |
 | Permission Set, 권한 설계 | `Architecture(아키텍처)/Permission Set 설계.md` |

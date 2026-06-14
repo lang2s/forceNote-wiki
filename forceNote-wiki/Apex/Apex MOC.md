@@ -16,6 +16,7 @@ created: 2026-05-17
 - [[서비스 레이어 패턴]] — TriggerHandler → ServiceLayer 브로커 분리
 - [[TriggerHandler 패턴]] — abstract class, bypass, 루프 방지
 - [[CMDT 메타데이터 트리거]] — 배포 없이 핸들러 등록/비활성화
+- [[Trigger 재귀 방지]] — static 변수 가드(firstRun)·Set&lt;Id&gt; 추적·스택 깊이 16·롤백 캐비엇
 - [[Permission Set 설계]] — objectPermissions, fieldPermissions, classAccesses 구성 표준
 - [[ApexPages Namespace]] — Visualforce 컨트롤러 전체 레퍼런스: Action·Component·Message·StandardController·StandardSetController·IdeaStandard*·KnowledgeArticleVersionStandardController
 - [[AppLauncher Namespace]] — App Launcher 앱 가시성·정렬 제어: AppMenu.setAppVisibility, setOrgSortOrder, setUserSortOrder

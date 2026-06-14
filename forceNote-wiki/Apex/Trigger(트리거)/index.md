@@ -17,6 +17,7 @@ created: 2026-05-17
 |---|---|---|
 | [[TriggerHandler 패턴]] | abstract class, beforeInsert/afterInsert, bypass, 루프 방지 | #pattern |
 | [[CMDT 메타데이터 트리거]] | 배포 없이 핸들러 등록·비활성화, MetadataTriggerHandler | #pattern |
+| [[Trigger 재귀 방지]] | static 변수 가드(firstRun), Set&lt;Id&gt; 추적, 스택 깊이 16, setMaxLoopCount | #pattern |
 
 ---
 

@@ -146,7 +146,7 @@ TriggerHandler.clearBypass('AccountTriggerHandler');
 > 핸들러는 **얇은 브로커**로 유지한다. 비즈니스 로직은 ServiceLayer 클래스에 위임한다.
 
 > [!note] 루프 방지
-> 재귀 트리거 위험이 있다면 `setMaxLoopCount(1)`로 한 번만 실행되도록 제한한다.
+> 재귀 트리거 위험이 있다면 `setMaxLoopCount(1)`로 한 번만 실행되도록 제한한다. 프레임워크 없이 static 변수로 막는 방법은 [[Trigger 재귀 방지]] 참조.
 
 ---
 
