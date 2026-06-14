@@ -92,7 +92,7 @@ FIND {"joe and mary"}
 ? & | ! { } [ ] ( ) ^ ~ * : \ " ' + -
 ```
 
-이스케이프는 `\` 문자를 앞에 붙인다:
+이스케이프는 백슬래시 문자를 앞에 붙인다:
 
 ```apex
 // 예약 문자 검색 예시
@@ -542,7 +542,7 @@ RETURNING Account (WHERE name like 'test')   // ❌
 | `\t` / `\T` | 탭 |
 | `\'` | 작은따옴표 |
 | `\"` | 큰따옴표 |
-| `\\` | 백슬래시 |
+| `` \\ `` | 백슬래시 |
 | `\_` (LIKE만) | 리터럴 밑줄 `_` |
 | `\%` (LIKE만) | 리터럴 퍼센트 `%` |
 | `\uXXXX` | Unicode 문자 (예: `é` = é) |
@@ -625,3 +625,4 @@ List<List<SObject>> page2 = [FIND 'test' IN ALL FIELDS RETURNING Account(Name, I
 - [[SOQL 문법 레퍼런스]] — SELECT 전체 문법, 날짜 리터럴, 집계 함수
 - [[Dynamic SOQL]] — 동적 SOQL 패턴
 - [[Search Namespace]] — Search Apex 클래스
+- [[SOQL SOSL 소개]] — SOQL vs SOSL 선택 기준과 개요

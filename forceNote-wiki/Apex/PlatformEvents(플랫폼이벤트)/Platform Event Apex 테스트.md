@@ -82,3 +82,4 @@ public class MyCallbackTest {
 - [[EventBus Publish Callbacks]] — onSuccess/onFailure 콜백 구현
 - [[Platform Event 발행]] — EventBus.publish
 - [[Jest 테스트 패턴]] — (참고) LWE 측 비동기 테스트와 대비
+- [[Platform Event 한도와 고려사항]] — 테스트 시 고려할 발행/구독 한도와 거버너

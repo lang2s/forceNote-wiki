@@ -206,6 +206,8 @@ aliases: [영어키워드, 한국어키워드, ...]
 
 코드 예제 없이 글만 있는 파일은 불완전하다.
 
+> **예외 — 탐색 보조(nav) 파일:** `index.md`, `*MOC.md`, 라우터(`00 SEARCH_INDEX.md`)·샤드(`_index/*.md`)는 콘텐츠가 아니라 탐색용이므로 `source`·`aliases` 프론트매터를 면제한다(`tags`·`created`만 있으면 됨). 콘텐츠 노트는 4필드(tags/source/created/aliases) 전부 필수.
+
 ---
 
 ## 새 파일 추가 프로세스 — 검증 후 4단계
@@ -358,7 +360,12 @@ Step 0 검증 + 4단계를 모두 완료해야 추가 작업이 끝난 것으로
 | LWC/UIPatterns(UI패턴) | `LWC/UIPatterns(UI패턴)/index.md` |
 | LWC/BaseComponents(베이스컴포넌트) | `LWC/BaseComponents(베이스컴포넌트)/index.md` |
 | LWC/Internals(내부구조) | `LWC/Internals(내부구조)/index.md` |
+| LWC/SLDS(디자인시스템) | `LWC/SLDS(디자인시스템)/index.md` |
+| Aura(오라) | `Aura(오라)/index.md` |
 | Flow | `Flow/index.md` |
+| Admin(어드민) | `Admin(어드민)/index.md` |
+| DevOps(데브옵스) | `DevOps(데브옵스)/index.md` |
+| DevOps(데브옵스)/MetadataAPI(메타데이터API) | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/index.md` |
 | sObject | `sObject/index.md` |
 
 ---

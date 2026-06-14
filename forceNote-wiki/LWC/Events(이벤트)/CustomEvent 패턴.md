@@ -159,3 +159,4 @@ disconnectedCallback() {
 - [[@api 패턴]] — 부모 → 자식 방향
 - [[Lightning Message Service]] — 형제/크로스 컴포넌트 통신
 - [[컴포지션 패턴]]
+- [[상태 관리]] — CustomEvent 기반 컴포넌트 간 상태 공유 패턴

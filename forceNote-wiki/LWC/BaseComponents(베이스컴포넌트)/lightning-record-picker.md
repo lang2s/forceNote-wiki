@@ -399,3 +399,4 @@ clearPicker() {
 - [[lightning-combobox]] — Picklist 값 기반 단일 선택 (ID 검색 불필요 시)
 - [[Record Form 선택]] — 레코드 폼 패턴 선택 기준
 - [[Wire 패턴]] — GraphQL @wire와 연동 패턴
+- [[lightning-record-form]] — 레코드 폼 내 관계 필드 선택과 연계

@@ -221,3 +221,4 @@ this[NavigationMixin.Navigate]({
 - [[Flow 요소 참조]]
 - [[Flow Screen LWC 패턴]]
 - [[NavigationMixin 패턴]]
+- [[Flow 에러 처리]] — Screen Flow의 Fault 경로·에러 처리 설계
