@@ -147,6 +147,9 @@ created: 2026-05-17
 ## 📡 플랫폼 이벤트
 
 - [[Platform Event 발행]] — EventBus.publish, 수신 트리거, ReplayId
+- [[Platform Event 정의와 구독]] — `__e` 정의·Publish Behavior·고볼륨, after insert 트리거·Pub/Sub·CometD, 재시도
+- [[Platform Event Apex 테스트]] — Test.getEventBus deliver/fail, onSuccess/onFailure
+- [[Platform Event 한도와 고려사항]] — allocations·72h, read-only/no-SOQL, 디커플드 발행-구독, PE vs CDC
 - [[ChangeEventHeader]] — CDC 변경 이벤트 헤더, changetype/recordids/changedfields, TriggerContext
 - [[EventBus Publish Callbacks]] — 비동기 발행 최종 결과 콜백, EventPublishFailureCallback, setResumeCheckpoint
 - [[EventBus Namespace]] — EventBus.publish 메서드 전체 서명, TriggerContext, RetryableException, publishWithAccessLevel, API v67 ACCESS_MODE 변경
