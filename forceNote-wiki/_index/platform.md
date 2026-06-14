@@ -159,6 +159,7 @@ created: 2026-05-21
 | Named Credential, callout:, 네임드 크레덴셜, 외부 URL 인증 | `Integration(통합)/Named Credential.md` |
 | Bulk API 2.0, Bulk API, 벌크 API, 대량 데이터 적재, ingest job, query job, 비동기 잡, job state, UploadComplete, PK chunking, lineEnding LF CRLF, CSV 대량 import, 외부 시스템 대량 동기화 | `Integration(통합)/Bulk API 2.0.md` |
 | REST API, 표준 REST API, services/data, sObjects CRUD, query queryAll SOQL REST, Composite Graph Batch, sObject Tree, sObject Collections 200건 allOrNone, Named Query API, OAuth Bearer, 동기 통합 | `Integration(통합)/REST API.md` |
+| Actions API, Invocable Action, 인보커블 액션, actions/standard, actions/custom/apex, inputs JSON, describe 액션, QuickAction StandardButton, Apex 액션 REST 호출, 표준 액션 카탈로그, chatterPost | `Integration(통합)/Actions API.md` |
 | CSP Trusted Site, Remote Site, 외부 이미지 로드, 외부 API 브라우저 | `Integration(통합)/CSP와 RemoteSite.md` |
 | Queueable Callout, 비동기 외부 호출, DML+Callout 조합 | `Integration(통합)/Queueable + Callout 패턴.md` |
 | Platform Event 통합, 이벤트 기반 통합, 시스템 간 느슨한 결합, LWC empApi | `Integration(통합)/Platform Event 통합 패턴.md` |
