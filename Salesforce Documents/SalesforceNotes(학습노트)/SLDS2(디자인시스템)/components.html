@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lightning 컴포넌트 카탈로그</title>
+<link rel="stylesheet" href="assets/slds.min.css">
+<style>
+  :root { --bd:#e5e5e5; --brand:#0176d3; }
+  * { box-sizing:border-box; }
+  body { font-family:-apple-system,'Segoe UI',Roboto,'Noto Sans KR',sans-serif; margin:0; color:#181818; background:#fafaf9; }
+  header { padding:28px 32px 18px; border-bottom:1px solid var(--bd); background:#fff; }
+  header h1 { margin:0 0 6px; font-size:1.6rem; }
+  header p { margin:0; color:#444; }
+  .toc { display:flex; flex-wrap:wrap; gap:8px; padding:16px 32px; background:#fff; border-bottom:1px solid var(--bd); position:sticky; top:0; z-index:5; }
+  .toc a { font-size:.8rem; text-decoration:none; color:#181818; border:1px solid var(--bd); border-radius:999px; padding:4px 12px; background:#fff; }
+  .toc a:hover { border-color:var(--brand); color:var(--brand); }
+  .toc a span { color:#888; }
+  main { padding:8px 32px 60px; max-width:1400px; margin:0 auto; }
+  section { padding-top:28px; }
+  section h2 { font-size:1.2rem; margin:0 0 4px; }
+  section h2 .count { font-size:.8rem; color:#fff; background:var(--brand); border-radius:999px; padding:1px 9px; vertical-align:middle; }
+  .cat-desc { margin:0 0 14px; color:#555; font-size:.9rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+  .card { border:1px solid var(--bd); border-radius:10px; background:#fff; overflow:hidden; display:flex; flex-direction:column; }
+  .preview { min-height:96px; display:flex; align-items:center; justify-content:center; padding:16px; background:#f3f3f3; border-bottom:1px solid var(--bd); }
+  .preview .ph { color:#999; text-align:center; font-size:.85rem; }
+  .meta { padding:12px 14px; display:flex; flex-direction:column; gap:6px; }
+  .name { font-weight:600; font-size:.95rem; }
+  .name code { font-size:.72rem; color:#0176d3; background:#eef4fb; padding:1px 6px; border-radius:4px; font-weight:400; }
+  .desc { font-size:.85rem; color:#444; line-height:1.45; flex:1; }
+  .links { display:flex; flex-wrap:wrap; gap:10px; margin-top:4px; }
+  .links a { font-size:.78rem; text-decoration:none; color:var(--brand); }
+  .links a:hover { text-decoration:underline; }
+  footer { padding:24px 32px; color:#888; font-size:.8rem; border-top:1px solid var(--bd); }
+</style>
+</head>
+<body>
+<header>
+  <h1>⚡ Lightning 컴포넌트 카탈로그</h1>
+  <p>Salesforce Lightning Base Components (86개) · 카테고리별 모양 미리보기 + 한국어 설명 · 각 컴포넌트의 Example / Develop / Specification 링크 포함</p>
+</header>
+<nav class="toc">
+  <a href="#action-menu">Action &amp; Menu <span>11</span></a><a href="#container">Container <span>15</span></a><a href="#visual">Visual <span>10</span></a><a href="#input">Input <span>13</span></a><a href="#form">Form <span>5</span></a><a href="#navigation">Navigation <span>6</span></a><a href="#status-notification">Status &amp; Notification <span>6</span></a><a href="#output">Output <span>12</span></a><a href="#progress">Progress <span>5</span></a><a href="#table-tree">Table &amp; Tree <span>3</span></a>
+</nav>
+<main>
+    <section id="action-menu">
+      <h2>Action &amp; Menu <span class="count">11</span></h2>
+      <p class="cat-desc">클릭 시 동작을 실행하는 버튼·메뉴 컴포넌트</p>
+      <div class="grid">
+      <div class="card">
+        <div class="preview"><button class="slds-button slds-button_brand">Brand</button> <button class="slds-button slds-button_neutral">Neutral</button></div>
+        <div class="meta">
+          <div class="name">Button <code>lightning-button</code></div>
+          <div class="desc">클릭하면 동작을 실행하는 기본 버튼.</div>
+          <div class="links">
+            <a href="components/lightning-button.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-button-group"><button class="slds-button slds-button_neutral">Refresh</button><button class="slds-button slds-button_neutral">Edit</button><button class="slds-button slds-button_neutral">Save</button></div></div>
+        <div class="meta">
+          <div class="name">Button Group <code>lightning-button-group</code></div>
+          <div class="desc">연관된 버튼들을 한 묶음으로 붙여서 표시.</div>
+          <div class="links">
+            <a href="components/lightning-button-group.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-group/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-group/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-group/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><button class="slds-button slds-button_icon slds-button_icon-border-filled" title="settings"><svg class="slds-button__icon" aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg></button></div>
+        <div class="meta">
+          <div class="name">Button Icon <code>lightning-button-icon</code></div>
+          <div class="desc">아이콘만 있는 버튼.</div>
+          <div class="links">
+            <a href="components/lightning-button-icon.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-icon/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-icon/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-icon/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><button class="slds-button slds-button_icon slds-button_icon-border-filled" title="like">♥</button></div>
+        <div class="meta">
+          <div class="name">Button Icon Stateful <code>lightning-button-icon-stateful</code></div>
+          <div class="desc">눌림(선택) 상태를 토글하는 아이콘 버튼. 예: 좋아요.</div>
+          <div class="links">
+            <a href="components/lightning-button-icon-stateful.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-icon-stateful/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-icon-stateful/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-icon-stateful/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><button class="slds-button slds-button_icon slds-button_icon-border-filled">▾</button></div>
+        <div class="meta">
+          <div class="name">Button Menu <code>lightning-button-menu</code></div>
+          <div class="desc">클릭하면 드롭다운 메뉴가 열리는 버튼.</div>
+          <div class="links">
+            <a href="components/lightning-button-menu.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-menu/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-menu/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-menu/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div style="width:160px;border-top:1px solid #c9c9c9"></div></div>
+        <div class="meta">
+          <div class="name">Menu Divider <code>lightning-menu-divider</code></div>
+          <div class="desc">버튼 메뉴 항목 사이의 구분선.</div>
+          <div class="links">
+            <a href="components/lightning-menu-divider.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-menu-divider/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-menu-divider/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-menu-divider/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-box_x-small" style="width:160px">편집</div></div>
+        <div class="meta">
+          <div class="name">Menu Item <code>lightning-menu-item</code></div>
+          <div class="desc">버튼 메뉴 안의 개별 항목.</div>
+          <div class="links">
+            <a href="components/lightning-menu-item.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-menu-item/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-menu-item/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-menu-item/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-text-title_caps slds-p-around_x-small" style="width:160px">SECTION</div></div>
+        <div class="meta">
+          <div class="name">Menu Subheader <code>lightning-menu-subheader</code></div>
+          <div class="desc">버튼 메뉴 안 항목 그룹의 소제목.</div>
+          <div class="links">
+            <a href="components/lightning-menu-subheader.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-menu-subheader/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-menu-subheader/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-menu-subheader/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><button class="slds-button slds-button_neutral">＋ Follow</button></div>
+        <div class="meta">
+          <div class="name">Button Stateful <code>lightning-button-stateful</code></div>
+          <div class="desc">선택/비선택 상태에 따라 라벨·아이콘이 바뀌는 버튼. 예: 팔로우.</div>
+          <div class="links">
+            <a href="components/lightning-button-stateful.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-stateful/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-stateful/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-button-stateful/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><a class="slds-text-link">+82 10-1234-5678</a></div>
+        <div class="meta">
+          <div class="name">Click To Dial <code>lightning-click-to-dial</code></div>
+          <div class="desc">클릭하면 전화 발신되는 전화번호 링크(Open CTI).</div>
+          <div class="links">
+            <a href="components/lightning-click-to-dial.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-click-to-dial/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-click-to-dial/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-click-to-dial/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:200px">▶ Flow 실행 영역</div></div>
+        <div class="meta">
+          <div class="name">Flow <code>lightning-flow</code></div>
+          <div class="desc">Salesforce Flow를 컴포넌트 안에서 실행.</div>
+          <div class="links">
+            <a href="components/lightning-flow.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-flow/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-flow/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-flow/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section id="container">
+      <h2>Container <span class="count">15</span></h2>
+      <p class="cat-desc">관련 콘텐츠를 묶는 레이아웃 컨테이너</p>
+      <div class="grid">
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-box_x-small" style="width:220px"><b>▾ 섹션 A</b><div class="slds-p-top_x-small">내용</div><div class="slds-p-top_x-small">▸ 섹션 B</div></div></div>
+        <div class="meta">
+          <div class="name">Accordion <code>lightning-accordion</code></div>
+          <div class="desc">여러 섹션을 펼치고 접는 아코디언.</div>
+          <div class="links">
+            <a href="components/lightning-accordion.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-accordion/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-accordion/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-accordion/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Accordion Section <code>lightning-accordion-section</code></div>
+          <div class="desc">아코디언 안의 개별 섹션.</div>
+          <div class="links">
+            <a href="components/lightning-accordion-section.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-accordion-section/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-accordion-section/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-accordion-section/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><article class="slds-card" style="width:220px"><div class="slds-card__header slds-p-horizontal_small"><b>카드 제목</b></div><div class="slds-card__body slds-p-horizontal_small">본문 내용</div></article></div>
+        <div class="meta">
+          <div class="name">Card <code>lightning-card</code></div>
+          <div class="desc">제목/본문/푸터를 가진 카드 컨테이너.</div>
+          <div class="links">
+            <a href="components/lightning-card.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-card/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-card/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-card/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-box_x-small slds-text-align_center" style="width:220px">◀ 🖼️ ▶<div>● ○ ○</div></div></div>
+        <div class="meta">
+          <div class="name">Carousel <code>lightning-carousel</code></div>
+          <div class="desc">이미지를 슬라이드로 넘겨 보는 캐러셀.</div>
+          <div class="links">
+            <a href="components/lightning-carousel.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-carousel/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-carousel/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-carousel/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Carousel Image <code>lightning-carousel-image</code></div>
+          <div class="desc">캐러셀 안의 개별 이미지.</div>
+          <div class="links">
+            <a href="components/lightning-carousel-image.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-carousel-image/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-carousel-image/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-carousel-image/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-grid slds-gutters" style="width:220px"><div class="slds-col slds-box slds-box_x-small">1</div><div class="slds-col slds-box slds-box_x-small">2</div></div></div>
+        <div class="meta">
+          <div class="name">Layout <code>lightning-layout</code></div>
+          <div class="desc">행/열 기반 반응형 레이아웃 컨테이너(flex).</div>
+          <div class="links">
+            <a href="components/lightning-layout.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-layout/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-layout/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-layout/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Layout Item <code>lightning-layout-item</code></div>
+          <div class="desc">Layout 안의 개별 칸(크기/패딩 지정).</div>
+          <div class="links">
+            <a href="components/lightning-layout-item.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-layout-item/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-layout-item/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-layout-item/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:220px;box-shadow:0 2px 8px rgba(0,0,0,.2)"><b>모달 제목</b><div class="slds-p-top_x-small">본문</div></div></div>
+        <div class="meta">
+          <div class="name">Modal <code>lightning-modal</code></div>
+          <div class="desc">화면 위에 띄우는 모달 대화상자(LWC 클래스 확장).</div>
+          <div class="links">
+            <a href="components/lightning-modal.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Modal Body <code>lightning-modal-body</code></div>
+          <div class="desc">모달의 본문 영역.</div>
+          <div class="links">
+            <a href="components/lightning-modal-body.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal-body/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal-body/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal-body/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Modal Footer <code>lightning-modal-footer</code></div>
+          <div class="desc">모달 하단 버튼 영역.</div>
+          <div class="links">
+            <a href="components/lightning-modal-footer.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal-footer/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal-footer/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal-footer/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Modal Header <code>lightning-modal-header</code></div>
+          <div class="desc">모달 상단 제목 영역.</div>
+          <div class="links">
+            <a href="components/lightning-modal-header.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal-header/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal-header/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-modal-header/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:220px"><b>빠른 작업</b></div></div>
+        <div class="meta">
+          <div class="name">Quick Action Panel <code>lightning-quick-action-panel</code></div>
+          <div class="desc">화면 액션(Screen Action)의 본문 패널.</div>
+          <div class="links">
+            <a href="components/lightning-quick-action-panel.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-quick-action-panel/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-quick-action-panel/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-quick-action-panel/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div style="width:220px"><span class="slds-p-right_small" style="border-bottom:2px solid #0176d3"><b>탭1</b></span><span class="slds-text-color_weak">탭2</span></div></div>
+        <div class="meta">
+          <div class="name">Tab Set <code>lightning-tabset</code></div>
+          <div class="desc">여러 탭을 전환하는 탭 컨테이너.</div>
+          <div class="links">
+            <a href="components/lightning-tabset.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tabset/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tabset/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tabset/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Tab <code>lightning-tab</code></div>
+          <div class="desc">탭 세트 안의 개별 탭.</div>
+          <div class="links">
+            <a href="components/lightning-tab.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tab/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tab/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tab/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-box_x-small" style="width:220px"><b>홍길동</b><div class="slds-text-color_weak">제목</div></div></div>
+        <div class="meta">
+          <div class="name">Tile <code>lightning-tile</code></div>
+          <div class="desc">레코드 요약을 보여주는 타일.</div>
+          <div class="links">
+            <a href="components/lightning-tile.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tile/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tile/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tile/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section id="visual">
+      <h2>Visual <span class="count">10</span></h2>
+      <p class="cat-desc">이미지·아이콘 등 시각 요소를 표시</p>
+      <div class="grid">
+      <div class="card">
+        <div class="preview"><span class="slds-avatar slds-avatar_circle slds-avatar_large" style="background:#0176d3;color:#fff;display:inline-flex;align-items:center;justify-content:center">HG</span></div>
+        <div class="meta">
+          <div class="name">Avatar <code>lightning-avatar</code></div>
+          <div class="desc">사용자/객체를 나타내는 원형/사각 이미지.</div>
+          <div class="links">
+            <a href="components/lightning-avatar.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-avatar/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-avatar/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-avatar/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><span class="slds-badge">신규</span> <span class="slds-badge">12</span></div>
+        <div class="meta">
+          <div class="name">Badge <code>lightning-badge</code></div>
+          <div class="desc">상태/카운트를 나타내는 작은 라벨.</div>
+          <div class="links">
+            <a href="components/lightning-badge.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-badge/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-badge/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-badge/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><span class="slds-box slds-box_x-small">📈</span></div>
+        <div class="meta">
+          <div class="name">Dynamic Icon <code>lightning-dynamic-icon</code></div>
+          <div class="desc">애니메이션이 있는 동적 아이콘(예: strength, scoreboard).</div>
+          <div class="links">
+            <a href="components/lightning-dynamic-icon.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-dynamic-icon/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-dynamic-icon/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-dynamic-icon/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-text-align_center" style="width:220px">🗎<div>표시할 항목이 없습니다</div></div></div>
+        <div class="meta">
+          <div class="name">Empty State (Beta) <code>lightning-empty-state</code></div>
+          <div class="desc">데이터가 없을 때 보여주는 빈 상태 화면.</div>
+          <div class="links">
+            <a href="components/lightning-empty-state.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-empty-state/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-empty-state/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-empty-state/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><span title="도움말">ⓘ</span></div>
+        <div class="meta">
+          <div class="name">Helptext <code>lightning-helptext</code></div>
+          <div class="desc">물음표 아이콘에 마우스를 올리면 뜨는 도움말 툴팁.</div>
+          <div class="links">
+            <a href="components/lightning-helptext.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-helptext/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-helptext/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-helptext/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><span class="slds-icon_container" style="display:inline-flex;width:28px;height:28px;border-radius:4px;background:#0176d3;color:#fff;align-items:center;justify-content:center">★</span></div>
+        <div class="meta">
+          <div class="name">Icon <code>lightning-icon</code></div>
+          <div class="desc">SLDS 아이콘을 표시.</div>
+          <div class="links">
+            <a href="components/lightning-icon.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-icon/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-icon/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-icon/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-text-align_center" style="width:220px">🏝️<div>결과 없음</div></div></div>
+        <div class="meta">
+          <div class="name">Illustration (Beta) <code>lightning-illustration</code></div>
+          <div class="desc">빈 상태/오류 등을 위한 일러스트 + 메시지.</div>
+          <div class="links">
+            <a href="components/lightning-illustration.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-illustration/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-illustration/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-illustration/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-text-align_center" style="width:220px;height:60px">🗺️ 📍</div></div>
+        <div class="meta">
+          <div class="name">Map <code>lightning-map</code></div>
+          <div class="desc">지도에 마커를 표시.</div>
+          <div class="links">
+            <a href="components/lightning-map.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-map/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-map/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-map/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><span class="slds-pill"><span class="slds-pill__label">서울</span> ✕</span></div>
+        <div class="meta">
+          <div class="name">Pill <code>lightning-pill</code></div>
+          <div class="desc">제거 가능한 라벨(태그) 칩.</div>
+          <div class="links">
+            <a href="components/lightning-pill.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-pill/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-pill/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-pill/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div><span class="slds-pill">A</span> <span class="slds-pill">B</span></div></div>
+        <div class="meta">
+          <div class="name">Pill Container <code>lightning-pill-container</code></div>
+          <div class="desc">여러 pill을 묶어서 표시.</div>
+          <div class="links">
+            <a href="components/lightning-pill-container.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-pill-container/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-pill-container/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-pill-container/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section id="input">
+      <h2>Input <span class="count">13</span></h2>
+      <p class="cat-desc">사용자 입력을 받고 검증하는 폼 입력 컴포넌트</p>
+      <div class="grid">
+      <div class="card">
+        <div class="preview"><div style="width:200px">☑ 옵션 A<br>☐ 옵션 B</div></div>
+        <div class="meta">
+          <div class="name">Checkbox Group <code>lightning-checkbox-group</code></div>
+          <div class="desc">여러 개를 선택할 수 있는 체크박스 묶음.</div>
+          <div class="links">
+            <a href="components/lightning-checkbox-group.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-checkbox-group/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-checkbox-group/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-checkbox-group/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-box_x-small" style="width:200px">선택하세요 ▾</div></div>
+        <div class="meta">
+          <div class="name">Combobox <code>lightning-combobox</code></div>
+          <div class="desc">드롭다운에서 하나를 선택하는 입력.</div>
+          <div class="links">
+            <a href="components/lightning-combobox.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-combobox/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-combobox/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-combobox/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-grid slds-gutters" style="width:220px"><div class="slds-col slds-box slds-box_x-small">가능</div><div class="slds-col slds-box slds-box_x-small">선택됨</div></div></div>
+        <div class="meta">
+          <div class="name">Dual Listbox <code>lightning-dual-listbox</code></div>
+          <div class="desc">좌→우로 항목을 옮겨 선택하는 이중 리스트.</div>
+          <div class="links">
+            <a href="components/lightning-dual-listbox.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-dual-listbox/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-dual-listbox/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-dual-listbox/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-text-align_center" style="width:200px;border-style:dashed">⬆ 파일 업로드</div></div>
+        <div class="meta">
+          <div class="name">File Upload <code>lightning-file-upload</code></div>
+          <div class="desc">레코드에 파일을 업로드.</div>
+          <div class="links">
+            <a href="components/lightning-file-upload.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-file-upload/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-file-upload/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-file-upload/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div style="width:200px"><label class="slds-form-element__label">이름</label><div class="slds-box slds-box_x-small">홍길동</div></div></div>
+        <div class="meta">
+          <div class="name">Input <code>lightning-input</code></div>
+          <div class="desc">텍스트/숫자/날짜/체크박스 등 다양한 타입의 입력 필드.</div>
+          <div class="links">
+            <a href="components/lightning-input.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:200px"><b>B</b> <i>I</i> <u>U</u><div class="slds-p-top_x-small">서식 텍스트…</div></div></div>
+        <div class="meta">
+          <div class="name">Input Rich Text <code>lightning-input-rich-text</code></div>
+          <div class="desc">서식 있는 텍스트(리치 텍스트) 편집기.</div>
+          <div class="links">
+            <a href="components/lightning-input-rich-text.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input-rich-text/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input-rich-text/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input-rich-text/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Rich Text Toolbar Button <code>lightning-rich-text-toolbar-button</code></div>
+          <div class="desc">리치 텍스트 편집기에 추가하는 커스텀 툴바 버튼.</div>
+          <div class="links">
+            <a href="components/lightning-rich-text-toolbar-button.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-rich-text-toolbar-button/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-rich-text-toolbar-button/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-rich-text-toolbar-button/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Rich Text Toolbar Button Group <code>lightning-rich-text-toolbar-button-group</code></div>
+          <div class="desc">커스텀 툴바 버튼들의 그룹.</div>
+          <div class="links">
+            <a href="components/lightning-rich-text-toolbar-button-group.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-rich-text-toolbar-button-group/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-rich-text-toolbar-button-group/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-rich-text-toolbar-button-group/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div style="width:200px">◉ 옵션 A<br>◯ 옵션 B</div></div>
+        <div class="meta">
+          <div class="name">Radio Group <code>lightning-radio-group</code></div>
+          <div class="desc">하나만 선택하는 라디오 버튼 묶음.</div>
+          <div class="links">
+            <a href="components/lightning-radio-group.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-radio-group/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-radio-group/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-radio-group/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-box_x-small" style="width:200px">🔍 레코드 검색…</div></div>
+        <div class="meta">
+          <div class="name">Record Picker <code>lightning-record-picker</code></div>
+          <div class="desc">레코드를 검색해 선택하는 룩업 입력.</div>
+          <div class="links">
+            <a href="components/lightning-record-picker.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-picker/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-picker/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-picker/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-box_x-small" style="width:200px">옵션 1 ▾</div></div>
+        <div class="meta">
+          <div class="name">Select <code>lightning-select</code></div>
+          <div class="desc">네이티브 HTML select 기반 드롭다운.</div>
+          <div class="links">
+            <a href="components/lightning-select.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-select/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-select/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-select/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div style="width:200px">0 ●━━━━━ 100</div></div>
+        <div class="meta">
+          <div class="name">Slider <code>lightning-slider</code></div>
+          <div class="desc">범위 값을 드래그로 조절하는 슬라이더.</div>
+          <div class="links">
+            <a href="components/lightning-slider.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-slider/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-slider/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-slider/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:200px;height:50px">여러 줄 텍스트…</div></div>
+        <div class="meta">
+          <div class="name">Text Area <code>lightning-textarea</code></div>
+          <div class="desc">여러 줄 텍스트 입력.</div>
+          <div class="links">
+            <a href="components/lightning-textarea.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-textarea/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-textarea/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-textarea/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section id="form">
+      <h2>Form <span class="count">5</span></h2>
+      <p class="cat-desc">레코드를 생성·편집·조회하는 폼 컴포넌트</p>
+      <div class="grid">
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:200px"><label class="slds-form-element__label">이름</label><div class="slds-box slds-box_x-small">값</div></div></div>
+        <div class="meta">
+          <div class="name">Record Form <code>lightning-record-form</code></div>
+          <div class="desc">레코드 보기/편집 폼을 자동 생성(가장 간단).</div>
+          <div class="links">
+            <a href="components/lightning-record-form.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-form/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-form/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-form/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:200px">편집 폼 ✎</div></div>
+        <div class="meta">
+          <div class="name">Record Edit Form <code>lightning-record-edit-form</code></div>
+          <div class="desc">레코드 생성/편집 폼(필드 직접 배치).</div>
+          <div class="links">
+            <a href="components/lightning-record-edit-form.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-edit-form/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-edit-form/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-edit-form/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Input Field <code>lightning-input-field</code></div>
+          <div class="desc">edit form 안에서 객체 필드 하나를 편집.</div>
+          <div class="links">
+            <a href="components/lightning-input-field.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:200px">보기 폼 👁</div></div>
+        <div class="meta">
+          <div class="name">Record View Form <code>lightning-record-view-form</code></div>
+          <div class="desc">레코드 읽기 전용 폼.</div>
+          <div class="links">
+            <a href="components/lightning-record-view-form.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-view-form/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-view-form/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-record-view-form/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Output Field <code>lightning-output-field</code></div>
+          <div class="desc">view form 안에서 객체 필드 하나를 읽기 전용 표시.</div>
+          <div class="links">
+            <a href="components/lightning-output-field.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-output-field/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-output-field/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-output-field/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section id="navigation">
+      <h2>Navigation <span class="count">6</span></h2>
+      <p class="cat-desc">페이지 간 이동을 돕는 내비게이션</p>
+      <div class="grid">
+      <div class="card">
+        <div class="preview"><div style="width:220px"><span class="slds-text-link">홈</span> › <span class="slds-text-link">계정</span> › 상세</div></div>
+        <div class="meta">
+          <div class="name">Breadcrumbs <code>lightning-breadcrumbs</code></div>
+          <div class="desc">현재 위치 경로를 보여주는 빵부스러기 내비.</div>
+          <div class="links">
+            <a href="components/lightning-breadcrumbs.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-breadcrumbs/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-breadcrumbs/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-breadcrumbs/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Breadcrumb <code>lightning-breadcrumb</code></div>
+          <div class="desc">빵부스러기 경로의 개별 항목.</div>
+          <div class="links">
+            <a href="components/lightning-breadcrumb.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-breadcrumb/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-breadcrumb/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-breadcrumb/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-box_x-small" style="width:180px"><b>최근</b><br>홈<br>보고서</div></div>
+        <div class="meta">
+          <div class="name">Vertical Navigation <code>lightning-vertical-navigation</code></div>
+          <div class="desc">세로 사이드 내비게이션 메뉴.</div>
+          <div class="links">
+            <a href="components/lightning-vertical-navigation.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Vertical Navigation Item <code>lightning-vertical-navigation-item</code></div>
+          <div class="desc">세로 내비의 개별 항목.</div>
+          <div class="links">
+            <a href="components/lightning-vertical-navigation-item.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation-item/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation-item/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation-item/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Vertical Navigation Item Badge <code>lightning-vertical-navigation-item-badge</code></div>
+          <div class="desc">배지(숫자)가 붙는 세로 내비 항목.</div>
+          <div class="links">
+            <a href="components/lightning-vertical-navigation-item-badge.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation-item-badge/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation-item-badge/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation-item-badge/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Vertical Navigation Item Icon <code>lightning-vertical-navigation-item-icon</code></div>
+          <div class="desc">아이콘이 붙는 세로 내비 항목.</div>
+          <div class="links">
+            <a href="components/lightning-vertical-navigation-item-icon.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation-item-icon/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation-item-icon/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-vertical-navigation-item-icon/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section id="status-notification">
+      <h2>Status &amp; Notification <span class="count">6</span></h2>
+      <p class="cat-desc">정보·알림을 전달하는 컴포넌트</p>
+      <div class="grid">
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:220px">⚠ 경고 메시지 [확인]</div></div>
+        <div class="meta">
+          <div class="name">Alert <code>lightning-alert</code></div>
+          <div class="desc">확인 버튼이 있는 모달형 경고창(프로그래밍 호출).</div>
+          <div class="links">
+            <a href="components/lightning-alert.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-alert/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-alert/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-alert/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:220px">계속할까요? [취소][확인]</div></div>
+        <div class="meta">
+          <div class="name">Confirm <code>lightning-confirm</code></div>
+          <div class="desc">확인/취소를 묻는 모달(프로그래밍 호출).</div>
+          <div class="links">
+            <a href="components/lightning-confirm.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-confirm/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-confirm/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-confirm/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:220px;background:#2e844a;color:#fff">✓ 저장되었습니다</div></div>
+        <div class="meta">
+          <div class="name">Platform Show Toast Event <code>lightning-platform-show-toast-event</code></div>
+          <div class="desc">Aura/이벤트 방식으로 토스트를 띄우는 이벤트.</div>
+          <div class="links">
+            <a href="components/lightning-platform-show-toast-event.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-platform-show-toast-event/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-platform-show-toast-event/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-platform-show-toast-event/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:220px">이름 입력: [____] [확인]</div></div>
+        <div class="meta">
+          <div class="name">Prompt <code>lightning-prompt</code></div>
+          <div class="desc">입력값을 받는 모달 프롬프트(프로그래밍 호출).</div>
+          <div class="links">
+            <a href="components/lightning-prompt.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-prompt/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-prompt/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-prompt/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box" style="width:220px;background:#2e844a;color:#fff">✓ 알림</div></div>
+        <div class="meta">
+          <div class="name">Toast <code>lightning-toast</code></div>
+          <div class="desc">화면 모서리에 잠깐 뜨는 알림(LWR 사이트용).</div>
+          <div class="links">
+            <a href="components/lightning-toast.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-toast/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-toast/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-toast/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Toast Container <code>lightning-toast-container</code></div>
+          <div class="desc">여러 토스트의 위치/스택을 관리하는 컨테이너(LWR).</div>
+          <div class="links">
+            <a href="components/lightning-toast-container.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-toast-container/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-toast-container/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-toast-container/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section id="output">
+      <h2>Output <span class="count">12</span></h2>
+      <p class="cat-desc">로케일에 맞춰 데이터를 표시하는 출력 컴포넌트</p>
+      <div class="grid">
+      <div class="card">
+        <div class="preview"><div style="width:220px">서울특별시 강남구 …</div></div>
+        <div class="meta">
+          <div class="name">Formatted Address <code>lightning-formatted-address</code></div>
+          <div class="desc">주소를 형식에 맞게 표시(지도 링크 옵션).</div>
+          <div class="links">
+            <a href="components/lightning-formatted-address.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-address/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-address/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-address/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div>2026. 6. 13. 오후 3:00</div></div>
+        <div class="meta">
+          <div class="name">Formatted Date Time <code>lightning-formatted-date-time</code></div>
+          <div class="desc">날짜/시간을 로케일 형식으로 표시.</div>
+          <div class="links">
+            <a href="components/lightning-formatted-date-time.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-date-time/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-date-time/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-date-time/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><a class="slds-text-link">hong@example.com</a></div>
+        <div class="meta">
+          <div class="name">Formatted Email <code>lightning-formatted-email</code></div>
+          <div class="desc">이메일을 mailto 링크로 표시.</div>
+          <div class="links">
+            <a href="components/lightning-formatted-email.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-email/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-email/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-email/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div>37.5665, 126.9780</div></div>
+        <div class="meta">
+          <div class="name">Formatted Location <code>lightning-formatted-location</code></div>
+          <div class="desc">위도/경도 좌표를 표시.</div>
+          <div class="links">
+            <a href="components/lightning-formatted-location.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-location/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-location/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-location/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div>홍 길동</div></div>
+        <div class="meta">
+          <div class="name">Formatted Name <code>lightning-formatted-name</code></div>
+          <div class="desc">이름을 로케일 순서로 표시.</div>
+          <div class="links">
+            <a href="components/lightning-formatted-name.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-name/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-name/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-name/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div>₩1,234,000</div></div>
+        <div class="meta">
+          <div class="name">Formatted Number <code>lightning-formatted-number</code></div>
+          <div class="desc">숫자/통화/백분율을 로케일 형식으로 표시.</div>
+          <div class="links">
+            <a href="components/lightning-formatted-number.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-number/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-number/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-number/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><a class="slds-text-link">010-1234-5678</a></div>
+        <div class="meta">
+          <div class="name">Formatted Phone <code>lightning-formatted-phone</code></div>
+          <div class="desc">전화번호를 tel 링크로 표시.</div>
+          <div class="links">
+            <a href="components/lightning-formatted-phone.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-phone/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-phone/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-phone/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div><b>굵게</b> 그리고 <i>기울임</i></div></div>
+        <div class="meta">
+          <div class="name">Formatted Rich Text <code>lightning-formatted-rich-text</code></div>
+          <div class="desc">HTML 서식 텍스트를 안전하게 렌더링.</div>
+          <div class="links">
+            <a href="components/lightning-formatted-rich-text.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-rich-text/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-rich-text/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-rich-text/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div>문의: <a class="slds-text-link">hong@example.com</a></div></div>
+        <div class="meta">
+          <div class="name">Formatted Text <code>lightning-formatted-text</code></div>
+          <div class="desc">URL/이메일/전화를 자동 링크화해 표시.</div>
+          <div class="links">
+            <a href="components/lightning-formatted-text.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-text/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-text/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-text/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div>오후 3:00</div></div>
+        <div class="meta">
+          <div class="name">Formatted Time <code>lightning-formatted-time</code></div>
+          <div class="desc">시간을 로케일 형식으로 표시.</div>
+          <div class="links">
+            <a href="components/lightning-formatted-time.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-time/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-time/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-time/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><a class="slds-text-link">example.com</a></div>
+        <div class="meta">
+          <div class="name">Formatted URL <code>lightning-formatted-url</code></div>
+          <div class="desc">URL을 하이퍼링크로 표시.</div>
+          <div class="links">
+            <a href="components/lightning-formatted-url.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-url/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-url/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-formatted-url/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div>3분 전</div></div>
+        <div class="meta">
+          <div class="name">Relative Date Time <code>lightning-relative-date-time</code></div>
+          <div class="desc">&#x27;3분 전&#x27;처럼 상대 시간으로 표시.</div>
+          <div class="links">
+            <a href="components/lightning-relative-date-time.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-relative-date-time/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-relative-date-time/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-relative-date-time/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section id="progress">
+      <h2>Progress <span class="count">5</span></h2>
+      <p class="cat-desc">진행 상태를 표시하는 컴포넌트</p>
+      <div class="grid">
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-box_x-small" style="width:200px"><div style="height:8px;background:#0176d3;width:60%"></div></div></div>
+        <div class="meta">
+          <div class="name">Progress Bar <code>lightning-progress-bar</code></div>
+          <div class="desc">수평 진행 막대.</div>
+          <div class="links">
+            <a href="components/lightning-progress-bar.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-bar/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-bar/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-bar/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div style="width:220px">①─②─③ ○─○</div></div>
+        <div class="meta">
+          <div class="name">Progress Indicator <code>lightning-progress-indicator</code></div>
+          <div class="desc">여러 단계의 진행 상태(스텝).</div>
+          <div class="links">
+            <a href="components/lightning-progress-indicator.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-indicator/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-indicator/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-indicator/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div style="width:40px;height:40px;border-radius:50%;border:4px solid #0176d3;border-right-color:#e5e5e5"></div></div>
+        <div class="meta">
+          <div class="name">Progress Ring <code>lightning-progress-ring</code></div>
+          <div class="desc">원형 진행 표시.</div>
+          <div class="links">
+            <a href="components/lightning-progress-ring.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-ring/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-ring/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-ring/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="ph">미리보기 없음<br><small>하위/프로그래밍 컴포넌트</small></div></div>
+        <div class="meta">
+          <div class="name">Progress Step <code>lightning-progress-step</code></div>
+          <div class="desc">진행 인디케이터 안의 개별 단계.</div>
+          <div class="links">
+            <a href="components/lightning-progress-step.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-step/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-step/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-step/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div style="width:28px;height:28px;border-radius:50%;border:3px solid #c9c9c9;border-top-color:#0176d3"></div></div>
+        <div class="meta">
+          <div class="name">Spinner <code>lightning-spinner</code></div>
+          <div class="desc">로딩 중 스피너.</div>
+          <div class="links">
+            <a href="components/lightning-spinner.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-spinner/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-spinner/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-spinner/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section id="table-tree">
+      <h2>Table &amp; Tree <span class="count">3</span></h2>
+      <p class="cat-desc">대량 데이터·계층 구조를 표시</p>
+      <div class="grid">
+      <div class="card">
+        <div class="preview"><table class="slds-table slds-table_bordered" style="width:220px"><tr class="slds-text-title_caps"><th>이름</th><th>금액</th></tr><tr><td>A</td><td>100</td></tr><tr><td>B</td><td>200</td></tr></table></div>
+        <div class="meta">
+          <div class="name">Datatable <code>lightning-datatable</code></div>
+          <div class="desc">정렬·인라인편집·선택이 되는 데이터 표.</div>
+          <div class="links">
+            <a href="components/lightning-datatable.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-datatable/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-datatable/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-datatable/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><div class="slds-box slds-box_x-small" style="width:200px">▾ 부모<br>&nbsp;&nbsp;• 자식 1<br>&nbsp;&nbsp;• 자식 2</div></div>
+        <div class="meta">
+          <div class="name">Tree <code>lightning-tree</code></div>
+          <div class="desc">펼침/접힘이 되는 계층 트리.</div>
+          <div class="links">
+            <a href="components/lightning-tree.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tree/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tree/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tree/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"><table class="slds-table slds-table_bordered" style="width:220px"><tr class="slds-text-title_caps"><th>이름</th><th>상태</th></tr><tr><td>▾ 부모</td><td>활성</td></tr><tr><td>&nbsp;&nbsp;자식</td><td>활성</td></tr></table></div>
+        <div class="meta">
+          <div class="name">Tree Grid <code>lightning-tree-grid</code></div>
+          <div class="desc">트리 + 표가 결합된 계층형 데이터 그리드.</div>
+          <div class="links">
+            <a href="components/lightning-tree-grid.md">상세 ▸</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tree-grid/example" target="_blank">Example</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tree-grid/documentation" target="_blank">Develop</a>
+            <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-tree-grid/specification" target="_blank">Spec</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+</main>
+<footer>
+  출처: Salesforce 공식 Lightning Component Reference · 미리보기는 SLDS 스타일을 활용한 단순 목업이며, 정확한 동작/속성은 각 카드의 Example·Specification 링크에서 확인하세요.
+</footer>
+</body>
+</html>

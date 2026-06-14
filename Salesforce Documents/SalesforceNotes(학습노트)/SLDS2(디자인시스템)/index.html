@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SLDS 2 한국어 문서 허브 · Master Index</title>
+<style>
+  :root{--bd:#e5e5e5;--brand:#0176d3;--ink:#181818;--muted:#5a5a5a;}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,'Segoe UI',Roboto,'Noto Sans KR',sans-serif;margin:0;color:var(--ink);background:#fafaf9;line-height:1.5}
+  header{padding:36px 32px 24px;background:linear-gradient(135deg,#0176d3,#032d60);color:#fff}
+  header h1{margin:0 0 8px;font-size:1.9rem}
+  header p{margin:0;opacity:.92;font-size:.95rem;max-width:760px}
+  .stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .stat{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 14px;font-size:.82rem}
+  main{max-width:1200px;margin:0 auto;padding:28px 32px 64px}
+  .sec{margin-top:30px}
+  .sec h2{font-size:1.15rem;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+  .sec h2 .n{font-size:.72rem;color:#fff;background:var(--brand);border-radius:999px;padding:2px 10px}
+  .sec p.d{margin:0 0 14px;color:var(--muted);font-size:.9rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+  .card{display:block;text-decoration:none;color:inherit;border:1px solid var(--bd);border-radius:10px;background:#fff;padding:16px 18px;transition:border-color .15s,box-shadow .15s}
+  .card:hover{border-color:var(--brand);box-shadow:0 2px 10px rgba(1,118,211,.1)}
+  .card .t{font-weight:600;font-size:1rem;margin-bottom:4px}
+  .card .t .tag{font-size:.68rem;font-weight:400;color:var(--brand);background:#eef4fb;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:middle}
+  .card .s{font-size:.85rem;color:var(--muted)}
+  footer{max-width:1200px;margin:0 auto;padding:20px 32px 50px;color:#999;font-size:.8rem;border-top:1px solid var(--bd)}
+  a.plain{color:var(--brand)}
+</style>
+</head>
+<body>
+<header>
+  <h1>⚡ SLDS 2 한국어 문서 허브</h1>
+  <p>Salesforce Lightning Design System 2를 공식 자료 기반으로 한국어로 정리한 통합 문서 모음입니다. 아래에서 영역을 선택하세요.</p>
+  <div class="stats">
+    <span class="stat">컴포넌트 86</span>
+    <span class="stat">블루프린트 30</span>
+    <span class="stat">유틸리티 24</span>
+    <span class="stat">디자인 패턴 21</span>
+    <span class="stat">접근성 5+</span>
+    <span class="stat">기준: SLDS 2 / @salesforce-ux/design-system v2.30.4</span>
+  </div>
+</header>
+<main>
+
+  <section class="sec">
+    <h2>🧱 컴포넌트 &amp; 블루프린트</h2>
+    <p class="d">실제로 화면에 쓰는 UI 빌딩 블록.</p>
+    <div class="grid">
+      <a class="card" href="components.html">
+        <div class="t">Lightning Base Components <span class="tag">86 · 카탈로그</span></div>
+        <div class="s">모양 미리보기 + 한 줄 설명 + 각 컴포넌트 상세(예제·Develop·전체 Spec 표).</div>
+      </a>
+      <a class="card" href="blueprints-index.html">
+        <div class="t">Component Blueprints <span class="tag">30 · 카탈로그</span></div>
+        <div class="s">CSS 전용(스타일만) 블루프린트. 실제 SLDS 클래스 + SLDS 1 마크업 링크.</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>🎨 파운데이션 (Foundations)</h2>
+    <p class="d">스타일·간격·테마·코드 작성의 기초.</p>
+    <div class="grid">
+      <a class="card" href="SLDS-Utilities.md">
+        <div class="t">Utilities <span class="tag">24 · md</span></div>
+        <div class="s">간격·정렬·텍스트 등 유틸리티 클래스 + 실제 CSS + HTML 예시 + 부록.</div>
+      </a>
+      <a class="card" href="SLDS2-Styling-Hooks.md">
+        <div class="t">Styling Hooks <span class="tag">md</span></div>
+        <div class="s">CSS 변수(글로벌/컴포넌트) 종류 분류와 SLDS 1/2 지원 구분.</div>
+      </a>
+      <a class="card" href="SLDS2-Best-Practices.md">
+        <div class="t">Best Practices <span class="tag">md</span></div>
+        <div class="s">3단계 커스터마이즈 모델, 사용 사례표, fallback 가이드.</div>
+      </a>
+      <a class="card" href="SLDS2-Tools.md">
+        <div class="t">Tools <span class="tag">md</span></div>
+        <div class="s">Figma Kits, SLDS Linter/Validator 등 디자이너·개발자 도구.</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>🧭 UX 디자인 패턴 <span class="n">21</span></h2>
+    <p class="d">일관성·사용성을 위한 표준 솔루션. 개요 + 패턴별 상세.</p>
+    <div class="grid">
+      <a class="card" href="SLDS2-Patterns.md">
+        <div class="t">Patterns 개요 <span class="tag">원칙 4 + 목록 21</span></div>
+        <div class="s">Clarity·Efficiency·Consistency·Beauty + 21개 패턴 색인.</div>
+      </a>
+      <a class="card" href="patterns/agentic-experiences.md"><div class="t">Agentic Experiences</div><div class="s">통제권 유지형 AI 보조 경험.</div></a>
+      <a class="card" href="patterns/data-entry.md"><div class="t">Data Entry</div><div class="s">입력·선택·편집 패턴.</div></a>
+      <a class="card" href="patterns/displaying-data.md"><div class="t">Displaying Data</div><div class="s">테이블·타일·피드.</div></a>
+      <a class="card" href="patterns/charts.md"><div class="t">Charts</div><div class="s">의도별 차트 + 색 팔레트.</div></a>
+      <a class="card" href="patterns/metric-display.md"><div class="t">Metric Display</div><div class="s">지표 타일·대시보드·알림.</div></a>
+      <a class="card" href="patterns/navigation.md"><div class="t">Navigation</div><div class="s">탭·트리·브레드크럼·모달.</div></a>
+      <a class="card" href="patterns/interface-feedback.md"><div class="t">Interface Feedback</div><div class="s">피드백 유형·컴포넌트 매트릭스.</div></a>
+      <a class="card" href="patterns/notifications.md"><div class="t">Notifications</div><div class="s">알림 구성·분포 전략.</div></a>
+      <a class="card" href="patterns/loading.md"><div class="t">Loading</div><div class="s">Spinner vs Stencil.</div></a>
+      <a class="card" href="patterns/localization.md"><div class="t">Localization</div><div class="s">텍스트 확장률·다국어 CSS.</div></a>
+      <a class="card" href="patterns/markup-and-style.md"><div class="t">Markup &amp; Style</div><div class="s">BEM 네이밍 규칙.</div></a>
+      <a class="card" href="patterns/search.md"><div class="t">Search</div><div class="s">글로벌 검색 UX.</div></a>
+      <a class="card" href="patterns/conversation-design.md"><div class="t">Conversation Design</div><div class="s">봇 대화 설계.</div></a>
+      <a class="card" href="patterns/prompt-design-guide.md"><div class="t">Prompt Design Guide</div><div class="s">엔터프라이즈 프롬프트.</div></a>
+      <a class="card" href="patterns/rules-filters-and-logic.md"><div class="t">Rules, Filters &amp; Logic</div><div class="s">조건·필터·논리 표현식.</div></a>
+      <a class="card" href="patterns/builder.md"><div class="t">Builder</div><div class="s">앱·프로세스 빌더.</div></a>
+      <a class="card" href="patterns/layout.md"><div class="t">Layout</div><div class="s">빌더 레이아웃 그리드.</div></a>
+      <a class="card" href="patterns/currency.md"><div class="t">Currency</div><div class="s">통화 표시.</div></a>
+      <a class="card" href="patterns/in-app-feedback.md"><div class="t">In App Feedback</div><div class="s">제품 내 의견 수집.</div></a>
+      <a class="card" href="patterns/messaging-ui.md"><div class="t">Messaging UI</div><div class="s">텍스트 대화 UI.</div></a>
+      <a class="card" href="patterns/user-engagement.md"><div class="t">User Engagement</div><div class="s">온보딩·채택·지속 사용.</div></a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>♿ 접근성 (Accessibility)</h2>
+    <p class="d">WCAG 2.1 AA 기준 체크리스트 + 하위 주제.</p>
+    <div class="grid">
+      <a class="card" href="SLDS2-Accessibility.md">
+        <div class="t">Accessibility <span class="tag">9원칙 + 하위 5</span></div>
+        <div class="s">색 대비·포커스 관리·키보드·모바일·글로벌 표준.</div>
+      </a>
+    </div>
+  </section>
+
+</main>
+<footer>
+  출처: Salesforce Lightning Design System 2 (lightningdesignsystem.com) · Lightning Component Reference (developer.salesforce.com) · @salesforce-ux/design-system v2.30.4.<br>
+  본 문서는 공식 자료를 한국어로 정리·요약한 비공식 참고 자료입니다. 정확한 최신 정보는 각 문서의 공식 링크를 확인하세요. ·md 파일은 마크다운 뷰어에서 열어 보세요.
+</footer>
+</body>
+</html>
