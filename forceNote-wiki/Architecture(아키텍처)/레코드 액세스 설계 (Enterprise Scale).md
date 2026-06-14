@@ -1,6 +1,7 @@
 ---
 tags: [architecture, record-access, sharing, security, performance, group-membership, implicit-sharing]
 source: draes.pdf (Designing Record Access for Enterprise Scale, Salesforce Spring '26, Tier 2)
+official_doc: https://developer.salesforce.com/docs/atlas.en-us.draes.meta/draes/
 created: 2026-06-14
 aliases: [Record Access, 레코드 액세스 설계, Sharing Recalculation, 공유 재계산, Group Membership, Implicit Sharing, 암시적 공유, Ownership Data Skew, Group Membership Locking]
 ---
@@ -104,6 +105,7 @@ HAVING COUNT(Id) > 10000
 
 ## 관련 노트
 
+- 📖 공식: [Designing Record Access for Enterprise Scale](https://developer.salesforce.com/docs/atlas.en-us.draes.meta/draes/)
 - [[Data Skew]] — account/ownership/parent-child skew·record-locking·defer sharing (본 노트와 짝)
 - [[Permission Set 설계]] — 명시적 접근 권한 부여
 - [[Object Relationships]] — master-detail/lookup이 implicit sharing·skew에 미치는 영향

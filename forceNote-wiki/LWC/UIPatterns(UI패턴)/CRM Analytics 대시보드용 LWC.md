@@ -1,6 +1,7 @@
 ---
 tags: [lwc, crm-analytics, dashboard, widget, analytics, target]
 source: bi_dev_guide_lwc_in_db.pdf (Lightning Web Components in CRM Analytics and Lightning Dashboards, Summer '26, Tier 2)
+official_doc: https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_lwc_in_db.meta/bi_dev_guide_lwc_in_db/
 created: 2026-06-14
 aliases: [CRM Analytics LWC, 대시보드 LWC 위젯, analytics__Dashboard, LWC in CRM Analytics, Dashboard Widget, hasStep]
 ---
@@ -99,6 +100,7 @@ export default class HelloWorld extends LightningElement {
 
 ## 관련 노트
 
+- 📖 공식: [LWC in CRM Analytics and Lightning Dashboards](https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_lwc_in_db.meta/bi_dev_guide_lwc_in_db/)
 - [[LWC API 버전 관리]] — `.js-meta.xml` apiVersion·targets·targetConfigs 구조
 - [[@api 패턴]] — `@api` 속성으로 외부 구성 값 수신
 - [[Wave Namespace]] — Apex에서 CRM Analytics(Wave) 데이터 접근

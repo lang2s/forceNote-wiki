@@ -1,6 +1,7 @@
 ---
 tags: [admin, data-loader, data-migration, bulk-api, csv, etl]
 source: salesforce_data_loader.pdf (Data Loader Guide v67.0, Summer '26, Tier 2)
+official_doc: https://developer.salesforce.com/docs/atlas.en-us.dataLoader.meta/dataLoader/
 created: 2026-06-14
 aliases: [Data Loader, 데이터 로더, 데이터 적재, CSV 임포트, bulk import, Data Loader CLI, process-conf.xml]
 ---
@@ -128,6 +129,7 @@ process.bat "C:\dl\conf" csvAccountUpsert
 
 ## 관련 노트
 
+- 📖 공식: [Data Loader Guide](https://developer.salesforce.com/docs/atlas.en-us.dataLoader.meta/dataLoader/)
 - [[Bulk API 2.0]] — Data Loader가 내부적으로 쓰는 비동기 대량 API
 - [[Salesforce 네비게이션]] — Admin 도구·Setup 탐색
 - [[Object Relationships]] — upsert 외부 ID·관계 적재 시 참고

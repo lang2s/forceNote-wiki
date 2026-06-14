@@ -1,6 +1,7 @@
 ---
 tags: [integration, bulk-api, rest-api, async, data-load, etl]
 source: api_asynch.pdf (Bulk API 2.0 and Bulk API Developer Guide v67.0, Summer '26, Tier 2)
+official_doc: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/
 created: 2026-06-14
 updated: 2026-06-14
 aliases: [Bulk API 2.0, Bulk API, 벌크 API, 대량 데이터 API, ingest job, query job, PK chunking, lineEnding, columnDelimiter, JobStateEnum]
@@ -189,6 +190,7 @@ curl .../services/data/v67.0/jobs/query/ -H "Authorization: Bearer <token>" \
 
 ## 관련 노트
 
+- 📖 공식: [Bulk API 2.0 and Bulk API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/)
 - [[Data Loader]] — Bulk API/2.0를 UI·CLI로 사용하는 클라이언트(최대 1.5억 건)
 - [[REST API]] — 소량~중간 동기 CRUD/쿼리
 - [[Named Credential]] — 외부 호출 인증
