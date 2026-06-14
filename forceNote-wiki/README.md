@@ -105,7 +105,7 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 forceNote-wiki/
 ├── 00 Home.md              ← 전체 진입점
 ├── 00 SEARCH_INDEX.md      ← 키워드 라우터 (도메인 → 샤드)
-├── _index/                 ← 키워드 검색 샤드 8개
+├── _index/                 ← 키워드 검색 샤드 9개
 ├── Apex/                   ← 110개 노트 (네임스페이스 레퍼런스 포함)
 │   ├── Security(보안)/         Safely, CanTheUser, Auth Namespace, WITH USER_MODE
 │   ├── Async(비동기)/          Future, Queueable, Batch, Scheduled
@@ -159,7 +159,7 @@ forceNote-wiki/
 |---|---|---|
 | 0 | `00 Home.md` | 전체 진입점 |
 | 1 | `00 SEARCH_INDEX.md` | **라우터** — 도메인 → 샤드 매핑 (개별 페이지 나열 X) |
-| 2 | `_index/{도메인}.md` | 키워드 → 파일 경로 샤드 8개 (frontend·frontend-basecomponents·apex-core·apex-namespaces·platform·release·questions·sobject-reference) |
+| 2 | `_index/{도메인}.md` | 키워드 → 파일 경로 샤드 9개 (frontend·frontend-basecomponents·apex-core·apex-namespaces·platform·platform-devops·release·questions·sobject-reference) |
 | 2 | `*/MOC.md` | 섹션 목차 (사람용 브라우즈) |
 | 3 | `*/index.md` | 폴더 로컬 인덱스 |
 | 4 | 개별 `.md` | 패턴 상세 |

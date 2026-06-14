@@ -104,4 +104,5 @@ export default class HelloWorld extends LightningElement {
 - [[LWC API 버전 관리]] — `.js-meta.xml` apiVersion·targets·targetConfigs 구조
 - [[@api 패턴]] — `@api` 속성으로 외부 구성 값 수신
 - [[Wave Namespace]] — Apex에서 CRM Analytics(Wave) 데이터 접근
+- [[LWR Sites (Experience Cloud)]] — Experience Cloud LWR 사이트에서의 LWC 활용
 - [[LWC MOC]]
