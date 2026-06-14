@@ -119,7 +119,7 @@ updated: 2026-05-24
 | ING-02 | ~~Salesforce-Flow-Best-Practices 백서 (19)~~ | Flow | **✅ 이미 완료(기존)** — `Flow 설계 베스트 프랙티스`·`Flow 네이밍 컨벤션`·`Flow 에러 처리` 3노트가 이 백서 출처. (※ source에 `.pdf` 미기재라 초기 탐지서 누락됐던 거짓양성) |
 | ING-03 | platform_events (628) | Apex/PlatformEvents (분할) | **🔄 전수 재작업 대기** — 신규 3노트는 digest. 628p 전수 필요(구독 group/filter streams·Pub-Sub·CometD 전체·standard platform event objects·error status codes 등 누락) |
 | ING-04 | api_rest (430) = REST API Developer Guide | Integration | **✅ 전수 완료 (2026-06-14)** → `REST API.md` 119→177줄. 헤더 10종·sObject 리소스 전체·Composite(25/500 subreq)·Graph/Batch/Tree/Collections·status codes·날짜형식 + 공식 링크. (Composite 세부가 더 커지면 분할 여지) |
-| ING-05 | api_action (151) = Actions Developer Guide | Integration/Actions | **🔄 전수 재작업 대기** — 현재 digest(87줄, 카탈로그 위임). 표준 액션 전 항목 입출력 명세까지 전수 필요(분할) |
+| ING-05 | api_action (151) = Actions Developer Guide | Integration/Actions | **✅ 전수 완료 (2026-06-14)** → `Actions API.md` — 액션 유형·호출 프레임워크·**표준 액션 50+종 전수 목록**(카테고리별)·Apex 액션 + 공식 링크. (개별 액션 입력필드 전체는 공식 가이드 각 페이지) |
 | ING-06 | api_asynch (182) = Bulk API 2.0 and Bulk API | Integration/Bulk·Async | **✅ 전수 완료 (2026-06-14)** → `Bulk API 2.0.md` 99→196줄. Create Job 요청/응답 전 필드·enum, 잡 상태 6종, Job Info 메트릭, 결과 3종 엔드포인트, Query Locator 헤더, limits 수치, status/error codes |
 | ING-07 | salesforce_recipes_api (180) | Data 360 | 🔲 대기 |
 | ING-08 | salesforce_analytics_rest_api (310) | Analytics | 🔲 대기 |
