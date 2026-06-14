@@ -137,6 +137,7 @@ created: 2026-05-17
 ## 📱 모바일
 
 - [[모바일 기능 패턴]] — getBarcodeScanner, getLocationService, isAvailable() 가드, mobile/browser fallback
+- [[모바일 & 오프라인 (LWC)]] — mobileCapabilities 10종, LWC Offline·Offline GraphQL·Briefcase·draft records
 
 ## 📦 Static Resource & 파일
 

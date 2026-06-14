@@ -60,6 +60,7 @@ created: 2026-05-21
 |---|---|
 | LWC 보안, CSP 브라우저, 권한 기반 UI, userId | `LWC/Security(보안)/LWC 보안 패턴.md` |
 | 모바일, getBarcodeScanner, 바코드, getLocationService, GPS, isAvailable | `LWC/Mobile(모바일)/모바일 기능 패턴.md` |
+| 모바일 오프라인, LWC Offline, Offline GraphQL, Briefcase 프라이밍, draft records 충돌, mobileCapabilities 전체 서비스, getBiometrics getNfc getContacts getCalendar getPayments getDocumentScanner getGeofencing, 오프라인 캐시 | `LWC/Mobile(모바일)/모바일 & 오프라인 (LWC).md` |
 
 ## LWC — Jest 테스트
 

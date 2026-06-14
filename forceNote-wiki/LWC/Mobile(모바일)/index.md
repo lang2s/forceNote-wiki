@@ -16,6 +16,7 @@ created: 2026-05-17
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
 | [[모바일 기능 패턴]] | getBarcodeScanner, getLocationService, isAvailable() 가드, mobile/browser fallback | #pattern |
+| [[모바일 & 오프라인 (LWC)]] | mobileCapabilities 서비스 10종, LWC Offline·Offline GraphQL·Briefcase·draft records | #reference |
 
 ---
 
