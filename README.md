@@ -14,7 +14,7 @@ forceNote-wiki-main/
 │   ├── 00 Home.md               전체 진입점
 │   ├── 00 SEARCH_INDEX.md       키워드 라우터 → _index/ 도메인 샤드
 │   ├── _index/                  키워드 검색 샤드 (7개)
-│   ├── Apex/ LWC/ Flow/ …       섹션별 노트 (413개 · 패턴 + 레퍼런스)
+│   ├── Apex/ LWC/ Flow/ …       섹션별 패턴 + 레퍼런스 노트 (현황·수치는 forceNote-wiki/README.md 참조)
 │   ├── CLAUDE.md                위키 작성 규칙 + 환경 부트스트랩
 │   ├── CLAUDE.local.md          로컬 환경 설정 (Mac/Win 경로 확인)
 │   └── .claude/agents/          위키 작성 멀티에이전트 (15개)

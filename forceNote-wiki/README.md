@@ -15,11 +15,13 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 | sObject | 37 | ✅ 표준 오브젝트·관계·필드 |
 | Architecture(아키텍처) | 18 | ✅ 플랫폼·공유·레코드 액세스 |
 | Flow | 15 | ✅ 완료 |
-| Release | 9 | ✅ Spring '24 ~ Summer '26 |
+| Release | 9 | ✅ Winter '24 ~ Summer '26 |
 | Integration(통합) | 8 | ✅ REST·Bulk·Actions·Named Credential 등 |
 | Admin(어드민) | 3 | 🟡 선언적 어드민 일부 (Data Loader 등) |
 | Aura(오라) | 3 | ✅ 완료 |
-| **합계** | **~408** | |
+| **합계** | **409** | |
+
+> 노트 수치의 단일 출처는 이 표입니다. 트리의 폴더별 수치는 참고용.
 
 > Apex 레퍼런스 네임스페이스 커버리지 **~93%** (~70개 중 63개, 핵심 전부 커버). 누락·우선순위는 `_MOC/WORK_BACKLOG.md` "C — 커버리지 재산출" 참조.
 
@@ -67,14 +69,15 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 | PDF | 완료된 wiki |
 |---|---|
 | `salesforce_apex_reference_guide.pdf` v67.0 | Apex 네임스페이스 레퍼런스 63개 (System·Database·Schema·Auth·ConnectApi 등 핵심 + 커머스·산업 네임스페이스 다수) |
-| `sfdx_dev.pdf` v67.0 | `DevOps(데브옵스)/` 4개 노트 (DX 개요, Scratch Org, Unlocked Package, CI/CD) |
-| `lightningAura.pdf` | `LWC/BaseComponents(베이스컴포넌트)/` 10개 노트 |
+| `sfdx_dev.pdf` v67.0 | `DevOps(데브옵스)/` 74개 노트 (DX 개요, Scratch Org, Unlocked Package, CI/CD, 2GP 시리즈, Metadata API 등) |
+| `lightningAura.pdf` | `LWC/BaseComponents(베이스컴포넌트)/` 66개 노트 |
 
 ### Release Notes
 
 | 릴리즈 | API | 상태 |
 |---|---|---|
 | Summer '26 | v67.0 | ✅ |
+| Spring '26 | v66.0 | ✅ |
 | Winter '26 | v65.0 | ✅ |
 | Summer '25 | v64.0 | ✅ |
 | Spring '25 | v63.0 | ✅ |
@@ -103,7 +106,7 @@ forceNote-wiki/
 ├── 00 Home.md              ← 전체 진입점
 ├── 00 SEARCH_INDEX.md      ← 키워드 라우터 (도메인 → 샤드)
 ├── _index/                 ← 키워드 검색 샤드 7개
-├── Apex/                   ← 96개 노트 (네임스페이스 레퍼런스 포함)
+├── Apex/                   ← 110개 노트 (네임스페이스 레퍼런스 포함)
 │   ├── Security(보안)/         Safely, CanTheUser, Auth Namespace, WITH USER_MODE
 │   ├── Async(비동기)/          Future, Queueable, Batch, Scheduled
 │   ├── Data(데이터)/           SOQL, DML, Database NS, Search NS, FormulaEval, Reports NS
@@ -117,23 +120,26 @@ forceNote-wiki/
 │   ├── PlatformEvents(플랫폼이벤트)/ Platform Event, CDC, Publish Callbacks
 │   ├── PlatformCache(플랫폼캐시)/   Platform Cache
 │   └── Messaging(메시징)/      SingleEmailMessage, CustomNotification
-├── LWC/                    ← 33개 노트
+├── LWC/                    ← 132개 노트
 │   ├── ApexIntegration(Apex통합)/  Wire, Imperative 호출
-│   ├── BaseComponents(베이스컴포넌트)/ 10개 컴포넌트 상세 레퍼런스
+│   ├── BaseComponents(베이스컴포넌트)/ 66개 컴포넌트 상세 레퍼런스
+│   ├── SLDS(디자인시스템)/        27개 디자인시스템 노트
+│   ├── Internals(내부구조)/      9개 LWC 엔진·런타임 내부구조 노트
 │   ├── ComponentAPI(컴포넌트API)/  @api, 컴포지션
 │   ├── Events(이벤트)/            CustomEvent, LMS, 상태 관리
 │   ├── LDS/                       Record Form, uiRecordApi, getRecord, Picklist
 │   ├── Navigation(네비게이션)/    NavigationMixin
 │   ├── UIPatterns(UI패턴)/        Toast, 모달, Static Resource, 파일 업로드
 │   ├── Mobile(모바일)/            getBarcodeScanner, getLocationService
+│   ├── Testing(테스트)/           Jest 테스트
 │   └── Security(보안)/            customPermission, CSP, DOM XSS
 ├── Flow/                   ← 15개 노트
-├── Architecture(아키텍처)/  ← 12개 노트 (System/Schema/ApexPages/Site/Canvas NS, Governor Limits, 서비스 레이어 등)
-├── DevOps(데브옵스)/        ← 4개 노트 (DX 개요, Scratch Org, Unlocked Package, CI/CD)
-├── Integration(통합)/      ← 4개 노트 (Named Credential, CSP/RemoteSite, Queueable+Callout, Platform Event)
+├── Architecture(아키텍처)/  ← 18개 노트 (System/Schema/ApexPages/Site/Canvas NS, Governor Limits, 서비스 레이어 등)
+├── DevOps(데브옵스)/        ← 74개 노트 (DX 개요, Scratch Org, Unlocked Package, CI/CD, 2GP 시리즈, Metadata API 등)
+├── Integration(통합)/      ← 8개 노트 (Named Credential, CSP/RemoteSite, Queueable+Callout, Platform Event 등)
 ├── Aura(오라)/             ← 3개 노트
-├── Admin(어드민)/          ← 2개 노트
-└── Release/                ← 8개 노트 (8개 릴리즈 완료)
+├── Admin(어드민)/          ← 3개 노트
+└── Release/                ← 9개 노트 (9개 릴리즈 완료)
 ```
 
 ---
@@ -141,7 +147,7 @@ forceNote-wiki/
 ## Obsidian에서 열기
 
 1. Obsidian 실행 → **Open folder as vault**
-2. 이 저장소의 루트 폴더 선택
+2. `forceNote-wiki/` 폴더 선택 (저장소 루트가 아니라 위키 본체 폴더)
 3. `00 Home.md` 를 시작점으로 탐색
 4. **Graph View** (Ctrl/Cmd + G) 에서 노트 연결망 확인
 
@@ -153,7 +159,7 @@ forceNote-wiki/
 |---|---|---|
 | 0 | `00 Home.md` | 전체 진입점 |
 | 1 | `00 SEARCH_INDEX.md` | **라우터** — 도메인 → 샤드 매핑 (개별 페이지 나열 X) |
-| 2 | `_index/{도메인}.md` | 키워드 → 파일 경로 샤드 (frontend·apex-core·apex-namespaces·platform·release·questions) |
+| 2 | `_index/{도메인}.md` | 키워드 → 파일 경로 샤드 7개 (frontend·apex-core·apex-namespaces·platform·release·questions·sobject-reference) |
 | 2 | `*/MOC.md` | 섹션 목차 (사람용 브라우즈) |
 | 3 | `*/index.md` | 폴더 로컬 인덱스 |
 | 4 | 개별 `.md` | 패턴 상세 |
