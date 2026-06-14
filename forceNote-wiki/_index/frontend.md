@@ -50,6 +50,7 @@ created: 2026-05-21
 | NavigationMixin, 페이지 이동, 레코드 페이지 이동, pageReference | `LWC/Navigation(네비게이션)/NavigationMixin 패턴.md` |
 | Static Resource, loadScript, loadStyle, 서드파티 라이브러리, renderedCallback | `LWC/UIPatterns(UI패턴)/Static Resource 로딩.md` |
 | 파일 업로드, 이미지 처리, processImage, FileReader, ContentVersion | `LWC/UIPatterns(UI패턴)/파일 업로드와 이미지 처리.md` |
+| CRM Analytics 대시보드 LWC, analytics__Dashboard, 대시보드 위젯, hasStep, step 쿼리, Wave 대시보드 커스텀 위젯, bindings 동적 속성 | `LWC/UIPatterns(UI패턴)/CRM Analytics 대시보드용 LWC.md` |
 
 ## LWC — 보안 / 모바일
 

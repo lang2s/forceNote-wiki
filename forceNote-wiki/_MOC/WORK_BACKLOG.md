@@ -130,7 +130,7 @@ updated: 2026-05-24
 | ING-13 | chat_rest (66) / salesforce_chatter_rest_api (2350, 분할) | Chatter/Connect | 🔲 대기 |
 | ING-14 | case_feed_dev_guide (45) | Service | 🔲 대기 |
 | ING-15 | caf_dev (27) | Service (Case Feed) | 🔲 대기 |
-| ING-16 | bi_dev_guide_lwc_in_db (23) | Analytics/LWC | 🔲 대기 |
+| ING-16 | ~~bi_dev_guide_lwc_in_db (23)~~ = LWC in CRM Analytics Dashboards | Analytics/LWC | **✅ 완료 (2026-06-14)** → `LWC/UIPatterns(UI패턴)/CRM Analytics 대시보드용 LWC.md` |
 | ING-17 | ~~draes (15)~~ = Designing Record Access for Enterprise Scale | Architecture/Security | **✅ 완료 (2026-06-14)** → `Architecture(아키텍처)/레코드 액세스 설계 (Enterprise Scale).md`. ADMIN-4 부분 충족 |
 | ING-18 | esm_developer_guide (55) | Service (Embedded) | 🔲 대기 |
 | ING-19 | service_presence_developer_guide (23) / _administrators (124) | Service (Omni-Presence) | 🔲 대기 |
