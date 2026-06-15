@@ -1,3 +1,8 @@
+---
+tags: [index, search, navigation, router]
+created: 2026-05-17
+---
+
 # SEARCH INDEX (라우터)
 > 전체 wiki 키워드 검색의 진입점. 평면 인덱스가 아니라 **도메인 → 샤드 라우터**다.
 > 키워드의 도메인을 판단해 아래 샤드 파일 **1개만** 열면 된다.
