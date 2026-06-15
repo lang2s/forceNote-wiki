@@ -3,7 +3,7 @@ tags: [release, summer_25, industries, health-cloud, financial-services, public-
 api_version: v64.0
 release_date: 2025-06
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026 (3).pdf (Salesforce Summer '25 Release Notes, Tier 2)
+source: salesforce_summer25_release_notes.pdf (Salesforce Summer '25 Release Notes, Tier 2)
 aliases: [Summer '25 Industries, 서머25 산업 클라우드, Health Cloud, Financial Services Cloud, Public Sector, Automotive, Communications, Energy and Utilities, Life Sciences, Net Zero]
 ---
 

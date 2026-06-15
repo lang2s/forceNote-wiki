@@ -3,7 +3,7 @@ tags: [release, winter_26, agentforce, einstein, ai]
 api_version: v65.0
 release_date: 2025-10
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026 (2).pdf (Salesforce Winter '26 Release Notes, Tier 2)
+source: salesforce_winter26_release_notes.pdf (Salesforce Winter '26 Release Notes, Tier 2)
 aliases: [Winter '26 Agentforce, 윈터26 에이전트포스, Agent Analytics GA, Agentforce Optimization GA, New Agentforce Builder, Agent Script, Agentforce Testing Center, Claude Sonnet 4.5, GPT 5.x, Gemini 3, Flex Credits]
 ---
 

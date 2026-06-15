@@ -3,7 +3,7 @@ tags: [release, summer_26, agentforce, einstein, ai]
 api_version: v67.0
 release_date: 2026-06
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026.pdf (Salesforce Summer '26 Release Notes, Tier 2)
+source: salesforce_summer26_release_notes.pdf (Salesforce Summer '26 Release Notes, Tier 2)
 aliases: [Summer '26 Agentforce, 서머26 에이전트포스, MCP Servers, IntegrationTest]
 ---
 
@@ -88,7 +88,7 @@ Agentforce·Data 360에 callout하는 end-to-end Apex 테스트를 작성한다.
 먼저 scratch org 정의 파일에서 `ApexIntegrationTests` 기능을 활성화한다.
 
 ```json
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 {
 "orgName": "My Company",
 "edition": "Developer",
@@ -99,7 +99,7 @@ Agentforce·Data 360에 callout하는 end-to-end Apex 테스트를 작성한다.
 통합 테스트 클래스는 클래스와 각 테스트 메서드 모두에 `@IntegrationTest`를 쓴다. 트랜잭션 중간에 테스트 데이터를 커밋하려면 `IntegrationTest.commitTestOnly()` 메서드를 쓰고, 커밋된 데이터를 정리하려면 `@TearDown` 메서드를 추가한다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 @IntegrationTest
 public with sharing class MyServiceIntegrationTest {
 @IntegrationTest

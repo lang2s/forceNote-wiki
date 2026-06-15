@@ -3,7 +3,7 @@ tags: [release, winter_26, development, apex, lwc, api]
 api_version: v65.0
 release_date: 2025-10
 created: 2026-05-17
-source: salesforce_release_notes_5-17-2026 (2).pdf (Salesforce Winter '26 Release Notes, Tier 2)
+source: salesforce_winter26_release_notes.pdf (Salesforce Winter '26 Release Notes, Tier 2)
 aliases: [Winter '26 Development, 윈터26 개발, v65 Apex 변경, Test Discovery API, Test Runner API, ApexDoc, SLDS 2 GA, TypeScript for LWC, Org-to-org Data Deployment]
 ---
 
@@ -52,7 +52,7 @@ GA가 된 이유(PDF 원문 불릿):
 styling hook은 CSS custom property이므로, 컴포넌트 CSS에서 직접 override한다.
 
 ```css
-/* PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.379) */
+/* PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.379) */
 /* This hook provides different values based on density setting */
 .my-component {
   padding: var(--slds-g-spacing-var-inline-1);
@@ -135,7 +135,7 @@ SLDS 2 관련 추가 항목:
 screen flow local action 컴포넌트(config + JS):
 
 ```xml
-<!-- PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.365) -->
+<!-- PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.365) -->
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
   <apiVersion>65.0</apiVersion>
@@ -153,7 +153,7 @@ screen flow local action 컴포넌트(config + JS):
 ```
 
 ```javascript
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.366)
+// PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.366)
 // ⚠️ PDF 페이지 경계에서 invoke() 본문이 잘려 출력됨 — 닫는 중괄호는 // 구조 예시 — 일부 생략
 import { api, LightningElement } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
@@ -186,7 +186,7 @@ export default class ShowToastExampleComponent extends LightningElement {
 **ApexDoc** — JavaDoc 기반의 새 표준 주석 포맷. 사람·문서 생성기·AI agent가 코드베이스를 이해하기 쉽도록 특화 tag와 guideline을 제공한다. Apex compiler가 ApexDoc syntax/정확성을 강제하지는 않는다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.383)
+// PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.383)
 public class OpportunityService {
   /**
    * Retrieves a list of open opportunities for a given account.
@@ -212,7 +212,7 @@ public class OpportunityService {
 v65.0+에서 `abstract`·`override` 메서드는 `protected`/`public`/`global` access modifier가 **필수**다. `private`는 불가하며(구현 클래스가 메서드에 접근하지 못함), 지정하지 않으면 compilation error가 발생한다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.384)
+// PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.384)
 // Abstract class
 public with sharing abstract class Shape {
   public abstract Double calculateArea();
@@ -249,7 +249,7 @@ External Service에서 large blob을 binary file로 upload/download할 수 있�
 | **Data 360 SOQL Semi-Joins** | semi-join 쿼리로 child DMO 속성으로 Salesforce object 필터(outer=parent Salesforce object, inner=직접 관계 child DMO). identity resolution 기반 관계는 불가. v65.0+. |
 
 ```sql
--- PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.395)
+-- PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.395)
 SELECT Id, FirstName
 FROM Contact
 WHERE Id IN (
@@ -269,7 +269,7 @@ WHERE Id IN (
 | **Download Package Metadata for a Version** | 새 `sf package version retrieve` command. 2GP managed 또는 unlocked package version의 metadata retrieve/download. |
 
 ```bash
-# PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.397)
+# PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.397)
 sf package version retrieve --package 04tXXX --output-dir my-directory/ --target-dev-hub devhub@example.com
 ```
 
@@ -299,7 +299,7 @@ sf package version retrieve --package 04tXXX --output-dir my-directory/ --target
 **Salesforce CLI 하위:**
 
 ```bash
-# PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.408)
+# PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.408)
 # Run flow tests in your org (JIT plugin-flow)
 sf flow run test --target-org my-scratch --class-names Flow1 --class-names Flow2
 ```
@@ -310,12 +310,12 @@ sf flow run test --target-org my-scratch --class-names Flow1 --class-names Flow2
 - `project deploy start` / `project retrieve start` 성능 향상(커뮤니티 기여).
 
 ```bash
-# PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.409)
+# PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.409)
 sf package version displaydependencies --package 04t... --edge-direction root-last --target-dev-hub devhub@example.com
 ```
 
 ```bash
-# PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.409)
+# PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.409)
 sf org refresh sandbox --name devSbx2 --source-sandbox-name devSbx3 --target-org prodOrg
 ```
 
@@ -631,7 +631,7 @@ sf org refresh sandbox --name devSbx2 --source-sandbox-name devSbx3 --target-org
 요청 예: `GET /services/data/v65.0/tooling/tests?namespacePrefix=my_namespace&pageSize=2`
 
 ```json
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.390)
+// PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.390)
 {
   "apexTestClasses": [
     {
@@ -663,7 +663,7 @@ sf org refresh sandbox --name devSbx2 --source-sandbox-name devSbx3 --target-org
 **Test Runner — async 요청 body** (`POST .../tooling/runTestsAsynchronous/`):
 
 ```json
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.391)
+// PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.391)
 {
   "tests": [
     {
@@ -681,7 +681,7 @@ sf org refresh sandbox --name devSbx2 --source-sandbox-name devSbx3 --target-org
 **Test Runner — sync 응답 body** (`POST .../tooling/runTestsSynchronous/`):
 
 ```json
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.391)
+// PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.391)
 {
   "apexLogId": null,
   "codeCoverage": [],
@@ -715,7 +715,7 @@ sf org refresh sandbox --name devSbx2 --source-sandbox-name devSbx3 --target-org
 - **objectInfos picklist** — `objectInfos`를 새 `objectInfoInputs` argument로 쿼리. metadata만 받으려면 `objectInfoInputs` 생략 또는 `apiName`만 제공.
 
 ```graphql
-# PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.468)
+# PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.468)
 query optional {
   uiapi {
     query {
@@ -735,7 +735,7 @@ query optional {
 ```
 
 ```javascript
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (2).pdf (인쇄 p.469)
+// PDF 원문 발췌 — salesforce_winter26_release_notes.pdf (인쇄 p.469)
 import { LightningElement, track, wire } from 'lwc';
 import { gql, graphql } from 'lightning/graphql';
 export default class DynamicGraphQLQuery extends LightningElement {

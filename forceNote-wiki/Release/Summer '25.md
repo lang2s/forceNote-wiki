@@ -3,7 +3,7 @@ tags: [release, summer_25]
 api_version: v64.0
 release_date: 2025-06
 created: 2026-05-17
-source: salesforce_release_notes_5-17-2026 (3).pdf
+source: salesforce_summer25_release_notes.pdf
 aliases: [Summer '25, 서머 25]
 ---
 

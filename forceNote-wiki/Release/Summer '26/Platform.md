@@ -3,7 +3,7 @@ tags: [release, summer_26, platform, admin, security, devops, architecture]
 api_version: v67.0
 release_date: 2026-06
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026.pdf (Salesforce Summer '26 Release Notes, Tier 2)
+source: salesforce_summer26_release_notes.pdf (Salesforce Summer '26 Release Notes, Tier 2)
 aliases: [Summer '26 Platform, 서머26 플랫폼, Hyperforce, Edge Network 강제, 엣지 네트워크 의무화, Chatter off, 챗터 기본 비활성, mTLS 인증서 200일]
 ---
 
@@ -123,7 +123,7 @@ aliases: [Summer '26 Platform, 서머26 플랫폼, Hyperforce, Edge Network 강�
 - **Managed Package Push Upgrade 만료 기간 설정** — 커스텀 Push Upgrade에 만료 일수(days)를 설정할 수 있다. 1GP/2GP 관리 패키지 모두에 적용. 1GP는 패키징 org, 2GP는 Dev Hub org에서 시스템 관리자로 로그인해 Developer Console에서 `PushUpgradeCustomizationRepository` 레코드를 생성하고 구독자에게 커스텀 푸시 업그레이드가 제공되는 일수를 입력한다. 아래 예시는 90일 후 만료 설정이다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 String pucId1 = PushUpgradeCustomizationRepository.create('packageID', 'subscriberOrgID', true, 90);
 System.debug('pucId1 =' + pucId1);
 ```

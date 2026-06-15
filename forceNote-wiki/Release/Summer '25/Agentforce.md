@@ -3,7 +3,7 @@ tags: [release, summer_25, agentforce, einstein, ai]
 api_version: v64.0
 release_date: 2025-06
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026 (3).pdf (Salesforce Summer '25 Release Notes, Tier 2)
+source: salesforce_summer25_release_notes.pdf (Salesforce Summer '25 Release Notes, Tier 2)
 aliases: [Summer '25 Agentforce, 서머25 에이전트포스, Agentforce 3, Employee Agent, Agent API, Agent Surfaces GA, Service Agent Email GA, Prompt Builder, Einstein Trust Layer, Claude Sonnet 4, GPT 5, Gemini 2.5]
 ---
 

@@ -3,7 +3,7 @@ tags: [release, winter_26, platform, admin, security, flow, devops, architecture
 api_version: v65.0
 release_date: 2025-10
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026 (2).pdf (Salesforce Winter '26 Release Notes, Tier 2)
+source: salesforce_winter26_release_notes.pdf (Salesforce Winter '26 Release Notes, Tier 2)
 aliases: [Winter '26 Platform, 윈터26 플랫폼, Database Encryption GA, Secure Roles Behavior, 새 Setup 도메인, JWT 12시간, IPv6 준비, Hyperforce 리전 확장, Flow Transform 인라인, External Services 한도 증가]
 ---
 
@@ -46,7 +46,7 @@ aliases: [Winter '26 Platform, 윈터26 플랫폼, Database Encryption GA, Secur
 - **Build More Robust Integrations with Increased External Services Limits** — External Services 최대 한도 증가. Enterprise·Performance·Unlimited·Developer. (p.291)
 
 ```text
-# 출처: salesforce_release_notes_5-17-2026 (2).pdf — Customization 섹션 (인쇄 p.291, verbatim)
+# 출처: salesforce_winter26_release_notes.pdf — Customization 섹션 (인쇄 p.291, verbatim)
 active objects per org                : 1,250 → 3,000
 active operations per org             : 1,250 → 3,000
 external service registrations per org:   150 →   700
@@ -145,7 +145,7 @@ external service registrations per org:   150 →   700
 - **Use Updated Salesforce Flow Default Record Page Layouts** — Flow 오브젝트의 기본 레코드 페이지 표준화. 아래는 PDF 매트릭스(인쇄 p.1144)를 셀 단위로 옮긴 것이다.
 
 ```text
-# 출처: salesforce_release_notes_5-17-2026 (2).pdf — Automation App (인쇄 p.1144, verbatim 매핑)
+# 출처: salesforce_winter26_release_notes.pdf — Automation App (인쇄 p.1144, verbatim 매핑)
 # 컬럼: Lightning App Builder Page Label | Change | Object Label | Object API Name
 Flow Page Default              | Related tab → Versions 로 개명                          | Flow Record         | FlowRecord
 Orchestration Page Default     | Details tab 추가                                         | Orchestration       | FlowOrchestration
@@ -192,7 +192,7 @@ Orchestration Version Page Def | Orchestration Work Guide 컴포넌트 추가   
 - **Identify Issues with Invalid Scopes in the Client Credentials Flow** — OAuth 2.0 client credentials flow가 unsupported scope만 포함하면 access token을 반환하지 않고 `invalid_grant` 에러. `web`·`refresh_token`·`full` scope 미지원. 전 에디션. (p.1173)
 
 ```json
-// 출처: salesforce_release_notes_5-17-2026 (2).pdf — Identity & Access (인쇄 p.1173, verbatim 응답)
+// 출처: salesforce_winter26_release_notes.pdf — Identity & Access (인쇄 p.1173, verbatim 응답)
 {
   "error": "invalid_grant",
   "error_description": "no valid scopes defined"
@@ -226,7 +226,7 @@ Orchestration Version Page Def | Orchestration Work Guide 컴포넌트 추가   
 - **Encrypt Your Entire Database (GA Release)** — **Database Encryption 정식 출시(GA).** Hyperforce cell에서 Database Encryption을 활성화하면 암호화된 데이터를 기능·성능 trade-off 없이 정렬·필터·참조 가능. 필요 시 개별 필드에 Field Level Encryption도 적용. tenant-specific Shield key 사용. 모든 Hyperforce instance에 배포 중. Enterprise·Performance·Unlimited·Developer. (p.1190–1191) — Hyperforce 섹션(p.573, 576)에도 중복 정의됨. → [Architecture](#architecture--infrastructure), 개념은 [[Platform Encryption]]
 
 ```text
-# 출처: salesforce_release_notes_5-17-2026 (2).pdf — Shield Platform Encryption (인쇄 p.1191, verbatim)
+# 출처: salesforce_winter26_release_notes.pdf — Shield Platform Encryption (인쇄 p.1191, verbatim)
 Encryption Settings → "Encrypt the Transactional Database" 토글
 (cell이 Database Encryption 활성화 상태일 때만 토글 표시)
 ```
@@ -296,7 +296,7 @@ Encryption Settings → "Encrypt the Transactional Database" 토글
 ### 플랫폼 요구사항 (verbatim)
 
 ```text
-# 출처: salesforce_release_notes_5-17-2026 (2).pdf — Mobile (인쇄 p.913, verbatim)
+# 출처: salesforce_winter26_release_notes.pdf — Mobile (인쇄 p.913, verbatim)
 Operating System and Version Requirements:
   Android 11.0 or later, Android WebView 90.0 or later
   iOS 17.0 or later
@@ -344,7 +344,7 @@ Operating System and Version Requirements:
 - **Add the New Setup Domain** — Setup 페이지가 `*.salesforce-setup.com` 도메인으로 호스팅됨. **방화벽/allowlist에 `*.salesforce-setup.com` 추가 필요.** Winter '26부터 프로덕션 롤아웃 재개(Spring '24 시작, Winter '25 샌드박스/비프로덕션, Spring/Summer '25 일시 중단). 전 에디션. (p.171)
 
 ```text
-# 출처: salesforce_release_notes_5-17-2026 (2).pdf — Salesforce Overall (인쇄 p.171, verbatim)
+# 출처: salesforce_winter26_release_notes.pdf — Salesforce Overall (인쇄 p.171, verbatim)
 allowlist 추가: *.salesforce-setup.com
 ```
 
@@ -361,7 +361,7 @@ allowlist 추가: *.salesforce-setup.com
 PDF 표 방향은 row=Cloud, 컬럼=Cloud / Product or Feature / Description / Available In. "Now available"(신규 리전)과 "Also available"(기존 리전)을 구분해 옮긴다.
 
 ```text
-# 출처: salesforce_release_notes_5-17-2026 (2).pdf — Hyperforce (인쇄 p.574–575, verbatim 매핑)
+# 출처: salesforce_winter26_release_notes.pdf — Hyperforce (인쇄 p.574–575, verbatim 매핑)
 Data Cloud   (Agentforce, Data Cloud, UMA, Einstein)
   Now : France, Indonesia, South Korea, UAE
   Also: Australia, Brazil, Canada, Germany, India, Japan, Singapore, Switzerland, UK, US

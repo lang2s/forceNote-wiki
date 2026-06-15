@@ -1,6 +1,6 @@
 ---
 tags: [release, spring_26, clouds]
-source: salesforce_release_notes_6-13-2026.pdf (Salesforce Spring '26 Release Notes, Tier 2)
+source: salesforce_spring26_release_notes.pdf (Salesforce Spring '26 Release Notes, Tier 2)
 created: 2026-06-15
 aliases: [Spring 26 Clouds, 스프링26 클라우드, Spring '26 Clouds, Spring26 Cloud Release Notes, 스프링26 클라우드 릴리즈, 클라우드별 GA]
 ---

@@ -1,6 +1,6 @@
 ---
 tags: [release, spring_26, agentforce, einstein, prompt-builder, supported-models]
-source: salesforce_release_notes_6-13-2026.pdf (Spring '26, API v66.0, Agentforce Platform 챕터 논리 p.189–254, Tier 2)
+source: salesforce_spring26_release_notes.pdf (Spring '26, API v66.0, Agentforce Platform 챕터 논리 p.189–254, Tier 2)
 created: 2026-06-15
 aliases: [Spring 26 Agentforce, 스프링26 에이전트포스, Spring 26 Einstein, Spring 26 Prompt Builder, Spring 26 Supported Models, 에이전트포스 릴리즈노트, 스프링26 지원모델]
 ---

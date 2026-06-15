@@ -3,7 +3,7 @@ tags: [release, summer_26, development, apex, lwc, api]
 api_version: v67.0
 release_date: 2026-06
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026.pdf (Salesforce Summer '26 Release Notes, Tier 2)
+source: salesforce_summer26_release_notes.pdf (Salesforce Summer '26 Release Notes, Tier 2)
 aliases: [Summer '26 Development, 서머26 개발, v67 파괴적 변경, Breaking Changes v67, USER_MODE 기본화, WITH SECURITY_ENFORCED 폐기, with sharing 기본, secure by default, String.template, State Managers]
 ---
 
@@ -36,7 +36,7 @@ Apex 데이터베이스 작업(SOSL·SOQL 쿼리, DML 문, Database 메서드)�
 접근 모드를 명시하는 권장 방법은 다음과 같다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 // SOSL/SOQL 쿼리: WITH USER_MODE 또는 WITH SYSTEM_MODE
 Account acc = [SELECT Id FROM Account WHERE Name = 'Singha' WITH USER_MODE LIMIT 1];
 ```
@@ -44,7 +44,7 @@ Account acc = [SELECT Id FROM Account WHERE Name = 'Singha' WITH USER_MODE LIMIT
 > Note: `WITH SECURITY_ENFORCED` 절은 API v67.0부터 제거됨. 대신 `WITH USER_MODE`를 사용한다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 // DML 작업: as user 또는 as system 키워드
 Account a = [SELECT Id, Name
              FROM Account
@@ -55,7 +55,7 @@ update as user a;
 ```
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 // Database 또는 Search 메서드: accessLevel 파라미터
 Account a = Database.query('SELECT Id, Name
              FROM Account
@@ -89,7 +89,7 @@ SOQL/SOSL 쿼리를 user mode로 실행하려면 `WITH SECURITY_ENFORCED` 대신
 - `WITH USER_MODE`는 SOQL 쿼리의 모든 FLS 오류를 찾는다(`WITH SECURITY_ENFORCED`는 첫 번째 오류만 찾음). 또한 user mode에서는 `QueryException`의 **`getInaccessibleFields()`** 메서드로 전체 접근 오류 집합을 검사할 수 있다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 // v67.0+: WITH SECURITY_ENFORCED를 WITH USER_MODE로 교체
 Account acc = [SELECT Id FROM Account WHERE Name = 'Singha' WITH USER_MODE LIMIT 1];
 ```
@@ -115,7 +115,7 @@ Apex 트리거는 이제 **항상 system mode**로 실행되어 현재 사용자
 멀티라인 문자열은 텍스트 블록을 작은따옴표 세 개(`'''`)로 감싼다. 여는 따옴표 다음 줄에서 본문을 시작하고, 닫는 따옴표는 본문 바로 뒤나 새 줄에 둔다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 // 원문 오타(닫는 따옴표 누락) — PDF 원문 보존: "sportName 의 닫는 따옴표가 PDF에서 누락됨
 String newCustomerJson = '''
 {
@@ -133,7 +133,7 @@ String newCustomerJson = '''
 문자열 보간은 `${variableName}` 형식의 명명 변수로 문자열을 선언한 뒤 `String.template(Map<String, Object> valueMap)`을 호출한다. 맵의 키는 문자열에 정의된 변수, 값은 대응 치환값이다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 String formatted = '''
 {
 "Account": "${accountName}",
@@ -182,7 +182,7 @@ Invocable action 파라미터로 사용되는 Apex 클래스는 **가시적인(v
 클래스에 명시적 생성자가 없으면 Apex가 클래스와 동일한 접근 수준의 암묵적 no-argument 생성자를 제공한다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 public class MyInvocableClass {
 @InvocableVariable(required=true)
 public String accountName;
@@ -196,7 +196,7 @@ constructor
 파라미터가 있는 생성자를 추가하면 Apex가 암묵적 no-argument 생성자를 더 이상 제공하지 않으므로, 적절한 가시성의 no-argument 생성자를 직접 추가해야 한다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 public class MyInvocableClass {
 @InvocableVariable(required=true)
 public String accountName;
@@ -291,7 +291,7 @@ Salesforce Health Cloud의 제품 빌링 정보 캡처용.
 - **LWS — HTMLAnchorElement `data:` URI 차단** — `HTMLAnchorElement.prototype.href`의 새 distortion이 `data:` URI 스킴을 사용하는 URL을 차단한다. `data:` URI는 콘텐츠를 URL로 인라인 임베드해 LWS가 막는 보안 위험을 만든다. (Lightning Experience, LWR 기반 Experience Cloud 사이트, LWS 활성화된 Aura 사이트의 LWC에 적용)
 
 ```javascript
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 // EXAMPLE OF INSECURE DOWNLOAD LINK
 // This technique is prevented by LWS
 const textEncoded = `data:text/plain,${encodeURIComponent(
@@ -306,7 +306,7 @@ anchorTag.click();
 대신 `Blob`을 만들고 `blob:` URI 스킴으로 다운로드를 제공한다.
 
 ```javascript
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 const blob = new Blob(['text string'], { type: 'text/plain' });
 const blobUrl = URL.createObjectURL(blob);
 const anchorTag = document.createElement('a');
@@ -432,7 +432,7 @@ Analytics 자산 다운로드 시 사용할 신규 파라미터 4개:
 다음 예제는 account·contact·opportunity 생성을 한 요청에서 체이닝하며 지원되는 모든 field reference 패턴을 사용한다.
 
 ```graphql
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 mutation CreateAccountAndContact {
 uiapi(input: { allOrNone: false }) {
 AccountCreate(input: {
@@ -481,7 +481,7 @@ Description { value }
 응답:
 
 ```json
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 {
 "data": {
 "uiapi": {

@@ -1,6 +1,6 @@
 ---
 tags: [release, spring25, v63, apex, lwc, flow, agentforce, slds, orchestration, mulesoft, devops, cli]
-source: salesforce_release_notes_5-17-20264.pdf — Salesforce Spring '25 Release Notes
+source: salesforce_spring25_release_notes.pdf — Salesforce Spring '25 Release Notes
 created: 2026-05-18
 aliases: [Spring '25, Spring25, v63.0, API 63, 스프링 25]
 ---

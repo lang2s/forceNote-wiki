@@ -1,6 +1,6 @@
 ---
 tags: [release, spring_26, release-updates]
-source: salesforce_release_notes_6-13-2026.pdf (Salesforce Spring '26 Release Notes, Tier 2)
+source: salesforce_spring26_release_notes.pdf (Salesforce Spring '26 Release Notes, Tier 2)
 created: 2026-06-15
 aliases: [Spring 26 Release Updates, 스프링26 릴리즈업데이트, Spring 26 강제 적용, Release Update enforcement Spring 26, 릴리즈 업데이트 강제 시점, enforced with this release]
 ---

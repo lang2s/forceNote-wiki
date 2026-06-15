@@ -3,7 +3,7 @@ tags: [release, summer_26, clouds, data360, analytics, field-service]
 api_version: v67.0
 release_date: 2026-06
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026.pdf (Salesforce Summer '26 Release Notes, Tier 2)
+source: salesforce_summer26_release_notes.pdf (Salesforce Summer '26 Release Notes, Tier 2)
 aliases: [Summer '26 Clouds, 서머26 클라우드, Data 360, Field Service]
 ---
 

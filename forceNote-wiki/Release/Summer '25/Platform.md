@@ -3,7 +3,7 @@ tags: [release, summer_25, platform, admin, security, flow, devops, architecture
 api_version: v64.0
 release_date: 2025-06
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026 (3).pdf (Salesforce Summer '25 Release Notes, Tier 2)
+source: salesforce_summer25_release_notes.pdf (Salesforce Summer '25 Release Notes, Tier 2)
 aliases: [Summer '25 Platform, 서머25 플랫폼, Flow Approval Process GA, Autolaunched Screen Actions GA, ICU 로케일 자동 활성화, Hyperforce 하이데라바드, Salesforce Channels Slack]
 ---
 
@@ -304,7 +304,7 @@ Crypto.decryptWithManagedIV('AES256-GCM', key, encrypted, aaData);
 - **Test Flows Faster with Integrated Tests** — Flow 테스트를 회귀·단위·CI/CD 프로세스에 통합. Salesforce CLI로 flow 테스트 실행(Salesforce CLI flow 플러그인 또는 CLI v2.86.9+).
 
 ```bash
-# 출처: salesforce_release_notes_5-17-2026 (3).pdf — Flow Management 섹션 (CLI 명령 직접 인용)
+# 출처: salesforce_summer25_release_notes.pdf — Flow Management 섹션 (CLI 명령 직접 인용)
 sf flow run test
 sf flow run test --help
 ```

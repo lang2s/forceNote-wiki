@@ -3,7 +3,7 @@ tags: [release, summer_25, release-update]
 api_version: v64.0
 release_date: 2025-06
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026 (3).pdf (Salesforce Summer '25 Release Notes, Tier 2)
+source: salesforce_summer25_release_notes.pdf (Salesforce Summer '25 Release Notes, Tier 2)
 aliases: [Summer '25 Release Updates, 서머25 릴리즈 업데이트, 릴리즈 강제 적용 항목, v64 강제 적용, 강제 시점 Enforced, API v21-30 폐기 강제, Release Update 일정]
 ---
 

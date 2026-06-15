@@ -84,7 +84,7 @@ updated: 2026-05-24
 |---|---|---|---|---|
 | PIPE-1 | 강화된 pipeline agent 실제 invocation 1회 시도 | 6개 agent 정의가 모두 강화됐으나 Task #1·#2 모두 manual 작성 → 실제 PM 호출로 파이프라인 작동 데이터 1회 확보. PIPE-3·4·5의 가설 검증. | 🔲 대기 | 2026-05-23 |
 | DEC-2 | 위키 이미지 첨부 정책 결정 | pdftotext가 못 잡는 다이어그램을 정말 보존해야 할 페이지가 있다면 PDF figure 캡처 첨부 정책 필요. 현재 없음 → 모든 시각 자료는 "마커 + skip" 또는 "텍스트 재현" 만. | 🔲 대기 | 2026-05-23 |
-| 기존 P2-02 | ~~`Release/Spring '26.md` (v66.0) 작성~~ | **✅ 완료 (2026-06-14)**: salesforce_release_notes_6-13-2026.pdf(Spring '26, v66.0, Tier 2)에서 개발자 섹션 발췌. 댕글링 링크 3건 해소. | ✅ 완료 | 2026-05-18 |
+| 기존 P2-02 | ~~`Release/Spring '26.md` (v66.0) 작성~~ | **✅ 완료 (2026-06-14)**: salesforce_spring26_release_notes.pdf(Spring '26, v66.0, Tier 2)에서 개발자 섹션 발췌. 댕글링 링크 3건 해소. | ✅ 완료 | 2026-05-18 |
 | 기존 P3-05 | ~~LWC BaseComponents 확장 (lightning-tree·tab·pill 등)~~ | **✅ 완료 (2026-06-13)**: SLDS2-Docs cx-router 메타데이터(Tier 2)로 신규 55 + 기존 11 패밀리 명세 병합 = 66개. 카탈로그 역링크 + SLDS 디자인시스템 폴더 27노트도 함께. | ✅ 완료 | 2026-05-18 |
 
 ### 🔵 P3 — 선언적 어드민 도메인 공백 (갭 분석 2026-06-14)

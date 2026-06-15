@@ -3,7 +3,7 @@ tags: [release, spring_26, development, apex, lwc, api]
 api_version: v66.0
 release_date: 2026-02
 created: 2026-06-15
-source: salesforce_release_notes_6-13-2026.pdf (Salesforce Spring '26 Release Notes, Tier 2)
+source: salesforce_spring26_release_notes.pdf (Salesforce Spring '26 Release Notes, Tier 2)
 aliases: [Spring '26 Development, 스프링26 개발, Apex Cursors GA, PaginationCursor, RunRelevantTests Beta, getPicklistValuesByRecordType, purgeOldAsyncJobs, GraphQL mutation field reference, Named Query API, v66 거버너 한도, Spring 26 개발자 변경]
 ---
 
@@ -42,7 +42,7 @@ aliases: [Spring '26 Development, 스프링26 개발, Apex Cursors GA, Paginatio
 - **Test Discovery API `category` 쿼리 파라미터** — Tooling API의 Test Discovery 엔드포인트에 GET, `category=flow` 또는 `category=apex`로 필터. 여러 category 동시 지정 불가, 다른 파라미터와 결합 가능. API v66.0+.
 
 ```text
-// PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+// PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 https://MyDomain.my.salesforce.com/services/data/v66.0/tooling/tests?category=apex
 https://MyDomain.my.salesforce.com/services/data/v66.0/tooling/tests?category=flow&namespacePrefix=ourManagedPackage
 ```
@@ -50,7 +50,7 @@ https://MyDomain.my.salesforce.com/services/data/v66.0/tooling/tests?category=fl
 - **`purgeOldAsyncJobs()` 오버로드** — 지정 날짜 이전 완료된 가장 오래된 async job부터 삭제할 개수를 지정. API v66.0+.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+// PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 Integer maximumNumberOfJobsToDelete = 1000;
 Integer count = System.purgeOldAsyncJobs(
 Date.today(),
@@ -89,7 +89,7 @@ System.debug('Deleted ' + count + ' old jobs.');
 `.js-meta.xml`에서 API 버전을 변경한다. 한 번에 한 버전씩 업그레이드를 권장한다. LWC API version 59.0+는 그 값을 LWC framework version으로 사용하고, 58.0 이하는 Summer '23(API 58.0) 동작을 유지한다.
 
 ```xml
-<!-- PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf -->
+<!-- PDF 원문 발췌 — salesforce_spring26_release_notes.pdf -->
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
 <apiVersion>66.0</apiVersion>
@@ -102,7 +102,7 @@ System.debug('Deleted ' + count + ' old jobs.');
 - **빈 상태/일러스트 베이스 컴포넌트 (Beta)** — 새 `lightning-empty-state`(SVG가 사용자 테마에 자동 조정, SLDS 2 dark mode 적응)와 `lightning-illustration`(text 없이 illustration만). title/illustration/CTA 없이도 가능 — **description만 필수**. illustration name·title은 attribute, description·cta는 slot으로 전달. pilot/beta 서비스.
 
 ```html
-<!-- PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf -->
+<!-- PDF 원문 발췌 — salesforce_spring26_release_notes.pdf -->
 <!-- myEmptyState.html -->
 <!-- With illustration and action -->
 <lightning-empty-state
@@ -119,7 +119,7 @@ onclick={handleCtaClick}>
 ```
 
 ```javascript
-// PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+// PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 import { LightningElement } from "lwc";
 export default class MyEmptyState extends LightningElement {
 handleCtaClick(event) {
@@ -129,7 +129,7 @@ handleCtaClick(event) {
 ```
 
 ```html
-<!-- PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf -->
+<!-- PDF 원문 발췌 — salesforce_spring26_release_notes.pdf -->
 <!-- myIllustration.html -->
 <lightning-illustration
 illustration-name="cart:noitems"
@@ -150,7 +150,7 @@ alternative-text="Shopping cart is empty">
 - **Lightning Out 2.0 개선** — App Manager에서 외부 앱 도메인명 추가(Setup Session Settings Trusted Domains에도 추가), 복합 namespace(mixed casing) LWC 추가 가능. namespace/component 구분자는 forward slash(`/`) 또는 hyphen(`-`); hyphen 사용 시 복합 namespace segment는 underscore(`_`)로 구분(예: `complexNs/lwcComponent` ≡ `complex_ns-lwc-component`). app component가 `app-id` attribute 지원. Professional/Enterprise/Performance/Unlimited/Developer.
 
 ```html
-<!-- PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf -->
+<!-- PDF 원문 발췌 — salesforce_spring26_release_notes.pdf -->
 <!-- Generated Lightning Out 2.0 App Code Block -->
 <script
 type="text/javascript"
@@ -260,7 +260,7 @@ PDF는 클라우드별로 New/Changed Objects를 나열한다. 아래는 Develop
 ### 현재 사용자(User) 레코드 조회
 
 ```graphql
-# PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+# PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 {
 uiapi {
 currentUser{
@@ -274,7 +274,7 @@ value
 ```
 
 ```json
-// PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+// PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 {
 "data": {
 "uiapi": {
@@ -296,7 +296,7 @@ value
 `recordLayouts` 필드가 `LayoutConnection` type을 반환한다.
 
 ```graphql
-# PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+# PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 type UIAPI {
 recordLayouts(
 objectApiName: String!
@@ -314,7 +314,7 @@ input LayoutConfig {recordTypeId: ID!, formFactor: FormFactor, mode: LayoutMode
 ```
 
 ```graphql
-# PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+# PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 {
 uiapi {
 recordLayouts(objectApiName: "Account") {
@@ -357,7 +357,7 @@ totalCount
 ```
 
 ```json
-// PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+// PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 {
 "data": {
 "uiapi": {
@@ -416,7 +416,7 @@ totalCount
 ### Mutation으로 레코드 생성·수정·삭제 (Generally Available)
 
 ```graphql
-# PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+# PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 mutation ContactUpdateExample{
 uiapi {
 ContactUpdate(input: {
@@ -441,7 +441,7 @@ value
 ```
 
 ```json
-// PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+// PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 {
 "data": {
 "uiapi": {
@@ -467,7 +467,7 @@ value
 `updateMRU` argument를 `true`로 설정하면 반환 record의 `LastViewedDate`가 업데이트된다.
 
 ```graphql
-# PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+# PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 query accounts {
 uiapi {
 query {
@@ -486,7 +486,7 @@ value
 ```
 
 ```json
-// PDF 원문 발췌 — salesforce_release_notes_6-13-2026.pdf
+// PDF 원문 발췌 — salesforce_spring26_release_notes.pdf
 {
 "data": {
 "uiapi": {

@@ -3,7 +3,7 @@ tags: [release, summer_25, development, apex, lwc, api]
 api_version: v64.0
 release_date: 2025-06
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026 (3).pdf (Salesforce Summer '25 Release Notes, Tier 2)
+source: salesforce_summer25_release_notes.pdf (Salesforce Summer '25 Release Notes, Tier 2)
 aliases: [Summer '25 Development, 서머25 개발, parseAsTemplate, FormulaEval Template Mode, 2GP Convert GA, lightning mediaUtils GA, Heroku Setup GA, embeddedai, flowtesting]
 ---
 
@@ -55,7 +55,7 @@ aliases: [Summer '25 Development, 서머25 개발, parseAsTemplate, FormulaEval 
 아래 예시에서 `parseAsTemplate()`에 `true`가 전달되면 formula expression이 template mode로 평가되고, Account 레코드의 `name`·`website` 필드 값이 문자열에 보간된다. 출력은 expression `'name & " (" & website & ")"'`와 동일하다.
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (3).pdf
+// PDF 원문 발췌 — salesforce_summer25_release_notes.pdf
 FormulaEval.FormulaInstance ff = Formula.builder()
 .withType(Schema.Account.class)
 .withReturnType(FormulaEval.FormulaReturnType.STRING)
@@ -247,7 +247,7 @@ Setup의 platform event trigger 구성(Platform Events → event → Subscriptio
 TypeScript 예시(PDF 원문 발췌):
 
 ```javascript
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026 (3).pdf
+// PDF 원문 발췌 — salesforce_summer25_release_notes.pdf
 import { LightningElement } from 'lwc';
 import '@salesforce/lightning-types';
 import type LightningButton from 'lightning/button';

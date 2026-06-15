@@ -3,7 +3,7 @@ tags: [release, winter_26, release-updates, security, deprecation]
 api_version: v65.0
 release_date: 2025-10
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026 (2).pdf (Salesforce Winter '26 Release Notes, Tier 2)
+source: salesforce_winter26_release_notes.pdf (Salesforce Winter '26 Release Notes, Tier 2)
 aliases: [Winter '26 Release Updates, 윈터26 강제적용, Secure Roles Behavior, Restrict User Access to Run Flows, SOAP API login 은퇴, ICU Locale Formats, Multiple-Configuration SAML]
 ---
 

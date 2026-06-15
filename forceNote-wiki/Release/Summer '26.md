@@ -3,7 +3,7 @@ tags: [release, summer_26]
 api_version: v67.0
 release_date: 2026-06
 created: 2026-05-17
-source: salesforce_release_notes_5-17-2026.pdf
+source: salesforce_summer26_release_notes.pdf
 aliases: [Summer '26, 서머 26, v67.0, 서머26 릴리즈 노트, 2026 여름 릴리즈, Summer 26 허브]
 ---
 
@@ -19,7 +19,7 @@ aliases: [Summer '26, 서머 26, v67.0, 서머26 릴리즈 노트, 2026 여름 �
 > 상세·코드·이관 가이드는 → [[Summer '26/Development]]
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 // v67.0: DB 작업이 기본 user mode. 명시 권장.
 Account acc = [SELECT Id FROM Account WHERE Name = 'Singha' WITH USER_MODE LIMIT 1];
 ```

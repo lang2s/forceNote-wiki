@@ -3,7 +3,7 @@ tags: [release, winter_26, clouds, sales, service, commerce, data360, analytics,
 api_version: v65.0
 release_date: 2025-10
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026 (2).pdf (Salesforce Winter '26 Release Notes, Tier 2)
+source: salesforce_winter26_release_notes.pdf (Salesforce Winter '26 Release Notes, Tier 2)
 aliases: [Winter '26 Clouds, 윈터26 클라우드, Data Cloud Data 360 rebrand, Tableau Next Embedding SDK GA, Sales Cloud, Service Cloud, Commerce Cloud, Industries]
 ---
 

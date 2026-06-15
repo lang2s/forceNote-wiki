@@ -3,13 +3,13 @@ tags: [release, spring_26]
 api_version: v66.0
 release_date: 2026-02
 created: 2026-06-13
-source: salesforce_release_notes_6-13-2026.pdf (Salesforce Spring '26 Release Notes, Tier 2)
+source: salesforce_spring26_release_notes.pdf (Salesforce Spring '26 Release Notes, Tier 2)
 aliases: [Spring '26, 스프링 26, v66.0, 스프링26 릴리즈 노트, 2026 봄 릴리즈, Spring 26 허브]
 ---
 
 # Spring '26 릴리즈 노트
 
-> API v66.0 | 출시: 2026년 02월 | 공식 Spring '26 Release Notes(`salesforce_release_notes_6-13-2026.pdf`) 발췌 큐레이션
+> API v66.0 | 출시: 2026년 02월 | 공식 Spring '26 Release Notes(`salesforce_spring26_release_notes.pdf`) 발췌 큐레이션
 
 > [!note] 분량이 커서 **허브(라우팅) + 6개 영역별 하위 노트**로 분할했습니다. 도메인별 전수 내용은 아래 하위 노트를, 폴더 목록은 [[Spring '26/index|폴더 인덱스]]를 참조하세요.
 

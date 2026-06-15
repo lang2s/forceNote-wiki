@@ -1,6 +1,6 @@
 ---
 tags: [release, spring_26, platform]
-source: salesforce_release_notes_6-13-2026.pdf (Salesforce Spring '26 Release Notes, Tier 2)
+source: salesforce_spring26_release_notes.pdf (Salesforce Spring '26 Release Notes, Tier 2)
 created: 2026-06-15
 aliases: [Spring 26 Platform, 스프링26 플랫폼, Spring '26 Platform, Email Domain Verification mandatory, Connected App creation disabled, Passwordless Passkeys GA, Database Encryption GA, DX Inspector GA, Files Priming GA, Mobile Builder GA, Open Screen Flows URL GA, MuleSoft for Flow GA, Hyperforce 17 regions, Idle Refresh Token TTL 30 days, 스프링26 보안, 스프링26 자동화]
 ---

@@ -3,7 +3,7 @@ tags: [release, summer_26, release-update]
 api_version: v67.0
 release_date: 2026-06
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026.pdf (Salesforce Summer '26 Release Notes, Tier 2)
+source: salesforce_summer26_release_notes.pdf (Salesforce Summer '26 Release Notes, Tier 2)
 aliases: [Summer '26 Release Updates, 서머26 릴리즈 업데이트, 릴리즈 강제 적용 항목, v67 강제 적용, 강제 시점 Enforced, Release Update 일정, 서머26 의무화]
 ---
 
@@ -66,7 +66,7 @@ aliases: [Summer '26 Release Updates, 서머26 릴리즈 업데이트, 릴리즈
 코드 동반 항목 참고 — `WITH SECURITY_ENFORCED`는 API v67.0에서 제거되었고 `WITH USER_MODE`로 교체해야 한다(Apex 개발자 변경 → [[Summer '26/Development]]).
 
 ```apex
-// PDF 원문 발췌 — salesforce_release_notes_5-17-2026.pdf
+// PDF 원문 발췌 — salesforce_summer26_release_notes.pdf
 Account acc = [SELECT Id FROM Account WHERE Name = 'Singha' WITH USER_MODE LIMIT 1];
 ```
 

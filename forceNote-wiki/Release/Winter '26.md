@@ -3,7 +3,7 @@ tags: [release, winter_26]
 api_version: v65.0
 release_date: 2025-10
 created: 2026-05-17
-source: salesforce_release_notes_5-17-2026 (2).pdf
+source: salesforce_winter26_release_notes.pdf
 aliases: [Winter '26, 윈터 26]
 ---
 

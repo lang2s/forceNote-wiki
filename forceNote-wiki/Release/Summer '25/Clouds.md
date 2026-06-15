@@ -3,7 +3,7 @@ tags: [release, summer_25, clouds, sales, service, data-cloud, commerce, analyti
 api_version: v64.0
 release_date: 2025-06
 created: 2026-06-15
-source: salesforce_release_notes_5-17-2026 (3).pdf (Salesforce Summer '25 Release Notes, Tier 2)
+source: salesforce_summer25_release_notes.pdf (Salesforce Summer '25 Release Notes, Tier 2)
 aliases: [Summer '25 Clouds, 서머25 클라우드, Data Cloud, Field Service, Sales Cloud, Service Cloud, Commerce Cloud, Revenue Cloud, Analytics]
 ---
 
