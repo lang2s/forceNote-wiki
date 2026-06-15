@@ -263,6 +263,8 @@ List<AggregateResult> byHour = [
 - [[DML 패턴]]
 - [[SOSL 패턴]] — 여러 Object 전문 검색
 - [[Summer '26]] — API v67.0 파괴적 변경 (WITH SECURITY_ENFORCED 제거)
+- [[Summer '26/Development]] — SOQL 기본 USER_MODE / WITH SECURITY_ENFORCED 제거 상세
+- [[Spring '26/Development]] — Apex Cursors GA, Automated Process User의 `WITH USER_MODE` 실행(v66.0+)
 - [[Summer '24]] — Apex Cursor Beta, 5단계 관계 SOQL
 - [[1 Overview]] — Field 타입·API 속성 (Filter·Nillable·Sort 등 SOQL 가용 여부)
 - [[6 Standard Objects]] — 표준 Object API 이름·도메인별 카탈로그

@@ -545,4 +545,5 @@ showNotification() {
 - [[uiRecordApi]] — 레코드 CRUD 유틸리티 모듈
 - [[NavigationMixin 패턴]] — lightning/navigation 사용법
 - [[Lightning Message Service]] — 컴포넌트 간 통신
+- [[Spring '26/Development]] — v66.0 전 베이스 컴포넌트 TypeScript 타입 완성, 신규 `lightning-empty-state`·`lightning-illustration`(Beta)
 - [[LWC MOC]] — LWC 전체 목차

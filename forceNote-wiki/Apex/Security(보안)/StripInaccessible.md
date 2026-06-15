@@ -198,3 +198,4 @@ Security.stripInaccessible(AccessType.READABLE, records, true);
 - [[DML 패턴]]
 - [[Custom REST Endpoint]] — POST 바디 처리
 - [[Summer '26]]
+- [[Summer '26/Development]] — v67.0 DB 작업 기본 USER_MODE (stripInaccessible 수동 호출 재검토)

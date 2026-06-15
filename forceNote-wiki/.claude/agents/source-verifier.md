@@ -35,6 +35,31 @@ grep "methodName" /tmp/source.txt
 - 파라미터명 철자 (예: `devloperName` — 오타지만 원본 그대로여야 함)
 - 반환 타입명
 
+#### ⚠️ fabrication 판정 전 넓은 grep + 컨텍스트 확인 (오판 방지 규칙)
+
+"위키에 있는데 원본에 없다 → fabrication"으로 단정하기 **전에**, 좁은 grep 1회로 못 찾았다고 fabrication으로 몰지 않는다. 아래를 모두 시도한 뒤에만 판정한다.
+
+```bash
+# 1) 대소문자·부분일치로 넓게 (좁은 정확매칭은 표기 변형을 놓침)
+grep -niE 'maxQueueable|QueueableStackDepth|getMaximum' /tmp/source.txt
+
+# 2) 토큰을 쪼개 인접 라인까지 (pdftotext가 줄바꿈으로 토큰을 끊음)
+grep -niC2 'StackDepth' /tmp/source.txt
+
+# 3) 숫자 ↔ 영문 표기 동치 확인 (PDF는 "seven" / 위키는 "7" 가능)
+grep -niE 'seven|7 |the 7\b' /tmp/source.txt   # 7↔seven, 3↔three 등
+```
+
+판정 가드:
+```
+□ 좁은 grep 실패 ≠ fabrication. 넓은 grep(부분일치·대소문자무시·인접라인)까지 실패해야 의심 성립
+□ 숫자 claim은 영문 표기("the seven new signals")로 원문에 있을 수 있다 — 7↔seven 양방향 확인
+□ pdftotext가 메서드명을 줄바꿈으로 끊었을 수 있다 — grep -C2 로 앞뒤 라인 확인
+□ 위 전부 실패 시에만 "원본 미발견(fabrication 의심)"으로 보고. 그 전에는 ⚠️ 보류
+```
+
+> 실제 사례: Health Check "seven new signals"를 숫자 7만 grep해 "미검증 수치"로 오판할 뻔했으나, 원문이 영문 `seven`으로 표기돼 source-backed였다. 좁은 grep 1회 실패로 fabrication 판정하면 정상 콘텐츠를 잘못 깎는다.
+
 ### 2. 파라미터 순서 및 타입
 
 생성자나 메서드의 파라미터 순서가 원본과 동일한지 확인.

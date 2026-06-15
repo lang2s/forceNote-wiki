@@ -15,10 +15,10 @@ aliases: [Release MOC, 릴리즈 노트, Salesforce 버전]
 
 | 릴리즈 | API 버전 | 시기 | 상태 |
 |---|---|---|---|
-| [[Summer '26]] | v67.0 | 2026.06 | ✅ 작성완료 |
-| [[Spring '26]] | v66.0 | 2026.02 | ✅ 작성완료 |
-| [[Winter '26]] | v65.0 | 2025.10 | ✅ 작성완료 |
-| [[Summer '25]] | v64.0 | 2025.06 | ✅ 작성완료 |
+| [[Summer '26]] | v67.0 | 2026.06 | ✅ 작성완료 (분량이 커서 5개 하위 노트로 분할 — [[Summer '26/index\|폴더 인덱스]]) |
+| [[Spring '26]] | v66.0 | 2026.02 | ✅ 작성완료 (분량이 커서 6개 하위 노트로 분할 — [[Spring '26/index\|폴더 인덱스]] · [[Spring '26/Development\|Development]] · [[Spring '26/Platform\|Platform]] · [[Spring '26/Clouds\|Clouds]] · [[Spring '26/Agentforce\|Agentforce]] · [[Spring '26/Release Updates\|Release Updates]]) |
+| [[Winter '26]] | v65.0 | 2025.10 | ✅ 작성완료 (분량이 커서 5개 하위 노트로 분할 — [[Winter '26/index\|폴더 인덱스]] · [[Winter '26/Development\|Development]] · [[Winter '26/Platform\|Platform]] · [[Winter '26/Clouds\|Clouds]] · [[Winter '26/Agentforce\|Agentforce]] · [[Winter '26/Release Updates\|Release Updates]]) |
+| [[Summer '25]] | v64.0 | 2025.06 | ✅ 작성완료 (분량이 커서 6개 하위 노트로 분할 — [[Summer '25/index\|폴더 인덱스]] · [[Summer '25/Development\|Development]] · [[Summer '25/Platform\|Platform]] · [[Summer '25/Clouds\|Clouds]] · [[Summer '25/Industries\|Industries]] · [[Summer '25/Agentforce\|Agentforce]] · [[Summer '25/Release Updates\|Release Updates]]) |
 | [[Spring '25]] | v63.0 | 2025.02 | ✅ 작성완료 |
 | [[Winter '25]] | v62.0 | 2024.10 | ✅ 작성완료 |
 | [[Summer '24]] | v61.0 | 2024.06 | ✅ 작성완료 |

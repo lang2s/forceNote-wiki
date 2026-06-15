@@ -280,3 +280,4 @@ EventBus.publishWithAccessLevel(eventList, EventBus.AccessLevel.USER);
 - [[Summer '24]] — @InvocableVariable defaultValue/placeholderText 추가
 - [[Winter '26]] — InvocableActionExtension 메타데이터
 - [[Summer '26]] — no-arg 생성자 필수, EventBus.publishWithAccessLevel
+- [[Summer '26/Development]] — no-arg 생성자 필수, InvocableActionExtension 메타데이터 상세

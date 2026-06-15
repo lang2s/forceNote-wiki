@@ -38,6 +38,32 @@ grep -n "ClassName\|SectionName" /tmp/output.txt | head -30
 sed -n 'START,ENDp' /tmp/output.txt | head -20
 ```
 
+## GA / Beta 다형 표기 스캔 (릴리즈 노트 재발 방지 규칙)
+
+릴리즈 노트는 같은 성숙도(GA·Beta·Pilot)를 **여러 표기로 혼용**한다. 단일 패턴(`(GA)`만)으로 grep하면 GA 기능을 대량 누락한다. 릴리즈 노트를 탐색할 때는 아래 다형 패턴을 **모두** 스캔해 위치를 보고한다.
+
+```bash
+# GA 표기 전수 스캔 (대소문자 무시) — 누락 방지
+grep -niE '\(general(ly)? available\)|\(ga\)|is now generally available|generally available \(ga\) from|is generally available|becomes? generally available' /tmp/output.txt
+
+# Beta 표기 전수 스캔
+grep -niE '\(beta\)|is now (in )?beta|available as (a )?beta|in beta' /tmp/output.txt
+
+# Pilot / Developer Preview 표기
+grep -niE '\(pilot\)|\(developer preview\)|as a pilot|developer preview' /tmp/output.txt
+```
+
+출력 소스 맵에 **성숙도별 카운트와 라인 위치**를 포함한다(researcher가 전수 추출 목표치를 알 수 있도록):
+
+```
+### 성숙도 인벤토리 (릴리즈 노트)
+- GA: 32건 (라인: 1234, 1450, ... )   ← 소문자 서술형 포함 전수
+- Beta: 35건 (라인: ...)
+- Pilot / Developer Preview: 15건 (라인: ...)
+```
+
+> 단일 패턴 grep으로 GA 12건만 잡고 끝내면 researcher가 "이게 전부"로 오인한다. **다형 패턴 전수가 곧 GA 전수 추출의 천장**이다.
+
 ## 소스코드 탐색 표준 절차
 
 ```bash

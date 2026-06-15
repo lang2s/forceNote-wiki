@@ -191,3 +191,4 @@ Queueable / future 잡이 라이선스 일일 한도의 **최대 2배**까지 �
 - [[Release/Winter '24]]
 - [[Release/Summer '24]]
 - [[Release/Summer '26]]
+- [[Release/Summer '26/Development]] — Elastic Limits for Async Jobs (Beta), 비동기 일일 한도 2배

@@ -254,3 +254,4 @@ Winter '26에서 밀도 인식(compact/comfortable/spacious) 스타일링 지원
 - [[Toast & 모달 패턴]]
 - [[LWC 보안 패턴]]
 - [[lightning-tabset]]
+- [[Spring '26/Development]] — v66.0 SLDS 2 dark mode 적응 베이스 컴포넌트(`lightning-empty-state` 등)

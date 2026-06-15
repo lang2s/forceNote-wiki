@@ -186,3 +186,5 @@ static void testPublishFailureCallback() {
 - [[Platform Event 발행]] — EventBus.publish 기본 패턴, 발행 결과 처리
 - [[EventBus Publish Callbacks]] — EventPublishFailureCallback, onFailure, setResumeCheckpoint 상세
 - [[ChangeEventHeader]] — CDC 이벤트 헤더 프로퍼티 전체 목록
+- [[Summer '26/Development]] — v67.0 신규 `publishWithAccessLevel()` 메서드, 발행 기본 USER_MODE
+- [[Spring '26/Development]] — `EventBusSubscriber`의 `Position`·`Tip` 필드 Deprecated → `LastProcessed`/`LastPublished`

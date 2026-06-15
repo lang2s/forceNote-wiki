@@ -150,4 +150,5 @@ public with sharing class AccountServiceLayer {
 - [[CanTheUser]]
 - [[DML 패턴]]
 - [[Summer '26]]
+- [[Summer '26/Development]] — v67.0 공유 미선언 클래스 `with sharing` 기본값 (파괴적 변경 ②)
 - [[Permission Set 설계]] — 권한 세트로 부여된 FLS를 런타임에 적용하는 DML 패턴

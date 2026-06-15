@@ -158,5 +158,7 @@ List<Account> results = Database.queryWithBinds(
 - [[CanTheUser]]
 - [[Safely]]
 - [[Summer '26]]
+- [[Summer '26/Development]] — v67.0 기본 USER_MODE / `WITH SECURITY_ENFORCED` 제거 (파괴적 변경 ①③)
+- [[Spring '26/Development]] — v66.0+ Automated Process User가 `WITH USER_MODE` SOQL 실행 가능
 - [[Apex Best Practices]] — 공유 모델 명시 원칙 (4번 규칙)
 - [[TxnSecurity Namespace]] — evaluate() 내 SOQL 보안 모드 적용
