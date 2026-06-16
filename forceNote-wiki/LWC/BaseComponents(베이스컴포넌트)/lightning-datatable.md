@@ -461,3 +461,4 @@ async handleSave(event) {
 - [[Wire 패턴]] — `@wire`로 데이터 로드해 datatable에 바인딩
 - [[uiRecordApi]] — 인라인 편집 저장에 `updateRecord` 활용 가능
 - [[Toast & 모달 패턴]] — 저장 성공/실패 토스트 알림
+- [[Winter '25/Development]] — v62.0 신규 `single-row-selection-mode`·string화된 `wrap-table-header`·셀 단위 인라인 편집 validation

@@ -34,7 +34,7 @@ aliases: [queueable, 큐어블, 비동기 체이닝, elastic limits, apex cursor
 - 하나의 `execute()` 안에서 `System.enqueueJob()` 호출은 **1번**만 허용된다. (Summer '24 이전 기준. Cursor 연계 시 동일)
 - 트랜잭션당 최대 50개의 Queueable을 enqueue할 수 있다.
 - Mixed DML: Setup 오브젝트(User, PermissionSet 등)와 일반 오브젝트를 같은 트랜잭션에서 DML하면 오류가 발생한다. 체이닝으로 분리해야 한다.
-- 무한 체이닝은 `System.maxQueueableDepth`로 방지한다. 깊이 제한 없이 체이닝하면 잡이 무한 생성된다.
+- 무한 체이닝은 `AsyncOptions.MaximumQueueableStackDepth`로 최대 깊이를 설정(`System.enqueueJob(queueable, asyncOptions)`에 전달)하고, 런타임에 `System.AsyncInfo.getCurrentQueueableStackDepth()`로 현재 깊이를 확인해 방지한다. 깊이 제한 없이 체이닝하면 잡이 무한 생성된다.
 
 ---
 
@@ -110,18 +110,64 @@ public with sharing class CalloutQueueable
 
 ### Winter '24 (v59.0) — 최대 체이닝 깊이 설정 GA
 
-`System.maxQueueableDepth`로 체이닝 깊이를 동적으로 제한할 수 있다. 무한 루프 방지와 중복 잡 방지에 활용한다.
+Developer·Trial Edition org의 기본 최대 깊이 **5**를 override해 Queueable job의 최대 stack depth를 설정할 수 있다. 설정은 `AsyncOptions` 인스턴스의 `MaximumQueueableStackDepth` property에 depth를 지정한 뒤 새 overload `System.enqueueJob(queueable, asyncOptions)`로 enqueue한다. 런타임에는 `System.AsyncInfo.getCurrentQueueableStackDepth()`로 현재 깊이를, `getMaximumQueueableStackDepth()`로 설정된 최대 깊이를 조회하고, `hasMaxStackDepth()`로 최대 깊이 설정 여부를 확인한다. runaway recursive job이 일일 async Apex 한도를 소진하는 것을 막는다.
+
+| API | 설명 |
+|---|---|
+| `AsyncOptions.MaximumQueueableStackDepth` | 최대 stack depth를 설정하는 property (Integer) |
+| `System.enqueueJob(queueable, asyncOptions)` | `AsyncOptions`를 받는 overload |
+| `System.AsyncInfo.getCurrentQueueableStackDepth()` | 현재 Queueable stack depth 반환 |
+| `System.AsyncInfo.getMaximumQueueableStackDepth()` | 최대 Queueable stack depth 반환 |
+| `System.AsyncInfo.getMinimumQueueableDelayInMinutes()` | 최소 Queueable delay(분) 반환 |
+| `System.AsyncInfo.hasMaxStackDepth()` | 최대 stack depth 설정 여부 반환 |
+
+아래는 Winter '24 릴리즈 노트의 Fibonacci 예제(PDF verbatim)다. 최초 enqueue 시 `AsyncOptions.MaximumQueueableStackDepth`로 깊이를 설정하고, `execute()` 안에서 `AsyncInfo`로 현재/최대 깊이를 비교해 체이닝 종료 여부를 결정한다.
 
 ```apex
-public void execute(QueueableContext ctx) {
-    if (depth < System.maxQueueableDepth) {
-        System.enqueueJob(new MyQueueable(depth + 1));
+// Fibonacci
+public class FibonacciDepthQueueable implements Queueable {
+    private long nMinus1, nMinus2;
+    public static void calculateFibonacciTo(integer depth) {
+        AsyncOptions asyncOptions = new AsyncOptions();
+        asyncOptions.MaximumQueueableStackDepth = depth;
+        System.enqueueJob(new FibonacciDepthQueueable(null, null), asyncOptions);
+    }
+    private FibonacciDepthQueueable(long nMinus1param, long nMinus2param) {
+        nMinus1 = nMinus1param;
+        nMinus2 = nMinus2param;
+    }
+    public void execute(QueueableContext context) {
+        integer depth = AsyncInfo.getCurrentQueueableStackDepth();
+        // Calculate step
+        long fibonacciSequenceStep;
+        switch on (depth) {
+            when 1, 2 {
+                fibonacciSequenceStep = 1;
+            }
+            when else {
+                fibonacciSequenceStep = nMinus1 + nMinus2;
+            }
+        }
+        System.debug('depth: ' + depth + ' fibonacciSequenceStep: ' + fibonacciSequenceStep);
+
+        if(System.AsyncInfo.hasMaxStackDepth() &&
+           AsyncInfo.getCurrentQueueableStackDepth() >=
+           AsyncInfo.getMaximumQueueableStackDepth()) {
+            // Reached maximum stack depth
+            Fibonacci__c result = new Fibonacci__c(
+                Depth__c = depth,
+                Result = fibonacciSequenceStep
+            );
+            insert result;
+        } else {
+            System.enqueueJob(new FibonacciDepthQueueable(fibonacciSequenceStep, nMinus1));
+        }
     }
 }
 ```
 
-> [!tip] 중복 Queueable 방지 패턴
-> `depth` 카운터를 생성자 파라미터로 넘기고 `System.maxQueueableDepth`와 비교해 다음 잡 enqueue 여부를 결정한다. 무한 체이닝 버그를 컴파일 타임이 아닌 런타임에서 안전하게 차단한다.
+> [!tip] 무한 체이닝 차단 패턴
+> 최초 enqueue 시 `AsyncOptions.MaximumQueueableStackDepth`에 최대 깊이를 설정하고, `execute()` 안에서 `System.AsyncInfo.getCurrentQueueableStackDepth()`와 `getMaximumQueueableStackDepth()`를 비교해 다음 잡 enqueue 여부를 결정한다. 무한 체이닝 버그를 런타임에서 안전하게 차단한다. (`System.maxQueueableDepth`라는 API는 존재하지 않는다 — 정확한 정의는 [[Release/Winter '24/Development]] 참고.)
 
 ---
 
@@ -189,6 +235,7 @@ Queueable / future 잡이 라이선스 일일 한도의 **최대 2배**까지 �
 - [[Batch Apex]]
 - [[Queueable + Callout 패턴]] — Database.AllowsCallouts를 함께 구현하는 패턴
 - [[Release/Winter '24]]
+- [[Release/Winter '24/Development]] — 체이닝 최대 깊이 GA의 정확한 API(`AsyncOptions.MaximumQueueableStackDepth` · `AsyncInfo.getMaximumQueueableStackDepth()`)
 - [[Release/Summer '24]]
 - [[Release/Summer '26]]
 - [[Release/Summer '26/Development]] — Elastic Limits for Async Jobs (Beta), 비동기 일일 한도 2배

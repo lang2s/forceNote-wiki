@@ -330,3 +330,4 @@ handleSubmit() {
 - [[lightning-combobox]] — 드롭다운 단일 선택 입력
 - [[lightning-record-form]] — 레코드 필드 자동 입력 폼
 - [[파일 업로드와 이미지 처리]] — type=file 고급 처리 패턴
+- [[Winter '25/Development]] — v62.0 `type="number"` 신규 `badNumericInput` validity + `type="date"` 날짜 형식 인라인 안내·접근성 변경

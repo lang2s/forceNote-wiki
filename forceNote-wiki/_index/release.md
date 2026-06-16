@@ -11,63 +11,47 @@ created: 2026-05-21
 
 | 키워드 | 파일 |
 |---|---|
-| Summer '24, 서머 24, v61.0, 2024년 6월 릴리즈 | `Release/Summer '24.md` |
-| Apex Cursor, Database.getCursor, 대용량 SOQL, 5천만 행, Cursor Beta, Batch 대안 | `Release/Summer '24.md` |
-| 5단계 부모자식 SOQL, Five-Level SOQL, 관계 쿼리 깊이 | `Release/Summer '24.md` |
-| Dynamic Formula Apex, FormulaEval, Formula.builder, 동적 수식 평가 | `Release/Summer '24.md` |
-| InvocableVariable defaultValue placeholderText, Flow 파라미터 기본값 | `Release/Summer '24.md` |
-| Data Cloud SOQL Apex, DMO Static SOQL, UnifiedIndividual__dlm, SOQL Stub | `Release/Summer '24.md` |
-| Einstein Build Flow Beta, Let Einstein Build Draft Flow, AI Flow 생성 | `Release/Summer '24.md` |
-| Transform Element GA, Flow 데이터 변환 정식 출시 | `Release/Summer '24.md` |
-| Repeater Component GA, 반복 입력 수집, 화면 Flow 목록 생성 | `Release/Summer '24.md` |
-| URL Addressable LWC, lightning__UrlAddressable, LWC URL 접근 | `Release/Summer '24.md` |
-| Scratch Org Snapshot GA, 스크래치 Org 스냅샷, org create snapshot | `Release/Summer '24.md` |
-| External Client App Manager, OAuth 2.0 Token Exchange, 외부 클라이언트 앱 | `Release/Summer '24.md` |
-| RAG Retrieval Augmented Generation, Prompt Builder RAG, Data Cloud 벡터 검색 | `Release/Summer '24.md` |
-| ICU Locale Formats Release Update, Summer 24 강제 적용, Release Updates | `Release/Summer '24.md` |
-| Platform API v21-30 폐기, Streaming API 폐기, Salesforce Functions 폐기 | `Release/Summer '24.md` |
-| LWC API 61.0, Light DOM Slot Forwarding, SLDS 내부 변경 | `Release/Summer '24.md` |
-| Salesforce Backup 커스텀 스케줄, Event Log File Browser GA, Data Detect | `Release/Summer '24.md` |
-| Einstein Copilot Topics, Prompt Builder Flex Template, Anthropic Claude 3 Haiku | `Release/Summer '24.md` |
-| Search Manager GA, FLS in Search, Search Analytics Pilot | `Release/Summer '24.md` |
-| Connect REST API Rate Limit, updateOnly 파라미터, External ID 업데이트 | `Release/Summer '24.md` |
-| Winter '25, 윈터 25, v62.0, API 62, 2024년 10월 릴리즈 | `Release/Winter '25.md` |
-| Agentforce 2.0, Einstein Copilot 리브랜드, Agentforce Studio, Copilot → Agentforce | `Release/Winter '25.md` |
-| Prompt Builder GA, Flex Template, Field Generation Template, Sales Email Template | `Release/Winter '25.md` |
-| Compression Namespace Beta, Zip Beta Apex, ZipWriter Beta | `Release/Winter '25.md` |
-| Restrict User Access to Run Flows, Flow 실행 권한 제한, Maintenance Work Rules | `Release/Winter '25.md` |
-| Spring '25, 스프링 25, v63.0, API 63, 2025년 2월 릴리즈 | `Release/Spring '25.md` |
-| Compression Namespace GA, ZipWriter, ZipReader, Apex 압축 | `Release/Spring '25.md` |
-| FormulaEval GA, Formula.builder, withReturnType, withFormula, 동적 수식 평가 GA | `Release/Spring '25.md` |
-| System.pauseJobById, pauseJobByName, resumeJobById, resumeJobByName, 스케줄 잡 일시정지 | `Release/Spring '25.md` |
-| LWC Local Dev GA, apiVersion 필수화, Base Components DOM 변경, Native Shadow | `Release/Spring '25.md` |
-| Einstein for Flow GA, Transform Element Join, Send Email 첨부파일 Flow, Flow 화면 진행 표시기 | `Release/Spring '25.md` |
-| Instance URL My Domain 전환 필수, na44.salesforce.com 폐기, Bulk API V2 쿼리 이벤트 | `Release/Spring '25.md` |
-| SLDS 2 Beta, Lightning Design System 2, Salesforce Cosmos 테마, slds-c-* 스타일 훅 | `Release/Spring '25.md` |
-| LWS API Distortion, Lightning Web Security, requestStorageAccess, setHTMLUnsafe | `Release/Spring '25.md` |
-| Flow Builder 키보드 단축키, Undo Redo Save As, Flow UX 개선 | `Release/Spring '25.md` |
-| Prompt Flow Subflow, Autolaunched Flow in Prompt Flow | `Release/Spring '25.md` |
-| Flow Runtime 변경, Data Table 반응성, 동명 변수 상속, API v63 Runtime | `Release/Spring '25.md` |
-| Automation Lightning App Monitor, Flow Interview 실패 일시정지 조회 | `Release/Spring '25.md` |
-| Flow Extensions, setCustomValidity, reportValidity, Flow Screen 컴포넌트 에러 커스텀 | `Release/Spring '25.md` |
-| Flow Orchestration, Fault Path, 인터랙티브 스텝 이메일 알림, Orchestration Run Details | `Release/Spring '25.md` |
-| Flow Approval Processes, Queue 배정 승인, 이메일 회신 승인, 동적 승인 워크플로우 | `Release/Spring '25.md` |
-| MuleSoft for Flow Integration GA, 서드파티 커넥터, Connections 탭, External System Change-Triggered Flow | `Release/Spring '25.md` |
-| Agentforce DX Beta, sf agent generate agent-spec, sf agent create, agent CLI | `Release/Spring '25.md` |
-| Salesforce CLI data bulk, api request rest graphql, Windows ARM64 CLI | `Release/Spring '25.md` |
-| DevOps Testing GA, AI 기반 테스트, 테스트 자산 관리 | `Release/Spring '25.md` |
-| Data Mask Einstein, Run on Refresh, FedRAMP High, 샌드박스 마스킹 | `Release/Spring '25.md` |
-| Database Access Debug Log, Developer Console 로그 카테고리 | `Release/Spring '25.md` |
-| OpenAPI Document sObjects REST API Beta, OpenAPI Specification v63 | `Release/Spring '25.md` |
-| Spring '24, 서프링 24, v60.0, 이전 릴리즈 | `Release/Spring '24.md` |
-| 닐 연산자 ??, UUID, ReleaseSavepoint, Null 병합 연산자 Apex | `Release/Spring '24.md` |
-| lightning-record-picker GA, Workspace API GA, lightning/logger GA | `Release/Spring '24.md` |
-| Template Triggered Prompt Flow, Einstein Copilot GA, Prompt Builder GA | `Release/Spring '24.md` |
-| Winter '24, 윈터 24, v59.0, 2023년 10월 릴리즈 | `Release/Winter '24.md` |
-| DataWeave in Apex GA, DataWeave.Script.createScript, JSON XML CSV 변환 | `Release/Winter '24.md` |
-| Comparator 인터페이스, Collator 클래스, 커스텀 정렬, 로케일 정렬 | `Release/Winter '24.md` |
-| Screen Flow Reactive Components GA, 반응형 컴포넌트, HTTP Callout in Flow GA | `Release/Winter '24.md` |
-| Einstein Work Summaries GA, Service Replies GA, Omni-Channel 라우팅 | `Release/Winter '24.md` |
+| Summer '24, 서머 24, v61.0, 2024년 6월 릴리즈, 서머 24 분할 허브 | `Release/Summer '24.md` |
+| Apex Cursors Beta Database.getCursor 5천만 행 대용량 SOQL Batch 대안, Data Cloud SOQL Apex DMO Static SOQL UnifiedIndividual__dlm SOQL Stub, 5단계 부모자식 SOQL Five-Level 관계 쿼리 깊이, Dynamic Formula Apex Beta FormulaEval Formula.builder 동적 수식 평가, InvocableVariable defaultValue placeholderText Flow 파라미터 기본값, URL Addressable LWC lightning__UrlAddressable, Utility Bar API, LWC API v61.0 Light DOM Slot Forwarding, Pub/Sub Managed Subscriptions Beta, Packaging 2GP 거버너 한도, Summer 24 Apex LWC API 개발자 변경 어떤 게 있나 | `Release/Summer '24/Development.md` |
+| Flow Transform Element GA 데이터 변환 정식, Repeater Component GA 반복 입력 수집, Einstein Draft Flow Beta Let Einstein Build AI Flow 생성, Action Button Beta, Reactive Collection Choice, Is Blank Is Empty 연산자, Lock Unlock 레코드, Unlimited Paused Flows 무제한 일시정지, Flow Orchestration, Cadence Builder Classic 폐기, Summer 24 Flow 자동화 변경 어떤 게 있나 | `Release/Summer '24/Automation.md` |
+| User Access Policy GA, Permission Set Summary GA 권한 집합 요약, Search Manager GA FLS in Search, Dynamic Forms, External Client App Manager OAuth 2.0 Token Exchange 외부 클라이언트 앱, MFA SAML 분할 시점, Event Log File Browser GA, Scratch Org Snapshots GA org create snapshot, Data Mask 샌드박스 마스킹, Architecture 메타데이터, Summer 24 플랫폼 Admin 보안 DevOps 변경 | `Release/Summer '24/Platform.md` |
+| Sales Service Work Summaries GA, Bring Your Own Channel GA 자체 채널, Experience Data Cloud 통합 GA, Mobile Offline Landing Pages GA, Data Cloud Waterfall Segments GA Hybrid Search Beta, Analytics Commerce Field Service Industries Marketing, Revenue Dynamic Revenue Orchestrator GA, Slack, Summer 24 클라우드 제품 변경 어떤 게 있나 | `Release/Summer '24/Clouds.md` |
+| Einstein Copilot Topics 확장, PII 마스킹 제거, Prompt Builder Flex RAG Retrieval Augmented Generation Data Cloud 벡터 검색, Einstein Data Library GA, Models API Beta, Anthropic Claude 3 Haiku Gemini, OpenAI GPT 3.5 Turbo 16k 종료, Summer 24 Einstein AI 기능 모델 | `Release/Summer '24/Einstein.md` |
+| Summer 24 강제 적용 ICU Locale Formats Release Update, Release Update 시점 맵 강제 4 Winter 25 13 Spring 25 12 Summer 25 2, Salesforce Functions Standard-Volume Platform Events Streaming API 은퇴, Platform API v21-30 폐기, Summer 24 의무화 업데이트 폐기 일정 어떤 게 있나 | `Release/Summer '24/Release Updates.md` |
+| Winter '25, 윈터 25, v62.0, API 62, 2024년 10월 릴리즈, 윈터 25 분할 허브 | `Release/Winter '25.md` |
+| LWC API v62.0 class object binding this.hostElement this.style 1MB JS files, Apex Free-tier Event Monitoring SOQL error changes Set iteration FinalException, Mock SOQL external objects SoqlStubProvider handleSoqlQuery, Service Protection Limit Enqueued Apex Metadata API Deployments, ConnectApi NamedCredentials ManagedContent CMS, API New Changed objects Bulk 2.0 resultPages, Platform API v21-30 retirement Summer 25, Auth DataSource industriesNlpSvc namespace, Winter 25 Apex LWC API 개발자 변경 어떤 게 있나 | `Release/Winter '25/Development.md` |
+| Salesforce Foundations, Customization Dynamic Forms list views, Security legacy My Domain redirect external client app MFA Shield event log, Hyperforce, declarative Flow, Mobile, Winter 25 플랫폼 어드민 보안 변경 | `Release/Winter '25/Platform.md` |
+| Sales Service Commerce Revenue Analytics Data Cloud Marketing Experience Field Service, Einstein for Service GA, Mobile Publisher LWR GA, Winter 25 클라우드 제품 변경 어떤 게 있나 | `Release/Winter '25/Clouds.md` |
+| Health Cloud Financial Services Public Sector Automotive Communications Manufacturing, Industries Common Features Scoring Framework GA Business Rules Engine CSV Pilot, Winter 25 산업 클라우드 Industries 변경 | `Release/Winter '25/Industries.md` |
+| Agentforce debut Einstein Copilot for Salesforce is Now Agentforce, Einstein Copilot Studio Agent Studio Copilot Builder Agent Builder, Prompt Builder features Service Replies GA, Einstein Trust Layer RAG Models API, Winter 25 AI 에이전트 변경 | `Release/Winter '25/Agentforce.md` |
+| Winter 25 강제 적용, Restrict User Access to Run Flows Winter 26 연기, Maintenance Work Rules, Platform API v21-30 Summer 25, 강제 시점 매핑, Winter 25 의무화 업데이트 폐기 일정 어떤 게 있나 | `Release/Winter '25/Release Updates.md` |
+| Spring '25, 스프링 25, v63.0, API 63, 2025년 2월 릴리즈, 스프링 25 분할 허브 | `Release/Spring '25.md` |
+| Compression Namespace GA ZipWriter ZipReader Apex 압축, FormulaEval GA Formula.builder withReturnType withFormula 동적 수식 평가 GA, System.pauseJobById pauseJobByName resumeJobById 스케줄 잡 일시정지, apiVersion 필수화 LWC Base Components DOM Native Shadow DOM 변경, SLDS2 Beta Lightning Design System 2 Salesforce Cosmos slds-c-* 스타일 훅, Agentforce DX Beta sf agent generate agent-spec CLI, Salesforce CLI v2.53.6 data bulk api request rest graphql Windows ARM64, OpenAPI Document sObjects REST API Beta v63, Scale Center ApexGuru DevOps Testing GA, Spring 25 Apex LWC API 개발자 변경 어떤 게 있나 | `Release/Spring '25/Development.md` |
+| Spring 25 Flow Builder 키보드 단축키 Undo Redo Runtime 반응성, Flow Orchestration Fault Path 인터랙티브 스텝 이메일 알림 Run Details, Flow Approval Processes Queue 배정 승인 이메일 회신 승인 동적 승인 워크플로우, MuleSoft for Flow Integration GA 서드파티 커넥터 Connections 탭 External System Change-Triggered Flow, Event Log Objects Database Access Debug Log Developer Console 로그 카테고리, Biometric Login Data Mask Run on Refresh FedRAMP High 샌드박스 마스킹, Instance URL My Domain 전환 필수 na44 폐기 LWS API Distortion, Spring 25 플랫폼 자동화 보안 변경 | `Release/Spring '25/Platform.md` |
+| Spring 25 Sales Service Data Cloud Analytics GA Beta, ASA GA Automated Sales Activity, Spring 25 클라우드 제품 변경 어떤 게 있나 | `Release/Spring '25/Clouds.md` |
+| Spring 25 Health Cloud Financial Services Cloud Public Sector Automotive Trade-In GA, Spring 25 산업 클라우드 Industries 변경 | `Release/Spring '25/Industries.md` |
+| Spring 25 Agentforce 2.0 Einstein Prompt Builder, Agentforce DX, Spring 25 AI 에이전트 기능 모델 | `Release/Spring '25/Agentforce.md` |
+| Spring 25 강제 적용 LWC Stacked Modals, Platform API v21-30 폐기, Release Update 시점 맵, Spring 25 의무화 업데이트 폐기 일정 어떤 게 있나 | `Release/Spring '25/Release Updates.md` |
+| Spring '24, 스프링 24, v60.0, API 60, 2024년 2월 릴리즈, 스프링 24 분할 허브 | `Release/Spring '24.md` |
+| Apex 닐 병합 연산자 ?? Null 병합, UUID randomUUID, Database.releaseSavepoint savepoint 해제 후 callout, Compression FormulaEval Developer Preview, Type.forName invalid namespace null, Quiddity UD, Spring 24 Apex 변경 어떤 게 있나 | `Release/Spring '24/Development.md` |
+| lightning-record-picker GA 100건, Workspace API platformWorkspaceApi GA, lightning/logger GA, LWC v60 childNodes whitespace 데코레이터 SyntaxError Mixed Shadow native, Spring 24 LWC 베이스 컴포넌트 변경 | `Release/Spring '24/Development.md` |
+| API v60.0 Metadata 600MB, Bulk API 2.0 PK chunking isPkChunkingSupported, GraphQL upperBound pagination, Pub/Sub Managed Subscriptions Beta, Auth CommerceTax PlaceQuote 네임스페이스, Spring 24 API Packaging 개발자 변경 | `Release/Spring '24/Development.md` |
+| Flow Reactive Components GA Repeater Beta Transform Beta Wait Until Event, Template-Triggered Prompt Flow Add Prompt Instructions, HTTP Callout Connect for Schema, Send to Data Cloud, Spring 24 Flow 자동화 변경 어떤 게 있나 | `Release/Spring '24/Automation.md` |
+| Flow Orchestration Automated Process User background MuleSoft step, Orchestration custom report type 알림 제어, paused waiting 한도 폐지, Spring 24 Orchestration 변경 | `Release/Spring '24/Automation.md` |
+| Permission Set Groups 전 에디션, Salesforce Connect SQL Snowflake Amazon Athena 어댑터, ICU Locale 강제 en_CA, Dynamic Forms related object device, Spring 24 Admin Customization 변경 어떤 게 있나 | `Release/Spring '24/Platform.md` |
+| OAuth 2.0 Token Exchange Flow Refresh Token Rotation External Client App, SAML 다중구성 framework, MFA 자동 활성화 마지막 단계 기본 ON, PKCE Generator, Named Credentials Basic Auth, Spring 24 보안 Identity 변경 | `Release/Spring '24/Platform.md` |
+| Hyperforce 한국 스웨덴 리전 GA Assistant GA, 새 Setup 도메인 salesforce-setup.com, no downtime major release, Scratch Org Snapshots Beta, Mobile Builder Beta, Spring 24 인프라 모바일 Hyperforce 변경 | `Release/Spring '24/Platform.md` |
+| Revenue Lifecycle Management GA Product Catalog Pricing Configurator, Marketing Cloud Growth GA, Service Einstein Search Answers GA Lightning Editor GA, Amazon Kinesis Athena Databricks GA, Forecast Groups, Spring 24 클라우드 Sales Service Data Analytics Commerce Industries 변경 어떤 게 있나 | `Release/Spring '24/Clouds.md` |
+| Einstein Copilot GA standard custom action Copilot Builder Analytics, Prompt Builder GA Sales Email Field Generation Flex, Einstein Studio BYOM Trust Layer 데이터 마스킹, ConnectApi.EinsteinLLM GenAiPromptTemplate, Einstein Bots Cross-Lingual Intent Model GA 19개 언어, Spring 24 Einstein AI 기능 | `Release/Spring '24/Einstein.md` |
+| Spring 24 강제 적용 ICU JsonAccess RFC7230 RestResponse Faster Account Sharing MFA, Release Update 시점 맵 Summer 24 Winter 25 Spring 25 Summer 25, Platform API v21-30 폐기, 27개 의무화 업데이트 enforced re-enforce, Spring 24 강제 폐기 일정 어떤 게 있나 | `Release/Spring '24/Release Updates.md` |
+| Winter '24, 윈터 24, v59.0, API 59, 2023년 10월 릴리즈, 윈터 24 분할 허브 | `Release/Winter '24.md` |
+| Queueable stack depth GA AsyncOptions.MaximumQueueableStackDepth AsyncInfo.getMaximumQueueableStackDepth 체이닝 최대 깊이 override 중복 enqueue 방지, DataWeave in Apex GA DataWeave.Script.createScript JSON XML CSV 변환, Comparator 인터페이스 Collator 클래스 커스텀 정렬 로케일 정렬, Iterable for-loop, getSalesforceBaseUrl 폐기 getOrgDomainUrl getCurrentRequestUrl, LWC Toast GA Workspace API third-party WC Beta apiVersion, API v59.0 GraphQL mutation Bulk API 2.0 PK chunking, Code Builder GA, Winter 24 Apex LWC API 개발자 변경 어떤 게 있나 | `Release/Winter '24/Development.md` |
+| Screen Flow Reactive Components GA 반응형 컴포넌트, HTTP Callout in Flow GA POST PUT PATCH DELETE, Transform element Beta, Record-Triggered Flow Custom Error Message, Data Cloud-Triggered Flow, Wait element 확대 Advanced Pause, Flow Orchestration, Winter 24 Flow 자동화 변경 어떤 게 있나 | `Release/Winter '24/Automation.md` |
+| Enhanced Domains 강제 적용 My Domain URL, MFA 자동 활성화 3단계 강제는 Summer 24 시작, Dynamic Forms hundreds of standard objects 모바일 GA, User Access Policy Beta, Named Credentials JWT Client Credentials, Headless Identity, Event Monitoring 신규 event type Group Membership Insufficient Access Lightning Logger, Hyperforce Assistant GA, Winter 24 플랫폼 Admin 보안 인프라 변경 | `Release/Winter '24/Platform.md` |
+| Sales Buyer Assistant GA Revenue Intelligence, Service Enhanced Omni Supervisor Wallboard GA Apple Messages for Business GA WhatsApp, Data Cloud Data Graphs Snowflake OAuth Batch Data Transform, Experience Cloud Enhanced LWR 기본 Actions Bar Record Detail GA, Commerce Analytics Staged Data GA4 Tableau views GA, Revenue Marketing CMS Slack, Winter 24 클라우드 제품 변경 어떤 게 있나 | `Release/Winter '24/Clouds.md` |
+| Outcome Management GA, Context Service GA, Industries 산업별 클라우드 Health Cloud Financial Services Manufacturing Net Zero Salesforce Contracts GA Beta, Winter 24 Industries 산업 클라우드 변경 | `Release/Winter '24/Clouds-Industries.md` |
+| Einstein Trust Layer, Prompt Builder Pilot, Work Summaries GA, Service Replies GA grounded email, Einstein for Service Grounding GA, Article Answers for Bots GA, Cross-Lingual Intent Model GA 19개 언어, Vision Language 은퇴 2024년 5월, Winter 24 Einstein 생성형 AI 기능 PRE-Agentforce | `Release/Winter '24/Einstein.md` |
+| Winter 24 강제 적용 8건 Deploy Enhanced Domains Disable Session IDs in Flows Faster Account Sharing Paused Flow Same Context Katakana CSRF Tokens Lightning Apps, MFA 자동 활성화 3단계, Release Update 시점 맵 Spring 24 Summer 25 예정 enforcement-date 변경, Winter 24 의무화 업데이트 폐기 일정 어떤 게 있나 | `Release/Winter '24/Release Updates.md` |
 | Summer '25, 서머 25, v64.0, 2025년 6월 릴리즈, 서머 25 분할 허브 | `Release/Summer '25.md` |
 | FormulaBuilder.parseAsTemplate, 동적 수식 템플릿 평가, Apex 동적 수식 템플릿 어떻게 | `Release/Summer '25/Development.md` |
 | embeddedai flowtesting ComplianceMgmt CommerceBuyGrp Auth 네임스페이스, Summer 25 신규 Apex 네임스페이스 | `Release/Summer '25/Development.md` |

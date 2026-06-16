@@ -60,6 +60,26 @@ grep -niE 'seven|7 |the 7\b' /tmp/source.txt   # 7↔seven, 3↔three 등
 
 > 실제 사례: Health Check "seven new signals"를 숫자 7만 grep해 "미검증 수치"로 오판할 뻔했으나, 원문이 영문 `seven`으로 표기돼 source-backed였다. 좁은 grep 1회 실패로 fabrication 판정하면 정상 콘텐츠를 잘못 깎는다.
 
+#### 🔁 fabrication 확정 시 전 위키 스윕 (scope 누수 방지 규칙)
+
+발명 API/허위 문자열이 **확정**되면(위 가드를 모두 통과해 fabrication으로 판정), 이번 작업 파일만 고치고 끝내지 않는다. **같은 허위 문자열을 위키 전체에서 grep**한다. 릴리즈 노트에서 발견된 발명 API는 그 기능이 매핑되는 **상시(evergreen) 도메인 노트**(예: 릴리즈의 Queueable stack depth → `Apex/Async(비동기)/Queueable.md`, `Apex/Apex 표준 클래스 레퍼런스.md`)에도 같은 문자열로 이미 새 있을 수 있다. 작업 범위에만 스코프된 검증은 이 누수를 놓친다.
+
+```bash
+# fabrication 확정 후 1회 — 작업 파일이 아닌 위키 전체
+grep -rn "System.maxQueueableDepth" forceNote-wiki/ --include="*.md"
+# negation(존재하지 않는다·발명 API 등 명시적 부정 문맥)은 정상. 코드블록 안 무가드 사용만 fabrication.
+```
+
+판정 가드:
+```
+□ fabrication 확정 → 즉시 전 위키 grep (작업 파일 밖 잔존 인스턴스 색출)
+□ 히트가 negation/경고 문맥이면 정상(통과). 코드블록·표 안에서 실제 API처럼 제시되면 잔존 fabrication
+□ 잔존 fabrication 발견 → 보고서 "잔존 fabrication(전 위키)" 행으로 명시 + writer/index-manager에 수정 위임 (source-verifier는 본문을 직접 안 고침)
+□ 매핑 도메인 노트가 불명확하면 cross-linker가 추적한 역링크 대상을 1순위 후보로 본다
+```
+
+> 실제 사례(Winter '24): `System.maxQueueableDepth`가 릴리즈 노트에서 발명 API로 확정됐는데, 같은 문자열이 `Apex/Async(비동기)/Queueable.md`(4곳)와 `Apex/Apex 표준 클래스 레퍼런스.md`(코드블록 1곳)에도 누수돼 있었다. 작업(Winter '24)에 스코프된 validator는 모두 통과시켰고, 누수는 cross-linker가 우연히 발견했다. fabrication 확정 시 전 위키 스윕을 의무화하면 우연 의존이 사라진다.
+
 ### 2. 파라미터 순서 및 타입
 
 생성자나 메서드의 파라미터 순서가 원본과 동일한지 확인.

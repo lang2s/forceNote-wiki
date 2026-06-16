@@ -149,3 +149,4 @@ trigger AccountTrigger on Account (after insert) {
 - [[Autolaunched Flow 패턴]] — Apex에서 호출되는 Flow 설계 방법
 - [[Queueable]] — Flow 호출 후 비동기 처리
 - [[Governor Limits]] — Flow 실행 중 공유되는 한도 확인
+- [[Winter '25/Development]] — v62.0 versioned 업데이트 "Enforce Sharing Rules when Apex Launches a Flow"

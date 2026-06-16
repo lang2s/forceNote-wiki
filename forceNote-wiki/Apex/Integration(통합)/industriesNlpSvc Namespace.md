@@ -82,3 +82,4 @@ if (nlpResult.summarizationResult != null) {
 - [[Invocable Namespace]] — `transformNlpActionResult` Invocable Action 호출 패턴
 - [[ConnectApi Namespace 개요]] — EinsteinLLM 그룹 AI 연동 클래스
 - [[fsccashflow Namespace]] — Financial Services Cloud 도메인 자매 네임스페이스 (Industries Cloud 계열)
+- [[Winter '25/Development]] — v62.0 신규 `NlpResponse.summarizationResult`·`NlpSummarizationResult.summary` 필드

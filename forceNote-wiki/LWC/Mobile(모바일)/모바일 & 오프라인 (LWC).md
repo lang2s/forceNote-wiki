@@ -100,4 +100,5 @@ export default class Accounts extends LightningElement {
 - 📖 공식: [Mobile and Offline Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.mobile_offline.meta/mobile_offline/)
 - [[모바일 기능 패턴]] — `mobileCapabilities` 사용 예제 (Tier 1, lwc-recipes)
 - [[getRecord 패턴]] — LDS 데이터 (Offline Cache 기반)
+- [[Winter '25/Development]] — v62.0 Offline GraphQL pagination(top-level 쿼리) + `BarcodeScanner`의 `supportInvertedColors` 옵션
 - [[LWC MOC]]

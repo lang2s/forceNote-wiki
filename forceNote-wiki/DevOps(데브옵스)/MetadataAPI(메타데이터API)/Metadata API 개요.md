@@ -114,3 +114,4 @@ Metadata API는 Salesforce 조직의 **설정 정보(메타데이터)** — 커�
 - [[Metadata API 에러 처리]]
 - [[Metadata API MCP Tool]]
 - [[Metadata Types — 개요 및 분류]]
+- [[Winter '25/Development]] — v62.0 Apex enqueued Metadata API 배포 service protection limit + 배포 취소 속도 개선

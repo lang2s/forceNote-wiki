@@ -400,3 +400,4 @@ clearPicker() {
 - [[Record Form 선택]] — 레코드 폼 패턴 선택 기준
 - [[Wire 패턴]] — GraphQL @wire와 연동 패턴
 - [[lightning-record-form]] — 레코드 폼 내 관계 필드 선택과 연계
+- [[Winter '25/Development]] — v62.0 `matching-info`의 `primaryField`·`additionalFields`에 `mode`(`contains`/`startsWith`) 지원 추가

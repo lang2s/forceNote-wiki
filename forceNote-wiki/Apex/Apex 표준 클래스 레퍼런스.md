@@ -416,7 +416,8 @@ System.today()                      // Date
 System.runAs(user) { }              // 다른 사용자로 실행 (테스트 전용)
 System.enqueueJob(new MyQueueable())
 System.scheduleBatch(new MyBatch(), 'JobName', cronExp, scopeSize)
-System.maxQueueableDepth            // 최대 체이닝 깊이 (Winter '24+)
+System.AsyncInfo.getMaximumQueueableStackDepth()   // 최대 체이닝 깊이 (Winter '24+)
+System.AsyncInfo.getCurrentQueueableStackDepth()    // 현재 체이닝 깊이
 System.isBatch()
 System.isFuture()
 System.isQueueable()
