@@ -103,7 +103,9 @@ updated: 2026-05-23
 | # | 주제 | 소스 PDF | 권장 파일 경로 | 상태 | 추가일 |
 |---|---|---|---|---|---|
 | N1-01 | SOQL/SOSL 기초 문법 (SELECT, WHERE, 관계 쿼리, 집계 함수, SOSL 구문 전체) | `salesforce_soql_sosl.pdf` (v67.0 Summer '26) | `Apex/Data(데이터)/SOQL 문법 레퍼런스.md` | ✅ 완료(2026-05-21) | 2026-05-21 |
-| N1-02 | Governor Limits 빠른 참조 (SOQL 한도, DML 한도, Heap, CPU, Callout, API 한도 전체) | `salesforce_app_limits_cheatsheet.pdf` (Summer '26) | `Architecture(아키텍처)/Governor Limits 빠른 참조.md` | ✅ 완료(2026-05-21) | 2026-05-21 |
+| N1-02 | ~~Governor Limits 빠른 참조~~ | ~~`salesforce_app_limits_cheatsheet.pdf`~~ | ~~`Architecture(아키텍처)/Governor Limits 빠른 참조.md`~~ | ❌ **기록 정정(2026-06-16)** — 아래 주석 참조 | 2026-05-21 |
+
+> **N1-02 정정 (wiki-retrospective 모드 B, 2026-06-16):** 이 행의 완료 기록은 **거짓**이었다. (1) 기록된 파일 `Architecture(아키텍처)/Governor Limits 빠른 참조.md`는 **존재하지 않는다.** (2) 실제 거버너 한도 페이지는 `Apex/ExecutionContext(실행컨텍스트)/Governor Limits.md`이며 그 `source`는 **Apex Developer Guide(apex_gov_limits.htm)**이지 `salesforce_app_limits_cheatsheet.pdf`가 **아니다.** 즉 거버너 한도 주제는 다른 소스로 이미 커버됐고, **app_limits_cheatsheet.pdf는 위키화된 적이 없다.** → app_limits_cheatsheet.pdf를 **미착수로 되살려** 활성 백로그(INGEST)에 등록했다(ING-29). (line 142의 "재연결 완료" 메모와 이 행의 완료 기록이 모순됐던 것이 버그의 원인.)
 
 ---
 
@@ -114,6 +116,16 @@ updated: 2026-05-23
 | N2-01 | Change Data Capture — 변경 이벤트 구독·처리·갭 이벤트 | `salesforce_change_data_capture.pdf` (v66.0 Spring '26) | `Apex/PlatformEvents(플랫폼이벤트)/Change Data Capture.md` | ✅ 완료(2026-05-21) | 2026-05-21 |
 | N2-02 | Validation Rules 예제 모음 (Account, Contact, Opportunity 등 주요 객체) | `salesforce_useful_validation_formulas.pdf` (Spring '26) | `Architecture(아키텍처)/Validation Rules 예제.md` | ✅ 완료(2026-05-21) | 2026-05-21 |
 | N2-03 | UI API 개요 (getRecord, getFieldValue, wire 어댑터 전체 목록 + LWC 통합) | `api_ui.pdf` (v67.0 Summer '26) | `LWC/LDS/UI API 개요.md` | ✅ 완료(2026-05-22) | 2026-05-21 |
+
+---
+
+### PARTIAL — 부분 인용 공식 PDF 보완 (WORK_BACKLOG 🟧 PARTIAL에서 완료 이동)
+
+> 부분 인용으로 분류됐던 공식 PDF를 전수 보완한 항목. 활성 백로그 🟧 PARTIAL 섹션에서 완료 시 이곳으로 이동.
+
+| # | 항목 | 소스 PDF | 산출물 | 상태 | 추가일 |
+|---|---|---|---|---|---|
+| LDV-1 | LDV 백서 핵심 주제 보완 (쿼리 옵티마이저·selectivity·skinny tables·인덱싱·대량 로드/삭제 전략) | `salesforce_large_data_volumes_bp.pdf` (29p, Tier 2) | **2분할** — `Architecture(아키텍처)/대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱.md`(읽기 경로) + `Architecture(아키텍처)/대용량 데이터 (LDV) — 대량 로드·삭제.md`(쓰기 경로) | ✅ 완료(2026-06-17) — Query Optimizer 6동작·인덱스 selectivity 임계값 전수·Skinny 13필드타입·Divisions·대량 로드/삭제/추출·case study 6건. Data Skew와 양방향. source-verifier 셀단위 ✅·completeness 전수 ✅. 기존 `Data Skew.md`(skew만)와 중복 없음 | 2026-06-16 |
 
 ---
 

@@ -83,6 +83,8 @@ Database.insert(toInsert, false);
 ## 관련 노트
 
 - [[레코드 액세스 설계 (Enterprise Scale)]] — 공유 재계산·그룹 멤버십·implicit sharing 심화 (본 노트와 짝)
+- [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]] — 동일 LDV 백서 읽기 경로 짝 노트(옵티마이저·인덱스·SOQL); skew 메커니즘을 본 노트에 위임
+- [[대용량 데이터 (LDV) — 대량 로드·삭제]] — 동일 LDV 백서 쓰기 경로 짝 노트(Bulk 로드·삭제·defer sharing); skew·재계산 메커니즘을 본 노트에 위임
 - [[Object Relationships]] — master-detail / lookup 관계 (스큐의 구조적 원인)
 - [[Permission Set 설계]] — 공유·접근 모델 (ownership skew의 공유 재계산 맥락)
 - [[Governor Limits]] — 대량 처리 한도

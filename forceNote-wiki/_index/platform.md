@@ -62,6 +62,8 @@ created: 2026-05-21
 |---|---|
 | Salesforce 기초, Org, Object, Record, Field, App, Tab, Cloud, 플랫폼 개요, Sales Cloud, Service Cloud, Agentforce, 환경 종류, Sandbox, Scratch Org, Developer Edition | `Architecture(아키텍처)/Salesforce 플랫폼 개요.md` |
 | Data Skew, 데이터 스큐, Account Data Skew, Ownership Skew, Lookup Skew, 소유권 스큐, 부모 레코드 잠금, record locking, 공유 재계산, defer sharing calculation, LDV 대용량 데이터, 1만 건 임계값 | `Architecture(아키텍처)/Data Skew.md` |
+| Large Data Volumes, LDV, query optimizer, selectivity, skinny table, custom index, index table, divisions, 쿼리 옵티마이저, 선택도, 인덱스 임계값, 스키니 테이블, 커스텀 인덱스, 디비전, 대용량 데이터 읽기 성능, "대용량 데이터에서 인덱스가 언제 쓰이나", "SOQL이 느린 이유", "selectivity 임계값은 얼마", "리포트가 너무 느려요" | `Architecture(아키텍처)/대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱.md` |
+| Large Data Volumes, LDV, bulk load, Bulk API 2.0, hard delete, soft delete, truncate, getUpdated, getDeleted, bulk query, defer sharing, 대량 로드, 대량 삭제, 데이터 추출, 휴지통 15일, 순차 적재, 대용량 데이터 쓰기 성능, "수백만 건 로드/삭제 전략", "휴지통 15일 보관", "Bulk API로 대량 적재", "변경된 레코드만 추출" | `Architecture(아키텍처)/대용량 데이터 (LDV) — 대량 로드·삭제.md` |
 | 레코드 액세스 설계, Record Access, 공유 재계산, sharing recalculation, 그룹 멤버십, group membership, 역할 계층 이동, implicit sharing, 암시적 공유, ownership data skew, deferred sharing calculation, 대규모 재편 realignment, record-level locking | `Architecture(아키텍처)/레코드 액세스 설계 (Enterprise Scale).md` |
 | Salesforce 네비게이션, App Launcher, 앱 런처, 전역 검색, Global Search, 탐색바, 리스트뷰, 레코드 페이지, Lightning Experience, 홈 페이지 | `Admin(어드민)/Salesforce 네비게이션.md` |
 | Data Loader, 데이터 로더, 대량 적재, CSV 임포트, bulk import export, insert update upsert delete, hard delete, Bulk API 2.0, process-conf.xml, CLI 배치, Data Import Wizard 비교, 1.5억 건 | `Admin(어드민)/Data Loader.md` |

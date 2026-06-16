@@ -38,6 +38,8 @@ aliases: [Architecture MOC, 아키텍처 목차, Architecture Map of Content]
 
 - [[Salesforce 플랫폼 개요]] — Org/Object/Record/Field/App, Cloud 종류, 거버너 한도, 환경 분리
 - [[Data Skew]] — 데이터 편중(부모당/사용자당 1만 건 초과) → 레코드 잠금·공유 재계산 병목, LDV 모범 사례
+- [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]] — LDV 읽기 경로: Lightning Platform Query Optimizer·selectivity 임계값·Custom Index·Skinny/Index Tables·Divisions·SOQL/SOSL 최적화
+- [[대용량 데이터 (LDV) — 대량 로드·삭제]] — LDV 쓰기 경로: Bulk API 2.0 대량 로드·getUpdated/getDeleted 추출·soft/hard/truncate 삭제·defer sharing·PK chunking
 - [[레코드 액세스 설계 (Enterprise Scale)]] — 그룹 멤버십·공유 재계산, ownership skew, implicit sharing, deferred sharing calc
 - [[Enhanced Domains]] — Winter '24 강제 적용 도메인 정책, 모든 URL에 My Domain 포함, 서드파티 쿠키 차단 대응·URL 영향 점검
 

@@ -14,6 +14,10 @@ forceNote-wiki/memory/
 # Salesforce 원본 소스 문서 (대용량 PDF·노트 — 위키 콘텐츠 아님)
 Salesforce Documents/
 
+# 사용자용 참고 문서 (HTML 등 — 위키 콘텐츠 아님, 커밋 제외)
+# CLAUDE.md "⛔ 절대 규칙 — 사용자용 참고 문서 생성" 참조
+_user-docs/
+
 # Claude Code 런타임 락 (머신별 임시 파일)
 scheduled_tasks.lock
 

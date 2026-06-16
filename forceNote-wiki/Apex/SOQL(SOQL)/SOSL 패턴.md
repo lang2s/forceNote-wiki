@@ -626,3 +626,4 @@ List<List<SObject>> page2 = [FIND 'test' IN ALL FIELDS RETURNING Account(Name, I
 - [[Dynamic SOQL]] — 동적 SOQL 패턴
 - [[Search Namespace]] — Search Apex 클래스
 - [[SOQL SOSL 소개]] — SOQL vs SOSL 선택 기준과 개요
+- [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]] — LDV에서 SOSL search crowding 회피·targeted search group

@@ -269,3 +269,4 @@ List<AggregateResult> byHour = [
 - [[1 Overview]] — Field 타입·API 속성 (Filter·Nillable·Sort 등 SOQL 가용 여부)
 - [[6 Standard Objects]] — 표준 Object API 이름·도메인별 카탈로그
 - [[Apex Best Practices]] — SOQL for loop 힙 메모리 절약, 루프 내 SOQL 금지 원칙
+- [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]] — LDV에서 selectivity·인덱스로 효율적 SOQL 작성

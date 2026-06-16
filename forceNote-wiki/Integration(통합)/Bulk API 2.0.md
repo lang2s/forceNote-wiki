@@ -192,6 +192,7 @@ curl .../services/data/v67.0/jobs/query/ -H "Authorization: Bearer <token>" \
 
 - 📖 공식: [Bulk API 2.0 and Bulk API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/)
 - [[Data Loader]] — Bulk API/2.0를 UI·CLI로 사용하는 클라이언트(최대 1.5억 건)
+- [[대용량 데이터 (LDV) — 대량 로드·삭제]] — Bulk API 2.0가 LDV 대량 로드·hard delete 전략에서 차지하는 위치
 - [[REST API]] — 소량~중간 동기 CRUD/쿼리
 - [[Named Credential]] — 외부 호출 인증
 - [[Compression Namespace]] — gzip 압축(Apex)

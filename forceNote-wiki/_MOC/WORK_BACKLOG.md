@@ -138,14 +138,63 @@ updated: 2026-05-24
 | ING-20 | omnichannel_supervisor (32) | Service | 🔲 대기 |
 | ING-21 | salesforce_guided_engagement (40) | Service | 🔲 대기 |
 | ING-22 | cpq_developer_guide (112) | Revenue/CPQ | 🔲 대기 |
-| ING-23 | salesforce_mobile_push_notifications (57) | Mobile | 🔲 대기 |
+| ING-23 | salesforce_mobile_push_notifications_implementation (57) | Mobile/Notification | 🔲 대기 — 위키 source 인용 0건·과거 파일명 접미사(`_implementation`) 누락으로 미추적이었음(정정 2026-06-16) |
 | ING-24 | api_console (346) = Salesforce Console Developer Guide | LWC/Navigation | **✅ 전수 완료 (2026-06-14)** → `LWC/Navigation(네비게이션)/Lightning Console JS API.md` (Lightning Console API: workspaceAPI/utilityBarAPI/navigationItemAPI 메서드 전수·Aura/LWC·LMS 탭이벤트·Classic 레거시) + 공식 링크 |
 | ING-25 | extend_click_automate (1027, 분할) | Automation/Flow | 🔲 대기 |
 | ING-26 | api_tooling (1006, 분할) | Dev Tools | 🔲 대기 |
 | ING-27 | salesforce_pages_developers_guide (817, 분할) | Visualforce | 🔲 대기 |
 | ING-28 | lightning (553, 분할) | Aura/LWC | 🔲 대기 |
+| ING-29 | salesforce_app_limits_cheatsheet (23) | Architecture/Limits | 🔲 **미착수(되살림 2026-06-16)** — ARCHIVE N1-02가 ✅로 잘못 기록됐으나 위키화된 적 없음(거버너 한도 페이지의 실제 source는 Apex Dev Guide apex_gov_limits.htm). 이 치트시트는 org/feature/edition별 **앱·API·storage·이메일·process 한도 표**라 기존 `Governor Limits.md`(Apex 트랜잭션 한도)와 **별개 도메인** → 신규 페이지 가치 있음 |
+| ING-30 | service_presence_administrators (124) / service_presence_developer_guide (23) | Service (Omni-Presence) | 🔲 대기 — ★ admin 가이드는 인용 0건·백로그 미등록이었음(2026-06-16 신규 등록). dev guide는 기존 ING-19와 동일 묶음 |
 
 > ADMIN 갭(ADMIN-1~9)은 별도 — 공식 Admin 가이드 PDF 확보 시 진행. 위 INGEST는 이미 보유한 PDF 대상.
+
+### 🟧 PARTIAL — 부분 인용 공식 PDF 보완 (커버리지 맵 직접 판정, 2026-06-16)
+
+> **배경:** PDF별 위키 source 인용 수 집계에서 1~5건으로 "부분 의심" 분류된 PDF를 **카운트가 아니라 직접 판정**(인용 페이지 내용 + PDF 목차/분량 대조)한 결과. 카운트 1건이어도 INGEST에서 이미 "전수 완료"인 경우(api_rest/api_action/api_asynch/platform_events/api_console/exp_cloud_lwr/mobile_offline/bi_dev_guide/draes/data_loader/Flow백서)는 **거짓 부분 신호**(source 인용이 1페이지뿐이라 카운트만 낮음)라 제외. 작은 PDF가 사실상 완전 커버된 것(soql_sosl·validation_formulas·basics)도 제외. 아래는 **진짜로 많이 남은 것**만.
+
+| # | 항목 | 소스/판정 근거 (이미 있는 페이지 / 빠진 범위) | 우선순위 | 상태 | 추가일 |
+|---|---|---|---|---|---|
+| APEXLANG-1 | Apex 언어 기초 개념 노트 보완 (데이터타입·변수·제어흐름·클래스/객체/인터페이스·예외 처리·예약어) | `salesforce_apex_developer_guide.pdf` (823p, Tier 2). **이미 있음:** `Apex/Trigger(트리거)/Trigger 재귀 방지.md` 1건만 이 가이드 인용. Apex Reference Guide(77인용)·SOQL·async·테스트 폴더는 별도 충실. **빠짐:** "Writing Apex" 개념 챕터(p.23-132: Data Types & Variables·Control Flow·Classes/Objects/Interfaces·예외 처리)의 **언어 산문 개념** 전용 노트 부재. (가이드 전체 823p 중 Apex Reference 섹션·namespace는 이미 커버 → 개념 챕터만 타깃) | P2 | 🔲 대기 | 2026-06-16 |
+| UIAPI-1 | UI API 리소스/요청·응답 바디 상세 보완 | `api_ui.pdf` (366p, Tier 2). **이미 있음:** `LWC/LDS/UI API 개요.md`(270줄, 리소스 카테고리·응답타입·LWC wire 매핑 개요). **빠짐:** Ch3 Resources(p.34-147)·Ch4 Request Bodies·Ch5 Response Bodies의 **리소스별 전체 필드 스펙**. 단 실사용은 대부분 LWC wire 어댑터(uiRecordApi 등 전용 노트 존재) 경유 → raw REST 스펙 위키 가치는 중간. **기존 페이지 보완**(P3) | P3 | 🔲 대기 | 2026-06-16 |
+
+> **부분 의심이었으나 제외(완전 커버/저가치 잔여):**
+> · `salesforce_soql_sosl.pdf`(133p) — SOQL 폴더 7노트(문법 레퍼런스 915줄·SOSL 패턴 628줄 등)가 Ch2 SOQL·Ch3 SOSL 깊게 커버 → **사실상 완전.**
+> · `salesforce_useful_validation_formulas.pdf`(35p, 79예제) — `Validation Rules 예제.md`(462줄, 40+예제)가 전 카테고리(REGEX·날짜·cross-object·PRIORVALUE 등) 커버, 단순 변형만 압축 → **사실상 완전.**
+> · `basics.pdf`(269p) — 일반 사용자 입문서(로그인·검색·개인화). 개발 위키 가치 있는 부분(네비게이션·ID 인증·플랫폼 개요·컴포지션)은 4노트로 이미 흡수, 잔여는 저가치 → **제외.**
+> · `lightningAura.pdf`(553p) — Aura는 레거시(Salesforce가 LWC 권장). Aura 폴더 3노트(구조·이벤트·vs LWC, 각 ~170줄)가 핵심 커버. 553p 전수는 저가치 → **의도적 부분 인정, 등록 보류.**
+
+### ▶️ 실행 계획 — 부분 인용분 먼저 마무리 (2026-06-16 신설)
+
+> **우선순위 원칙(명문화):** **이미 부분 착수된 공식 PDF(🟧 PARTIAL: LDV-1·APEXLANG-1·UIAPI-1)를 INGEST 미착수(🔲)보다 먼저 완료한다.** 부분 인용분은 "절반 열린 문"이라 방치 시 중복 작성·커버리지 착시를 유발하므로, 새 PDF 인제스트를 시작하기 전에 닫는다. (cf. MEMORY: "부분 완성 먼저 끝내기")
+>
+> **실행 순서:** ~~`LDV-1` (P2)~~ ✅ → **`APEXLANG-1` (P2) ← 다음 작업** → `UIAPI-1` (P3) → **그다음에야** INGEST 미착수(ING-07·08·09 …) 착수.
+
+#### 카드 1 — LDV-1 (우선순위 1) — ✅ 완료 (2026-06-17, → [[WORK_BACKLOG_ARCHIVE]] PARTIAL-LDV)
+
+> **완료:** 2분할 — `Architecture(아키텍처)/대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱.md` / `Architecture(아키텍처)/대용량 데이터 (LDV) — 대량 로드·삭제.md`. Query Optimizer 6동작·인덱스 selectivity 임계값 전수·Skinny 13필드타입·Divisions·대량 로드/삭제/추출·case study 6건. Data Skew와 양방향. source-verifier 셀단위 ✅·completeness 전수 ✅. 상세 행은 ARCHIVE 참조. (DoD 충족.)
+
+#### 카드 2 — APEXLANG-1 (우선순위 2) ← **다음 실행**
+
+| 항목 | 내용 |
+|---|---|
+| **소스 위치** | `Salesforce Documents/salesforce_apex_developer_guide.pdf` (823p, Tier 2). 타깃: "Writing Apex" 개념 챕터 **p.23-132** (Data Types & Variables·Control Flow·Classes/Objects/Interfaces·예외 처리·예약어) |
+| **이미 있음 (중복 금지)** | Apex Reference Guide 출처 57노트(클래스·메서드 레퍼런스)·SOQL 폴더·Async 폴더·Testing 폴더·`Apex/Trigger(트리거)/Trigger 재귀 방지.md`. **namespace/메서드 레퍼런스와 async/test/soql 주제는 다시 쓰지 않는다** |
+| **이번에 새로 쓸 것** | p.23-132의 **언어 산문 개념** 전용 노트: 원시/sObject/컬렉션 데이터타입·변수 선언·연산자·제어흐름(if/for/while/switch)·클래스/인터페이스/상속/인터페이스 구현·접근제어자·예외 처리(try/catch/finally·커스텀 예외)·예약어 목록 |
+| **산출물 (후보)** | 신규 `Apex/Apex 언어 기초.md` (또는 깊이 따라 `데이터타입·변수`/`제어흐름·클래스`/`예외 처리` 분할). `Apex/Apex MOC.md`·`Apex Best Practices.md`와 상호 링크 |
+| **파이프라인** | **신규 파일 → 표준 파이프라인** |
+| **완료 기준 (DoD)** | ☐ 데이터타입 전수(Primitive·sObject·Collection·Enum) 가이드 원문 기준 ☐ 제어흐름 구문 전수 + 코드 예제 ☐ 클래스/인터페이스/상속/접근제어자 ☐ 예외 처리(빌트인 예외 유형 + 커스텀 예외 정의) ☐ 예약어 목록 ☐ 코드 블록 ≥1(원문 발췌/구조 예시 마커) ☐ namespace 레퍼런스와 중복 없음 확인 ☐ source = `salesforce_apex_developer_guide.pdf` + 챕터 페이지 명기 ☐ completeness-validator 깊이 판정 통과 |
+
+#### 카드 3 — UIAPI-1 (우선순위 3)
+
+| 항목 | 내용 |
+|---|---|
+| **소스 위치** | `Salesforce Documents/api_ui.pdf` (366p, Tier 2). 타깃: Ch3 Resources(p.34-147)·Ch4 Request Bodies·Ch5 Response Bodies의 리소스별 전체 필드 스펙 |
+| **이미 있음 (중복 금지)** | `LWC/LDS/UI API 개요.md`(270줄) — 리소스 카테고리·응답타입·LWC wire 매핑 개요. + `uiRecordApi.md` 등 LDS wire 어댑터 전용 노트. **개요·wire 어댑터 사용법은 다시 쓰지 않는다** |
+| **이번에 새로 쓸 것** | raw REST 레벨: 리소스별 URI·HTTP 메서드·요청 바디 필드·응답 바디 필드 스펙(개요에서 카테고리만 언급된 부분의 세부) |
+| **산출물 (후보)** | 기존 `LWC/LDS/UI API 개요.md` **보완**(리소스 상세 섹션 추가) — 단, raw REST 스펙 가치는 중간(실사용은 wire 어댑터 경유)이라 분량 폭증 시 별도 `UI API 리소스 레퍼런스.md`로 spoke 분리 |
+| **파이프라인** | **기존 파일 보완 → 빠른 파이프라인** (planner→scout→researcher→writer→completeness-validator→source-verifier→index-manager→cross-linker) |
+| **완료 기준 (DoD)** | ☐ Ch3 핵심 리소스(Record·Object Info·Layout·List View 등) URI+메서드 전수 ☐ 요청/응답 바디 주요 필드 스펙 ☐ 개요 노트와 중복 없이 "세부 스펙" 레이어만 추가 ☐ wire 어댑터 노트로의 역링크 유지 ☐ source = `api_ui.pdf` + Ch3-5 페이지 명기 ☐ (보완이므로) 기존 frontmatter aliases/tags에 raw REST 검색어 보강 검토 |
 
 ### 🟦 SUM26-FU — Summer '26 릴리즈 후속 (source-coverage-checker "차기" 분류, 2026-06-15)
 

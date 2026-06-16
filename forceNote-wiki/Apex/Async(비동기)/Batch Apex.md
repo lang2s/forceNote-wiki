@@ -175,5 +175,7 @@ POST /services/data/v65.0/tooling/runTestsAsynchronous/
 - [[testVisible 회로차단기]]
 - [[Queueable]]
 - [[Database Namespace 상세]] — Database.Batchable·QueryLocator·BatchableContext 상세
+- [[대용량 데이터 (LDV) — 대량 로드·삭제]] — 로드 후 비동기 레코드 처리·집계에 batch Apex 활용
+- [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]] — 큰 SOQL timeout 회피·aggregation 케이스에서 batch Apex chaining
 - [[Release/Summer '24]]
 - [[Release/Winter '26]]

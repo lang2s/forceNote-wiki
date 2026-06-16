@@ -21,6 +21,8 @@ created: 2026-05-17
 | [[Schema Namespace 상세]] | DescribeSObjectResult/DescribeFieldResult/RecordTypeInfo/PicklistEntry/ChildRelationship 전체 | #reference |
 | [[Salesforce 플랫폼 개요]] | Org/Object/Record/Field/App, Cloud 종류, 환경 구분 | #concept |
 | [[Data Skew]] | 부모당/사용자당 1만 건 초과 시 레코드 잠금·공유 재계산 병목 (LDV) | #concept |
+| [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]] | LDV 읽기 경로 — Query Optimizer 6동작·selectivity 임계값·Custom Index·Skinny/Index Tables·Divisions·SOQL/SOSL 최적화 | #concept |
+| [[대용량 데이터 (LDV) — 대량 로드·삭제]] | LDV 쓰기 경로 — Bulk API 2.0 로드·getUpdated/getDeleted 추출·soft/hard/truncate 삭제·defer sharing·PK chunking | #concept |
 | [[레코드 액세스 설계 (Enterprise Scale)]] | 그룹 멤버십·공유 재계산, ownership skew, implicit sharing, deferred sharing | #concept |
 | [[System Namespace]] | System 네임스페이스 전체 클래스 레퍼런스 — AccessLevel, Assert, AsyncOptions, UserInfo, UUID, Callable, FeatureManagement | #reference |
 | [[Site Namespace]] | Salesforce Sites URL 재작성 인터페이스 — UrlRewriter (generateUrlFor, mapRequestUrl), Site.ExternalUserCreateException | #reference |
@@ -38,6 +40,8 @@ created: 2026-05-17
 
 ## 빠른 선택
 
+- SOQL/리포트가 느린 이유, 인덱스·selectivity 임계값? → [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]]
+- 수백만 건 대량 로드/삭제 전략, Bulk API·PK chunking? → [[대용량 데이터 (LDV) — 대량 로드·삭제]]
 - Trigger 로직을 어디에 둘지? → [[서비스 레이어 패턴]]
 - 권한 세트 메타데이터 구성? → [[Permission Set 설계]]
 - Apex에서 승인 프로세스 제출? → [[Approval Namespace]]
