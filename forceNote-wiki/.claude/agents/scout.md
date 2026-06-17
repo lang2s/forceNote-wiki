@@ -108,6 +108,8 @@ pdfimages -list "/path/to/file.pdf" | head -30
 grep -n -i "see figure\|see diagram\|see tree\|in this\|shown below\|illustrated" /tmp/output.txt | head
 ```
 
+> **다단 표 collapse 선제 확인 (admin/setup guide 재발 방지):** admin·setup·reference 가이드성 PDF(예: `lightning_knowledge_guide.pdf`)는 **다단(multi-column) 표가 많고, pdftotext가 이를 한 줄로 collapse**시켜 열 경계가 사라지는 일이 잦다. 이런 PDF는 시각 자료 경고에 **표 위치도 함께 flag**한다(예: "p.39–52 다단 표 6개 — pdftotext collapse 위험, pdftoppm 이미지화 권장"). researcher가 표 추출 시 셀 경계를 추측하지 않고 `pdftoppm`으로 해당 페이지를 선제 이미지화하도록 신호를 준다. 판단 단서: 같은 줄에 헤더어가 3개 이상 연달아 붙어 나오거나(`Column Description View`), 본문에 "the following table"/"Table N"이 반복되면 다단 표 밀집 PDF로 본다.
+
 ### 출력에 포함할 항목
 
 소스 맵에 **시각 자료 경고 섹션**을 추가한다:

@@ -855,5 +855,7 @@ translation의 online version을 unpublish한다. 번역을 편집하고 online 
 - [[Knowledge REST API — Search & Support]]
 - [[Knowledge SOAP API 객체 — 핵심 아티클 객체]]
 - [[Knowledge SOAP API 호출]]
+- [[Lightning Knowledge 아티클 임포트]] — 아티클 임포트의 선언적 셋업 (이 발행·관리 API의 데이터 적재 측 대응)
+- [[Lightning Knowledge 다국어 & 번역]] — 번역 발행·언어 셋업 how-to (이 API의 translations 관리 측 대응)
 - [[Actions API]]
 - [[REST API]]

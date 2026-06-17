@@ -218,6 +218,7 @@ Salesforce는 각 API version을 최초 릴리즈일로부터 **최소 3년** �
 - [[Knowledge Metadata API 타입 — 아티클·채널·설정]]
 - [[Knowledge Metadata API 타입 — 데이터카테고리·검색·외부소스]]
 - [[Knowledge UI API 제약]]
+- [[Lightning Knowledge 개요 — 계획·비교·한계]] — 선언적(admin) 측 진입점: Lightning Knowledge 계획·셋업·기능 노트군
 - [[Service Cloud Objects]]
 - [[SOQL WITH DATA CATEGORY]]
 - [[SOSL 패턴]]

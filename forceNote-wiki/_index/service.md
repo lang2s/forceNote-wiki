@@ -4,7 +4,7 @@ created: 2026-06-17
 ---
 
 # SEARCH INDEX — Service Cloud (Knowledge)
-> Salesforce Service Cloud 키워드 → 파일. 현재는 Knowledge(지식) 전반(데이터모델·SOAP/REST/Metadata/UI API)을 다룬다.
+> Salesforce Service Cloud 키워드 → 파일. 현재는 Knowledge(지식) 전반(데이터모델·SOAP/REST/Metadata/UI API + Lightning Knowledge 어드민/셋업/사용)을 다룬다.
 > 루트 라우터: `00 SEARCH_INDEX.md` · 다른 도메인은 라우터에서 이동.
 > 향후 Service Cloud 확장(Case·Entitlement·OmniChannel·Messaging 등) 시 이 샤드에 누적, 상한 초과 시 하위 샤드로 분할.
 
@@ -51,3 +51,15 @@ created: 2026-06-17
 | 키워드 | 파일 |
 |---|---|
 | Knowledge UI API, UI API Limitations, Lightning Knowledge UI API, LinkedArticle UI API, CaseArticle UI API, RecordTypeId null, optionalFields, Knowledge UI API 제약, UI API로 아티클 만들 수 있어, Knowledge UI API 한계 뭐야 | `Service(서비스)/Knowledge(지식)/Knowledge UI API 제약.md` |
+
+## Lightning Knowledge — 어드민/셋업/사용 (lightning_knowledge_guide, Spring '26)
+
+| 키워드 | 파일 |
+|---|---|
+| Lightning Knowledge, Create Knowledge Base, Plan Knowledge, Scalability, Lightning vs Classic, Knowledge Limitations, 지식베이스 계획, 라이트닝 지식 개요, 확장성, 클래식 비교, 지식 한계, Lightning Knowledge 어떻게 계획해, 라이트닝 지식과 클래식 차이가 뭐야, Knowledge 한계가 뭐야 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 개요 — 계획·비교·한계.md` |
+| Enable Lightning Knowledge, Guided Setup, Knowledge Record Type, Page Layout, User Access, Knowledge permissions, Article History, Validation Status, 지식 셋업, Lightning Knowledge 활성화, 가이드 셋업, 레코드 타입, 페이지 레이아웃, 사용자 권한, 검증 상태, 아티클 히스토리, Lightning Knowledge 어떻게 켜, Knowledge 권한 어떻게 줘, 검증 상태 어떻게 켜 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 셋업 & 구성.md` |
+| Authoring Actions, Knowledge Component, Insert into Channels, Share Article URLs, Smart Links, Persistent Links, Search Articles, 작성 액션, 지식 컴포넌트, 채널 삽입, 아티클 URL 공유, 스마트링크, 영구링크, 아티클 검색, Knowledge 컴포넌트 어떻게 써, 스마트링크가 뭐야, 아티클을 채널에 어떻게 삽입해 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 사용 — 액션·검색·스마트링크·채널.md` |
+| Report on Knowledge Articles, Custom Report Type, Knowledge report fields, View Statistics, Vote Statistics, 지식 리포트, 아티클 리포팅, 커스텀 리포트 타입, 조회 통계, 투표 통계, 아티클 리포트 어떻게 만들어, 아티클 조회수 어떻게 봐 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 아티클 리포팅.md` |
+| Import External Content, Knowledge Import, .csv, .zip, import parameters, .properties, Import Export Status, 아티클 임포트, 외부 콘텐츠 가져오기, csv 파일, zip 파일, 임포트 파라미터, properties 파일, 임포트 상태, 외부 아티클 어떻게 임포트해, csv로 아티클 어떻게 올려 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 아티클 임포트.md` |
+| Multiple Languages, Knowledge Translation, Article Management tab, Export for Translation, Publish Translate Archive, Side-By-Side, 다국어, 번역, 아티클 관리 탭, 번역용 내보내기, 발행, 아카이브, 나란히 보기, Knowledge 다국어 어떻게 설정해, 아티클 번역 어떻게 해, 아티클 어떻게 발행하고 아카이브해 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 다국어 & 번역.md` |
+| Data Categories, Category Groups, Data Category Visibility, Category Mapping, Knowledge Sharing, sharing model, 데이터 카테고리, 카테고리 그룹, 데이터 카테고리 가시성, 카테고리 매핑, 공유 모델, 데이터 카테고리 어떻게 만들어, 카테고리 가시성 어떻게 설정해, Knowledge 공유 모델이 뭐야 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 데이터 카테고리 & 공유.md` |

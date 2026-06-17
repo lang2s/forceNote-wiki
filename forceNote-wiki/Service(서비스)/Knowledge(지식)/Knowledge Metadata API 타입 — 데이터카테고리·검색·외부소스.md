@@ -513,5 +513,6 @@ UI 대응: `compatibility`—Special Compatibility / `csrfTokenEnabled`—Cross-
 - [[Knowledge 데이터 모델 & API 개요]]
 - [[Knowledge Metadata API 타입 — 아티클·채널·설정]]
 - [[Knowledge REST API — Search & Support]]
+- [[Lightning Knowledge 데이터 카테고리 & 공유]] — 데이터 카테고리·공유 선언적 셋업 (이 DataCategoryGroup 스키마의 UI 측 대응)
 - [[Metadata Types — Objects & Fields]]
 - [[Metadata Types — Integration & Platform]]

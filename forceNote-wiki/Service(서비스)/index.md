@@ -15,14 +15,17 @@ created: 2026-06-17
 
 | 영역 | index | 내용 |
 |---|---|---|
-| [[Service(서비스)/Knowledge(지식)/index|Knowledge(지식)]] | `Knowledge(지식)/index.md` | Knowledge 데이터 모델·SOAP/REST/Metadata/UI API·아티클·데이터 카테고리 (9개 노트) |
+| [[Service(서비스)/Knowledge(지식)/index|Knowledge(지식)]] | `Knowledge(지식)/index.md` | (A) 개발자/API: 데이터 모델·SOAP/REST/Metadata/UI API 9개 + (B) 어드민/셋업: Lightning Knowledge 계획·셋업·사용·리포팅·임포트·번역·데이터 카테고리 7개 = 총 16개 노트 |
 
 ---
 
 ## 빠른 선택
 
-- Knowledge 객체·API 전반 → [[Service(서비스)/Knowledge(지식)/index|Knowledge(지식)]]
+- Knowledge 객체·API 전반(개발자) → [[Service(서비스)/Knowledge(지식)/index|Knowledge(지식)]]
 - Knowledge 데이터 모델부터 시작 → [[Knowledge 데이터 모델 & API 개요]]
+- Lightning Knowledge 도입·셋업·운영(어드민) → [[Lightning Knowledge 개요 — 계획·비교·한계]]
+- Lightning Knowledge 활성화·권한 설정 → [[Lightning Knowledge 셋업 & 구성]]
+- 아티클 작성·검색·다국어·임포트·데이터 카테고리 → [[Service(서비스)/Knowledge(지식)/index|Knowledge(지식)]] 인덱스의 "어드민/셋업" 그룹
 
 ---
 

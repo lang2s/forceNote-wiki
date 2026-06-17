@@ -252,5 +252,6 @@ AND Id in (select EntityId from TopicAssignment where TopicId ='0T0xx0000000xxx'
 - [[Knowledge SOAP API 객체 — 핵심 아티클 객체]]
 - [[Knowledge SOAP API 호출]]
 - [[Knowledge UI API 제약]]
+- [[Lightning Knowledge 아티클 리포팅]] — View/Vote 통계 기반 리포트·대시보드 (이 ViewStat/VoteStat 객체의 리포팅 측 활용)
 - [[Service Cloud Objects]]
 - [[SOSL 패턴]]

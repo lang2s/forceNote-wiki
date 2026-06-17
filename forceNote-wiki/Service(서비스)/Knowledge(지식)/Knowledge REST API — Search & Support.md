@@ -818,5 +818,6 @@ Accept-Language: en-US
 - [[Knowledge REST API — Actions & Manage]]
 - [[Knowledge SOAP API 호출]]
 - [[Knowledge Metadata API 타입 — 데이터카테고리·검색·외부소스]]
+- [[Lightning Knowledge 사용 — 액션·검색·스마트링크·채널]] — 검색·스마트링크 선언적 how-to (이 검색 API의 UI 측 대응)
 - [[REST API]]
 - [[SOSL 패턴]]

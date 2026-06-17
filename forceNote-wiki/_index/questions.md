@@ -55,6 +55,13 @@ created: 2026-05-21
 | Knowledge 아티클 Apex로 게시하는 방법 | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 번역 제출 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 보관 스케줄 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |
+| Lightning Knowledge 어떻게 켜는지 / 활성화하는 방법 / 지식베이스 셋업 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 셋업 & 구성.md` |
+| Lightning Knowledge가 Classic이랑 뭐가 다른지 / 마이그레이션 고려사항 / 한계 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 개요 — 계획·비교·한계.md` |
+| csv로 아티클 임포트하는 방법 / 아티클 대량 등록 / zip 임포트 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 아티클 임포트.md` |
+| 아티클 번역 / 다국어 지원하는 방법 / 번역 내보내기·가져오기 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 다국어 & 번역.md` |
+| 데이터 카테고리 만드는 방법 / 누가 아티클 볼 수 있게 할지 / 카테고리 가시성 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 데이터 카테고리 & 공유.md` |
+| 스마트링크 / 영구링크 / 아티클 검색·작성 액션 / 채널에 아티클 공유 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 사용 — 액션·검색·스마트링크·채널.md` |
+| 아티클 리포트 만드는 방법 / 조회·투표 통계 리포팅 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 아티클 리포팅.md` |
 | 메타데이터 배포하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API File-Based 호출.md` |
 | Metadata API로 검색하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API File-Based 호출.md` |
 | Metadata API Java 클라이언트 연결하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Quick Start.md` |

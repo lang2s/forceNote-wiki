@@ -184,3 +184,4 @@ GET /services/data/v57.0/ui-api/related-list-records/{WorkOrderLineItemId}/Linke
 - [[Knowledge SOAP API 객체 — 핵심 아티클 객체]]
 - [[Knowledge SOAP API 객체 — 통계·연관·주변 객체]]
 - [[Knowledge REST API — Actions & Manage]]
+- [[Lightning Knowledge 사용 — 액션·검색·스마트링크·채널]] — 액션·검색·채널 사용 가이드 (이 UI API 제약이 적용되는 LEX 환경)
