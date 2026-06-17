@@ -147,6 +147,21 @@ updated: 2026-06-17
 | ING-29 | salesforce_app_limits_cheatsheet (23) | Architecture/Limits | 🔲 **미착수(되살림 2026-06-16)** — ARCHIVE N1-02가 ✅로 잘못 기록됐으나 위키화된 적 없음(거버너 한도 페이지의 실제 source는 Apex Dev Guide apex_gov_limits.htm). 이 치트시트는 org/feature/edition별 **앱·API·storage·이메일·process 한도 표**라 기존 `Governor Limits.md`(Apex 트랜잭션 한도)와 **별개 도메인** → 신규 페이지 가치 있음 |
 | ING-30 | service_presence_administrators (124) / service_presence_developer_guide (23) | Service (Omni-Presence) | 🔲 대기 — ★ admin 가이드는 인용 0건·백로그 미등록이었음(2026-06-16 신규 등록). dev guide는 기존 ING-19와 동일 묶음 |
 
+#### 🆕 신규 수령 PDF (2026-06-17 origin/main 머지로 입수 — 미착수, 페이지수 검증됨)
+
+> 다른 머신에서 GitHub 웹 업로드된 공식 PDF 8개(Tier 2 추정, 작성 전 내용으로 버전 확인). `Salesforce Documents/`에 디스크 실재 확인됨. 도메인 가치·분량 기준으로 다음 사이클에 ING 번호 승격.
+
+| # | PDF (페이지) | 도메인 | 상태 |
+|---|---|---|---|
+| ING-31 | secure_coding (97) = Secure Coding Guidelines | Security(보안) | 🔲 대기 — 보안 도메인 가치 높음·중형 |
+| ING-32 | salesforce_scheduler_dev_guide (434, 분할) | Sales/Scheduler | 🔲 대기 — 대형, 분할 필요 |
+| ING-33 | order_management_developer_guide_html (69) | Commerce/OM | 🔲 대기 |
+| ING-34 | scoping_rules_dev_guide (31) | Security/Sharing | 🔲 대기 — 소형 |
+| ING-35 | salesforce1_admin_guide (86) | Admin/Mobile | 🔲 대기 |
+| ING-36 | chat_dev_guide (61) = Live Agent/Chat | Service | 🔲 대기 — 기존 ING-13(chat_rest)과 중복 여부 확인 후 진행 |
+| ING-37 | salesforce_pages_developers_guide (817, 분할) | Visualforce | 🔲 **ING-27과 동일 PDF** — 머지로 내용 갱신됨(중복 행, 통합 정리 필요) |
+| ING-38 | salesforce_reports_enhanced_reports_tab_tipsheet (3) | Reports | 🔲 대기 — 초소형 팁시트, ADMIN-5(Reports)와 함께 검토 |
+
 > ADMIN 갭(ADMIN-1~9)은 별도 — 공식 Admin 가이드 PDF 확보 시 진행. 위 INGEST는 이미 보유한 PDF 대상.
 
 ### 🟧 PARTIAL — 부분 인용 공식 PDF 보완 (커버리지 맵 직접 판정, 2026-06-16)
