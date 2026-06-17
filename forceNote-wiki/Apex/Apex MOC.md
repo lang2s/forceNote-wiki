@@ -176,6 +176,12 @@ created: 2026-05-17
 - [[Site Namespace]] — Salesforce Sites URL 재작성, UrlRewriter Interface (generateUrlFor/mapRequestUrl), Site.ExternalUserCreateException
 - [[Context Namespace]] — Industries Cloud Context Service Apex — IndustriesContext 클래스, 비즈니스 컨텍스트 데이터 공유·소비
 
+## 📘 언어 기초
+
+- [[Apex 언어 기초 — 데이터타입과 변수]] — primitive·collection·enum 타입, 변수 선언·스코프·상수, 연산자·우선순위·형 변환(Safe Navigation ?. / Null Coalescing ??)
+- [[Apex 언어 기초 — 제어 흐름과 클래스]] — if-else·switch·loop 제어문과 클래스·생성자·접근제어자·상속·인터페이스·sharing 키워드
+- [[Apex 언어 기초 — 예외 처리와 예약어]] — try/catch/finally·throw·내장 예외 클래스·커스텀 예외 작성·Apex 예약어 전수 목록
+
 ## 📖 레퍼런스
 
 - [[Apex 표준 클래스 레퍼런스]] — String / List / Map / Database / Crypto / JSON / Schema / Limits 전체 API 빠른 참조

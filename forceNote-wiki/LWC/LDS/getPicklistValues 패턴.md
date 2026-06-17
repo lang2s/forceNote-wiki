@@ -147,3 +147,4 @@ getFilteredOptions(controllerValue) {
 - [[getRecord 패턴]] — getObjectInfo, recordTypeId 획득
 - [[Wire 패턴]] — $변수 reactive 동작 원리
 - [[Record Form 선택]] — lightning-combobox vs record-form 선택
+- [[UI API 리소스 레퍼런스]] — Picklist Values 응답 바디(controllerValues·validFor) raw 스키마

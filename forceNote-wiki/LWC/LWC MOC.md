@@ -30,6 +30,7 @@ created: 2026-05-17
 ## 🗃 LDS & 레코드 폼
 
 - [[UI API 개요]] — UI API REST 엔드포인트 전체 + wire 어댑터 매핑 (v67.0 Summer '26)
+- [[UI API 리소스 레퍼런스]] — Ch3-5 요청/응답 스키마 전수 (개요의 레퍼런스 spoke)
 - [[Record Form 선택]] — lightning-record-form vs edit-form vs view-form 결정
 - [[uiRecordApi]] — createRecord, updateRecord, deleteRecord, notifyRecordUpdateAvailable
 - [[getRecord 패턴]] — static import, dynamic string, getFieldValue, getRecords

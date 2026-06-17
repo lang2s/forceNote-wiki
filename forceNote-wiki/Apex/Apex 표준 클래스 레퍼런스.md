@@ -797,3 +797,5 @@ String strVal = val != null ? String.valueOf(val) : '';
 - [[Summer '26]] — String.template, multiline, EventBus.publishWithAccessLevel
 - [[Spring '24]] — UUID, Compression, FormulaEval
 - [[Winter '24]] — DataWeave, Comparator, Collator
+- [[Apex 언어 기초 — 데이터타입과 변수]] — 프리미티브/sObject/컬렉션 타입·리터럴 등 언어 기초 개념
+- [[Apex 언어 기초 — 예외 처리와 예약어]] — try/catch·표준 예외 계층·예약어 등 언어 기초 개념

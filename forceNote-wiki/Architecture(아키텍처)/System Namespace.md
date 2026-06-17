@@ -384,3 +384,5 @@ PDF p.3584–3591 기준 주요 클래스 (총 60개 이상):
 - [[Custom REST Endpoint]] — RestContext / RestRequest / RestResponse
 - [[Summer '26]] — USER_MODE 기본값 변경 파괴적 변경 (v67.0)
 - [[ApexPages Namespace]] — StandardController 반환 타입인 System.PageReference 사용
+- [[Apex 언어 기초 — 데이터타입과 변수]] — System 정의 enum·프리미티브 타입 등 언어 기초 개념
+- [[Apex 언어 기초 — 제어 흐름과 클래스]] — 네임스페이스·클래스 선언 등 언어 기초 개념

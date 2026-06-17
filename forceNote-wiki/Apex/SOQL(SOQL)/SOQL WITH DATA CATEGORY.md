@@ -209,3 +209,4 @@ List<RecordVisibility> vis = [
 - [[KbManagement Namespace]] — Apex에서 Knowledge 아티클 관리
 - [[WITH USER_MODE]] — Apex CRUD·FLS 보안 적용 기준
 - [[1 Overview]] — DataCategoryGroupReference 필드 타입 정의
+- [[Knowledge 데이터 모델 & API 개요]] — 데이터 카테고리가 적용되는 Knowledge 객체·API 전체 모델

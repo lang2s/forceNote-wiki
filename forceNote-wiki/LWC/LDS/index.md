@@ -16,6 +16,7 @@ created: 2026-05-17
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
 | [[UI API 개요]] | UI API REST 엔드포인트 전체 + LWC wire 어댑터 매핑 (v67.0) | #reference |
+| [[UI API 리소스 레퍼런스]] | UI API request/response 바디 스키마 전수 레퍼런스 (api_ui.pdf Ch3-5) | #reference |
 | [[Record Form 선택]] | record-form vs edit-form vs view-form 결정 | #decision |
 | [[getRecord 패턴]] | static import, dynamic string, getFieldValue, getRecords | #pattern |
 | [[uiRecordApi]] | createRecord, updateRecord, deleteRecord, notifyRecordUpdateAvailable | #pattern |

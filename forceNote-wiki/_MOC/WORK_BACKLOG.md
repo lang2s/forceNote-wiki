@@ -1,7 +1,7 @@
 ---
 tags: [backlog, coverage, work-tracking]
 created: 2026-05-18
-updated: 2026-05-24
+updated: 2026-06-17
 ---
 
 > **세션 인계 메모 (2026-05-25 세션 종료 시점):**
@@ -123,7 +123,7 @@ updated: 2026-05-24
 | ING-06 | api_asynch (182) = Bulk API 2.0 and Bulk API | Integration/Bulk·Async | **✅ 전수 완료 (2026-06-14)** → `Bulk API 2.0.md` 99→196줄. Create Job 요청/응답 전 필드·enum, 잡 상태 6종, Job Info 메트릭, 결과 3종 엔드포인트, Query Locator 헤더, limits 수치, status/error codes |
 | ING-07 | salesforce_recipes_api (180) | Data 360 | 🔲 대기 |
 | ING-08 | salesforce_analytics_rest_api (310) | Analytics | 🔲 대기 |
-| ING-09 | salesforce_knowledge_dev_guide (209) | Service/Knowledge | 🔲 대기 |
+| ING-09 | ~~salesforce_knowledge_dev_guide (209)~~ | Service/Knowledge (신규 폴더) | **✅ 전수 완료 (2026-06-17)** → 신규 `Service(서비스)/Knowledge(지식)/` 9노트(4,297줄): 데이터모델&API개요·SOAP객체(핵심6/주변8=14종)·SOAP호출4종·REST(Actions+Manage19)·REST(Search7+Support4)·Metadata타입(아티클설정5/데이터카테고리외부5=10종)·UI API제약. 신규 샤드 `_index/service.md`·라우터·Home·역링크 5건. Ch5 SOQL/SOSL·Ch6 PublishingService는 기존 노트(SOQL WITH DATA CATEGORY·SOSL 패턴·KbManagement) 역링크로 중복 회피. completeness/source-verifier 셀단위 통과 |
 | ING-10a | ~~exp_cloud_lwr (106)~~ = LWR Sites for Experience Cloud | LWC/Experience | **✅ 전수 완료 (2026-06-14)** → `LWC/UIPatterns(UI패턴)/LWR Sites (Experience Cloud).md` (LWR 템플릿·lightningCommunity__ 타깃 4종·@salesforce 모듈·--dxp 훅·다국어) + 공식 링크 |
 | ING-10b | communities_dev (105) = Experience Cloud Developer Guide | Experience Cloud | 🔲 대기 |
 | ING-11 | mobile_offline (258) = Mobile and Offline Developer Guide | Mobile | **✅ 전수 완료 (2026-06-14)** → `LWC/Mobile(모바일)/모바일 & 오프라인 (LWC).md` (mobileCapabilities 10종·LWC Offline·Offline GraphQL·Briefcase·draft records·제약) + 공식 링크. 기존 모바일 기능 패턴(Tier1)과 상호 링크 |
@@ -155,8 +155,8 @@ updated: 2026-05-24
 
 | # | 항목 | 소스/판정 근거 (이미 있는 페이지 / 빠진 범위) | 우선순위 | 상태 | 추가일 |
 |---|---|---|---|---|---|
-| APEXLANG-1 | Apex 언어 기초 개념 노트 보완 (데이터타입·변수·제어흐름·클래스/객체/인터페이스·예외 처리·예약어) | `salesforce_apex_developer_guide.pdf` (823p, Tier 2). **이미 있음:** `Apex/Trigger(트리거)/Trigger 재귀 방지.md` 1건만 이 가이드 인용. Apex Reference Guide(77인용)·SOQL·async·테스트 폴더는 별도 충실. **빠짐:** "Writing Apex" 개념 챕터(p.23-132: Data Types & Variables·Control Flow·Classes/Objects/Interfaces·예외 처리)의 **언어 산문 개념** 전용 노트 부재. (가이드 전체 823p 중 Apex Reference 섹션·namespace는 이미 커버 → 개념 챕터만 타깃) | P2 | 🔲 대기 | 2026-06-16 |
-| UIAPI-1 | UI API 리소스/요청·응답 바디 상세 보완 | `api_ui.pdf` (366p, Tier 2). **이미 있음:** `LWC/LDS/UI API 개요.md`(270줄, 리소스 카테고리·응답타입·LWC wire 매핑 개요). **빠짐:** Ch3 Resources(p.34-147)·Ch4 Request Bodies·Ch5 Response Bodies의 **리소스별 전체 필드 스펙**. 단 실사용은 대부분 LWC wire 어댑터(uiRecordApi 등 전용 노트 존재) 경유 → raw REST 스펙 위키 가치는 중간. **기존 페이지 보완**(P3) | P3 | 🔲 대기 | 2026-06-16 |
+| ~~APEXLANG-1~~ | ✅ **완료(2026-06-17)** → [[WORK_BACKLOG_ARCHIVE]] PARTIAL-APEXLANG. 3분할 작성. 상세는 카드 2(아래) 참조 | — | ✅ 완료 | 2026-06-16 |
+| ~~UIAPI-1~~ | ✅ **완료(2026-06-17)** → [[WORK_BACKLOG_ARCHIVE]] PARTIAL-UIAPI. spoke 분리(`LWC/LDS/UI API 리소스 레퍼런스.md` 신규). 상세는 카드 3(아래) 참조 | — | ✅ 완료 | 2026-06-16 |
 
 > **부분 의심이었으나 제외(완전 커버/저가치 잔여):**
 > · `salesforce_soql_sosl.pdf`(133p) — SOQL 폴더 7노트(문법 레퍼런스 915줄·SOSL 패턴 628줄 등)가 Ch2 SOQL·Ch3 SOSL 깊게 커버 → **사실상 완전.**
@@ -168,33 +168,19 @@ updated: 2026-05-24
 
 > **우선순위 원칙(명문화):** **이미 부분 착수된 공식 PDF(🟧 PARTIAL: LDV-1·APEXLANG-1·UIAPI-1)를 INGEST 미착수(🔲)보다 먼저 완료한다.** 부분 인용분은 "절반 열린 문"이라 방치 시 중복 작성·커버리지 착시를 유발하므로, 새 PDF 인제스트를 시작하기 전에 닫는다. (cf. MEMORY: "부분 완성 먼저 끝내기")
 >
-> **실행 순서:** ~~`LDV-1` (P2)~~ ✅ → **`APEXLANG-1` (P2) ← 다음 작업** → `UIAPI-1` (P3) → **그다음에야** INGEST 미착수(ING-07·08·09 …) 착수.
+> **실행 순서:** ~~`LDV-1` (P2)~~ ✅ → ~~`APEXLANG-1` (P2)~~ ✅ → ~~`UIAPI-1` (P3)~~ ✅ → **🟧 PARTIAL 전부 완료(2026-06-17) → 이제 INGEST 단계로.** 다음 작업: INGEST 미착수(🔲) — ING-07·08·09 … (이미 보유한 PDF 대상). 우선순위는 도메인 가치·분량 고려해 선정.
 
 #### 카드 1 — LDV-1 (우선순위 1) — ✅ 완료 (2026-06-17, → [[WORK_BACKLOG_ARCHIVE]] PARTIAL-LDV)
 
 > **완료:** 2분할 — `Architecture(아키텍처)/대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱.md` / `Architecture(아키텍처)/대용량 데이터 (LDV) — 대량 로드·삭제.md`. Query Optimizer 6동작·인덱스 selectivity 임계값 전수·Skinny 13필드타입·Divisions·대량 로드/삭제/추출·case study 6건. Data Skew와 양방향. source-verifier 셀단위 ✅·completeness 전수 ✅. 상세 행은 ARCHIVE 참조. (DoD 충족.)
 
-#### 카드 2 — APEXLANG-1 (우선순위 2) ← **다음 실행**
+#### 카드 2 — APEXLANG-1 (우선순위 2) — ✅ 완료 (2026-06-17, → [[WORK_BACKLOG_ARCHIVE]] PARTIAL-APEXLANG)
 
-| 항목 | 내용 |
-|---|---|
-| **소스 위치** | `Salesforce Documents/salesforce_apex_developer_guide.pdf` (823p, Tier 2). 타깃: "Writing Apex" 개념 챕터 **p.23-132** (Data Types & Variables·Control Flow·Classes/Objects/Interfaces·예외 처리·예약어) |
-| **이미 있음 (중복 금지)** | Apex Reference Guide 출처 57노트(클래스·메서드 레퍼런스)·SOQL 폴더·Async 폴더·Testing 폴더·`Apex/Trigger(트리거)/Trigger 재귀 방지.md`. **namespace/메서드 레퍼런스와 async/test/soql 주제는 다시 쓰지 않는다** |
-| **이번에 새로 쓸 것** | p.23-132의 **언어 산문 개념** 전용 노트: 원시/sObject/컬렉션 데이터타입·변수 선언·연산자·제어흐름(if/for/while/switch)·클래스/인터페이스/상속/인터페이스 구현·접근제어자·예외 처리(try/catch/finally·커스텀 예외)·예약어 목록 |
-| **산출물 (후보)** | 신규 `Apex/Apex 언어 기초.md` (또는 깊이 따라 `데이터타입·변수`/`제어흐름·클래스`/`예외 처리` 분할). `Apex/Apex MOC.md`·`Apex Best Practices.md`와 상호 링크 |
-| **파이프라인** | **신규 파일 → 표준 파이프라인** |
-| **완료 기준 (DoD)** | ☐ 데이터타입 전수(Primitive·sObject·Collection·Enum) 가이드 원문 기준 ☐ 제어흐름 구문 전수 + 코드 예제 ☐ 클래스/인터페이스/상속/접근제어자 ☐ 예외 처리(빌트인 예외 유형 + 커스텀 예외 정의) ☐ 예약어 목록 ☐ 코드 블록 ≥1(원문 발췌/구조 예시 마커) ☐ namespace 레퍼런스와 중복 없음 확인 ☐ source = `salesforce_apex_developer_guide.pdf` + 챕터 페이지 명기 ☐ completeness-validator 깊이 판정 통과 |
+> **완료:** 3분할 — `Apex/Apex 언어 기초 — 데이터타입과 변수.md`(595줄) / `Apex/Apex 언어 기초 — 제어 흐름과 클래스.md`(1373줄) / `Apex/Apex 언어 기초 — 예외 처리와 예약어.md`(334줄). 소스 `salesforce_apex_developer_guide.pdf` v67.0 Summer '26. Primitive 12종 전수·연산자 전수표·Operator Precedence 15단계·Safe Navigation `?.`·Null Coalescing `??`·Switch 6패턴·접근제어자 4종·Properties 3종·상속/인터페이스/Custom Iterator·sharing 3종·try/catch/finally·커스텀 예외 4 implicit 생성자·예약어 121개+특수 키워드 10개. completeness 깊이 판정 ✅(갭 0, 예약어 기계 대조 IDENTICAL)·source-verifier 셀단위 ✅·qa ✅. namespace/메서드 레퍼런스·async/test/soql 중복 0(위임 링크). webservice 키워드 상세·Annotations 카탈로그는 차기 작업 분류. 상세 행은 ARCHIVE 참조. (DoD 전 항목 충족.)
 
-#### 카드 3 — UIAPI-1 (우선순위 3)
+#### 카드 3 — UIAPI-1 (우선순위 3) — ✅ 완료 (2026-06-17, → [[WORK_BACKLOG_ARCHIVE]] PARTIAL-UIAPI)
 
-| 항목 | 내용 |
-|---|---|
-| **소스 위치** | `Salesforce Documents/api_ui.pdf` (366p, Tier 2). 타깃: Ch3 Resources(p.34-147)·Ch4 Request Bodies·Ch5 Response Bodies의 리소스별 전체 필드 스펙 |
-| **이미 있음 (중복 금지)** | `LWC/LDS/UI API 개요.md`(270줄) — 리소스 카테고리·응답타입·LWC wire 매핑 개요. + `uiRecordApi.md` 등 LDS wire 어댑터 전용 노트. **개요·wire 어댑터 사용법은 다시 쓰지 않는다** |
-| **이번에 새로 쓸 것** | raw REST 레벨: 리소스별 URI·HTTP 메서드·요청 바디 필드·응답 바디 필드 스펙(개요에서 카테고리만 언급된 부분의 세부) |
-| **산출물 (후보)** | 기존 `LWC/LDS/UI API 개요.md` **보완**(리소스 상세 섹션 추가) — 단, raw REST 스펙 가치는 중간(실사용은 wire 어댑터 경유)이라 분량 폭증 시 별도 `UI API 리소스 레퍼런스.md`로 spoke 분리 |
-| **파이프라인** | **기존 파일 보완 → 빠른 파이프라인** (planner→scout→researcher→writer→completeness-validator→source-verifier→index-manager→cross-linker) |
-| **완료 기준 (DoD)** | ☐ Ch3 핵심 리소스(Record·Object Info·Layout·List View 등) URI+메서드 전수 ☐ 요청/응답 바디 주요 필드 스펙 ☐ 개요 노트와 중복 없이 "세부 스펙" 레이어만 추가 ☐ wire 어댑터 노트로의 역링크 유지 ☐ source = `api_ui.pdf` + Ch3-5 페이지 명기 ☐ (보완이므로) 기존 frontmatter aliases/tags에 raw REST 검색어 보강 검토 |
+> **완료:** **보완→spoke 분리**로 귀결. 신규 `LWC/LDS/UI API 리소스 레퍼런스.md`(1865줄, Tier 2 `api_ui.pdf` v67.0 Summer '26 Ch3-5) 생성. 기존 `UI API 개요.md`(엔드포인트·wire 매핑·상태코드 허브)는 보존하고 §2·§3에 레퍼런스 포인터 2줄 + 관련노트 역링크 삽입(분량 폭증 1865줄이라 단일 파일 보완이 아니라 깊이 보존형 spoke 분리 선택; 요청/응답 2분할 fallback은 불필요 판단). 157항목 전수 — Ch3 Request Parameters 16리소스 + Ch4 Request Bodies 27종 + Ch5 Response Bodies 114종(Top-Level 37·Nested 77). enum 418값 전수·Filter Group/Available Version 2컬럼 보존·원문 오타 보존·67.0 신규필드 4종. completeness 깊이 ✅(갭 0)·source-verifier 셀단위 ✅(Location Field `maybe null` 1건 정정)·qa ✅. 개요 엔드포인트표·wire 매핑·상태코드와 중복 0. getPicklistValues 패턴↔레퍼런스 역링크. `_index/frontend.md`·`LWC MOC`·`LWC/LDS/index.md` 등록. 상세 행은 ARCHIVE 참조. (DoD 전 항목 충족.)
 
 ### 🟦 SUM26-FU — Summer '26 릴리즈 후속 (source-coverage-checker "차기" 분류, 2026-06-15)
 

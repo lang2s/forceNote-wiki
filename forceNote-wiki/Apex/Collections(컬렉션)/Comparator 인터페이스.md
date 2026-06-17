@@ -165,4 +165,6 @@ Winter '24 이전에는 `SObject.getSObjectType().getDescribe()`를 이용한 �
 - [[Iterable Iterator]]
 - [[CollectionUtils]]
 - [[Winter '24]] — Comparator·Collator 신규 추가 릴리즈
+- [[Apex 언어 기초 — 데이터타입과 변수]] — List.sort() 정렬 동작 등 컬렉션 타입 기초
+- [[Apex 언어 기초 — 제어 흐름과 클래스]] — 인터페이스 구현·정렬 로직 클래스 기초
 

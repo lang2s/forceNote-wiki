@@ -323,3 +323,5 @@ List<MessagingSession> sessions = [
 - [[Field Service Objects]] — FSL 서비스 현장 관리
 - [[Platform Admin Objects]] — User·권한 관리
 - [[Object Groups]] — Object 그룹 분류 체계
+- [[Knowledge SOAP API 객체 — 핵심 아티클 객체]] — KnowledgeArticle·KnowledgeArticleVersion 등 Knowledge 핵심 객체 상세
+- [[Knowledge SOAP API 객체 — 통계·연관·주변 객체]] — Knowledge 통계·뷰·연관 객체 상세

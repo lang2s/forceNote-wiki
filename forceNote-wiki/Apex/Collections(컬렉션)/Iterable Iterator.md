@@ -131,4 +131,5 @@ public class PaginatedApiIterator implements Iterator<Account> {
 - [[Comparator 인터페이스]]
 - [[Batch Apex]]
 - [[CollectionUtils]]
+- [[Apex 언어 기초 — 제어 흐름과 클래스]] — Iterator/Iterable 인터페이스 구현·클래스 기초
 

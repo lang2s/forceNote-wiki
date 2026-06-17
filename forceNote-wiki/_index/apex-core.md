@@ -122,6 +122,14 @@ created: 2026-05-21
 | Flow Builder flow test, Flow Interview 테스트 비교, Flow 검증, Decision 경로 테스트, Flow 출력변수 검증 | `Apex/Testing(테스트)/Flowtesting Namespace.md` |
 | Apex에서 Flow 테스트하는 방법, flowtesting vs Flow.Interview, @isTest Flow 실행 패턴 | `Apex/Testing(테스트)/Flowtesting Namespace.md` |
 
+## Apex — 언어 기초
+
+| 키워드 | 파일 |
+|---|---|
+| Apex 데이터타입, Apex 원시 타입, Primitive 타입, Blob Boolean Date Datetime Decimal Double ID Integer Long Object String Time, sObject 타입, Collection 선언, 컬렉션 선언 문법, List Set Map 리터럴, Enum, System-defined enum, 변수 선언, 변수 명명 규칙, 상수 final, 연산자, 연산자 우선순위, Safe Navigation ?., Null Coalescing ??, 형 변환, Rules of Conversion, overflow underflow, Apex 데이터 타입이 뭐가 있나, Apex에서 변수 어떻게 선언하나, ?. ?? 연산자 뭔가 | `Apex/Apex 언어 기초 — 데이터타입과 변수.md` |
+| Apex 제어 흐름, if else, switch when, switch 패턴, do-while while for 루프, 클래스 정의, inner 클래스, 생성자, this chaining, 메서드 오버로딩, 접근 제어자, private protected public global, static instance 초기화, Apex Properties, getter setter, 상속 extends, virtual abstract override, 다형성, 인터페이스 구현, Custom Iterator Iterable, final instanceof super this transient, with sharing without sharing inherited sharing, 클래스 캐스팅, name shadowing, Apex 클래스 작성법, with sharing 차이가 뭔가, Apex switch 문 어떻게 쓰나, virtual abstract 차이 | `Apex/Apex 언어 기초 — 제어 흐름과 클래스.md` |
+| Apex 예외 처리, try catch finally, throw, 잡을 수 없는 예외, LimitException, DmlException ListException NullPointerException QueryException SObjectException, 예외 메서드 getMessage getCause getStackTraceString, 커스텀 예외, 커스텀 예외 만들기, 예외 클래스 extends Exception, rethrow inner exception, Apex 예약어, reserved keywords 목록, Apex 예외 어떻게 처리하나, 커스텀 예외 어떻게 만드나, Apex 예약어 목록 | `Apex/Apex 언어 기초 — 예외 처리와 예약어.md` |
+
 ## Apex — 표준 클래스 레퍼런스
 
 | 키워드 | 파일 |

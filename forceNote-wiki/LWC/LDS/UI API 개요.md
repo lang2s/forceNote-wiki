@@ -33,6 +33,8 @@ updated: 2026-05-22
 
 ## 2. REST 리소스 목록
 
+> 각 리소스의 요청 파라미터·요청 바디 전체 → [[UI API 리소스 레퍼런스]] §1·§2
+
 ### 2-1. Records
 
 | HTTP | 엔드포인트 | 설명 |
@@ -142,6 +144,8 @@ updated: 2026-05-22
 ---
 
 ## 3. 주요 응답 바디 타입
+
+> 각 타입의 전체 프로퍼티 스키마(enum 전수) → [[UI API 리소스 레퍼런스]] §3
 
 | 타입 | 설명 | 주로 반환하는 엔드포인트 |
 |---|---|---|
@@ -261,8 +265,9 @@ const filtered = dependentValues.filter(opt =>
 
 ---
 
-## 관련 문서
+## 관련 노트
 
+- [[UI API 리소스 레퍼런스]] — 요청 파라미터·요청 바디·응답 바디 필드 레벨 전수 스키마
 - [[uiRecordApi]] — createRecord, updateRecord, deleteRecord LWC 패턴
 - [[getRecord 패턴]] — @wire(getRecord), getFieldValue, static schema import
 - [[getPicklistValues 패턴]] — Picklist + 종속 Picklist 처리 상세

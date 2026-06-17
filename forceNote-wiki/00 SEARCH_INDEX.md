@@ -22,6 +22,7 @@ created: 2026-05-17
 | 플랫폼 DevOps / DX — Salesforce DX · Scratch Org · Unlocked/2GP 패키징 · CI/CD · Metadata API · DevOps Center | `_index/platform-devops.md` | `DevOps(데브옵스)/` 폴더 전반 |
 | 릴리즈 노트 — Spring/Summer/Winter (v59~v67) | `_index/release.md` | 릴리즈별 변경 |
 | sObject Reference — Field 타입·Object 그룹·Associated Objects·Custom Objects·Object Interfaces·표준 Object 카탈로그 | `_index/sobject-reference.md` | Object Reference v67.0 |
+| Service Cloud · Knowledge — 데이터모델·SOAP/REST/Metadata/UI API·아티클·데이터카테고리 | `_index/service.md` | Service(서비스)/ 폴더 전반 |
 | 자연어 질문 — "~하는 방법" | `_index/questions.md` | 교차 도메인 질문 라우팅 |
 
 ---

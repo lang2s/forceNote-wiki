@@ -213,3 +213,4 @@ KbManagement.PublishingService.assignDraftTranslationTask(
 - [[ConnectApi Namespace 개요]] — Knowledge 관련 ConnectApi 클래스 포함
 - [[Search Namespace]] — KnowledgeSuggestionFilter, Knowledge 아티클 SOSL 검색
 - [[Apex 표준 클래스 레퍼런스]] — String / Datetime 메서드 참조
+- [[Knowledge 데이터 모델 & API 개요]] — Knowledge SOAP/REST/Metadata/UI API 전체 데이터 모델 (KbManagement는 그 Apex 발행 계층)

@@ -1,7 +1,7 @@
 ﻿---
 tags: [backlog, coverage, work-tracking]
 created: 2026-05-18
-updated: 2026-05-23
+updated: 2026-06-17
 ---
 
 # WORK_BACKLOG_ARCHIVE — 완료 작업 영속 대장
@@ -126,6 +126,8 @@ updated: 2026-05-23
 | # | 항목 | 소스 PDF | 산출물 | 상태 | 추가일 |
 |---|---|---|---|---|---|
 | LDV-1 | LDV 백서 핵심 주제 보완 (쿼리 옵티마이저·selectivity·skinny tables·인덱싱·대량 로드/삭제 전략) | `salesforce_large_data_volumes_bp.pdf` (29p, Tier 2) | **2분할** — `Architecture(아키텍처)/대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱.md`(읽기 경로) + `Architecture(아키텍처)/대용량 데이터 (LDV) — 대량 로드·삭제.md`(쓰기 경로) | ✅ 완료(2026-06-17) — Query Optimizer 6동작·인덱스 selectivity 임계값 전수·Skinny 13필드타입·Divisions·대량 로드/삭제/추출·case study 6건. Data Skew와 양방향. source-verifier 셀단위 ✅·completeness 전수 ✅. 기존 `Data Skew.md`(skew만)와 중복 없음 | 2026-06-16 |
+| APEXLANG-1 | Apex 언어 기초 개념 노트 (데이터타입·변수·제어흐름·클래스/객체/인터페이스·예외 처리·예약어) | `salesforce_apex_developer_guide.pdf` (v67.0 Summer '26, Tier 2 — Writing Apex 챕터 p.23-132 / Exceptions p.706-715 / Reserved Keywords p.817-818) | **3분할** — `Apex/Apex 언어 기초 — 데이터타입과 변수.md`(595줄) + `Apex/Apex 언어 기초 — 제어 흐름과 클래스.md`(1373줄) + `Apex/Apex 언어 기초 — 예외 처리와 예약어.md`(334줄) | ✅ 완료(2026-06-17) — Primitive 12종 전수·연산자 전수표·Precedence 15단계·`?.`/`??`·Switch 6패턴·접근제어자 4종·Properties 3종·상속/인터페이스/Custom Iterator·sharing 3종·try/catch/finally·커스텀 예외 4 implicit 생성자·예약어 121개+특수 10개. completeness 깊이 ✅(예약어 기계 대조 IDENTICAL)·source-verifier 셀단위 ✅·qa ✅. namespace/메서드 레퍼런스·async/test/soql 중복 0(위임 링크). webservice 상세·Annotations 카탈로그는 차기. | 2026-06-16 |
+| UIAPI-1 | UI API 리소스/요청·응답 바디 필드 스펙 보완 (Ch3 Request Parameters·Ch4 Request Bodies·Ch5 Response Bodies) | `api_ui.pdf` (366p, Tier 2, v67.0 Summer '26 — Ch3 Resources / Ch4 Request Bodies / Ch5 Response Bodies) | **spoke 분리(분할 안 함)** — 신규 `LWC/LDS/UI API 리소스 레퍼런스.md`(1865줄). 기존 `UI API 개요.md`(허브: 엔드포인트·wire 매핑·상태코드)는 보존하고 §2·§3에 레퍼런스 포인터 2줄 + 관련노트 역링크 삽입 | ✅ 완료(2026-06-17) — 157항목 전수: Ch3 Request Parameters 16리소스 + Ch4 Request Bodies 27종 + Ch5 Response Bodies 114종(Top-Level 37·Nested 77). enum 418값 전수(Field.dataType 25·Navigation standardType 35 등)·Filter Group/Available Version 2컬럼 보존·원문 오타 보존·67.0 신규필드(csrfToken·brandImageDarkMode·publicCreatable·sharedCreatable). completeness 깊이 ✅(갭 0, 행수 불일치 0)·source-verifier 셀단위 ✅(Location Field `maybe null` 1건 정정)·qa ✅. 개요 엔드포인트표·wire 매핑·상태코드와 중복 0(레이어 분리). getPicklistValues 패턴↔레퍼런스 역링크. `_index/frontend.md`·`LWC MOC`·`LWC/LDS/index.md` 등록 | 2026-06-16 |
 
 ---
 

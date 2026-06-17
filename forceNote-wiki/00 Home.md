@@ -92,6 +92,16 @@ Aura 컴포넌트 — 레거시 컴포넌트 프레임워크 (신규 개발은 L
 | [[Salesforce 네비게이션]] | App Launcher, 전역 검색, 리스트뷰 |
 | [[Salesforce ID 인증]] | MFA, Salesforce Authenticator, Trusted IP |
 
+### [[Service(서비스)/index|Service Cloud]]
+고객 서비스·지원 — Knowledge(지식) 데이터 모델·SOAP/REST/Metadata/UI API
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[Knowledge 데이터 모델 & API 개요]] | abstract/concrete 객체, 채널, 발행 주기, data category, API EOL |
+| [[Knowledge SOAP API 객체 — 핵심 아티클 객체]] | KnowledgeArticle, __kav, __ka, PublishStatus |
+| [[Knowledge REST API — Actions & Manage]] | invocable actions, 아티클 발행·번역 관리 |
+| [[Knowledge Metadata API 타입 — 아티클·채널·설정]] | ArticleType, ChannelLayout, KnowledgeSettings |
+
 ### DevOps(데브옵스)
 Salesforce DX — 소스 중심 개발, Scratch Org, Unlocked Package, CI/CD
 

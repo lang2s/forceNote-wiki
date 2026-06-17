@@ -32,6 +32,7 @@ created: 2026-05-21
 | 키워드 | 파일 |
 |---|---|
 | UI API, User Interface API, ui-api, REST 엔드포인트, wire 어댑터 목록, uiRecordApi 모듈, uiObjectInfoApi, uiListsApi, uiRelatedListApi, RecordUI, ObjectInfo, getRelatedListInfo, getRelatedListRecords, getObjectInfo, getObjectInfos, getListUi, getListRecords, LDS REST API 전체 | `LWC/LDS/UI API 개요.md` |
+| UI API reference, record-input, object-info fields, request body, response body, layoutTypes, optionalFields, childRelationships, picklist values 스키마, UI API 응답 바디, UI API 요청 파라미터, 레코드 인풋 | `LWC/LDS/UI API 리소스 레퍼런스.md` |
 | lightning-record-form, record-edit-form, record-view-form, 레코드 폼 선택 | `LWC/LDS/Record Form 선택.md` |
 | getRecord, getFieldValue, static schema, @salesforce/schema | `LWC/LDS/getRecord 패턴.md` |
 | createRecord, updateRecord, deleteRecord, uiRecordApi, notifyRecordUpdateAvailable, 레코드 생성 수정 삭제, LWC에서 DML | `LWC/LDS/uiRecordApi.md` |
