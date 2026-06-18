@@ -627,3 +627,4 @@ List<List<SObject>> page2 = [FIND 'test' IN ALL FIELDS RETURNING Account(Name, I
 - [[Search Namespace]] — Search Apex 클래스
 - [[SOQL SOSL 소개]] — SOQL vs SOSL 선택 기준과 개요
 - [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]] — LDV에서 SOSL search crowding 회피·targeted search group
+- [[SOQL Injection 위협]] — SOSL 검색어에 사용자 입력 결합 시 인젝션 위협과 방어

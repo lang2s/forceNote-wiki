@@ -136,3 +136,6 @@ Nominatim Geocoding API (Apex callout)
 - [[RestClient 패턴]]
 - [[LWC 보안 패턴]]
 - [[Static Resource 로딩]]
+- [[Lightning Security 모델]] — CSP·LWS 등 Lightning 보안 모델 전반
+- [[Secure Communications (TLS)]] — 외부 통신 TLS·HTTPS 강제 위협과 방어
+- [[Platform Security FAQ]] — CSP·외부 도메인 허용 등 플랫폼 보안 공통 질문

@@ -102,6 +102,17 @@ Aura 컴포넌트 — 레거시 컴포넌트 프레임워크 (신규 개발은 L
 | [[Knowledge REST API — Actions & Manage]] | invocable actions, 아티클 발행·번역 관리 |
 | [[Knowledge Metadata API 타입 — 아티클·채널·설정]] | ArticleType, ChannelLayout, KnowledgeSettings |
 
+### [[Security(보안)/index|Security(보안)]]
+Secure Coding Guide(v67.0) 위협 모델 — XSS·SQLi·CSRF·Redirect·TLS·민감데이터·CRUD/FLS·Lightning 보안·세션/브라우저 통신
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[XSS 방어]] | Cross Site Scripting, JSENCODE/HTMLENCODE, 브라우저 파싱 컨텍스트 |
+| [[권한과 접근 제어 위협]] | CRUD/FLS bypass, USER_MODE, stripInaccessible, sharing |
+| [[Lightning Security 모델]] | Lightning Locker, CSP, AuraEnabled 보안 |
+| [[SOQL Injection 위협]] | escapeSingleQuotes, bind variable, 동적 SOQL 방어 |
+| [[민감 데이터 저장]] | Protected CMT/CS, Apex Crypto, Named Credentials |
+
 ### DevOps(데브옵스)
 Salesforce DX — 소스 중심 개발, Scratch Org, Unlocked Package, CI/CD
 

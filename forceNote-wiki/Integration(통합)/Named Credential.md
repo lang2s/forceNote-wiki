@@ -138,4 +138,6 @@ ConnectApi.ExternalCredential cred =
 - [[Custom REST Endpoint]]
 - [[StubProvider]] — ConnectApi 래퍼 테스트
 - [[Queueable + Callout 패턴]] — Named Credential을 사용하는 비동기 외부 호출 패턴
+- [[Secure Communications (TLS)]] — 외부 callout의 TLS·HTTPS 강제와 인증서 검증
+- [[민감 데이터 저장]] — 자격증명·토큰 등 비밀 정보 보관 위협과 secure storage
 

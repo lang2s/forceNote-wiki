@@ -162,3 +162,5 @@ List<Account> results = Database.queryWithBinds(
 - [[Spring '26/Development]] — v66.0+ Automated Process User가 `WITH USER_MODE` SOQL 실행 가능
 - [[Apex Best Practices]] — 공유 모델 명시 원칙 (4번 규칙)
 - [[TxnSecurity Namespace]] — evaluate() 내 SOQL 보안 모드 적용
+- [[권한과 접근 제어 위협]] — CRUD/FLS·공유 우회 위협 모델 (USER_MODE가 방어하는 대상)
+- [[Secure Coding 개요]] — User Mode/System Mode 등 시큐어 코딩 핵심 원칙 개요

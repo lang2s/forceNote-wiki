@@ -199,3 +199,4 @@ Security.stripInaccessible(AccessType.READABLE, records, true);
 - [[Custom REST Endpoint]] — POST 바디 처리
 - [[Summer '26]]
 - [[Summer '26/Development]] — v67.0 DB 작업 기본 USER_MODE (stripInaccessible 수동 호출 재검토)
+- [[권한과 접근 제어 위협]] — FLS 누출 위협 모델 (stripInaccessible가 방어하는 대상)

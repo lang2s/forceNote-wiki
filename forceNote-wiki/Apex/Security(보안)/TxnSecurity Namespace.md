@@ -259,3 +259,4 @@ private class AccountQueryConditionTest {
 
 - [[UserProvisioning Namespace]] — 외부 시스템 프로비저닝 (TxnSecurity 정책 트리거 연계)
 - [[Platform Encryption]] — 동일 Salesforce Shield 제품군 — 저장 데이터(at-rest) 암호화
+- [[Lightning Security 모델]] — 정책 기반 보안 강제 모델 (org 보안 정책의 컴포넌트/런타임 적용과 대비)

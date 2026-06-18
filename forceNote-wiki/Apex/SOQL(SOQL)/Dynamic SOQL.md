@@ -138,3 +138,5 @@ String escaped = String.escapeSingleQuotes(userInput);
 - [[SOQL 패턴]]
 - [[QuiddityGuard]]
 - [[WITH USER_MODE]]
+- [[SOQL Injection 위협]] — 동적 SOQL 문자열 결합 시 인젝션 위협 모델과 방어 (escapeSingleQuotes 한계, bind 변수)
+- [[Platform Security FAQ]] — SOQL 인젝션 등 플랫폼 보안 공통 질문

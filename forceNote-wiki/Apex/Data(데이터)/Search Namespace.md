@@ -202,3 +202,4 @@ List<Search.SearchResult> acctResults = dynamic.get('Account');
 - [[Dynamic SOQL]] — `Database.queryWithBinds`, SOQL 인젝션 방어
 - [[SOSL 테스트 패턴]] — `Test.setFixedSearchResults` 상세
 - [[KbManagement Namespace]] — Knowledge Article 검색·번역 관리 (Search와 함께 KB 조회 시 연계)
+- [[SOQL Injection 위협]] — SOSL `FIND` 절에 사용자 입력 결합 시 인젝션 위협과 방어

@@ -153,7 +153,7 @@ updated: 2026-06-18
 
 | # | PDF (페이지) | 도메인 | 상태 |
 |---|---|---|---|
-| ING-31 | secure_coding (97) = Secure Coding Guidelines | Security(보안) | 🔲 대기 — 보안 도메인 가치 높음·중형 |
+| ING-31 | ~~secure_coding (97) = Secure Coding Guidelines~~ | Security(보안) | **✅ 완료 (2026-06-18)** → [[WORK_BACKLOG_ARCHIVE]] ING-31. 신규 최상위 `Security(보안)/` 폴더 + 위협모델 12노트(Ch1~15 전수), 신규 샤드 `_index/security.md`·라우터·Home, 17 역링크, 메커니즘 노트 deep-link 중복회피. 차기 ING-43 파생 |
 | ING-32 | salesforce_scheduler_dev_guide (434, 분할) | Sales/Scheduler | 🔲 대기 — 대형, 분할 필요 |
 | ING-33 | order_management_developer_guide_html (69) | Commerce/OM | 🔲 대기 |
 | ING-34 | scoping_rules_dev_guide (31) | Security/Sharing | 🔲 대기 — 소형 |
@@ -165,6 +165,7 @@ updated: 2026-06-18
 | ING-41 | `object_reference.pdf` — **표준 Address compound 서브필드 전수표 + Compound Field Considerations/Limitations** | Data/Schema (sObject) | 🔲 대기 — **P2** ING-15 후속(coverage-checker 2026-06-18 발견). 표준 Address compound 필드 전체 서브필드표 + 고려사항/제한(표준 vs 커스텀 비교의 **반쪽** — 현재 `Compound Fields.md`는 커스텀쪽만 깊음). `sObject/Compound Fields.md` 보강 후보. 페이지: object_reference.pdf Ch1 Compound Fields 섹션(doc p.15-20 인접) |
 | ING-42 | `api_meta.pdf` — **AddressSettings + State/Country Picklist 설정** | Admin/Data (Setup) | 🔲 대기 — **P3** ING-15 후속(coverage-checker 2026-06-18 발견). State and Country/Territory Picklist 활성화·설정. CAF의 picklist 의존성과 연결. 별도 신규 `Admin(어드민)/State and Country Picklist.md` 또는 Metadata API 노트 태스크. 페이지: api_meta.pdf AddressSettings 항목 |
 | ING-39 | salesforce_pages_developers_guide (817, 분할) — **퍼블리셔/Case Feed VF 컴포넌트 속성 레퍼런스 추출** | Visualforce/Component Reference | 🔲 대기 — **★ 우선(P1 가치)·소형 추출** ING-14 후속(source-coverage-checker 2026-06-18 발견). Visualforce Developer Guide의 퍼블리셔·Case Feed VF 컴포넌트 5개 **속성 완전 명세**: `apex:emailPublisher`(p.470)·`apex:logCallPublisher`(p.520)·`support:caseArticles`(p.670)·`support:caseFeed`(p.672)·`support:portalPublisher`(p.674). **공백 근거:** 위키에 VF 컴포넌트 속성 전수 레퍼런스가 **전무** — ING-14 노트는 이 컴포넌트들을 **예제/사용 맥락으로만** 다뤘고 전체 attribute 표(타입·필수·API버전·Access)는 미작성. 이 5개 속성 명세를 ING-14의 2노트에 보강하거나 별도 `Component Reference` 노트로 분리 판단. ※ ING-27/ING-37(같은 PDF 전체 817p 분할)의 일부지만, 이 5컴포넌트 속성만 먼저 떼어내는 소형 작업으로 우선 진행 가능 |
+| ING-43 | `exp_cloud_lwr.pdf` (LWR Sites for Experience Cloud, 106p, Tier 2) — **Lightning Web Security(LWS) vs Lightning Locker 전용 노트** | Security(보안) / LWC | 🔲 대기 — **중요도 中, 별도 PDF** ING-31 후속(source-coverage-checker 2026-06-18 발견, secure_coding 단일 scope 밖). secure_coding Ch11(`Lightning Security 모델`)은 Locker 중심으로 LWS는 deep-link만 — LWS의 동작 원리·Locker와의 차이(distortion·sandbox·namespace·API 가용성)·전환 시점·`@salesforce/lwsEnabled` 영향이 위키에 미작성. exp_cloud_lwr.pdf의 LWS 챕터 + 기존 `Lightning Web Security` 노트 보강 또는 신규 `Security(보안)/LWS vs Lightning Locker.md` 분리 판단. `Lightning Security 모델`(Ch11)·`Lightning Web Security` 양방향 링크 보강용 |
 
 > ADMIN 갭(ADMIN-1~9)은 별도 — 공식 Admin 가이드 PDF 확보 시 진행. 위 INGEST는 이미 보유한 PDF 대상.
 
@@ -231,6 +232,7 @@ updated: 2026-06-18
 | AP-02 | fan-in 허브 휴리스틱이 nav 링크(index·MOC·00 Home·SEARCH_INDEX)로 오염돼 실패(진짜 허브도 nav 포함 시 raw 3~4, nav 제외 spoke fan-in은 2~3뿐이라 "≥5" 밴드가 오분류) → 이름/역할 1차 + nav 제외 spoke fan-in(≥2 형제) 2차로 정정, raw 단방향 총량 헤드라인 금지(실행마다 흔들려 비교 불가)·3분류 보고 규칙 추가. check #6 일관성 잠금(writer↔linter) 유지 | `wiki-linter.md` | ✅ 완료 | 2026-05-23 |
 | AP-03 | PDF 기반 작성 4 패턴(A·B·C·D) protocol 도입 — Pattern A(섹션별 재추출 + 6 카테고리 spot check), B(격자형 매트릭스 + 산문형 numeric mapping), C(pdftotext 시각자료 blind spot 대응), D(structure rigidity 회피) — 6개 agent에 역할별 protocol 분배. 1차(Task #1 발견)+2차 진화(Task #2 Snapshot 할당량 오류로 spot check를 무작위→6 카테고리, Pattern B를 산문형까지 확장) 적용. | `writer.md`, `scout.md`, `researcher.md`, `classifier.md`, `source-verifier.md`, `completeness-validator.md`, `CLAUDE.md` 0-2 표 | ✅ 완료 | 2026-05-23 |
 | AP-04 | L1 wiki lint 훅 도입 — `.claude/settings.json` PostToolUse 훅이 `scripts/lint-md-file.sh` 호출, `.md` 파일 Write/Edit 시 자동 검증(frontmatter·요약·코드블록·관련 노트·source값·깨진 wikilink). 순수 bash(Mac/Win 공통). 의미 오류는 못 잡고 구조만 검사 — Phase 2(LLM source-verifier 자동 호출)는 PIPE-6 백로그. | `.claude/settings.json`, `scripts/lint-md-file.sh` | ✅ 완료 | 2026-05-23 |
+| AP-05 | PDF 페이지 오프셋(ToC 인쇄번호 ≠ PDF 물리페이지) 확인 절차 추가 — ING-31에서 표지/목차 4p로 +4 오프셋 발견(scout가 캐치). ToC 번호를 그대로 `pdftotext -f/-l`에 넣으면 **틀린 챕터를 에러 없이 추출**(추출 성공→source-verifier 전까지 미발견)하므로, scout가 매 PDF 1회 오프셋 실측→물리페이지 환산 범위를 researcher에 전달. Why 첨부. (첫 발견·캐치 성공이나, silent-error 성격상 예방 가치 높아 additive 규칙화) | `scout.md` | ✅ 완료 | 2026-06-18 |
 
 ---
 

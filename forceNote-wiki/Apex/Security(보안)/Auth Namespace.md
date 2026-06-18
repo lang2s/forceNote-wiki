@@ -955,3 +955,5 @@ new Auth.JsonValueOutput(stringValue, booleanValue, integerValue, ...)
 - [[TxnSecurity Namespace]] — SessionManagement.setSessionLevel과 연계되는 트랜잭션 보안 정책
 
 - [[UserProvisioning Namespace]] — 외부 시스템 프로비저닝 연계 (Auth 인증 연계)
+- [[세션 ID와 브라우저 통신 위협]] — 세션 하이재킹·세션 ID 노출 위협 모델
+- [[Marketing Cloud API 보안]] — OAuth 기반 외부 API 인증·토큰 관리 위협

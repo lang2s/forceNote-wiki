@@ -152,3 +152,4 @@ global class OutputParameters {
 - [[@InvocableMethod 패턴]] — bulkInvoke 구조
 - [[Flow 레코드 컬렉션 조작]] — 컬렉션 조작 액션
 - [[Flow 유틸리티 액션 모음]] — 영업시간·문자열·Chatter·Flow 제어 액션
+- [[Secure Coding 개요]] — 플로우 설계 보안 원칙 (User Mode/System Mode, 서브플로우 권한 분리, 입력 검증)

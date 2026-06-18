@@ -187,3 +187,4 @@ Setup > Data Cloud > Security > Encryption
 - [[Auth Namespace]]
 - [[WITH USER_MODE]]
 - [[StripInaccessible]]
+- [[민감 데이터 저장]] — at-rest 민감 데이터 저장 위협과 암호화 적용 기준

@@ -188,3 +188,5 @@ get formattedCurrency() {
 - [[Wire 패턴]]
 - [[NavigationMixin 패턴]]
 - [[Permission Set 설계]] — LWC가 호출하는 Apex 클래스 접근 권한 설계
+- [[XSS 방어]] — DOM 출력 인코딩·innerHTML 위협 등 XSS 위협 모델과 방어
+- [[Lightning Security 모델]] — LWS(Lightning Web Security)·Locker 격리 모델

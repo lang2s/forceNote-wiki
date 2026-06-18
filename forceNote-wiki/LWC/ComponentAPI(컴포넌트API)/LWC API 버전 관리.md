@@ -154,3 +154,7 @@ async loadDynamicComponent() {
 - [[@api 패턴]] — `@api` 속성/메서드 공개 인터페이스
 - [[컴포지션 패턴]] — `lwc:if/lwc:elseif/lwc:else`, `for:each` 패턴
 - [[Release/Winter '24]] — 컴포넌트 수준 apiVersion 지정 GA 릴리즈
+
+## 관련 노트
+
+- [[Lightning Security 모델]] — apiVersion에 따른 LWS(Lightning Web Security) 적용 기준

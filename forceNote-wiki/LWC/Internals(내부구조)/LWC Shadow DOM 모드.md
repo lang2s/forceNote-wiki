@@ -238,3 +238,4 @@ slot 처리나 일부 최적화 경로가 `isSyntheticShadow` 값에 따라 분�
 - [[LWC 런타임 Feature Flags]] — DISABLE_SYNTHETIC_SHADOW, ENABLE_FORCE_SHADOW_MIGRATE_MODE 플래그
 - [[LWC 템플릿 컴파일러 파이프라인]] — disableSyntheticShadowSupport 컴파일 옵션
 - [[LWC 오픈소스 아키텍처]] — @lwc/synthetic-shadow 폴리필 패키지 역할
+- [[Lightning Security 모델]] — Shadow DOM 격리와 LWS(Lightning Web Security) 보안 격리 모델 연계

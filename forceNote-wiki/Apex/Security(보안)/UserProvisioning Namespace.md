@@ -246,4 +246,5 @@ global class SampleConnector extends UserProvisioning.UserProvisioningPlugin {
 - [[Auth Namespace]] — OAuth JWT Bearer Token, 커넥티드 앱 인증
 - [[Process Namespace]] — Process.Plugin, Process.PluginRequest, Process.PluginDescribeResult (deprecated, @InvocableMethod 권장)
 - [[TxnSecurity Namespace]] — 트랜잭션 보안 정책
+- [[권한과 접근 제어 위협]] — 사용자 프로비저닝과 직결되는 권한·접근 제어 위협 모델
 - [[Apex MOC]]
