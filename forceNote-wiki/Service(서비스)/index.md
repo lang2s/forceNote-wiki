@@ -5,7 +5,7 @@ created: 2026-06-17
 
 # Service(서비스) — 도메인 허브
 
-> Salesforce Service Cloud — 고객 서비스·지원 도메인. 현재는 Knowledge(지식)를 다루며, 향후 Case·Entitlement·OmniChannel·Messaging 등으로 확장되는 거점이다.
+> Salesforce Service Cloud — 고객 서비스·지원 도메인. 현재는 Knowledge(지식)와 Chat(채팅, 레거시 Live Agent REST)을 다루며, 향후 Case·Entitlement·OmniChannel·Messaging 등으로 확장되는 거점이다.
 
 **상위:** [[00 Home]]
 
@@ -16,6 +16,7 @@ created: 2026-06-17
 | 영역 | index | 내용 |
 |---|---|---|
 | [[Service(서비스)/Knowledge(지식)/index|Knowledge(지식)]] | `Knowledge(지식)/index.md` | (A) 개발자/API: 데이터 모델·SOAP/REST/Metadata/UI API 9개 + (B) 어드민/셋업: Lightning Knowledge 계획·셋업·사용·리포팅·임포트·번역·데이터 카테고리 7개 = 총 16개 노트 |
+| [[Service(서비스)/Chat(채팅)/index|Chat(채팅)]] | `Chat(채팅)/index.md` | Chat REST API(레거시 Live Agent, 2026-02-14 은퇴): 개요·시작·롱폴링·세션/모니터링/방문자 리소스·요청/응답 바디·데이터 타입·상태 코드 7개 노트 |
 
 ---
 
@@ -26,6 +27,7 @@ created: 2026-06-17
 - Lightning Knowledge 도입·셋업·운영(어드민) → [[Lightning Knowledge 개요 — 계획·비교·한계]]
 - Lightning Knowledge 활성화·권한 설정 → [[Lightning Knowledge 셋업 & 구성]]
 - 아티클 작성·검색·다국어·임포트·데이터 카테고리 → [[Service(서비스)/Knowledge(지식)/index|Knowledge(지식)]] 인덱스의 "어드민/셋업" 그룹
+- Chat REST API(레거시 Live Agent) 세션·롱폴링·리소스·바디 → [[Service(서비스)/Chat(채팅)/index|Chat(채팅)]]
 
 ---
 

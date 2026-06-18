@@ -325,3 +325,4 @@ List<MessagingSession> sessions = [
 - [[Object Groups]] — Object 그룹 분류 체계
 - [[Knowledge SOAP API 객체 — 핵심 아티클 객체]] — KnowledgeArticle·KnowledgeArticleVersion 등 Knowledge 핵심 객체 상세
 - [[Knowledge SOAP API 객체 — 통계·연관·주변 객체]] — Knowledge 통계·뷰·연관 객체 상세
+- [[Chat REST API 개요 & 시작]] — 위 Live Agent · Live Chat 객체(LiveChatVisitor·LiveChatTranscript 등)를 다루는 방문자측 REST API (레거시, 2026-02-14 은퇴)

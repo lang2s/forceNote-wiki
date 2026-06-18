@@ -7,6 +7,7 @@ created: 2026-06-17
 > Salesforce Service Cloud 키워드 → 파일. 현재는 Knowledge(지식) 전반(데이터모델·SOAP/REST/Metadata/UI API + Lightning Knowledge 어드민/셋업/사용)을 다룬다.
 > 루트 라우터: `00 SEARCH_INDEX.md` · 다른 도메인은 라우터에서 이동.
 > 향후 Service Cloud 확장(Case·Entitlement·OmniChannel·Messaging 등) 시 이 샤드에 누적, 상한 초과 시 하위 샤드로 분할.
+> Chat(채팅) = 레거시 Live Agent REST API (2026-02-14 은퇴, 마이그레이션/이력 참조용).
 
 ---
 
@@ -63,3 +64,15 @@ created: 2026-06-17
 | Import External Content, Knowledge Import, .csv, .zip, import parameters, .properties, Import Export Status, 아티클 임포트, 외부 콘텐츠 가져오기, csv 파일, zip 파일, 임포트 파라미터, properties 파일, 임포트 상태, 외부 아티클 어떻게 임포트해, csv로 아티클 어떻게 올려 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 아티클 임포트.md` |
 | Multiple Languages, Knowledge Translation, Article Management tab, Export for Translation, Publish Translate Archive, Side-By-Side, 다국어, 번역, 아티클 관리 탭, 번역용 내보내기, 발행, 아카이브, 나란히 보기, Knowledge 다국어 어떻게 설정해, 아티클 번역 어떻게 해, 아티클 어떻게 발행하고 아카이브해 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 다국어 & 번역.md` |
 | Data Categories, Category Groups, Data Category Visibility, Category Mapping, Knowledge Sharing, sharing model, 데이터 카테고리, 카테고리 그룹, 데이터 카테고리 가시성, 카테고리 매핑, 공유 모델, 데이터 카테고리 어떻게 만들어, 카테고리 가시성 어떻게 설정해, Knowledge 공유 모델이 뭐야 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 데이터 카테고리 & 공유.md` |
+
+## Chat — REST API (chat_rest, 레거시 Live Agent · 2026-02-14 은퇴)
+
+| 키워드 | 파일 |
+|---|---|
+| Chat REST API, Live Agent, Live Agent REST, Chasitor, 채시터, 채팅 REST API, 라이브에이전트, 채팅 세션 시작, Request Headers, 요청 헤더, X-LIVEAGENT-API-VERSION, X-LIVEAGENT-AFFINITY, X-LIVEAGENT-SESSION-KEY, X-LIVEAGENT-SEQUENCE, 세션 시작 확인 종료, Chat REST 어떻게 시작해, Chat 요청 헤더 뭐가 필요해, 네이티브 모바일 앱 채팅, Chat 은퇴, Live Agent 종료, Chat retirement, Messaging for In-App and Web 마이그레이션 | `Service(서비스)/Chat(채팅)/Chat REST API 개요 & 시작.md` |
+| long polling, 롱폴링, 메시지 롱폴링, clientPollTimeout, Live Agent, Live Agent REST, Chasitor, 채시터, Messages 폴링, message loop, Estimated Wait Time, 예상 대기시간, EWT Beta, 대기시간 추정, Chat 메시지 어떻게 받아, 새 메시지 어떻게 폴링해, 채팅 대기시간 어떻게 보여줘, Chat 은퇴, Live Agent 종료, Chat retirement, Messaging for In-App and Web 마이그레이션 | `Service(서비스)/Chat(채팅)/Chat REST API 메시지 롱폴링 & 대기시간.md` |
+| SessionId, ChasitorInit, ReconnectSession, ChasitorResyncState, Live Agent, Live Agent REST, Chasitor, 채시터, 세션 생성, 방문자 세션, 채팅 세션 초기화, 재연결, resync, Chat 세션 어떻게 생성해, ChasitorInit이 뭐야, 끊긴 채팅 어떻게 재연결해, 방문자 세션 동기화, Chat 은퇴, Live Agent 종료, Chat retirement, Messaging for In-App and Web 마이그레이션 | `Service(서비스)/Chat(채팅)/Chat REST API 리소스 — 세션 생성 & 방문자 세션.md` |
+| Monitor Chat Activity, Live Agent, Live Agent REST, Chasitor, 채시터, 채팅 모니터링, Supervisor monitoring, Messages Response Objects, Messages 응답 객체, ChatMessage, ChatEnd, ChasitorTyping, ChasitorNotTyping, ChasitorSneakPeek, CustomEvent, MultiNoun, ChatRequestSuccess, ChatRequestFail, AgentTyping, 슈퍼바이저 모니터링, 채팅 활동 모니터링 어떻게 해, Messages 응답에 뭐가 와, 상담원 타이핑 이벤트, Chat 은퇴, Live Agent 종료, Chat retirement, Messaging for In-App and Web 마이그레이션 | `Service(서비스)/Chat(채팅)/Chat REST API 리소스 — 채팅 모니터링 & Messages 응답 객체.md` |
+| Settings, Availability, Breadcrumb, VisitorId, SensitiveDataRuleTriggered, Live Agent, Live Agent REST, Chasitor, 채시터, 방문자 경험, 가용성, 에이전트 가용성, 브레드크럼, 방문자 ID, 민감데이터 규칙, 채팅 가능 여부 어떻게 확인해, 방문자 페이지 추적 breadcrumb, 민감정보 마스킹 규칙, Chat 은퇴, Live Agent 종료, Chat retirement, Messaging for In-App and Web 마이그레이션 | `Service(서비스)/Chat(채팅)/Chat REST API 리소스 — 방문자 경험 커스터마이즈.md` |
+| Chat request bodies, Chat response bodies, Live Agent, Live Agent REST, Chasitor, 채시터, 요청 바디, 응답 바디, request body 9종, response body 19종, ChasitorInit body, JSON 바디 필드, Chat REST 요청 바디 뭐가 있어, 응답 바디 필드 전수, POST 바디 구조, Chat 은퇴, Live Agent 종료, Chat retirement, Messaging for In-App and Web 마이그레이션 | `Service(서비스)/Chat(채팅)/Chat REST API 요청 & 응답 바디.md` |
+| Chat data types, Live Agent, Live Agent REST, Chasitor, 채시터, 데이터 타입, status codes, 상태 코드, HTTP status, 200 403 503, GeoLocation, Entity, EntityFieldsMaps, 데이터 타입 11종, 상태 코드 10종, Chat REST 상태 코드가 뭐야, Chat 데이터 타입 정의, 403 503 의미, Chat 은퇴, Live Agent 종료, Chat retirement, Messaging for In-App and Web 마이그레이션 | `Service(서비스)/Chat(채팅)/Chat REST API 데이터 타입 & 상태 코드.md` |
