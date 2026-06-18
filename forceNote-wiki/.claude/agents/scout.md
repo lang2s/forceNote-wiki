@@ -144,6 +144,22 @@ PDF를 소스로 식별할 때 **파일명이나 표지 이미지(캐릭터, 배
 
 파일명 예시로 버전을 단정한 경우 (예: `_5-17-20263.pdf` → "2026년 3번째 문서"라고 추정) 는 반드시 실제 내용으로 교차 검증해야 한다. 표지에 스노보드·로봇 등 시즌 캐릭터가 있어도 이는 버전 근거가 아니다.
 
+## PDF 주제·정체 확인 필수 절차 (재발 방지 규칙 — 파일명 함정)
+
+> **Why:** 파일명 약어가 실제 내용 주제와 다른 사례가 반복 발생했다. `caf_dev`→백로그에 "Case Feed"로 오분류(실제 Custom Address Fields, ING-15)·`case_feed_dev_guide`→실제 Publisher/Quick Action JS API(ING-14)·`esm_developer_guide`→Embedded Service 아닌 Enterprise Sales Management(ING-18)·`api_console`→Console JS API(ING-24). 버전만 확인하고 **주제**를 파일명 약어로 단정하면 도메인 분류·후속 작업·중복 회피가 전부 어긋난다.
+
+버전 확인(위)과 **함께**, 다음으로 PDF의 **실제 주제·정체**를 확정한다:
+
+```
+1. 1~5페이지에서 공식 문서 **정식 제목(title)**을 그대로 인용한다 (파일명 약어가 아니라 표지 제목).
+2. 목차/Ch1으로 실제 다루는 기능 도메인을 확인한다.
+3. 소스 맵에 명시: "파일명 약어: [caf_dev] / 정식 제목: [Custom Address Fields Developer Guide] / 도메인: [sObject·필드]"
+   ← 파일명 약어와 정식 제목이 다르면 그 불일치를 **명시적으로 플래그**한다 (PM·classifier가 도메인 오분류를 막도록).
+4. 파일명 접미사(`_implementation`·`_administrators` 등)가 다르면 별개 PDF로 취급 — 약어 일치만으로 동일·중복 판정 금지(ING-23·ING-30).
+```
+
+파일명 약어(`caf`·`esm`·`api_*`)는 도메인 추정 근거가 **아니다**. 표지 정식 제목과 목차가 유일한 근거다.
+
 ## 절대 금지
 
 - 내용을 요약하거나 분석하지 않는다

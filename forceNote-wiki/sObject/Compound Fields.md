@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, compound-fields, address, geolocation, location, distance, geolocation-function, soql]
 source: object_reference.pdf p.15-20 (v67.0 Summer '26)
 created: 2026-05-22
@@ -52,7 +52,7 @@ aliases: [Compound Fields, Address Compound Field, Geolocation Compound Field, B
 
 ### Custom Address Fields
 
-Custom Address Fields 기능 활성화 시 Object Manager에서 Address 타입 커스텀 필드 추가 가능.
+Custom Address Fields 기능 활성화 시 Object Manager에서 Address 타입 커스텀 필드 추가 가능. 생성·활성화·CRUD(Apex/Metadata/REST/SOAP/Tooling)·geocode 수동 추가 등 상세는 [[Custom Address Fields]] 참조.
 
 - 표준 주소 필드 동작을 모방하되 일부 제한 있음
 - `CountryCode`가 State/Country picklist 활성화 여부와 무관하게 항상 사용 가능
@@ -226,5 +226,6 @@ List<Account> accs = [
 
 - [[1 Overview]] — Ch1 전체 요약
 - [[Field Types]] — address·location 타입 정의
+- [[Custom Address Fields]] — Address 타입 커스텀 compound 필드 생성·CRUD(Apex/Metadata/REST/SOAP/Tooling)·geocode
 - [[External Objects]] — 외부 오브젝트의 geolocation 필드 지원
 - [[SOQL 문법 레퍼런스]] — DISTANCE·GEOLOCATION 함수 레퍼런스

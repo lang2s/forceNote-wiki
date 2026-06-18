@@ -131,6 +131,16 @@ updated: 2026-06-17
 
 ---
 
+### ING — Salesforce Documents 공식 PDF 인제스트 완료 (활성 백로그 🟢 INGEST에서 이동)
+
+> 활성 백로그 INGEST 섹션에서 ✅ 완료된 ING 항목을 이곳으로 이동. 활성 파일에는 🔲/🟡만 남긴다.
+
+| # | PDF (정식 제목) | 산출물 | 상태 |
+|---|---|---|---|
+| ING-15 | `caf_dev.pdf` (Custom Address Fields Developer Guide, v66.0 Spring '26, Tier 2) — ★ 파일명 약어 `caf`가 백로그에서 "Case Feed"로 오분류됐던 함정. PDF 내용 검증으로 정정 | 신규 `sObject/Custom Address Fields.md`(791줄). 10챕터 전수: 개념·9 custom field 소비·요건/제한 3그룹·State/Country picklist·활성화·geocode 수동 추가·CRUD 5-API(Apex/Metadata/REST/SOAP/Tooling). 교차링크: `Compound Fields`(양방향)·`Field Types`·Future 메서드·`REST API`(단방향). 수정: `Compound Fields`(§Custom Address Fields 역링크)·`_index/sobject-reference.md`(키워드 재지정+신규 행)·`sObject/index.md`(2행). ★ 처리 노하우: Ch6~Ch10이 동일 기능을 5개 API로 반복 시연 — 깊이 부족이 아니라 **중복이 위험인 PDF 유형**. 비교표 + API별 셀 단위 고유 표기(`fieldsToNull` 등) 보존으로 처리. 원문 오타 8건(v54.0·dataa66.0 등) 코드 교정 금지 원칙으로 보존 | ✅ 완료(2026-06-18) — completeness 전수 ✅·source-verifier 셀단위 ✅·qa ✅. Tier 3 노트 0. retrospective(모드 A): aliases에 자연어 7표현 보강(주소 필드를 코드로 만들기·커스텀 compound 필드 REST로 생성 등) |
+
+---
+
 
 ### L — 깨진 wikilink — 신규 파일 필요 (wiki-linter 2026-05-21)
 

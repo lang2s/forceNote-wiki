@@ -23,7 +23,8 @@ created: 2026-05-22
 | Audit Fields 설정 절차, Set Audit Fields upon Record Creation, 1970-01-01 4000-12-31 유효 날짜 범위 | `sObject/System Fields.md` |
 | Compound Fields, Address Compound Field, BillingAddress, MailingAddress, ShippingAddress, GeocodeAccuracy, 복합 필드, 주소 복합 필드 | `sObject/Compound Fields.md` |
 | Geolocation Compound Field, Location, latitude, longitude, __latitude__s, __longitude__s, DISTANCE, GEOLOCATION, 지리좌표계 | `sObject/Compound Fields.md` |
-| Compound Field Limitations, 복합 필드 제한, 복합 필드 쿼리 제약, WHERE 절 제약, Custom Address Fields | `sObject/Compound Fields.md` |
+| Compound Field Limitations, 복합 필드 제한, 복합 필드 쿼리 제약, WHERE 절 제약 | `sObject/Compound Fields.md` |
+| Custom Address Fields, 커스텀 주소 필드, Address custom field, Mailing_Address__City__s, __s 서브필드, enableCustomAddressField, CustomAddressFieldSettings, AddressSettings, fieldsToNull, CustomField Tooling 조회, geocode 수동 추가, 주소 타입 커스텀 필드 만들기 | `sObject/Custom Address Fields.md` |
 | Custom Objects, __c suffix, Naming Conventions, 커스텀 Object, __r 관계 필드, 네이밍 규칙, __Share, __Tag | `sObject/Custom Objects.md` |
 | Custom Objects Audit Fields, Set Audit Fields, REQUIRED_FIELD_MISSING, Managed Package namespace prefix | `sObject/Custom Objects.md` |
 | Custom Fields, External ID, Uniqueness, caseSensitive, DUPLICATE_VALUE, Default Values formula | `sObject/Custom Fields.md` |
