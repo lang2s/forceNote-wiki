@@ -420,3 +420,4 @@ trigger accTrig on Contact (before insert) {
 - [[Process Namespace]] — 레거시 Flow 플러그인 (deprecated)
 - [[@InvocableMethod 패턴]] — Apex를 Flow Action으로 노출하는 현행 방식
 - [[Invocable Namespace]] — Apex에서 Flow Action 동적 호출
+- [[Aura(오라)/Quick Action·Publisher JS API 레퍼런스|Quick Action·Publisher JS API 레퍼런스]] — 이건 클라이언트 측 **JS API**(`lightning:quickActionAPI`·`Sfdc.canvas.publisher`)로, 이 Apex `QuickAction.performQuickAction` 네임스페이스와 **이름만 유사한 별개 API**다.

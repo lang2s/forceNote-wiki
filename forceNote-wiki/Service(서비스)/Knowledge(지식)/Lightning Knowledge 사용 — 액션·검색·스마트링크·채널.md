@@ -319,3 +319,5 @@ https://example.lightning.force.com/lightning/articles/Knowledge/shipping-faq?la
 - [[Knowledge UI API 제약]]
 - [[Lightning Knowledge 셋업 & 구성]]
 - [[Lightning Knowledge 아티클 리포팅]]
+- [[Aura(오라)/Quick Action·Publisher JS API 레퍼런스|Quick Action·Publisher JS API 레퍼런스]] — `publisher.refresh` use case에서 Knowledge 아티클을 Case Feed Email action에 첨부·전송.
+- [[Aura(오라)/Case Feed Visualforce 커스터마이즈|Case Feed Visualforce 커스터마이즈]] — `support:caseArticles` Articles 툴이 Knowledge 아티클을 검색해 케이스 이메일에 삽입.

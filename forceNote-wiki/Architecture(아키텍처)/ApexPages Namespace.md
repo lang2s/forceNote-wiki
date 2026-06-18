@@ -567,3 +567,4 @@ VF 페이지:
 - [[System Namespace]] — ApexPages.StandardController 반환 타입인 System.PageReference 포함
 - [[Site Namespace]] — VF/Community 페이지 URL 재작성
 - [[Schema Namespace 상세]] — 동적 컴포넌트에서 사용하는 필드/오브젝트 Describe
+- [[Aura(오라)/Case Feed Visualforce 커스터마이즈|Case Feed Visualforce 커스터마이즈]] — Case Feed VF 컨트롤러 확장이 `ApexPages.StandardController`를 사용하는 실제 예.

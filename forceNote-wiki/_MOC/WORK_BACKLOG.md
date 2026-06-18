@@ -1,7 +1,7 @@
 ---
 tags: [backlog, coverage, work-tracking]
 created: 2026-05-18
-updated: 2026-06-17
+updated: 2026-06-18
 ---
 
 > **세션 인계 메모 (2026-05-25 세션 종료 시점):**
@@ -129,8 +129,8 @@ updated: 2026-06-17
 | ING-11 | mobile_offline (258) = Mobile and Offline Developer Guide | Mobile | **✅ 전수 완료 (2026-06-14)** → `LWC/Mobile(모바일)/모바일 & 오프라인 (LWC).md` (mobileCapabilities 10종·LWC Offline·Offline GraphQL·Briefcase·draft records·제약) + 공식 링크. 기존 모바일 기능 패턴(Tier1)과 상호 링크 |
 | ING-12 | ~~lightning_knowledge_guide (91)~~ = Lightning Knowledge Guide (Spring '26) | Service/Knowledge (admin) | **✅ 전수 완료 (2026-06-17)** → 기존 `Service(서비스)/Knowledge(지식)/`에 admin-facing 7노트(~1,936줄, ING-09의 9개 개발자/API 노트와 viewpoint 구분): 개요(계획·Lightning vs Classic 비교·한계 6하위그룹)·셋업&구성(가이드/수동·권한표)·사용(작성액션 가용성·검색·스마트링크/영구링크·채널 액션)·아티클 리포팅(9필드표)·아티클 임포트(csv/zip·.properties 파라미터)·다국어&번역(ArticleManagement 25행 컬럼표·발행/번역/아카이브/나란히보기)·데이터카테고리&공유(선언적·공유 모델). 다단 표 6개 pdftoppm 이미지검증. **중복 회피:** Metadata 데이터카테고리 스키마·데이터모델·SOAP 통계객체·REST Search/Actions·UI API 제약은 ING-09 노트로 역링크(스키마 재작성 0). cross-linker가 기존 API 노트 6개에 역링크 7건. nav: `_index/service.md` 7행·`_index/questions.md` 어드민 자연어 7행·Service/Knowledge index.md A/B 그룹 재편·Service 허브 갱신. completeness/source-verifier/qa 통과, Tier 3 노트 0 |
 | ING-13 | chat_rest (66) / salesforce_chatter_rest_api (2350, 분할) | Chatter/Connect | 🔲 대기 |
-| ING-14 | case_feed_dev_guide (45) | Service | 🔲 대기 |
-| ING-15 | caf_dev (27) | Service (Case Feed) | 🔲 대기 |
+| ING-14 | ~~case_feed_dev_guide (45)~~ = **Publisher and Quick Action Developer Guide** (Summer '26) | LWC/Aura·Visualforce (Quick Action JS API) | **✅ 전수 완료 (2026-06-18)** → 신규 2노트: `Aura(오라)/Quick Action·Publisher JS API 레퍼런스.md`(~530줄, p.5-22 — `lightning:quickActionAPI` 8메서드[getAvailableActions·getAvailableActionFields·getCustomAction·getSelectedActions·invokeAction·selectAction·setActionFieldValues 등] + `Sfdc.canvas.publisher` 5메서드[selectAction·setActionInputValues·invokeAction·customActionMessage·refresh] + LEX↔Classic 패리티 표) + `Aura(오라)/Case Feed Visualforce 커스터마이즈.md`(~670줄, p.23-45 — VF 컴포넌트 6개 속성표 89행[`apex:emailPublisher`·`apex:logCallPublisher`·`support:portalPublisher`·`support:caseArticles`·`support:CaseFeed`·`chatter:feed`] + Apex 4클래스). source: `case_feed_dev_guide.pdf` Tier 2. **★ 정체 정정:** 파일명 `case_feed`는 함정 — 실제 내용은 Quick Action JS API·Publisher API·VF 액션 커스터마이즈. **동명이의 3구분 명시:** 이 JS API ≠ Apex `QuickAction` 네임스페이스(서버측 performQuickAction) ≠ Lightning Console JS API(workspaceAPI). 교차링크 양방향: QuickAction Namespace·Lightning Console JS API(ING-24, 별개 명시)·Lightning Knowledge 사용(ING-12)·ApexPages Namespace·Support Namespace(coverage-checker 발견). completeness/source-verifier/qa ✅, Tier 3 노트 0. retrospective(모드 A): 양 노트 aliases에 `case feed`·동명이의 구분·VF 컴포넌트 속성 자연어 표현 보강 |
+| ING-15 | caf_dev (27) = **Custom Address Fields Developer Guide** (v66.0 Spring '26) | Data/Schema (sObject·필드) | 🔲 대기 — ★ 파일명 오해정정(2026-06-17 내용확인): `caf`=**Custom Address Fields**(Case Feed 아님). state/country picklist·geocode·Apex/Metadata/REST/SOAP/Tooling 예제. Service 무관 |
 | ING-16 | ~~bi_dev_guide_lwc_in_db (23)~~ = LWC in CRM Analytics Dashboards | Analytics/LWC | **✅ 완료 (2026-06-14)** → `LWC/UIPatterns(UI패턴)/CRM Analytics 대시보드용 LWC.md` |
 | ING-17 | ~~draes (15)~~ = Designing Record Access for Enterprise Scale | Architecture/Security | **✅ 완료 (2026-06-14)** → `Architecture(아키텍처)/레코드 액세스 설계 (Enterprise Scale).md`. ADMIN-4 부분 충족 |
 | ING-18 | esm_developer_guide (55) = **Enterprise Sales Management** (Industries CME) | Sales/Industries | ⏸️ 후순위(niche) — 파일명과 달리 Embedded Service 아님. Industries CME 버티컬의 네임드 API(b2bExpress_*·ESM_* 수십 개) 솔루션. 일반 dev 가치 낮아 보류 |
@@ -161,6 +161,7 @@ updated: 2026-06-17
 | ING-36 | chat_dev_guide (61) = Live Agent/Chat | Service | 🔲 대기 — 기존 ING-13(chat_rest)과 중복 여부 확인 후 진행 |
 | ING-37 | salesforce_pages_developers_guide (817, 분할) | Visualforce | 🔲 **ING-27과 동일 PDF** — 머지로 내용 갱신됨(중복 행, 통합 정리 필요) |
 | ING-38 | salesforce_reports_enhanced_reports_tab_tipsheet (3) | Reports | 🔲 대기 — 초소형 팁시트, ADMIN-5(Reports)와 함께 검토 |
+| ING-39 | salesforce_pages_developers_guide (817, 분할) — **퍼블리셔/Case Feed VF 컴포넌트 속성 레퍼런스 추출** | Visualforce/Component Reference | 🔲 대기 — **★ 우선(P1 가치)·소형 추출** ING-14 후속(source-coverage-checker 2026-06-18 발견). Visualforce Developer Guide의 퍼블리셔·Case Feed VF 컴포넌트 5개 **속성 완전 명세**: `apex:emailPublisher`(p.470)·`apex:logCallPublisher`(p.520)·`support:caseArticles`(p.670)·`support:caseFeed`(p.672)·`support:portalPublisher`(p.674). **공백 근거:** 위키에 VF 컴포넌트 속성 전수 레퍼런스가 **전무** — ING-14 노트는 이 컴포넌트들을 **예제/사용 맥락으로만** 다뤘고 전체 attribute 표(타입·필수·API버전·Access)는 미작성. 이 5개 속성 명세를 ING-14의 2노트에 보강하거나 별도 `Component Reference` 노트로 분리 판단. ※ ING-27/ING-37(같은 PDF 전체 817p 분할)의 일부지만, 이 5컴포넌트 속성만 먼저 떼어내는 소형 작업으로 우선 진행 가능 |
 
 > ADMIN 갭(ADMIN-1~9)은 별도 — 공식 Admin 가이드 PDF 확보 시 진행. 위 INGEST는 이미 보유한 PDF 대상.
 

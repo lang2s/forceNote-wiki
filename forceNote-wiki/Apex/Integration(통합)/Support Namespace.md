@@ -215,3 +215,4 @@ Salesforce가 런타임에 인스턴스를 직접 생성하므로, **파라미�
 - [[Auth Namespace]] — 세션·인증 관련 보안 API
 - [[DataRetrieval Namespace]] — Service Cloud 인게이지먼트·대화 트랜스크립트 조회 (같은 Case/Contact Center 도메인)
 - [[Pref_center Namespace]] — 동의·선호도(Consent/Preference) 모델과 연계되는 고객 커뮤니케이션 채널
+- [[Aura(오라)/Case Feed Visualforce 커스터마이즈|Case Feed Visualforce 커스터마이즈]] — `apex:emailPublisher` Email 액션 커스터마이즈. `Support.EmailTemplateSelector`(Classic Case Feed 이메일 템플릿 자동선택)·마일스톤과 직접 인접한 Case Feed 도메인.
