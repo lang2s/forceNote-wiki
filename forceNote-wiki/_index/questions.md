@@ -62,6 +62,12 @@ created: 2026-05-21
 | 데이터 카테고리 만드는 방법 / 누가 아티클 볼 수 있게 할지 / 카테고리 가시성 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 데이터 카테고리 & 공유.md` |
 | 스마트링크 / 영구링크 / 아티클 검색·작성 액션 / 채널에 아티클 공유 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 사용 — 액션·검색·스마트링크·채널.md` |
 | 아티클 리포트 만드는 방법 / 조회·투표 통계 리포팅 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 아티클 리포팅.md` |
+| Visualforce로 커스텀 채팅 창 만드는 방법 / liveAgent 컴포넌트 | `Service(서비스)/Chat(채팅)/커스텀 Chat 윈도우(Visualforce) · Post-Chat · Direct-to-Agent 라우팅.md` |
+| 채팅 종료 후 post-chat 페이지 / disconnectedBy 확인 | `Service(서비스)/Chat(채팅)/커스텀 Chat 윈도우(Visualforce) · Post-Chat · Direct-to-Agent 라우팅.md` |
+| 특정 상담원에게 직접 채팅 라우팅 / 폴백 라우팅 / direct-to-agent | `Service(서비스)/Chat(채팅)/커스텀 Chat 윈도우(Visualforce) · Post-Chat · Direct-to-Agent 라우팅.md` |
+| Chat Deployment API 로깅·윈도우·버튼 설정하는 방법 | `Service(서비스)/Chat(채팅)/Chat 개발자 가이드 개요 & Deployment API — 로깅·윈도우·버튼.md` |
+| 채팅에서 레코드 자동 검색·생성 / 자동 채팅 초대 띄우는 방법 | `Service(서비스)/Chat(채팅)/Deployment API — 레코드 자동 검색·생성·자동 채팅 초대 & 코드 샘플.md` |
+| Pre-Chat 폼으로 방문자 정보 수집하는 방법 / 채팅 전 컨텍스트 설정 | `Service(서비스)/Chat(채팅)/Pre-Chat API — 방문자 정보 수집 & 컨텍스트 설정.md` |
 | 메타데이터 배포하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API File-Based 호출.md` |
 | Metadata API로 검색하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API File-Based 호출.md` |
 | Metadata API Java 클라이언트 연결하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Quick Start.md` |

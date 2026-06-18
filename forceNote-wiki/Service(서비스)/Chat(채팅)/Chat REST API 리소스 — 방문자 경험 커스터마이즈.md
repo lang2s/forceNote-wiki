@@ -159,3 +159,4 @@ Header: X-LIVEAGENT-API-VERSION: 66
 - [[Chat REST API 리소스 — 채팅 모니터링 & Messages 응답 객체]]
 - [[Chat REST API 요청 & 응답 바디]]
 - [[Chat REST API 데이터 타입 & 상태 코드]]
+- [[커스텀 Chat 윈도우(Visualforce) · Post-Chat · Direct-to-Agent 라우팅]] — Visualforce 임베드 관점에서 방문자 경험을 커스터마이즈하는 대응 노트 (이쪽은 REST 네이티브 클라이언트 관점)

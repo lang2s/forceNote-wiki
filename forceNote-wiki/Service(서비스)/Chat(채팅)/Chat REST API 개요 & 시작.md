@@ -171,5 +171,6 @@ Headers: `X-LIVEAGENT-AFFINITY` · `X-LIVEAGENT-API-VERSION`
 - [[Chat REST API 요청 & 응답 바디]]
 - [[Chat REST API 데이터 타입 & 상태 코드]]
 - [[Service Cloud Objects]] — Chat REST API가 다루는 LiveChatVisitor·LiveChatTranscript 등 Live Agent/Live Chat sObject 카탈로그
+- [[Chat 개발자 가이드 개요 & Deployment API — 로깅·윈도우·버튼]] — 같은 Chat 제품의 JavaScript Deployment/Pre-Chat API·Visualforce 웹페이지 임베드 관점 (REST = 네이티브 앱·커스텀 클라이언트 관점)
 - Messaging for In-App and Web (미작성 — 후속 마이그레이션 대상, 가이드 PDF 미입수)
 - Embedded Service SDK (미작성 — iOS/Android Embedded Service SDK 가이드, PDF 미입수)
