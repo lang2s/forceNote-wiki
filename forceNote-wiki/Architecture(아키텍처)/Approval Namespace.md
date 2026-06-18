@@ -207,3 +207,4 @@ UI 클릭 없이 프로그래밍 방식으로 승인 워크플로를 구동해�
 - [[서비스 레이어 패턴]] — Approval 호출을 Service Layer에 캡슐화
 - [[Platform Event 발행]] — 승인 완료 후 이벤트 발행 패턴
 - [[Batch Apex]] — 대량 레코드 일괄 승인 제출
+- [[Context Namespace]] — Industries Context 서비스 API (자매 네임스페이스)

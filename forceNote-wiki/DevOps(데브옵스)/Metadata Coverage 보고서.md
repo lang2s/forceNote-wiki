@@ -71,4 +71,4 @@ https://mdcoverage.secure.force.com/docs/metadata-coverage
 - [[메타데이터 분해와 forceignore]] — Decomposed Metadata Types 전수
 - [[Unlocked Package 개발과 버전]] — Hard-Deleted Components 포함
 - [[Source Tracking 변경 추적]] — Scratch Org Source Tracking 동작 방식
-- [[MetadataAPI(메타데이터API)/Metadata Types — 개요 및 분류]] — 300+ 메타데이터 타입 전수 목록
+- [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — 개요 및 분류]] — 300+ 메타데이터 타입 전수 목록

@@ -42,10 +42,10 @@ updated: 2026-06-18
 |---|---|---|---|---|
 | PIPE-2 | `writer.md` frontmatter에 `Bash` 도구 추가 | 강화된 Pattern A의 "메이저 섹션 직전 sed 재추출"을 writer가 직접 실행할 수 있게 함. 현재 writer는 Read/Write/Edit만 가능 → researcher dump의 raw 인용에 강제 의존. | 🔲 대기 | 2026-05-23 |
 | 2GP-3 | `2GP Managed Package — Workflow.md` 작성 (pkg2_dev.pdf p.23-25) | 강화된 protocol(6 카테고리 spot check + Pattern B-2 산문형 numeric mapping)의 소형 페이지 validation 기회. | 🔲 대기 | 2026-05-23 |
-| LINT-1 | **깨진 wikilink 수정** — `MetadataAPI(...)` 경로 prefix 누락 20건 | 2026-05-25 lint 발견. `DevOps(데브옵스)/index.md`(13건)·`CI CD 패턴.md`(2건)·`Metadata Coverage 보고서.md`(1건)·`Apex/Integration(통합)/Metadata Namespace.md`(2건)에서 `[[MetadataAPI(메타데이터API)/...]]`를 `[[DevOps(데브옵스)/MetadataAPI(메타데이터API)/...]]`로 수정. | 🔲 대기 | 2026-05-25 |
-| LINT-2 | **MOC 누락 항목 추가** — SLDS 디자인 시스템·Enhanced Domains | `LWC/LWC MOC.md`에 `SLDS LWC 디자인 시스템` 행 추가, `Architecture(아키텍처)/Architecture MOC.md`에 `Enhanced Domains` 행 추가. | 🔲 대기 | 2026-05-25 |
-| LINT-3 | **peer 노트 역링크 3건** | `파일 업로드와 이미지 처리.md`←`[[lightning-input]]`, `Approval Namespace.md`←`[[Context Namespace]]`, `모바일 기능 패턴.md`←`[[quickChoice Screen Component]]` 추가. | 🔲 대기 | 2026-05-25 |
-| LINT-4 | **`questions.md` 예외 규칙 명문화** — CLAUDE.md + wiki-linter.md 수정 | `_index/questions.md`는 "교차 도메인 질문 라우팅 보조 샤드"로 설계 의도상 다른 도메인 샤드에 등재된 파일을 재등재할 수 있음. "1 페이지 = 1 홈 샤드" 규칙의 공식 예외로 명문화 필요. CLAUDE.md 샤드 규칙 표에 각주 추가 + wiki-linter.md check #3(고아)·#6(중복) 판정 로직에 `questions.md` 제외 처리 안내 추가. | 🔲 대기 | 2026-05-25 |
+| LINT-1 | **깨진 wikilink 수정** — `MetadataAPI(...)` 경로 prefix 누락 20건 | 2026-05-25 lint 발견. `DevOps(데브옵스)/index.md`(13건)·`CI CD 패턴.md`(2건)·`Metadata Coverage 보고서.md`(1건)·`Apex/Integration(통합)/Metadata Namespace.md`(2건)에서 `[[MetadataAPI(메타데이터API)/...]]`를 `[[DevOps(데브옵스)/MetadataAPI(메타데이터API)/...]]`로 수정. **✅ 완료(2026-06-18)** — 이번 lint 수정 워크리스트에서 index-manager+cross-linker가 경로 prefix 보정. | ✅ 완료 | 2026-05-25 |
+| LINT-2 | **MOC 누락 항목 추가** — SLDS 디자인 시스템·Enhanced Domains | `LWC/LWC MOC.md`에 `SLDS LWC 디자인 시스템` 행 추가, `Architecture(아키텍처)/Architecture MOC.md`에 `Enhanced Domains` 행 추가. **✅ 완료(2026-06-18)** — 2026-06-18 lint 재확인으로 기해소 확인: LWC MOC L136 `## 🎨 SLDS 디자인 시스템` 섹션·L138 `[[SLDS LWC 디자인 시스템]]` 링크 + Architecture MOC L44 `[[Enhanced Domains]]` 행 모두 존재. | ✅ 완료 | 2026-05-25 |
+| LINT-3 | **peer 노트 역링크 3건** | `파일 업로드와 이미지 처리.md`←`[[lightning-input]]`, `Approval Namespace.md`←`[[Context Namespace]]`, `모바일 기능 패턴.md`←`[[quickChoice Screen Component]]` 추가. **✅ 완료(2026-06-18)** — 이번 lint 수정 워크리스트에서 cross-linker가 3건 양방향 역링크 보완. | ✅ 완료 | 2026-05-25 |
+| LINT-4 | **`questions.md` 예외 규칙 명문화** — CLAUDE.md + wiki-linter.md 수정 | `_index/questions.md`는 "교차 도메인 질문 라우팅 보조 샤드"로 설계 의도상 다른 도메인 샤드에 등재된 파일을 재등재할 수 있음. "1 페이지 = 1 홈 샤드" 규칙의 공식 예외로 명문화 필요. CLAUDE.md 샤드 규칙 표에 각주 추가 + wiki-linter.md check #3(고아)·#6(중복) 판정 로직에 `questions.md` 제외 처리 안내 추가. **✅ 완료(2026-06-18)** — wiki-retrospective가 CLAUDE.md "1 페이지 = 1 홈 샤드" 행 비고에 예외 명문화 + wiki-linter.md 고아(#2)·샤드 건강/중복(#3b) 섹션에 questions.md 제외 안내 삽입. (AP-07로 프로토콜 개선 이력에도 기록) | ✅ 완료 | 2026-05-25 |
 
 ### 🟡 P1 — Task #4(대형 카탈로그) 전 필요
 
@@ -236,6 +236,7 @@ updated: 2026-06-18
 | AP-04 | L1 wiki lint 훅 도입 — `.claude/settings.json` PostToolUse 훅이 `scripts/lint-md-file.sh` 호출, `.md` 파일 Write/Edit 시 자동 검증(frontmatter·요약·코드블록·관련 노트·source값·깨진 wikilink). 순수 bash(Mac/Win 공통). 의미 오류는 못 잡고 구조만 검사 — Phase 2(LLM source-verifier 자동 호출)는 PIPE-6 백로그. | `.claude/settings.json`, `scripts/lint-md-file.sh` | ✅ 완료 | 2026-05-23 |
 | AP-05 | PDF 페이지 오프셋(ToC 인쇄번호 ≠ PDF 물리페이지) 확인 절차 추가 — ING-31에서 표지/목차 4p로 +4 오프셋 발견(scout가 캐치). ToC 번호를 그대로 `pdftotext -f/-l`에 넣으면 **틀린 챕터를 에러 없이 추출**(추출 성공→source-verifier 전까지 미발견)하므로, scout가 매 PDF 1회 오프셋 실측→물리페이지 환산 범위를 researcher에 전달. Why 첨부. (첫 발견·캐치 성공이나, silent-error 성격상 예방 가치 높아 additive 규칙화) | `scout.md` | ✅ 완료 | 2026-06-18 |
 | AP-06 | **최상위 TOC 불완전 가능성 — 리소스 하위 중첩 항목 교차검증 절차** 추가 — ING-13a에서 최상위 TOC가 Ch6 "Messages Response Objects"의 **14개 하위 응답 객체**를 누락(리소스 1개 아래 중첩됨). 최상위 TOC만 신뢰하면 source-coverage 누락이 **추출 성공·구조상 멀쩡으로 위장**(AP-05와 동류의 silent gap). scout는 매 reference-PDF에서 TOC뿐 아니라 **PDF 뒤쪽 색인(index)·각 리소스 본문의 "Response Objects/Sub-resources" 헤딩**도 1회 훑어 중첩 항목 목록을 완성→researcher/coverage-checker에 전달, completeness-validator는 "리소스 N개" 카운트가 아니라 **중첩 하위 항목 전수**로 판정. Why 첨부(reference 가이드는 리소스 아래 응답객체·서브리소스를 TOC에 펼치지 않는 구조가 흔함). ING-13a에서 scout가 캐치·validator 14개 확인했으나, 예방 가치 높아 additive 규칙화 | `scout.md`, `completeness-validator.md` | 🔲 권고(다음 모드 B에서 반영) | 2026-06-18 |
+| AP-07 | **`questions.md` 교차 도메인 보조 샤드 예외 명문화** (LINT-4) — `_index/questions.md`는 "교차 도메인 질문 라우팅 보조 샤드"로, 설계 의도상 다른 도메인 샤드에 이미 등재된 파일을 자연어 질문 형태로 재등재한다. "1 페이지 = 1 홈 샤드"(중복 행 금지) 규칙을 그대로 적용하면 wiki-linter가 이를 중복/고아 위반으로 **오탐**하므로, (a) CLAUDE.md "탐색 인덱스 구조" 표 "1 페이지 = 1 홈 샤드" 행 비고에 공식 예외 문구 추가, (b) wiki-linter.md 고아 탐지(check #2)·샤드 건강/중복(check #3b) 판정에 questions.md 제외 안내 추가. Why 첨부(보조 샤드는 라우팅 목적상 의도된 재등재이므로 중복 금지 규칙의 적용 대상이 아님). additive — 기존 규칙 약화 없음 | `CLAUDE.md`, `wiki-linter.md` | ✅ 완료 | 2026-06-18 |
 
 ---
 
@@ -248,6 +249,7 @@ updated: 2026-06-18
 | 2026-05-21 | 깨진 wikilink 15건 · 깨진 샤드 경로 8건 | 즉시 6건 수정 + 2건 재연결, 신규 작성 필요분은 아카이브 L·I 섹션으로 분류 | Spring '26 |
 | 2026-05-23 | 깨진 링크 2건(SLDS 슬래시·Metadata 경로 prefix) · MOC 누락 5건 · 단방향 링크 317건 | 8건 수정(SLDS×2·경로×1·Apex MOC 신규 5) · 단방향 분석→신규 클러스터 18 역링크 추가, hub-spoke 다수는 의도적 단방향 보존 · 근본원인 프로토콜화(→AP-01) | Spring '26 |
 | 2026-05-23 (3차) | ❌ genuine peer 36→0 확인(cross-linker 16건 역링크 후) · 잔여 단방향 17건은 전부 의도적(spoke→hub + 약한 관계, 휴리스틱-판단 일치) · fan-in 허브 휴리스틱 결함 발견(nav 링크 오염으로 진짜 허브 오분류) | ❌ 0 도달 확인 · fan-in 휴리스틱 정정(이름/역할 1차 + nav 제외 spoke fan-in 2차, raw 총량 헤드라인 금지·3분류 보고)→AP-02 | Spring '26 |
+| 2026-06-18 | LINT-1~4 해소 워크리스트. 깨진 wikilink(MetadataAPI 경로 prefix 누락 20건, LINT-1)·peer 역링크 3건(LINT-3)은 index-manager/cross-linker가 수정. MOC 누락(SLDS·Enhanced Domains, LINT-2)은 재확인 결과 기해소(LWC MOC L136·138, Architecture MOC L44 존재). questions.md 보조 샤드의 중복/고아 오탐(LINT-4)은 거버넌스 예외 명문화로 해소. | LINT-1·2·3·4 전부 ✅(2026-06-18) → 열린 항목 P0에서 상태 갱신. LINT-4 예외는 AP-07로 프로토콜 이력화(CLAUDE.md + wiki-linter.md). | 없음 |
 
 ---
 

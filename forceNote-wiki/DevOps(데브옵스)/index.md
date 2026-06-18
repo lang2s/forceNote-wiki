@@ -71,29 +71,29 @@ created: 2026-05-18
 | [[DX 트러블슈팅]] | org login web/jwt 오류 전수(12가지)·No default dev hub·포트 점유·consumer key 중복 해결 | #reference |
 | [[DX 제약사항]] | CLI·Dev Hub·Source Management·배포·1GP/2GP·Unlocked Package 알려진 제약 13건 전수 | #reference |
 
-### Metadata API (서브폴더 → [[MetadataAPI(메타데이터API)/index]])
+### Metadata API (서브폴더 → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/index]])
 
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
-| [[MetadataAPI(메타데이터API)/Metadata API 개요]] | API 개념·에디션·권한·버전 생명주기·호출 목록 | #overview |
-| [[MetadataAPI(메타데이터API)/Metadata API Quick Start]] | WSDL/WSC Java 클라이언트 연결·빠른 시작 | #quickstart |
-| [[MetadataAPI(메타데이터API)/Metadata API File-Based 호출]] | deploy·retrieve·package.xml·DeployOptions 전체 | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata API CRUD 호출]] | createMetadata·readMetadata·updateMetadata·deleteMetadata | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata API REST]] | deployRequest REST 엔드포인트 + curl 예제 | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata API Utility Calls]] | describeMetadata·listMetadata·checkStatus | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata API Result Objects]] | DeployResult·RetrieveResult·RunTestsResult·Error 전수 | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata API Headers]] | AllOrNoneHeader·DebuggingHeader·SessionHeader | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata API 에러 처리]] | SOAP fault·비동기/동기 CRUD 오류·세션 만료 처리 | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata API MCP Tool]] | MCP 서버(Beta)·5개 도구·Cursor/Claude/Agentforce 설정 | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata Types — 개요 및 분류]] | 300+ 타입 전체 목록·그룹 분류·Type Limits | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata Types — Apex & Code]] | ApexClass·ApexTrigger·LightningComponentBundle·StaticResource | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata Types — Objects & Fields]] | CustomObject·CustomField·RecordType·ValidationRule | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata Types — Automation]] | Flow·ApprovalProcess·WorkflowRule·DuplicateRule | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata Types — Security & Access]] | PermissionSet·Profile·SharingRules·ConnectedApp | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata Types — UI & Layout]] | Layout·FlexiPage·CustomApplication·ExperienceBundle | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata Types — Integration & Platform]] | NamedCredential·RemoteSiteSetting·PlatformEventChannel | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata Types — Einstein & Analytics]] | WaveApplication·GenAiPlanner·Bot·DiscoveryAIModel | #reference |
-| [[MetadataAPI(메타데이터API)/Metadata Types — Other]] | Metadata·MetadataWithContent·FuelType·기타 타입 | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API 개요]] | API 개념·에디션·권한·버전 생명주기·호출 목록 | #overview |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Quick Start]] | WSDL/WSC Java 클라이언트 연결·빠른 시작 | #quickstart |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API File-Based 호출]] | deploy·retrieve·package.xml·DeployOptions 전체 | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API CRUD 호출]] | createMetadata·readMetadata·updateMetadata·deleteMetadata | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API REST]] | deployRequest REST 엔드포인트 + curl 예제 | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Utility Calls]] | describeMetadata·listMetadata·checkStatus | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Result Objects]] | DeployResult·RetrieveResult·RunTestsResult·Error 전수 | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Headers]] | AllOrNoneHeader·DebuggingHeader·SessionHeader | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API 에러 처리]] | SOAP fault·비동기/동기 CRUD 오류·세션 만료 처리 | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API MCP Tool]] | MCP 서버(Beta)·5개 도구·Cursor/Claude/Agentforce 설정 | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — 개요 및 분류]] | 300+ 타입 전체 목록·그룹 분류·Type Limits | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Apex & Code]] | ApexClass·ApexTrigger·LightningComponentBundle·StaticResource | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Objects & Fields]] | CustomObject·CustomField·RecordType·ValidationRule | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Automation]] | Flow·ApprovalProcess·WorkflowRule·DuplicateRule | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Security & Access]] | PermissionSet·Profile·SharingRules·ConnectedApp | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — UI & Layout]] | Layout·FlexiPage·CustomApplication·ExperienceBundle | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Integration & Platform]] | NamedCredential·RemoteSiteSetting·PlatformEventChannel | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Einstein & Analytics]] | WaveApplication·GenAiPlanner·Bot·DiscoveryAIModel | #reference |
+| [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Other]] | Metadata·MetadataWithContent·FuelType·기타 타입 | #reference |
 
 ---
 
@@ -312,15 +312,15 @@ created: 2026-05-18
 - CircleCI 서버 키 암호화 설정? → [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] → CircleCI
 - Jenkins Jenkinsfile 전체 코드 보기? → [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] → Sample Jenkinsfile
 - Sample CI 레포 전체 목록? → [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] → Sample CI Repos
-- - Metadata API 전체 둘러보기? → [[MetadataAPI(메타데이터API)/index]]
-- .zip 파일로 배포하기? → [[MetadataAPI(메타데이터API)/Metadata API File-Based 호출]]
-- REST API로 배포? → [[MetadataAPI(메타데이터API)/Metadata API REST]]
-- 단일 컴포넌트 생성/삭제(CRUD)? → [[MetadataAPI(메타데이터API)/Metadata API CRUD 호출]]
-- 배포 오류 원인 파악? → [[MetadataAPI(메타데이터API)/Metadata API 에러 처리]]
-- AI 코딩 도구에서 메타데이터 타입 조회? → [[MetadataAPI(메타데이터API)/Metadata API MCP Tool]]
-- CustomObject/CustomField 메타데이터 필드 정의? → [[MetadataAPI(메타데이터API)/Metadata Types — Objects & Fields]]
-- Flow/ApprovalProcess 메타데이터 필드 정의? → [[MetadataAPI(메타데이터API)/Metadata Types — Automation]]
-- PermissionSet/Profile 메타데이터 필드 정의? → [[MetadataAPI(메타데이터API)/Metadata Types — Security & Access]]
+- - Metadata API 전체 둘러보기? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/index]]
+- .zip 파일로 배포하기? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API File-Based 호출]]
+- REST API로 배포? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API REST]]
+- 단일 컴포넌트 생성/삭제(CRUD)? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API CRUD 호출]]
+- 배포 오류 원인 파악? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API 에러 처리]]
+- AI 코딩 도구에서 메타데이터 타입 조회? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API MCP Tool]]
+- CustomObject/CustomField 메타데이터 필드 정의? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Objects & Fields]]
+- Flow/ApprovalProcess 메타데이터 필드 정의? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Automation]]
+- PermissionSet/Profile 메타데이터 필드 정의? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Security & Access]]
 
 ---
 

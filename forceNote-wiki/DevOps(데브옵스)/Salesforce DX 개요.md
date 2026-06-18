@@ -212,7 +212,7 @@ MyProject/
 - [[Scratch Org 패턴]] — scratch org 생성, 설정, 스냅샷
 - [[Unlocked Package 패턴]] — 패키지 생성·버전·배포
 - [[CI CD 패턴]] — Jenkins, CircleCI 연동
-- [[MetadataAPI(메타데이터API)/Metadata API 개요]] — Metadata API 직접 사용법 (deploy/retrieve SOAP+REST)
+- [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API 개요]] — Metadata API 직접 사용법 (deploy/retrieve SOAP+REST)
 - [[DX 인증 방식]] — org login web·JWT Flow·External Client App·SFDX Auth URL·Logout 전수 심층 레퍼런스
 - [[DX 개발 워크플로]] — CLI 소스 파일 생성·배포·Anonymous Apex·테스트 실행·Debug Logs 전수
 - [[DX 도구 개요와 워크플로 전환]] — DX가 개발 방식을 바꾸는 이유·3가지 시작 경로·전체 워크플로 전수
