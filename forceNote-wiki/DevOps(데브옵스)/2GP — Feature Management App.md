@@ -297,6 +297,6 @@ Feature parameters를 사용할 때 주의사항:
 - [[2GP — LMA Part 2 Troubleshoot]] — LMA 트러블슈팅, 구독자 지원, LMA 이전
 - [[2GP — Best Practices]] — 2GP 개발·배포 모범 사례
 - [[2GP — Prepare to Distribute]] — AppExchange 등록, LMO 연결, Package 등록 절차
-- [[2GP — Components: Integration & Platform]] — FeatureParameterBoolean·Date·Integer Manageability Rules
+- [[2GP — Components - Integration & Platform]] — FeatureParameterBoolean·Date·Integer Manageability Rules
 - [[2GP Managed Package 개념과 1GP 비교]] — managed 2GP 개념·LMO·Partner Business Org
-- [[2GP — App Analytics Part 1: Overview & Setup]] — AppExchange App Analytics 개요·CustomInteractions 구현 (IsvPartners.AppAnalytics — LMO·ISV 사용량 데이터)
+- [[2GP — App Analytics Part 1 - Overview & Setup]] — AppExchange App Analytics 개요·CustomInteractions 구현 (IsvPartners.AppAnalytics — LMO·ISV 사용량 데이터)

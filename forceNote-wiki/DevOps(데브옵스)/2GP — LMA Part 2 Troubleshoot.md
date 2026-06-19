@@ -208,4 +208,4 @@ LMA를 다른 org로 이전해야 할 경우, license record와 package record�
 - [[2GP — Feature Management App]] — Feature Parameters 설정·운영 (LMO 기반)
 - [[2GP — Prepare to Distribute]] — AppExchange 등록, LMO 연결, Package 등록 절차
 - [[DX 인증 방식]] — JWT Flow, org login jwt, ISV Customer Debugger 연관 인증
-- [[2GP — App Analytics Part 2: Best Practices & Query Strategy]] — App Analytics 쿼리 전략·Catch-Up Queries·파트너 규모별 권장 사항
+- [[2GP — App Analytics Part 2 - Best Practices & Query Strategy]] — App Analytics 쿼리 전략·Catch-Up Queries·파트너 규모별 권장 사항

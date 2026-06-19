@@ -383,4 +383,4 @@ Lightning Bolt Solution에 포함되는 플로우 카테고리. `Metadata` 타�
 - [[Metadata Types — Security & Access]] — Profile, PermissionSet
 - [[Metadata API File-Based 호출]] — package.xml Flow 배포
 - [[Metadata API 에러 처리]] — 배포 오류 처리
-- [[2GP — Components: Automation]] — Flow·Workflow·Decision Table·Batch 등 자동화 컴포넌트 2GP Manageability Rules 전수
+- [[2GP — Components - Automation]] — Flow·Workflow·Decision Table·Batch 등 자동화 컴포넌트 2GP Manageability Rules 전수

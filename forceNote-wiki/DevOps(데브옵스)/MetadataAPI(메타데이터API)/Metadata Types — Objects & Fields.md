@@ -200,7 +200,7 @@ Asset 파일 메타데이터. Salesforce 파일을 org 설정·구성에 사용�
 - [[Metadata Types — Security & Access]] — Profile, PermissionSet
 - [[Metadata Types — UI & Layout]] — Layout, FlexiPage
 - [[Metadata API CRUD 호출]] — createMetadata()로 CustomObject 생성 예시
-- [[2GP — Components: Objects & Fields]] — 동일 오브젝트·필드 컴포넌트의 2GP Managed Package Manageability Rules 전수
+- [[2GP — Components - Objects & Fields]] — 동일 오브젝트·필드 컴포넌트의 2GP Managed Package Manageability Rules 전수
 - [[Knowledge Metadata API 타입 — 아티클·채널·설정]] — ArticleType(`__kav`)·CustomField 등 Knowledge 전용 오브젝트·필드 메타데이터 타입 상세
 
 ---

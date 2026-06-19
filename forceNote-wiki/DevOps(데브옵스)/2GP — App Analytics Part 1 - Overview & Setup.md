@@ -5,7 +5,7 @@ created: 2026-05-24
 aliases: [App Analytics Overview, AppExchange App Analytics 개요, 앱 애널리틱스 설정, Custom Interactions 커스텀 인터랙션, IsvPartners.AppAnalytics]
 ---
 
-# 2GP — App Analytics Part 1: 개요·설정·Custom Interactions
+# 2GP — App Analytics Part 1 - 개요·설정·Custom Interactions
 
 > AppExchange App Analytics는 구독자가 관리 패키지 및 패키지 컴포넌트와 상호작용하는 방식에 대한 사용량 데이터를 제공한다. 이 데이터를 활용해 이탈 위험 식별, 기능 개발 결정, 사용자 경험 개선을 수행한다.
 
@@ -287,9 +287,9 @@ This means that the code is ready to be packaged.
 ---
 
 ## 관련 노트
-- [[2GP — App Analytics Part 2: Best Practices & Query Strategy]]
-- [[2GP — App Analytics Part 3: Data Types & Schemas]]
-- [[2GP — App Analytics Part 4: Developer Cookbook]]
+- [[2GP — App Analytics Part 2 - Best Practices & Query Strategy]]
+- [[2GP — App Analytics Part 3 - Data Types & Schemas]]
+- [[2GP — App Analytics Part 4 - Developer Cookbook]]
 - [[2GP — LMA Part 1 Get Started]]
 - [[2GP — LMA Part 2 Troubleshoot]]
 - [[2GP — Feature Management App]]

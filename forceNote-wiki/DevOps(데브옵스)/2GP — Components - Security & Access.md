@@ -5,7 +5,7 @@ created: 2026-05-23
 aliases: [2GP Security Access 컴포넌트, 2GP PermissionSet 패키징, 2GP ConnectedApp 패키징, 2GP CorsWhitelistOrigin, 2GP CspTrustedSite, 2GP ExternalCredential, 2GP ExternalAuthIdentityProvider, 2GP IdentityVerificationProcDef, 2GP LiveChatSensitiveDataRule, 2GP PermissionSetGroup, AccountRelationshipShareRule 2GP, 2GP 보안 접근 컴포넌트]
 ---
 
-# 2GP — Components: Security & Access
+# 2GP — Components - Security & Access
 
 > 2GP Managed Package에 포함할 수 있는 보안·접근 제어 도메인 컴포넌트의 Manageability Rules 4속성과 Editable Properties 3카테고리 전수. PDF(pkg2_dev.pdf) Components Available 섹션(p.25–313) 기준.
 
@@ -496,11 +496,11 @@ PDF(pkg2_dev.pdf) Components Available 목차(p.25–313)에 아래 컴포넌트
 
 - [[Metadata Types — Security & Access]] — PermissionSet, Profile, SharingRules, ConnectedApp 메타데이터 타입 전수
 - [[2GP Managed Package — Workflow]] — Manageability Rules 4속성·Editable Properties 3카테고리 개요·Supported Components 전수 목록
-- [[2GP — Components: Apex & Code]] — ApexClass, LWC, StaticResource 2GP 패키징 규칙
-- [[2GP — Components: Automation]] — Flow, Workflow 2GP 패키징 규칙
-- [[2GP — Components: Einstein & Analytics]] — GenAiPlugin, AIApplication 2GP 패키징 규칙
-- [[2GP — Components: Integration & Platform]] — ExternalDataSource, NamedCredential, FeatureParameter 2GP 패키징 규칙
-- [[2GP — Components: Objects & Fields]] — CustomObject, CustomField 2GP 패키징 규칙
-- [[2GP — Components: UI & Layout]] — ActionLinkGroupTemplate·BrandingSet·CommunityTemplateDefinition·CommunityThemeDefinition·CustomApplication·CustomTab·DigitalExperienceBundle·FlexiPage·LightningMessageChannel·LightningBolt·LightningTypeBundle·ManagedContentType·PathAssistant·QuickAction·Layout·Prompt 등 UI 레이아웃 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: Other]] — FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 기타 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Apex & Code]] — ApexClass, LWC, StaticResource 2GP 패키징 규칙
+- [[2GP — Components - Automation]] — Flow, Workflow 2GP 패키징 규칙
+- [[2GP — Components - Einstein & Analytics]] — GenAiPlugin, AIApplication 2GP 패키징 규칙
+- [[2GP — Components - Integration & Platform]] — ExternalDataSource, NamedCredential, FeatureParameter 2GP 패키징 규칙
+- [[2GP — Components - Objects & Fields]] — CustomObject, CustomField 2GP 패키징 규칙
+- [[2GP — Components - UI & Layout]] — ActionLinkGroupTemplate·BrandingSet·CommunityTemplateDefinition·CommunityThemeDefinition·CustomApplication·CustomTab·DigitalExperienceBundle·FlexiPage·LightningMessageChannel·LightningBolt·LightningTypeBundle·ManagedContentType·PathAssistant·QuickAction·Layout·Prompt 등 UI 레이아웃 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Other]] — FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 기타 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
 - [[2GP — Specific Metadata Behavior]] — Permission Set vs Profile Settings 비교 전수·Profile Settings 2GP 처리 방식(scopeProfiles)·Install for Admins Only/All Users/Specific Profiles·Protected Components 목록·IP 보호 규칙

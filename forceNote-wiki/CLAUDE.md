@@ -108,11 +108,15 @@ git show HEAD:"경로/파일명.md"
 
 git 객체 저장소에는 파일이 존재하므로 `git show`로 내용을 읽을 수 있다.
 
-### 실제 발생 사례
+### 실제 발생 사례 (✅ 2026-06-19 해결)
 
-`forceNote-wiki/DevOps(데브옵스)/` 하위 12개 파일이 파일명에 `: ` 포함  
-예: `2GP — App Analytics Part 1: Overview & Setup.md`  
-→ Windows에서 clone 시 전부 건너뛰어져 디스크에 없음. `git show HEAD:<경로>`로만 접근 가능.
+`forceNote-wiki/DevOps(데브옵스)/` 하위 12개 파일이 파일명에 `: ` 포함했었음  
+예(해결 전): `2GP — App Analytics Part 1: Overview & Setup.md`  
+→ Windows에서 clone 시 전부 건너뛰어져 디스크에 없었음. `git show HEAD:<경로>`로만 접근 가능했음.
+
+**조치:** 12개 파일명의 `: `를 ` - `(공백+하이픈+공백)로 일괄 rename + 관련 wikilink 152개·샤드 경로 12개 동시 치환.  
+예(해결 후): `2GP — App Analytics Part 1 - Overview & Setup.md`  
+**재발 방지 규칙:** 새 파일명에 콜론(`:`) 등 위 금지 문자를 절대 쓰지 않는다. 부제·구분이 필요하면 ` - `(공백+하이픈+공백) 또는 ` — `(em dash)를 쓴다.
 
 ---
 

@@ -5,7 +5,7 @@ created: 2026-05-24
 aliases: [Package Usage Logs Schema, Package Usage Summaries Schema, Subscriber Snapshots Schema, App Analytics 스키마, log_record_type, custom_entity_type, Test Custom Integrations, Simulation Mode]
 ---
 
-# 2GP — App Analytics Part 3: Data Types & Schemas
+# 2GP — App Analytics Part 3 - Data Types & Schemas
 
 > Package Usage Summaries(월별 집계), Package Usage Logs(일별 상세), Subscriber Snapshots(일별 스냅샷) 세 가지 데이터 타입의 스키마와 분석 방법을 다룬다.
 
@@ -448,8 +448,8 @@ AppExchange App Analytics는 매일 org, 패키지, 커스텀 엔티티 데이�
 ---
 
 ## 관련 노트
-- [[2GP — App Analytics Part 1: Overview & Setup]]
-- [[2GP — App Analytics Part 2: Best Practices & Query Strategy]]
-- [[2GP — App Analytics Part 4: Developer Cookbook]]
+- [[2GP — App Analytics Part 1 - Overview & Setup]]
+- [[2GP — App Analytics Part 2 - Best Practices & Query Strategy]]
+- [[2GP — App Analytics Part 4 - Developer Cookbook]]
 - [[2GP — LMA Part 1 Get Started]]
 - [[2GP Managed Package 개념과 1GP 비교]]

@@ -5,7 +5,7 @@ created: 2026-05-24
 aliases: [2GP Other 컴포넌트, 2GP 기타 컴포넌트, managed package other components, 2GP 미분류 컴포넌트]
 ---
 
-# 2GP — Components: Other
+# 2GP — Components - Other
 
 > 2GP managed package에서 패키징 가능한 컴포넌트 중 Apex & Code / Automation / Einstein & Analytics / Integration & Platform / Objects & Fields / Security & Access / UI & Layout 7개 도메인에 배정되지 않은 나머지 컴포넌트 전수.
 
@@ -1723,25 +1723,25 @@ sf package create \
 
 ## 2GP Components 시리즈 전체 목차
 
-- [[2GP — Components: Apex & Code]] — Apex Class, Trigger, LWC, Aura 등
-- [[2GP — Components: Automation]] — Flow, Workflow, Approval Process 등
-- [[2GP — Components: Einstein & Analytics]] — AI Application, Dashboard, Bot 등
-- [[2GP — Components: Integration & Platform]] — Named Credential, External Service, Feature Parameter 등
-- [[2GP — Components: Objects & Fields]] — Custom Object, Custom Field, Global Value Set 등
-- [[2GP — Components: Security & Access]] — Permission Set, Connected App, External Credential 등
-- [[2GP — Components: UI & Layout]] — FlexiPage, Lightning Message Channel, Custom App 등
-- [[2GP — Components: Other]] — 이 파일
+- [[2GP — Components - Apex & Code]] — Apex Class, Trigger, LWC, Aura 등
+- [[2GP — Components - Automation]] — Flow, Workflow, Approval Process 등
+- [[2GP — Components - Einstein & Analytics]] — AI Application, Dashboard, Bot 등
+- [[2GP — Components - Integration & Platform]] — Named Credential, External Service, Feature Parameter 등
+- [[2GP — Components - Objects & Fields]] — Custom Object, Custom Field, Global Value Set 등
+- [[2GP — Components - Security & Access]] — Permission Set, Connected App, External Credential 등
+- [[2GP — Components - UI & Layout]] — FlexiPage, Lightning Message Channel, Custom App 등
+- [[2GP — Components - Other]] — 이 파일
 
 ---
 
 ## 관련 노트
 
 - [[Metadata Types — Other]] — Metadata API 관점의 기타 타입 (FuelType, Scontrol 등)
-- [[2GP — Components: Apex & Code]] — Apex Class, Trigger, LWC, Aura 컴포넌트 규칙
-- [[2GP — Components: Automation]] — Flow, Workflow, Decision Table 등 자동화 도메인
-- [[2GP — Components: Einstein & Analytics]] — AI, Analytics, Agentforce 도메인
-- [[2GP — Components: Integration & Platform]] — Named Credential, External Service 등
-- [[2GP — Components: Objects & Fields]] — Custom Object, Custom Field 등 데이터 도메인
-- [[2GP — Components: Security & Access]] — Permission Set, Connected App 등 보안 도메인
-- [[2GP — Components: UI & Layout]] — FlexiPage, Layout, Quick Action 등 UI 도메인
+- [[2GP — Components - Apex & Code]] — Apex Class, Trigger, LWC, Aura 컴포넌트 규칙
+- [[2GP — Components - Automation]] — Flow, Workflow, Decision Table 등 자동화 도메인
+- [[2GP — Components - Einstein & Analytics]] — AI, Analytics, Agentforce 도메인
+- [[2GP — Components - Integration & Platform]] — Named Credential, External Service 등
+- [[2GP — Components - Objects & Fields]] — Custom Object, Custom Field 등 데이터 도메인
+- [[2GP — Components - Security & Access]] — Permission Set, Connected App 등 보안 도메인
+- [[2GP — Components - UI & Layout]] — FlexiPage, Layout, Quick Action 등 UI 도메인
 - [[2GP Managed Package — Workflow]] — Manageability Rules 전체 정의 및 2GP 워크플로

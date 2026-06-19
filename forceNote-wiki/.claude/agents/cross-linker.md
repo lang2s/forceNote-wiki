@@ -26,7 +26,7 @@ tools:
 
 ## 허브·카탈로그 페이지 우선 점검 (시리즈 작업 필수)
 
-새 파일이 **시리즈의 일부**(예: `2GP — Components: Apex & Code`처럼 같은 prefix 형제 7+개)일 때, 형제 노트 역링크에만 집중하면 **상위 허브·카탈로그 페이지**(MetadataAPI 도메인 파일·Workflow 파일·MOC·index)에 역링크 추가를 잊는 경향이 있다. 회고(2026-05-24)에서 11건 누락 발견.
+새 파일이 **시리즈의 일부**(예: `2GP — Components - Apex & Code`처럼 같은 prefix 형제 7+개)일 때, 형제 노트 역링크에만 집중하면 **상위 허브·카탈로그 페이지**(MetadataAPI 도메인 파일·Workflow 파일·MOC·index)에 역링크 추가를 잊는 경향이 있다. 회고(2026-05-24)에서 11건 누락 발견.
 
 ### 시리즈 작성 시 필수 점검 절차
 
@@ -34,7 +34,7 @@ tools:
 1. 형제 파일 N개 → 새 파일 역링크 (지금까지 잘 하던 것)
 2. **+ 상위 카탈로그 페이지 점검 (새로 추가된 룰)**
    a. 새 파일이 기존 파일 X를 링크한다면, X의 "도메인/카테고리 친척" 파일도 함께 점검
-      예: 2GP — Components: Einstein & Analytics가 Metadata Types — Einstein & Analytics를 링크하면,
+      예: 2GP — Components - Einstein & Analytics가 Metadata Types — Einstein & Analytics를 링크하면,
           시리즈의 다른 7개(Apex & Code·Automation 등)도 같은 패턴이어야 한다 → 전수 확인
    b. 시리즈의 "허브 페이지"(예: 2GP Managed Package — Workflow.md)에서 첫 번째 형제만 링크돼 있다면, 
       나머지 7개 형제도 같은 자리에 추가
@@ -50,7 +50,7 @@ tools:
 
 | 시리즈 유형 | 점검해야 할 허브 |
 |---|---|
-| `2GP — Components: *` 시리즈 | `MetadataAPI/Metadata Types — *` 동일 도메인 파일 + `2GP Managed Package — Workflow.md` |
+| `2GP — Components - *` 시리즈 | `MetadataAPI/Metadata Types — *` 동일 도메인 파일 + `2GP Managed Package — Workflow.md` |
 | `Metadata Types — *` 시리즈 | `Metadata Types — 개요 및 분류`·`MetadataAPI 개요` |
 | `Apex Namespace *` 시리즈 | `Apex/Apex MOC.md` + `_index/apex-namespaces.md`(라우터는 index-manager만, 콘텐츠 역링크만) |
 | `Trailhead App` 시리즈 | 해당 앱 README + `Apex/Apex MOC.md` |

@@ -604,9 +604,9 @@ Salesforce는 두 가지 globally unique ID를 제공:
 - [[2GP Managed Package 개발 환경과 사전 준비]] — Manageability Rules 기초, Package Ancestry, Dependency Matrix
 - [[2GP Managed Package — Workflow]] — 2GP 표준 CLI 워크플로 10단계, 지원 컴포넌트 전수 목록
 - [[2GP Managed Package Scratch Org 워크플로]] — Agentforce scratch org, Data Cloud scratch org 설정 상세
-- [[2GP — Components: Security & Access]] — Permission Set, Permission Set Group, Profile 패키징 규칙 (Manageability Rules 4속성)
-- [[2GP — Components: Einstein & Analytics]] — GenAiFunction, GenAiPlugin, GenAiPlannerBundle, BotTemplate Manageability Rules
-- [[2GP — Components: Integration & Platform]] — PlatformCachePartition, FeatureParameter, NamedCredential 패키징 규칙
+- [[2GP — Components - Security & Access]] — Permission Set, Permission Set Group, Profile 패키징 규칙 (Manageability Rules 4속성)
+- [[2GP — Components - Einstein & Analytics]] — GenAiFunction, GenAiPlugin, GenAiPlannerBundle, BotTemplate Manageability Rules
+- [[2GP — Components - Integration & Platform]] — PlatformCachePartition, FeatureParameter, NamedCredential 패키징 규칙
 - [[sfdx-project.json 레퍼런스]] — scopeProfiles, ancestorId, versionNumber, definitionFile 파라미터 전수
 - [[Unlocked Package 개발과 버전]] — sf package version create Async/Skip Validation, 버전 번호 NEXT 키워드
 - [[2GP — Develop]] — sf package create·version create 전수, MAJOR.MINOR.PATCH.BUILD, Ancestor 지정, Promote 75% 커버리지

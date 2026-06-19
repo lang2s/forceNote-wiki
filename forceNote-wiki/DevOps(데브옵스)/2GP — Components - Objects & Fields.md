@@ -5,7 +5,7 @@ created: 2026-05-23
 aliases: [2GP Objects Fields 컴포넌트, 2GP 오브젝트 필드 패키징, AssessmentQuestion 2GP, CustomObject 2GP, CustomField 2GP, GlobalValueSet 2GP, 2GP 오브젝트 메타데이터]
 ---
 
-# 2GP — Components: Objects & Fields
+# 2GP — Components - Objects & Fields
 
 > 2GP Managed Package에 포함할 수 있는 오브젝트·필드 도메인 컴포넌트의 Manageability Rules 4속성과 Editable Properties 3카테고리 전수.
 
@@ -705,10 +705,10 @@ GlobalPicklist와 동일한 컴포넌트. Metadata API에서 `GlobalValueSet` �
 
 - [[Metadata Types — Objects & Fields]] — Metadata API 관점 오브젝트·필드 타입 상세 필드 정의
 - [[2GP Managed Package — Workflow]] — Manageability Rules 4속성·Editable Properties 3카테고리 개요 + CLI 워크플로
-- [[2GP — Components: Apex & Code]] — Apex Class·Trigger·LWC·Aura·Static Resource·Visualforce 도메인
-- [[2GP — Components: Automation]] — Flow·Workflow·Decision Table·Expression Set·Batch 도메인
-- [[2GP — Components: Einstein & Analytics]] — AI·CRM Analytics·Agentforce·GenAi 도메인
-- [[2GP — Components: Integration & Platform]] — Named Credential·Feature Parameter·External Services·Platform Cache 도메인
-- [[2GP — Components: Security & Access]] — AccountRelationshipShareRule·ConnectedApp·CorsWhitelistOrigin·ExternalAuthIdentityProvider·ExternalCredential·PermissionSet·PermissionSetGroup 등 보안·접근 제어 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: UI & Layout]] — ActionLinkGroupTemplate·BrandingSet·CommunityTemplateDefinition·CommunityThemeDefinition·CustomApplication·CustomTab·DigitalExperienceBundle·FlexiPage·LightningMessageChannel·LightningBolt·LightningTypeBundle·ManagedContentType·PathAssistant·QuickAction·Layout·Prompt 등 UI 레이아웃 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: Other]] — FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 기타 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Apex & Code]] — Apex Class·Trigger·LWC·Aura·Static Resource·Visualforce 도메인
+- [[2GP — Components - Automation]] — Flow·Workflow·Decision Table·Expression Set·Batch 도메인
+- [[2GP — Components - Einstein & Analytics]] — AI·CRM Analytics·Agentforce·GenAi 도메인
+- [[2GP — Components - Integration & Platform]] — Named Credential·Feature Parameter·External Services·Platform Cache 도메인
+- [[2GP — Components - Security & Access]] — AccountRelationshipShareRule·ConnectedApp·CorsWhitelistOrigin·ExternalAuthIdentityProvider·ExternalCredential·PermissionSet·PermissionSetGroup 등 보안·접근 제어 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - UI & Layout]] — ActionLinkGroupTemplate·BrandingSet·CommunityTemplateDefinition·CommunityThemeDefinition·CustomApplication·CustomTab·DigitalExperienceBundle·FlexiPage·LightningMessageChannel·LightningBolt·LightningTypeBundle·ManagedContentType·PathAssistant·QuickAction·Layout·Prompt 등 UI 레이아웃 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Other]] — FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 기타 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)

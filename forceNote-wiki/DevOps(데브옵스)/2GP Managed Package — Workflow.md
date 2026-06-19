@@ -387,13 +387,13 @@ managed 패키지가 설치된 후 편집 가능한 속성의 3가지 카테고�
 - [[Unlocked Package 개발과 버전]] — snapshot 기반 버전 promote 가능 (managed와 대조)
 - [[2GP — Develop]] — 워크플로 이후: sf package create·version create·버전 번호 체계·Project Config File·Ancestor 지정·Promote 준비 전수
 - [[2GP — Prepare to Distribute]] — 배포 준비: 코드 커버리지·Installation Key·promote·AppExchange 등록 절차
-- [[2GP — Components: Apex & Code]] — Apex·LWC·Aura·Visualforce·Static Resource 8종 컴포넌트 Manageability Rules 상세
-- [[2GP — Components: Automation]] — Flow·Workflow·Approval Process·Decision Table 등 자동화 24종 패키징 동작
-- [[2GP — Components: Einstein & Analytics]] — AI Application·Dashboard·Bot·Generative AI 19종 패키징 동작
-- [[2GP — Components: Integration & Platform]] — Named Credential·External Service·Feature Parameter 등 21종 패키징 동작
-- [[2GP — Components: Objects & Fields]] — Custom Object·Custom Field·Global Value Set 등 19종 패키징 동작
-- [[2GP — Components: Security & Access]] — Permission Set·Connected App·External Credential 등 10종 패키징 동작
-- [[2GP — Components: UI & Layout]] — FlexiPage·Lightning Message Channel·Custom App 등 21종 패키징 동작
-- [[2GP — Components: Other]] — Sustainability·Service Catalog·Translation·Slack·Healthcare 등 60+ 미분류 컴포넌트 패키징 동작
+- [[2GP — Components - Apex & Code]] — Apex·LWC·Aura·Visualforce·Static Resource 8종 컴포넌트 Manageability Rules 상세
+- [[2GP — Components - Automation]] — Flow·Workflow·Approval Process·Decision Table 등 자동화 24종 패키징 동작
+- [[2GP — Components - Einstein & Analytics]] — AI Application·Dashboard·Bot·Generative AI 19종 패키징 동작
+- [[2GP — Components - Integration & Platform]] — Named Credential·External Service·Feature Parameter 등 21종 패키징 동작
+- [[2GP — Components - Objects & Fields]] — Custom Object·Custom Field·Global Value Set 등 19종 패키징 동작
+- [[2GP — Components - Security & Access]] — Permission Set·Connected App·External Credential 등 10종 패키징 동작
+- [[2GP — Components - UI & Layout]] — FlexiPage·Lightning Message Channel·Custom App 등 21종 패키징 동작
+- [[2GP — Components - Other]] — Sustainability·Service Catalog·Translation·Slack·Healthcare 등 60+ 미분류 컴포넌트 패키징 동작
 - [[2GP — Specific Metadata Behavior]] — Agentforce·Data Cloud 패키징·보호 컴포넌트·Platform Cache Provider Free·Permission Set vs Profile Settings·IP 보호·DomainCreator·@NamespaceAccessible·Connected App 패키징·New Order Save Behavior
 - [[2GP — Install · Uninstall]] — managed 2GP 설치·업그레이드·제거 전수 (InstallHandler·InstallContext·의존성 스크립트·제약사항)

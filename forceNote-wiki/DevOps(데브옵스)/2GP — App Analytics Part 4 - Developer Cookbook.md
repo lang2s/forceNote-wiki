@@ -5,7 +5,7 @@ created: 2026-05-24
 aliases: [App Analytics Developer Cookbook, CRM Analytics Recipes, App Analytics Recipes, SAQL, DailyAggregation, LMAJoin, CustomerSuccess Recipes, Custom Object Usage Recipes, Daily Unique Users]
 ---
 
-# 2GP — App Analytics Part 4: Developer Cookbook
+# 2GP — App Analytics Part 4 - Developer Cookbook
 
 > AppExchange App Analytics 관리 패키지 사용량 데이터를 분석하기 위한 KPI(핵심 성과 지표)를 생성하는 CRM Analytics 레시피와 App Analytics 레시피를 단계별로 구현한다.
 
@@ -495,8 +495,8 @@ q = limit q 2000;
 ---
 
 ## 관련 노트
-- [[2GP — App Analytics Part 1: Overview & Setup]]
-- [[2GP — App Analytics Part 2: Best Practices & Query Strategy]]
-- [[2GP — App Analytics Part 3: Data Types & Schemas]]
+- [[2GP — App Analytics Part 1 - Overview & Setup]]
+- [[2GP — App Analytics Part 2 - Best Practices & Query Strategy]]
+- [[2GP — App Analytics Part 3 - Data Types & Schemas]]
 - [[2GP — LMA Part 1 Get Started]]
 - [[2GP — LMA Part 2 Troubleshoot]]

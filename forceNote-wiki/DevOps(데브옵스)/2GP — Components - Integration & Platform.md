@@ -5,7 +5,7 @@ created: 2026-05-23
 aliases: [2GP 통합 플랫폼 컴포넌트, Integration Platform 2GP, named credential 패키징, feature parameter 2GP, external data source 2GP, platform cache 2GP]
 ---
 
-# 2GP — Components: Integration & Platform
+# 2GP — Components - Integration & Platform
 
 > 2GP Managed Package에 포함 가능한 통합·플랫폼 도메인 컴포넌트의 Manageability Rules 4속성과 Editable Properties 3카테고리 전수.
 
@@ -663,12 +663,12 @@ FeatureManagement.setPackageIntegerValue('FeatureParameterName', 42);
 ## 관련 노트
 
 - [[Metadata Types — Integration & Platform]] — Metadata API 관점의 NamedCredential, RemoteSiteSetting, PlatformCachePartition 필드 정의
-- [[2GP — Components: Apex & Code]] — Apex Class, LWC, Aura 등 코드 컴포넌트 Manageability Rules
-- [[2GP — Components: Automation]] — Flow, Workflow, Decision Table 등 자동화 컴포넌트
-- [[2GP — Components: Einstein & Analytics]] — AIApplication, GenAiFunction, BotTemplate 등 AI·Analytics 컴포넌트
+- [[2GP — Components - Apex & Code]] — Apex Class, LWC, Aura 등 코드 컴포넌트 Manageability Rules
+- [[2GP — Components - Automation]] — Flow, Workflow, Decision Table 등 자동화 컴포넌트
+- [[2GP — Components - Einstein & Analytics]] — AIApplication, GenAiFunction, BotTemplate 등 AI·Analytics 컴포넌트
 - [[2GP Managed Package — Workflow]] — Manageability Rules 4속성·Editable Properties 3카테고리 개념 설명 + 전체 Supported Components 목록
-- [[2GP — Components: Objects & Fields]] — AssessmentQuestion·BriefcaseDefinition·CustomObject·CustomField·CustomLabels·GlobalValueSet·Folder·FieldSet 등 오브젝트·필드 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: Security & Access]] — AccountRelationshipShareRule·ConnectedApp·CorsWhitelistOrigin·ExternalAuthIdentityProvider·ExternalCredential·PermissionSet·PermissionSetGroup 등 보안·접근 제어 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: UI & Layout]] — ActionLinkGroupTemplate·BrandingSet·CommunityTemplateDefinition·CommunityThemeDefinition·CustomApplication·CustomTab·DigitalExperienceBundle·FlexiPage·LightningMessageChannel·LightningBolt·LightningTypeBundle·ManagedContentType·PathAssistant·QuickAction·Layout·Prompt 등 UI 레이아웃 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: Other]] — FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 기타 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Objects & Fields]] — AssessmentQuestion·BriefcaseDefinition·CustomObject·CustomField·CustomLabels·GlobalValueSet·Folder·FieldSet 등 오브젝트·필드 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Security & Access]] — AccountRelationshipShareRule·ConnectedApp·CorsWhitelistOrigin·ExternalAuthIdentityProvider·ExternalCredential·PermissionSet·PermissionSetGroup 등 보안·접근 제어 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - UI & Layout]] — ActionLinkGroupTemplate·BrandingSet·CommunityTemplateDefinition·CommunityThemeDefinition·CustomApplication·CustomTab·DigitalExperienceBundle·FlexiPage·LightningMessageChannel·LightningBolt·LightningTypeBundle·ManagedContentType·PathAssistant·QuickAction·Layout·Prompt 등 UI 레이아웃 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Other]] — FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 기타 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
 - [[2GP — Feature Management App]] — FeatureParameterBoolean/Date/Integer 상세 운영·XML 예제·System.FeatureManagement API·LMO-Subscriber 연동

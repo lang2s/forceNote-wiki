@@ -5,7 +5,7 @@ created: 2026-05-24
 aliases: [App Analytics Best Practices, App Analytics Query Strategy, Catch-Up Queries, AvailableSince, AppAnalyticsQueryRequest, 앱 애널리틱스 쿼리 전략]
 ---
 
-# 2GP — App Analytics Part 2: Best Practices & Query Strategy
+# 2GP — App Analytics Part 2 - Best Practices & Query Strategy
 
 > AppExchange App Analytics 쿼리 전략을 계획·최대화하려면 데이터 결과 파일 크기를 줄이는 파일 압축을 사용하고, 정기 쿼리를 예약·자동화하고, catch-up 쿼리로 정기 쿼리 데이터를 보완한다.
 
@@ -285,8 +285,8 @@ AvailableSince=2020-04-01T18:00:00Z"
 ---
 
 ## 관련 노트
-- [[2GP — App Analytics Part 1: Overview & Setup]]
-- [[2GP — App Analytics Part 3: Data Types & Schemas]]
-- [[2GP — App Analytics Part 4: Developer Cookbook]]
+- [[2GP — App Analytics Part 1 - Overview & Setup]]
+- [[2GP — App Analytics Part 3 - Data Types & Schemas]]
+- [[2GP — App Analytics Part 4 - Developer Cookbook]]
 - [[2GP — LMA Part 1 Get Started]]
 - [[2GP — Best Practices]]

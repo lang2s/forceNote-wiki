@@ -5,7 +5,7 @@ created: 2026-05-24
 aliases: [2GP UI Layout 컴포넌트, 2GP CustomApplication 패키징, 2GP CustomTab 패키징, 2GP FlexiPage 패키징, 2GP LightningPage 패키징, 2GP QuickAction 패키징, 2GP ExperienceBundle 패키징, 2GP DigitalExperienceBundle 패키징, 2GP BrandingSet 패키징, 2GP LightningMessageChannel 패키징, 2GP LightningTypeBundle 패키징, 2GP LightningBolt 패키징, 2GP ManagedContentType 패키징, 2GP HomePageComponent 패키징, 2GP HomePageLayout 패키징, 2GP CompactLayout 패키징, 2GP CommunityTemplateDefinition 패키징, 2GP CommunityThemeDefinition 패키징, 2GP PathAssistant 패키징, 2GP Prompt 패키징, 2GP Layout 패키징, ActionLinkGroupTemplate 2GP, ActionableListDefinition 2GP, 2GP UI 컴포넌트 Manageability Rules]
 ---
 
-# 2GP — Components: UI & Layout
+# 2GP — Components - UI & Layout
 
 > 2GP Managed Package에서 **UI·레이아웃 관련 컴포넌트**의 패키징 규칙 전수. Lightning 페이지, 커스텀 앱, 탭, Experience Builder, Quick Action, 홈 페이지 레이아웃 등 UI 도메인 Manageability Rules 4속성, Editable Properties 3카테고리, 패키징 시 고려사항을 컴포넌트별로 정리.
 
@@ -814,10 +814,10 @@ Enablement Admin 퍼미션 셋 및 Enablement 퍼미션 셋 라이선스 필요.
 - [[Metadata Types — UI & Layout]] — MetadataAPI 관점의 동일 컴포넌트 필드 정의 (FlexiPage, Layout, CustomApplication, ExperienceBundle 등)
 - [[2GP Managed Package — Workflow]] — 2GP 표준 CLI 워크플로·Manageability Rules 4속성 개요·Supported Components 전체 목록
 - [[2GP Managed Package 개발 환경과 사전 준비]] — Manageability Rules 개념 설명·Package Ancestry·IP Protection 원리
-- [[2GP — Components: Apex & Code]] — Apex Class·Trigger·LWC·Aura 등 코드 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: Automation]] — Flow·Workflow·Decision Table·Batch·Expression Set 등 자동화 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: Einstein & Analytics]] — Einstein·Analytics·Agentforce·Bot·Report/Dashboard 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: Integration & Platform]] — NamedCredential·FeatureParameter·ExternalDataSource·EventRelayConfig·PlatformCachePartition 등 통합·플랫폼 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: Objects & Fields]] — CustomObject·CustomField·CustomLabels·GlobalValueSet·Folder·FieldSet 등 오브젝트·필드 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: Security & Access]] — ConnectedApp·CorsWhitelistOrigin·CspTrustedSite·ExternalCredential·PermissionSet 등 보안·접근 제어 컴포넌트 Manageability Rules 전수 (형제 시리즈)
-- [[2GP — Components: Other]] — FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 기타 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Apex & Code]] — Apex Class·Trigger·LWC·Aura 등 코드 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Automation]] — Flow·Workflow·Decision Table·Batch·Expression Set 등 자동화 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Einstein & Analytics]] — Einstein·Analytics·Agentforce·Bot·Report/Dashboard 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Integration & Platform]] — NamedCredential·FeatureParameter·ExternalDataSource·EventRelayConfig·PlatformCachePartition 등 통합·플랫폼 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Objects & Fields]] — CustomObject·CustomField·CustomLabels·GlobalValueSet·Folder·FieldSet 등 오브젝트·필드 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Security & Access]] — ConnectedApp·CorsWhitelistOrigin·CspTrustedSite·ExternalCredential·PermissionSet 등 보안·접근 제어 컴포넌트 Manageability Rules 전수 (형제 시리즈)
+- [[2GP — Components - Other]] — FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 기타 도메인 컴포넌트 Manageability Rules 전수 (형제 시리즈)
