@@ -105,6 +105,15 @@ grep -A 20 '```apex' wiki_file.md
 - Tier 3인데 경고 블록이 없으면 → 문제
 - Tier 1/2인데 경고 블록이 있으면 → 불필요
 
+#### 두 Tier-2 공식 소스가 같은 컴포넌트를 다르게 기술할 때 — 정본(canonical) 선택
+
+> **Why:** 같은 컴포넌트/API를 **두 개의 공식 문서가 다른 셀 값으로** 기술하는 일이 있다. ING-39에서 기존 노트는 Publisher Dev Guide(`case_feed_dev_guide.pdf`) 출처라 `id`·`rendered`를 API Version 25.0/26.0·Access 대문자 `Global`·"action" 용어로 적었는데, 같은 attribute를 Visualforce Developer Guide의 **Standard Component Reference**는 14.0·소문자 `global`·"publisher" 용어로 기술했다. 두 소스 모두 Tier 2라 Tier 등급만으로는 우열을 못 가린다 — 어느 셀 값을 정답으로 대조할지 모르면 검증이 양쪽 다 ✅ 처리해 충돌이 남는다.
+
+판정 규칙:
+- **컴포넌트 스펙(attribute 표 — 타입·Required·API Version·Access)의 정본은 그 컴포넌트의 레퍼런스 문서**다. Visualforce 표준 컴포넌트면 VF Developer Guide의 *Standard Component Reference*가 정본이고, 사용 가이드(Publisher/Quick Action Dev Guide 등)는 예제·맥락 출처로 종속된다.
+- 노트에 두 소스를 함께 명시하되, 셀 값(타입·Required·API Version·Access)은 정본 한쪽으로 통일됐는지 대조한다. 정본과 다른 셀이 남아 있으면 ❌.
+- 의도적으로 정본과 다르게 유지한 표기(예: Apex 클래스명 일관성 위해 `support:CaseFeed` 대문자 C 유지)는 노트에 **그 이유가 명시**돼 있어야 통과. 이유 없는 불일치는 충돌로 본다.
+
 ### 5. Tabular AND numeric mapping 셀별 검증 (Pattern B audit)
 
 격자형 매트릭스뿐 아니라 **PDF가 한 값을 여러 metric에 적용하는 산문형 numeric statement**까지 포함.

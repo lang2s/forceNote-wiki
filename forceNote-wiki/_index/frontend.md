@@ -95,7 +95,7 @@ created: 2026-05-21
 | Aura 이벤트, Component Event, Application Event, aura:registerEvent, aura:handler, $A.get, force:navigateToSObject, force:showToast, 시스템 이벤트 init change render | `Aura(오라)/Aura 이벤트.md` |
 | Aura vs LWC, Aura 마이그레이션, Aura 비교, 언제 LWC 언제 Aura, Aura 레거시, LWC 우선 정책 | `Aura(오라)/Aura vs LWC.md` |
 | lightning:quickActionAPI, Sfdc.canvas.publisher, getAvailableActions, setActionFieldValues, publisher.selectAction, Quick Action JS API, Publisher JS API, 퀵액션 자바스크립트 API, Aura에서 퀵액션 제어, 케이스피드 액션 호출 | `Aura(오라)/Quick Action·Publisher JS API 레퍼런스.md` |
-| apex:emailPublisher, apex:logCallPublisher, support:portalPublisher, support:caseArticles, support:CaseFeed, chatter:feed, Case Feed Visualforce, 케이스피드 커스터마이즈, VF 이메일 액션, 표준 케이스피드 복제 | `Aura(오라)/Case Feed Visualforce 커스터마이즈.md` |
+| apex:emailPublisher, apex:logCallPublisher, support:portalPublisher, support:caseArticles, support:CaseFeed, chatter:feed, Case Feed Visualforce, 케이스피드 커스터마이즈, VF 이메일 액션, 표준 케이스피드 복제, verticalResize, categoryMappingEnabled, insertLinkToEmail, VF 컴포넌트 속성표 | `Aura(오라)/Case Feed Visualforce 커스터마이즈.md` |
 
 ---
 

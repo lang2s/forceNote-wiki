@@ -58,6 +58,12 @@ find . -name "*.cls" | xargs grep -l "관련클래스명" 2>/dev/null
 - PDF 파일명의 버전 번호 확인
 - 기존 위키 파일의 `source:` frontmatter와 현재 소스 버전 비교
 
+### 5. 예제 맥락으로만 다룬 컴포넌트의 attribute 전수 누락 확인
+
+> **Why:** 기존 노트가 어떤 컴포넌트를 **예제(use case·code sample) 맥락에서만** 다뤘으면, 그 컴포넌트의 attribute 표가 부분만 채워져 있을 수 있다. ING-39에서 `apex:emailPublisher`·`support:caseArticles`가 ING-14의 예제로만 언급돼 있어 `verticalResize`·`categoryMappingEnabled`·`insertLinkToEmail` 3개 attribute가 누락돼 있었다. "파일이 존재함 = 전수"가 아니다 — 예제 기반 노트는 정본 레퍼런스(Standard Component Reference 등) 대비 attribute/메서드 누락을 의심한다.
+
+기존 노트를 보강·교정하는 작업이면, 정본 레퍼런스 소스의 attribute(혹은 메서드) **목록 개수**와 기존 노트의 표 행 개수를 대조해 누락분을 PM에 보고한다. 노트의 attribute 표가 예제에서 실제 사용된 속성에만 편중돼 있으면 전수 누락 신호다.
+
 ## 출력 형식
 
 ```

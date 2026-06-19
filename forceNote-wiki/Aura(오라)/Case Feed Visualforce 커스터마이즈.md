@@ -1,8 +1,8 @@
 ---
 tags: [aura, visualforce, case-feed, service-cloud, salesforce-classic, console, apex-controller, emailPublisher, caseArticles]
-source: case_feed_dev_guide.pdf (Publisher and Quick Action Developer Guide, Summer '26, p.23-45)
+source: case_feed_dev_guide.pdf (Publisher and Quick Action Developer Guide, Summer '26, p.23-45) · salesforce_pages_developers_guide.pdf (Visualforce Developer Guide, v67.0 Summer '26 — Standard Component Reference, attribute 표 셀 권위 소스)
 created: 2026-06-18
-aliases: [Case Feed Visualforce, Case Feed VF 컴포넌트, Case Feed 페이지 커스터마이즈, Case Feed 컴포넌트 속성, apex:emailPublisher, apex:logCallPublisher, support:portalPublisher, support:caseArticles, support:CaseFeed, chatter:feed, Customize Case Feed Actions, Replicate Case Feed Page, Custom Case Feed Action, 케이스피드 커스터마이즈, 케이스피드 VF 컴포넌트, 케이스 피드 화면 만들기, 이메일 액션 커스터마이즈, Log a Call 액션, 아티클 툴, Article Tool, 표준 케이스피드 복제, VF 커스텀 액션, 케이스피드 컴포넌트 속성 어디 있나]
+aliases: [Case Feed Visualforce, Case Feed VF 컴포넌트, Case Feed 페이지 커스터마이즈, Case Feed 컴포넌트 속성, apex:emailPublisher, apex:logCallPublisher, support:portalPublisher, support:caseArticles, support:CaseFeed, chatter:feed, verticalResize, categoryMappingEnabled, insertLinkToEmail, Customize Case Feed Actions, Replicate Case Feed Page, Custom Case Feed Action, 케이스피드 커스터마이즈, 케이스피드 VF 컴포넌트, 케이스 피드 화면 만들기, 이메일 액션 커스터마이즈, Log a Call 액션, 아티클 툴, Article Tool, 표준 케이스피드 복제, VF 커스텀 액션, 케이스피드 컴포넌트 속성 어디 있나]
 ---
 
 # Case Feed Visualforce 커스터마이즈
@@ -339,36 +339,39 @@ Case Feed의 Email action은 상담원이 이메일로 고객과 소통하게 �
 
 ### apex:emailPublisher 속성
 
+> 아래 속성표의 셀 값(타입·Required·API Version·Access·Description)은 **Visualforce Developer Guide(Standard Component Reference, v67.0)** 의 정본 스펙을 따른다.
+
 | Attribute Name | Attribute Type | Description | Required? | API Version | Access |
 |---|---|---|---|---|---|
-| autoCollapseBody | Boolean | A Boolean value that specifies whether the email body collapses to a small height when it is empty. | | 25.0 | |
+| autoCollapseBody | Boolean | A Boolean value that specifies whether the email body will be collapsed to a small height when it is empty. | | 25.0 | |
 | bccVisibility | String | The visibility of the BCC field can be 'editable', 'editableWithLookup', 'readOnly', or 'hidden'. | | 25.0 | |
 | ccVisibility | String | The visibility of the CC field can be 'editable', 'editableWithLookup', 'readOnly', or 'hidden'. | | 25.0 | |
 | emailBody | String | The default text value of the email body. | | 25.0 | |
 | emailBodyFormat | String | The format of the email body can be 'text', 'HTML', or 'textAndHTML'. | | 25.0 | |
 | emailBodyHeight | String | The height of the email body in em. | | 25.0 | |
-| enableQuickText | Boolean | A Boolean value that specifies whether the Quick Text autocomplete functionality is available in the action. | | 25.0 | |
-| entityId | id | Entity ID of the record for which to display the Email action. In the current version, only Case record ids are supported. | Yes | 25.0 | |
+| enableQuickText | Boolean | If the quick text autocomplete functionality will be available in the publisher. | | 25.0 | |
+| entityId | id | Entity ID of the record for which to display the email publisher. In the current version only Case record ids are supported. | Yes | 25.0 | |
 | expandableHeader | Boolean | A Boolean value that specifies whether the header is expandable or fixed. | | 25.0 | |
 | fromAddresses | String | A restricted set of from addresses. | | 25.0 | |
 | fromVisibility | String | The visibility of the From field can be 'selectable' or 'hidden'. | | 25.0 | |
-| id | String | An identifier that allows the component to be referenced by other components on the page. | | 25.0 | Global |
-| onSubmitFailure | String | The JavaScript invoked if the email is not successfully sent. | | 25.0 | |
-| onSubmitSuccess | String | The JavaScript invoked if the email is successfully sent. | | 25.0 | |
-| rendered | Boolean | A Boolean value that specifies whether the component is rendered on the page. If not specified, this value defaults to true. | | 25.0 | Global |
-| reRender | Object | The ID of one or more components that are redrawn when the email is successfully sent. This value can be a single ID, a comma-separated list of IDs, or a merge field expression for a list or collection of IDs. | | 25.0 | |
-| sendButtonName | String | The name of the send button in the Email action. | | 25.0 | |
-| showAdditionalFields | Boolean | A Boolean value that specifies whether the additional fields defined in the action layout are displayed. | | 25.0 | |
-| showAttachments | Boolean | A Boolean value that specifies whether the attachment selector is displayed. | | 25.0 | |
-| showSendButton | Boolean | A Boolean value that specifies whether the send button is displayed. | | 25.0 | |
-| showTemplates | Boolean | A Boolean value that specifies whether the template selector is displayed. | | 25.0 | |
+| id | String | An identifier that allows the component to be referenced by other components in the page. | | 14.0 | global |
+| onSubmitFailure | String | The JavaScript invoked if the email failed to be sent. | | 25.0 | |
+| onSubmitSuccess | String | The JavaScript invoked if the email was successfully sent. | | 25.0 | |
+| rendered | Boolean | A Boolean value that specifies whether the component is rendered on the page. If not specified, this value defaults to true. | | 14.0 | global |
+| reRender | Object | The ID of one or more components that are redrawn when the email was successfully sent. This value can be a single ID, a comma-separated list of IDs, or a merge field expression for a list or collection of IDs. | | 25.0 | |
+| sendButtonName | String | The name of the send button in the email publisher. | | 25.0 | |
+| showAdditionalFields | Boolean | A Boolean value that specifies whether the additional fields defined in the publisher layout should be displayed. | | 25.0 | |
+| showAttachments | Boolean | A Boolean value that specifies whether the attachment selector should be displayed. | | 25.0 | |
+| showSendButton | Boolean | A Boolean value that specifies whether the send button should be displayed. | | 25.0 | |
+| showTemplates | Boolean | A Boolean value that specifies whether the template selector should be displayed. | | 25.0 | |
 | subject | String | The default value of the Subject. | | 25.0 | |
 | subjectVisibility | String | The visibility of the Subject field can be 'editable', 'readOnly', or 'hidden'. | | 25.0 | |
 | submitFunctionName | String | The name of a function that can be called from JavaScript to send the email. | | 25.0 | |
-| title | String | The title displayed in the Email action header. | | 25.0 | |
+| title | String | The title displayed in the email publisher header. | | 25.0 | |
 | toAddresses | String | The default value of the To field. | | 25.0 | |
 | toVisibility | String | The visibility of the To field can be 'editable', 'editableWithLookup', 'readOnly', or 'hidden'. | | 25.0 | |
-| width | String | The width of the action in pixels (px) or percentage (%). | | 25.0 | |
+| verticalResize | Boolean | A Boolean value that specifies whether the publisher allows vertical resizing. | | 30.0 | |
+| width | String | The width of the email publisher in pixels (px) or percentage (%). | | 25.0 | |
 
 ### Use Case
 
@@ -402,23 +405,25 @@ Portal action은 상담원이 포털에서 고객에게 메시지를 작성·게
 
 ### support:portalPublisher 속성
 
+> 아래 속성표의 셀 값(타입·Required·API Version·Access·Description)은 **Visualforce Developer Guide(Standard Component Reference, v67.0)** 의 정본 스펙을 따른다.
+
 | Attribute Name | Attribute Type | Description | Required? | API Version | Access |
 |---|---|---|---|---|---|
 | answerBody | String | The default text value of the answer body. | | 25.0 | |
 | answerBodyHeight | String | The height of the answer body in ems (em). | | 25.0 | |
-| autoCollapseBody | Boolean | A Boolean value that specifies whether the answer body is collapsed when it is empty. | | 25.0 | |
-| entityId | id | Entity ID of the record for which to display the Portal action. In the current version, only Case record ids are supported. | Yes | 25.0 | |
-| id | String | An identifier that allows the component to be referenced by other components on the page. | | 25.0 | Global |
+| autoCollapseBody | Boolean | A Boolean value that specifies whether the answer body will be collapsed to a small height when it is empty. | | 25.0 | |
+| entityId | id | Entity ID of the record for which to display the portal publisher. In the current version, only Case record ids are supported. | Yes | 25.0 | |
+| id | String | An identifier that allows the component to be referenced by other components in the page. | | 14.0 | global |
 | onSubmitFailure | String | The JavaScript invoked if the answer failed to be published to the portal. | | 25.0 | |
 | onSubmitSuccess | String | The JavaScript invoked if the answer was successfully published to the portal. | | 25.0 | |
-| rendered | Boolean | A Boolean value that specifies whether the component is rendered on the page. If not specified, this value defaults to true. | | 25.0 | Global |
-| reRender | Object | The ID of one or more components that are redrawn when the answer is successfully published. This value can be a single ID, a comma-separated list of IDs, or a merge field expression for a list or collection of IDs. | | 25.0 | |
+| rendered | Boolean | A Boolean value that specifies whether the component is rendered on the page. If not specified, this value defaults to true. | | 14.0 | global |
+| reRender | Object | The ID of one or more components that are redrawn when the answer was successfully published. This value can be a single ID, a comma-separated list of IDs, or a merge field expression for a list or collection of IDs. | | 25.0 | |
 | showSendEmailOption | Boolean | A Boolean value that specifies whether the option to send email notification should be displayed. | | 25.0 | |
 | showSubmitButton | Boolean | A Boolean value that specifies whether the submit button should be displayed. | | 25.0 | |
-| submitButtonName | String | The name of the submit button in the portal action. | | 25.0 | |
+| submitButtonName | String | The name of the submit button in the portal publisher. | | 25.0 | |
 | submitFunctionName | String | The name of a function that can be called from JavaScript to publish the answer. | | 25.0 | |
-| title | String | The title displayed in the portal action header. | | 25.0 | |
-| width | String | The width of the action in pixels (px) or percentage (%). | | 25.0 | |
+| title | String | The title displayed in the portal publisher header. | | 25.0 | |
+| width | String | The width of the portal publisher in pixels (px) or percentage (%). | | 25.0 | |
 
 ### Use Case
 
@@ -449,23 +454,25 @@ Log a Call action은 상담원이 고객 통화에 대한 메모와 정보를 �
 
 ### apex:logCallPublisher 속성
 
+> 아래 속성표의 셀 값(타입·Required·API Version·Access·Description)은 **Visualforce Developer Guide(Standard Component Reference, v67.0)** 의 정본 스펙을 따른다.
+
 | Attribute Name | Attribute Type | Description | Required? | API Version | Access |
 |---|---|---|---|---|---|
-| autoCollapseBody | Boolean | A Boolean value that specifies whether the Log a Call body is collapsed when it is empty. | | 25.0 | |
-| entityId | id | Entity ID of the record for which to display the Log a Call action. In the current version, only Case record ids are supported. | Yes | 25.0 | |
-| id | String | An identifier that allows the component to be referenced by other components on the page. | | 25.0 | Global |
-| logCallBody | String | The initial text value of the Log a Call body when the action is rendered. | | 25.0 | |
+| autoCollapseBody | Boolean | A Boolean value that specifies whether the Log a Call body will be collapsed to a small height when it is empty. | | 25.0 | |
+| entityId | id | Entity ID of the record for which to display the Log a Call publisher. In the current version, only Case record ids are supported. | Yes | 25.0 | |
+| id | String | An identifier that allows the component to be referenced by other components in the page. | | 14.0 | global |
+| logCallBody | String | The initial text value of the Log a Call body when the publisher is rendered. | | 25.0 | |
 | logCallBodyHeight | String | The height of the Log a Call body in em. | | 25.0 | |
-| onSubmitFailure | String | The JavaScript invoked if the call is not successfully logged. | | 25.0 | |
-| onSubmitSuccess | String | The JavaScript invoked if the call is successfully logged. | | 25.0 | |
-| rendered | Boolean | A Boolean value that specifies whether the component is rendered on the page. If not specified, this value defaults to true. | | 25.0 | Global |
-| reRender | Object | The ID of one or more components that are redrawn when the call is successfully logged. This value can be a single ID, a comma-separated list of IDs, or a merge field expression for a list or collection of IDs. | | 25.0 | |
-| showAdditionalFields | Boolean | A Boolean value that specifies whether the additional fields defined in the action layout should be displayed. | | 25.0 | |
+| onSubmitFailure | String | The JavaScript invoked if the call failed to be logged. | | 25.0 | |
+| onSubmitSuccess | String | The JavaScript invoked if the call was successfully logged. | | 25.0 | |
+| rendered | Boolean | A Boolean value that specifies whether the component is rendered on the page. If not specified, this value defaults to true. | | 14.0 | global |
+| reRender | Object | The ID of one or more components that are redrawn when the call was successfully logged. This value can be a single ID, a comma-separated list of IDs, or a merge field expression for a list or collection of IDs. | | 25.0 | |
+| showAdditionalFields | Boolean | A Boolean value that specifies whether the additional fields defined in the publisher layout should be displayed. | | 25.0 | |
 | showSubmitButton | Boolean | A Boolean value that specifies whether the submit button should be displayed. | | 25.0 | |
-| submitButtonName | String | The name of the submit button in the Log a Call action. | | 25.0 | |
+| submitButtonName | String | The name of the submit button in the Log a Call publisher. | | 25.0 | |
 | submitFunctionName | String | The name of a function that can be called from JavaScript to publish the call log. | | 25.0 | |
-| title | String | The title displayed in the Log a Call action header. | | 25.0 | |
-| width | String | The width of the action in pixels (px) or percentage (%). | | 25.0 | |
+| title | String | The title displayed in the Log a Call publisher header. | | 25.0 | |
+| width | String | The width of the publisher in pixels (px) or percentage (%). | | 25.0 | |
 
 ### Use Case
 
@@ -514,6 +521,8 @@ Articles tool은 상담원이 Salesforce Knowledge 아티클을 탐색하고, �
 
 ### support:caseArticles 속성
 
+> 아래 속성표의 셀 값(타입·Required·API Version·Access·Description)은 **Visualforce Developer Guide(Standard Component Reference, v67.0)** 의 정본 스펙을 따른다.
+
 | Attribute Name | Attribute Type | Description | Required? | API Version | Access |
 |---|---|---|---|---|---|
 | articleTypes | String | Article types to be used to filter the search. Multiple article types can be defined, separated by commas. | | 25.0 | |
@@ -521,14 +530,16 @@ Articles tool은 상담원이 Salesforce Knowledge 아티클을 탐색하고, �
 | bodyHeight | String | The height of the body in pixels (px) or 'auto' to automatically adjust to the height of the currently displayed list of articles. | | 25.0 | |
 | caseId | id | Case ID of the record for which to display the case articles. | Yes | 25.0 | |
 | categories | String | Data categories to be used to filter the search. The format of this value should be: 'CatgeoryGroup1:Category1' where CategoryGroup1 and Category1 are the names of a Category Group and a Category respectively. Multiple category filters can be specified separated by commas but only one per category group. | | 25.0 | |
+| categoryMappingEnabled | Boolean | A Boolean value that specifies whether the default data category mapping pre-filtering should be taken into account or not . | | 25.0 | |
 | defaultKeywords | String | The keywords to be used when the defaultSearchType attribute is 'keyword'. If no keywords are specified, the Case subject is used as a default. | | 25.0 | |
 | defaultSearchType | String | Specifies the default query of the article search form when it is first displayed. The value can be 'keyword', 'mostViewed', or 'lastPublished'. | | 25.0 | |
-| id | String | An identifier that allows the component to be referenced by other components on the page. | | 25.0 | Global |
-| language | String | The language used for filtering the search if multilingual Salesforce Knowledge is enabled. | | 25.0 | |
+| id | String | An identifier that allows the component to be referenced by other components in the page. | | 14.0 | global |
+| insertLinkToEmail | Boolean | A Boolean value that specifies whether articles can be shared by URL. | | 25.0 | |
+| language | String | A language to be used for filtering the search if multilingual Knowledge is enabled. | | 25.0 | |
 | logSearch | Boolean | A Boolean value that specifies whether keyword searches should be logged. | | 25.0 | |
 | mode | String | Specifies whether the component displays articles currently attached to the case, an article search form, or both. The value can be 'attached', 'search', 'attachedAndSearch', or 'searchAndAttached'. | | 25.0 | |
 | onSearchComplete | String | The JavaScript invoked after an article search has completed. | | 25.0 | |
-| rendered | Boolean | A Boolean value that specifies whether the component is rendered on the page. If not specified, this value defaults to true. | | 25.0 | Global |
+| rendered | Boolean | A Boolean value that specifies whether the component is rendered on the page. If not specified, this value defaults to true. | | 14.0 | global |
 | reRender | Object | The ID of one or more components that are redrawn when the result of the action method returns to the client. This value can be a single ID, a comma-separated list of IDs, or a merge field expression for a list or collection of IDs. | | 25.0 | |
 | searchButtonName | String | The display name of the search button. | | 25.0 | |
 | searchFieldWidth | String | The width of the keyword search field in pixels (px). | | 25.0 | |
@@ -579,11 +590,14 @@ Cirrus Computers는 상담원이 고객 이슈 해결에 도움이 되는 아티
 
 ### support:CaseFeed 속성
 
+> 아래 속성표의 셀 값(타입·Required·API Version·Access·Description)은 **Visualforce Developer Guide(Standard Component Reference, v67.0)** 의 정본 스펙을 따른다.
+> (Visualforce Developer Guide의 컴포넌트명 표기는 `support:caseFeed` — 소문자 c. 본 노트는 Apex 클래스명 `Component.Support.CaseFeed`와의 일관성을 위해 대문자 C 표기를 유지한다.)
+
 | Attribute Name | Attribute Type | Description | Required? | API Version | Access |
 |---|---|---|---|---|---|
-| caseId | id | ID of the case record to display in Case Feed. | Yes | 26.0 | |
-| id | String | An identifier that allows the component to be referenced by other components in the page. | | 26.0 | global |
-| rendered | Boolean | A Boolean value that specifies whether the component is rendered on the page. If not specified, this value defaults to true. | | 26.0 | global |
+| caseId | id | Case ID of the record for which to display the Case Feed. | Yes | 26.0 | |
+| id | String | An identifier that allows the component to be referenced by other components in the page. | | 14.0 | global |
+| rendered | Boolean | A Boolean value that specifies whether the component is rendered on the page. If not specified, this value defaults to true. | | 14.0 | global |
 
 ### Use Case
 
