@@ -134,4 +134,5 @@ Platform Event 발행 한도(트랜잭션당 150 DML 행, 동시 5개)를 절약
 - [[Platform Event 발행]]
 - [[QuiddityGuard]] — Context__c 값 출처
 - [[OrgShape]]
+- [[Apex Debug Log]] — 플랫폼 디버그 로그 (앱 로깅의 형제 — System.debug 기반)
 

@@ -154,4 +154,8 @@ TriggerHandler.clearBypass('AccountTriggerHandler');
 
 - [[CMDT 메타데이터 트리거]]
 - [[서비스 레이어 패턴]]
+- [[Trigger 컨텍스트 변수와 이벤트]] — `switch on Trigger.operationType`이 쓰는 TriggerOperation enum·컨텍스트 변수 레퍼런스
+- [[Trigger Order of Execution]] — 핸들러가 어느 save 단계에서 실행되는지(before/after 트리거 위치)
+- [[Trigger 재귀 방지]] — `setMaxLoopCount` 외 static 변수 가드 방식
 - [[Apex Best Practices]] — 객체당 단일 트리거 + 트리거에 비즈니스 로직 금지 원칙
+- [[Trigger 벌크 관용구·미발생 작업·예외]] — 핸들러가 구현해야 할 벌크 관용구·`addError()` 예외 처리 패턴

@@ -217,3 +217,5 @@ sf project deploy report --use-most-recent
 - [[Source Tracking 변경 추적]] — Source Tracking 활성화 Sandbox에서 변경 감지
 - [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] — 배포 자동화 CI 파이프라인
 - [[Unlocked Package 릴리스와 설치]] — 패키지 기반 배포 모델과 비교
+- [[Apex 배포 방법]] — Apex 배포 5가지 방법 카탈로그 (이 워크플로는 Org Development Model 파이프라인)
+- [[Change Sets 배포]] — UI 기반 Change Set 배포 (이 프로그래밍 방식 워크플로의 클릭 기반 대안)

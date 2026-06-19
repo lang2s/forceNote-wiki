@@ -33,8 +33,9 @@ created: 2026-05-17
 | [[Canvas Namespace]] | 외부 웹 앱 임베드 Apex SDK — CanvasLifecycleHandler(excludeContextTypes/onRender), RenderContext, ApplicationContext, EnvironmentContext, Canvas.Test | #reference |
 | [[Custom Metadata Types]] | CMDT 읽기·쓰기(Metadata.Operations), getInstance, SOQL 조회, isProtected 보호 설정 | #reference |
 | [[Validation Rules 예제]] | REGEX, ISBLANK, ISNUMBER, ISCHANGED, PRIORVALUE, VLOOKUP, ISPICKVAL 예제 모음 | #reference |
-| [[DevOps Center]] | Salesforce 릴리즈 관리 도구 — Git 기반 파이프라인, Work Item, Bundle, CLI 배포 | #concept |
+| [[DevOps Center]] | Salesforce 릴리즈 관리 도구 — Git 기반 파이프라인, Work Item, Bundle, CLI 배포. DevHubSettings(enableALMDevopsCorePref/enableDevOpsCenterGA), scratch org feature DevOpsCenter, DX MCP devops 툴셋 | #concept |
 | [[Enhanced Domains]] | Winter '24 강제 적용 도메인 정책 — 모든 URL에 My Domain 포함, 서드파티 쿠키 대응 | #concept |
+| [[Trigger Order of Execution]] | insert/update 저장 시 서버의 20단계 save 순서 — before/after 트리거·validation·workflow·flow·roll-up summary·commit·post-commit, 재귀 save skip | #concept |
 
 ---
 
@@ -43,6 +44,7 @@ created: 2026-05-17
 - SOQL/리포트가 느린 이유, 인덱스·selectivity 임계값? → [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]]
 - 수백만 건 대량 로드/삭제 전략, Bulk API·PK chunking? → [[대용량 데이터 (LDV) — 대량 로드·삭제]]
 - Trigger 로직을 어디에 둘지? → [[서비스 레이어 패턴]]
+- 레코드 저장 시 20단계 실행 순서(before/after·workflow·flow·roll-up)? → [[Trigger Order of Execution]]
 - 권한 세트 메타데이터 구성? → [[Permission Set 설계]]
 - Apex에서 승인 프로세스 제출? → [[Approval Namespace]]
 - 오브젝트/필드/레코드 타입 메타데이터 조회? → [[Schema Namespace 상세]]

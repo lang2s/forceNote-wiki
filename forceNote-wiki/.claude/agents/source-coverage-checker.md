@@ -64,6 +64,39 @@ find . -name "*.cls" | xargs grep -l "관련클래스명" 2>/dev/null
 
 기존 노트를 보강·교정하는 작업이면, 정본 레퍼런스 소스의 attribute(혹은 메서드) **목록 개수**와 기존 노트의 표 행 개수를 대조해 누락분을 PM에 보고한다. 노트의 attribute 표가 예제에서 실제 사용된 속성에만 편중돼 있으면 전수 누락 신호다.
 
+### 6. 부재(absence) 단정 전 전체 PDF 집합 전수 grep (재발 방지 규칙)
+
+> **Why:** 어떤 주제가 "공식 문서에 없다"는 결론은 후보 1~2개 PDF만 grep하고 내려선 안 된다. DevOps Center 사례에서 `sfdx_dev.pdf`·`pkg2_dev.pdf` 2개만 보고 "없다"고 단정했으나, 49개 PDF 전수 grep에서 `salesforce_apex_developer_guide.pdf`("Deploy Apex Using DevOps Center" 정식 섹션)·`api_meta.pdf`(설정 플래그)에서 발견됐다. DevOps Center처럼 **도메인 교차 주제는 1차 도메인 문서뿐 아니라 인접 도메인 문서(배포 주제 → apex_developer_guide의 'Deploying Apex' 챕터)에도 존재**한다.
+
+```bash
+# 주제가 정말 누락인지 — 전체 PDF 집합 전수 grep (후보 몇 개가 아니라 전부)
+for f in "Salesforce Documents/"*.pdf; do
+  txt="/tmp/$(basename "$f" .pdf).txt"
+  [ -f "$txt" ] || pdftotext "$f" "$txt" 2>/dev/null
+  hits=$(grep -ic "검색키워드" "$txt" 2>/dev/null)
+  [ "$hits" -gt 0 ] && echo "$f: $hits hits"
+done
+```
+
+- 주제 부재를 "확인 불가"가 아닌 **"없음"으로 단정하려면 전체 PDF 집합 전수 grep 증거를 첨부**한다. 검색 범위(N개 PDF)와 키워드(X·Y·Z 동의어 포함)를 보고에 명시한다.
+- 도메인 교차 주제는 1차 도메인 문서에서 못 찾아도 **인접 도메인 문서까지 확장 검색**한다.
+
+### 7. 동일 PDF 내 미추출 챕터를 누락 소스로 보고 (재발 방지 규칙)
+
+> **Why:** `salesforce_apex_developer_guide.pdf`는 이미 위키화된 PDF인데도 "Deploying Apex" 챕터(배포 방법 6종 섹션)가 통째로 미추출이었다. "이 PDF는 이미 채굴됨"이 곧 "전 챕터 커버됨"은 아니다 — **한 PDF를 특정 주제 위주로만 추출하면 나머지 챕터가 조용히 미커버**로 남는다.
+
+이미 위키에 source로 인용된 PDF라도, **그 PDF의 ToC/챕터 구조 대비 위키 노트가 어떤 챕터를 커버하는지 매핑**해 미추출 챕터를 찾는다:
+
+```bash
+# 1) 대상 PDF의 챕터 구조 추출
+pdftotext -f 1 -l 12 "Salesforce Documents/big_guide.pdf" - | grep -niE "chapter|\.\.\."
+# 2) 그 PDF를 source로 인용하는 위키 노트 목록
+grep -rl "big_guide" forceNote-wiki/ --include="*.md"
+# 3) 챕터별 커버 여부 매핑 → 미커버 챕터를 누락 소스로 보고
+```
+
+미추출 챕터는 아래 "추가 소스 발견" 표에 **`동일 PDF 내 미추출 챕터` 유형으로 등재**하고 PM 권고에 별도 태스크로 올린다.
+
 ## 출력 형식
 
 ```

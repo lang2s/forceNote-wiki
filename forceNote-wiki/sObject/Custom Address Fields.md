@@ -117,7 +117,7 @@ Custom Address Fields는 State·Country 주소 필드에 피클리스트를 사�
 - State·Country/Territory 피클리스트가 **이미 활성화되어 있으면**, 그 피클리스트 값이 표준 주소 필드에 사용된다. Custom Address Fields에서는 **같은 피클리스트 값이 커스텀 주소 필드에 자동으로 사용 가능**해진다. 표준과 커스텀 주소 필드에 **별도의 피클리스트 값을 지정할 수 없다.**
 - State·Country/Territory 피클리스트가 **활성화되어 있지 않으면**, Custom Address Fields로 커스텀 주소 필드에 대해 그 피클리스트들이 활성화된다. 기본적으로 모든 국가·영토와 그 주·도가 사용자에게 표시된다. Salesforce에서 사용 가능한 피클리스트 값을 지정하려면 State·Country/Territory 피클리스트를 구성한다.
 - 이 피클리스트 값을 구성해도, **Setup을 통해 표준 필드용 State·Country/Territory 피클리스트를 활성화하지 않는 한 표준 주소 필드의 동작은 영향받지 않는다.** Custom Address Fields를 사용하기 위해 표준 필드용 피클리스트를 활성화할 필요는 없다.
-- 피클리스트 구성은 **`AddressSettings` Metadata API**를 사용하거나, Salesforce Help의 *Configure State and Country/Territory Picklists* 참조.
+- 피클리스트 구성은 **`AddressSettings` Metadata API**([[State and Country Picklist]] 참조)를 사용하거나, Salesforce Help의 *Configure State and Country/Territory Picklists* 참조.
 - 표준 주소 필드용 피클리스트 활성화 세부는 Salesforce Help의 *Let Users Select States, Countries, and Territories from Picklists* 참조.
 
 ---
@@ -139,6 +139,36 @@ Custom Address Fields는 State·Country 주소 필드에 피클리스트를 사�
 > [!warning] **This feature can't be disabled.** (이 기능은 비활성화할 수 없다.)
 
 **Metadata API로 활성화:** `CustomAddressFieldSettings` 메타데이터 타입의 **`enableCustomAddressField`** 필드를 사용한다.
+
+`CustomAddressFieldSettings`는 `Metadata` 메타데이터 타입을 확장(extends)하며 `fullName`을 상속한다. 값은 settings 폴더의 단일 파일 **`CustomAddressField.settings`**에 저장되며(settings 컴포넌트당 파일 1개), **API 버전 55.0 이상**에서 사용 가능하다. package manifest에서는 다른 settings 타입과 마찬가지로 `Settings` 이름으로 접근한다.
+
+| 필드 | 필드 타입 | 설명 |
+|---|---|---|
+| `enableCustomAddressField` | `boolean` | Address Field Type을 커스텀 필드에 사용할 수 있는지(`true`) 여부. **기본값 `false`.** Custom Address Fields는 비활성화할 수 없다 — `true`로 설정한 뒤에는 `false`로 되돌릴 수 없다. (활성화 전 Salesforce Help의 *Custom Address Fields Requirements and Limitations* 검토 필요) |
+
+**선언적 메타데이터 샘플** (`CustomAddressField.settings`):
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomAddressFieldSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+<enableCustomAddressField>true</enableCustomAddressField>
+</CustomAddressFieldSettings>
+```
+
+**package.xml** — 위 정의를 참조하는 매니페스트. member는 `CustomAddressField`, name은 `Settings`, version은 **55.0**:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+<types>
+<members>CustomAddressField</members>
+<name>Settings</name>
+</types>
+<version>55.0</version>
+</Package>
+```
+
+> [!note] **State·Country 피클리스트 구성**은 [[State and Country Picklist]]의 `AddressSettings` 메타데이터 타입을 참조한다 — 활성화 전 선행 요구사항.
 
 ---
 
@@ -784,6 +814,7 @@ https://MyDomainName.my.salesforce.com/services/data/66.0/tooling/query?q=Select
 
 ## 관련 노트
 
+- [[State and Country Picklist]] — `AddressSettings` 메타데이터 타입. Custom Address Fields 활성화 전 선행 요구사항인 State·Country/Territory 피클리스트 구성
 - [[Compound Fields]] — `Address`·`Geolocation` 등 compound 필드 일반 개념과 컴포넌트 접근 패턴
 - [[Field Types]] — 커스텀 필드 데이터 타입 전반 (`Address` 타입 포함)
 - [[Future 메서드]] — Ch5 GeoCodeExample의 `@future(callout=true)` map API callout

@@ -17,6 +17,9 @@ created: 2026-05-17
 - [[TriggerHandler 패턴]] — abstract class, bypass, 루프 방지
 - [[CMDT 메타데이터 트리거]] — 배포 없이 핸들러 등록/비활성화
 - [[Trigger 재귀 방지]] — static 변수 가드(firstRun)·Set&lt;Id&gt; 추적·스택 깊이 16·롤백 캐비엇
+- [[Trigger 컨텍스트 변수와 이벤트]] — 트리거 문법, 13종 컨텍스트 변수(Trigger.new/old/newMap/oldMap), TriggerOperation enum, 이벤트별 가용성 매트릭스, merge/recovered records
+- [[Trigger 벌크 관용구·미발생 작업·예외]] — 벌크 트리거 Map/Set 관용구, 트리거 미발생 시스템 작업 전수, before/after 갱신 불가 필드, addError() 예외 마킹·부분 저장
+- [[Trigger Order of Execution]] — insert/update 저장 시 서버의 20단계 save 순서 — before/after 트리거·validation·workflow·flow·roll-up summary·commit·post-commit, 재귀 save skip
 - [[Permission Set 설계]] — objectPermissions, fieldPermissions, classAccesses 구성 표준
 - [[ApexPages Namespace]] — Visualforce 컨트롤러 전체 레퍼런스: Action·Component·Message·StandardController·StandardSetController·IdeaStandard*·KnowledgeArticleVersionStandardController
 - [[AppLauncher Namespace]] — App Launcher 앱 가시성·정렬 제어: AppMenu.setAppVisibility, setOrgSortOrder, setUserSortOrder
@@ -69,6 +72,7 @@ created: 2026-05-17
 
 - [[RestClient 패턴]] — virtual class, PATCH 우회, callout: 접두어
 - [[Custom REST Endpoint]] — @RestResource, global inherited sharing, RestContext
+- [[SOAP Web Services 노출 (webservice 키워드)]] — webservice 키워드로 Apex 메서드를 SOAP 웹서비스로 노출, WSDL 생성, system context 보안, AJAX Toolkit(sforce.apex.execute), 오버로딩 불가
 - [[Named Credential]] — External Credential → Principal → NC 순서
 - [[ConnectApi Chatter 패턴]] — postFeedItemWithRichText, @멘션, Flow 리치 텍스트 변환
 - [[ConnectApi Namespace 개요]] — Connect in Apex 전체 클래스 목록, ChatterFeeds/EinsteinLLM/CdpQuery/CommerceCart, 테스트 setTest* 패턴
@@ -139,10 +143,12 @@ created: 2026-05-17
 - [[QuiddityGuard]] — trusted/untrusted Quiddity, testQuiddityOverride
 - [[OrgShape]] — isSandbox, isMultiCurrencyEnabled, isPersonAccountEnabled
 - [[Governor Limits]] — Per-Transaction/Platform/Static 한도 전체 표, Limits 클래스, Bulkify/SOQL 방어 패턴
+- [[Anonymous Apex 실행]] — execute anonymous 블록, executeAnonymous SOAP API/ExecuteAnonymousResult, Author Apex 권한, 익명 블록 제약·Forward Reference, 실행 도구(Web Console/VS Code/Developer Console/sf apex run)
 
 ## 📋 로깅
 
 - [[Log 싱글턴 패턴]] — add() 버퍼 → publish() 일괄 발행
+- [[Apex Debug Log]] — Debug Log 카테고리 10종·레벨 8종(NONE~FINEST), Event Type 매트릭스, DebuggingHeader(LogCategory/LogCategoryLevel enum), 로그 한도·우선순위, Developer Console
 
 ## 📡 플랫폼 이벤트
 
@@ -178,13 +184,16 @@ created: 2026-05-17
 
 ## 📘 언어 기초
 
+- [[Introducing Apex — 개요와 개발 프로세스]] — Apex란 무엇인가(강타입·객체지향·멀티테넌트 언어)·언제 쓰는지·동작 방식 + 개발→테스트→배포 개발 프로세스 개요
 - [[Apex 언어 기초 — 데이터타입과 변수]] — primitive·collection·enum 타입, 변수 선언·스코프·상수, 연산자·우선순위·형 변환(Safe Navigation ?. / Null Coalescing ??)
 - [[Apex 언어 기초 — 제어 흐름과 클래스]] — if-else·switch·loop 제어문과 클래스·생성자·접근제어자·상속·인터페이스·sharing 키워드
 - [[Apex 언어 기초 — 예외 처리와 예약어]] — try/catch/finally·throw·내장 예외 클래스·커스텀 예외 작성·Apex 예약어 전수 목록
+- [[Apex 버전별 동작 변경 레퍼런스]] — API 버전(apiVersion)에 따라 달라지는 Apex 동작 변경을 버전 내림차순으로 모은 version-gated lookup 인덱스
 
 ## 📖 레퍼런스
 
 - [[Apex 표준 클래스 레퍼런스]] — String / List / Map / Database / Crypto / JSON / Schema / Limits 전체 API 빠른 참조
+- [[ApexDoc 주석 작성 가이드]] — JavaDoc 기반 ApexDoc 문법, 태그 14종(@param/@return/@throws/@see/@group/@example/@author/@deprecated/@version/@since + inline {@code}{@link}{@literal}{@hidden}), 공통 애노테이션 12종, 구성요소 7종 문서화, 예제 9종
 
 ## ✅ 모범 사례
 
@@ -214,4 +223,6 @@ EventBus API 시그니처?   →  [[EventBus Namespace]] → TriggerContext, pub
 Quick Action 실행?      →  [[QuickAction Namespace]] → performQuickAction
 보고서 Apex 실행?       →  [[Reports Namespace]] → ReportManager.runReport
 외부 모킹?             →  [[StubProvider]]
+트리거 컨텍스트 변수?   →  [[Trigger 컨텍스트 변수와 이벤트]] → Trigger.new/old, operationType
+저장 순서(20단계)?      →  [[Trigger Order of Execution]] → save order
 ```

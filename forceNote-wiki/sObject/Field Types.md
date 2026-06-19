@@ -446,11 +446,35 @@ URL을 저장하는 필드.
 
 ---
 
+## Salesforce 앱과 API의 필드·타입 차이
+
+일반적으로 API의 데이터 타입과 UI의 필드 타입은 같은 이름을 쓴다(예: UI의 date 필드 = API의 `date` 타입). 그러나 일부 필드 타입은 API로 조회하느냐 UI로 보느냐에 따라 **다르게 표현**된다. 아래는 이름이 다른 경우의 매핑이다.
+
+| API Data Type | UI에서의 대응 필드 타입 |
+|---|---|
+| `ID` | Lookup relationship, master-detail relationship |
+| `string` | Auto number, email, phone, picklist, multi-select picklist, text, text area, long text area, rich text area, data category group reference, URL — text · text area · long text area는 WSDL에 서로 다른 max length가 명시됨 |
+| `boolean` | Checkbox |
+| `double` | Currency, formula, number, percent, roll-up summary |
+| `Varies by type` | Formula 필드 — UI에서 formula 필드 생성 시 타입을 지정해야 하며, 그 타입은 동명의 API 데이터 타입에 대응: currency, date, date/time, number, percent, text |
+
+**그 밖의 모든 UI 생성 필드는 다음 두 범주 중 하나에 해당한다:**
+
+- **UI와 API 양쪽에 모두 존재하지는 않는 경우.** 예: `BusinessHours` 오브젝트는 API 데이터 타입 `time`의 필드를 갖지만, **이 타입의 커스텀 필드는 생성할 수 없다.**
+- **필드 타입이 대응하는 API 데이터 타입과 동일한 경우.** 예: UI에서 date 필드를 만들면 API에서도 그 필드는 `date` 데이터 타입이다.
+
+또한 UI에서는 일부 필드·탭의 **label을 변경**할 수 있다. API로는 필드·탭의 라벨을 변경(relabel)할 수 없지만, **현재 값은 조회할 수 있다** — `describeSObjects()` 호출 후 반환된 `DescribeSObjectResult`의 `label` 필드를 확인한다.
+
+> API 데이터 타입에 대한 자세한 내용은 [[Primitive Data Types]]와 위 [[#Field Type 전수]] 참조.
+
+---
+
 ## 관련 노트
 
 - [[1 Overview]] — Ch1 전체 요약
 - [[Primitive Data Types]] — Field Type 기반이 되는 SOAP 기본 타입 10개
 - [[API Field Properties]] — 각 필드에 붙는 속성 (Filter·Sort·Nillable 등)
+- [[Custom Fields]] — UI에서 생성하는 커스텀 필드(앱·API 타입 차이 맥락)
 - [[Compound Fields]] — address·location 복합 필드 상세
 - [[3 Associated Objects]] — anyType이 사용되는 History 오브젝트 패턴
 - [[SOQL 문법 레퍼런스]] — multipicklist INCLUDES/EXCLUDES, JunctionIdList 쿼리

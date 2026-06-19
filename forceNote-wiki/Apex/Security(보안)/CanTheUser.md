@@ -124,6 +124,7 @@ public static Boolean flsEnabled(SObject obj, String field) {
 - [[StripInaccessible]]
 - [[WITH USER_MODE]]
 - [[Custom REST Endpoint]] — 삭제 권한 체크 예시
+- [[SOAP Web Services 노출 (webservice 키워드)]] — 인바운드 SOAP 요청 CRUD/FLS 체크
 - [[Permission Set 설계]] — 권한 세트 설계와 런타임 CRUD/FLS 체크 연계
 - [[권한과 접근 제어 위협]] — CRUD/FLS·공유 우회 위협 모델 (CanTheUser가 방어하는 대상)
 

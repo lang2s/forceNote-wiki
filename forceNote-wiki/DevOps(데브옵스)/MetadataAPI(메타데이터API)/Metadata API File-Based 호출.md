@@ -92,6 +92,46 @@ AsyncResult deploy(base64Binary ZipFile, DeployOptions DeployOptions)
 
 > **Production 배포:** 기본적으로 `RunLocalTests` 이상 필요. code coverage 75% 미만이면 실패.
 
+### RunRelevantTests (Beta)
+
+배포 시간을 줄이기 위해, 배포와 **관련된 Apex 테스트만** 자동 선택해 실행하는 테스트 레벨(Beta).
+
+> [!note] Beta 약관
+> `RunRelevantTests` 테스트 레벨 및 관련 `@IsTest()` 어노테이션은 pilot/beta 서비스로, [Beta Services Terms](https://www.salesforce.com/company/legal/agreements/)(또는 체결된 Unified Pilot Agreement, Product Terms Directory의 해당 조항)가 적용된다. 사용은 고객 재량.
+
+**자동 선택 근거**
+Salesforce가 배포 **payload**와 **payload dependencies**를 분석해 관련 테스트를 자동 식별한다. `RunSpecifiedTests`처럼 적용 테스트를 수동 판별(흔히 custom DevOps tooling 필요)할 필요가 없고, `RunLocalTests`와 달리 실행 테스트 수가 **배포 크기에 비례**해 스케일된다(작은 배포 = 적은 관련 테스트).
+
+**커버리지 요건 (최우선)**
+`RunRelevantTests`를 설정해도 배포 패키지에 포함된 **모든 class와 trigger 각각이 최소 75% 코드 커버리지**를 충족해야 한다. 이 커버리지는 **class·trigger 단위로 개별 산정**되며, overall coverage percentage와는 **다르다**. 커버리지 미달 시 아래 어노테이션으로 테스트 스위트를 보강할 수 있다.
+
+**어노테이션 오버라이드**
+`RunRelevantTests`로 실행되는 테스트를 세밀하게 제어하려면 `@IsTest` 어노테이션을 쓴다. 구현 상세는 Apex Developer Guide의 [@IsTest(critical=true) / @IsTest(testFor='...')](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_istest.htm) 참조 (어노테이션 동작은 API **v66.0+** 한정 — 릴리즈 노트 → [[Spring '26/Development]] §변경).
+
+| 어노테이션 | 동작 |
+|---|---|
+| `@IsTest(critical=true)` | 배포 payload의 class/trigger와 **무관하게 항상 실행** |
+| `@IsTest(testFor='ApexClass:Name, ApexTrigger:Name')` | 지정한 컴포넌트가 payload에서 **새로 추가되거나 변경될 때** 실행 |
+
+**설정법**
+
+```java
+// DeployOptions 객체 생성
+DeployOptions deployOptions = new DeployOptions();
+
+// 테스트 레벨 설정
+deployOptions.setTestLevel(TestLevel.RunRelevantTests);
+
+// deploy() 호출 시 인자로 전달
+AsyncResult asyncResult = metadatabinding.deploy(zipBytes, deployOptions);
+```
+
+| 경로 | 지정 방법 |
+|---|---|
+| File-Based (deploy) | `deployOptions.setTestLevel(TestLevel.RunRelevantTests)` |
+| REST | request body의 `deployOptions.testLevel`에 `RunRelevantTests` 설정 (→ [[Metadata API REST]]) |
+| Salesforce CLI | `sf project deploy start --test-level RunRelevantTests` (지원 project 명령의 `--test-level` 플래그) |
+
 ### 예제
 
 ```java
@@ -267,4 +307,5 @@ sf project deploy start --source-dir force-app --target-org myOrg
 - [[Salesforce DX 개요]]
 - [[CI CD 패턴]]
 - [[Metadata API 에러 처리]]
+- [[Tooling API 배포]] — 또 다른 프로그래밍 방식 배포(peer). File-Based는 .zip+package.xml로 대규모·전체 메타데이터 일괄 배포, Tooling API는 complex type 안 단일 요소(클래스·트리거 등)만 fine-grained 컴파일·배포
 - [[Metadata Types — 개요 및 분류]]

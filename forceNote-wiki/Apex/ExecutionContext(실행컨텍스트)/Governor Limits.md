@@ -333,3 +333,5 @@ for(Account a : [SELECT Id, Name FROM Account]) {
 - [[DML 패턴]] — Bulkify DML, allOrNothing
 - [[Apex 표준 클래스 레퍼런스]] — Limits 클래스 전체 메서드 목록
 - [[TriggerHandler 패턴]] — 트리거에서 한도 방어 아키텍처
+- [[Trigger Order of Execution]] — 재귀 save와 트리거 재귀 스택 깊이(16) 한도가 발생하는 저장 lifecycle
+- [[Apex Debug Log]] — 디버그 로그의 LIMIT_USAGE 라인으로 한도 소비 추적

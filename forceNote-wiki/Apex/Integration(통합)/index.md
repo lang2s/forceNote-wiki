@@ -17,6 +17,7 @@ created: 2026-05-17
 |---|---|---|
 | [[RestClient 패턴]] | virtual class, Named Credential callout:, PATCH 우회 | #pattern |
 | [[Custom REST Endpoint]] | @RestResource, global inherited sharing, RestContext | #pattern |
+| [[SOAP Web Services 노출 (webservice 키워드)]] | webservice 키워드로 Apex 메서드를 SOAP 웹서비스로 노출, WSDL 생성, system context 보안, AJAX Toolkit(sforce.apex.execute), 오버로딩 불가 | #pattern |
 | [[ConnectApi Chatter 패턴]] | postFeedItemWithRichText, @멘션, Flow 리치 텍스트 변환 | #pattern |
 | [[ConnectApi Namespace 개요]] | Connect in Apex 전체 클래스 목록 — ChatterFeeds/EinsteinLLM/CdpQuery/CommerceCart/Communities, setTest* 패턴 | #reference |
 | [[Dom Namespace]] | Dom.Document + Dom.XmlNode — XML 생성·파싱, HTTP 연동 | #reference |
@@ -72,6 +73,7 @@ created: 2026-05-17
 
 - Apex에서 외부 API 호출? → [[RestClient 패턴]]
 - 외부 시스템이 Salesforce를 REST로 호출? → [[Custom REST Endpoint]]
+- 외부 시스템이 Salesforce를 SOAP(WSDL)로 호출 / Apex 메서드를 SOAP로 노출? → [[SOAP Web Services 노출 (webservice 키워드)]]
 - Chatter 피드에 게시(리치 텍스트, @멘션)? → [[ConnectApi Chatter 패턴]]
 - ConnectApi 어떤 클래스 써야 할지? → [[ConnectApi Namespace 개요]]
 - HTTP 요청/응답 본문을 XML로 처리? → [[Dom Namespace]]

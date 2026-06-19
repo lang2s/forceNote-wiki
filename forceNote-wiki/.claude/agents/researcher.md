@@ -143,6 +143,25 @@ scout 보고에서 "시각 자료 경고"를 받은 페이지 범위는 추출 d
 
 ---
 
+## 멀티토픽 대형 PDF — 추출 전 챕터 범위 명시 (재발 방지 규칙)
+
+> **Why:** `salesforce_apex_developer_guide.pdf`(여러 도메인을 한 권에 담은 언어 가이드)를 Apex 언어 기능 위주로만 추출하고 "Deploying Apex" 챕터("Deploy Apex Using DevOps Center" 등 배포 방법 6종)를 통째로 누락했다. 추출자가 한 PDF의 일부 챕터만 보면 **나머지 챕터는 영영 위키에 들어오지 않는다** — 그 누락을 사후에 잡아주는 에이전트가 없었다.
+
+멀티토픽 대형 PDF를 추출할 때는, scout의 소스 맵에 있는 **챕터 커버리지**를 받아 추출 dump 머리에 명시한다(scout 맵에 없으면 직접 ToC를 추출해 작성):
+
+```bash
+# ToC/챕터 구조 확인 (scout가 안 줬으면 직접)
+pdftotext -f 1 -l 12 "Salesforce Documents/big_guide.pdf" - | grep -niE "chapter|\.\.\."
+```
+
+```
+## 추출 — [PDF명] 챕터 범위 명시
+- 이번 추출 커버 챕터: [Ch2, Ch3, ...]
+- 이번 추출 미커버 챕터: [Ch12 Deploying Apex (배포 6종) — 범위 밖, coverage-checker/validator가 백로그화]
+```
+
+이 명시가 있어야 completeness-validator가 '문서 레벨 커버리지'(아예 추출 안 된 챕터)를 판정할 수 있다. 범위 밖 챕터를 **임의로 추출 생략하되, 생략 사실 자체는 반드시 dump에 기록**한다(조용한 누락 금지).
+
 ## PDF 추출 시작 전 중복 확인 (재발 방지 규칙)
 
 PDF 내용 추출을 시작하기 전, 아래 순서로 중복 여부를 확인한다:

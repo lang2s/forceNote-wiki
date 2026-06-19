@@ -26,6 +26,9 @@ created: 2026-05-21
 | TriggerHandler, beforeInsert afterInsert, Trigger.new, 트리거 패턴 | `Apex/Trigger(트리거)/TriggerHandler 패턴.md` |
 | Trigger 재귀 방지, 트리거 재귀, recursion, static 변수 firstRun, hasRun 플래그, Set<Id> 처리, 스택 깊이 16, maximum trigger depth, setMaxLoopCount, 무한 루프 트리거 | `Apex/Trigger(트리거)/Trigger 재귀 방지.md` |
 | CMDT, Custom Metadata, 트리거 on/off, 메타데이터 트리거 제어 | `Apex/Trigger(트리거)/CMDT 메타데이터 트리거.md` |
+| Trigger context variables, Trigger.new, Trigger.newMap, Trigger.old, Trigger.oldMap, Trigger.isInsert, Trigger.isBefore, Trigger.isAfter, Trigger.operationType, System.TriggerOperation enum, 트리거 컨텍스트 변수, 트리거 컨텍스트 변수 13종, before after 트리거 차이, 트리거 이벤트 종류, 트리거 정의 문법, trigger on syntax, merge recovered records, 트리거 이벤트 가용성 매트릭스, 트리거에서 뭘 쓸 수 있나 | `Apex/Trigger(트리거)/Trigger 컨텍스트 변수와 이벤트.md` |
+| Order of Execution, save order, 실행 순서, 20단계 실행 순서, 트리거 저장 순서, before after trigger 순서, 저장 lifecycle, workflow flow roll-up summary 순서, validation rule 순서, duplicate rule 순서, recursive save skip, 재귀 save 건너뛰기, commit post-commit 순서, 트리거 언제 실행되나, Additional Considerations | `Architecture(아키텍처)/Trigger Order of Execution.md` |
+| Bulk Trigger Idioms, 벌크 트리거 관용구, 트리거 벌크화, Map 부모 룩업, 관련 레코드 일괄 쿼리, addError, addError 레코드 vs 필드, 트리거 예외 마킹, 부분 저장 partial save, HTML escaping addError, Operations That Don't Invoke Triggers, 트리거 미발생 작업, cascade delete 트리거 안 됨, lead 변환 트리거, mass transfer 트리거, Fields Not Updateable in Before Triggers, before 트리거 갱신 불가 필드, 트리거에서 에러 어떻게 띄우나, 어떤 작업이 트리거를 안 부르나 | `Apex/Trigger(트리거)/Trigger 벌크 관용구·미발생 작업·예외.md` |
 | Custom Metadata Types 상세, __mdt, CustomMetadata__mdt, getAll, getInstance, 커스텀 메타데이터 Apex 조회, Metadata.CustomMetadata, Metadata.DeployContainer, enqueueDeployment, CMDT 배포, CMDT 캐시, 커스텀 메타데이터 타입 vs 커스텀 설정, 기능 플래그, Feature Flag, 요율표, 매핑 테이블, Protected Custom Metadata | `Architecture(아키텍처)/Custom Metadata Types.md` |
 | Permission Set, 권한 설계 | `Architecture(아키텍처)/Permission Set 설계.md` |
 | Validation Rules, 검증 규칙, REGEX 수식, SSN 형식 검증, 우편번호 ZIP 검증, 전화번호 검증, 날짜 검증 평일, 숫자 MOD 짝수 홀수, 소유자 검증, ISCHANGED, PRIORVALUE, ISNEW, ISPICKVAL, ISNUMBER, VLOOKUP 역할 한도, $User 커스텀 필드, $Profile.Name, 크로스 오브젝트 검증, IP 주소 검증, 신용카드 번호 검증, California 운전면허, 계정 번호 검증, 연간 매출 범위 | `Architecture(아키텍처)/Validation Rules 예제.md` |
@@ -129,6 +132,8 @@ created: 2026-05-21
 | Apex 데이터타입, Apex 원시 타입, Primitive 타입, Blob Boolean Date Datetime Decimal Double ID Integer Long Object String Time, sObject 타입, Collection 선언, 컬렉션 선언 문법, List Set Map 리터럴, Enum, System-defined enum, 변수 선언, 변수 명명 규칙, 상수 final, 연산자, 연산자 우선순위, Safe Navigation ?., Null Coalescing ??, 형 변환, Rules of Conversion, overflow underflow, Apex 데이터 타입이 뭐가 있나, Apex에서 변수 어떻게 선언하나, ?. ?? 연산자 뭔가 | `Apex/Apex 언어 기초 — 데이터타입과 변수.md` |
 | Apex 제어 흐름, if else, switch when, switch 패턴, do-while while for 루프, 클래스 정의, inner 클래스, 생성자, this chaining, 메서드 오버로딩, 접근 제어자, private protected public global, static instance 초기화, Apex Properties, getter setter, 상속 extends, virtual abstract override, 다형성, 인터페이스 구현, Custom Iterator Iterable, final instanceof super this transient, with sharing without sharing inherited sharing, 클래스 캐스팅, name shadowing, Apex 클래스 작성법, with sharing 차이가 뭔가, Apex switch 문 어떻게 쓰나, virtual abstract 차이 | `Apex/Apex 언어 기초 — 제어 흐름과 클래스.md` |
 | Apex 예외 처리, try catch finally, throw, 잡을 수 없는 예외, LimitException, DmlException ListException NullPointerException QueryException SObjectException, 예외 메서드 getMessage getCause getStackTraceString, 커스텀 예외, 커스텀 예외 만들기, 예외 클래스 extends Exception, rethrow inner exception, Apex 예약어, reserved keywords 목록, Apex 예외 어떻게 처리하나, 커스텀 예외 어떻게 만드나, Apex 예약어 목록 | `Apex/Apex 언어 기초 — 예외 처리와 예약어.md` |
+| Introducing Apex, Apex 개요, Apex란 무엇인가, What is Apex, Apex 개발 프로세스, Apex 언제 쓰나, 강타입 객체지향 멀티테넌트, Apex 동작 방식, 개발 환경 org 타입, Apex 어떻게 개발하나, Apex 개발 테스트 배포 흐름, Apex 특징 | `Apex/Introducing Apex — 개요와 개발 프로세스.md` |
+| Apex Versioned Behavior Changes, 버전별 동작 변경, API version behavior, versioned behavior, apiVersion 동작 차이, API 버전별 Apex 동작, v15 v34 v67 동작 변경, 버전 게이트 동작, 패키지 버전 동작 변경, Apex 버전 올리면 뭐가 바뀌나, API 버전에 따라 달라지는 동작 | `Apex/Apex 버전별 동작 변경 레퍼런스.md` |
 
 ## Apex — 표준 클래스 레퍼런스
 
@@ -155,10 +160,12 @@ created: 2026-05-21
 | 키워드 | 파일 |
 |---|---|
 | Log 싱글턴, 로깅 패턴, Logger, 디버그 로그 | `Apex/Logging(로깅)/Log 싱글턴 패턴.md` |
+| Apex Debug Log, 디버그 로그, 로그 카테고리, 로그 레벨, 로그 레벨 설정, 디버그 로그 안 보일 때, Apex 디버깅, NONE ERROR WARN INFO DEBUG FINE FINER FINEST, DebuggingHeader, LogCategory, LogCategoryLevel, Event Type 매트릭스, System.debug 로그, Developer Console 로그, 디버그 로그 한도, 로그 우선순위, Apex 디버깅 방법, 로그 카테고리 10종, 로그 레벨 8종, debug log limit | `Apex/Logging(로깅)/Apex Debug Log.md` |
 | Platform Cache, 캐시, CacheBuilder, Org Cache Session Cache | `Apex/PlatformCache(플랫폼캐시)/Platform Cache.md` |
 | Cache Namespace, Cache.Org, Cache.Session, Cache.OrgPartition, Cache.SessionPartition, Cache.Visibility, 플랫폼 캐시 네임스페이스, doLoad, CacheBuilder 인터페이스 | `Apex/PlatformCache(플랫폼캐시)/Cache Namespace.md` |
 | OrgShape, Org 설정 조회, 샌드박스 여부, 네임스페이스 | `Apex/ExecutionContext(실행컨텍스트)/OrgShape.md` |
 | QuiddityGuard, Quiddity, 실행 컨텍스트, REST Trigger Batch 구분 | `Apex/ExecutionContext(실행컨텍스트)/QuiddityGuard.md` |
+| Anonymous Apex, 익명 Apex, 익명 블록, execute anonymous, execute anonymous 실행, executeAnonymous, ExecuteAnonymousResult, Author Apex 권한, 익명 블록 제약, Forward Reference, 익명 Apex 실행 방법, Web Console, VS Code Apex 실행, Developer Console 익명 실행, sf apex run, anonymous block, 임시 코드 실행, Apex 한 번 실행 | `Apex/ExecutionContext(실행컨텍스트)/Anonymous Apex 실행.md` |
 | Governor Limits, 거버너 한도, 실행 한도, SOQL 한도, DML 한도, Heap size, CPU time, Callout 한도, Limits 클래스, getQueries, getDmlStatements, getLimitQueries, getLimitDmlStatements, 거버너 리밋, Apex 실행 한도, 한도 초과 예외, LimitException, Per-Transaction Limits, 비동기 동기 한도 차이, Platform Apex Limits, Static Apex Limits | `Apex/ExecutionContext(실행컨텍스트)/Governor Limits.md` |
 | Platform Event 발행, EventBus.publish, 이벤트 트리거 수신 | `Apex/PlatformEvents(플랫폼이벤트)/Platform Event 발행.md` |
 | Platform Event 정의, 구독, __e 객체, Publish Behavior, Publish Immediately, Publish After Commit, 고볼륨 표준볼륨 platform event, after insert 트리거 구독, Pub/Sub API, CometD, ReplayId, EventUuid, setResumeCheckpoint, RetryableException 재시도 | `Apex/PlatformEvents(플랫폼이벤트)/Platform Event 정의와 구독.md` |
@@ -183,6 +190,7 @@ created: 2026-05-21
 | Collections, CollectionUtils, 컬렉션 유틸 | `Apex/Collections(컬렉션)/CollectionUtils.md` |
 | Comparator, 정렬, List.sort, 커스텀 정렬, 리스트 정렬, 오름차순 내림차순 | `Apex/Collections(컬렉션)/Comparator 인터페이스.md` |
 | Iterable, Iterator, 커스텀 이터레이터 | `Apex/Collections(컬렉션)/Iterable Iterator.md` |
+| ApexDoc, Apex 주석, ApexDoc 주석 다는 법, 코드 주석 규약, JavaDoc 주석, 문서화 주석, @description @param @return @throws @see @group @example @author @deprecated @version @since, inline {@code} {@link} {@literal} {@hidden}, 공통 애노테이션, 구성요소 문서화, ApexDoc 작성법, Apex 코드 문서화, 주석 문법 가이드 | `Apex/ApexDoc 주석 작성 가이드.md` |
 
 
 ## Apex — Platform Encryption

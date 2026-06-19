@@ -70,8 +70,9 @@ System.debug('Deleted ' + count + ' old jobs.');
   - `@IsTest(testFor='ApexClass:ClassName, ApexTrigger:TriggerName')` — 지정 클래스/트리거가 새로 추가/변경될 때 실행.
   - 지정 방법: file-based call은 `DeployOptions.testLevel = 'RunRelevantTests'`; REST는 `deployRequest` 본문의 `deployOptions.testLevel`; CLI는 `sf project deploy start --test-level RunRelevantTests`.
   - 기존 `RunLocalTests`(작은 변경에도 전 테스트 실행) / `RunSpecifiedTests`(수동 지정)의 한계를 해결, 배포 크기에 비례해 확장.
+  - **커버리지 요건:** `RunRelevantTests` 설정 시에도 배포 패키지의 **모든 class·trigger 각각이 최소 75% 커버리지**를 충족해야 한다(class·trigger 단위 개별 산정, overall coverage와 다름).
   - **Beta 약관:** `RunRelevantTests` 및 관련 `@IsTest()` 어노테이션은 pilot/beta 서비스(Beta Services Terms 적용). LEX·Classic, Enterprise/Performance/Unlimited/Developer.
-  - 참고: `RunRelevantTests`·`@IsTest(critical=true)`·`@IsTest(testFor=...)`는 전용 위키 노트가 아직 없다(릴리즈 노트 내 항목).
+  - 참고: 전용 위키 본문은 → [[Metadata API File-Based 호출]] §RunRelevantTests (Beta)에 정착됨.
 - **`WITH USER_MODE` SOQL을 Automated Process User로 실행** — API v66.0+에서 Automated Process User가 `WITH USER_MODE` SOQL을 실행할 수 있다. v65.0 이하에서는 system mode로 명시 실행하지 않으면 실패한다. (→ [[WITH USER_MODE]])
 - **Sharing 재계산 동작 변경 대비** — sharing recalculation 동작이 변경되어 share 레코드 즉시 업데이트에 의존하는 Apex가 깨질 수 있다. "Update Apex Code and Flows for Changed Sharing Recalculation Behavior" Release Update로 영향 코드를 식별·수정한다. 강제 시점(Spring '27)은 → [[Spring '26/Release Updates]].
 

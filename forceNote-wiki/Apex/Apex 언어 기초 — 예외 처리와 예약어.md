@@ -332,3 +332,5 @@ after, before, count, excludes, first, includes, last, order, sharing, with
 - [[Apex 언어 기초 — 데이터타입과 변수]]
 - [[Apex 표준 클래스 레퍼런스]]
 - [[Apex Best Practices]]
+- [[ApexDoc 주석 작성 가이드]] — `@throws` 등 예외 문서화 주석 작성
+- [[Apex Debug Log]] — 예외·스택트레이스를 디버그 로그로 추적

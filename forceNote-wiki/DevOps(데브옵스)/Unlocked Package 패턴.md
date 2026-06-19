@@ -235,3 +235,4 @@ sf package create -t Unlocked -r force-app -n MyPackage --org-dependent
 - [[Unlocked Package 생성과 설정]] — sfdx-project.json 18개 파라미터·Keywords·Namespace 전수
 - [[Unlocked Package 개발과 버전]] — 버전 생성 3가지 옵션·Hard-Delete 컴포넌트 전수
 - [[Unlocked Package 릴리스와 설치]] — Push Upgrade·설치·언인스톨·Dev Hub 이전 전수
+- [[DevOps Center]] — 파이프라인 기반 변경관리 도구 (Unlocked Package 배포 권장)

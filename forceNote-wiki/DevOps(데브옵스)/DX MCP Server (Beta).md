@@ -273,3 +273,4 @@ core toolset은 항상 활성화된다. 나머지는 지정한 toolset에 따라
 - [[DX 인증 방식]] — org 인증 방법 (MCP 서버 전제 조건)
 - [[Scratch Org 생성과 정의 파일]] — MCP로 Scratch Org 생성 시 참조
 - [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API MCP Tool]] — Metadata API 전용 MCP Tool (별개)
+- [[DevOps Center]] — `devops` 툴셋이 work item·merge conflict·배포 진단을 수행하는 대상

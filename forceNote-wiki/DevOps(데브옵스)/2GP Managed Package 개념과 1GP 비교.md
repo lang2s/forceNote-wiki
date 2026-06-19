@@ -2,7 +2,7 @@
 tags: [DevOps, Packaging, 2GP, ManagedPackage, AppExchange, 매니지드패키지, 패키징, 1GP비교]
 source: pkg2_dev.pdf (Second-Generation Managed Packaging Developer Guide, Version 67.0 Summer '26)
 created: 2026-05-23
-aliases: [Second-Generation Managed Package, managed 2GP, 2GP 매니지드 패키지, 2세대 매니지드 패키지, 2GP vs 1GP, managed 1GP vs 2GP, 매니지드 패키지 차이]
+aliases: [Second-Generation Managed Package, managed 2GP, 2GP 매니지드 패키지, 2세대 매니지드 패키지, 2GP vs 1GP, managed 1GP vs 2GP, 매니지드 패키지 차이, 2GP feature gaps, 2GP 미지원 기능, 1GP에 있고 2GP에 없는 기능, 패키지 버전 deprecate 2GP, package version deprecate, VersionProvider 2GP, Gaps Between First- and Second-Generation]
 ---
 
 # 2GP Managed Package 개념과 1GP 비교
@@ -191,6 +191,22 @@ managed 2GP와 Unlocked Package는 **둘 다 2GP 패키징 모델**을 공유한
 
 ---
 
+## 9. 1GP에는 있으나 2GP에 아직 없는 기능 갭 (Feature Gaps)
+
+아래 3가지는 **managed 1GP에서는 지원되지만 managed 2GP에서는 아직(not yet) 미지원**인 기능이다. Salesforce가 이 갭들을 해소하는 작업을 진행 중이다. (§2·§3가 다루는 것은 두 모델의 **아키텍처·capability 차이**이고, 이 절은 그와 별개로 **현 시점 미지원 기능 목록**이다.)
+
+| # | 기능 갭 | 설명 |
+|---|---|---|
+| 1 | **Package version을 deprecate 할 수 없다** | managed 1GP는 릴리스된 패키지 버전을 사용 중단(deprecate) 표시할 수 있으나, managed 2GP는 아직 불가. |
+| 2 | **Apex `VersionProvider`가 지원되지 않는다** | managed 1GP에서 쓰던 Apex `VersionProvider`를 managed 2GP에서는 사용할 수 없다. |
+| 3 | **패키지 레이블의 default language를 지정할 수 없다** | 패키지 내 레이블(label)에 대한 기본 언어(default language)를 managed 2GP에서는 지정할 수 없다. |
+
+> [!note] **deprecate ≠ abandon** — 갭 #1의 "deprecate"는 §2-4가 설명한 2GP의 **abandon**과 다른 개념이다. abandon은 *아직 고객에게 배포되지 않은* managed-released 버전을 폐기하는 것이고, deprecate(여기서 미지원)는 *이미 릴리스된* 버전을 "사용 중단"으로 표시하는 것이다.
+
+지원되는 메타데이터 타입의 최신 정보는 Metadata Coverage Report를 참조한다 → [[Metadata Coverage 보고서]].
+
+---
+
 ## 관련 노트
 
 - [[2GP Managed Package 개발 환경과 사전 준비]] — 이 페이지의 후속: namespace 생성·Dev Hub link·Key Concepts·Manageability Rules·Ancestry·의존성 매트릭스
@@ -204,3 +220,4 @@ managed 2GP와 Unlocked Package는 **둘 다 2GP 패키징 모델**을 공유한
 - [[2GP — LMA Part 1 Get Started]] — LMA 설치·권한·Lead·License 레코드·LMO 설정
 - [[2GP — Feature Management App]] — Feature Parameters 3종·구독자별 기능 제어·FMA 전체
 - [[2GP — App Analytics Part 1 - Overview & Setup]] — AppExchange App Analytics 개요·ISV 사용량 데이터·CustomInteractions
+- [[Metadata Coverage 보고서]] — 채널별 지원 메타데이터 타입 확인 (§9 기능 갭의 최신 정보 소스)

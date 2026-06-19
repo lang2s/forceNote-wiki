@@ -33,6 +33,9 @@ created: 2026-05-18
 | [[Sandbox 관리]] | org create/clone/refresh/delete sandbox, sandbox-def.json 전체 옵션 전수 | #reference |
 | [[DX 데이터 작업]] | data export/import tree, Bulk API 2.0 전수, record CRUD, SOQL/SOSL CLI, 파일 업로드 | #reference |
 | [[Metadata API 빌드·릴리스 워크플로]] | Org Development Model 4단계·배포 검증·빠른 배포·취소 전수 | #reference |
+| [[Apex 배포 방법]] | Apex 배포 5가지 경로(Change Sets·VS Code/Code Builder·Metadata API·Tooling API·DevOps Center)·Compile On Deploy·org 타입별 기본값 전수 | #reference |
+| [[Change Sets 배포]] | Outbound/Inbound Change Set 단계별 배포 — 컴포넌트 담기·Upload·연결된 org 사이 Deploy(sandbox→production) | #reference |
+| [[Tooling API 배포]] | Tooling API 컨테이너 비동기 배포 — MetadataContainer·ContainerAsyncRequest·*Member sObject 6종·State enum 6값·개별 요소(클래스/트리거/VF) 컴파일·배포 워크플로 전수 | #reference |
 | [[Unlocked Package 개념과 준비]] | 패키지 개념·불변 버전·Org 역할·Org-Dependent 비교·사전 준비 체크리스트 전수 | #reference |
 | [[Unlocked Package 생성과 설정]] | sf package create·sfdx-project.json 18개 파라미터·Keywords·Installation Key·Namespace·Profile Settings 전수 | #reference |
 | [[Unlocked Package 개발과 버전]] | 버전 생성 3가지 옵션·버전 번호 가이드·코드 커버리지·브랜치·Hard-Delete 컴포넌트 전수 | #reference |
@@ -138,6 +141,12 @@ created: 2026-05-18
 - 단건 레코드 CRUD? → [[DX 데이터 작업]] → Individual Records
 - Sandbox 기반 Org Development Model 배포 파이프라인? → [[Metadata API 빌드·릴리스 워크플로]]
 - project deploy validate / quick / cancel? → [[Metadata API 빌드·릴리스 워크플로]] → Step 3–4
+- Apex를 어떻게 배포하나? 5가지 배포 방법 비교? → [[Apex 배포 방법]] → 배포 방법 비교 (5가지)
+- Compile On Deploy / Perform Synchronous Compile on Deploy 옵션은? org 타입별 기본값? → [[Apex 배포 방법]] → Compile On Deploy
+- Tooling API로 Apex 클래스/트리거 일부만 배포 (ContainerAsyncRequest·ApexTriggerMember)? → [[Apex 배포 방법]] → 4. Tooling API
+- Change Set으로 sandbox에서 production으로 배포 (outbound/inbound 단계)? → [[Change Sets 배포]]
+- Tooling API로 Apex 클래스/트리거를 개별 요소 단위로 컴파일·배포 (MetadataContainer·ContainerAsyncRequest·*Member·State 폴링)? → [[Tooling API 배포]]
+- 단일 배포 2,000개 초과 Apex 클래스 시 ApexCodeCoverage 삭제? → [[Apex 배포 방법]] → 3. Metadata API
 - Unlocked Package 개념 설명? → [[Unlocked Package 개념과 준비]]
 - Org-Dependent Unlocked Package란? → [[Unlocked Package 개념과 준비]] → Org-Dependent
 - managed 2GP가 뭔가? AppExchange 파트너 패키지 만들기? → [[2GP Managed Package 개념과 1GP 비교]]

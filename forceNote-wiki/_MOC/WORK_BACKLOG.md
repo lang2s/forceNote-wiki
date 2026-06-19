@@ -1,7 +1,7 @@
 ---
 tags: [backlog, coverage, work-tracking]
 created: 2026-05-18
-updated: 2026-06-19
+updated: 2026-06-20
 ---
 
 > **세션 인계 메모 (2026-05-25 세션 종료 시점):**
@@ -76,7 +76,6 @@ updated: 2026-06-19
 | 2GP-10 | `2GP — Advanced Features` | pkg2_dev.pdf p.374-406 | ✅ 완료 | 2026-05-23 |
 | 2GP-11 | `2GP — Best Practices + License Management + Feature Management` | pkg2_dev.pdf p.407-427 | ✅ 완료 | 2026-05-23 |
 | 2GP-12 | `2GP — AppExchange App Analytics` (~76쪽 — 분할 검토) | pkg2_dev.pdf p.428-504 | ✅ 완료 | 2026-05-23 |
-| 2GP-13 | `2GP — 1GP vs 2GP Feature Gaps` | pkg2_dev.pdf p.505-517 | 🔲 대기 | 2026-05-23 |
 
 ### 🔵 P3 — 중기 (다른 작업 사이에 의식적 실험)
 
@@ -162,14 +161,14 @@ updated: 2026-06-19
 | ING-36 | chat_dev_guide (61) = Live Agent/Chat (Service Cloud Chat Developer Guide, v67.0) | Service | **✅ 완료 (2026-06-18)** → [[WORK_BACKLOG_ARCHIVE]] ING-36. ING-13a(chat_rest, 방문자측 REST) 형제 후속 — 에이전트/구현 가이드(Deployment·VF 컴포넌트·라우팅). 신규 노트 1개(Ch6-8) + 기존 3노트(Ch1-5) = `Service(서비스)/Chat(채팅)/` 4 dev-guide 노트, 전부 은퇴 배너. ⚠️ 후속 **ING-44**(Embedded Service SDK·Messaging for In-App and Web 마이그레이션 노트 — PDF 디스크 미보유, **입수 게이트**) 식별 |
 | ING-37 | salesforce_pages_developers_guide (817, 분할) | Visualforce | 🔲 **ING-27과 동일 PDF** — 머지로 내용 갱신됨(중복 행, 통합 정리 필요) |
 | ING-38 | salesforce_reports_enhanced_reports_tab_tipsheet (3) | Reports | 🔲 대기 — 초소형 팁시트, ADMIN-5(Reports)와 함께 검토 |
-| ING-40 | `api_meta.pdf` — **CustomAddressFieldSettings 메타데이터 타입 상세** | Data/Schema (Metadata API) | 🔲 대기 — **P2** ING-15 후속(source-coverage-checker 2026-06-18 발견, caf_dev 단일 scope 밖). `enableCustomAddressField`(활성화 후 **비활성화 불가**)·샘플 XML·v55.0+. `sObject/Custom Address Fields.md` 활성화 섹션 보완 또는 Metadata API 노트. 페이지: api_meta.pdf의 CustomAddressFieldSettings 항목 |
-| ING-41 | `object_reference.pdf` — **표준 Address compound 서브필드 전수표 + Compound Field Considerations/Limitations** | Data/Schema (sObject) | 🔲 대기 — **P2** ING-15 후속(coverage-checker 2026-06-18 발견). 표준 Address compound 필드 전체 서브필드표 + 고려사항/제한(표준 vs 커스텀 비교의 **반쪽** — 현재 `Compound Fields.md`는 커스텀쪽만 깊음). `sObject/Compound Fields.md` 보강 후보. 페이지: object_reference.pdf Ch1 Compound Fields 섹션(doc p.15-20 인접) |
-| ING-42 | `api_meta.pdf` — **AddressSettings + State/Country Picklist 설정** | Admin/Data (Setup) | 🔲 대기 — **P3** ING-15 후속(coverage-checker 2026-06-18 발견). State and Country/Territory Picklist 활성화·설정. CAF의 picklist 의존성과 연결. 별도 신규 `Admin(어드민)/State and Country Picklist.md` 또는 Metadata API 노트 태스크. 페이지: api_meta.pdf AddressSettings 항목 |
+| ING-41 | `object_reference.pdf` — **표준 Address compound 서브필드 전수표 + Compound Field Considerations/Limitations** | Data/Schema (sObject) | ✅ **기실재 검증(2026-06-19, RECON-3 ⑤ 감사)** — object_reference.pdf Ch1 Compound Fields 섹션 셀단위 대조 결과 `sObject/Compound Fields.md`가 **표준 Address 서브필드 10행(Accuracy·City·Country·CountryCode·Latitude·Longitude·PostalCode·State·StateCode·Street)·Geolocation·Considerations/Limitations를 이미 전수 보유**. "반쪽 비어있음"은 2026-06-18 coverage-checker 오판정(또는 ING-15로 백필됨). 신규/보강 불필요 → ARCHIVE 이관 권고 |
 | ING-39 | salesforce_pages_developers_guide (817, 분할) — **퍼블리셔/Case Feed VF 컴포넌트 속성 레퍼런스 추출** | Visualforce/Component Reference | **✅ 완료 (2026-06-19)** → [[WORK_BACKLOG_ARCHIVE]] ING-39. ING-14 후속(source-coverage-checker 2026-06-18 발견). Visualforce Developer Guide의 퍼블리셔·Case Feed VF 컴포넌트 5개 **속성 완전 명세**: `apex:emailPublisher`(p.470)·`apex:logCallPublisher`(p.520)·`support:caseArticles`(p.670)·`support:caseFeed`(p.672)·`support:portalPublisher`(p.674). **공백 근거:** 위키에 VF 컴포넌트 속성 전수 레퍼런스가 **전무** — ING-14 노트는 이 컴포넌트들을 **예제/사용 맥락으로만** 다뤘고 전체 attribute 표(타입·필수·API버전·Access)는 미작성. 이 5개 속성 명세를 ING-14의 2노트에 보강하거나 별도 `Component Reference` 노트로 분리 판단. ※ ING-27/ING-37(같은 PDF 전체 817p 분할)의 일부지만, 이 5컴포넌트 속성만 먼저 떼어내는 소형 작업으로 우선 진행 가능 |
 | ING-44 | **Embedded Service SDK (iOS/Android) · Messaging for In-App and Web 마이그레이션 노트** | Service/Chat (마이그레이션 대상) | ❌ 보류 (입수 게이트) — ING-13a·ING-36 후속. 은퇴한 레거시 Chat(2026-02-14)의 **권장 마이그레이션 대상**이나 해당 공식 가이드 PDF가 `Salesforce Documents/`에 **디스크 미보유** → PDF 입수 전 작성 불가. 입수 시 ING 번호 승격. (2026-06-18 ING-36 인라인 메모를 전용 행으로 승격) |
 | ING-43 | `exp_cloud_lwr.pdf` (LWR Sites for Experience Cloud, 106p, Tier 2) — **Lightning Web Security(LWS) vs Lightning Locker 전용 노트** | Security(보안) / LWC | 🔲 대기 — **중요도 中, 별도 PDF** ING-31 후속(source-coverage-checker 2026-06-18 발견, secure_coding 단일 scope 밖). secure_coding Ch11(`Lightning Security 모델`)은 Locker 중심으로 LWS는 deep-link만 — LWS의 동작 원리·Locker와의 차이(distortion·sandbox·namespace·API 가용성)·전환 시점·`@salesforce/lwsEnabled` 영향이 위키에 미작성. exp_cloud_lwr.pdf의 LWS 챕터 + 기존 `Lightning Web Security` 노트 보강 또는 신규 `Security(보안)/LWS vs Lightning Locker.md` 분리 판단. `Lightning Security 모델`(Ch11)·`Lightning Web Security` 양방향 링크 보강용 |
+| ING-45 | `api_tooling.pdf` (1006p 분할, Tier 2) — **Tooling API 디버그 sObject 묶음** (ApexLog·TraceFlag·DebugLevel·ApexExecutionOverlayAction/Result·HeapDump + `/tooling/executeAnonymous/` 리소스) | Dev Tools / Debugging | 🔲 대기 — **P2** RECON-4 후속(source-coverage-checker 2026-06-19 발견, Debug Log 챕터 단일 scope 밖). RECON-4 노트(`Apex/Logging(로깅)/Apex Debug Log.md`)는 **UI/선언적 로그 제어**(Developer Console·로그 필터)만 커버 — **프로그래밍 로그 제어/체크포인트/리플레이 디버거** 측면(TraceFlag/DebugLevel 자동 생성·HeapDump 캡처·overlay action 체크포인트)은 위키 커버리지 0이고 이 묶음이 **유일한 로컬 소스**. RECON-11(Tooling API 배포 sObject)·ING-26(api_tooling 대형 분할)과 같은 PDF — 분할 시 디버그 도메인 부분 선추출로 묶을 수 있음. `Apex Debug Log`와 양방향 링크 후보 |
 
 > ADMIN 갭(ADMIN-1~9)은 별도 — 공식 Admin 가이드 PDF 확보 시 진행. 위 INGEST는 이미 보유한 PDF 대상.
+> **(선택/저우선) 레거시 호출 표면 메모** (RECON-6 작업 중 식별, 등재 보류 — 우선순위 낮음): `apex_developer_guide.pdf` "Invoking Apex" 챕터의 잔여 레거시 호출 표면 — Visualforce Classes 컨트롤러 10종(③)·JavaScript Remoting `@RemoteAction`(⑤)·Email Service 설정 측면(⑦~⑨). Visualforce는 레거시(LWC 권장)라 가치 낮음. 전용 ING/RECON 번호 부여는 보류하고, ING-27/37(pages_dev 전체 분할) 진행 시 함께 흡수 검토.
 
 ### 🟧 PARTIAL — 부분 인용 공식 PDF 보완 (커버리지 맵 직접 판정, 2026-06-16)
 
@@ -214,6 +213,35 @@ updated: 2026-06-19
 | SUM26-FU-2 | Revenue Management REST/sObject v67.0 엔드포인트 코드 | Summer '26 Revenue Management 신규 REST/sObject 엔드포인트. 코드 예제는 공식 REST 가이드 발췌 | 🔲 대기 | 2026-06-15 |
 | SUM26-FU-3 | DocumentAI · hlthcrbilling 신규 Apex 네임스페이스 reference | Summer '26 GA 신규 Apex 네임스페이스(GA 신규 클래스 다수). Apex Reference v67.0에서 클래스·메서드 전수 추출 | 🔲 대기 | 2026-06-15 |
 
+### 🟪 RECONCILE — 소스 문서 완전성 재감사 (2026-06-19 신설)
+
+> **배경:** 두 실패에서 드러난 구조적 공백 — (A) 부분 검색에 근거한 '없음' 단정(DevOps Center를 PDF 2개만 grep하고 "공식 문서에 없다"고 단정 → 49개 전수 grep에서 `apex_developer_guide`·`api_meta`에 실재 확인), (B) **이미 위키화된 PDF의 불완전 챕터 커버리지**(`apex_developer_guide`의 "Deploying Apex" 챕터가 통째로 미추출). 기존 어느 에이전트도 'PDF 전체 챕터/섹션 단위 커버리지'를 추적하지 않았다(completeness-validator는 작성된 노트의 충실도만, 아예 추출 안 된 챕터는 못 잡음).
+> **에이전트 프로토콜 반영:** scout.md·source-coverage-checker.md(전수 grep + 동일 PDF 미추출 챕터 보고)·researcher.md(추출 전 챕터 범위 명시)·completeness-validator.md(문서 레벨 커버리지 점검) — 아래 "프로토콜 개선 이력" AP-08 참조.
+
+**재감사 방법론(PDF 1개당):**
+```
+(1) 목차/챕터 구조 추출    — pdftotext -f 1 -l 12 "...pdf" - | grep -niE "chapter|\.\.\."
+(2) source 인용 노트 수집  — grep -rl "<pdf 식별자>" forceNote-wiki/ --include="*.md"
+(3) 챕터별 커버 여부 매핑  — 각 챕터를 다루는 노트가 1개라도 있는지
+(4) 미커버 챕터를 백로그 항목으로 등재 — INGEST/PARTIAL 형식으로 ING-/RECON- 번호 부여
+```
+
+| # | 항목 | 소스/판정 근거 | 우선순위 | 상태 | 추가일 |
+|---|---|---|---|---|---|
+| RECON-1 | **`apex_developer_guide.pdf` "Deploying Apex" 챕터 미커버** (AP-08 증명 사례) | **✅ 완료 (2026-06-19)** → [[WORK_BACKLOG_ARCHIVE]] RECON. 신규 `DevOps(데브옵스)/Apex 배포 방법.md` — 챕터-깊이 커버 완료. 더 깊은 per-method 단독 자료는 scope discipline으로 RECON-10·11 분리, apex_developer_guide 미커버 잔여 챕터는 RECON-4~9로 등재. | **P1** | ✅ 완료 | 2026-06-19 |
+| RECON-3 | **대형/멀티토픽 PDF 챕터 커버리지 재감사 — 우선순위 초안** | 위 4단계 방법론을 source 자주 인용되는 대형 PDF에 순차 적용. **진행:** ①✅·②✅·③✅·④✅·⑤✅ — **RECON-3 전체 마감(2026-06-19).** 대형 5종 챕터 커버리지 재감사 완료. **① `apex_developer_guide.pdf`** ✅ — 다도메인 언어 가이드(Deploying Apex 외 Debugging/ApexDoc/Invoking/Triggers 챕터 점검). RECON-1 첫 발견, **RECON-4~9·12·13이 이 ① 산출물 — completeness-validator 문서 레벨 커버리지 맵 2026-06-19**(고가치 챕터 RECON-1/4/5/6/12 닫힘; RECON-7/8/10/13 ✅·RECON-9 de-scoped 2026-06-19·RECON-11[Tooling API 배포] ✅ 2026-06-20 → apex_developer_guide 잔여 RECON-16[Chatter/Knowledge 트리거 고려사항]만). **② `pkg2_dev.pdf`** ✅ (2GP, **2026-06-19 닫힘**) — 4단계 감사 결과 단일 "Chapter 1"에 17개 H2 구조, 16개 H2는 기존 ~28개 2GP 노트가 전부 커버, **유일 미커버 H2 "Gaps Between First- and Second-Generation Managed Packaging"(print p.505)** = 2GP-13으로 닫음(`2GP Managed Package 개념과 1GP 비교.md` §9 추가). **이 PDF에서 새로 발견된 미커버 잔여 챕터 없음 → 전 H2 닫힘, 신규 RECON-N 등재 불필요.** (★ 백로그 page "p.505-517"은 과대추정 — 실측 print p.505 단일 페이지뿐, p.506-517은 PDF back-matter/index였음.) **③ `sfdx_dev.pdf`** ✅ (2026-06-19 닫힘) — v67.0 Summer '26 ToC 실측 16챕터, H2 레벨 전수 grep 대조 결과 28노트가 전 H2 커버. "16챕터 완료" 표기 **참 검증**. DevOps Center scratch feature/setting·Org Shape 활성화·DX MCP `devops` 툴셋·source tracking 규칙 모두 기존 노트 커버 확인. 신규 미커버 0 → RECON-N 등재 불필요(read-only 감사). **④ `api_meta.pdf`** ✅ (2026-06-19 닫힘) — 메타데이터 타입 전수 vs 위키 인용 재감사 + closure. (a) 메커니즘 챕터(Ch0 — File-Based/CRUD 호출 등) 미커버 0, (b) Metadata Types 도메인그룹 미커버 0, (c) RECON-2(DevOps Center DevHubSettings 2필드 `enableALMDevopsCorePref`/`enableDevOpsCenterGA` — `DevOps Center.md`에 이미 반영, 재감사 확인) / ING-40(CustomAddressFieldSettings delta) / ING-42(AddressSettings) 전부 닫힘. 신규 미커버 잔여는 저위험 1건(RECON-14, Ch4 Run Relevant Apex Tests in a Deployment Beta)으로 분리 등재 후 ✅ 완료(2026-06-19, 재검증 결과 실제 공백 발견 → File-Based 호출 노트에 §RunRelevantTests Beta 신설). **⑤ `object_reference.pdf`** ✅ (2026-06-19 닫힘) — v67.0 Summer '26, Ch1-6 "완료" 표기 **참 검증**(32 서브페이지 전수 커버). ING-41(표준 Address compound)은 **기실재**(Compound Fields.md가 이미 전수 보유 — 오판정). 유일 미커버는 Ch1 "Field and Type Differences"(저가치) → RECON-15 분리. **→ RECON-3 ①~⑤ 전부 완료, 항목 마감.** 잔여 저가치 챕터(RECON-7/8/9/10/11/13/14/15)는 별도 P3 sweep. | **P2** | ✅ 완료 (①~⑤) | 2026-06-19 |
+| RECON-4 | ~~`apex_developer_guide.pdf` "Debugging Apex" → Debug Log 서브섹션 미커버~~ | **✅ 완료 (2026-06-19)** → [[WORK_BACKLOG_ARCHIVE]] RECON-4. 신규 `Apex/Logging(로깅)/Apex Debug Log.md` — 로그 카테고리 10종·레벨 8종 전수·Event Type 매트릭스·DebuggingHeader·Order of Precedence. ★ planner 이미지추정(8/7)→텍스트 실측 정정(10/8). 프로그래밍 로그 제어는 ING-45로 분리 | **P2** | ✅ 완료 | 2026-06-19 |
+| RECON-5 | ~~`apex_developer_guide.pdf` "Document Your Apex Code / ApexDoc" 챕터 미커버~~ | **✅ 완료 (2026-06-19)** → [[WORK_BACKLOG_ARCHIVE]] RECON-5. 신규 `Apex/ApexDoc 주석 작성 가이드.md` — ApexDoc 태그 전수(`@description`·`@param`·`@return`·`@throws`·`@see`·`@link`) | **P2** | ✅ 완료 | 2026-06-19 |
+| RECON-6 | ~~`apex_developer_guide.pdf` "Invoking Apex" PARTIAL — Anonymous Apex·@WebService~~ | **✅ 완료 (2026-06-19)** → [[WORK_BACKLOG_ARCHIVE]] RECON-6. 신규 2노트(`Anonymous Apex 실행.md`·`SOAP Web Services 노출 (webservice 키워드).md`). ★ dump 코드 페이지경계 절단 검증 갭 발견→source-verifier/completeness-validator 프로토콜 보강(AP-09). Triggers(②)는 RECON-12로 분리 | **P2** | ✅ 완료 | 2026-06-19 |
+| RECON-7 | ~~`apex_developer_guide.pdf` "Introducing Apex" + "Apex Development Process" 개념 개요~~ | **✅ 완료 (2026-06-19)** → [[WORK_BACKLOG_ARCHIVE]] RECON-7. 신규 `Apex/Introducing Apex — 개요와 개발 프로세스.md`(둘을 1노트 결합: What is Apex·언제·동작 방식 + 개발→테스트→배포 프로세스). 언어 문법은 언어 기초 노트로 위임 | **P3** | ✅ 완료 | 2026-06-19 |
+| RECON-8 | ~~`apex_developer_guide.pdf` "Apex Versioned Behavior Changes" 부록~~ | **✅ 완료 (2026-06-19)** → [[WORK_BACKLOG_ARCHIVE]] RECON-8. 신규 `Apex/Apex 버전별 동작 변경 레퍼런스.md` — version-gated lookup 인덱스(v15~v67, 32버전·API Ref 23행 전수, 버전 내림차순). 개별 메커니즘은 deep-link 위임. ※ 본문 자기기술 "22행" → 실제 23행(콘텐츠 누락 아님, 숫자 표기만 writer 후속 정정 예정) | **P3** | ✅ 완료 | 2026-06-19 |
+| RECON-9 | ~~`apex_developer_guide.pdf` "Apex Quick Start"·"Shipping Invoice Example" 튜토리얼/샘플~~ | **de-scoped (2026-06-19)** → [[WORK_BACKLOG_ARCHIVE]] RECON-9. 명시적 de-scope: 고유 레퍼런스 가치 0 — "Deploy to Production"은 RECON-10(Change Sets deep 노트)으로 흡수, 나머지(Quick Start 튜토리얼·Shipping Invoice 샘플 워크스루)는 언어 기초·트리거·테스트 노트가 이미 커버. 튜토리얼/샘플 자체는 위키화 가치 최소 | **P3 (de-scoped)** | ✅ de-scoped | 2026-06-19 |
+| RECON-10 | ~~**Change Sets 단독 deep 노트** (outbound/inbound step-by-step·deployment connections·permissions)~~ | **✅ 완료 (2026-06-19)** → [[WORK_BACKLOG_ARCHIVE]] RECON-10. 신규 `DevOps(데브옵스)/Change Sets 배포.md` — outbound/inbound 단계 전수(컴포넌트 담기·Upload·연결된 org Deploy). deployment connection 설정 등 apex_developer_guide 미수록분은 Salesforce Help SEE ALSO 위임. RECON-1 `Apex 배포 방법`(챕터-깊이 비교)에서 분리한 deep 노트 | **P3** | ✅ 완료 | 2026-06-19 |
+| RECON-12 | ~~`apex_developer_guide.pdf` "Invoking Apex" 챕터 ② Triggers — 언어 레퍼런스 공백~~ | **✅ 완료 (2026-06-19)** → [[WORK_BACKLOG_ARCHIVE]] RECON-12. 신규 2노트: `Apex/Trigger(트리거)/Trigger 컨텍스트 변수와 이벤트.md`(컨텍스트 변수 13종·TriggerOperation enum 7종·이벤트 7×3 매트릭스·문법·merge/recovered) + `Architecture(아키텍처)/Trigger Order of Execution.md`(20단계 save lifecycle·재귀 skip 9~17). 기존 핸들러/재귀/System Namespace 양방향 역링크. retrospective(모드 A): aliases 매트릭스 자연어 질문·operationType switch·저장 순서 몇 번째 보강 | **P2~P3** | ✅ 완료 | 2026-06-19 |
+| RECON-13 | ~~**`apex_developer_guide.pdf` "Triggers" 챕터 잔여 서브섹션** — Trigger Exceptions + Common Bulk Trigger Idioms + Operations That Don't Invoke Triggers~~ | **✅ 완료 (2026-06-19)** → [[WORK_BACKLOG_ARCHIVE]] RECON-13. 신규 `Apex/Trigger(트리거)/Trigger 벌크 관용구·미발생 작업·예외.md` — 벌크 Map/Set 관용구·트리거 미발생 시스템 작업 전수·before/after 갱신 불가 필드·addError() 예외 마킹/부분 저장. 기존 컨텍스트변수/핸들러/재귀/Order of Execution 노트와 deep-link(중복 회피) | **P2~P3** | ✅ 완료 | 2026-06-19 |
+| RECON-16 | **`apex_developer_guide.pdf` "Invoking Apex" 챕터의 'Triggers for Chatter Objects'(FeedItem/FeedComment 트리거 고려사항) · 'Trigger Considerations for Knowledge Articles' 하위절** | completeness-validator(RECON-13 작업 중 발견, 2026-06-19): 트리거 노트군(컨텍스트변수·벌크관용구·재귀·핸들러) 추출 여부 미확인 — 문서레벨 커버리지 점검 필요. 특정 표준 객체(Chatter Feed·Knowledge Article)의 트리거 고려사항이 별도 서브절로 존재 | **P3** | 🔲 대기 | 2026-06-19 |
+| RECON-15 | **`object_reference.pdf` Ch1 "Field and Type Differences in Salesforce Apps and APIs"(doc p.29) — API↔UI 필드 타입 매핑표** | RECON-3 ⑤ 감사 산출물(유일 미커버). API 데이터타입(ID/string/boolean/double/Varies) ↔ UI 필드타입 매핑 + UI 전용 타입(BusinessHours time)·label 변경 제약. 저가치 | **P3** | ✅ 완료 (2026-06-20) — `sObject/Field Types.md` 말미에 §"Salesforce 앱과 API의 필드·타입 차이" 추가(매핑 5행 + UI전용 타입·label 제약 2항목, writer 셀단위 대조: "rich text"→"rich text area" 원문 교정). → ARCHIVE | 2026-06-19 |
+
 ### ⚪ P4 — 장기 (큰 인프라 결정)
 
 | # | 항목 | 소스/사유 | 상태 | 추가일 |
@@ -221,6 +249,12 @@ updated: 2026-06-19
 | PIPE-6 | Phase 2 — LLM-level source-verifier 자동 invocation 도입 | L1 훅은 구조만 검사 → 의미 오류(Snapshot 할당량 같은 numeric error)는 사용자 평가로만 발견. settings.json에 SubagentStop 훅으로 source-verifier 자동 호출 검토. ROI 시뮬레이션 필요. | 🔲 대기 | 2026-05-23 |
 
 > **다음 후보(미등록):** N3 시리즈 — Experience Cloud · Reports API · Tooling API 등. 소스 PDF 확보 시 행으로 승격.
+
+### 🟤 P5 — 장기 검증 (소스 출처 확인)
+
+| # | 항목 | 소스/사유 | 상태 | 추가일 |
+|---|---|---|---|---|
+| VERIFY-1 | **Winter '24 `sf project deploy pipeline` 출처 검증** | `Release/Winter '24/Development.md`가 `sf project deploy pipeline`을 "Deploy Changes Using Salesforce CLI (Beta)" 실기능으로 서술 중이나, 로컬 52개 PDF 전수 grep에서 이 명령은 **0건**(DevOps Center 조사 중 source-verifier 발견). `salesforce_winter24_release_notes.pdf`가 출처일 가능성 → 해당 PDF로 대조 검증. **출처 확인 시** Tier 2 유지·DevOps Center 노트의 `sf project deploy pipeline` 미검증 경고 해제 가능. **미확인 시** fabrication 여부 판정 후 조치. RECON 프로젝트와 연계(같은 DevOps Center 조사에서 파생) | 🔲 대기 | 2026-06-19 |
 
 ---
 
@@ -236,7 +270,9 @@ updated: 2026-06-19
 | AP-04 | L1 wiki lint 훅 도입 — `.claude/settings.json` PostToolUse 훅이 `scripts/lint-md-file.sh` 호출, `.md` 파일 Write/Edit 시 자동 검증(frontmatter·요약·코드블록·관련 노트·source값·깨진 wikilink). 순수 bash(Mac/Win 공통). 의미 오류는 못 잡고 구조만 검사 — Phase 2(LLM source-verifier 자동 호출)는 PIPE-6 백로그. | `.claude/settings.json`, `scripts/lint-md-file.sh` | ✅ 완료 | 2026-05-23 |
 | AP-05 | PDF 페이지 오프셋(ToC 인쇄번호 ≠ PDF 물리페이지) 확인 절차 추가 — ING-31에서 표지/목차 4p로 +4 오프셋 발견(scout가 캐치). ToC 번호를 그대로 `pdftotext -f/-l`에 넣으면 **틀린 챕터를 에러 없이 추출**(추출 성공→source-verifier 전까지 미발견)하므로, scout가 매 PDF 1회 오프셋 실측→물리페이지 환산 범위를 researcher에 전달. Why 첨부. (첫 발견·캐치 성공이나, silent-error 성격상 예방 가치 높아 additive 규칙화) | `scout.md` | ✅ 완료 | 2026-06-18 |
 | AP-06 | **최상위 TOC 불완전 가능성 — 리소스 하위 중첩 항목 교차검증 절차** 추가 — ING-13a에서 최상위 TOC가 Ch6 "Messages Response Objects"의 **14개 하위 응답 객체**를 누락(리소스 1개 아래 중첩됨). 최상위 TOC만 신뢰하면 source-coverage 누락이 **추출 성공·구조상 멀쩡으로 위장**(AP-05와 동류의 silent gap). scout는 매 reference-PDF에서 TOC뿐 아니라 **PDF 뒤쪽 색인(index)·각 리소스 본문의 "Response Objects/Sub-resources" 헤딩**도 1회 훑어 중첩 항목 목록을 완성→researcher/coverage-checker에 전달, completeness-validator는 "리소스 N개" 카운트가 아니라 **중첩 하위 항목 전수**로 판정. Why 첨부(reference 가이드는 리소스 아래 응답객체·서브리소스를 TOC에 펼치지 않는 구조가 흔함). ING-13a에서 scout가 캐치·validator 14개 확인했으나, 예방 가치 높아 additive 규칙화 | `scout.md`, `completeness-validator.md` | 🔲 권고(다음 모드 B에서 반영) | 2026-06-18 |
+| AP-08 | **소스 문서 완전성 — 전수 grep + 챕터 단위 커버리지 추적** 도입 (모드 B, RECONCILE 신설 동반) — 두 실패 반영: (A) **부재 단정 전 전체 PDF 집합 전수 grep + 인접 도메인 문서 확인** 규칙(DevOps Center를 PDF 2개만 grep하고 "없다"고 단정→49개 전수에서 apex_developer_guide·api_meta 실재). 부정 단정에 전수 검색 증거 첨부 의무화 → `scout.md`·`source-coverage-checker.md`. (B) **멀티토픽 대형 PDF의 챕터/섹션 단위 커버리지 추적**(apex_developer_guide "Deploying Apex" 챕터가 위키화된 PDF인데 통째로 미추출) — scout/researcher는 추출 전 ToC로 커버/미커버 챕터 명시, source-coverage-checker는 동일 PDF 내 미추출 챕터를 누락 소스로 보고, completeness-validator는 노트 단위 충실도뿐 아니라 **문서 레벨 커버리지**(미추출 챕터)도 점검 → `scout.md`·`researcher.md`·`source-coverage-checker.md`·`completeness-validator.md`. Why 첨부, additive(기존 규칙 약화 없음). 증명 사례 RECON-1로 백로그 등재 | `scout.md`, `researcher.md`, `source-coverage-checker.md`, `completeness-validator.md` | ✅ 완료 | 2026-06-19 |
 | AP-07 | **`questions.md` 교차 도메인 보조 샤드 예외 명문화** (LINT-4) — `_index/questions.md`는 "교차 도메인 질문 라우팅 보조 샤드"로, 설계 의도상 다른 도메인 샤드에 이미 등재된 파일을 자연어 질문 형태로 재등재한다. "1 페이지 = 1 홈 샤드"(중복 행 금지) 규칙을 그대로 적용하면 wiki-linter가 이를 중복/고아 위반으로 **오탐**하므로, (a) CLAUDE.md "탐색 인덱스 구조" 표 "1 페이지 = 1 홈 샤드" 행 비고에 공식 예외 문구 추가, (b) wiki-linter.md 고아 탐지(check #2)·샤드 건강/중복(check #3b) 판정에 questions.md 제외 안내 추가. Why 첨부(보조 샤드는 라우팅 목적상 의도된 재등재이므로 중복 금지 규칙의 적용 대상이 아님). additive — 기존 규칙 약화 없음 | `CLAUDE.md`, `wiki-linter.md` | ✅ 완료 | 2026-06-18 |
+| AP-09 | **researcher dump 코드 블록 페이지 경계 절단 — dump↔노트 대조만으로 미검출되는 silent gap 차단** (RECON-6 발견) — RECON-6 External Reference 예제에서 researcher dump가 **PDF 페이지 브레이크 지점에서 코드 블록을 끊은 채** 끝났는데, writer가 그 잘림을 "원문 끝"으로 오판했고 completeness-validator는 **dump만 대조**(노트↔dump 일치)했기에 통과시켰다. dump↔노트 대조는 dump 자체의 절단을 **구조상 절대 드러내지 못한다**(둘 다 같은 지점에서 끝나면 일치). source-verifier만 PDF 원문을 추가로 떠서 코드가 다음 페이지로 이어짐을 발견했다. → (a) source-verifier.md §3에 "코드 블록이 닫히지 않은 채/페이지 경계 근처에서 멈추면 PDF 원문(해당+다음 1~2p) 추가 추출로 이어짐 확인" 규칙 추가, (b) completeness-validator.md §7에 "코드 블록 절단 의심 시 dump만으로 '완전' 판정 금지·불완전 의심 표시 후 source-verifier/PDF로 위임" 규칙 추가. Why 첨부(dump↔노트 대조는 dump의 절단을 못 잡는 구조적 한계). additive — 기존 코드 대조·충실도 규칙 약화 없음 | `source-verifier.md`, `completeness-validator.md` | ✅ 완료 | 2026-06-19 |
 
 ---
 

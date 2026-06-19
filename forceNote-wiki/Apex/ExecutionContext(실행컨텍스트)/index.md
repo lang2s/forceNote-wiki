@@ -18,6 +18,7 @@ created: 2026-05-17
 | [[OrgShape]] | isSandbox, isMultiCurrencyEnabled, isPersonAccountEnabled 조회 | #pattern |
 | [[QuiddityGuard]] | trusted/untrusted Quiddity, REST/Trigger/Batch 실행 컨텍스트 구분 | #pattern |
 | [[Governor Limits]] | Per-Transaction/Platform/Static 한도 표, Limits 클래스, Bulkify 패턴 | #reference |
+| [[Anonymous Apex 실행]] | execute anonymous 블록, executeAnonymous SOAP API, ExecuteAnonymousResult, Author Apex 권한, 익명 블록 제약·Forward Reference, 실행 도구 | #reference |
 
 ---
 
@@ -26,3 +27,4 @@ created: 2026-05-17
 - 샌드박스 여부, 조직 기능 플래그 확인? → [[OrgShape]]
 - 어떤 컨텍스트에서 실행 중인지 판별? → [[QuiddityGuard]]
 - 거버너 한도 수치 확인? → [[Governor Limits]]
+- 코드 조각을 한 번만 임시 실행? → [[Anonymous Apex 실행]] → execute anonymous / sf apex run

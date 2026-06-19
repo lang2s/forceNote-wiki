@@ -131,3 +131,4 @@ try {
 - [[Named Credential]]
 - [[StripInaccessible]] — POST 바디 처리 시 필수
 - [[CanTheUser]] — 삭제 권한 체크
+- [[SOAP Web Services 노출 (webservice 키워드)]] — 짝꿍 인바운드 표면 (REST vs SOAP)

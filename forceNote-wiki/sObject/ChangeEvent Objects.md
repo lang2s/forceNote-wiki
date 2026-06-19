@@ -506,3 +506,4 @@ trigger AccountChangeEventTrigger on AccountChangeEvent (after insert) {
 - [[EventBus Namespace]] — EventBus Namespace 전체 API
 - [[Feed Objects]] — 피드 연관 Object
 - [[Share Objects]] — 공유 연관 Object
+- [[Trigger 컨텍스트 변수와 이벤트]] — 일반 트리거의 컨텍스트 변수·이벤트 매트릭스 (change event 트리거는 after insert·비동기 실행으로 별개 주제)

@@ -117,6 +117,9 @@ TriggerHandler 프레임워크를 쓰면 static 플래그를 직접 관리하는
 ## 관련 노트
 
 - [[TriggerHandler 패턴]] — 트리거 프레임워크, `setMaxLoopCount` 루프 제한
+- [[Trigger Order of Execution]] — 재귀 save 시 9~17단계 skip, after update 트리거 무한 재귀
+- [[Trigger 컨텍스트 변수와 이벤트]] — before/after 트리거 이벤트별 DML 허용·금지 매트릭스
 - [[Apex Best Practices]] — Order of Execution, 트리거 모범 사례
 - [[Governor Limits]] — 트리거 스택 깊이 등 한도
 - [[DML 패턴]] — 트리거 내 DML과 재발동
+- [[Trigger 벌크 관용구·미발생 작업·예외]] — 벌크 관용구·트리거 미발생 시스템 작업·`addError()` 예외 마킹

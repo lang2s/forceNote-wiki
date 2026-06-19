@@ -227,5 +227,6 @@ List<Account> accs = [
 - [[1 Overview]] — Ch1 전체 요약
 - [[Field Types]] — address·location 타입 정의
 - [[Custom Address Fields]] — Address 타입 커스텀 compound 필드 생성·CRUD(Apex/Metadata/REST/SOAP/Tooling)·geocode
+- [[State and Country Picklist]] — `AddressSettings` 메타데이터 타입. Address compound 필드의 `StateCode`·`CountryCode` 피클리스트 값을 구성
 - [[External Objects]] — 외부 오브젝트의 geolocation 필드 지원
 - [[SOQL 문법 레퍼런스]] — DISTANCE·GEOLOCATION 함수 레퍼런스

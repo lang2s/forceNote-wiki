@@ -570,3 +570,5 @@ Log Level 값 (낮음 → 높음 순):
 - [[CI CD 패턴]] — Jenkins, CircleCI에서 `sf apex run test` 자동화
 - [[DX 도구 개요와 워크플로 전환]] — DX 전체 워크플로 개요·3가지 시작 경로
 - [[DX MCP Server (Beta)]] — LLM으로 DX 작업 자동화 (deploy_metadata, run_apex_test 등)
+- [[Anonymous Apex 실행]] — `sf apex run`으로 실행하는 익명 Apex 개념
+- [[Apex Debug Log]] — `sf apex log` / `sf apex tail`로 조회하는 플랫폼 디버그 로그

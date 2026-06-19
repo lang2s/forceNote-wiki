@@ -240,3 +240,4 @@ rm server.key
 - [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API REST]] — REST 방식 배포
 - [[DX 인증 방식]] — JWT Flow 심층 설명 (External Client App 설정·OpenSSL 인증서 생성·Connected App 절차 전수)
 - [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] — CircleCI/Jenkins/Travis CI 전체 설정·Jenkinsfile 완전한 코드·Sample CI 레포 전수
+- [[DevOps Center]] — Salesforce 내장 파이프라인·변경관리 도구 (CI/CD 대안·병행)

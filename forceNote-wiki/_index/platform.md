@@ -68,6 +68,7 @@ created: 2026-05-21
 | Salesforce 네비게이션, App Launcher, 앱 런처, 전역 검색, Global Search, 탐색바, 리스트뷰, 레코드 페이지, Lightning Experience, 홈 페이지 | `Admin(어드민)/Salesforce 네비게이션.md` |
 | Data Loader, 데이터 로더, 대량 적재, CSV 임포트, bulk import export, insert update upsert delete, hard delete, Bulk API 2.0, process-conf.xml, CLI 배치, Data Import Wizard 비교, 1.5억 건 | `Admin(어드민)/Data Loader.md` |
 | MFA, Multi-Factor Authentication, 다중 인증, Salesforce Authenticator, TOTP, 보안 키, FIDO2, Trusted IP Ranges, 신원 확인, 이중 인증, MFA 의무화 | `Admin(어드민)/Salesforce ID 인증.md` |
+| AddressSettings, CountriesAndStates, State and Country Picklist, State and Country/Territory Picklists, `Settings:Address`, Address.settings, Country State isoCode integrationValue, 국가/주 피클리스트, 국가 영토 피클리스트, 주소 설정, 국가 주 활성화, 주 도 피클리스트, "국가/주 피클리스트를 메타데이터로 설정하려면?", "AddressSettings로 국가 주 값 편집", 텍스트 주소를 표준 피클리스트로 변환 | `Admin(어드민)/State and Country Picklist.md` |
 
 ---
 

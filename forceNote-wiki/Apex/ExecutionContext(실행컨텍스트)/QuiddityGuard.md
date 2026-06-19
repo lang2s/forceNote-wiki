@@ -144,4 +144,5 @@ public Boolean canExecute() {
 - [[OrgShape]]
 - [[Dynamic SOQL]] — `QuiddityGuard.isAcceptableQuiddity` 조합 예시
 - [[testVisible 회로차단기]]
+- [[Anonymous Apex 실행]] — `ANONYMOUS` Quiddity로 실행되는 실행 컨텍스트
 

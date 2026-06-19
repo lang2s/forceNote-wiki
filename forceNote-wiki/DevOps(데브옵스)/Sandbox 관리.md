@@ -266,3 +266,4 @@ sf project deploy start --target-org MyDevSandbox
 - [[Scratch Org 생성과 정의 파일]] — Sandbox 대안으로 Scratch Org 활용
 - [[Metadata API 빌드·릴리스 워크플로]] — Sandbox를 활용한 배포 파이프라인
 - [[DX 데이터 작업]] — Sandbox 간 데이터 이동·로드 (data tree·bulk)
+- [[Change Sets 배포]] — Sandbox를 출발지로 한 Change Set 기반 메타데이터 배포 절차

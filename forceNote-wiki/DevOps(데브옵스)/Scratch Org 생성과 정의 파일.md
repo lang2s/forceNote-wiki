@@ -678,3 +678,4 @@ Features는 대소문자 구분 없음. `<value>` 표시는 숫자 값 필요.
 - [[Scratch Org 배포·유저·에러코드]] — Deploy/Retrieve, Users 관리, Error Codes
 - [[Salesforce DX 개요]] — sf CLI, sfdx-project.json 설정
 - [[Unlocked Package 패턴]] — Scratch Org 기반 패키징
+- [[DevOps Center]] — `DevOpsCenter` feature·`enableDevOpsCenterGA` 설정을 정의 파일에 명시

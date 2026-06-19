@@ -564,3 +564,4 @@ sf org delete snapshot --snapshot 0OoWt00000000A1BCD --target-dev-hub my-dev-hub
 - [[Scratch Org 배포·유저·에러코드]] — Deploy/Retrieve, Users 관리, Error Codes
 - [[Scratch Org 패턴]] — Scratch Org 개요·활용 시나리오 (요약)
 - [[Unlocked Package 패턴]] — Snapshot 기반 패키지 버전 생성
+- [[DevOps Center]] — `DevOpsCenter` feature·`enableDevOpsCenterGA`를 정의 파일에 수동 명시(org shape 미캡처)

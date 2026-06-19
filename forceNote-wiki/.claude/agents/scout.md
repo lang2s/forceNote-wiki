@@ -175,9 +175,52 @@ researcher에게 페이지 범위를 넘기기 전, 오프셋을 1회 측정해 
 
 오프셋은 PDF마다 다르다(표지·목차 분량에 의존). 추정하지 말고 **매 PDF 1회 실측**한다.
 
+## 부재(absence) 단정 전 전수 grep 필수 (재발 방지 규칙)
+
+> **Why:** "공식 문서에 DevOps Center 내용이 없었나"라는 질문에 `sfdx_dev.pdf`·`pkg2_dev.pdf` **단 2개만 grep**하고 "개념 본문은 공식 문서에 없다"고 단정했으나, 이후 49개 PDF **전수 grep**에서 `salesforce_apex_developer_guide.pdf`의 정식 섹션 "Deploy Apex Using DevOps Center"(약 41023·41085행)와 `api_meta.pdf`의 next-gen Beta/managed package GA 설정 플래그(약 136073–136090행)가 발견됐다. **후보 1~2개만 보고 내린 부정 단정이 틀렸다.** 특히 DevOps Center는 DX 가이드뿐 아니라 Apex '배포' 챕터 양쪽에 등장하는 **도메인 교차 주제**였다.
+
+어떤 주제가 **'소스에 없다'고 결론 내리기 전**, 반드시 아래를 수행한다:
+
+```bash
+# 1. 후보 1~2개가 아니라 전체 PDF 집합을 전수 grep
+for f in "Salesforce Documents/"*.pdf; do
+  txt="/tmp/$(basename "$f" .pdf).txt"
+  [ -f "$txt" ] || pdftotext "$f" "$txt" 2>/dev/null
+  hits=$(grep -ic "검색키워드" "$txt" 2>/dev/null)
+  [ "$hits" -gt 0 ] && echo "$f: $hits hits"
+done
+```
+
+- **전체 PDF 집합 전수 grep**(후보 몇 개가 아니라 `Salesforce Documents/`의 모든 PDF). 이미 추출된 `.txt`를 재사용하되, 없는 PDF는 변환 후 grep한다.
+- **도메인 교차 주제는 인접 도메인 문서까지 검색**한다. 예: 배포(deployment) 주제는 1차 도메인(`sfdx_dev`·`pkg2_dev`)뿐 아니라 `apex_developer_guide`의 "Deploying Apex" 챕터, `api_meta`의 메타데이터 설정 플래그에도 존재한다. 한 문서에서 못 찾았다고 다른 도메인 문서를 건너뛰지 않는다.
+- **부정 단정에는 전수 검색 증거를 첨부**한다. "없음"을 보고할 때는 "N개 PDF 전수 grep 결과 0건(검색어: X·Y·Z)"처럼 검색 범위와 키워드를 명시한다. 증거 없는 "없음"은 금지 — "확인 불가"로 보고한다.
+
+## 멀티토픽 대형 PDF — 챕터/섹션 단위 커버리지 매핑 (재발 방지 규칙)
+
+> **Why:** `salesforce_apex_developer_guide.pdf`는 과거 위키화한 적이 있는 문서인데, 특정 주제(Apex 언어 기능)만 추출하고 "Deploying Apex" 챕터(특히 "Deploy Apex Using DevOps Center" 등 **배포 방법 6종** 섹션)를 통째로 누락했다. **한 PDF를 일부 챕터만 추출하면 나머지 챕터가 조용히 미커버**로 남는다 — 'PDF가 위키화됨 = 전체가 커버됨'이 아니다.
+
+멀티토픽 대형 PDF(언어 가이드·플랫폼 가이드 등 여러 도메인을 한 권에 담은 문서)를 다룰 때는 **추출 시작 전 그 PDF의 목차(ToC)/챕터 구조를 먼저 추출**한다:
+
+```bash
+# PDF 앞부분 목차 추출 (챕터 구조 파악)
+pdftotext -f 1 -l 12 "Salesforce Documents/big_guide.pdf" - | grep -niE "chapter|^[A-Z][A-Za-z ]+\.\.\.|\b[0-9]+$"
+```
+
+소스 맵에 **이번 작업이 커버하는 챕터와 미커버 챕터를 명시**한다:
+
+```
+### 챕터 커버리지 (멀티토픽 PDF)
+- 파일: salesforce_apex_developer_guide.pdf
+- 이번 작업 범위 챕터: [Ch2 Language Constructs, Ch3 Classes/Interfaces ...]
+- 이번 작업 미커버 챕터: [Ch12 Deploying Apex ("Deploy Apex Using DevOps Center" 등 배포 6종) — 별도 작업 후보]
+```
+
+이로써 completeness-validator·source-coverage-checker가 '아예 추출 안 된 챕터'를 잡을 수 있고, 미커버 챕터가 백로그로 등재된다.
+
 ## 절대 금지
 
 - 내용을 요약하거나 분석하지 않는다
 - 위키 파일을 읽거나 쓰지 않는다
 - "아마 있을 것"이라는 추측 보고 금지 — 실제로 존재하는 것만 보고한다
 - PDF 파일명·표지 이미지만으로 릴리즈 버전을 단정하지 않는다 — Read 도구로 실제 내용을 확인한다
+- 후보 1~2개 PDF만 grep하고 "소스에 없다"고 단정하지 않는다 — 전체 PDF 집합 전수 grep + 인접 도메인 문서 확인 후에만 부재를 주장한다

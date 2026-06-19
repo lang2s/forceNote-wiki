@@ -1371,3 +1371,5 @@ s1.add(p3);
 - [[Iterable Iterator]]
 - [[System Namespace]]
 - [[Comparator 인터페이스]]
+- [[ApexDoc 주석 작성 가이드]] — 클래스·메서드 선언에 다는 문서화 주석 규칙
+- [[Trigger 컨텍스트 변수와 이벤트]] — static 변수 예제에 쓰인 `Trigger.isBefore`·`Trigger.old` 등 트리거 컨텍스트 변수 전체 레퍼런스

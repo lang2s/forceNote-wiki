@@ -357,8 +357,8 @@ PDF p.3584–3591 기준 주요 클래스 (총 60개 이상):
 | `StubProvider` | Apex 목 프레임워크 → [[StubProvider]] |
 | `System` (클래스) | debug, enqueueJob, schedule, now, today, setSavepoint |
 | `Test` | @isTest 전용 메서드 → [[테스트 전략]] |
-| `Trigger` | 트리거 컨텍스트 (Trigger.new, Trigger.old 등) |
-| `TriggerOperation` | 트리거 이벤트 열거형 (BEFORE_INSERT 등) |
+| `Trigger` | 트리거 컨텍스트 (Trigger.new, Trigger.old 등) → [[Trigger 컨텍스트 변수와 이벤트]] |
+| `TriggerOperation` | 트리거 이벤트 열거형 (BEFORE_INSERT 등) → [[Trigger 컨텍스트 변수와 이벤트]] |
 | `Type` | Apex 타입 동적 조회·인스턴스화 |
 | `URL` | Org 베이스 URL 조회 |
 | `UserInfo` | 현재 사용자 정보 |

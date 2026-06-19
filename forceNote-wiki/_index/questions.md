@@ -38,6 +38,10 @@ created: 2026-05-21
 | 정렬 Apex에서 | `Apex/Collections(컬렉션)/Comparator 인터페이스.md` |
 | 스케줄 자동 실행 Apex | `Apex/Async(비동기)/Scheduled Apex.md` |
 | 로그 남기는 방법 | `Apex/Logging(로깅)/Log 싱글턴 패턴.md` |
+| Apex 디버깅 방법 / 디버그 로그 카테고리·레벨 설정 / System.debug 로그 보기 | `Apex/Logging(로깅)/Apex Debug Log.md` |
+| 익명 Apex 실행 방법 / execute anonymous / 코드 한 번만 실행 / sf apex run | `Apex/ExecutionContext(실행컨텍스트)/Anonymous Apex 실행.md` |
+| webservice 키워드 사용법 / Apex를 SOAP 웹서비스로 노출 / WSDL 생성 | `Apex/Integration(통합)/SOAP Web Services 노출 (webservice 키워드).md` |
+| ApexDoc 작성법 / Apex 주석 문서화 / @param @return 태그 사용법 | `Apex/ApexDoc 주석 작성 가이드.md` |
 | 캐시 사용하는 방법 | `Apex/PlatformCache(플랫폼캐시)/Platform Cache.md` |
 | 공유 규칙 보안 적용 | `Apex/Security(보안)/Safely.md` |
 | 데이터 조회 쿼리 | `Apex/SOQL(SOQL)/SOQL 패턴.md` |
@@ -52,6 +56,9 @@ created: 2026-05-21
 | Scratch Org 만드는 방법 | `DevOps(데브옵스)/Scratch Org 패턴.md` |
 | Jenkins로 Salesforce CI 구성 | `DevOps(데브옵스)/CI CD 패턴.md` |
 | 패키지 만들고 설치하는 방법 | `DevOps(데브옵스)/Unlocked Package 패턴.md` |
+| DevOps Center를 scratch org에서 어떻게 켜나 / DevOpsCenter feature 활성화 | `Architecture(아키텍처)/DevOps Center.md` |
+| DevOps Center 메타데이터 설정 / DevHubSettings enableDevOpsCenterGA | `Architecture(아키텍처)/DevOps Center.md` |
+| DevOps Center Beta vs GA 차이 / next-generation AI-powered DevOps Center | `Architecture(아키텍처)/DevOps Center.md` |
 | Knowledge 아티클 Apex로 게시하는 방법 | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 번역 제출 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 보관 스케줄 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |
