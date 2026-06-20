@@ -251,6 +251,7 @@ LWR 사이트는 Lightning Locker 대신 LWS(Lightning Web Security)를 사용�
 ## 관련 노트
 
 - [[LWR Sites (Experience Cloud)]] — LWR 사이트 hub
+- [[LWR 컴포넌트 개발 심화]] — 형제 spoke(컴포넌트 개발): `js-meta.xml` 타깃·`targetConfigs`·`@salesforce` 모듈·화면 반응형·커스텀 레이아웃 (publish 후 동작은 이 노트가 다룸)
 - [[Lightning Web Security (LWS)]] — LWS 보안 아키텍처(Differences·x-oasis-script 위임)
 - [[LWR 다국어 사이트]] — 형제 spoke(다국어)
 - [[LWR Expressions 레퍼런스]] — 형제 spoke(표현식·dynamic 데이터)

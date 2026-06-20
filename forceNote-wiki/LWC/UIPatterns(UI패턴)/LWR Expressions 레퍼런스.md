@@ -81,5 +81,6 @@ query parameter를 가져오거나, 사이트의 올바른 basePath를 resolve�
 
 - 📖 공식: [LWR Sites for Experience Cloud](https://developer.salesforce.com/docs/atlas.en-us.exp_cloud_lwr.meta/exp_cloud_lwr/)
 - [[LWR Sites (Experience Cloud)]] — hub: LWR 사이트 컴포넌트 개발·Apex+SOQL 검색(`{!Route.term}`)
+- [[LWR 컴포넌트 개발 심화]] — 형제 spoke(컴포넌트 개발): `targetConfigs` 프로퍼티가 expression 구문(`{!Route.recordId}`)을 값으로 interpolate하는 조건
 - [[NavigationMixin 패턴]] — Route 기반 네비게이션·`comm__namedPage`
 - [[LWR 동작·캐싱·제약]] — 형제 spoke: 퍼블리싱 모델·캐싱·dynamic import 제약 등 LWR 동작/제약

@@ -191,6 +191,7 @@ LWR 사이트 생성 시 **기본 사이트 언어는 English (US)**다. 다른 
 
 - 📖 공식: [LWR Sites for Experience Cloud](https://developer.salesforce.com/docs/atlas.en-us.exp_cloud_lwr.meta/exp_cloud_lwr/)
 - [[LWR Sites (Experience Cloud)]] — hub: LWR 사이트 컴포넌트 개발·브랜딩·Experience Delivery
+- [[LWR 컴포넌트 개발 심화]] — 형제 spoke(컴포넌트 개발): `js-meta.xml`에서 String property `translatable="true"` 정의·`datasource`와의 제약
 - [[Lightning Knowledge 다국어 & 번역]] — peer: 번역 워크플로(Translation Workbench·언어 추가)
 - [[Metadata API 빌드·릴리스 워크플로]] — ExperienceBundle 프로그래매틱 import
 - [[LWR 동작·캐싱·제약]] — 형제 spoke: 퍼블리싱 모델·캐싱·LWR Template Limitations(RTL 언어 제약 등)

@@ -57,6 +57,8 @@ enhanced LWR 사이트·워크스페이스 전용 기능:
 
 각 LWC 폴더에 `<component>.js-meta.xml` 필요. Experience Builder용 design 설정값 정의. LWR 템플릿용으로 2개 타깃이 추가됨.
 
+> → 심화: [[LWR 컴포넌트 개발 심화]] — `js-meta.xml` 타깃·`targetConfigs` 프로퍼티 전수, `@salesforce` 모듈, 화면 크기 반응형(`--dxp-c-*`), 커스텀 레이아웃·내비게이션 메뉴 컴포넌트(Ch3 전수).
+
 | 타깃 | 용도 |
 |---|---|
 | `lightningCommunity__Page` | 드래그앤드롭 컴포넌트(LWR·Aura 사이트 페이지). Components 패널에 표시 |
@@ -94,6 +96,8 @@ enhanced LWR 사이트·워크스페이스 전용 기능:
 ---
 
 ## 브랜딩 — `--dxp` 스타일링 훅
+
+> → 전수 레퍼런스: [[LWR --dxp 스타일링 훅 레퍼런스]] — Color/Text/Site Spacing 훅 전수·Theme 패널 속성 매핑표·Site Logo·Custom Fonts·Remove SLDS (Ch4). 이 절은 그 요약이다.
 
 LWR 사이트는 SLDS의 `--slds-*`가 아니라 **`--dxp-*`** (Digital Experience Platform) 훅으로 브랜딩한다. Theme 패널 속성과 매핑됨.
 
@@ -273,6 +277,7 @@ LWR 사이트에 언어를 추가하면 멀티링궐(multilingual) 사이트가 
 - [[LWR 동작·캐싱·제약]] — 페이지/퍼블리싱 모델·커스텀 URL·캐싱 TTL·head markup·Light DOM·LWR Template Limitations 전수
 - [[LWR 다국어 사이트]] — 언어 추가·fallback·자동 감지·`.xlf` export/import 전수
 - [[LWR Expressions 레퍼런스]] — `{!expression}` Data Binding·Other Expressions 표·제약 전수
+- [[LWR --dxp 스타일링 훅 레퍼런스]] — 형제 spoke(브랜딩): `--dxp` 훅 전수·Theme 패널 매핑표·Site Logo·Custom Fonts·Remove SLDS (Ch4)
 - [[Lightning Web Security (LWS)]] — LWR 사이트 LWS·Privileged Script Tag(`<x-oasis-script>`) 상세
 - [[UI API 개요]] — custom record 컴포넌트 데이터 소스
 - [[lightning-datatable]] — `LightningDatatable` extend·custom cell type

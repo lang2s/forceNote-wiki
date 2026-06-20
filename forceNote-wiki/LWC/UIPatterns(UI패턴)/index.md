@@ -27,6 +27,8 @@ created: 2026-05-17
 | [[LWR 다국어 사이트]] | 멀티링궐 LWR — 언어 추가·fallback·자동감지·번역 export/import·제약 | #reference |
 | [[LWR Expressions 레퍼런스]] | LWR 표현식 — Data Binding·Other Expressions·제약 | #reference |
 | [[LWR 동작·캐싱·제약]] | LWR 퍼블리싱 모델·캐싱·커스텀 URL·head markup·Light DOM·Template Limitations | #reference |
+| [[LWR 컴포넌트 개발 심화]] | LWR 컴포넌트 개발 — js-meta.xml targets·targetConfigs·@salesforce 모듈·화면 크기 반응형·커스텀 레이아웃/내비게이션 | #reference |
+| [[LWR --dxp 스타일링 훅 레퍼런스]] | LWR 브랜딩 — --dxp-g/-s/-c 스타일링 훅·Theme 패널 속성 매핑·커스텀 폰트·Remove SLDS·컴포넌트 브랜딩 오버라이드 | #reference |
 
 ---
 
@@ -45,3 +47,5 @@ created: 2026-05-17
 - LWR 사이트 다국어·번역? → [[LWR 다국어 사이트]]
 - LWR 표현식·{!Route}·동적 데이터? → [[LWR Expressions 레퍼런스]]
 - LWR 캐싱·퍼블리싱·제약·미지원 기능? → [[LWR 동작·캐싱·제약]]
+- LWR 커스텀 컴포넌트 개발·js-meta.xml targets·반응형·커스텀 레이아웃/내비? → [[LWR 컴포넌트 개발 심화]]
+- LWR 사이트 색상·폰트·브랜딩·--dxp 스타일링 훅? → [[LWR --dxp 스타일링 훅 레퍼런스]]

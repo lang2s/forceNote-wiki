@@ -135,6 +135,8 @@ created: 2026-05-17
 - [[LWR 다국어 사이트]] — 멀티링궐 LWR(언어 추가·fallback·자동감지·번역 export/import·제약)
 - [[LWR Expressions 레퍼런스]] — LWR 표현식(Data Binding·Other Expressions·제약)
 - [[LWR 동작·캐싱·제약]] — 퍼블리싱 모델·캐싱 TTL·커스텀 URL·head markup·Light DOM·LWR Template Limitations
+- [[LWR 컴포넌트 개발 심화]] — js-meta.xml targets·targetConfigs·@salesforce 모듈·화면 크기 반응형·커스텀 레이아웃/내비게이션
+- [[LWR --dxp 스타일링 훅 레퍼런스]] — LWR 브랜딩(--dxp-g/-s/-c 훅)·Theme 패널 속성 매핑·커스텀 폰트·Remove SLDS·컴포넌트 브랜딩 오버라이드
 
 ## 🎨 SLDS 디자인 시스템
 
