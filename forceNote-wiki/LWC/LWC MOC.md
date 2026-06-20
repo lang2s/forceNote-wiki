@@ -132,6 +132,9 @@ created: 2026-05-17
 - [[공유 JS 모듈]] — c/ 네임스페이스 공유 함수, named export, isExposed: false
 - [[CRM Analytics 대시보드용 LWC]] — analytics__Dashboard 타깃, step 쿼리 주입, hasStep, bindings
 - [[LWR Sites (Experience Cloud)]] — Experience Cloud LWR 사이트, lightningCommunity__ 타깃, --dxp 브랜딩 훅
+- [[LWR 다국어 사이트]] — 멀티링궐 LWR(언어 추가·fallback·자동감지·번역 export/import·제약)
+- [[LWR Expressions 레퍼런스]] — LWR 표현식(Data Binding·Other Expressions·제약)
+- [[LWR 동작·캐싱·제약]] — 퍼블리싱 모델·캐싱 TTL·커스텀 URL·head markup·Light DOM·LWR Template Limitations
 
 ## 🎨 SLDS 디자인 시스템
 

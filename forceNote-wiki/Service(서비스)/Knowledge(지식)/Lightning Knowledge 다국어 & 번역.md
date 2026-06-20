@@ -308,3 +308,4 @@ import.properties
 
 - [[Knowledge REST API — Actions & Manage]]
 - [[Lightning Knowledge 아티클 임포트]]
+- [[LWR 다국어 사이트]] — peer: Experience Cloud 사이트 다국어 번역 워크플로(언어 추가·`.xlf` export/import·Translation Workbench)

@@ -53,7 +53,10 @@ created: 2026-05-21
 | Static Resource, loadScript, loadStyle, 서드파티 라이브러리, renderedCallback | `LWC/UIPatterns(UI패턴)/Static Resource 로딩.md` |
 | 파일 업로드, 이미지 처리, processImage, FileReader, ContentVersion | `LWC/UIPatterns(UI패턴)/파일 업로드와 이미지 처리.md` |
 | CRM Analytics 대시보드 LWC, analytics__Dashboard, 대시보드 위젯, hasStep, step 쿼리, Wave 대시보드 커스텀 위젯, bindings 동적 속성 | `LWC/UIPatterns(UI패턴)/CRM Analytics 대시보드용 LWC.md` |
-| LWR Sites, Experience Cloud LWR, Build Your Own Microsite 템플릿, lightningCommunity__Page Page_Layout Theme_Layout Default, --dxp 스타일링 훅, dxp-g-brand, Experience Builder LWC, 커뮤니티 사이트 컴포넌트, Remove SLDS | `LWC/UIPatterns(UI패턴)/LWR Sites (Experience Cloud).md` |
+| LWR Sites, Experience Cloud LWR, Enhanced LWR, enhanced sites and content platform, Build Your Own Microsite 템플릿, Build Your Own vs Microsite, lightningCommunity__Page Page_Layout Theme_Layout Default, --dxp 스타일링 훅, dxp-g-brand, Experience Builder LWC, 커뮤니티 사이트 컴포넌트, Remove SLDS, partial deployment, expression-based visibility, site content search, GlobalSearchController, Editions, Experience Delivery, SSR, CSR, custom record component, logout link, secur/logout.jsp | `LWC/UIPatterns(UI패턴)/LWR Sites (Experience Cloud).md` |
+| LWR 다국어, multilingual LWR site, 언어 추가, fallback language, automatic language detection, PreferredLanguage cookie, 번역 내보내기 가져오기, .xlf, ExperienceBundle translation, RTL, Language Selector, translatable=true, 다국어 제약 | `LWC/UIPatterns(UI패턴)/LWR 다국어 사이트.md` |
+| LWR expressions, 표현식, {!Route.term}, {!CurrentUser}, {!cmsMedia.contentKey}, {!Item.field}, {!Site.basePath}, {!User.userId}, data binding, expression-based visibility, dynamic data | `LWC/UIPatterns(UI패턴)/LWR Expressions 레퍼런스.md` |
+| LWR caching, 캐싱 정책, Caching TTL, CDN, LWR publishing model, new publishing model, frozen components, republish, Which Features Are Affected, custom URL paths, /s 제거, vforcesite, unauthenticated site, head markup, basePath versionKey, Light DOM, third-party analytics, LWR Template Limitations, Unsupported Features, 500 routes 250, dynamic import, statically analyzable, asset files in sandbox, F6 navigation, screen reader, ARIA-Live, LWR 동작 캐싱 제약, LWR 제약, 미지원 기능 | `LWC/UIPatterns(UI패턴)/LWR 동작·캐싱·제약.md` |
 
 ## LWC — 보안 / 모바일
 

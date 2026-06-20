@@ -94,7 +94,7 @@ export default class MiscSharedJavaScript extends LightningElement {
 
 - **HTML 파일 불가** — 공유 모듈 컴포넌트에 HTML 파일이 있으면 컴포넌트로 인식되어 렌더링을 시도한다. JS 파일만 포함해야 한다.
 - **`isExposed: false` 필수** — `.js-meta.xml`에서 `isExposed`를 `true`로 설정하면 App Builder 팔레트에 노출된다. 공유 모듈은 반드시 `false`로 설정.
-- **LWC Security 제약** — 공유 모듈도 일반 LWC와 동일한 Locker Service/Lightning Web Security 제약을 받는다. DOM 조작이나 `window` 전역 객체 접근은 제한될 수 있다.
+- **LWC Security 제약** — 공유 모듈도 일반 LWC와 동일한 Locker Service/[[Lightning Web Security (LWS)|Lightning Web Security]] 제약을 받는다. DOM 조작이나 `window` 전역 객체 접근은 제한될 수 있다.
 - **상태(State) 금지** — 모듈 수준 변수에 상태를 저장하면 컴포넌트 간에 의도치 않게 공유될 수 있다. 순수 함수만 export하고 모듈 수준 상태는 두지 않는다.
 - **네이밍 충돌** — 같은 이름의 함수를 여러 모듈에서 export하면 import 시 별칭(`as`)으로 구분해야 한다.
 
@@ -102,3 +102,4 @@ export default class MiscSharedJavaScript extends LightningElement {
 
 - [[ldsUtils reduceErrors]]
 - [[Imperative 호출 패턴]]
+- [[Lightning Web Security (LWS)]] — 공유 모듈에 적용되는 Locker/LWS 제약(namespace sandbox·DOM 접근)

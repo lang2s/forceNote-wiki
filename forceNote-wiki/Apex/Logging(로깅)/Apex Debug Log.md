@@ -471,5 +471,6 @@ output header `DebuggingInfo`에 결과 debug log가 포함된다.
 - [[Anonymous Apex 실행]]
 - [[Governor Limits]]
 - [[Log 싱글턴 패턴]]
+- [[Tooling API 디버그·로그·리플레이 sObject]] — 같은 디버그 로그를 API/프로그래밍 방식으로 제어(TraceFlag·DebugLevel·ApexLog)
 - [[Logging(로깅)/index]]
 - [[Apex MOC]]

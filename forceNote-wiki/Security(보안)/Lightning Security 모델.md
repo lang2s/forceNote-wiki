@@ -17,7 +17,7 @@ CSP 요구를 충족하고, server-side Apex의 CRUD/FLS·sharing을 강제하�
 
 third-party Lightning component/app은 특수 domain(lightning.force.com, lightning.com)에서 동작하며, **Salesforce-authored Lightning code(특히 setup.app, 민감 보안 설정 제어)와 origin을 공유**한다. VF는 다른 domain(force.com, Salesforce code 비공유)에서 동작한다. Lightning이 같은 origin이므로 third-party Lightning code에 증가된 제약이 적용된다 → **Lightning Locker** + 특수 CSP + AppExchange security review 추가 검토. **stricter CSP** 활성을 권장한다(Summer '18부터 기본, 이전 org은 아님).
 
-> Lightning Web Security(LWS)/Lightning Locker의 격리 모델 상세는 [[LWC 보안 패턴]] 참조.
+> Lightning Web Security(LWS)의 격리 모델 상세는 [[Lightning Web Security (LWS)]] 참조. Lightning Locker 위협모델은 이 노트가 소관이다.
 
 ---
 
@@ -192,6 +192,7 @@ Lightning Locker 내에서 third-party framework 사용은 blogpost를 참조한
 ---
 
 ## 관련 노트
+- [[Lightning Web Security (LWS)]] — Locker를 대체하는 LWR 사이트 보안 아키텍처(namespace sandbox·cross-namespace·Privileged Script Tag)
 - [[LWC 보안 패턴]]
 - [[CSP와 RemoteSite]]
 - [[LWC API 버전 관리]]

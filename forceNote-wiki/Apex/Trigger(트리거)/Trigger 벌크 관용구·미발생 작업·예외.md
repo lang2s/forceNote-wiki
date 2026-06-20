@@ -304,3 +304,4 @@ Salesforce Side Panel(Salesforce for Outlook)을 통해 이메일이 레코드�
 - [[Trigger Order of Execution]] — insert/update/upsert 저장 시 서버 이벤트 실행 순서
 - [[Governor Limits]] — SOQL·DML 등 실행 거버너 한도
 - [[Apex 표준 클래스 레퍼런스]] — `SObject.addError()` 등 표준 메서드
+- [[특정 표준 객체 트리거 고려사항 — Chatter · Knowledge]] — FeedItem `LikeCount` 미발생·FeedItem/FeedComment after undelete 미지원 등 객체별 미발생 작업·Entity 제약의 구체화

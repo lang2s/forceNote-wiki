@@ -20,6 +20,7 @@ created: 2026-05-17
 - [[Trigger 컨텍스트 변수와 이벤트]] — 트리거 문법, 13종 컨텍스트 변수(Trigger.new/old/newMap/oldMap), TriggerOperation enum, 이벤트별 가용성 매트릭스, merge/recovered records
 - [[Trigger 벌크 관용구·미발생 작업·예외]] — 벌크 트리거 Map/Set 관용구, 트리거 미발생 시스템 작업 전수, before/after 갱신 불가 필드, addError() 예외 마킹·부분 저장
 - [[Trigger Order of Execution]] — insert/update 저장 시 서버의 20단계 save 순서 — before/after 트리거·validation·workflow·flow·roll-up summary·commit·post-commit, 재귀 save skip
+- [[특정 표준 객체 트리거 고려사항 — Chatter · Knowledge]] — FeedItem/FeedComment(Chatter) triggerable·6종 type, KnowledgeArticleVersion(KAV) 액션별 트리거 발화 매트릭스, Lightning 마이그레이션 영향
 - [[Permission Set 설계]] — objectPermissions, fieldPermissions, classAccesses 구성 표준
 - [[ApexPages Namespace]] — Visualforce 컨트롤러 전체 레퍼런스: Action·Component·Message·StandardController·StandardSetController·IdeaStandard*·KnowledgeArticleVersionStandardController
 - [[AppLauncher Namespace]] — App Launcher 앱 가시성·정렬 제어: AppMenu.setAppVisibility, setOrgSortOrder, setUserSortOrder
@@ -149,6 +150,7 @@ created: 2026-05-17
 
 - [[Log 싱글턴 패턴]] — add() 버퍼 → publish() 일괄 발행
 - [[Apex Debug Log]] — Debug Log 카테고리 10종·레벨 8종(NONE~FINEST), Event Type 매트릭스, DebuggingHeader(LogCategory/LogCategoryLevel enum), 로그 한도·우선순위, Developer Console
+- [[Tooling API 디버그·로그·리플레이 sObject]] — TraceFlag·DebugLevel·ApexLog·HeapDump·Overlay(Action/Result)·ExecuteAnonymousResult, Tooling API SOAP/REST로 프로그래밍 방식 로그·리플레이 디버깅 제어
 
 ## 📡 플랫폼 이벤트
 

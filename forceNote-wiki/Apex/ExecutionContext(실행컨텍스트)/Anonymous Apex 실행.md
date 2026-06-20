@@ -112,6 +112,7 @@ Author Apex가 없는 사용자가 anonymous block에서 실행할 수 있는 �
 
 - [[QuiddityGuard]]
 - [[Apex Debug Log]]
+- [[Tooling API 디버그·로그·리플레이 sObject]] — executeAnonymous REST 리소스·ExecuteAnonymousResult 7필드(Tooling API)
 - [[DX 개발 워크플로]]
 - [[System Namespace]]
 - [[ExecutionContext(실행컨텍스트)/index]]

@@ -13,7 +13,7 @@ aliases: [Tooling API 배포, Tooling API Apex deploy, MetadataContainer, Contai
 
 > [!note] 이 노트의 범위 (scope)
 > 이 노트는 **Tooling API의 Apex 컨테이너 배포 워크플로에만 한정**한다 — `MetadataContainer` · `ContainerAsyncRequest` · `ApexClassMember` / `ApexTriggerMember` / `ApexComponentMember` / `ApexPageMember`.
-> Tooling API의 다른 영역(`SymbolTable` 상세 구조, 디버그·로그 sObject, `ApexExecutionOverlayAction`, `EntityDefinition`/`FieldDefinition`, 전체 sObject 레퍼런스 등)은 **범위 밖**이며 별도 대형 작업(ING-26 / ING-45) 소관이다.
+> Tooling API의 다른 영역(`SymbolTable` 상세 구조, `EntityDefinition`/`FieldDefinition`, 전체 sObject 레퍼런스 등)은 **범위 밖**이다(`SymbolTable` 내부 구조는 별도 대형 작업 ING-26 소관). 디버그·로그·리플레이 sObject(`TraceFlag`·`DebugLevel`·`ApexLog`·`ApexExecutionOverlayAction`·`HeapDump` 등)는 [[Tooling API 디버그·로그·리플레이 sObject]] 참조 — 디버그 vs 배포 경계.
 > `SymbolTable`은 `*Member`의 필드로만 언급하고 그 내부 구조는 다루지 않는다.
 
 ---
@@ -297,3 +297,4 @@ REST에서는 `/composite` 리소스로 5개 subrequest를 한 번의 API 호출
 - [[Apex 배포 방법]] — 배포 경로 5종 비교 허브(Tooling API는 그중 4번 방법)
 - [[Metadata API File-Based 호출]] — Metadata API의 `deploy()`/`retrieve()` 파일 기반 배포(대규모·전체 메타데이터 배포)
 - [[Anonymous Apex 실행]] — Tooling API/REST로 anonymous Apex 실행(executeAnonymous)
+- [[Tooling API 디버그·로그·리플레이 sObject]] — 같은 Tooling API의 디버그/로그 도메인(TraceFlag·DebugLevel·ApexLog·Overlay·HeapDump). 디버그 vs 배포 경계

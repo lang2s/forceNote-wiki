@@ -214,3 +214,4 @@ KbManagement.PublishingService.assignDraftTranslationTask(
 - [[Search Namespace]] — KnowledgeSuggestionFilter, Knowledge 아티클 SOSL 검색
 - [[Apex 표준 클래스 레퍼런스]] — String / Datetime 메서드 참조
 - [[Knowledge 데이터 모델 & API 개요]] — Knowledge SOAP/REST/Metadata/UI API 전체 데이터 모델 (KbManagement는 그 Apex 발행 계층)
+- [[특정 표준 객체 트리거 고려사항 — Chatter · Knowledge]] — 게시·번역·보관 등 아티클 액션이 KAV(Knowledge) 트리거를 언제 발화시키는지 액션별 매트릭스

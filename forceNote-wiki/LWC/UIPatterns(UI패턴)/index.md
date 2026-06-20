@@ -24,6 +24,9 @@ created: 2026-05-17
 | [[SLDS LWC 디자인 시스템]] | SLDS 1·SLDS 2 CSS Styling Hook, Design Token, 다크 모드, 밀도 인식 — Winter '26 GA | #reference |
 | [[CRM Analytics 대시보드용 LWC]] | analytics__Dashboard 타깃, step 쿼리 주입, hasStep, bindings 동적 속성 | #reference |
 | [[LWR Sites (Experience Cloud)]] | Experience Cloud LWR 사이트, lightningCommunity__ 타깃, --dxp 브랜딩 훅 | #reference |
+| [[LWR 다국어 사이트]] | 멀티링궐 LWR — 언어 추가·fallback·자동감지·번역 export/import·제약 | #reference |
+| [[LWR Expressions 레퍼런스]] | LWR 표현식 — Data Binding·Other Expressions·제약 | #reference |
+| [[LWR 동작·캐싱·제약]] | LWR 퍼블리싱 모델·캐싱·커스텀 URL·head markup·Light DOM·Template Limitations | #reference |
 
 ---
 
@@ -39,3 +42,6 @@ created: 2026-05-17
 - SLDS 스타일·디자인 토큰·다크 모드? → [[SLDS LWC 디자인 시스템]]
 - CRM Analytics 대시보드에 커스텀 위젯? → [[CRM Analytics 대시보드용 LWC]]
 - Experience Cloud LWR 사이트 컴포넌트·브랜딩? → [[LWR Sites (Experience Cloud)]]
+- LWR 사이트 다국어·번역? → [[LWR 다국어 사이트]]
+- LWR 표현식·{!Route}·동적 데이터? → [[LWR Expressions 레퍼런스]]
+- LWR 캐싱·퍼블리싱·제약·미지원 기능? → [[LWR 동작·캐싱·제약]]

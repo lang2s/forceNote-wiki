@@ -24,6 +24,7 @@ created: 2026-06-18
 | [[Arbitrary Redirect 방어]] | Open Redirect — retURL 조작, PageReference 감사, allowlist 매칭 | #security |
 | [[권한과 접근 제어 위협]] | CRUD/FLS bypass·sharing violation·privilege escalation — USER_MODE·sharing 키워드·describe·stripInaccessible | #security |
 | [[Lightning Security 모델]] | Lightning Locker·CSP·component 레벨 sharing/CRUD/FLS/XSS/CSRF 강제 | #security |
+| [[Lightning Web Security (LWS)]] | LWR 사이트 LWS(Locker 대체)·namespace sandbox·cross-namespace·미지원 속성 4종·Privileged Script Tag(x-oasis-script) | #security |
 | [[세션 ID와 브라우저 통신 위협]] | managed package session ID·postMessage·WebSocket(CSWSH) cross-origin 통신 | #security |
 | [[Marketing Cloud API 보안]] | MC Engagement API — least privilege OAuth·secure storage·금지 endpoint·OWASP Top Ten | #security |
 | [[Platform Security FAQ]] | 보안 FAQ·HTTP 헤더(HSTS/frame-ancestors/nosniff)·false positive 공식 설명 | #reference |
@@ -40,6 +41,7 @@ created: 2026-06-18
 - retURL/redirect 파라미터를 신뢰해도 되나? → [[Arbitrary Redirect 방어]]
 - Apex에서 CRUD/FLS·sharing을 어떻게 강제? → [[권한과 접근 제어 위협]]
 - Lightning component(Aura/LWC) 보안 모델·CSP? → [[Lightning Security 모델]]
+- LWR 사이트 LWS·Locker 대체·cross-namespace·미지원 속성·x-oasis-script(GA/GTM)? → [[Lightning Web Security (LWS)]]
 - session ID 오용·postMessage·WebSocket 위협? → [[세션 ID와 브라우저 통신 위협]]
 - Marketing Cloud API 통합 보안? → [[Marketing Cloud API 보안]]
 - 보안 감사에서 나온 false positive 해명? → [[Platform Security FAQ]]

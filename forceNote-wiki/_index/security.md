@@ -63,6 +63,7 @@ created: 2026-06-18
 | 키워드 | 파일 |
 |---|---|
 | Lightning Security, Lightning Locker, CSP Directives, Lightning component 보안, AuraEnabled 보안, with sharing controller, Lightning CRUD FLS, Lightning XSS, Lightning CSRF, unsafe attribute, secret inputs, LWC 보안 모델 | `Security(보안)/Lightning Security 모델.md` |
+| Lightning Web Security, LWS, Lightning Locker, secure wrapper, namespace sandbox, cross-namespace, x-oasis-script, Privileged Script Tag, LWS 활성화, LWS vs Locker 차이, Locker에서 LWS 전환, LWR 보안, LWS 미지원 속성, third-party script LWR, GA/GTM LWR 사이트 | `Security(보안)/Lightning Web Security (LWS).md` |
 
 ## 세션 / 브라우저 통신
 

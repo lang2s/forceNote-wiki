@@ -39,6 +39,8 @@ created: 2026-05-21
 | 스케줄 자동 실행 Apex | `Apex/Async(비동기)/Scheduled Apex.md` |
 | 로그 남기는 방법 | `Apex/Logging(로깅)/Log 싱글턴 패턴.md` |
 | Apex 디버깅 방법 / 디버그 로그 카테고리·레벨 설정 / System.debug 로그 보기 | `Apex/Logging(로깅)/Apex Debug Log.md` |
+| Tooling API로 디버그 로그 어떻게 켜? / API로 trace flag 생성·로그 레벨 설정 / 프로그래밍 방식 로그 활성화 | `Apex/Logging(로깅)/Tooling API 디버그·로그·리플레이 sObject.md` |
+| 리플레이 디버거 체크포인트 sObject가 뭐야? / 힙 덤프 캡처 / overlay action·result | `Apex/Logging(로깅)/Tooling API 디버그·로그·리플레이 sObject.md` |
 | 익명 Apex 실행 방법 / execute anonymous / 코드 한 번만 실행 / sf apex run | `Apex/ExecutionContext(실행컨텍스트)/Anonymous Apex 실행.md` |
 | webservice 키워드 사용법 / Apex를 SOAP 웹서비스로 노출 / WSDL 생성 | `Apex/Integration(통합)/SOAP Web Services 노출 (webservice 키워드).md` |
 | ApexDoc 작성법 / Apex 주석 문서화 / @param @return 태그 사용법 | `Apex/ApexDoc 주석 작성 가이드.md` |
@@ -69,6 +71,8 @@ created: 2026-05-21
 | 데이터 카테고리 만드는 방법 / 누가 아티클 볼 수 있게 할지 / 카테고리 가시성 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 데이터 카테고리 & 공유.md` |
 | 스마트링크 / 영구링크 / 아티클 검색·작성 액션 / 채널에 아티클 공유 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 사용 — 액션·검색·스마트링크·채널.md` |
 | 아티클 리포트 만드는 방법 / 조회·투표 통계 리포팅 | `Service(서비스)/Knowledge(지식)/Lightning Knowledge 아티클 리포팅.md` |
+| Knowledge 아티클(KAV)에 트리거 작성하는 방법 / 액션별(게시·번역·보관) 트리거 발화 / KAV before insert 가능한가 | `Apex/Trigger(트리거)/특정 표준 객체 트리거 고려사항 — Chatter · Knowledge.md` |
+| Chatter FeedItem·FeedComment에 트리거 되나 / 채터 피드 트리거 작성 / 표준 객체 고유 트리거 제약 | `Apex/Trigger(트리거)/특정 표준 객체 트리거 고려사항 — Chatter · Knowledge.md` |
 | Visualforce로 커스텀 채팅 창 만드는 방법 / liveAgent 컴포넌트 | `Service(서비스)/Chat(채팅)/커스텀 Chat 윈도우(Visualforce) · Post-Chat · Direct-to-Agent 라우팅.md` |
 | 채팅 종료 후 post-chat 페이지 / disconnectedBy 확인 | `Service(서비스)/Chat(채팅)/커스텀 Chat 윈도우(Visualforce) · Post-Chat · Direct-to-Agent 라우팅.md` |
 | 특정 상담원에게 직접 채팅 라우팅 / 폴백 라우팅 / direct-to-agent | `Service(서비스)/Chat(채팅)/커스텀 Chat 윈도우(Visualforce) · Post-Chat · Direct-to-Agent 라우팅.md` |
@@ -102,3 +106,10 @@ created: 2026-05-21
 | CircleCI로 Salesforce 배포 자동화하는 방법 | `DevOps(데브옵스)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |
 | Jenkins Jenkinsfile Salesforce DX 예제 | `DevOps(데브옵스)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |
 | 서버 키 암호화해서 CI에 저장하는 방법 | `DevOps(데브옵스)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |
+| Locker랑 LWS 차이가 뭐야 / Lightning Web Security vs Lightning Locker / LWR 사이트 보안 모델 | `Security(보안)/Lightning Web Security (LWS).md` |
+| LWR 사이트에서 Google Analytics·Tag Manager(third-party 스크립트) 넣는 방법 / Privileged Script Tag x-oasis-script | `Security(보안)/Lightning Web Security (LWS).md` |
+| LWR 사이트 다국어/번역하는 방법·언어 추가·fallback | `LWC/UIPatterns(UI패턴)/LWR 다국어 사이트.md` |
+| LWR Experience Delivery SSR이 뭐야·page load 빠르게 | `LWC/UIPatterns(UI패턴)/LWR Sites (Experience Cloud).md` |
+| LWR 사이트에서 {!Route.term} 같은 표현식·동적 데이터 | `LWC/UIPatterns(UI패턴)/LWR Expressions 레퍼런스.md` |
+| LWR 사이트 캐싱 TTL·왜 publish 해야 반영되나 | `LWC/UIPatterns(UI패턴)/LWR 동작·캐싱·제약.md` |
+| LWR이 지원 안 하는 기능·제약·최대 route 수 | `LWC/UIPatterns(UI패턴)/LWR 동작·캐싱·제약.md` |

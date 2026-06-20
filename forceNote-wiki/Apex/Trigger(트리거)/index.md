@@ -20,6 +20,7 @@ created: 2026-05-17
 | [[Trigger 재귀 방지]] | static 변수 가드(firstRun), Set&lt;Id&gt; 추적, 스택 깊이 16, setMaxLoopCount | #pattern |
 | [[Trigger 컨텍스트 변수와 이벤트]] | 트리거 문법, 13종 컨텍스트 변수, TriggerOperation enum, 이벤트 가용성 매트릭스, merge/recovered | #reference |
 | [[Trigger 벌크 관용구·미발생 작업·예외]] | 벌크 Map/Set 관용구, 트리거 미발생 작업 전수, before/after 갱신 불가 필드, addError() 예외·부분 저장 | #reference |
+| [[특정 표준 객체 트리거 고려사항 — Chatter · Knowledge]] | FeedItem/FeedComment triggerable, 6종 type, KAV 액션별 발화 매트릭스, 마이그레이션 영향 | #reference |
 
 ---
 
@@ -29,6 +30,7 @@ created: 2026-05-17
 - Trigger를 배포 없이 on/off 제어? → [[CMDT 메타데이터 트리거]]
 - 컨텍스트 변수/이벤트 매트릭스? → [[Trigger 컨텍스트 변수와 이벤트]]
 - 벌크 트리거 관용구·addError 예외·트리거 미발생 작업? → [[Trigger 벌크 관용구·미발생 작업·예외]]
+- Chatter(FeedItem)·Knowledge 아티클 같은 표준 객체 고유 트리거 제약? → [[특정 표준 객체 트리거 고려사항 — Chatter · Knowledge]]
 - 저장 시 20단계 실행 순서? → [[Trigger Order of Execution]]
 
 ## 관련 폴더
