@@ -113,3 +113,5 @@ created: 2026-05-21
 | LWR 사이트에서 {!Route.term} 같은 표현식·동적 데이터 | `LWC/UIPatterns(UI패턴)/LWR Expressions 레퍼런스.md` |
 | LWR 사이트 캐싱 TTL·왜 publish 해야 반영되나 | `LWC/UIPatterns(UI패턴)/LWR 동작·캐싱·제약.md` |
 | LWR이 지원 안 하는 기능·제약·최대 route 수 | `LWC/UIPatterns(UI패턴)/LWR 동작·캐싱·제약.md` |
+| LWR 사이트 데이터·인터랙션 어떻게 Data Cloud로 보내나 / Website Engagement DMO·experience_interaction | `LWC/UIPatterns(UI패턴)/LWR Tag Manager 데이터 관리.md` |
+| Google Tag Manager·Experience Tag Manager를 LWR 사이트에 연동·인터랙션 이벤트 추적·Consent Opt-In | `LWC/UIPatterns(UI패턴)/LWR Tag Manager 데이터 관리.md` |

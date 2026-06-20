@@ -144,7 +144,7 @@ Aura 사이트에서는 이 markup이 Head Markup 창에 노출되지 않지만,
 - **`title` 태그** — 브라우저 탭에 표시되는 사이트의 기본 title을 제어.
 - **default style sheet로의 링크** — 사이트 외관을 제어. 한 링크는 Salesforce Lightning Design System(SLDS)용이고, 나머지는 base template이 쓰는 internal style sheet다. style sheet를 직접 편집할 수는 없지만 제거할 수는 있다.
 
-> Tip: 이 섹션에서 **`<x-oasis-script>`** privileged script 태그를 사용해 third-party 라이브러리의 global JavaScript를 포함할 수도 있다. (Privileged Script Tag 상세는 [[Lightning Web Security (LWS)]] 참조.)
+> Tip: 이 섹션에서 **`<x-oasis-script>`** privileged script 태그를 사용해 third-party 라이브러리의 global JavaScript를 포함할 수도 있다. (Privileged Script Tag 상세는 [[Lightning Web Security (LWS)]] 참조. `<x-oasis-script>`로 Google Tag Manager를 연결하는 실제 head markup 예제는 [[LWR Tag Manager 데이터 관리]] 참조.)
 
 **`{ basePath }`·`{ versionKey }`** 변수 reference는 head markup에서 원하는 대로 사용할 수 있다. 예를 들어 사이트 URL이 `https://site.acme.com/service`라면 `{ basePath }`는 `service`를 반환하므로 relative URL을 참조할 수 있다. `{ versionKey }`는 현재 published 상태를 가리키는 고유 id로, caching·성능 목적에 사용할 수 있다. 사이트가 republish될 때마다 versionKey가 변경된다.
 
@@ -255,6 +255,7 @@ LWR 사이트는 Lightning Locker 대신 LWS(Lightning Web Security)를 사용�
 - [[Lightning Web Security (LWS)]] — LWS 보안 아키텍처(Differences·x-oasis-script 위임)
 - [[LWR 다국어 사이트]] — 형제 spoke(다국어)
 - [[LWR Expressions 레퍼런스]] — 형제 spoke(표현식·dynamic 데이터)
+- [[LWR Tag Manager 데이터 관리]] — 형제 spoke(데이터): head markup의 `<x-oasis-script>`로 Google Tag Manager를 연결하는 실제 예제·네이티브 Experience Tag Manager
 - [[LWC Shadow DOM 모드]] — Light DOM·shadow→light 전환
 - [[SLDS LWC 디자인 시스템]] — head markup SLDS 스타일시트
 - [[Static Resource 로딩]] — 정적 리소스·contentAsset

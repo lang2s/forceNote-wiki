@@ -278,6 +278,7 @@ LWR 사이트에 언어를 추가하면 멀티링궐(multilingual) 사이트가 
 - [[LWR 다국어 사이트]] — 언어 추가·fallback·자동 감지·`.xlf` export/import 전수
 - [[LWR Expressions 레퍼런스]] — `{!expression}` Data Binding·Other Expressions 표·제약 전수
 - [[LWR --dxp 스타일링 훅 레퍼런스]] — 형제 spoke(브랜딩): `--dxp` 훅 전수·Theme 패널 매핑표·Site Logo·Custom Fonts·Remove SLDS (Ch4)
+- [[LWR Tag Manager 데이터 관리]] — 형제 spoke(데이터): 네이티브 Experience Tag Manager(`experience_interaction`→Website Engagement DMO·이벤트 9종)·Google Tag Manager(`<x-oasis-script>`→dataLayer) (Ch7+Ch6)
 - [[Lightning Web Security (LWS)]] — LWR 사이트 LWS·Privileged Script Tag(`<x-oasis-script>`) 상세
 - [[UI API 개요]] — custom record 컴포넌트 데이터 소스
 - [[lightning-datatable]] — `LightningDatatable` extend·custom cell type
