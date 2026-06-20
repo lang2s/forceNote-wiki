@@ -153,3 +153,4 @@ public class TaxServiceExtensionResolverSample
 - [[CommercePayments Namespace]] — 결제 게이트웨이 어댑터 패턴
 - [[CommerceTax Namespace]] — 세금 계산 어댑터 패턴
 - [[Sfdc_Checkout Namespace]] — B2B Commerce 비동기 체크아웃 통합 인터페이스
+- [[Order Management — Exchanges·Payment Sequencing·확장]] — OM Return Insights용 `commerce_ordermanagement.ProductExpandService` 확장(extension provider 등록·CLI 매핑)

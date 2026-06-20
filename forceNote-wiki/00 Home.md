@@ -102,6 +102,16 @@ Aura 컴포넌트 — 레거시 컴포넌트 프레임워크 (신규 개발은 L
 | [[Knowledge REST API — Actions & Manage]] | invocable actions, 아티클 발행·번역 관리 |
 | [[Knowledge Metadata API 타입 — 아티클·채널·설정]] | ArticleType, ChannelLayout, KnowledgeSettings |
 
+### [[Commerce(커머스)/index|Commerce(커머스)]]
+Salesforce Order Management — 주문 데이터 모델·B2C Commerce 주문 데이터 맵·Import/Fulfillment/Taxation·Exchanges(RMA)/Payment Sequencing
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[Order Management 개요와 데이터 모델]] | OrderSummary, FulfillmentOrder, OM 개발자 리소스, 엔티티 관계 |
+| [[B2C Commerce Storefront Order Data Map]] | XSD 매핑, 21개 객체 필드, GtwyProvPaymentMethodType, 커스텀 결제 수단 |
+| [[Order Management — Import·Fulfillment·Taxation]] | Create Order Summary, OrderLifecycleType, Location Capacity, net/gross 세금 |
+| [[Order Management — Exchanges·Payment Sequencing·확장]] | Preview/Submit Cart, Payment Sequencing, EnsureFunds, ProductExpandService |
+
 ### [[Security(보안)/index|Security(보안)]]
 Secure Coding Guide(v67.0) 위협 모델 — XSS·SQLi·CSRF·Redirect·TLS·민감데이터·CRUD/FLS·Lightning 보안·세션/브라우저 통신
 

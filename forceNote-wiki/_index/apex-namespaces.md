@@ -72,3 +72,12 @@ created: 2026-05-21
 | Sfdc_Checkout Namespace, sfdc_checkout, B2B Commerce Checkout Apex, AsyncCartProcessor, startCartProcessAsync, B2BCheckoutController, licenseCompliance, IntegrationInfo, IntegrationStatus, IntegrationStatus.Status, SUCCESS FAILED, B2B Commerce 비동기 카트 처리, GMV 추적, Cart-to-Order Apex, 체크아웃 통합 | `Apex/Integration(통합)/Sfdc_Checkout Namespace.md` |
 | Sfdc_Enablement Namespace, sfdc_enablement, Enablement Apex, Sales Programs Apex, LearningEvaluation, LearningEvaluationResult, LearningItemEvaluationHandler, evaluate, LearningItemProgressStatus, NotStarted InProgress Completed, LearningItemSerializeDeserializer, serialize deserialize, 커스텀 Exercise 평가, 학습 항목 진행도, Enablement 프로그램 마이그레이션, ApexEvaluationHandler ApexSerializerDeserializer | `Apex/Integration(통합)/Sfdc_Enablement Namespace.md` |
 | sfdc_surveys Namespace, SurveyInvitationLinkShortener, getShortenedURL, 설문 초대 URL 단축, Survey Invitation 링크, Feedback Management Apex, Bit.ly 통합, SMS WhatsApp 설문 배포, SurveySubject SurveyInvitation, SurveyResponse 트리거 | `Apex/Integration(통합)/sfdc_surveys Namespace.md` |
+
+## Order Management — B2C Commerce
+
+| 키워드 | 파일 |
+|---|---|
+| Order Management, Salesforce Order Management, SOM, OrderSummary, FulfillmentOrder, OrderItemSummary, OrderDeliveryGroupSummary, OM 개발자 리소스, OrderSummary Entity Relationships, 주문 관리 데이터 모델, 주문 요약 엔티티 관계, Order Management 개요, OM 진입점 | `Commerce(커머스)/Order Management 개요와 데이터 모델.md` |
+| B2C Commerce Storefront Order Data Map, B2C 주문 데이터 맵, XSD 매핑, Order XSD Schema, GtwyProvPaymentMethodType, Custom Payment Method, 커스텀 결제 수단, B2C Commerce 주문 필드 매핑, B2C Commerce 주문이 SF 어느 객체로 매핑, 주문 패킷 매핑, 결제 게이트웨이 설정 매핑 | `Commerce(커머스)/B2C Commerce Storefront Order Data Map.md` |
+| Importing Order Data, Order Management import, Create Order Summary, OrderLifecycleType, Managed Unmanaged Orders, Fulfillment Orders, Location Capacity, Deduplication, Taxation in Order Management, net gross 세금, 주문 데이터 가져오기, OrderSummary 생성 방법, 이행 주문 필수 필드, OM 세금 계산, Bulk API 주문 import | `Commerce(커머스)/Order Management — Import·Fulfillment·Taxation.md` |
+| Exchanges with RMA Returns, 불균등 교환, Preview Cart to Exchange Order, Submit Cart to Exchange Order, Payment Sequencing, EnsureFunds, EnsureRefunds, isReservedBalanceAmountConsidered, OrderPaymentSummary, ProductExpandService, Order on Behalf Of, OBO, Return Insights, commerce_ordermanagement, 교환 RMA API, payment sequencing 순서 제어, OM Lightning 컴포넌트 | `Commerce(커머스)/Order Management — Exchanges·Payment Sequencing·확장.md` |

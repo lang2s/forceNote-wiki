@@ -117,3 +117,6 @@ created: 2026-05-21
 | LWR이 지원 안 하는 기능·제약·최대 route 수 | `LWC/UIPatterns(UI패턴)/LWR 동작·캐싱·제약.md` |
 | LWR 사이트 데이터·인터랙션 어떻게 Data Cloud로 보내나 / Website Engagement DMO·experience_interaction | `LWC/UIPatterns(UI패턴)/LWR Tag Manager 데이터 관리.md` |
 | Google Tag Manager·Experience Tag Manager를 LWR 사이트에 연동·인터랙션 이벤트 추적·Consent Opt-In | `LWC/UIPatterns(UI패턴)/LWR Tag Manager 데이터 관리.md` |
+| B2C Commerce 주문이 Salesforce 어느 객체·필드로 매핑돼 / storefront 주문 데이터 맵 / Order XSD → SF 필드 | `Commerce(커머스)/B2C Commerce Storefront Order Data Map.md` |
+| storefront 주문을 OM으로 import하는 방법 / OrderSummary 생성하는 방법 / 과거 주문 bulk load | `Commerce(커머스)/Order Management — Import·Fulfillment·Taxation.md` |
+| 교환 RMA 처리 API / Preview·Submit Cart to Exchange Order / payment sequencing 결제 순서 제어 | `Commerce(커머스)/Order Management — Exchanges·Payment Sequencing·확장.md` |

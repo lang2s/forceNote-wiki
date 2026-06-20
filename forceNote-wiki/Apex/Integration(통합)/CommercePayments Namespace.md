@@ -589,3 +589,4 @@ tokenResponse.setGatewayToken(plainToken);
 - [[RestClient 패턴]] — 일반 외부 HTTP 호출 패턴
 - [[5 Object Interfaces]] — SalesTransaction·PriceAdjustmentGroup 인터페이스 필드 참조
 - [[Sfdc_Checkout Namespace]] — B2B 체크아웃 AsyncCartProcessor의 CartPriceCalculations 비동기 통합
+- [[Order Management 개요와 데이터 모델]] — 이 네임스페이스로 구현하는 OM 결제 게이트웨이 설정·EnsureFunds/EnsureRefunds 실사용 맥락
