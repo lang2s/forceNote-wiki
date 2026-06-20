@@ -26,6 +26,8 @@ created: 2026-05-21
 | Apex에서 이메일 보내는 방법 | `Apex/Messaging(메시징)/SingleEmailMessage.md` |
 | 사용자에게 알림 보내는 방법 Apex | `Apex/Messaging(메시징)/CustomNotification.md` |
 | 승인 프로세스 Apex로 제어 | `Architecture(아키텍처)/Approval Namespace.md` |
+| 레코드 기본 표시 범위 어떻게 좁히나 / 공유 안 줄이고 보이는 레코드만 필터 / Scoping Rule 만드는 방법 / RestrictionRule | `Architecture(아키텍처)/Scoping Rules.md` |
+| API 콜 한도 얼마야 / 일일 API 콜 제한 / 동시 API 호출 제한 / Bulk API 배치 한도 / Metadata API 한도 / VF view state 한도 / org 한도 어디서 봐 | `Architecture(아키텍처)/Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF).md` |
 | CDC 트리거 변경 필드 확인 | `Apex/PlatformEvents(플랫폼이벤트)/ChangeEventHeader.md` |
 | DML 결과 에러 처리 방법 | `Apex/Data(데이터)/Database Namespace 상세.md` |
 | 리드 전환 Apex | `Apex/Data(데이터)/Database Namespace 상세.md` |

@@ -92,6 +92,8 @@ Metadata API는 Salesforce 조직의 **설정 정보(메타데이터)** — 커�
 | 비압축 최대 크기 | ~600 MB |
 | .zip 내 최대 파일 수 | 10,000개 |
 
+> change set·`rootTypesWithDependencies`(하루 25회) 등 Metadata API 한도 전체는 [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]] 참조.
+
 ---
 
 ## 접속 방식
@@ -99,6 +101,13 @@ Metadata API는 Salesforce 조직의 **설정 정보(메타데이터)** — 커�
 1. **SOAP (WSDL)** — Java/Python/기타 클라이언트에서 WSDL 기반으로 연결 (전통적 방식)
 2. **REST** — `POST /services/data/vXX.0/metadata/deployRequest` 엔드포인트 활용
 3. **sf CLI** — `sf project deploy start`, `sf project retrieve start` 명령어로 래핑
+
+```bash
+# 구조 예시 — 실제 동작 코드 아님
+# sf CLI가 Metadata API deploy/retrieve를 래핑하는 형태
+sf project deploy start     # 로컬 메타데이터를 org에 배포
+sf project retrieve start   # org 메타데이터를 로컬로 조회
+```
 
 ---
 
@@ -114,4 +123,5 @@ Metadata API는 Salesforce 조직의 **설정 정보(메타데이터)** — 커�
 - [[Metadata API 에러 처리]]
 - [[Metadata API MCP Tool]]
 - [[Metadata Types — 개요 및 분류]]
+- [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]] — deploy/retrieve 10,000 files·39 MB·change set·dependency retrieve 등 Metadata API 한도 전체
 - [[Winter '25/Development]] — v62.0 Apex enqueued Metadata API 배포 service protection limit + 배포 취소 속도 개선

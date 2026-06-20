@@ -164,3 +164,4 @@ force-app/main/default/
 - [[CanTheUser]]
 - [[LWC 보안 패턴]]
 - [[서비스 레이어 패턴]]
+- [[Scoping Rules]] — 생성·조회에 Manage Sharing / View Restriction and Scoping Rules 권한 필요(권한 세트로 부여)

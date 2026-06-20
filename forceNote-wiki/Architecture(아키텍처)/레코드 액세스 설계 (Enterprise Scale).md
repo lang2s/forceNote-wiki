@@ -109,6 +109,7 @@ HAVING COUNT(Id) > 10000
 - [[Data Skew]] — account/ownership/parent-child skew·record-locking·defer sharing (본 노트와 짝)
 - [[대용량 데이터 (LDV) — 대량 로드·삭제]] — 대량 로드 시 순차 적재·defer sharing으로 공유 재계산 부하 관리
 - [[Permission Set 설계]] — 명시적 접근 권한 부여
+- [[Scoping Rules]] — 접근 권한은 그대로 두고 사용자가 기본으로 보는 레코드만 좁힘(sharing이 접근을 확대/제한하는 것과 직교)
 - [[Object Relationships]] — master-detail/lookup이 implicit sharing·skew에 미치는 영향
 - [[Salesforce 플랫폼 개요]] — 보안·공유 모델 개요
 - [[Governor Limits]] — 대량 처리 한도

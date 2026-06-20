@@ -253,6 +253,8 @@ SAML Single Sign-On 설정. `Metadata` 타입을 extends. 서드파티 앱이 Sa
 | 제한 규칙 | `Restrict` | 지정된 사용자의 레코드 접근을 제어 |
 | 범위 규칙 | `Scoping` | 사용자가 기본으로 보는 레코드를 제어 (접근 제한은 아님) |
 
+> Scoping Rule의 필드(`enforcementType`·`recordFilter`·`targetEntity` 등)·`recordFilter` 문법(EQUALS·SOQL operator)·Tooling/Metadata API 생성 절차 전수는 [[Scoping Rules]] 참조.
+
 ---
 
 ## TransactionSecurityPolicy
@@ -268,6 +270,7 @@ SAML Single Sign-On 설정. `Metadata` 타입을 extends. 서드파티 앱이 Sa
 - [[Metadata Types — Integration & Platform]] — NamedCredential, RemoteSiteSetting
 - [[Metadata API File-Based 호출]] — Profile, PermissionSet 배포 시 package.xml
 - [[2GP — Components - Security & Access]] — 2GP 패키징 관점: ConnectedApp·CorsWhitelistOrigin·CspTrustedSite·ExternalCredential·PermissionSet 등 Manageability Rules 전수
+- [[Scoping Rules]] — RestrictionRule 타입(enforcementType=Scoping)의 필드·recordFilter 문법·API 생성 전수 본거지
 
 ---
 

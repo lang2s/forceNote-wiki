@@ -41,6 +41,8 @@ updated: 2026-06-20
 | # | 항목 | 소스/사유 | 상태 | 추가일 |
 |---|---|---|---|---|
 | PIPE-2 | `writer.md` frontmatter에 `Bash` 도구 추가 | 강화된 Pattern A의 "메이저 섹션 직전 sed 재추출"을 writer가 직접 실행할 수 있게 함. 현재 writer는 Read/Write/Edit만 가능 → researcher dump의 raw 인용에 강제 의존. | 🔲 대기 | 2026-05-23 |
+| LINT-ELASTIC | `Apex/ExecutionContext(실행컨텍스트)/Governor Limits.md` Platform Apex 한도 표에 **`DailyAsyncApexElasticExecutions`(elastic executions beta) 1행 보강** | ING-29 classifier가 app_limits 치트시트(p.5-6) 대조 중 발견 — 기존 Governor Limits.md Platform Apex 표에 이 한도(일일 비동기 한도 + min(licensed daily, 10M) elastic 추가분, 최대 10M)가 누락. 소관이 거버너 한도라 ING-29 신규 노트가 아닌 기존 노트 보강 대상. | 🔲 대기 | 2026-06-20 |
+| LINT-BOM | `Apex/SOQL(SOQL)/SOQL 문법 레퍼런스.md` 1행 **UTF-8 BOM(`ef bb bf`) 제거** + `_index/*.md` 일괄 BOM 점검 | ING-29 cross-linker가 역링크 편집 중 발견(lint false positive 유발). 별건 정비. wiki-linter에 BOM 검사 추가 권고. | 🔲 대기 | 2026-06-20 |
 | 2GP-3 | `2GP Managed Package — Workflow.md` 작성 (pkg2_dev.pdf p.23-25) | 강화된 protocol(6 카테고리 spot check + Pattern B-2 산문형 numeric mapping)의 소형 페이지 validation 기회. | 🔲 대기 | 2026-05-23 |
 | LINT-1 | **깨진 wikilink 수정** — `MetadataAPI(...)` 경로 prefix 누락 20건 | 2026-05-25 lint 발견. `DevOps(데브옵스)/index.md`(13건)·`CI CD 패턴.md`(2건)·`Metadata Coverage 보고서.md`(1건)·`Apex/Integration(통합)/Metadata Namespace.md`(2건)에서 `[[MetadataAPI(메타데이터API)/...]]`를 `[[DevOps(데브옵스)/MetadataAPI(메타데이터API)/...]]`로 수정. **✅ 완료(2026-06-18)** — 이번 lint 수정 워크리스트에서 index-manager+cross-linker가 경로 prefix 보정. | ✅ 완료 | 2026-05-25 |
 | LINT-2 | **MOC 누락 항목 추가** — SLDS 디자인 시스템·Enhanced Domains | `LWC/LWC MOC.md`에 `SLDS LWC 디자인 시스템` 행 추가, `Architecture(아키텍처)/Architecture MOC.md`에 `Enhanced Domains` 행 추가. **✅ 완료(2026-06-18)** — 2026-06-18 lint 재확인으로 기해소 확인: LWC MOC L136 `## 🎨 SLDS 디자인 시스템` 섹션·L138 `[[SLDS LWC 디자인 시스템]]` 링크 + Architecture MOC L44 `[[Enhanced Domains]]` 행 모두 존재. | ✅ 완료 | 2026-05-25 |
@@ -144,7 +146,7 @@ updated: 2026-06-20
 | ING-26 | api_tooling (1006, 분할) | Dev Tools | 🔲 대기 |
 | ING-27 | salesforce_pages_developers_guide (817, 분할) | Visualforce | 🔲 대기 |
 | ING-28 | lightning (553, 분할) | Aura/LWC | 🔲 대기 |
-| ING-29 | salesforce_app_limits_cheatsheet (23) | Architecture/Limits | 🔲 **미착수(되살림 2026-06-16)** — ARCHIVE N1-02가 ✅로 잘못 기록됐으나 위키화된 적 없음(거버너 한도 페이지의 실제 source는 Apex Dev Guide apex_gov_limits.htm). 이 치트시트는 org/feature/edition별 **앱·API·storage·이메일·process 한도 표**라 기존 `Governor Limits.md`(Apex 트랜잭션 한도)와 **별개 도메인** → 신규 페이지 가치 있음 |
+| ING-29 | ~~salesforce_app_limits_cheatsheet (23)~~ | Architecture/Limits | **✅ 완료 (2026-06-20)** → [[WORK_BACKLOG_ARCHIVE]] ING-29. 신규 `Architecture(아키텍처)/Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF).md`(284줄). ★ 백로그 가정 정정: PDF엔 Storage/Email/Custom Object 한도 **없음**(다른 문서 소관). 실제 = API 요청(edition별 할당량 라이선스 13종)·Bulk API/2.0(General/Ingest/Query 3표)·SOAP 7콜·Metadata·SOQL/SOSL·VF 한도. ① Apex Governor 섹션은 기존 `Governor Limits.md` 위임(재작성 0)·⑩ Platform Event 위임. completeness 갭0·source-verifier 불일치0(edition표 transpose0·VF 20행 전수)·qa PASS. Tier 3 0. ★ 후속(별건): 기존 `Governor Limits.md`에 `DailyAsyncApexElasticExecutions`(beta) 1건 누락 발견 → 보강 권고(LINT-ELASTIC) |
 | ING-30 | service_presence_administrators (124) / service_presence_developer_guide (23) | Service (Omni-Presence) | 🔲 대기 — ★ admin 가이드는 인용 0건·백로그 미등록이었음(2026-06-16 신규 등록). dev guide는 기존 ING-19와 동일 묶음 |
 
 #### 🆕 신규 수령 PDF (2026-06-17 origin/main 머지로 입수 — 미착수, 페이지수 검증됨)
@@ -156,7 +158,7 @@ updated: 2026-06-20
 | ING-31 | ~~secure_coding (97) = Secure Coding Guidelines~~ | Security(보안) | **✅ 완료 (2026-06-18)** → [[WORK_BACKLOG_ARCHIVE]] ING-31. 신규 최상위 `Security(보안)/` 폴더 + 위협모델 12노트(Ch1~15 전수), 신규 샤드 `_index/security.md`·라우터·Home, 17 역링크, 메커니즘 노트 deep-link 중복회피. 차기 ING-43 파생 |
 | ING-32 | salesforce_scheduler_dev_guide (434, 분할) | Sales/Scheduler | 🔲 대기 — 대형, 분할 필요 |
 | ING-33 | order_management_developer_guide_html (69) | Commerce/OM | 🔲 대기 |
-| ING-34 | scoping_rules_dev_guide (31) | Security/Sharing | 🔲 대기 — 소형 |
+| ING-34 | ~~scoping_rules_dev_guide (31)~~ | Security/Sharing | **✅ 완료 (2026-06-20)** → [[WORK_BACKLOG_ARCHIVE]] ING-34. 신규 `Architecture(아키텍처)/Scoping Rules.md`(694줄). ★ 핵심 정정: 별도 `ScopingRule` API 타입 **없음** — Scoping/Restriction Rule이 동일 `RestrictionRule`(Tooling+Metadata) 공유, `enforcementType`(Scoping/Restrict)으로만 구분. Restriction 전용 노트 부재라 이 노트가 RestrictionRule API 레퍼런스(Tooling 12필드·Metadata 8필드·enum 3값) 첫 본거지. Scoping≠Restriction≠Sharing 구분표. Tooling/Metadata API 생성·Branch/Wealth 예제·Considerations 5그룹 전수. 원문 오타 7건 보존+마커. completeness 갭0·source-verifier 불일치0·qa PASS. Tier 3 0. cross-linker: Metadata Types 카탈로그→본거지 역링크 |
 | ING-35 | salesforce1_admin_guide (86) | Admin/Mobile | 🔲 대기 |
 | ING-36 | chat_dev_guide (61) = Live Agent/Chat (Service Cloud Chat Developer Guide, v67.0) | Service | **✅ 완료 (2026-06-18)** → [[WORK_BACKLOG_ARCHIVE]] ING-36. ING-13a(chat_rest, 방문자측 REST) 형제 후속 — 에이전트/구현 가이드(Deployment·VF 컴포넌트·라우팅). 신규 노트 1개(Ch6-8) + 기존 3노트(Ch1-5) = `Service(서비스)/Chat(채팅)/` 4 dev-guide 노트, 전부 은퇴 배너. ⚠️ 후속 **ING-44**(Embedded Service SDK·Messaging for In-App and Web 마이그레이션 노트 — PDF 디스크 미보유, **입수 게이트**) 식별 |
 | ING-37 | salesforce_pages_developers_guide (817, 분할) | Visualforce | 🔲 **ING-27과 동일 PDF** — 머지로 내용 갱신됨(중복 행, 통합 정리 필요) |

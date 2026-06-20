@@ -335,3 +335,4 @@ for(Account a : [SELECT Id, Name FROM Account]) {
 - [[TriggerHandler 패턴]] — 트리거에서 한도 방어 아키텍처
 - [[Trigger Order of Execution]] — 재귀 save와 트리거 재귀 스택 깊이(16) 한도가 발생하는 저장 lifecycle
 - [[Apex Debug Log]] — 디버그 로그의 LIMIT_USAGE 라인으로 한도 소비 추적
+- [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]] — 이 노트가 다루는 트랜잭션 거버너 한도와 별개인 org/플랫폼 레벨 정적 할당량(24시간 API 콜·Bulk·Metadata·SOQL/VF 한도)

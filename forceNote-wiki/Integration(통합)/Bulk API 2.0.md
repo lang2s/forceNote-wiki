@@ -172,6 +172,8 @@ curl .../services/data/v67.0/jobs/query/ -H "Authorization: Bearer <token>" \
 - Salesforce가 잡 데이터를 **1만 레코드마다 별도 배치**로 분할, **일 최대 1.5억(150,000,000) 레코드**.
 - 실패 배치는 **자동 최대 20회 재시도**, 그래도 실패 시 전체 잡 실패.
 - 한도는 REST **`/limits`** 엔드포인트로 조회.
+
+> Batch 할당량(24시간 15,000건, Bulk API와 공유)·Ingest/Query job 한도 전체 표는 [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]] 참조.
 - Developer Edition은 데이터 저장 **5MB** 상한.
 
 ---
@@ -196,4 +198,5 @@ curl .../services/data/v67.0/jobs/query/ -H "Authorization: Bearer <token>" \
 - [[REST API]] — 소량~중간 동기 CRUD/쿼리
 - [[Named Credential]] — 외부 호출 인증
 - [[Compression Namespace]] — gzip 압축(Apex)
+- [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]] — Bulk API/2.0 Batch·Ingest·Query 할당량 전체 표
 - [[통합 MOC]]

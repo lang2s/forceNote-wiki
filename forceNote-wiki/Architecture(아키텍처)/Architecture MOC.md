@@ -41,6 +41,8 @@ aliases: [Architecture MOC, 아키텍처 목차, Architecture Map of Content]
 - [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]] — LDV 읽기 경로: Lightning Platform Query Optimizer·selectivity 임계값·Custom Index·Skinny/Index Tables·Divisions·SOQL/SOSL 최적화
 - [[대용량 데이터 (LDV) — 대량 로드·삭제]] — LDV 쓰기 경로: Bulk API 2.0 대량 로드·getUpdated/getDeleted 추출·soft/hard/truncate 삭제·defer sharing·PK chunking
 - [[레코드 액세스 설계 (Enterprise Scale)]] — 그룹 멤버십·공유 재계산, ownership skew, implicit sharing, deferred sharing calc
+- [[Scoping Rules]] — RestrictionRule로 공유를 줄이지 않고 사용자가 기본 표시되는 레코드 범위를 좁힘 — enforcementType, recordFilter, targetEntity, USING SCOPE EVERYTHING
+- [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]] — org 레벨 정적 할당량 모음 — 일일/동시 API 콜, Bulk·SOAP·Metadata API 한도, SOQL 검색·Visualforce view state 한도
 - [[Enhanced Domains]] — Winter '24 강제 적용 도메인 정책, 모든 URL에 My Domain 포함, 서드파티 쿠키 차단 대응·URL 영향 점검
 
 ---

@@ -24,6 +24,8 @@ created: 2026-05-17
 | [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]] | LDV 읽기 경로 — Query Optimizer 6동작·selectivity 임계값·Custom Index·Skinny/Index Tables·Divisions·SOQL/SOSL 최적화 | #concept |
 | [[대용량 데이터 (LDV) — 대량 로드·삭제]] | LDV 쓰기 경로 — Bulk API 2.0 로드·getUpdated/getDeleted 추출·soft/hard/truncate 삭제·defer sharing·PK chunking | #concept |
 | [[레코드 액세스 설계 (Enterprise Scale)]] | 그룹 멤버십·공유 재계산, ownership skew, implicit sharing, deferred sharing | #concept |
+| [[Scoping Rules]] | RestrictionRule로 공유를 줄이지 않고 사용자가 기본 표시되는 레코드 범위를 좁힘 — enforcementType, recordFilter, USING SCOPE EVERYTHING | #concept |
+| [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]] | org 레벨 정적 할당량 — 일일/동시 API 콜·Bulk·SOAP·Metadata API·SOQL 검색·VF view state 한도 | #reference |
 | [[System Namespace]] | System 네임스페이스 전체 클래스 레퍼런스 — AccessLevel, Assert, AsyncOptions, UserInfo, UUID, Callable, FeatureManagement | #reference |
 | [[Site Namespace]] | Salesforce Sites URL 재작성 인터페이스 — UrlRewriter (generateUrlFor, mapRequestUrl), Site.ExternalUserCreateException | #reference |
 | [[Context Namespace]] | Industries Cloud Context Service Apex — IndustriesContext 클래스, 비즈니스 컨텍스트 데이터 공유 | #reference |
@@ -43,6 +45,8 @@ created: 2026-05-17
 
 - SOQL/리포트가 느린 이유, 인덱스·selectivity 임계값? → [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]]
 - 수백만 건 대량 로드/삭제 전략, Bulk API·PK chunking? → [[대용량 데이터 (LDV) — 대량 로드·삭제]]
+- 공유는 안 줄이고 사용자에게 기본 표시되는 레코드 범위만 좁히려면? → [[Scoping Rules]] → RestrictionRule
+- 일일/동시 API 콜·Bulk·Metadata·SOQL 검색·VF view state 한도 수치? → [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]]
 - Trigger 로직을 어디에 둘지? → [[서비스 레이어 패턴]]
 - 레코드 저장 시 20단계 실행 순서(before/after·workflow·flow·roll-up)? → [[Trigger Order of Execution]]
 - 권한 세트 메타데이터 구성? → [[Permission Set 설계]]

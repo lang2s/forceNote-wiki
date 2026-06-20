@@ -907,6 +907,7 @@ List<Vote> votes = [SELECT Id FROM Vote WHERE ParentId = :parentId];
 - [[1 Overview]] — Field 타입·Compound Fields·Address/Geolocation SOQL 패턴
 - [[6 Standard Objects]] — 표준 Object API 이름·도메인별 카탈로그
 - [[Governor Limits]] — SOQL 행 수·쿼리 수 거버너 한도
+- [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]] — SOQL/SOSL 문 길이(100,000자)·junction ID·WHERE 문자열·관계 쿼리 깊이·OFFSET 등 정적 검색 한도
 - [[Database Namespace 상세]] — QueryLocator, Cursor 대용량 처리
 - [[Summer '26]] — API v67.0 WITH SECURITY_ENFORCED 제거
 
