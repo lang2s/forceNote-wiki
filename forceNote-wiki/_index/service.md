@@ -3,8 +3,8 @@ tags: [index, search, navigation, service, knowledge]
 created: 2026-06-17
 ---
 
-# SEARCH INDEX — Service Cloud (Knowledge)
-> Salesforce Service Cloud 키워드 → 파일. 현재는 Knowledge(지식) 전반(데이터모델·SOAP/REST/Metadata/UI API + Lightning Knowledge 어드민/셋업/사용)을 다룬다.
+# SEARCH INDEX — Service Cloud (Knowledge · Chat · Omni-Channel · Lightning Flow for Service)
+> Salesforce Service Cloud 키워드 → 파일. Knowledge(지식)·Chat(채팅, 레거시 Live Agent)·Omni-Channel(Standard, v67.0 EOL)·Lightning Flow for Service(Actions & Recommendations)를 다룬다.
 > 루트 라우터: `00 SEARCH_INDEX.md` · 다른 도메인은 라우터에서 이동.
 > 향후 Service Cloud 확장(Case·Entitlement·OmniChannel·Messaging 등) 시 이 샤드에 누적, 상한 초과 시 하위 샤드로 분할.
 > Chat(채팅) = 레거시 Live Agent REST API (2026-02-14 은퇴, 마이그레이션/이력 참조용).
@@ -76,6 +76,20 @@ created: 2026-06-17
 | Settings, Availability, Breadcrumb, VisitorId, SensitiveDataRuleTriggered, Live Agent, Live Agent REST, Chasitor, 채시터, 방문자 경험, 가용성, 에이전트 가용성, 브레드크럼, 방문자 ID, 민감데이터 규칙, 채팅 가능 여부 어떻게 확인해, 방문자 페이지 추적 breadcrumb, 민감정보 마스킹 규칙, Chat 은퇴, Live Agent 종료, Chat retirement, Messaging for In-App and Web 마이그레이션 | `Service(서비스)/Chat(채팅)/Chat REST API 리소스 — 방문자 경험 커스터마이즈.md` |
 | Chat request bodies, Chat response bodies, Live Agent, Live Agent REST, Chasitor, 채시터, 요청 바디, 응답 바디, request body 9종, response body 19종, ChasitorInit body, JSON 바디 필드, Chat REST 요청 바디 뭐가 있어, 응답 바디 필드 전수, POST 바디 구조, Chat 은퇴, Live Agent 종료, Chat retirement, Messaging for In-App and Web 마이그레이션 | `Service(서비스)/Chat(채팅)/Chat REST API 요청 & 응답 바디.md` |
 | Chat data types, Live Agent, Live Agent REST, Chasitor, 채시터, 데이터 타입, status codes, 상태 코드, HTTP status, 200 403 503, GeoLocation, Entity, EntityFieldsMaps, 데이터 타입 11종, 상태 코드 10종, Chat REST 상태 코드가 뭐야, Chat 데이터 타입 정의, 403 503 의미, Chat 은퇴, Live Agent 종료, Chat retirement, Messaging for In-App and Web 마이그레이션 | `Service(서비스)/Chat(채팅)/Chat REST API 데이터 타입 & 상태 코드.md` |
+
+## Omni-Channel (service_presence_developer_guide, Standard Omni-Channel · v67.0 Summer '26 EOL)
+
+| 키워드 | 파일 |
+|---|---|
+| Omni-Channel, AgentWork, ServiceChannel, UserServicePresence, PendingServiceRouting, PresenceUserConfig, PresenceConfigDeclineReason, PresenceStatus, ServicePresenceStatus, 옴니채널, 옴니채널 객체, Omni-Channel 객체 필드 뭐 있어, 작업 라우팅, 에이전트 프레즌스, AgentWork 상태, 라우팅 우선순위, Standard Omni-Channel EOL, Enhanced Omni-Channel 마이그레이션 | `Service(서비스)/OmniChannel(옴니채널)/Omni-Channel 객체·메타데이터·콘솔 컴포넌트.md` |
+| Omni-Channel Metadata API, PresenceDeclineReason, PresenceUserConfig 메타데이터, ServiceChannel 메타데이터, ServicePresenceStatus 메타데이터, QueueRoutingConfig, Omni-Channel 메타데이터 타입 11종, 옴니채널 메타데이터 어떻게 정의해, 콘솔 메서드, 콘솔 이벤트, Lightning Console JS API Omni, Console Integration Toolkit Omni, getAgentWorks acceptAgentWork closeAgentWork, login setServicePresenceStatus, 옴니채널 콘솔 메서드, 상담원 작업 수락 거절 콘솔, Omni Console 통합 컴포넌트 | `Service(서비스)/OmniChannel(옴니채널)/Omni-Channel 객체·메타데이터·콘솔 컴포넌트.md` |
+| Omni-Channel External Routing, External Routing, 외부 라우팅, 파트너 라우팅, 서드파티 라우팅 엔진, ExternalRoutingChannel, PreferredUserId, partner routing, Omni-Channel을 외부 라우팅 엔진과 통합, CDC 외부라우팅, PendingServiceRoutingChangeEvent, AgentWorkChangeEvent, UserServicePresenceChangeEvent, Pub/Sub API 옴니채널 구독, Apex Trigger PendingServiceRouting, AgentWork 생성, 외부 라우팅 어떻게 통합해, Standard Omni-Channel EOL | `Service(서비스)/OmniChannel(옴니채널)/Omni-Channel External Routing.md` |
+
+## Lightning Flow for Service (salesforce_guided_engagement, Actions & Recommendations · Spring '26)
+
+| 키워드 | 파일 |
+|---|---|
+| Lightning Flow for Service, Salesforce Flow for Service, Actions and Recommendations, Actions & Recommendations 컴포넌트, RecordAction, RecordActionDeployment, RecordActionHistory, guided engagement, guided action, 가이드 인게이지먼트, 액션 추천 컴포넌트, 액션 권장 사항, 다음 단계 목록, next best action 추천, NBA 추천 RecordAction, 에이전트에게 다음 단계 액션 띄우기, 레코드 페이지 액션 목록, deployment 채널별 기본 액션, Open CTI 액션, RecordAction 정션 객체, Process Builder 액션 연결, SOAP Apex Metadata 액션 API | `Service(서비스)/Lightning Flow for Service (Actions & Recommendations).md` |
 
 ## Chat — Developer Guide (chat_dev_guide, Deployment/Pre-Chat/VF · 레거시 Live Agent · 2026-02-14 은퇴)
 

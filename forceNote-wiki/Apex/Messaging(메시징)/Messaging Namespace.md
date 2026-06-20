@@ -34,8 +34,8 @@ aliases: [Messaging Namespace, InboundEmail, InboundEmailHandler, InboundEmailRe
 | `InboundEmail.Header` | RFC 2822 헤더 |
 | **`InboundEmailResult`** | 이메일 서비스 처리 결과 반환 |
 | **`InboundEnvelope`** | 인바운드 이메일 봉투 정보 |
-| `PushNotification` | 푸시 알림 (Apex 트리거에서 발송) |
-| `PushNotificationPayload` | Apple 기기용 알림 페이로드 |
+| `PushNotification` | 푸시 알림 (Apex 트리거에서 발송) — 상세 [[Mobile Notifications]] |
+| `PushNotificationPayload` | Apple 기기용 알림 페이로드 — 상세 [[Mobile Notifications]] |
 | `RenderEmailTemplateBodyResult` | 이메일 템플릿 렌더링 결과 |
 | `SendEmailResult` | 이메일 발송 결과 |
 | `SendEmailError` | 이메일 발송 오류 |
@@ -222,6 +222,7 @@ Messaging.ActionResult result =
 |---|---|
 | `CustomNotification` | [[CustomNotification]] — send(), setNotificationTypeId() |
 | `SingleEmailMessage` | [[SingleEmailMessage]] — setToAddresses, setHtmlBody, 첨부파일 |
+| `PushNotification` / `PushNotificationPayload` | [[Mobile Notifications]] — Apex push 발송·payload 생성·등록 흐름 |
 
 ---
 

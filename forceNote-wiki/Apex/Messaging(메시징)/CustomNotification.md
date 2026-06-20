@@ -160,3 +160,4 @@ public without sharing class NotificationService {
 - [[Platform Event 발행]] — 비동기 이벤트 기반 알림
 - [[서비스 레이어 패턴]] — 알림 로직 캡슐화
 - [[Messaging Namespace]] — CustomNotification이 속한 상위 네임스페이스 (이메일·SMS·푸시 통합 카탈로그)
+- [[Mobile Notifications]] — 표준 invocable action REST(`customNotificationAction`)·모바일 push 발송. 이 노트의 `Messaging.CustomNotification` Apex 클래스와 호출 방식·수신자 허용 범위가 다른 동명이의 메커니즘

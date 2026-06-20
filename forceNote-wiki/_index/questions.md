@@ -81,6 +81,10 @@ created: 2026-05-21
 | Chat Deployment API 로깅·윈도우·버튼 설정하는 방법 | `Service(서비스)/Chat(채팅)/Chat 개발자 가이드 개요 & Deployment API — 로깅·윈도우·버튼.md` |
 | 채팅에서 레코드 자동 검색·생성 / 자동 채팅 초대 띄우는 방법 | `Service(서비스)/Chat(채팅)/Deployment API — 레코드 자동 검색·생성·자동 채팅 초대 & 코드 샘플.md` |
 | Pre-Chat 폼으로 방문자 정보 수집하는 방법 / 채팅 전 컨텍스트 설정 | `Service(서비스)/Chat(채팅)/Pre-Chat API — 방문자 정보 수집 & 컨텍스트 설정.md` |
+| 모바일 푸시 알림 Apex로 보내는 방법 / 모바일 앱에 인앱·push 알림 / Notification Builder vs Apex 알림 / APNs FCM 등록 | `Apex/Messaging(메시징)/Mobile Notifications.md` |
+| Omni-Channel 객체·필드가 뭐야 / AgentWork·ServiceChannel·UserServicePresence·PendingServiceRouting / 옴니채널 콘솔 메서드 작업 수락 거절 | `Service(서비스)/OmniChannel(옴니채널)/Omni-Channel 객체·메타데이터·콘솔 컴포넌트.md` |
+| Omni-Channel 외부 라우팅 통합하는 방법 / 서드파티 라우팅 엔진 연동 / CDC Pub/Sub·Apex Trigger로 PendingServiceRouting 구독해 AgentWork 생성 | `Service(서비스)/OmniChannel(옴니채널)/Omni-Channel External Routing.md` |
+| 에이전트에게 다음 단계 액션 목록 띄우는 방법 / Actions & Recommendations 컴포넌트 / 레코드 페이지에 플로우·퀵액션·NBA 추천 / RecordAction 정션 객체 | `Service(서비스)/Lightning Flow for Service (Actions & Recommendations).md` |
 | 메타데이터 배포하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API File-Based 호출.md` |
 | Metadata API로 검색하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API File-Based 호출.md` |
 | Metadata API Java 클라이언트 연결하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Quick Start.md` |

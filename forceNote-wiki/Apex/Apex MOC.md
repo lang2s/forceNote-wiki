@@ -172,6 +172,7 @@ created: 2026-05-17
 - [[SingleEmailMessage]] — Apex에서 단일 이메일 발송, setToAddresses, setTemplateId, 첨부파일
 - [[CustomNotification]] — 인앱 알림, setNotificationTypeId, send(), Actionable Notification
 - [[Messaging Namespace]] — InboundEmailHandler, InboundEmail/Result/Envelope, ActionableNotification 전체 API
+- [[Mobile Notifications]] — 모바일 push/in-app 알림 두 시스템(Notification Builder vs Apex), PushNotification/PushNotificationPayload, customNotificationAction, APNs/FCM 등록·구현·레퍼런스
 
 ## 🏗 승인 프로세스 / 스키마
 

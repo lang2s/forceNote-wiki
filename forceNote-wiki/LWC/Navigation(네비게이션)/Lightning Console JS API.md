@@ -108,4 +108,5 @@ Salesforce Classic의 **Console Integration Toolkit** — Visualforce/iframe 페
 - [[NavigationMixin 패턴]] — 일반 LWC 페이지 내비게이션(콘솔 외)
 - [[Lightning Message Service]] — 탭 이벤트 채널 구독
 - [[Aura(오라)/Quick Action·Publisher JS API 레퍼런스|Quick Action·Publisher JS API 레퍼런스]] — 레코드 페이지의 **액션**(quick action/publisher action)을 제어하는 별개 API. 이 노트의 `workspaceAPI`/`utilityBarAPI`는 콘솔 **탭·유틸리티 바**를 제어하는 신형 API로 서로 다르다.
+- [[Omni-Channel 객체·메타데이터·콘솔 컴포넌트]] — 이 노트의 일반 콘솔 메서드와 별개인 **Omni-Channel 전용** 콘솔 메서드·이벤트(`acceptAgentWork`·`setServicePresenceStatus` 등)를 다루는 동일 패밀리 peer
 - [[LWC MOC]]

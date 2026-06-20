@@ -93,7 +93,7 @@ Aura 컴포넌트 — 레거시 컴포넌트 프레임워크 (신규 개발은 L
 | [[Salesforce ID 인증]] | MFA, Salesforce Authenticator, Trusted IP |
 
 ### [[Service(서비스)/index|Service Cloud]]
-고객 서비스·지원 — Knowledge(지식) 데이터 모델·SOAP/REST/Metadata/UI API
+고객 서비스·지원 — Knowledge(지식)·Chat(채팅, 레거시)·Omni-Channel(Standard, v67.0 EOL)·Lightning Flow for Service
 
 | 하위 주제 | 핵심 키워드 |
 |---|---|
@@ -101,6 +101,9 @@ Aura 컴포넌트 — 레거시 컴포넌트 프레임워크 (신규 개발은 L
 | [[Knowledge SOAP API 객체 — 핵심 아티클 객체]] | KnowledgeArticle, __kav, __ka, PublishStatus |
 | [[Knowledge REST API — Actions & Manage]] | invocable actions, 아티클 발행·번역 관리 |
 | [[Knowledge Metadata API 타입 — 아티클·채널·설정]] | ArticleType, ChannelLayout, KnowledgeSettings |
+| [[Omni-Channel 객체·메타데이터·콘솔 컴포넌트]] | AgentWork, ServiceChannel, UserServicePresence, PendingServiceRouting, 콘솔 메서드 |
+| [[Omni-Channel External Routing]] | 서드파티 라우팅 통합, CDC Pub/Sub·Apex Trigger, AgentWork 생성 |
+| [[Lightning Flow for Service (Actions & Recommendations)]] | RecordAction, RecordActionDeployment, guided engagement, NBA 추천 |
 
 ### [[Commerce(커머스)/index|Commerce(커머스)]]
 Salesforce Order Management — 주문 데이터 모델·B2C Commerce 주문 데이터 맵·Import/Fulfillment/Taxation·Exchanges(RMA)/Payment Sequencing

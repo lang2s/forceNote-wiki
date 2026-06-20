@@ -387,6 +387,8 @@ Step 0 검증 + 4단계를 모두 완료해야 추가 작업이 끝난 것으로
 | DevOps(데브옵스) | `DevOps(데브옵스)/index.md` |
 | DevOps(데브옵스)/MetadataAPI(메타데이터API) | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/index.md` |
 | Commerce(커머스) | `Commerce(커머스)/index.md` |
+| Service(서비스) | `Service(서비스)/index.md` |
+| Service(서비스)/OmniChannel(옴니채널) | `Service(서비스)/OmniChannel(옴니채널)/index.md` |
 | sObject | `sObject/index.md` |
 
 ---

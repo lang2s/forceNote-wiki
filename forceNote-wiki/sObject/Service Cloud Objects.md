@@ -326,3 +326,6 @@ List<MessagingSession> sessions = [
 - [[Knowledge SOAP API 객체 — 핵심 아티클 객체]] — KnowledgeArticle·KnowledgeArticleVersion 등 Knowledge 핵심 객체 상세
 - [[Knowledge SOAP API 객체 — 통계·연관·주변 객체]] — Knowledge 통계·뷰·연관 객체 상세
 - [[Chat REST API 개요 & 시작]] — 위 Live Agent · Live Chat 객체(LiveChatVisitor·LiveChatTranscript 등)를 다루는 방문자측 REST API (레거시, 2026-02-14 은퇴)
+- [[Omni-Channel 객체·메타데이터·콘솔 컴포넌트]] — 위 Omni-Channel · AgentWork 섹션 객체(AgentWork·ServiceChannel·PendingServiceRouting 등)의 API/Metadata API/콘솔 컴포넌트 레퍼런스
+- [[Omni-Channel External Routing]] — AgentWork·PendingServiceRouting·UserServicePresence를 서드파티 라우팅과 CDC로 통합하는 패턴
+- [[Lightning Flow for Service (Actions & Recommendations)]] — RecordAction 정션 객체로 액션·플로우를 레코드에 연결하는 Service Cloud 기능

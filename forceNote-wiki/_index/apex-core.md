@@ -181,6 +181,7 @@ created: 2026-05-21
 | Messaging.sendEmail, SingleEmailMessage, 이메일 발송 Apex, setToAddresses, setHtmlBody, setTemplateId, setTargetObjectId, EmailFileAttachment, 첨부파일 이메일 | `Apex/Messaging(메시징)/SingleEmailMessage.md` |
 | CustomNotification, 커스텀 알림, 인앱 알림, Messaging.CustomNotification, setNotificationTypeId, send 알림, 알림 발송 Apex | `Apex/Messaging(메시징)/CustomNotification.md` |
 | Messaging Namespace, InboundEmail, InboundEmailHandler, InboundEmailResult, InboundEnvelope, 인바운드 이메일, 이메일 서비스, Email Service, ActionableNotification, MassEmailMessage, PushNotification, 인앱 알림 모바일 | `Apex/Messaging(메시징)/Messaging Namespace.md` |
+| Mobile Notifications, PushNotification, PushNotificationPayload, customNotificationAction, Notification Builder, 모바일 알림, 푸시 알림, 인앱 알림, 커스텀 알림 액션, APNs FCM, Apex로 푸시 알림 보내는 방법, Notification Builder vs Apex 알림, 모바일 앱에 알림 전달 | `Apex/Messaging(메시징)/Mobile Notifications.md` |
 | Flow.Interview, createInterview, 플로우 Apex 호출, Apex에서 Flow 실행, getVariableValue, Flow.Interview.start | `Flow/Flow Interview API.md` |
 | SaveResult, UpsertResult, DeleteResult, MergeResult, UndeleteResult, EmptyRecycleBinResult, DML 결과, Database.Error, isSuccess, getErrors, getId, isCreated | `Apex/Data(데이터)/Database Namespace 상세.md` |
 | Database.Cursor, getCursor, fetch, getNumRecords, PaginationCursor, fetchPage, CursorFetchResult, QueryLocator, QueryLocatorIterator, hasNext, next, DMLOptions, LeadConvert, convertLead | `Apex/Data(데이터)/Database Namespace 상세.md` |
