@@ -127,6 +127,17 @@ Salesforce CPQ(`SBQQ` managed package) 개발자 가이드(v65.0 Winter '26) —
 | [[JavaScript Quote Calculator Plugin]] | JSQCP, onAfterCalculate, Page Security, 커스텀 계산 |
 | [[CPQ Plugins — Search·Recommended·Configurator·기타]] | Product Search, Recommended Products, E-Signature, 9개 플러그인 |
 
+### [[Analytics(애널리틱스)/index|Analytics(애널리틱스)]]
+CRM Analytics(Tableau CRM) Data Prep Recipe REST API(Summer '26) — 레시피로 데이터를 변환·정제하는 REST API의 개요·인증·엔드포인트·노드 Input·Response·Enum
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[Data Prep Recipe REST API — 개요·인증·엔드포인트]] | Recipe REST API, 6개 엔드포인트, OAuth, Examples 워크플로, EOL |
+| [[Recipe REST API — Bucket·Cluster 노드 Input]] | Bucket, Cluster, 버킷팅, 클러스터링, 노드 Input |
+| [[Recipe REST API — Aggregate·Append·Join·Compute·Pivot Input]] | Aggregate, Join, Compute, Pivot, 집계·조인·피벗 |
+| [[Recipe REST API — Load·Save·Output·ML 노드 Input]] | Load, Save, Output, ML, 소스 로드·저장·예측 |
+| [[Recipe REST API — Enums]] | node type·action·data type·join type, 47개 enum |
+
 ### [[Security(보안)/index|Security(보안)]]
 Secure Coding Guide(v67.0) 위협 모델 — XSS·SQLi·CSRF·Redirect·TLS·민감데이터·CRUD/FLS·Lightning 보안·세션/브라우저 통신
 

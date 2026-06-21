@@ -319,4 +319,5 @@ QueryBuilder.cogroup(nodes, groups) → QueryNode (코그룹)
 - [[Reports Namespace]] — ReportManager.runReport/runAsyncReport — 표준 보고서 실행
 - [[ConnectApi Namespace 개요]] — ConnectApi.LiteralJson 반환 타입 참조
 - [[Datacloud Namespace]] — Duplicate Management API
+- [[Data Prep Recipe REST API — 개요·인증·엔드포인트]] — 같은 CRM Analytics 도메인의 REST API 카운터파트 (레시피로 데이터를 변환·정제)
 - [[Apex MOC]]
