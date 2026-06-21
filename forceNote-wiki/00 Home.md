@@ -115,6 +115,18 @@ Salesforce Order Management — 주문 데이터 모델·B2C Commerce 주문 데
 | [[Order Management — Import·Fulfillment·Taxation]] | Create Order Summary, OrderLifecycleType, Location Capacity, net/gross 세금 |
 | [[Order Management — Exchanges·Payment Sequencing·확장]] | Preview/Submit Cart, Payment Sequencing, EnsureFunds, ProductExpandService |
 
+### [[CPQ(견적)/index|CPQ(견적)]]
+Salesforce CPQ(`SBQQ` managed package) 개발자 가이드(v65.0 Winter '26) — API 데이터 모델·Quote/Configuration/Contract API·플러그인 (platform-native RLM과 별개 제품)
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[CPQ API Models]] | QuoteModel, ProductModel, ConfigurationModel, OptionModel, 11개 모델 |
+| [[CPQ Quote API]] | SBQQ.ServiceRouter, QuoteSaver, QuoteCalculator, Save/Calculate/Read API |
+| [[CPQ Configuration·Contract API]] | Configuration Loader/Validator, Contract Amender/Renewer, 번들 구성 |
+| [[CPQ 기타 API — Document·Router·Quickstart·Triggers·Approvals]] | Generate Quote Document, TriggerControl, Advanced Approvals(SBAA) |
+| [[JavaScript Quote Calculator Plugin]] | JSQCP, onAfterCalculate, Page Security, 커스텀 계산 |
+| [[CPQ Plugins — Search·Recommended·Configurator·기타]] | Product Search, Recommended Products, E-Signature, 9개 플러그인 |
+
 ### [[Security(보안)/index|Security(보안)]]
 Secure Coding Guide(v67.0) 위협 모델 — XSS·SQLi·CSRF·Redirect·TLS·민감데이터·CRUD/FLS·Lightning 보안·세션/브라우저 통신
 

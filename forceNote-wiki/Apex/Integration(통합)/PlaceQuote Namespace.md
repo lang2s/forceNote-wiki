@@ -50,5 +50,6 @@ insert quote;
 ## 관련 노트
 
 - [[Apex MOC]]
+- [[CPQ API Models]] — managed-package Salesforce CPQ(SBQQ)의 견적 데이터 모델·API. 이 PlaceQuote는 platform-native 후속(RLM/Revenue Cloud)으로 **별개 제품**이다
 - [[Process Namespace]] — 레거시 Flow 플러그인 인터페이스 (CPQ 연동에 과거 사용됨)
 - [[QuickAction Namespace]] — Quote 관련 Quick Action 프로그래밍적 실행
