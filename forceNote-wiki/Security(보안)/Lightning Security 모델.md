@@ -202,3 +202,4 @@ Lightning Locker 내에서 third-party framework 사용은 blogpost를 참조한
 - [[권한과 접근 제어 위협]]
 - [[Secure Coding 개요]]
 - [[Platform Security FAQ]]
+- [[Experience Cloud 사이트 — CSP·Locker·LWS]] — Locker 위협모델·CSP Directives를 Aura 사이트에 적용하는 맥락

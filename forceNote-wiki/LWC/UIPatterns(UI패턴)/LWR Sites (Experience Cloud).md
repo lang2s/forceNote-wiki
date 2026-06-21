@@ -280,6 +280,8 @@ LWR 사이트에 언어를 추가하면 멀티링궐(multilingual) 사이트가 
 - [[LWR --dxp 스타일링 훅 레퍼런스]] — 형제 spoke(브랜딩): `--dxp` 훅 전수·Theme 패널 매핑표·Site Logo·Custom Fonts·Remove SLDS (Ch4)
 - [[LWR Tag Manager 데이터 관리]] — 형제 spoke(데이터): 네이티브 Experience Tag Manager(`experience_interaction`→Website Engagement DMO·이벤트 9종)·Google Tag Manager(`<x-oasis-script>`→dataLayer) (Ch7+Ch6)
 - [[Lightning Web Security (LWS)]] — LWR 사이트 LWS·Privileged Script Tag(`<x-oasis-script>`) 상세
+- [[Experience Builder Aura 사이트 개발]] — 형제 모델: Aura Components 모델 사이트(`forceCommunity:*`·테마 레이아웃). LWR과 모델 분기 비교
+- [[ExperienceBundle — Experience Builder 사이트 메타데이터]] — Aura 사이트는 `ExperienceBundle`, enhanced LWR은 `DigitalExperienceBundle`로 배포
 - [[UI API 개요]] — custom record 컴포넌트 데이터 소스
 - [[lightning-datatable]] — `LightningDatatable` extend·custom cell type
 - [[getRecord 패턴]] — UI API 레코드 데이터 바인딩

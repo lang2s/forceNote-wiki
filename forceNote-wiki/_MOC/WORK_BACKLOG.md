@@ -1,7 +1,7 @@
 ---
 tags: [backlog, coverage, work-tracking]
 created: 2026-05-18
-updated: 2026-06-20
+updated: 2026-06-21
 ---
 
 > **세션 인계 메모 (2026-05-25 세션 종료 시점):**
@@ -126,7 +126,6 @@ updated: 2026-06-20
 | ING-08 | salesforce_analytics_rest_api (310) | Analytics | 🔲 대기 |
 | ING-09 | ~~salesforce_knowledge_dev_guide (209)~~ | Service/Knowledge (신규 폴더) | **✅ 전수 완료 (2026-06-17)** → 신규 `Service(서비스)/Knowledge(지식)/` 9노트(4,297줄): 데이터모델&API개요·SOAP객체(핵심6/주변8=14종)·SOAP호출4종·REST(Actions+Manage19)·REST(Search7+Support4)·Metadata타입(아티클설정5/데이터카테고리외부5=10종)·UI API제약. 신규 샤드 `_index/service.md`·라우터·Home·역링크 5건. Ch5 SOQL/SOSL·Ch6 PublishingService는 기존 노트(SOQL WITH DATA CATEGORY·SOSL 패턴·KbManagement) 역링크로 중복 회피. completeness/source-verifier 셀단위 통과 |
 | ING-10a | ~~exp_cloud_lwr (106)~~ = LWR Sites for Experience Cloud | LWC/Experience | **✅ 전수 완료 (2026-06-14)** → `LWC/UIPatterns(UI패턴)/LWR Sites (Experience Cloud).md` (LWR 템플릿·lightningCommunity__ 타깃 4종·@salesforce 모듈·--dxp 훅·다국어) + 공식 링크 |
-| ING-10b | communities_dev (105) = Experience Cloud Developer Guide | Experience Cloud | 🔲 대기 |
 | ING-11 | mobile_offline (258) = Mobile and Offline Developer Guide | Mobile | **✅ 전수 완료 (2026-06-14)** → `LWC/Mobile(모바일)/모바일 & 오프라인 (LWC).md` (mobileCapabilities 10종·LWC Offline·Offline GraphQL·Briefcase·draft records·제약) + 공식 링크. 기존 모바일 기능 패턴(Tier1)과 상호 링크 |
 | ING-12 | ~~lightning_knowledge_guide (91)~~ = Lightning Knowledge Guide (Spring '26) | Service/Knowledge (admin) | **✅ 전수 완료 (2026-06-17)** → 기존 `Service(서비스)/Knowledge(지식)/`에 admin-facing 7노트(~1,936줄, ING-09의 9개 개발자/API 노트와 viewpoint 구분): 개요(계획·Lightning vs Classic 비교·한계 6하위그룹)·셋업&구성(가이드/수동·권한표)·사용(작성액션 가용성·검색·스마트링크/영구링크·채널 액션)·아티클 리포팅(9필드표)·아티클 임포트(csv/zip·.properties 파라미터)·다국어&번역(ArticleManagement 25행 컬럼표·발행/번역/아카이브/나란히보기)·데이터카테고리&공유(선언적·공유 모델). 다단 표 6개 pdftoppm 이미지검증. **중복 회피:** Metadata 데이터카테고리 스키마·데이터모델·SOAP 통계객체·REST Search/Actions·UI API 제약은 ING-09 노트로 역링크(스키마 재작성 0). cross-linker가 기존 API 노트 6개에 역링크 7건. nav: `_index/service.md` 7행·`_index/questions.md` 어드민 자연어 7행·Service/Knowledge index.md A/B 그룹 재편·Service 허브 갱신. completeness/source-verifier/qa 통과, Tier 3 노트 0 |
 | ING-13a | ~~chat_rest (66) = **Chat REST API Developer Guide** (v66.0 Spring '26)~~ | Service/Chat (Live Agent visitor REST) | **✅ 완료 (2026-06-18)** → [[WORK_BACKLOG_ARCHIVE]] ING-13a. 신규 `Service(서비스)/Chat(채팅)/` 폴더 7노트(~1,797줄), source chat_rest(Tier 2), 7노트 전부 은퇴 [!warning] 배너. ★ TOC가 Ch6 14개 Messages 응답 객체 누락 → scout 색인 캐치·validator 전수 확인. 형제 후속 **ING-36(chat_dev_guide) P1** 식별 |
@@ -253,9 +252,7 @@ updated: 2026-06-20
 
 ### 🟤 P5 — 장기 검증 (소스 출처 확인)
 
-| # | 항목 | 소스/사유 | 상태 | 추가일 |
-|---|---|---|---|---|
-| VERIFY-1 | **Winter '24 `sf project deploy pipeline` 출처 검증** | `Release/Winter '24/Development.md`가 `sf project deploy pipeline`을 "Deploy Changes Using Salesforce CLI (Beta)" 실기능으로 서술 중이나, 로컬 52개 PDF 전수 grep에서 이 명령은 **0건**(DevOps Center 조사 중 source-verifier 발견). `salesforce_winter24_release_notes.pdf`가 출처일 가능성 → 해당 PDF로 대조 검증. **출처 확인 시** Tier 2 유지·DevOps Center 노트의 `sf project deploy pipeline` 미검증 경고 해제 가능. **미확인 시** fabrication 여부 판정 후 조치. RECON 프로젝트와 연계(같은 DevOps Center 조사에서 파생) | 🔲 대기 | 2026-06-19 |
+> 현재 열린 항목 없음. **VERIFY-1**(Winter '24 `sf project deploy pipeline` 출처 검증) ✅ 완료(2026-06-21) → [[WORK_BACKLOG_ARCHIVE]] RECON 섹션. 결과: **fabrication 아님 — `salesforce_winter24_release_notes.pdf` p.227에서 출처 확인(Tier 2)**. "게이트(PDF 미보유)" 가정은 false였고, 초기 "52개 grep 0건"은 `ReleaseNote/` 서브폴더 누락에 따른 false negative였음.
 
 ---
 

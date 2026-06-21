@@ -65,6 +65,13 @@ created: 2026-06-18
 | Lightning Security, Lightning Locker, CSP Directives, Lightning component 보안, AuraEnabled 보안, with sharing controller, Lightning CRUD FLS, Lightning XSS, Lightning CSRF, unsafe attribute, secret inputs, LWC 보안 모델 | `Security(보안)/Lightning Security 모델.md` |
 | Lightning Web Security, LWS, Lightning Locker, secure wrapper, namespace sandbox, cross-namespace, x-oasis-script, Privileged Script Tag, LWS 활성화, LWS vs Locker 차이, Locker에서 LWS 전환, LWR 보안, LWS 미지원 속성, third-party script LWR, GA/GTM LWR 사이트 | `Security(보안)/Lightning Web Security (LWS).md` |
 
+## Experience Cloud 사이트 보안
+
+| 키워드 | 파일 |
+|---|---|
+| Experience Cloud site security, guest user security, 게스트 사용자 보안, Unauthenticated Guest User, 인증 안 된 게스트 사용자, declarative access control, custom access control, without sharing 게스트, system mode without sharing, 게스트 레코드 read create update, Encrypt Record IDs, 레코드 ID 암호화, UserCryptoHelper, encrypted token 패턴, Limit Access to Apex Classes, Flow Security 게스트, Experience Cloud SOQL injection, 게스트가 만든 레코드 나중에 읽기, Experience Cloud 사이트를 게스트에게 안전하게 노출하려면 | `Security(보안)/Experience Cloud 사이트 보안 — 인증·게스트 사용자.md` |
+| Aura 사이트 Locker, Relaxed CSP, Strict CSP, allowInRelaxedCSP, lightningCommunity__RelaxedCSP, third-party 컴포넌트 Locker off, Adobe Analytics Aura, Lightning Locker 끄기, LWS org/site 레벨 전환, Experience Cloud CSP, Aura 사이트 보안 레이어, forceCommunity routeChange, Aura 사이트에서 third-party 컴포넌트 어떻게 실행, Locker 충돌 해결 | `Security(보안)/Experience Cloud 사이트 — CSP·Locker·LWS.md` |
+
 ## 세션 / 브라우저 통신
 
 | 키워드 | 파일 |

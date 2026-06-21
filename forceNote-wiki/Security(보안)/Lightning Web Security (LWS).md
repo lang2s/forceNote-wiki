@@ -163,3 +163,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 - [[LWR Sites (Experience Cloud)]] — LWR 사이트 구축(같은 PDF 출처). Privileged Script Tag도 여기 맥락
 - [[공유 JS 모듈]] — LWC 간 JS 공유 시 Locker/LWS 제약
 - [[LWR 동작·캐싱·제약]] — LWR 사이트 LWS 미지원 속성(document.domain 등)·Differences in Behavior에서 LWS 위임하는 spoke
+- [[Experience Cloud 사이트 — CSP·Locker·LWS]] — Aura 사이트 맥락의 org/site 레벨 LWS·Locker 적용(LWS 인스턴스가 site level에서 Locker 대체)

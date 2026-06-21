@@ -28,6 +28,8 @@ created: 2026-06-18
 | [[세션 ID와 브라우저 통신 위협]] | managed package session ID·postMessage·WebSocket(CSWSH) cross-origin 통신 | #security |
 | [[Marketing Cloud API 보안]] | MC Engagement API — least privilege OAuth·secure storage·금지 endpoint·OWASP Top Ten | #security |
 | [[Platform Security FAQ]] | 보안 FAQ·HTTP 헤더(HSTS/frame-ancestors/nosniff)·false positive 공식 설명 | #reference |
+| [[Experience Cloud 사이트 보안 — 인증·게스트 사용자]] | 게스트/외부 사용자 접근 제어(declarative vs custom)·게스트 레코드 모드(system mode·without sharing)·Encrypt Record IDs·Apex/Flow 접근 제한·SOQL injection | #experiencecloud |
+| [[Experience Cloud 사이트 — CSP·Locker·LWS]] | Aura 사이트 CSP(Relaxed/Strict)·Lightning Locker·LWS org/site 전환·third-party 컴포넌트 활성화·Adobe Analytics | #experiencecloud |
 
 ---
 
@@ -46,6 +48,8 @@ created: 2026-06-18
 - Marketing Cloud API 통합 보안? → [[Marketing Cloud API 보안]]
 - 보안 감사에서 나온 false positive 해명? → [[Platform Security FAQ]]
 - 전체 가이드 범위·Flow 보안 원칙부터? → [[Secure Coding 개요]]
+- Experience Cloud 사이트를 게스트/외부 사용자에게 안전하게 노출? → [[Experience Cloud 사이트 보안 — 인증·게스트 사용자]]
+- Aura 사이트 CSP·Locker·LWS·third-party 컴포넌트 보안? → [[Experience Cloud 사이트 — CSP·Locker·LWS]]
 
 ---
 

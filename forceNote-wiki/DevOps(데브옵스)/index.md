@@ -73,6 +73,7 @@ created: 2026-05-18
 | [[DX MCP Server (Beta)]] | VS Code+Copilot Quick Start·60+ MCP 도구·toolset 14개·Core Tools 12개 전수 | #reference |
 | [[DX 트러블슈팅]] | org login web/jwt 오류 전수(12가지)·No default dev hub·포트 점유·consumer key 중복 해결 | #reference |
 | [[DX 제약사항]] | CLI·Dev Hub·Source Management·배포·1GP/2GP·Unlocked Package 알려진 제약 13건 전수 | #reference |
+| [[ExperienceBundle — Experience Builder 사이트 메타데이터]] | ExperienceBundle/DigitalExperienceBundle 폴더 구조·enable·Metadata API/DX 배포·enhanced LWR 마이그레이션·인증 LWR /s URL 배포 고려사항 | #reference |
 
 ### Metadata API (서브폴더 → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/index]])
 
@@ -292,6 +293,8 @@ created: 2026-05-18
 - consumer key already taken 오류? → [[DX 트러블슈팅]] → Error: The consumer key is already taken
 - DX 알려진 제약사항 전수? → [[DX 제약사항]]
 - RecordType data import 불가 우회 방법? → [[DX 제약사항]] → Salesforce CLI
+- Experience Builder 사이트를 ExperienceBundle로 프로그래밍 방식 배포? → [[ExperienceBundle — Experience Builder 사이트 메타데이터]]
+- enhanced LWR 마이그레이션 / 인증 LWR /s URL 배포 고려사항? → [[ExperienceBundle — Experience Builder 사이트 메타데이터]]
 - 2GP 개발 모범 사례 전수? → [[2GP — Best Practices]]
 - LMA란? AppExchange 패키지 라이선스 관리? → [[2GP — LMA Part 1 Get Started]]
 - LMA 설치·패키지 연결 절차? → [[2GP — LMA Part 1 Get Started]] → 섹션 3-4
