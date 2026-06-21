@@ -1,6 +1,6 @@
 ---
 tags: [DevOps, DevOps-Center, Pipeline, Deployment, CLI, Source-Control, Change-Management, DevHubSettings, Scratch-Org, MCP]
-source: salesforce_apex_developer_guide.pdf, api_meta.pdf, sfdx_dev.pdf (+ 일부 블록 external-knowledge — 본문 한정 경고 배너 참조)
+source: salesforce_apex_developer_guide.pdf, api_meta.pdf, sfdx_dev.pdf, salesforce_winter24_release_notes.pdf (+ 일부 블록 external-knowledge — 본문 한정 경고 배너 참조)
 created: 2026-05-23
 updated: 2026-06-19
 aliases: [DevOps Center, Salesforce DevOps Center, 데브옵스 센터, 파이프라인 배포, 변경관리 도구]
@@ -162,8 +162,9 @@ org shape 기반으로 scratch org를 만드는 경우에도, DevOpsCenter featu
 
 ### Salesforce CLI로 파이프라인 배포 (Winter '24 Beta)
 
-> [!warning] 아래 블록은 공식 PDF(Apex Dev Guide / Metadata API / SFDX)에서 확인되지 않은 외부지식이며 공식 소스와 대조되지 않았습니다.
-> 특히 `sf project deploy pipeline` 명령은 검증한 49개 공식 PDF 어디에서도 확인되지 않았다(0건).
+> [!note] **명령·기능은 공식 검증됨(Tier 2) — 플래그 구문만 external-knowledge.**
+> `sf project deploy pipeline` 명령과 "Deploy Changes Using Salesforce CLI (Beta)" 기능은 **`salesforce_winter24_release_notes.pdf`(p.227)에서 확인됨**(2026-06-21 VERIFY-1 출처 검증 완료): DevOps Center CLI 플러그인은 package **v6.0+** 호환, **Beta**, **DevOps Center Release Manager** 권한 보유 사용자 대상. 이전 경고("49개 PDF 0건")는 릴리즈 노트 PDF가 검색 범위(`ReleaseNote/` 서브폴더)에서 누락된 데 따른 **false negative**였으며 정정한다.
+> ⚠️ 단, 릴리즈 노트는 "the `sf project deploy pipeline` **commands**"라고만 언급하고 개별 플래그(`--devops-center-project-name`·`--devops-center-username`·`report --job-id` 등)는 열거하지 않는다. 따라서 **아래 코드의 정확한 플래그 구문은 공식 CLI Command Reference(로컬 코퍼스 미보유)로 미대조된 external-knowledge**다.
 
 ```bash
 # 파이프라인 스테이지에 배포
@@ -203,7 +204,7 @@ Work Item 생성
 
 ## CLI 연동 명령 (DevOps Center 플러그인 v6.0 이상)
 
-> [!warning] 아래 블록은 공식 PDF(Apex Dev Guide / Metadata API / SFDX)에서 확인되지 않은 외부지식이며 공식 소스와 대조되지 않았습니다.
+> [!warning] `sf project deploy pipeline` 명령 자체는 Tier 2 검증됨([[#Salesforce CLI로 파이프라인 배포 (Winter '24 Beta)]] 참조)이나, **아래 개별 플래그·서브커맨드 구문은 공식 소스로 미대조된 external-knowledge**다.
 
 ```bash
 # DevOps Center CLI 플러그인 설치
