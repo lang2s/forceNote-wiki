@@ -1016,3 +1016,4 @@ new Reports.TopRows()  // no-arg, then use setters
 - [[Dynamic SOQL]] — 동적 쿼리로 집계 구현
 - [[FormulaEval Namespace]] — 수식 기반 동적 계산
 - [[Wave Namespace]] — CRM Analytics SAQL 분석 (표준 보고서 vs CRM Analytics)
+- [[Reports and Dashboards REST API — 개요·Reports 예제]] — 동일 리포트 데이터의 REST 표면(Run·Describe·factMap 디코딩), Apex `Reports` 네임스페이스와 같은 fact map 모델

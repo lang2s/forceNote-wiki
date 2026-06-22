@@ -26,7 +26,7 @@ created: 2026-05-17
 | Service Cloud · Knowledge — 데이터모델·SOAP/REST/Metadata/UI API·아티클·데이터카테고리 | `_index/service.md` | Service(서비스)/ 폴더 전반 |
 | Security · 시큐어 코딩 — XSS·SQLi·CSRF·Redirect·TLS·민감데이터·CRUD/FLS·Lightning보안·세션/브라우저통신·MC API·FAQ | `_index/security.md` | Security(보안)/ 폴더 전반 (Secure Coding Guide) |
 | CPQ · 견적 — Salesforce CPQ(`SBQQ`) API 모델·Quote/Config/Contract API·기타 API·플러그인(JSQCP·9종) | `_index/cpq.md` | CPQ(견적)/ 폴더 전반 (CPQ Developer Guide, managed package — RLM과 별개) |
-| Analytics · CRM Analytics · Data Prep — Recipe REST API(개요·엔드포인트·노드 Input·Response·Enum) | `_index/analytics.md` | Analytics(애널리틱스)/ 폴더 전반 (Data Prep Recipe REST API, Summer '26) |
+| Analytics · CRM Analytics · 리포트/대시보드 REST — Data Prep Recipe REST API(노드 Input·Response·Enum) + Reports and Dashboards REST API(reports·dashboards·folders·notifications·표현형) | `_index/analytics.md` | Analytics(애널리틱스)/ 폴더 전반 (Data Prep Recipe REST API Summer '26 + Reports and Dashboards REST API v67.0) |
 | 자연어 질문 — "~하는 방법" | `_index/questions.md` | 교차 도메인 질문 라우팅 |
 
 ---

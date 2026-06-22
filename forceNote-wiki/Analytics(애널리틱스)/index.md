@@ -1,19 +1,21 @@
 ---
-tags: [index, analytics, crm-analytics, data-prep, recipe-rest-api]
+tags: [index, analytics, crm-analytics, data-prep, recipe-rest-api, reports-dashboards-rest-api]
 created: 2026-06-21
 ---
 
 # Analytics(애널리틱스) — 로컬 인덱스
 
-> Salesforce Analytics 도메인 — CRM Analytics(Tableau CRM) Data Prep Recipe REST API 개발자 가이드(Summer '26) 기반 — 레시피로 데이터를 변환·정제하는 REST API의 개요·인증·엔드포인트, 노드 Input 표현형(Bucket·Aggregate·Join·Formula·Filter·Load/Save·ML 등), Response 표현형, Enum까지 10노트
+> Salesforce Analytics 도메인 — 두 개발자 가이드 기반 21노트:
+> (1) **CRM Analytics(Tableau CRM) Data Prep Recipe REST API**(Summer '26) — 레시피로 데이터를 변환·정제하는 REST API의 개요·인증·엔드포인트, 노드 Input 표현형, Response 표현형, Enum까지 10노트
+> (2) **Reports and Dashboards REST API**(v67.0 Summer '26) — 리포트·대시보드 데이터에 프로그래밍 방식으로 접근하는 REST API의 예제 2노트 + 표현형 Reference 9노트
 >
-> ℹ️ Data Prep Recipe는 CRM Analytics에서 dataflow의 후속으로 데이터를 변환·정제하는 파이프라인이다. 이 폴더는 **Recipe REST API**(레시피 정의·노드를 JSON으로 다루는 API)를 다룬다. 후속 ING-08(Dashboards REST API)도 이 Analytics 폴더에 수용한다.
+> ℹ️ Data Prep Recipe는 CRM Analytics에서 dataflow의 후속으로 데이터를 변환·정제하는 파이프라인이다. Reports and Dashboards REST API는 리포트/대시보드 메타데이터·결과 데이터·폴더·알림을 REST로 다룬다.
 
 **상위:** [[00 Home]]
 
 ---
 
-## 파일 목록
+## Data Prep Recipe REST API (10노트) — 파일 목록
 
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
@@ -45,8 +47,48 @@ created: 2026-06-21
 
 ---
 
+## Reports and Dashboards REST API (11노트)
+
+> 리포트·대시보드 데이터에 REST로 접근. **예제(N1·N2)** = 실제 호출 워크플로 / **표현형 Reference(N3~N11)** = 요청·응답 JSON 구조. `reportMetadata` 정본은 N4(Describe) — 다른 표현형 노트가 이리로 링크한다.
+
+### 예제(Examples)
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[Reports and Dashboards REST API — 개요·Reports 예제]] | (N1) 진입 허브 — Overview(Resource URL·제약·EOL) + Reports Examples 전수: Create / Run sync·async / Filter / Fact Map decode / Query(미저장) / Save / Clone / Delete | #overview #example |
+| [[Reports and Dashboards REST API — Dashboards·Downloads·Notifications 예제]] | (N2) Dashboard Results·Save(LWC Beta·CRM Analytics) / 리포트 PDF·PNG Download / Notification CRUD 예제 | #example |
+
+### 표현형 Reference
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[Reports and Dashboards REST API — Report 표현형]] | (N3) Report resource 표현형 — PATCH/DELETE 속성 | #reference |
+| [[Reports and Dashboards REST API — Describe(reportMetadata) 표현형]] | (N4) ★정본 — `reportMetadata` 34속성·`reportTypeMetadata`·`reportExtendedMetadata`. 다른 표현형 노트가 이리로 링크 | #reference #canonical |
+| [[Reports and Dashboards REST API — Execute·Instances·Report List 표현형]] | (N5) Execute Sync/Async·Report Instances·Instance Results·Report List 표현형 | #reference |
+| [[Reports and Dashboards REST API — Query 표현형]] | (N6) query resource 표현형 — 저장 없이 리포트 실행 | #reference |
+| [[Reports and Dashboards REST API — Report Fields·Error Codes 표현형]] | (N7) Report Fields 표현형 + Error Codes 47행 | #reference |
+| [[Reports and Dashboards REST API — Report Types 표현형]] | (N8) Report Type List/Type/Recently Used·Created·Hide-Unhide 표현형 | #reference |
+| [[Reports and Dashboards REST API — Dashboards 표현형]] | (N9) Dashboard List/Results/Describe/Status/Filter Options/Error Codes 표현형 | #reference |
+| [[Reports and Dashboards REST API — Folders 표현형]] | (N10) Analytics Folders API — Collections/Operations/Shares/Recipients/Child 표현형 | #reference |
+| [[Reports and Dashboards REST API — Analytics Download·Notifications·Filter Operators 표현형]] | (N11) Analytics Download·Notification List/Limits·Filter Operator List 표현형 | #reference |
+
+### 빠른 선택 — Reports and Dashboards REST API
+
+- 처음 시작 / API 개요·제약·리포트를 코드로 실행·저장·삭제하는 예제 → [[Reports and Dashboards REST API — 개요·Reports 예제]]
+- 대시보드 데이터 조회·리포트 PDF/PNG 다운로드·알림 CRUD 예제 → [[Reports and Dashboards REST API — Dashboards·Downloads·Notifications 예제]]
+- `reportMetadata`에 어떤 속성이 있나 (정본) → [[Reports and Dashboards REST API — Describe(reportMetadata) 표현형]]
+- 동기/비동기 실행·인스턴스·인스턴스 결과·리포트 목록 응답 구조 → [[Reports and Dashboards REST API — Execute·Instances·Report List 표현형]]
+- 저장 안 하고 리포트 돌리기(query) → [[Reports and Dashboards REST API — Query 표현형]]
+- 리포트 필드·에러 코드 → [[Reports and Dashboards REST API — Report Fields·Error Codes 표현형]]
+- 리포트 유형(Report Type) 목록·숨기기 → [[Reports and Dashboards REST API — Report Types 표현형]]
+- 대시보드 표현형 전체(목록·결과·describe·상태·필터·에러) → [[Reports and Dashboards REST API — Dashboards 표현형]]
+- 리포트 폴더·공유·수신자·하위 폴더 REST → [[Reports and Dashboards REST API — Folders 표현형]]
+- 다운로드·알림 목록·한도·필터 연산자 목록 → [[Reports and Dashboards REST API — Analytics Download·Notifications·Filter Operators 표현형]]
+
+---
+
 ## 관련 폴더
 
-- 후속: CRM Analytics Dashboards REST API(ING-08) — 동일 Analytics 폴더 수용 예정
+- 동일 폴더: Reports and Dashboards REST API(ING-08) — 위 섹션 11노트로 수용 완료
 - 표준/커스텀 sObject·데이터 소스 객체 레퍼런스 → [[sObject/index|sObject Reference]]
 - Apex에서의 외부 데이터 연동 → [[Apex/Integration(통합)/index|Apex Integration(통합)]]

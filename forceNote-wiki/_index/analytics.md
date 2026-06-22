@@ -3,10 +3,10 @@ tags: [index, search, navigation, analytics]
 created: 2026-06-21
 ---
 
-# SEARCH INDEX — Analytics(애널리틱스) (CRM Analytics Data Prep Recipe REST API, Summer '26)
-> CRM Analytics(Tableau CRM) Data Prep Recipe REST API — 레시피로 데이터를 변환·정제하는 REST API의 개요·인증·엔드포인트·노드 Input·Response·Enum 10노트
+# SEARCH INDEX — Analytics(애널리틱스) (CRM Analytics Data Prep Recipe REST API + Reports and Dashboards REST API)
+> Salesforce Analytics 도메인 키워드 샤드 — (1) CRM Analytics Data Prep Recipe REST API 10노트, (2) Reports and Dashboards REST API 11노트.
 > 루트 라우터: `00 SEARCH_INDEX.md` · 다른 샤드는 라우터에서 이동.
-> source: salesforce_recipes_api.pdf (Data Prep Recipe REST API Developer Guide Summer '26, Tier 2)
+> source: salesforce_recipes_api.pdf (Data Prep Recipe REST API Developer Guide Summer '26, Tier 2) · salesforce_analytics_rest_api.pdf (Reports and Dashboards REST API Developer Guide v67.0 Summer '26, Tier 2)
 
 ---
 
@@ -39,3 +39,30 @@ created: 2026-06-21
 | 키워드 | 파일 |
 |---|---|
 | Recipe API enums, node type enum, action enum, data type enum, join type enum, 47개 enum, 노드 타입 열거형, 액션 열거형, 데이터 타입 허용값, 조인 타입 허용값, 레시피 API enum 목록, 필드에 들어갈 수 있는 값, Recipe enum 전체 | `Analytics(애널리틱스)/Recipe REST API — Enums.md` |
+
+---
+
+# Reports and Dashboards REST API (v67.0) — 리포트·대시보드 데이터 REST
+
+> 리포트·대시보드 데이터에 프로그래밍 방식으로 접근하는 REST API. /analytics/reports·/dashboards·/folders·/notifications 엔드포인트. 예제(Examples) 2노트 + 표현형(Representation) Reference 9노트. reportMetadata 정본은 N4(Describe).
+
+## 예제(Examples) — 실제 호출 워크플로
+
+| 키워드 | 파일 |
+|---|---|
+| Reports REST API, Reports and Dashboards REST API, /analytics/reports, 리포트 REST API, 리포트 API 예제, Create Report REST, Run Report sync, Run Report async, 리포트 동기 실행, 리포트 비동기 실행, Report Filter, Fact Map, factMap decode, 팩트맵 디코딩, Save Report, Clone Report, Delete Report, 리포트 저장·복제·삭제, Report Types 조회, Excel export, 리포트 데이터 REST로 가져오기, 리포트를 코드로 실행하는 법, REST로 리포트 실행하는 법, 리포트 결과 JSON | `Analytics(애널리틱스)/Reports and Dashboards REST API — 개요·Reports 예제.md` |
+| Dashboards REST example, Dashboard Results, Get Dashboard Data, 대시보드 결과 조회, 대시보드 데이터 REST, Save Dashboard, dashboard LWC Beta, CRM Analytics dashboard, Download report PDF, Download report PNG, 리포트 PDF 다운로드, 리포트 PNG 다운로드, Notification CRUD, 리포트 알림 생성, Analytics Notification 예제, 대시보드를 REST로 조회하는 법, 리포트를 이미지로 다운로드하는 법 | `Analytics(애널리틱스)/Reports and Dashboards REST API — Dashboards·Downloads·Notifications 예제.md` |
+
+## 표현형(Representation) Reference — 응답·요청 JSON 구조
+
+| 키워드 | 파일 |
+|---|---|
+| Report resource, Report Representation, Report PATCH, Report DELETE, 리포트 리소스 속성, 리포트 표현형, 리포트 PATCH 속성, 리포트 수정 REST, 리포트 자체 표현형 | `Analytics(애널리틱스)/Reports and Dashboards REST API — Report 표현형.md` |
+| Describe resource, reportMetadata, reportTypeMetadata, reportExtendedMetadata, reportMetadata 34속성, Describe report REST, Column map, Detail column information, 리포트 메타데이터 표현형, reportMetadata 정본, 리포트 describe 응답, 리포트 메타데이터 속성 전체, 어떤 속성이 reportMetadata에 있나 | `Analytics(애널리틱스)/Reports and Dashboards REST API — Describe(reportMetadata) 표현형.md` |
+| Execute Sync, Execute Async, Report Instances, Instance Results, Report List, 동기 실행 표현형, 비동기 실행 표현형, 리포트 인스턴스, 인스턴스 결과, 리포트 목록 표현형, async 리포트 결과 폴링, 리포트 실행 결과 표현형 | `Analytics(애널리틱스)/Reports and Dashboards REST API — Execute·Instances·Report List 표현형.md` |
+| query resource, Query Representation, run report without saving, 저장 없이 리포트 실행, query 표현형, 임시 리포트 실행, 저장 안 하고 리포트 돌리기, query 리소스 표현형 | `Analytics(애널리틱스)/Reports and Dashboards REST API — Query 표현형.md` |
+| Report Fields, /fields, Error Codes, 리포트 필드 표현형, 에러 코드 47행, Reports API 에러 코드, 리포트에 쓸 수 있는 필드, 리포트 필드 목록, REST 에러 코드 목록 | `Analytics(애널리틱스)/Reports and Dashboards REST API — Report Fields·Error Codes 표현형.md` |
+| reportTypes, Report Type List, Report Type, Recently Used Report Types, Recently Created Report Types, Hide Report Type, Unhide Report Type, 리포트 유형 목록, 리포트 타입 표현형, 최근 사용 리포트 유형, 리포트 유형 숨기기, 리포트 타입 조회 REST | `Analytics(애널리틱스)/Reports and Dashboards REST API — Report Types 표현형.md` |
+| Dashboard List, Dashboard Results, Dashboard Describe, Dashboard Status, Dashboard Filter Options, Dashboard Error Codes, 대시보드 목록, 대시보드 결과 표현형, 대시보드 describe, 대시보드 상태, 대시보드 필터 옵션, 대시보드 표현형 전체, 대시보드 에러 코드 | `Analytics(애널리틱스)/Reports and Dashboards REST API — Dashboards 표현형.md` |
+| Analytics Folders API, Folder Collections, Folder Operations, Folder Shares, Folder Recipients, Folder Child, /folders, 폴더 API, 폴더 컬렉션, 폴더 공유, 폴더 수신자, 하위 폴더, 리포트 폴더 REST, 폴더 권한 REST | `Analytics(애널리틱스)/Reports and Dashboards REST API — Folders 표현형.md` |
+| Analytics Download, Report Download, Notification List, Notification Limits, Filter Operator List, filteroperators, 다운로드 표현형, 알림 목록 표현형, 알림 한도, 필터 연산자 목록, 필드별 필터 연산자, 리포트 다운로드 표현형, 어떤 필터 연산자를 쓸 수 있나 | `Analytics(애널리틱스)/Reports and Dashboards REST API — Analytics Download·Notifications·Filter Operators 표현형.md` |
