@@ -84,6 +84,17 @@ Aura 컴포넌트 — 레거시 컴포넌트 프레임워크 (신규 개발은 L
 | [[Aura 이벤트]] | Component/Application Event, $A.get |
 | [[Aura vs LWC]] | 기능 비교, 마이그레이션 전략 |
 
+### [[Visualforce(비주얼포스)/index|Visualforce(비주얼포스)]]
+Visualforce Developer Guide v67.0 — Salesforce Classic 기반 태그형 마크업 UI 프레임워크(레거시). 신규 UI는 LWC/Aura 권장이나 PDF 렌더·표준 페이지/버튼 오버라이드·이메일 템플릿·기존 자산 유지보수엔 여전히 유효. (Part A 개념·컨트롤러 11노트 + Part B 표준 컴포넌트 레퍼런스 5노트)
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[Visualforce 개요 — 도구·퀵스타트]] | apex:page, 마크업/컨트롤러 구조, Development Mode, 퀵스타트 |
+| [[표준 컨트롤러·표준 리스트 컨트롤러]] | standardController, recordSetVar, pagination, 코드 없는 표준 동작 |
+| [[동적 Visualforce — 바인딩·동적 컴포넌트]] | 동적 바인딩, Component.Apex, field set, 런타임 결정 |
+| [[Visualforce 베스트 프랙티스]] | View State 관리, 성능 최적화, transient, 보안 권고 |
+| [[apex 컴포넌트 — 페이지·레이아웃 구조]] | apex:page/pageBlock/panel*/form, 표준 컴포넌트 레퍼런스 |
+
 ### Admin(어드민)
 일반 사용자 / 관리자 가이드 — 네비게이션, 인증, 기초 개념
 

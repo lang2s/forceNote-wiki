@@ -16,6 +16,7 @@ created: 2026-05-17
 |---|---|---|
 | LWC · Aura · Flow · SLDS · Base Components(카탈로그) | `_index/frontend.md` | 프론트엔드 전반 (개별 lightning-* 레퍼런스 제외) |
 | LWC 베이스 컴포넌트 — lightning-* 개별 컴포넌트 레퍼런스 | `_index/frontend-basecomponents.md` | `LWC/BaseComponents(베이스컴포넌트)/` 개별 페이지 |
+| Visualforce — 개념·컨트롤러·동적 VF·JS Remoting·베스트 프랙티스·`apex:`/비-`apex:` 표준 컴포넌트(레거시 UI) | `_index/visualforce.md` | Visualforce(비주얼포스)/ 폴더 전반 (Visualforce Developer Guide v67.0, 16노트) |
 | Apex 언어/코어 — 데이터·SOQL/SOSL·비동기·보안·테스트·System·Schema·트리거·컬렉션·한도·표준클래스 | `_index/apex-core.md` | Apex 개발 핵심 |
 | Apex 네임스페이스 — 통합/HTTP·Commerce·Industries·Metadata | `_index/apex-namespaces.md` | 통합 및 산업 네임스페이스 |
 | Architecture · Admin · Integration(플랫폼) | `_index/platform.md` | VF·Sites·Canvas·AppLauncher·VisualEditor·Enhanced Domains·Admin·외부연동 등 (DevOps/DX 제외) |

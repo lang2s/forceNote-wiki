@@ -568,3 +568,5 @@ VF 페이지:
 - [[Site Namespace]] — VF/Community 페이지 URL 재작성
 - [[Schema Namespace 상세]] — 동적 컴포넌트에서 사용하는 필드/오브젝트 Describe
 - [[Aura(오라)/Case Feed Visualforce 커스터마이즈|Case Feed Visualforce 커스터마이즈]] — Case Feed VF 컨트롤러 확장이 `ApexPages.StandardController`를 사용하는 실제 예.
+- [[Visualforce(비주얼포스)/표준 컨트롤러·표준 리스트 컨트롤러|표준 컨트롤러·표준 리스트 컨트롤러]] — `StandardController`·`StandardSetController`를 쓰는 Visualforce 표준/리스트 컨트롤러 사용 패턴.
+- [[Visualforce(비주얼포스)/커스텀 컨트롤러·컨트롤러 확장|커스텀 컨트롤러·컨트롤러 확장]] — `ApexPages.StandardController` 인자를 받는 controller extension·커스텀 컨트롤러 작성.

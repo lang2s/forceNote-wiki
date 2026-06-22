@@ -793,3 +793,5 @@ Visualforce 페이지를 만든 후 사용자가 사용할 수 있게 한다.
 - [[Service(서비스)/Knowledge(지식)/Lightning Knowledge 사용 — 액션·검색·스마트링크·채널|Lightning Knowledge 사용 — 액션·검색·스마트링크·채널]] — `support:caseArticles`가 다루는 Knowledge 아티클의 액션·검색 맥락.
 - [[Architecture(아키텍처)/ApexPages Namespace|ApexPages Namespace]] — VF 컨트롤러 확장이 사용하는 `ApexPages.StandardController`.
 - [[Apex/Integration(통합)/Support Namespace|Support Namespace]] — `Support.EmailTemplateSelector`(Classic Case Feed 이메일 템플릿 자동선택)·마일스톤. 이 노트의 `apex:emailPublisher` Email 액션 커스터마이즈와 인접한 Apex 측 Case Feed API.
+- [[Visualforce(비주얼포스)/apex 컴포넌트 — AJAX·액션·Remote Objects·기타|apex 컴포넌트 — AJAX·액션·Remote Objects·기타]] — `apex:emailPublisher`·`apex:logCallPublisher` 등 Case Feed apex 컴포넌트의 전체 속성표 레퍼런스.
+- [[Visualforce(비주얼포스)/비-apex 표준 컴포넌트 — chatter·support·liveAgent·기타|비-apex 표준 컴포넌트 — chatter·support·liveAgent·기타]] — `support:caseFeed`·`support:caseArticles`·`support:portalPublisher` 등 Case Feed support 컴포넌트의 전체 속성표 레퍼런스.

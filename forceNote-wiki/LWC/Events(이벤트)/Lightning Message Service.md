@@ -197,3 +197,4 @@ fireChangeEvent() {
 
 - [[CustomEvent 패턴]] — 부모-자식 직접 통신
 - [[상태 관리]] — @lwc/state 공유 상태
+- [[JavaScript·Remoting·LMS across DOM]] — Visualforce 측 LMS (`sforce.one.publish/subscribe`·`$MessageChannel`). LWC의 `lightning/messageService`와 API surface 차이

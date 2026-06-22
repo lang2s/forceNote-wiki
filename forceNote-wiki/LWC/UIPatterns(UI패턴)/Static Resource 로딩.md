@@ -133,3 +133,4 @@ const marker = L.marker([lat, lng]);
 - [[CSP와 RemoteSite]]
 - [[LWC 보안 패턴]]
 - [[Toast & 모달 패턴]]
+- [[버튼·링크 오버라이드·Static Resource·커스텀 컴포넌트]] — Visualforce 관점의 static resource(`$Resource`/`URLFOR`, 마크업 시점) 및 VF 오버라이드/커스텀 컴포넌트
