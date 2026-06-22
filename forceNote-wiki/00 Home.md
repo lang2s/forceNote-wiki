@@ -116,6 +116,17 @@ Visualforce Developer Guide v67.0 — Salesforce Classic 기반 태그형 마크
 | [[Omni-Channel External Routing]] | 서드파티 라우팅 통합, CDC Pub/Sub·Apex Trigger, AgentWork 생성 |
 | [[Lightning Flow for Service (Actions & Recommendations)]] | RecordAction, RecordActionDeployment, guided engagement, NBA 추천 |
 
+### [[Scheduler(스케줄러)/index|Salesforce Scheduler]]
+Salesforce Scheduler(구 Lightning Scheduler) Developer Guide v67.0 — 적절한 사람을 적절한 장소·시간에 매칭해 예약(appointment)을 잡는 스케줄링 솔루션. 표준/커스텀 객체·Platform Events·Metadata·Business(REST/Connect) API·ConnectApi.LightningScheduler Apex·커스텀 예약 시나리오 12노트. (Field Service·Omni-Channel과 객체 공유)
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[Salesforce Scheduler — 개요·셋업·데이터모델·인증·SOQL]] | 개요·셋업, 데이터 모델, OAuth 인증, toLabel SOQL 번역 |
+| [[Salesforce Scheduler 표준객체 — 핵심 예약]] | ServiceAppointment, Attendee, AssignedResource, Waitlist |
+| [[Salesforce Scheduler — Business REST·Connect 엔드포인트]] | getAppointmentCandidates, getAppointmentSlots, Connect REST 리소스 |
+| [[Salesforce Scheduler — ConnectApi LightningScheduler Apex]] | ConnectApi.LightningScheduler, createServiceAppointment |
+| [[Salesforce Scheduler — 커스텀 예약 시나리오 (익명·단일리소스)]] | 익명 예약, 위치 우선, 단일 리소스 예약 워크플로우 |
+
 ### [[Commerce(커머스)/index|Commerce(커머스)]]
 Salesforce Order Management — 주문 데이터 모델·B2C Commerce 주문 데이터 맵·Import/Fulfillment/Taxation·Exchanges(RMA)/Payment Sequencing
 

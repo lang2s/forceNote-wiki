@@ -221,6 +221,8 @@ List<ServiceResource> resources = [
 ## 관련 노트
 
 - [[6 Standard Objects]] — Ch6 전체 도메인 카탈로그 (상위 파일)
+- [[Salesforce Scheduler 표준객체 — 핵심 예약]] — ServiceAppointment·AssignedResource를 공유하는 Salesforce Scheduler 예약 흐름 객체
+- [[Salesforce Scheduler 표준객체 — 리소스·영역·스킬·시프트]] — ServiceResource·ServiceTerritory·OperatingHours·Skill을 공유하는 Salesforce Scheduler 리소스/영역 객체
 - [[Service Cloud Objects]] — Case·Entitlement·SLA 서비스 클라우드
 - [[Core CRM Objects]] — Account·Contact 기반 데이터
 - [[B2B Commerce Objects]] — ProductItem·ProductRequest 공용

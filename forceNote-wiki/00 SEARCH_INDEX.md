@@ -24,6 +24,7 @@ created: 2026-05-17
 | 릴리즈 노트 — Spring/Summer/Winter (v59~v67) | `_index/release.md` | 릴리즈별 변경 |
 | sObject Reference — Field 타입·Object 그룹·Associated Objects·Custom Objects·Object Interfaces·표준 Object 카탈로그 | `_index/sobject-reference.md` | Object Reference v67.0 |
 | Service Cloud · Knowledge — 데이터모델·SOAP/REST/Metadata/UI API·아티클·데이터카테고리 | `_index/service.md` | Service(서비스)/ 폴더 전반 |
+| Salesforce Scheduler · Lightning Scheduler — 예약(appointment) 스케줄링: 표준/커스텀 객체·Platform Events·Metadata·Business(REST/Connect) API·ConnectApi.LightningScheduler Apex·커스텀 예약 시나리오 | `_index/scheduler.md` | Scheduler(스케줄러)/ 폴더 전반 (Salesforce Scheduler Developer Guide v67.0, 12노트) |
 | Security · 시큐어 코딩 — XSS·SQLi·CSRF·Redirect·TLS·민감데이터·CRUD/FLS·Lightning보안·세션/브라우저통신·MC API·FAQ | `_index/security.md` | Security(보안)/ 폴더 전반 (Secure Coding Guide) |
 | CPQ · 견적 — Salesforce CPQ(`SBQQ`) API 모델·Quote/Config/Contract API·기타 API·플러그인(JSQCP·9종) | `_index/cpq.md` | CPQ(견적)/ 폴더 전반 (CPQ Developer Guide, managed package — RLM과 별개) |
 | Analytics · CRM Analytics · 리포트/대시보드 REST — Data Prep Recipe REST API(노드 Input·Response·Enum) + Reports and Dashboards REST API(reports·dashboards·folders·notifications·표현형) | `_index/analytics.md` | Analytics(애널리틱스)/ 폴더 전반 (Data Prep Recipe REST API Summer '26 + Reports and Dashboards REST API v67.0) |
