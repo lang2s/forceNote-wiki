@@ -46,3 +46,12 @@ created: 2026-06-23
 | 키워드 | 파일 |
 |---|---|
 | Field Service Mobile, FS Mobile LWC, Field Service LWC, Deep Linking, Plug-Ins, BarcodeScanner, AR SpaceCapture, Document Builder LWC, offline, mobile capabilities, 현장서비스 모바일 앱, 딥링킹, 바코드 스캐너, 공간 캡처, 도큐먼트 빌더, Field Service 모바일에서 LWC 어떻게 개발, FS 모바일 플러그인, 오프라인 모바일 워커 컴포넌트 | `FieldService(현장서비스)/Field Service Mobile App (LWC).md` |
+
+## 객체 레퍼런스 (필드 전수)
+
+| 키워드 | 파일 |
+|---|---|
+| ServiceAppointment, AssignedResource, AssociatedLocation, Address, ServiceAppointmentStatus, 서비스 예약, 배정 리소스, 연결된 위치, 주소 객체, ServiceAppointment 필드, AssignedResource 필드, 서비스 약속 객체 필드가 뭐야, 리소스 배정 객체 필드, 현장서비스 예약 SOAP 객체 | `FieldService(현장서비스)/객체 레퍼런스 — Service Appointment·Resource.md` |
+| Asset, AssetWarranty, AssetRelationship, AssetAttribute, AssetDowntimePeriod, AssetAccountParticipant, AssetContactParticipant, AttributeDefinition, AttributePicklist, AttributePicklistValue, WarrantyTerm, ProductWarrantyTerm, 자산, 보증, 자산 속성, 보증 조건, 자산 다운타임, Asset 필드, AssetWarranty 필드, WarrantyTerm 필드, 자산 객체 필드가 뭐야, 보증 조건 객체 필드 | `FieldService(현장서비스)/객체 레퍼런스 — Asset·Attribute·Warranty.md` |
+| ServiceContract, ContractLineItem, ContractLineOutcome, ContractLineOutcomeData, Entitlement, EntityMilestone, 서비스 계약, 계약 라인 항목, 엔타이틀먼트, 객체 마일스톤, ServiceContract 필드, Entitlement 필드, 서비스 계약 객체 필드가 뭐야, 엔타이틀먼트 마일스톤 객체 필드 | `FieldService(현장서비스)/객체 레퍼런스 — Service Contract·Entitlement·Milestone.md` |
+| ApptBundlePolicy, ApptBundleAggrPolicy, ApptBundleAggrDurDnscale, ApptBundleConfig, ApptBundlePropagatePolicy, ApptBundleRestrictPolicy, ApptBundleSortPolicy, ApptBundlePolicySvcTerr, Appointment Bundling 객체, 예약 번들, 번들 정책, 번들 집계 정책, 번들 정렬 정책, ApptBundlePolicy 필드, appointment bundling 정책 객체 필드가 뭐야, 번들 정책 객체 구조 | `FieldService(현장서비스)/객체 레퍼런스 — Appointment Bundling.md` |

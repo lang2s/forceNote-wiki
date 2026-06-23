@@ -22,6 +22,15 @@ created: 2026-06-23
 | [[Field Service Custom Triggers·Code Examples]] | managed package 24개 트리거 동작 가이드(전수) + Apex 코드 예제 4개(서비스 리포트·작업오더 생성·디스패처 콘솔 커스텀 액션 등) | #field-service #apex-trigger |
 | [[Field Service Mobile App (LWC)]] | 모바일 앱 LWC 개발·디버그, Document Builder 커스텀 컴포넌트·딥링킹·플러그인(바코드 스캐너·AR SpaceCapture) | #field-service #mobile #lwc |
 
+### 객체 레퍼런스 (필드 전수)
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[객체 레퍼런스 — Service Appointment·Resource\|객체 레퍼런스 — Service Appointment·Resource]] | Address·AssignedResource·AssociatedLocation·ServiceAppointment·ServiceAppointmentStatus 5개 객체 필드 전수 (약속·리소스 배정·위치 연결) | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Asset·Attribute·Warranty\|객체 레퍼런스 — Asset·Attribute·Warranty]] | Asset·AssetWarranty·AssetRelationship·AttributeDefinition·WarrantyTerm 등 자산·속성·보증 12개 객체 필드 전수 | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Service Contract·Entitlement·Milestone\|객체 레퍼런스 — Service Contract·Entitlement·Milestone]] | ServiceContract·ContractLineItem·Entitlement·EntityMilestone 등 서비스 계약·엔타이틀먼트·마일스톤 6개 객체 필드 전수 | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Appointment Bundling\|객체 레퍼런스 — Appointment Bundling]] | ApptBundlePolicy 허브 중심 집계·전파·제한·정렬·서비스영역 정책 8개 객체 필드 전수 (예약 번들링) | #field-service #sobject #object-reference |
+
 ---
 
 ## 빠른 선택
@@ -33,6 +42,10 @@ created: 2026-06-23
 - Apex로 예약·스케줄링·최적화(OAAS)를 호출하고 싶다? → [[FSL Apex Namespace]]
 - managed package 트리거 동작·Apex 코드 예제가 필요하다? → [[Field Service Custom Triggers·Code Examples]]
 - 모바일 앱 LWC·딥링킹·플러그인을 개발하고 싶다? → [[Field Service Mobile App (LWC)]]
+- ServiceAppointment·AssignedResource 객체 필드가 필요하다? → [[객체 레퍼런스 — Service Appointment·Resource]]
+- Asset·AssetWarranty·WarrantyTerm 객체 필드가 필요하다? → [[객체 레퍼런스 — Asset·Attribute·Warranty]]
+- ServiceContract·Entitlement·Milestone 객체 필드가 필요하다? → [[객체 레퍼런스 — Service Contract·Entitlement·Milestone]]
+- ApptBundlePolicy 등 Appointment Bundling 정책 객체 필드가 필요하다? → [[객체 레퍼런스 — Appointment Bundling]]
 
 ---
 

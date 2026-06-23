@@ -1370,4 +1370,4 @@ System.debug(response);
 
 - [[Field Service 개요와 데이터 모델]] — Field Service 데이터 모델·오브젝트 관계(ServiceAppointment·WorkOrder·WorkOrderLineItem 등)
 - [[REST API]] — 일반 sObject CRUD·SOQL·Composite 등 표준 Salesforce REST API
-- `Field Service 번들 객체 레퍼런스` (미작성) — ApptBundlePolicy·ApptBundleConfig 등 번들링 객체 상세
+- [[객체 레퍼런스 — Appointment Bundling]] — ApptBundlePolicy·ApptBundleConfig 등 번들링 8객체 89필드 전수
