@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [apex, soql, 문법, 날짜리터럴, 집계함수, 관계쿼리, date-literal, aggregate, relationship-query]
 source: salesforce_soql_sosl.pdf p.1-94 (v67.0 Summer '26)
 updated: 2026-05-21

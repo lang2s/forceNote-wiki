@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [index, search, navigation, sobject-reference]
 created: 2026-05-22
 ---

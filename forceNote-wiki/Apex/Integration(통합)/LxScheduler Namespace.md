@@ -441,6 +441,7 @@ private class GetAppointmentCandidatesTest {
 
 ## 관련 노트
 
+- [[FSL Apex Namespace]] — ⚠️ 별개 제품. 이름이 비슷한 `FSL`(Field Service managed package) 네임스페이스 — 현장 서비스 dispatcher/mobile worker 스케줄링. `lxscheduler`(고객 약속 예약)와 혼동 주의
 - [[Salesforce Scheduler — 개요·셋업·데이터모델·인증·SOQL]] — 이 네임스페이스가 속한 Salesforce Scheduler 제품의 개요·셋업·데이터 모델·인증
 - [[Salesforce Scheduler — ConnectApi LightningScheduler Apex]] — 동일 제품의 또 다른 Apex 표면(ConnectApi LightningScheduler — 예약 생성/수정)
 - [[ExternalService Namespace]] — OpenAPI 스펙 기반 타입 안전 외부 서비스 호출

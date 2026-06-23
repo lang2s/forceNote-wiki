@@ -1,6 +1,6 @@
 ---
 tags: [apex, governor-limits, execution-context, limits, performance, soql, dml, email-limits, push-notification]
-source: developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm (Apex Developer Guide v67.0, Summer '26)
+source: developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm (Apex Developer Guide v67.0, Summer '26); salesforce_app_limits_cheatsheet.pdf (Salesforce Platform Apex Limits, v67.0 — DailyAsyncApexElasticExecutions 행)
 created: 2026-05-19
 aliases: [Governor Limits, 거버너 한도, 실행 한도, SOQL 한도, DML 한도, Heap 한도, CPU 한도, Limits 클래스, 거버너 리밋, 이메일 한도]
 ---
@@ -94,7 +94,8 @@ AppExchange 보안 리뷰를 통과한 Certified Managed Package는 자체 Per-T
 
 | 항목 | 한도 |
 |---|---|
-| 일일 비동기 Apex 실행 수 (Batch, Future, Queueable, Scheduled) | 250,000 또는 사용자 라이선스 수 × 200 중 큰 값 |
+| 일일 비동기 Apex 실행 수 (Batch, Future, Queueable, Scheduled) — `DailyAsyncApexExecutions` org 한도 | 250,000 또는 사용자 라이선스 수 × 200 중 큰 값 |
+| 일일 enqueue 가능 Queueable + Future 실행 수 (throttled rate로 처리되는 elastic executions 포함, **beta**) — `DailyAsyncApexElasticExecutions` org 한도 | 일일 비동기 Apex 실행 한도 + min(라이선스 기반 일일 비동기 한도, 1천만) — 즉 elastic 추가분은 최대 1천만 executions로 캡 |
 | 동시 장기실행 트랜잭션 (5초 초과, 동기) | licenses/100 비율 (최소 10, 최대 50) |
 | 동시 스케줄 클래스 수 | 100 (Developer Edition: 5) |
 | Batch flex queue Holding 상태 | 100 |

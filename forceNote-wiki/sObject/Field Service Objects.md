@@ -221,6 +221,8 @@ List<ServiceResource> resources = [
 ## 관련 노트
 
 - [[6 Standard Objects]] — Ch6 전체 도메인 카탈로그 (상위 파일)
+- [[Field Service 개요와 데이터 모델]] — FSL 6개 데이터 모델·오브젝트 관계도(ER) 허브. 이 카탈로그 객체들의 상호 관계
+- [[Field Service Metadata·Tooling API]] — FieldServiceMobileSettings·Skill·TimeSheetTemplate 등 FSL 설정 오브젝트의 Metadata/Tooling API 필드 레퍼런스
 - [[Salesforce Scheduler 표준객체 — 핵심 예약]] — ServiceAppointment·AssignedResource를 공유하는 Salesforce Scheduler 예약 흐름 객체
 - [[Salesforce Scheduler 표준객체 — 리소스·영역·스킬·시프트]] — ServiceResource·ServiceTerritory·OperatingHours·Skill을 공유하는 Salesforce Scheduler 리소스/영역 객체
 - [[Service Cloud Objects]] — Case·Entitlement·SLA 서비스 클라우드

@@ -127,6 +127,18 @@ Salesforce Scheduler(구 Lightning Scheduler) Developer Guide v67.0 — 적절�
 | [[Salesforce Scheduler — ConnectApi LightningScheduler Apex]] | ConnectApi.LightningScheduler, createServiceAppointment |
 | [[Salesforce Scheduler — 커스텀 예약 시나리오 (익명·단일리소스)]] | 익명 예약, 위치 우선, 단일 리소스 예약 워크플로우 |
 
+### [[FieldService(현장서비스)/index|Field Service(현장서비스)]]
+Salesforce Field Service(FSL) Developer Guide v67.0 — 멀티플랫폼·모바일 서비스 운영. 6개 데이터 모델(Core / Inventory / Preventive Maintenance / Product Service Campaign / Warranty / Pricing)과 오브젝트 관계도. (Scheduler·Service Cloud와 객체 공유)
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[Field Service 개요와 데이터 모델]] | Field Service, FSL, Work Order, Service Appointment, 6개 데이터 모델, ER 관계도 |
+| [[Field Service REST API]] | Field Service Flow, Mobile Settings, Service Report Template, Appointment Bundling REST |
+| [[Field Service Metadata·Tooling API]] | FieldServiceSettings, Skill, TimeSheetTemplate, CleanRule, ObjectMapping |
+| [[FSL Apex Namespace]] | FSL 네임스페이스 19클래스, ScheduleService, OAAS, AppointmentBookingService |
+| [[Field Service Custom Triggers·Code Examples]] | managed package 24 트리거, 디스패처 콘솔 커스텀 액션, 코드 예제 |
+| [[Field Service Mobile App (LWC)]] | 모바일 LWC, 딥링킹, 플러그인(바코드·AR SpaceCapture), Document Builder |
+
 ### [[Commerce(커머스)/index|Commerce(커머스)]]
 Salesforce Order Management — 주문 데이터 모델·B2C Commerce 주문 데이터 맵·Import/Fulfillment/Taxation·Exchanges(RMA)/Payment Sequencing
 
