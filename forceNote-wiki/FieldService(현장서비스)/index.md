@@ -30,6 +30,10 @@ created: 2026-06-23
 | [[객체 레퍼런스 — Asset·Attribute·Warranty\|객체 레퍼런스 — Asset·Attribute·Warranty]] | Asset·AssetWarranty·AssetRelationship·AttributeDefinition·WarrantyTerm 등 자산·속성·보증 12개 객체 필드 전수 | #field-service #sobject #object-reference |
 | [[객체 레퍼런스 — Service Contract·Entitlement·Milestone\|객체 레퍼런스 — Service Contract·Entitlement·Milestone]] | ServiceContract·ContractLineItem·Entitlement·EntityMilestone 등 서비스 계약·엔타이틀먼트·마일스톤 6개 객체 필드 전수 | #field-service #sobject #object-reference |
 | [[객체 레퍼런스 — Appointment Bundling\|객체 레퍼런스 — Appointment Bundling]] | ApptBundlePolicy 허브 중심 집계·전파·제한·정렬·서비스영역 정책 8개 객체 필드 전수 (예약 번들링) | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Service Resource·Crew·Skill\|객체 레퍼런스 — Service Resource·Crew·Skill]] | ServiceResource·ServiceResourceCapacity·ServiceResourceSkill·ServiceCrew·ServiceCrewMember·ResourceAbsence·ResourcePreference·Skill·SkillRequirement·TravelMode 10개 객체 필드 전수 (인적 자원·용량·스킬·크루·부재) | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Service Territory·OperatingHours·Shift\|객체 레퍼런스 — Service Territory·OperatingHours·Shift]] | OperatingHours·OperatingHoursHoliday·ServiceTerritory·ServiceTerritoryLocation·ServiceTerritoryMember·Shift·ShiftPattern·ShiftPatternEntry·ShiftTemplate·TimeSlot 10개 객체 필드 전수 (시간·영역·시프트) | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Inventory (Product·ReturnOrder·Shipment)\|객체 레퍼런스 — Inventory (Product·ReturnOrder·Shipment)]] | Pricebook2·Product2·ProductConsumed·ProductItem·ProductRequest·ProductTransfer·ReturnOrder·SerializedProduct·Shipment 등 재고관리 15개 객체 필드 전수 | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Maintenance·PSC·Location\|객체 레퍼런스 — Maintenance·PSC·Location]] | Location·MaintenanceAsset·MaintenancePlan·MaintenanceWorkRule·ProductServiceCampaign·ProductServiceCampaignItem 등 예방유지보수·제품서비스캠페인·위치 8개 객체 필드 전수 | #field-service #sobject #object-reference |
 
 ---
 
@@ -46,6 +50,10 @@ created: 2026-06-23
 - Asset·AssetWarranty·WarrantyTerm 객체 필드가 필요하다? → [[객체 레퍼런스 — Asset·Attribute·Warranty]]
 - ServiceContract·Entitlement·Milestone 객체 필드가 필요하다? → [[객체 레퍼런스 — Service Contract·Entitlement·Milestone]]
 - ApptBundlePolicy 등 Appointment Bundling 정책 객체 필드가 필요하다? → [[객체 레퍼런스 — Appointment Bundling]]
+- ServiceResource·ServiceCrew·Skill 등 인적 자원 객체 필드가 필요하다? → [[객체 레퍼런스 — Service Resource·Crew·Skill]]
+- ServiceTerritory·OperatingHours·Shift 등 시간·영역 객체 필드가 필요하다? → [[객체 레퍼런스 — Service Territory·OperatingHours·Shift]]
+- ProductItem·ReturnOrder·Shipment 등 재고관리 객체 필드가 필요하다? → [[객체 레퍼런스 — Inventory (Product·ReturnOrder·Shipment)]]
+- MaintenancePlan·ProductServiceCampaign·Location 등 예방유지보수 객체 필드가 필요하다? → [[객체 레퍼런스 — Maintenance·PSC·Location]]
 
 ---
 

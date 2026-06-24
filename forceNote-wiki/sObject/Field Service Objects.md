@@ -223,6 +223,10 @@ List<ServiceResource> resources = [
 - [[6 Standard Objects]] — Ch6 전체 도메인 카탈로그 (상위 파일)
 - [[Field Service 개요와 데이터 모델]] — FSL 6개 데이터 모델·오브젝트 관계도(ER) 허브. 이 카탈로그 객체들의 상호 관계
 - [[객체 레퍼런스 — Service Appointment·Resource]] — ServiceAppointment·AssignedResource·Address 등 예약·리소스 배정 객체의 필드 전수 상세
+- [[객체 레퍼런스 — Service Resource·Crew·Skill]] — ServiceResource·ServiceCrew·Skill·SkillRequirement·ResourceAbsence 등 인력 객체 10종의 필드 전수 상세
+- [[객체 레퍼런스 — Service Territory·OperatingHours·Shift]] — ServiceTerritory·OperatingHours·Shift·TimeSlot 등 영역·스케줄링 객체 10종의 필드 전수 상세
+- [[객체 레퍼런스 — Inventory (Product·ReturnOrder·Shipment)]] — Pricebook2·Product2·ProductItem·ProductRequest·ReturnOrder·Shipment 등 재고 객체 15종의 필드 전수 상세
+- [[객체 레퍼런스 — Maintenance·PSC·Location]] — MaintenancePlan·MaintenanceAsset·ProductServiceCampaign·Location 등 8종의 필드 전수 상세
 - [[객체 레퍼런스 — Asset·Attribute·Warranty]] — Asset·AssetAttribute·AssetWarranty·WarrantyTerm 등 자산·보증 객체의 필드 전수 상세
 - [[객체 레퍼런스 — Service Contract·Entitlement·Milestone]] — ServiceContract·Entitlement·ContractLineItem·EntityMilestone 등 계약·엔타이틀먼트 객체의 필드 전수 상세
 - [[객체 레퍼런스 — Appointment Bundling]] — ApptBundlePolicy 계열 8개 예약 번들링 정책 객체의 필드 전수 상세

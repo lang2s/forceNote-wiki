@@ -489,3 +489,5 @@ AttributePicklistValue 객체가 자식(child) 객체이고 AttributePicklist �
 - [[Field Service Objects]] — FSL 표준 객체(ServiceAppointment·WorkOrder·ServiceResource 등) 색인
 - [[FSL Apex Namespace]] — Field Service Apex 네임스페이스
 - [[Field Service REST API]] — Field Service REST 리소스(`getRelatedListInfo` 등)
+- [[객체 레퍼런스 — Maintenance·PSC·Location]] — MaintenanceAsset·ProductServiceCampaignItem이 참조하는 Asset 클러스터
+- [[객체 레퍼런스 — Inventory (Product·ReturnOrder·Shipment)]] — Asset을 참조하는 재고 객체(ReturnOrderLineItem.AssetId·SerializedProduct.AssetId)

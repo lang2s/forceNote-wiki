@@ -293,3 +293,4 @@ Customize page layouts, validation rules, and more for object milestones from th
 ## 관련 노트
 - [[Field Service 개요와 데이터 모델]]
 - [[Field Service Objects]]
+- [[객체 레퍼런스 — Maintenance·PSC·Location]] — MaintenancePlan이 참조하는 ServiceContract·ContractLineItem

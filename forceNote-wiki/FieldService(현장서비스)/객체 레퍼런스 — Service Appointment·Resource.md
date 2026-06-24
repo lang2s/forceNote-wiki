@@ -254,3 +254,6 @@ The ServiceAppointmentStatus object corresponds to the Status field. Adding a va
 ## 관련 노트
 - [[Field Service 개요와 데이터 모델]]
 - [[Field Service Objects]]
+- [[객체 레퍼런스 — Service Resource·Crew·Skill]] — AssignedResource가 참조하는 ServiceResource 본체와 Crew·Skill·결근(ResourceAbsence) 객체
+- [[객체 레퍼런스 — Service Territory·OperatingHours·Shift]] — ServiceAppointment가 참조하는 ServiceTerritory와 운영시간·교대 객체
+- [[객체 레퍼런스 — Inventory (Product·ReturnOrder·Shipment)]] — WorkOrder·Location과 교차하는 재고 객체(ProductConsumed·ProductItem 등)

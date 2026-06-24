@@ -348,8 +348,17 @@ product가 구매·설치되면 보통 **asset**으로 추적된다. work order�
 
 - [[Field Service Objects]] — Object Reference 기준 FSL 표준 오브젝트 요약 카탈로그(SOQL 예제 포함). 본 허브는 데이터 모델·관계도 관점, 보완 관계.
 
-### 형제 노트 (미작성 — cross-linker가 작성 후 wikilink로 복원)
-- `Field Service Object References`(미작성) — 표준·커스텀 오브젝트별 상세 필드 dictionary
+### Field Service Object References (객체별 상세 필드 dictionary)
+- [[객체 레퍼런스 — Service Appointment·Resource]] — ServiceAppointment·AssignedResource·Address 등 예약·배정 객체 (Core)
+- [[객체 레퍼런스 — Service Resource·Crew·Skill]] — ServiceResource·ServiceCrew·Skill·ResourceAbsence 등 인력 객체 10종 (Core)
+- [[객체 레퍼런스 — Service Territory·OperatingHours·Shift]] — ServiceTerritory·OperatingHours·Shift·TimeSlot 등 영역·스케줄링 객체 10종 (Core)
+- [[객체 레퍼런스 — Inventory (Product·ReturnOrder·Shipment)]] — Pricebook2·Product2·ProductItem·ReturnOrder·Shipment 등 재고 객체 15종 (Inventory Management·Pricing)
+- [[객체 레퍼런스 — Maintenance·PSC·Location]] — MaintenancePlan·ProductServiceCampaign·Location 등 8종 (Preventive Maintenance·Product Service Campaign)
+- [[객체 레퍼런스 — Asset·Attribute·Warranty]] — Asset·AssetAttribute·AssetWarranty·WarrantyTerm 등 자산·보증 객체 (Warranty Management·Pricing)
+- [[객체 레퍼런스 — Service Contract·Entitlement·Milestone]] — ServiceContract·Entitlement·ContractLineItem·EntityMilestone 등 계약·엔타이틀먼트 객체
+- [[객체 레퍼런스 — Appointment Bundling]] — ApptBundlePolicy 계열 8개 예약 번들링 정책 객체
+
+### 형제 노트
 - [[Field Service REST API]] — Field Service Flow / Mobile Settings / Service Report Template / Appointment Bundling REST 엔드포인트
 - [[Field Service Metadata·Tooling API]] — Metadata API(FieldServiceSettings·Skill·TimeSheetTemplate) + Tooling API(CleanRule·TimeSheetTemplate) reference
 - [[FSL Apex Namespace]] — Field Service managed package(FSL) Apex reference(19개 클래스 — scheduling·optimization·appointment booking)
