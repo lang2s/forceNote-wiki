@@ -357,6 +357,14 @@ product가 구매·설치되면 보통 **asset**으로 추적된다. work order�
 - [[객체 레퍼런스 — Asset·Attribute·Warranty]] — Asset·AssetAttribute·AssetWarranty·WarrantyTerm 등 자산·보증 객체 (Warranty Management·Pricing)
 - [[객체 레퍼런스 — Service Contract·Entitlement·Milestone]] — ServiceContract·Entitlement·ContractLineItem·EntityMilestone 등 계약·엔타이틀먼트 객체
 - [[객체 레퍼런스 — Appointment Bundling]] — ApptBundlePolicy 계열 8개 예약 번들링 정책 객체
+- [[객체 레퍼런스 — Work Order·WorkOrderLineItem·Status]] — WorkOrder·WorkOrderLineItem·OrderItem·Status 등 작업 주문 도메인 객체 (Core)
+- [[객체 레퍼런스 — WorkPlan·WorkStep·WorkType]] — WorkPlan·WorkStep·WorkType·WorkTypeGroup 등 작업 절차·템플릿 객체 (Core)
+- [[객체 레퍼런스 — WorkCapacity·RecordsetFilterCriteria]] — WorkCapacity·RecordsetFilterCriteria 등 용량·필터 기준 객체 (Core)
+- [[객체 레퍼런스 — Service Report·Layout·DigitalSignature]] — ServiceReport·ServiceReportLayout·DigitalSignature 등 서비스 리포트 객체
+- [[객체 레퍼런스 — Expense·TimeSheet]] — Expense·TimeSheet·TimeSheetEntry 등 경비·작업시간 객체
+- [[객체 레퍼런스 — Mobile·Geolocation·LinkedArticle·ObjChange]] — 모바일·지오로케이션·연결 아티클·객체 변경 추적 객체
+- [[객체 레퍼런스 — Custom Fields on Standard Objects]] — 표준 오브젝트(WorkOrder·ServiceAppointment 등)에 FSL이 추가하는 커스텀 필드 색인
+- [[객체 레퍼런스 — Supplementary Objects (History·Feed·Share)]] — History·Feed·Share 등 FSL 객체별 부속 시스템 객체
 
 ### 형제 노트
 - [[Field Service REST API]] — Field Service Flow / Mobile Settings / Service Report Template / Appointment Bundling REST 엔드포인트

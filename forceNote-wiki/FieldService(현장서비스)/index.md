@@ -34,6 +34,14 @@ created: 2026-06-23
 | [[객체 레퍼런스 — Service Territory·OperatingHours·Shift\|객체 레퍼런스 — Service Territory·OperatingHours·Shift]] | OperatingHours·OperatingHoursHoliday·ServiceTerritory·ServiceTerritoryLocation·ServiceTerritoryMember·Shift·ShiftPattern·ShiftPatternEntry·ShiftTemplate·TimeSlot 10개 객체 필드 전수 (시간·영역·시프트) | #field-service #sobject #object-reference |
 | [[객체 레퍼런스 — Inventory (Product·ReturnOrder·Shipment)\|객체 레퍼런스 — Inventory (Product·ReturnOrder·Shipment)]] | Pricebook2·Product2·ProductConsumed·ProductItem·ProductRequest·ProductTransfer·ReturnOrder·SerializedProduct·Shipment 등 재고관리 15개 객체 필드 전수 | #field-service #sobject #object-reference |
 | [[객체 레퍼런스 — Maintenance·PSC·Location\|객체 레퍼런스 — Maintenance·PSC·Location]] | Location·MaintenanceAsset·MaintenancePlan·MaintenanceWorkRule·ProductServiceCampaign·ProductServiceCampaignItem 등 예방유지보수·제품서비스캠페인·위치 8개 객체 필드 전수 | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Work Order·WorkOrderLineItem·Status\|객체 레퍼런스 — Work Order·WorkOrderLineItem·Status]] | WorkOrder·WorkOrderLineItem·WorkOrderLineItemStatus·WorkOrderStatus 4개 객체 필드 전수 (작업지시·라인항목·상태) | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — WorkPlan·WorkStep·WorkType\|객체 레퍼런스 — WorkPlan·WorkStep·WorkType]] | WorkPlan·WorkPlanSelectionRule·WorkPlanTemplate·WorkStep·WorkStepStatus·WorkStepTemplate·WorkType·WorkTypeGroup·WorkTypeGroupMember 등 10개 객체 필드 전수 (작업계획·작업단계·작업유형) | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Service Report·Layout·DigitalSignature\|객체 레퍼런스 — Service Report·Layout·DigitalSignature]] | ServiceReport·ServiceReportLayout·DigitalSignature 3개 객체 필드 전수 (서비스 리포트·레이아웃·전자서명) | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Expense·TimeSheet\|객체 레퍼런스 — Expense·TimeSheet]] | Expense·ExpenseReport·ExpenseReportEntry·TimeSheet·TimeSheetEntry 5개 객체 필드 전수 (경비·경비보고서·타임시트) | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — WorkCapacity·RecordsetFilterCriteria\|객체 레퍼런스 — WorkCapacity·RecordsetFilterCriteria]] | WorkCapacityAvailability·WorkCapacityLimit·WorkCapacityUsage·RecordsetFilterCriteria·RecordsetFilterCriteriaRule·RecordsetFltrCritMonitor 6개 객체 필드 전수 (작업가용량·레코드셋 필터) | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Mobile·Geolocation·LinkedArticle·ObjChange\|객체 레퍼런스 — Mobile·Geolocation·LinkedArticle·ObjChange]] | AppExtension·FieldServiceMobileSettings·MobileSettingsAssignment·GeolocationBasedAction·LinkedArticle·FldSvcObjChg·FldSvcObjChgDtl 7개 객체 필드 전수 (모바일 설정·지오로케이션·연결 지식문서·객체변경) | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Custom Fields on Standard Objects\|객체 레퍼런스 — Custom Fields on Standard Objects]] | FS 관리패키지가 9개 표준객체(AssignedResource·ResourceAbsence·ServiceAppointment·ServiceResource·ServiceResourceCapacity·ServiceTerritory·TimeSlot·WorkOrder·WorkOrderLineItem)에 추가하는 FSL__ 커스텀필드 전수 | #field-service #sobject #object-reference |
+| [[객체 레퍼런스 — Supplementary Objects (History·Feed·Share)\|객체 레퍼런스 — Supplementary Objects (History·Feed·Share)]] | History·Feed·Share·OwnerSharingRule 패턴 57개 보조객체 목록 | #field-service #sobject #object-reference |
 
 ---
 
@@ -54,6 +62,14 @@ created: 2026-06-23
 - ServiceTerritory·OperatingHours·Shift 등 시간·영역 객체 필드가 필요하다? → [[객체 레퍼런스 — Service Territory·OperatingHours·Shift]]
 - ProductItem·ReturnOrder·Shipment 등 재고관리 객체 필드가 필요하다? → [[객체 레퍼런스 — Inventory (Product·ReturnOrder·Shipment)]]
 - MaintenancePlan·ProductServiceCampaign·Location 등 예방유지보수 객체 필드가 필요하다? → [[객체 레퍼런스 — Maintenance·PSC·Location]]
+- WorkOrder·WorkOrderLineItem·상태 객체 필드가 필요하다? → [[객체 레퍼런스 — Work Order·WorkOrderLineItem·Status]]
+- WorkPlan·WorkStep·WorkType 등 작업계획·단계·유형 객체 필드가 필요하다? → [[객체 레퍼런스 — WorkPlan·WorkStep·WorkType]]
+- ServiceReport·전자서명(DigitalSignature) 객체 필드가 필요하다? → [[객체 레퍼런스 — Service Report·Layout·DigitalSignature]]
+- Expense·TimeSheet 등 경비·타임시트 객체 필드가 필요하다? → [[객체 레퍼런스 — Expense·TimeSheet]]
+- WorkCapacity·RecordsetFilterCriteria 등 작업가용량·필터 객체 필드가 필요하다? → [[객체 레퍼런스 — WorkCapacity·RecordsetFilterCriteria]]
+- 모바일 설정·지오로케이션·LinkedArticle·객체변경 객체 필드가 필요하다? → [[객체 레퍼런스 — Mobile·Geolocation·LinkedArticle·ObjChange]]
+- 표준객체에 추가되는 FSL__ 관리패키지 커스텀필드가 필요하다? → [[객체 레퍼런스 — Custom Fields on Standard Objects]]
+- History·Feed·Share 등 보조객체 전체 목록이 필요하다? → [[객체 레퍼런스 — Supplementary Objects (History·Feed·Share)]]
 
 ---
 

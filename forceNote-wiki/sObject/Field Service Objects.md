@@ -230,6 +230,14 @@ List<ServiceResource> resources = [
 - [[객체 레퍼런스 — Asset·Attribute·Warranty]] — Asset·AssetAttribute·AssetWarranty·WarrantyTerm 등 자산·보증 객체의 필드 전수 상세
 - [[객체 레퍼런스 — Service Contract·Entitlement·Milestone]] — ServiceContract·Entitlement·ContractLineItem·EntityMilestone 등 계약·엔타이틀먼트 객체의 필드 전수 상세
 - [[객체 레퍼런스 — Appointment Bundling]] — ApptBundlePolicy 계열 8개 예약 번들링 정책 객체의 필드 전수 상세
+- [[객체 레퍼런스 — Work Order·WorkOrderLineItem·Status]] — WorkOrder·WorkOrderLineItem·OrderItem·Status 등 작업 주문 도메인 객체의 필드 전수 상세
+- [[객체 레퍼런스 — WorkPlan·WorkStep·WorkType]] — WorkPlan·WorkStep·WorkType·WorkTypeGroup 등 작업 절차·템플릿 객체의 필드 전수 상세
+- [[객체 레퍼런스 — WorkCapacity·RecordsetFilterCriteria]] — WorkCapacity·RecordsetFilterCriteria 등 용량·필터 기준 객체의 필드 전수 상세
+- [[객체 레퍼런스 — Service Report·Layout·DigitalSignature]] — ServiceReport·ServiceReportLayout·DigitalSignature 등 서비스 리포트 객체의 필드 전수 상세
+- [[객체 레퍼런스 — Expense·TimeSheet]] — Expense·TimeSheet·TimeSheetEntry 등 경비·작업시간 객체의 필드 전수 상세
+- [[객체 레퍼런스 — Mobile·Geolocation·LinkedArticle·ObjChange]] — 모바일·지오로케이션·연결 아티클·객체 변경 추적 객체의 필드 전수 상세
+- [[객체 레퍼런스 — Custom Fields on Standard Objects]] — 표준 오브젝트에 FSL이 추가하는 커스텀 필드 색인
+- [[객체 레퍼런스 — Supplementary Objects (History·Feed·Share)]] — History·Feed·Share 등 FSL 객체별 부속 시스템 객체의 필드 전수 상세
 - [[Field Service Metadata·Tooling API]] — FieldServiceMobileSettings·Skill·TimeSheetTemplate 등 FSL 설정 오브젝트의 Metadata/Tooling API 필드 레퍼런스
 - [[Salesforce Scheduler 표준객체 — 핵심 예약]] — ServiceAppointment·AssignedResource를 공유하는 Salesforce Scheduler 예약 흐름 객체
 - [[Salesforce Scheduler 표준객체 — 리소스·영역·스킬·시프트]] — ServiceResource·ServiceTerritory·OperatingHours·Skill을 공유하는 Salesforce Scheduler 리소스/영역 객체

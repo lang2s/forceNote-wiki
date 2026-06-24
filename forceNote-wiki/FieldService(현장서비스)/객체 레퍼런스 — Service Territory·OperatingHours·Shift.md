@@ -377,3 +377,4 @@ Field Service, Salesforce Scheduler, Workforce Engagement에서 작업이 수행
 - [[Field Service Objects]] — Field Service 표준 객체 전체 카탈로그
 - [[객체 레퍼런스 — Service Appointment·Resource]] — ServiceResource·ServiceAppointment 등 인접 객체
 - [[객체 레퍼런스 — Service Resource·Crew·Skill]] — ServiceTerritoryMember·Shift가 참조하는 ServiceResource 본체와 인력 객체
+- [[객체 레퍼런스 — Custom Fields on Standard Objects]] — 관리패키지가 ServiceTerritory·TimeSlot에 추가하는 FSL__ 커스텀필드

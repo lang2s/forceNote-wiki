@@ -336,3 +336,4 @@ Field Service, Omni-Channel, Salesforce Scheduler, 또는 Workforce Engagement�
 - [[객체 레퍼런스 — Asset·Attribute·Warranty]] — 자산·속성·워런티 객체
 - [[객체 레퍼런스 — Service Contract·Entitlement·Milestone]] — 서비스 계약·엔타이틀먼트 객체
 - [[객체 레퍼런스 — Appointment Bundling]] — 약속 번들링 객체
+- [[객체 레퍼런스 — Custom Fields on Standard Objects]] — 관리패키지가 ServiceResource·ResourceAbsence·ServiceResourceCapacity에 추가하는 FSL__ 커스텀필드
