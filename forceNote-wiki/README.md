@@ -5,25 +5,34 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 
 ---
 
-## 현황 (2026-06-14 기준)
+## 현황 (2026-06-27 기준)
 
 | 섹션 | 노트 수 | 상태 |
 |---|---|---|
-| LWC (SLDS 27 포함) | 132 | ✅ BaseComponents 66 + SLDS 디자인시스템 + 패턴 |
-| Apex | 110 | ✅ 네임스페이스 레퍼런스 + 패턴 |
-| DevOps(데브옵스) | 74 | ✅ 2GP 시리즈 + Metadata API |
-| sObject | 37 | ✅ 표준 오브젝트·관계·필드 |
-| Architecture(아키텍처) | 18 | ✅ 플랫폼·공유·레코드 액세스 |
+| AgentSkills(에이전트스킬) | 352 | ✅ sf-skills 85 + refs 252 + sf-mcp 10 + 샘플·Starter Kit 5 |
+| LWC (SLDS·Internals 포함) | 160 | ✅ BaseComponents 66 + SLDS 디자인시스템 + 패턴 |
+| Apex | 124 | ✅ 네임스페이스 레퍼런스 + 패턴 |
+| DevOps(데브옵스) | 84 | ✅ DX·2GP 시리즈·Metadata API·DevOps Center |
+| Release | 61 | ✅ 9개 릴리즈 (Winter '24 ~ Summer '26) |
+| sObject | 38 | ✅ 표준 오브젝트·관계·필드 |
+| Service(서비스) | 30 | ✅ Omni-Channel·Lightning Flow for Service 등 |
+| Architecture(아키텍처) | 23 | ✅ 플랫폼·공유·레코드 액세스 |
+| FieldService(현장서비스) | 22 | ✅ Field Service Developer Guide 전수 |
+| Analytics(애널리틱스) | 21 | ✅ Reports/Dashboards·Data Prep Recipe REST API |
+| Visualforce(비주얼포스) | 16 | ✅ 개념 + 표준 컴포넌트 레퍼런스 전수 |
+| Security(보안) | 15 | ✅ LWS·CSP·Experience Cloud 보안 등 |
 | Flow | 15 | ✅ 완료 |
-| Release | 9 | ✅ Winter '24 ~ Summer '26 |
+| Scheduler(스케줄러) | 12 | ✅ Salesforce Scheduler Developer Guide 전수 |
 | Integration(통합) | 8 | ✅ REST·Bulk·Actions·Named Credential 등 |
-| Admin(어드민) | 3 | 🟡 선언적 어드민 일부 (Data Loader 등) |
-| Aura(오라) | 3 | ✅ 완료 |
-| **합계** | **409** | |
+| Aura(오라) | 7 | ✅ 완료 |
+| CPQ(견적) | 6 | ✅ CPQ Developer Guide 전수 |
+| Admin(어드민) | 4 | 🟡 선언적 어드민 일부 (Data Loader 등) |
+| Commerce(커머스) | 4 | ✅ Order Management |
+| **합계** | **~1,000** | |
 
-> 노트 수치의 단일 출처는 이 표입니다. 트리의 폴더별 수치는 참고용.
+> 노트 수치는 index.md·MOC 같은 탐색 파일을 제외한 콘텐츠 노트 기준(2026-06-27 집계). 트리의 폴더별 수치는 참고용.
 
-> Apex 레퍼런스 네임스페이스 커버리지 **~93%** (~70개 중 63개, 핵심 전부 커버). 누락·우선순위는 `_MOC/WORK_BACKLOG.md` "C — 커버리지 재산출" 참조.
+> Apex 레퍼런스 네임스페이스 커버리지 **~93%** (~70개 중 63개, 핵심 전부 커버). 누락·우선순위는 `_MOC/WORK_BACKLOG.md` 참조.
 
 ---
 
@@ -92,10 +101,11 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 
 | 항목 | 상태 |
 |---|---|
-| [agent-script-recipes](https://github.com/trailheadapps/agent-script-recipes) — Agentforce 패턴 | 🔲 |
-| [ebikes-lwc](https://github.com/trailheadapps/ebikes-lwc) — Experience Cloud | 🔲 |
-| `Agentforce/` 섹션 신설 | 🔲 |
-| 누락 네임스페이스 6개 (DataRetrieval 등) — `WORK_BACKLOG.md` C-01~C-06 | 🔲 |
+| 대형 PDF 미위키화 — api_tooling·extend_click_automate·Connect REST (분할 전략 선결) | 🔲 |
+| ADMIN 갭 (Approval·Formula·Profiles 등 선언적 어드민 how-to) — 공식 Admin PDF 확보 시 | 🔲 |
+| 누락 네임스페이스 6개 (DataRetrieval 등) — `WORK_BACKLOG.md` 참조 | 🔲 |
+
+> 상세한 열린 항목·게이트 조건은 `_MOC/WORK_BACKLOG.md`(정본)를 참조.
 
 ---
 
@@ -105,8 +115,8 @@ Salesforce 공식 오픈소스 프로젝트 + 공식 PDF 문서를 직접 분석
 forceNote-wiki/
 ├── 00 Home.md              ← 전체 진입점
 ├── 00 SEARCH_INDEX.md      ← 키워드 라우터 (도메인 → 샤드)
-├── _index/                 ← 키워드 검색 샤드 9개
-├── Apex/                   ← 110개 노트 (네임스페이스 레퍼런스 포함)
+├── _index/                 ← 키워드 검색 샤드 25개 (도메인별 + agent-skills-refs 7)
+├── Apex/                   ← 124개 노트 (네임스페이스 레퍼런스 포함)
 │   ├── Security(보안)/         Safely, CanTheUser, Auth Namespace, WITH USER_MODE
 │   ├── Async(비동기)/          Future, Queueable, Batch, Scheduled
 │   ├── Data(데이터)/           SOQL, DML, Database NS, Search NS, FormulaEval, Reports NS
@@ -120,7 +130,7 @@ forceNote-wiki/
 │   ├── PlatformEvents(플랫폼이벤트)/ Platform Event, CDC, Publish Callbacks
 │   ├── PlatformCache(플랫폼캐시)/   Platform Cache
 │   └── Messaging(메시징)/      SingleEmailMessage, CustomNotification
-├── LWC/                    ← 132개 노트
+├── LWC/                    ← 160개 노트
 │   ├── ApexIntegration(Apex통합)/  Wire, Imperative 호출
 │   ├── BaseComponents(베이스컴포넌트)/ 66개 컴포넌트 상세 레퍼런스
 │   ├── SLDS(디자인시스템)/        27개 디자인시스템 노트
@@ -134,12 +144,22 @@ forceNote-wiki/
 │   ├── Testing(테스트)/           Jest 테스트
 │   └── Security(보안)/            customPermission, CSP, DOM XSS
 ├── Flow/                   ← 15개 노트
-├── Architecture(아키텍처)/  ← 18개 노트 (System/Schema/ApexPages/Site/Canvas NS, Governor Limits, 서비스 레이어 등)
-├── DevOps(데브옵스)/        ← 74개 노트 (DX 개요, Scratch Org, Unlocked Package, CI/CD, 2GP 시리즈, Metadata API 등)
+├── Architecture(아키텍처)/  ← 23개 노트 (System/Schema/ApexPages/Site/Canvas NS, Governor Limits, 서비스 레이어 등)
+├── DevOps(데브옵스)/        ← 84개 노트 (DX 개요, Scratch Org, Unlocked Package, CI/CD, 2GP 시리즈, Metadata API, DevOps Center)
+│   └── DevOpsCenter(데브옵스센터)/  DevOps Center 데이터 모델·객체 레퍼런스·플랫폼 이벤트 (6노트)
+├── AgentSkills(에이전트스킬)/ ← 352개 노트 (sf-skills 85 + refs 252 + sf-mcp 10 + 샘플·Starter Kit)
+├── Service(서비스)/         ← 30개 노트 (Omni-Channel, Lightning Flow for Service 등)
+├── FieldService(현장서비스)/ ← 22개 노트 (Field Service Developer Guide 전수)
+├── Analytics(애널리틱스)/    ← 21개 노트 (Reports/Dashboards·Data Prep Recipe REST API)
+├── Visualforce(비주얼포스)/  ← 16개 노트 (개념 + 표준 컴포넌트 레퍼런스 전수)
+├── Security(보안)/          ← 15개 노트 (LWS, CSP, Experience Cloud 보안 등)
+├── Scheduler(스케줄러)/      ← 12개 노트 (Salesforce Scheduler Developer Guide 전수)
 ├── Integration(통합)/      ← 8개 노트 (Named Credential, CSP/RemoteSite, Queueable+Callout, Platform Event 등)
-├── Aura(오라)/             ← 3개 노트
-├── Admin(어드민)/          ← 3개 노트
-└── Release/                ← 9개 노트 (9개 릴리즈 완료)
+├── Aura(오라)/             ← 7개 노트
+├── CPQ(견적)/              ← 6개 노트 (CPQ Developer Guide 전수)
+├── Admin(어드민)/          ← 4개 노트
+├── Commerce(커머스)/        ← 4개 노트 (Order Management)
+└── Release/                ← 61개 노트 (9개 릴리즈 완료)
 ```
 
 ---
@@ -159,7 +179,7 @@ forceNote-wiki/
 |---|---|---|
 | 0 | `00 Home.md` | 전체 진입점 |
 | 1 | `00 SEARCH_INDEX.md` | **라우터** — 도메인 → 샤드 매핑 (개별 페이지 나열 X) |
-| 2 | `_index/{도메인}.md` | 키워드 → 파일 경로 샤드 9개 (frontend·frontend-basecomponents·apex-core·apex-namespaces·platform·platform-devops·release·questions·sobject-reference) |
+| 2 | `_index/{도메인}.md` | 키워드 → 파일 경로 샤드 25개 (frontend·frontend-basecomponents·visualforce·apex-core·apex-namespaces·platform·platform-devops·platform-devops-2gp·release·sobject-reference·service·scheduler·field-service·cpq·analytics·security·agent-skills·agent-skills-refs-{7}·questions) |
 | 2 | `*/MOC.md` | 섹션 목차 (사람용 브라우즈) |
 | 3 | `*/index.md` | 폴더 로컬 인덱스 |
 | 4 | 개별 `.md` | 패턴 상세 |

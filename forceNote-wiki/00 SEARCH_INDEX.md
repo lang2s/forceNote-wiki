@@ -18,7 +18,8 @@ created: 2026-05-17
 | LWC 베이스 컴포넌트 — lightning-* 개별 컴포넌트 레퍼런스 | `_index/frontend-basecomponents.md` | `LWC/BaseComponents(베이스컴포넌트)/` 개별 페이지 |
 | Visualforce — 개념·컨트롤러·동적 VF·JS Remoting·베스트 프랙티스·`apex:`/비-`apex:` 표준 컴포넌트(레거시 UI) | `_index/visualforce.md` | Visualforce(비주얼포스)/ 폴더 전반 (Visualforce Developer Guide v67.0, 16노트) |
 | Apex 언어/코어 — 데이터·SOQL/SOSL·비동기·보안·테스트·System·Schema·트리거·컬렉션·한도·표준클래스 | `_index/apex-core.md` | Apex 개발 핵심 |
-| Apex 네임스페이스 — 통합/HTTP·Commerce·Industries·Metadata | `_index/apex-namespaces.md` | 통합 및 산업 네임스페이스 |
+| Apex 네임스페이스 — 통합/HTTP·Commerce·Industries·Metadata | `_index/apex-namespaces.md` | 통합 및 산업 네임스페이스 (Order Management 섹션 포함 — 아래 Commerce 행 참조) |
+| Commerce · Order Management(주문 관리) · B2C Commerce — Salesforce Order Management(SOM): OrderSummary·FulfillmentOrder·OrderItemSummary 데이터 모델 · B2C Commerce Storefront 주문 데이터 맵(XSD 매핑) · Import/Fulfillment/Taxation(주문 가져오기·이행·세금) · Exchanges(RMA 교환)/Payment Sequencing | `_index/apex-namespaces.md` | `Commerce(커머스)/` 폴더 4노트 — 샤드 내 "Order Management — B2C Commerce" 섹션. 자연어 질문은 `_index/questions.md` |
 | Architecture · Admin · Integration(플랫폼) | `_index/platform.md` | VF·Sites·Canvas·AppLauncher·VisualEditor·Enhanced Domains·Admin·외부연동 등 (DevOps/DX 제외) |
 | 플랫폼 DevOps / DX — Salesforce DX · Scratch Org · Sandbox · Source Tracking · DX 인증 · CI/CD · Metadata API · DevOps Center (패키징 제외) | `_index/platform-devops.md` | `DevOps(데브옵스)/` 폴더 — DX 코어·Metadata API·DevOps Center |
 | 플랫폼 DevOps 패키징 — Unlocked Package · 2GP Managed Package · 컴포넌트 Manageability Rules · Push Upgrade · AppExchange · LMA · Feature Management App · App Analytics | `_index/platform-devops-2gp.md` | `DevOps(데브옵스)/` 폴더 — 패키징(2GP/Unlocked) 클러스터 (platform-devops.md에서 분할) |

@@ -194,6 +194,18 @@ Salesforce DX — 소스 중심 개발, Scratch Org, Unlocked Package, CI/CD
 | [[CI CD 패턴]] | Jenkins, CircleCI, JWT 인증 자동화 |
 | [[2GP — Prepare to Distribute]] | sf package version promote, AppExchange 등록, 코드 커버리지 75%, Installation Key |
 
+### [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/index|DevOps Center(데브옵스 센터)]]
+Salesforce DevOps Center 매니지드 패키지 객체 데이터 모델(Developer Guide v67.0) — Project 최상위 계층·Work Item/프로모션·Heroku 기반 비동기 작업·사용자 변경 추적·플랫폼 이벤트 전수 레퍼런스 (개요 1 + 객체 레퍼런스 4 + User 필드·플랫폼 이벤트 1, 총 6노트)
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[DevOps Center 데이터 모델 개요]] | Project 최상위, Heroku 비동기 동작, unbundled/bundled 프로모션, 변경 추적 개념 |
+| [[DevOps Center 객체 — 파이프라인·프로젝트·환경]] | Project·Pipeline·Pipeline Stage·Environment·Repository·VCS·Branch (7객체 55필드) |
+| [[DevOps Center 객체 — Work Item·프로모션]] | Work Item·Work Item Promote·Change Submission·Change Bundle·Deploy/Submit Component (7객체 60필드) |
+| [[DevOps Center 객체 — 비동기·결과]] | Async Operation Result·Deployment Result·Merge Result·Back Sync·VCS Synch State (5객체 41필드) |
+| [[DevOps Center 객체 — 변경 추적]] | Remote Change·Hidden Remote Change·Source Member Reference·Object Activity (4객체 30필드) |
+| [[DevOps Center — User 필드·플랫폼 이벤트]] | User GitHub_Primary_Email 커스텀 필드, 플랫폼 이벤트 5종(Deployment·Commit·Change Request·State Change) |
+
 ### [[AgentSkills(에이전트스킬)/index|AgentSkills(에이전트스킬)]]
 AI 에이전트가 사용자를 단계별로 안내하기 위해 동봉되는 `SKILL.md` 기반 절차 문서. 현재는 SLDS 2 Starter Kit에 git으로 ship되는 스킬을 다루며 다른 제품·도구로 확장될 수 있다.
 
