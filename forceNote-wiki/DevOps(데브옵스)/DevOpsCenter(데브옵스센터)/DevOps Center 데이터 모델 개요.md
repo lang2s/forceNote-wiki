@@ -305,3 +305,4 @@ unbundled와 bundled promotion 모두가 공유하는 공통 객체다.
 - [[DevOps Center 객체 — 비동기·결과]]
 - [[DevOps Center 객체 — 변경 추적]]
 - [[DevOps Center — User 필드·플랫폼 이벤트]]
+- [[checking-devops-prerequisites]] · [[recommending-devops-tests]] (sf-skill — 실행형) — DevOps Center 사전확인·테스트 스위트 추천 실행형 스킬

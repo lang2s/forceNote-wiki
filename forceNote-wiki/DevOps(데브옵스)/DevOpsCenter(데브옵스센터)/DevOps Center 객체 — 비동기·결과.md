@@ -218,3 +218,4 @@ Represents the synchronization state between DevOps Center and the source (versi
 - [[DevOps Center 객체 — Work Item·프로모션]]
 - [[DevOps Center 객체 — 변경 추적]]
 - [[DevOps Center — User 필드·플랫폼 이벤트]]
+- [[polling-test-results]] · [[running-devops-test-suite]] (sf-skill — 실행형) — 테스트 스위트 비동기 실행·결과 폴링 실행형 스킬

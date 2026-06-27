@@ -89,3 +89,4 @@ sf data query \
 - [[running-devops-test-suite]] — 실행은 이 스킬이 시작하며(retrigger 모드 포함) `runId`를 넘겨준다
 - [[managing-suite-assignments]] — 폴링 대상 실행을 만든 스위트의 스테이지 할당 관리
 - [[analyzing-test-failures]] — 완료/실패 결과에 대한 분석 처리
+- [[DevOps Center 객체 — 비동기·결과]] — Async Operation Result 객체 위키 노트

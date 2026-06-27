@@ -219,3 +219,4 @@ sf project deploy report --use-most-recent
 - [[Unlocked Package 릴리스와 설치]] — 패키지 기반 배포 모델과 비교
 - [[Apex 배포 방법]] — Apex 배포 5가지 방법 카탈로그 (이 워크플로는 Org Development Model 파이프라인)
 - [[Change Sets 배포]] — UI 기반 Change Set 배포 (이 프로그래밍 방식 워크플로의 클릭 기반 대안)
+- [[platform-metadata-deploy]] (sf-skill — 실행형) — sf CLI dry-run·CI/CD 배포 실행형 스킬

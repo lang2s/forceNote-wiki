@@ -165,3 +165,4 @@ force-app/main/default/
 - [[LWC 보안 패턴]]
 - [[서비스 레이어 패턴]]
 - [[Scoping Rules]] — 생성·조회에 Manage Sharing / View Restriction and Scoping Rules 권한 필요(권한 세트로 부여)
+- [[platform-permission-set-generate]] (sf-skill — 실행형) — PermissionSet/FLS 메타데이터 생성 실행형 스킬

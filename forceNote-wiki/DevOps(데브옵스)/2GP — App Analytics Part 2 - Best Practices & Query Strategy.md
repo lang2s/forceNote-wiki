@@ -290,3 +290,4 @@ AvailableSince=2020-04-01T18:00:00Z"
 - [[2GP — App Analytics Part 4 - Developer Cookbook]]
 - [[2GP — LMA Part 1 Get Started]]
 - [[2GP — Best Practices]]
+- [[dx-app-analytics-query]] (sf-skill — 실행형) — AppAnalyticsQueryRequest 사용량 분석 쿼리 실행형 스킬

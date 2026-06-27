@@ -114,3 +114,4 @@ Komaci ESLint finding은 `startLine`/`startColumn`/`endLine`/`endColumn`을 ESLi
 ## 관련 노트
 - [[mobile-apps-create]]
 - [[mobile-platform-native-capabilities-integrate]]
+- [[모바일 & 오프라인 (LWC)]] — Offline GraphQL·Komaci 정적분석 위키 노트

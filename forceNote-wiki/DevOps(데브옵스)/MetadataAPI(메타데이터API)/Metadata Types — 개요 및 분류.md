@@ -500,3 +500,4 @@ Metadata Coverage report에서 채널별(Metadata API, scratch org source tracki
 - [[Metadata API Utility Calls]] — describeMetadata()로 타입 목록 조회
 - [[Metadata API CRUD 호출]] — 개별 타입 CRUD
 - [[Metadata API MCP Tool]] — AI 도구로 타입 컨텍스트 조회
+- [[platform-metadata-api-context-get]] (sf-skill — 실행형) — 604개 메타타입 컨텍스트 조회 실행형 스킬

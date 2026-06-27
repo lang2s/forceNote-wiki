@@ -321,3 +321,4 @@ public static AccountWrapper getAccountWrapper(Id accountId) {
 - [[WITH USER_MODE]] — 공유 모델 인라인 키워드 (SOQL/DML)
 - [[SOQL 패턴]] — SOQL for loop, 벌크 쿼리 패턴
 - [[ApexDoc 주석 작성 가이드]] — 코드 문서화 주석 컨벤션
+- [[platform-apex-generate]] (sf-skill — 실행형) — Apex 작성·네이밍 컨벤션 실행형 스킬

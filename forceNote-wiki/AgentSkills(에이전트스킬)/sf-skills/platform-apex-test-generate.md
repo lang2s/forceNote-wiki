@@ -204,3 +204,6 @@ sf apex run test --test-level RunLocalTests --result-format human --code-coverag
 - [[platform-apex-generate]]
 - [[platform-apex-test-run]]
 - [[platform-apex-logs-debug]]
+- [[테스트 전략]] — 테스트 방법론(Positive/Negative/Bulk) 위키 노트
+- [[StubProvider]] — Stub API 모킹 패턴
+- [[HttpCalloutMock]] — HTTP 콜아웃 목 테스트

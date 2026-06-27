@@ -134,3 +134,6 @@ Salesforce CLI로 배포(→ [[platform-metadata-deploy]] 참조).
 - [[platform-custom-field-generate]]
 - [[platform-custom-tab-generate]]
 - [[platform-metadata-deploy]]
+- [[Permission Set 설계]] — 권한 세트 설계 위키 노트
+- [[Metadata Types — Security & Access]] — PermissionSet 메타타입(objectPermissions·fieldPermissions)
+- [[CanTheUser]] — 런타임 CRUD/FLS 체크

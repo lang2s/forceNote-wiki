@@ -106,4 +106,5 @@ toggleSection(event) {
 - [[SLDS 유틸리티 클래스 레퍼런스]]
 - [[SLDS 2 Starter Kit - 아이콘·모달·폼·배포]] — 블루프린트 대신 `lightning/modal`·LBC 폼을 쓰는 실전 패턴
 - [[SLDS 2 Starter Kit - UI 코딩 가이드라인]] — 블루프린트 vs LBC 결정 트리(`explore_slds_blueprints` MCP)가 포함된 UI 작성 규칙
+- [[design-systems-slds-apply]] (sf-skill — 실행형) — 블루프린트 마크업 적용 실행형 스킬
 - [[LWC MOC]]

@@ -131,3 +131,4 @@ raw API error 절대 노출 금지. 다음 응답 사용:
 - [[configuring-test-provider]]
 - [[analyzing-test-failures]]
 - [[creating-fix-work-item]]
+- [[DevOps Center 객체 — 파이프라인·프로젝트·환경]] — 파이프라인 스테이지·quality gate 객체 위키 노트

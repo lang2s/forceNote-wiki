@@ -72,3 +72,4 @@ IsvPartners.AppAnalytics.logCustomInteraction(
 
 - [[System Namespace]] — `System.UUID.randomUUID()` 생성 API
 - [[Queueable]] — `System.enqueueJob()` 비동기 잡 패턴
+- [[dx-app-analytics-query]] (sf-skill — 실행형) — ISV 패키지 App Analytics 사용량 쿼리 실행형 스킬

@@ -472,3 +472,4 @@ Callback URL도 동일하게 `http://localhost:1919/OauthRedirect`로 설정한�
 - [[DX 개발 워크플로]] — CLI 소스 파일 생성·배포·Anonymous Apex·테스트 실행·Debug Logs 전수
 - [[DX 트러블슈팅]] — org login web/jwt 오류 전수 (AuthCodeExchangeError·JwtGrantError 등)
 - [[DX MCP Server (Beta)]] — MCP 서버 사용을 위한 org 인증 전제 조건
+- [[integration-connectivity-connected-app-configure]] (sf-skill — 실행형) — Connected App/External Client App OAuth 구성 실행형 스킬

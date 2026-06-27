@@ -1095,4 +1095,5 @@ flexbox 기반 레이아웃 시스템. 가장 자주 쓰는 핵심 유틸리티�
 - [[SLDS(디자인시스템)/index|SLDS(디자인시스템) 색인]]
 - [[SLDS LWC 디자인 시스템]] — SLDS 2 개념·스타일링 훅·LWC 적용 규칙
 - [[SLDS 스타일링 훅]] — 색상/밀도 CSS 커스텀 속성
+- [[design-systems-slds-apply]] (sf-skill — 실행형) — SLDS v2 유틸리티·블루프린트 적용 실행형 스킬
 - [[LWC MOC]]

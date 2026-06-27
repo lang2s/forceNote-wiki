@@ -271,6 +271,7 @@ SAML Single Sign-On 설정. `Metadata` 타입을 extends. 서드파티 앱이 Sa
 - [[Metadata API File-Based 호출]] — Profile, PermissionSet 배포 시 package.xml
 - [[2GP — Components - Security & Access]] — 2GP 패키징 관점: ConnectedApp·CorsWhitelistOrigin·CspTrustedSite·ExternalCredential·PermissionSet 등 Manageability Rules 전수
 - [[Scoping Rules]] — RestrictionRule 타입(enforcementType=Scoping)의 필드·recordFilter 문법·API 생성 전수 본거지
+- [[platform-permission-set-generate]] (sf-skill — 실행형) — PermissionSet 메타(objectPermissions·fieldPermissions) 생성 실행형 스킬
 
 ---
 

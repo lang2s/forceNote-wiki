@@ -223,3 +223,4 @@ MyProject/
 - [[Metadata API 빌드·릴리스 워크플로]] — Org Development Model 4단계 배포 워크플로
 - [[DevOps Center]] — Git 기반 파이프라인 릴리즈 관리 도구 (Work Item·Bundle·Stage·Promote)
 - [[Apex 배포 방법]] — Apex 배포 5가지 방법 카탈로그 (VS Code/CLI는 DX 기반 2번 방법)
+- [[platform-metadata-deploy]] (sf-skill — 실행형) — sf CLI 기반 메타데이터 배포 실행형 스킬

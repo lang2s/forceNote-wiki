@@ -116,3 +116,4 @@ sf api request rest \
 - [[recommending-devops-tests]] — 새로 싱크된 스위트 중 어떤 것을 실행할지 추천
 - [[checking-devops-prerequisites]] — org·pipeline 컨텍스트 확립을 위해 먼저 로드
 - [[configuring-test-provider]] — Available 프로바이더를 처음 구성 (이 스킬은 재싱크만)
+- [[DevOps Center 객체 — 파이프라인·프로젝트·환경]] — test provider·파이프라인 객체 위키 노트

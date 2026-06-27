@@ -100,3 +100,4 @@ this.contacts = undefined;
 
 - [[Wire 패턴]]
 - [[Imperative 호출 패턴]]
+- [[experience-lwc-generate]] (sf-skill — 실행형) — wire/imperative 포함 LWC 컴포넌트 생성 실행형 스킬

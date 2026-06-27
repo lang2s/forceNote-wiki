@@ -152,3 +152,6 @@ Next step: <poll for completion / download / investigate failure>
 - [[dx-code-analyzer-run]]
 - [[platform-soql-query]]
 - [[data360-query]]
+- [[2GP — App Analytics Part 2 - Best Practices & Query Strategy]] — AppAnalyticsQueryRequest 쿼리 전략 위키 노트
+- [[2GP — App Analytics Part 4 - Developer Cookbook]] — 쿼리 쿡북 예제
+- [[IsvPartners Namespace]] — App Analytics Apex 네임스페이스

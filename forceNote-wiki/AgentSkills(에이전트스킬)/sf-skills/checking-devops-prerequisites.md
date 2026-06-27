@@ -138,3 +138,5 @@ raw API error, stack trace, JSON error payload를 사용자에게 절대 노출�
 - [[configuring-quality-gate]]
 - [[configuring-test-provider]]
 - [[creating-fix-work-item]]
+- [[DevOps Center 데이터 모델 개요]] — DevOps Center 객체 데이터 모델 위키 노트
+- [[DevOps Center 객체 — 파이프라인·프로젝트·환경]] — 파이프라인·프로젝트·환경 객체

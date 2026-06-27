@@ -395,3 +395,6 @@ abstract · batch · domain · dto · exception · interface · invocable · que
 - [[platform-apex-test-generate]]
 - [[platform-apex-test-run]]
 - [[platform-apex-logs-debug]]
+- [[Apex Best Practices]] — Apex 작성 베스트 프랙티스 (위키 패턴 노트)
+- [[Apex 언어 기초 — 제어 흐름과 클래스]] — 제어 흐름·클래스 문법 레퍼런스
+- [[Apex MOC]] — Apex 위키 섹션 전체 목차

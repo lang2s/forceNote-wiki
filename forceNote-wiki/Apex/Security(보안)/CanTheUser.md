@@ -127,4 +127,5 @@ public static Boolean flsEnabled(SObject obj, String field) {
 - [[SOAP Web Services 노출 (webservice 키워드)]] — 인바운드 SOAP 요청 CRUD/FLS 체크
 - [[Permission Set 설계]] — 권한 세트 설계와 런타임 CRUD/FLS 체크 연계
 - [[권한과 접근 제어 위협]] — CRUD/FLS·공유 우회 위협 모델 (CanTheUser가 방어하는 대상)
+- [[platform-permission-set-generate]] (sf-skill — 실행형) — 런타임 CRUD/FLS 체크 대상 권한 세트를 생성하는 실행형 스킬
 

@@ -125,3 +125,4 @@ sf project retrieve start   # org 메타데이터를 로컬로 조회
 - [[Metadata Types — 개요 및 분류]]
 - [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]] — deploy/retrieve 10,000 files·39 MB·change set·dependency retrieve 등 Metadata API 한도 전체
 - [[Winter '25/Development]] — v62.0 Apex enqueued Metadata API 배포 service protection limit + 배포 취소 속도 개선
+- [[platform-metadata-api-context-get]] (sf-skill — 실행형) — 메타데이터 타입 카탈로그 컨텍스트 조회 실행형 스킬

@@ -914,3 +914,4 @@ List<Vote> votes = [SELECT Id FROM Vote WHERE ParentId = :parentId];
 - [[SOQL SOSL 소개]] — SOQL·SOSL 기초 개념 및 사용 맥락
 - [[SOQL WITH DATA CATEGORY]] — WITH DATA CATEGORY 절 전체 문법
 - [[Syndication Feed SOQL]] — Syndication Feed 객체 SOQL 전용 문법
+- [[platform-soql-query]] (sf-skill — 실행형) — SOQL/SOSL 작성·selectivity 최적화 실행형 스킬

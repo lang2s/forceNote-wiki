@@ -144,3 +144,6 @@ predicate를 `<filterExpression>...</filterExpression>`로 감쌈. body는 `WHER
 - [[integration-eventing-subscription-configure]]
 - [[integration-connectivity-generate]]
 - [[platform-custom-object-generate]]
+- [[ChangeEventHeader]] — CDC 변경 이벤트 헤더 위키 노트
+- [[Platform Event 정의와 구독]] — PE 정의·구독 패턴
+- [[Metadata Types — Integration & Platform]] — PlatformEventChannel 메타타입

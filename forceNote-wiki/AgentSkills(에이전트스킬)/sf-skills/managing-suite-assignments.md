@@ -136,3 +136,4 @@ sf api request rest "/services/data/v67.0/connect/devopstesting/pipeline/<pipeli
 - [[running-devops-test-suite]] — 매핑된 스위트를 실제 실행할 때
 - [[configuring-quality-gate]] — 스위트 매핑 후 스테이지에 quality gate 구성
 - [[analyzing-test-failures]] — 실패 분석 및 스위트 내 테스트 개선 제안
+- [[DevOps Center 객체 — 파이프라인·프로젝트·환경]] — testSuiteStages 매핑 대상 파이프라인 객체 위키 노트

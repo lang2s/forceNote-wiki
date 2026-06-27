@@ -149,3 +149,5 @@ try {
 ## 관련 노트
 - [[mobile-apps-create]]
 - [[mobile-platform-offline-validate]]
+- [[모바일 기능 패턴]] — getBarcodeScanner·생체인증 등 mobileCapabilities 위키 노트
+- [[모바일 & 오프라인 (LWC)]] — LWC 모바일·오프라인 개발 가이드

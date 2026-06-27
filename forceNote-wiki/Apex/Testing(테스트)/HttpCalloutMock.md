@@ -163,4 +163,5 @@ static void verifyRequestFormat() {
 - [[RestClient 패턴]]
 - [[StubProvider]]
 - [[테스트 전략]]
+- [[platform-apex-test-generate]] (sf-skill — 실행형) — 콜아웃 목 포함 Apex 테스트 생성 실행형 스킬
 

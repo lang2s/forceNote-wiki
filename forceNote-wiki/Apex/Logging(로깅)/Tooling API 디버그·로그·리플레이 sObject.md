@@ -314,3 +314,4 @@ ExecuteAnonymousResult result = connection.executeAnonymous(apexCode);
 - [[Tooling API 배포]] — 같은 Tooling API의 배포 도메인(MetadataContainer·*Member). 디버그 vs 배포 경계
 - [[DX 데이터 작업]] — Salesforce CLI로 TraceFlag 레코드 생성 운영 예제
 - [[Log 싱글턴 패턴]] — Apex 로깅 프레임워크(같은 Logging 폴더 형제)
+- [[platform-apex-logs-debug]] (sf-skill — 실행형) — TraceFlag·DebugLevel·ApexLog 기반 로그 디버깅 실행형 스킬

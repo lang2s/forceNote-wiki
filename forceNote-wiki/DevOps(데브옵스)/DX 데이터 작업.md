@@ -462,3 +462,4 @@ sf data create file \
 - [[Unlocked Package 개발과 버전]] — 패키지 버전 생성 시 테스트 데이터 필요
 - [[DX 제약사항]] — data tree import 제약 (RecordType import 불가 등)
 - [[Tooling API 디버그·로그·리플레이 sObject]] — 이 노트의 `--sobject TraceFlag` CLI 예제가 다루는 TraceFlag·DebugLevel sObject 필드 정의
+- [[platform-data-manage]] (sf-skill — 실행형) — CLI data tree/bulk import·export 실행형 스킬

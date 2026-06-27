@@ -152,3 +152,6 @@ External Credential(JWT, API 61.0+ 필요) 템플릿 발췌 — JWT 인증은 `e
 - [[integration-connectivity-connected-app-configure]]
 - [[integration-eventing-cdc-configure]]
 - [[integration-eventing-subscription-configure]]
+- [[Named Credential]] — 외부 자격증명·인증 위키 노트
+- [[External Services]] — OpenAPI 기반 외부 서비스 등록
+- [[Platform Event 통합 패턴]] — PE 기반 비동기 통합 패턴

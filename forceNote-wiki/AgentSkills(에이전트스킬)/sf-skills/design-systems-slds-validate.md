@@ -181,3 +181,6 @@ false positive는 조용히 버리지 말고 "suppressed" + 정당화로 리포�
 ## 관련 노트
 - [[design-systems-slds-apply]]
 - [[design-systems-slds2-migrate]]
+- [[SLDS 개발 도구]] — Linter/Validator 도구 위키 노트
+- [[SLDS 모범 사례]] — SLDS 1 vs 2·준수 원칙
+- [[SLDS 접근성]] — 접근성(a11y) 가이드

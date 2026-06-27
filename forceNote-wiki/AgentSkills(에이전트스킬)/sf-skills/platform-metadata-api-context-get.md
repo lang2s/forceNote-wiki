@@ -112,3 +112,5 @@ jq -r '.wsdl_segment' data/metadata_api/Profile.json | grep -A 30 'complexType n
 - [[platform-custom-field-generate]]
 - [[platform-metadata-deploy]]
 - [[platform-custom-lightning-type-generate]]
+- [[Metadata Types — 개요 및 분류]] — 메타데이터 타입 카탈로그·분류 위키 노트
+- [[Metadata API 개요]] — Metadata API 전체 개념

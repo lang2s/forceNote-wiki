@@ -162,3 +162,6 @@ Verify: <test or rerun step>
 - [[platform-apex-generate]]
 - [[platform-apex-test-run]]
 - [[platform-apex-test-generate]]
+- [[Apex Debug Log]] — 디버그 로그 카테고리·레벨 위키 노트
+- [[Tooling API 디버그·로그·리플레이 sObject]] — TraceFlag·DebugLevel·ApexLog API
+- [[Governor Limits]] — 거버너 한도 추적

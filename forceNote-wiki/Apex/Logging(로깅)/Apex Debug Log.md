@@ -474,3 +474,4 @@ output header `DebuggingInfo`에 결과 debug log가 포함된다.
 - [[Tooling API 디버그·로그·리플레이 sObject]] — 같은 디버그 로그를 API/프로그래밍 방식으로 제어(TraceFlag·DebugLevel·ApexLog)
 - [[Logging(로깅)/index]]
 - [[Apex MOC]]
+- [[platform-apex-logs-debug]] (sf-skill — 실행형) — 디버그 로그 수집·분석 실행형 스킬

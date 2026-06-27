@@ -284,3 +284,4 @@ aliases: [Flow Elements, Flow XML, recordLookups, decisions, assignments]
 - [[Screen Flow 설계]]
 - [[Autolaunched Flow 패턴]]
 - [[@InvocableMethod 패턴]]
+- [[automation-flow-generate]] (sf-skill — 실행형) — Flow 메타데이터 생성(MCP) 실행형 스킬

@@ -125,3 +125,6 @@ Next step: <deploy, add controller, or run tests>
 - [[platform-apex-generate]]
 - [[platform-metadata-deploy]]
 - [[platform-flexipage-generate]]
+- [[Wire vs Imperative 선택]] — @wire vs 명령형 호출 선택 기준
+- [[uiRecordApi]] — LDS 레코드 CRUD wire 어댑터
+- [[LWC MOC]] — LWC 위키 섹션 전체 목차

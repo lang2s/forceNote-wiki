@@ -313,3 +313,4 @@ Project
 - [[DevOps Center 객체 — 변경 추적]]
 - [[DevOps Center 객체 — 비동기·결과]]
 - [[DevOps Center — User 필드·플랫폼 이벤트]]
+- [[creating-fix-work-item]] (sf-skill — 실행형) — Work Item 생성 실행형 스킬

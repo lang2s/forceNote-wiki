@@ -135,3 +135,6 @@ custom object/field 생성 → `platform-custom-object-generate`/`platform-custo
 - [[platform-custom-field-generate]]
 - [[platform-permission-set-generate]]
 - [[platform-metadata-api-context-get]]
+- [[Metadata API 빌드·릴리스 워크플로]] — Org Development Model 배포 파이프라인
+- [[Apex 배포 방법]] — Apex 배포 5가지 방법 카탈로그
+- [[Salesforce DX 개요]] — sf CLI·sfdx-project.json 기반

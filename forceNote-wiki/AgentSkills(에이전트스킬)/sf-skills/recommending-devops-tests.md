@@ -132,3 +132,4 @@ Coverage gaps (new methods — manual authoring required):
 - [[managing-suite-assignments]] — 추천 스위트를 스테이지에 할당/매핑할 때
 - [[syncing-test-providers]] — 추천 대상 신규 스위트를 provider 싱크로 끌어올 때
 - [[analyzing-test-failures]] — 실행 실패 분석
+- [[DevOps Center 데이터 모델 개요]] — 스위트 추천 대상 데이터 모델 위키 노트

@@ -102,4 +102,5 @@ export default class Accounts extends LightningElement {
 - [[Field Service Mobile App (LWC)]] — 이 가이드를 토대로 하는 Field Service 모바일 앱 특화 LWC(Document Builder·딥링킹·BarcodeScanner·AR SpaceCapture). 동반 가이드(보완 관계)
 - [[getRecord 패턴]] — LDS 데이터 (Offline Cache 기반)
 - [[Winter '25/Development]] — v62.0 Offline GraphQL pagination(top-level 쿼리) + `BarcodeScanner`의 `supportInvertedColors` 옵션
+- [[mobile-platform-native-capabilities-integrate]] · [[mobile-platform-offline-validate]] (sf-skill — 실행형) — mobileCapabilities 통합·Komaci 오프라인 검증 실행형 스킬
 - [[LWC MOC]]

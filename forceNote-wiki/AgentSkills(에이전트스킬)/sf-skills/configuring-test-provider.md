@@ -120,3 +120,4 @@ raw API error message·stack trace·JSON payload를 절대 노출하지 않음. 
 - [[configuring-quality-gate]]
 - [[analyzing-test-failures]]
 - [[syncing-test-providers]] — 최초 구성 후 provider를 재싱크해 신규 스위트를 끌어옴
+- [[DevOps Center 객체 — 파이프라인·프로젝트·환경]] — test provider·파이프라인 객체 위키 노트

@@ -217,3 +217,4 @@ External Services 등록 시 자동 생성되는 Apex 클래스 구조:
 - [[CSP와 RemoteSite]]
 - [[Queueable + Callout 패턴]]
 - [[ExternalService Namespace]]
+- [[integration-connectivity-generate]] (sf-skill — 실행형) — External Services·통합 커넥티비티 구성 실행형 스킬

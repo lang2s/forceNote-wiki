@@ -138,3 +138,4 @@ update as user decision.getRecords();
 - [[Batch Apex]] — Database.SaveResult 처리
 - [[Summer '26]] — API v67.0 DML 기본 모드 USER_MODE 변경
 - [[Summer '26/Development]] — DML 기본 user mode / `insert as user` 상세 (파괴적 변경 ①)
+- [[platform-data-manage]] (sf-skill — 실행형) — 레코드 CRUD·bulk DML 실행형 스킬

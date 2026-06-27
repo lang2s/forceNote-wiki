@@ -245,3 +245,4 @@ retrieve(), search(), undelete(), update(), upsert()
 - [[DevOps Center 객체 — 비동기·결과]]
 - [[DevOps Center 객체 — 변경 추적]]
 - [[DevOps Center — User 필드·플랫폼 이벤트]]
+- DevOps Center 운영 sf-skills (실행형): [[checking-devops-prerequisites]] · [[configuring-quality-gate]] · [[configuring-test-provider]] · [[managing-suite-assignments]] · [[syncing-test-providers]]

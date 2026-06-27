@@ -250,3 +250,4 @@ Platform Cache 파티션. `Metadata` 타입을 extends.
 - [[CI CD 패턴]] — 통합 타입 CI/CD 자동화
 - [[2GP — Components - Integration & Platform]] — 같은 타입의 2GP 패키징 동작 (Manageability Rules·Editable Properties)
 - [[Knowledge Metadata API 타입 — 데이터카테고리·검색·외부소스]] — ExternalDataSource(Salesforce Connect adapter) 등 Knowledge 통합 메타데이터 타입 상세
+- [[integration-eventing-cdc-configure]] (sf-skill — 실행형) — PlatformEventChannel(CDC) 메타데이터 구성 실행형 스킬

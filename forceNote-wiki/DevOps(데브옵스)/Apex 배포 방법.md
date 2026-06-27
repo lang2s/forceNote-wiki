@@ -175,3 +175,4 @@ DevOps Center는 변경·릴리스 관리 경험을 개선하며, 파이프라�
 - [[Tooling API 배포]] — 4번 방법 Tooling API 컨테이너 비동기 배포 워크플로(MetadataContainer · ContainerAsyncRequest · *Member)
 - [[Metadata Namespace]] — 3번 방법의 Apex `Metadata.Operations.enqueueDeployment()` API
 - [[Metadata API 빌드·릴리스 워크플로]] — Org Development Model 배포 파이프라인
+- [[platform-metadata-deploy]] (sf-skill — 실행형) — sf CLI 메타데이터 배포 실행형 스킬

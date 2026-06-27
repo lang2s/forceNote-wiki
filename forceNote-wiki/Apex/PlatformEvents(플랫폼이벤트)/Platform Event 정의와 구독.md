@@ -102,3 +102,4 @@ EventBus.TriggerContext.currentContext().setResumeCheckpoint(replayId);
 - [[Platform Event Apex 테스트]] — Test.getEventBus deliver/fail
 - [[Platform Event 한도와 고려사항]] — allocations·이벤트 종류 비교
 - [[ChangeEventHeader]] — CDC(Change Data Capture) 변경 이벤트
+- [[integration-eventing-cdc-configure]] (sf-skill — 실행형) — CDC 채널·구독 메타데이터 구성 실행형 스킬

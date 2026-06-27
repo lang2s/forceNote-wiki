@@ -189,3 +189,4 @@ Flow 변수 설계 주의사항:
 - [[@InvocableMethod 패턴]]
 - [[Flow Interview API]] — Apex에서 Flow.Interview로 Autolaunched Flow를 직접 실행하는 패턴
 - [[Flow 설계 베스트 프랙티스]] — 헤드리스 Flow 설계 원칙
+- [[automation-flow-generate]] (sf-skill — 실행형) — Autolaunched Flow 메타데이터 생성 실행형 스킬

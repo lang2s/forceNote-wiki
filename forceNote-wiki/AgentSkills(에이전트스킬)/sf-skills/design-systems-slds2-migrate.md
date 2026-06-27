@@ -216,3 +216,5 @@ Tip: 종종 `calc()`는 불필요 — 결과가 기존 hook 값과 맞는지 확
 ## 관련 노트
 - [[design-systems-slds-apply]]
 - [[design-systems-slds-validate]]
+- [[SLDS 모범 사례]] — SLDS 1 vs 2 전환 원칙 위키 노트
+- [[SLDS 스타일링 훅]] — token 교체 대상 스타일링 훅

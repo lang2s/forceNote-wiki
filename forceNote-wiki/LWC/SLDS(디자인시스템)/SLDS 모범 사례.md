@@ -95,4 +95,5 @@ SLDS 2는 세 개의 커스터마이즈 레이어를 제공합니다. **아래�
 - [[SLDS LWC 디자인 시스템]] — SLDS 2 개념·스타일링 훅·LWC 적용
 - [[SLDS 2 Starter Kit - SLDS 1·2 로더와 Shadow DOM]] — SLDS 1 vs 2 전환을 `<link media>` 토글로 구현한 실전 로더
 - [[SLDS 2 Starter Kit - UI 코딩 가이드라인]] — LBC 우선 5단계 결정 트리·스타일링 훅 시맨틱 사용 규칙(`.builderrules`)
+- [[design-systems-slds-validate]] · [[design-systems-slds2-migrate]] (sf-skill — 실행형) — SLDS 준수 감사·SLDS 1→2 마이그레이션 실행형 스킬
 - [[LWC MOC]]

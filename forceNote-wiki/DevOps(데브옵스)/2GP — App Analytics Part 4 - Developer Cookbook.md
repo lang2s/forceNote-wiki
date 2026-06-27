@@ -500,3 +500,4 @@ q = limit q 2000;
 - [[2GP — App Analytics Part 3 - Data Types & Schemas]]
 - [[2GP — LMA Part 1 Get Started]]
 - [[2GP — LMA Part 2 Troubleshoot]]
+- [[dx-app-analytics-query]] (sf-skill — 실행형) — App Analytics 쿼리 쿡북 실행형 스킬

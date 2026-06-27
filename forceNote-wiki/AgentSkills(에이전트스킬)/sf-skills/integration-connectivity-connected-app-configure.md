@@ -176,3 +176,6 @@ sf project retrieve start --metadata ExtlClntAppOauthSecuritySettings:<AppName> 
 - [[integration-connectivity-generate]]
 - [[platform-metadata-deploy]]
 - [[platform-apex-generate]]
+- [[Auth Namespace]] — JWT·OAuth·SessionManagement Apex API 위키 노트
+- [[DX 인증 방식]] — Connected App/External Client App JWT·web 로그인
+- [[2GP — Components - Security & Access]] — ConnectedApp 패키징 규칙

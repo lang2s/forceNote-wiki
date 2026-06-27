@@ -144,3 +144,6 @@ Next step: <run in platform-data-manage or embed in Apex>
 - [[platform-data-manage]]
 - [[platform-apex-generate]]
 - [[platform-apex-logs-debug]]
+- [[SOQL 문법 레퍼런스]] — SELECT 전체 문법 위키 레퍼런스
+- [[Dynamic SOQL]] — 동적 쿼리·인젝션 방어
+- [[SOQL 패턴]] — selectivity·벌크 쿼리 패턴

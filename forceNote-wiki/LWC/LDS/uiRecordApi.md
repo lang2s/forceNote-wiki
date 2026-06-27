@@ -174,3 +174,4 @@ fields['Name'] = value;
 - [[ldsUtils reduceErrors]]
 
 - [[UI API 개요]] — LDS 전체 구조, 캐시·ETag·HTTP 상태코드
+- [[experience-lwc-generate]] (sf-skill — 실행형) — LDS wire 어댑터 활용 LWC 생성 실행형 스킬

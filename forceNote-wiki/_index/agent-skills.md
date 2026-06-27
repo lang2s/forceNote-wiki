@@ -195,3 +195,4 @@ created: 2026-06-26
 | sf-skills 샘플 앱 Apex 패턴, MaintenanceRequestTriggerHandler, TenantTriggerHandler, 트리거 핸들러 패턴, headless auth, 헤드리스 인증 REST, Site 기반 로그인 가입 비밀번호, 샘플 앱 Apex 코드 어떻게 생겼나 | `AgentSkills(에이전트스킬)/sf-skills-samples/sf-skills 샘플 앱 - Apex 패턴.md` |
 | sf-skills 샘플 앱 데이터 모델, Property__c Tenant__c Lease__c, Maintenance_Request__c, 17개 커스텀 객체 127필드, 부동산 임대 스키마, 샘플 앱 커스텀 오브젝트 구조 | `AgentSkills(에이전트스킬)/sf-skills-samples/sf-skills 샘플 앱 - 데이터 모델.md` |
 | sf-skills 샘플 앱 React UI GraphQL 패턴, UI Bundle React 구조, Vite React TypeScript SPA, ui-bundle frontend, Salesforce GraphQL Data SDK 데이터 접근, tsx 컴포넌트 구조, 샘플 앱 프론트엔드 어떻게 생겼나 | `AgentSkills(에이전트스킬)/sf-skills-samples/sf-skills 샘플 앱 - React UI·GraphQL 패턴.md` |
+| sf-skill 위키 토픽 맵, 스킬 위키 디스패처, 실행형 질문 어떤 스킬 쓰나, 스킬과 겹치는 위키 노트, sf-skill ↔ 위키 패턴 매핑, 위키 미커버 스킬 도메인 갭, 스킬 실행 라우팅 | `AgentSkills(에이전트스킬)/sf-skills/스킬 ↔ 위키 토픽 맵.md` |

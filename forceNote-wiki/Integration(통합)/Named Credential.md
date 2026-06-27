@@ -140,4 +140,5 @@ ConnectApi.ExternalCredential cred =
 - [[Queueable + Callout 패턴]] — Named Credential을 사용하는 비동기 외부 호출 패턴
 - [[Secure Communications (TLS)]] — 외부 callout의 TLS·HTTPS 강제와 인증서 검증
 - [[민감 데이터 저장]] — 자격증명·토큰 등 비밀 정보 보관 위협과 secure storage
+- [[integration-connectivity-generate]] (sf-skill — 실행형) — Named/External Credential·통합 런타임 구성 실행형 스킬
 

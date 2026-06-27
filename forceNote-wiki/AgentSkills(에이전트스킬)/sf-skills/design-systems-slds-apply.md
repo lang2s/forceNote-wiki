@@ -184,3 +184,6 @@ font-size: var(--slds-g-font-scale-2, 0.875rem);
 ## 관련 노트
 - [[design-systems-slds-validate]]
 - [[design-systems-slds2-migrate]]
+- [[SLDS 유틸리티 클래스 레퍼런스]] — 유틸리티 클래스 전수 위키 노트
+- [[SLDS 스타일링 훅]] — 색상/밀도 CSS 커스텀 속성
+- [[SLDS 블루프린트 카탈로그]] — 컴포넌트 블루프린트 마크업

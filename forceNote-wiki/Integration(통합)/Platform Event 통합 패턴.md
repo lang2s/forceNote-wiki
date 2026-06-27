@@ -224,3 +224,4 @@ static void testOrderEventPublish() {
 - [[Queueable + Callout 패턴]] — 이벤트 처리 후 외부 Callout 연결
 - [[Named Credential]] — Outbound 연동
 - [[sfdc_surveys Namespace]] — Survey 응답 이벤트를 Platform Event로 발행하는 사례
+- [[integration-connectivity-generate]] (sf-skill — 실행형) — Platform Event·통합 런타임 플러밍 구성 실행형 스킬

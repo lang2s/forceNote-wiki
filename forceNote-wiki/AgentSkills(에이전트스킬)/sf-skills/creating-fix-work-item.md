@@ -90,3 +90,4 @@ raw API error message를 절대 노출하지 않음. 오류를 평이 언어로 
 ## 관련 노트
 - [[analyzing-test-failures]]
 - [[checking-devops-prerequisites]]
+- [[DevOps Center 객체 — Work Item·프로모션]] — Work Item 객체·프로모션 위키 노트

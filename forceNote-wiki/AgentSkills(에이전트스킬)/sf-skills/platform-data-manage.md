@@ -189,3 +189,6 @@ Cleanup: <exact delete or rollback guidance>
 - [[platform-soql-query]]
 - [[platform-apex-test-run]]
 - [[platform-apex-generate]]
+- [[DML 패턴]] — Bulkify DML·SaveResult 위키 노트
+- [[DX 데이터 작업]] — CLI data tree/bulk import·export
+- [[Data Loader]] — 대량 적재 GUI/CLI 도구

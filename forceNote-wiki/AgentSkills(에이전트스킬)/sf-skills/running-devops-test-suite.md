@@ -145,3 +145,4 @@ raw API 에러 세부정보를 절대 노출하지 않는다.
 - [[recommending-devops-tests]] — 실행 전 먼저 어떤 스위트를 돌릴지 추천
 - [[managing-suite-assignments]] — 스위트가 스테이지에 연결돼 있지 않으면 할당/매핑
 - [[configuring-quality-gate]] — 신규 gate나 임계값 구성
+- [[DevOps Center 객체 — 비동기·결과]] — Connect API 비동기 실행 결과 객체 위키 노트

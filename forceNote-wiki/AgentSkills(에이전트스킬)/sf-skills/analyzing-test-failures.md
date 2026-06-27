@@ -127,3 +127,4 @@ Overall: <N> improvement(s) across <M> failed test(s).
 - [[configuring-quality-gate]]
 - [[platform-apex-test-generate]]
 - [[polling-test-results]] — 완료/실패 결과를 폴링해 이 분석의 입력을 제공
+- [[테스트 전략]] — Apex 테스트 방법론·실패 시나리오 위키 노트
