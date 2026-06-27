@@ -16,6 +16,7 @@ created: 2026-06-27
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
 | [[Tooling API — 개요·REST·SOAP 호출 기초]] | When to Use·REST Overview·REST 리소스 12개·단위테스트 REST·Composite·API EOL·SOAP 호출 16개 | #overview #reference |
+| [[Tooling API — Objects and Namespaces (객체 분류)]] | WSDL 네임스페이스 4종·네임스페이스 4분류(Programming/Setup/Tooling/Operational)·객체↔네임스페이스 매핑·System Fields·SOQL/SOSL 제약·ApiFault·Tooling API Faults | #reference #namespace #soql |
 
 ---
 
@@ -25,6 +26,7 @@ created: 2026-06-27
 - REST 리소스 URI·메서드 목록? → [[Tooling API — 개요·REST·SOAP 호출 기초]] → REST Resources
 - 단위 테스트를 REST로 실행/조회? → [[Tooling API — 개요·REST·SOAP 호출 기초]] → REST Resources for Unit Testing
 - SOAP 호출 목록? → [[Tooling API — 개요·REST·SOAP 호출 기초]] → SOAP Calls
+- 네임스페이스 4분류·SOQL 제약·ApiFault가 필요하다 → [[Tooling API — Objects and Namespaces (객체 분류)]]
 - 컨테이너 기반 Apex 배포? → [[Tooling API 배포]]
 - TraceFlag·ApexLog·체크포인트 등 디버그/로그? → [[Tooling API 디버그·로그·리플레이 sObject]]
 

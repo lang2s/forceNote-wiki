@@ -59,6 +59,7 @@ created: 2026-06-15
 | 키워드 | 파일 |
 |---|---|
 | Tooling API, 툴링 API, Tooling API 개요, When to Use Tooling API, 개발 도구용 메타데이터 API, IDE 메타데이터 접근, 세밀한 메타데이터 접근, Tooling REST API, Tooling SOAP API, REST 리소스, REST Resources, SOAP Calls, SOAP 호출 16개, executeAnonymous, 익명 Apex 실행, 익명 실행, query, queryMore, runTestsAsynchronous, runTestsSynchronous, 비동기 테스트 실행, 동기 테스트 실행, REST로 단위 테스트 실행, /sobjects, /composite, Composite, composite 요청, API End of Life, API EOL, 버전 종료, Tooling API로 Apex를 어떻게 실행하나, REST로 테스트를 돌리려면, Tooling API REST와 SOAP 차이, Tooling API 언제 쓰나, Tooling API REST 리소스 목록 | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API — 개요·REST·SOAP 호출 기초.md` |
+| Tooling API Namespaces, WSDL Namespaces, Programming Objects, Setup Objects, Tooling Objects, Operational Objects, 네임스페이스 4분류, 네임스페이스 분류, 객체 분류, 객체 네임스페이스 매핑, System Fields, 시스템 필드, CreatedById LastModifiedById SystemModstamp, SOQL Operation Limitations, SOSL Operation Limitations, SOQL 제약, SOSL 제약, GROUP BY 미지원, aggregate function 제약, 활성 org CRUD 제약, ApiFault, Tooling API Faults, API fault element, exceptionCode exceptionMessage, Tooling API 객체는 어떤 네임스페이스로 나뉘나, Tooling API 네임스페이스 4분류가 뭔가, Tooling API에서 GROUP BY가 안 되나, Tooling API SOQL 제약이 뭔가, Tooling API 공통 시스템 필드, Tooling API 오류 응답 ApiFault | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API — Objects and Namespaces (객체 분류).md` |
 
 ## DevOps — Metadata API
 

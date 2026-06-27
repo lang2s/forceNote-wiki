@@ -88,7 +88,7 @@ updated: 2026-06-27
 | ING-13b | salesforce_chatter_rest_api (2350, **분할 필요**) = **Connect REST API Developer Guide** (v67.0 Summer '26) | Chatter/Connect/Integration | 🔲 대기 — ★ 분리(2026-06-18 내용확인): 파일명과 달리 Connect REST API(Chatter 피드·커뮤니티 등 수백 리소스). **2,350p 초대형 → 단일 파이프라인 불가, DEC-1식 도메인 분할 전략 선결 필요**. 별도 대형 이니셔티브로 취급 |
 | ING-18 | esm_developer_guide (55) = **Enterprise Sales Management** (Industries CME) | Sales/Industries | ⏸️ 후순위(niche) — 파일명과 달리 Embedded Service 아님. Industries CME 버티컬의 네임드 API(b2bExpress_*·ESM_* 수십 개) 솔루션. 일반 dev 가치 낮아 보류 |
 | ING-25 | extend_click_automate (1027, 분할) | Automation/Flow | 🔲 대기 |
-| ING-26 | api_tooling (1006, 분할) | Dev Tools | 🔲 대기 |
+| ING-26 | api_tooling (1006, 분할) = **Tooling API Reference & Developer Guide v67.0 Summer '26** | Dev Tools | 🟡 진행중 — 신규 폴더 `DevOps(데브옵스)/ToolingAPI(툴링API)/`. 계획: 콘텐츠 14노트(N1~N3 + Ch4 도메인 11: C4-1~8 + C4-9a/b/c) / 사이클 15. 오프셋 물리=인쇄+10. Ch4 객체 295(DELEGATE 14 제외 신규 281). **Cycle 1 ✅**(N1 개요·REST·SOAP 기초 1159줄, d44c446) · **Cycle 2 ✅**(N2 Objects&Namespaces 346줄, 네임스페이스 4분류 87객체·Setup 57 PDF경계 직접대조, 둘 다 qa PASS). 정본 계획/로스터: scratchpad `ING-26-plan.md`·`ING-26-ch4-roster.md`. 메모리 [[project_tooling_api_ingest]]. **다음: Cycle 3(N3 Ch5+6 헤더)** |
 | ING-28 | lightning (553, 분할) | Aura/LWC | 🔲 대기 |
 
 
