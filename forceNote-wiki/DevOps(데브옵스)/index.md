@@ -99,6 +99,17 @@ created: 2026-05-18
 | [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Einstein & Analytics]] | WaveApplication·GenAiPlanner·Bot·DiscoveryAIModel | #reference |
 | [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Other]] | Metadata·MetadataWithContent·FuelType·기타 타입 | #reference |
 
+### DevOps Center (서브폴더 → [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/index]])
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 데이터 모델 개요]] | 객체 모델 개념·Heroku 비동기 작업·사용자 변경 추적·프로모션(unbundled/bundled) | #overview |
+| [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 객체 — 파이프라인·프로젝트·환경]] | Project·Pipeline·Pipeline Stage·Environment·Repository·VCS·Branch 7객체(55필드) | #reference |
+| [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 객체 — Work Item·프로모션]] | Work Item·Promote·Change Submission·Change Bundle·(Install)·Deploy/Submit Component 7객체(60필드) | #reference |
+| [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 객체 — 비동기·결과]] | Async Operation Result·Deployment Result·Merge Result·Back Sync·VCS Synch State 5객체(41필드) | #reference |
+| [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 객체 — 변경 추적]] | Remote Change·Hidden Remote Change·Source Member Reference·Object Activity 4객체(30필드) | #reference |
+| [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center — User 필드·플랫폼 이벤트]] | User GitHub_Primary_Email 커스텀 필드 + 플랫폼 이벤트 5종 | #reference |
+
 ---
 
 ## 빠른 선택
@@ -333,6 +344,12 @@ created: 2026-05-18
 - CustomObject/CustomField 메타데이터 필드 정의? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Objects & Fields]]
 - Flow/ApprovalProcess 메타데이터 필드 정의? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Automation]]
 - PermissionSet/Profile 메타데이터 필드 정의? → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata Types — Security & Access]]
+- DevOps Center 객체 모델 전체 구조·비동기/프로모션 동작? → [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 데이터 모델 개요]]
+- DevOps Center Project·Pipeline·Pipeline Stage·Environment 객체 필드? → [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 객체 — 파이프라인·프로젝트·환경]]
+- DevOps Center Work Item·Change Bundle·프로모션 객체 필드? → [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 객체 — Work Item·프로모션]]
+- DevOps Center Async Operation Result·Deployment/Merge Result 객체? → [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 객체 — 비동기·결과]]
+- DevOps Center가 환경 변경을 추적하는 객체(Remote Change·Source Member Reference)? → [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 객체 — 변경 추적]]
+- DevOps Center 플랫폼 이벤트 5종·User GitHub 이메일 커스텀 필드? → [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center — User 필드·플랫폼 이벤트]]
 
 ---
 
