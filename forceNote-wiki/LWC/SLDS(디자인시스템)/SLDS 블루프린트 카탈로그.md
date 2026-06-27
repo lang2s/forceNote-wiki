@@ -50,6 +50,46 @@ aliases: [SLDS Blueprints, SLDS 블루프린트, CSS 블루프린트, 컴포넌�
 
 ---
 
+## 블루프린트 사용 패턴 (구조 예시)
+
+블루프린트는 **CSS 전용 스캐폴드**라서, 공식 문서의 마크업을 복사해 `slds-*` 클래스를 적용한 뒤 **JS 동작·ARIA·키보드 접근성은 직접 구현**해야 한다. 아래는 그 워크플로를 보여주는 일반 패턴이다(특정 블루프린트의 실제 마크업이 아님).
+
+```html
+<!-- 구조 예시 — 특정 블루프린트의 실제 공식 마크업이 아님. 정확한 마크업·클래스·ARIA는 각 행의 공식 링크 참조 -->
+
+<!-- 1) 공식 문서(위 표의 '열기' 링크)에서 HTML 스캐폴드를 복사하고 slds-* 유틸리티/컴포넌트 클래스를 적용한다.
+     아래는 "펼침/접힘 토글" 류 블루프린트의 일반 골격일 뿐이며 실제 클래스명은 공식 링크에서 확인할 것. -->
+<div class="slds-section slds-is-open">
+  <h3 class="slds-section__title">
+    <!-- 2-a) 블루프린트는 스타일만 제공 → 토글 버튼의 클릭 동작은 직접 구현해야 한다 -->
+    <button
+      class="slds-button slds-section__title-action"
+      aria-controls="section-body"        <!-- 2-b) ARIA 연결도 직접 작성 (블루프린트가 보장하지 않음) -->
+      aria-expanded="true">               <!-- 2-c) 펼침 상태는 JS로 동기화해야 함 -->
+      <span class="slds-truncate">섹션 제목</span>
+    </button>
+  </h3>
+  <div id="section-body" class="slds-section__content">
+    <!-- 본문 콘텐츠 -->
+  </div>
+</div>
+```
+
+```js
+// 구조 예시 — 실제 동작 코드 아님. 블루프린트가 제공하지 않는 '동작' 레이어를 직접 채워야 함을 보여준다.
+// LWC라면 이 토글/ARIA 동기화/키보드 핸들링을 컴포넌트 JS에서 직접 구현한다.
+toggleSection(event) {
+  const btn = event.currentTarget;
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded)); // 접근성 상태 직접 갱신
+  // slds-is-open 클래스 토글 등 스타일 상태도 직접 반영
+}
+```
+
+> 정리: 표의 '열기' 링크 = **마크업·클래스·접근성 가이드의 정본**. 위 예시는 "복사 → slds 클래스 적용 → 동작/접근성 직접 구현" 흐름만 보여주는 골격이다. 대응 Lightning Base Component가 있으면 이 직접 구현 부담이 사라지므로 컴포넌트를 우선한다(아래 표 참조).
+
+---
+
 ## 블루프린트 vs Lightning Base Component
 
 | 상황 | 선택 |
