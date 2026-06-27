@@ -210,3 +210,4 @@ metadataConnection.setSessionHeader("<session_ID>");
 - [[Metadata API CRUD 호출]]
 - [[Metadata API File-Based 호출]]
 - [[Metadata API Quick Start]]
+- [[Tooling API — SOAP·REST 헤더]] — Tooling API의 동명 SOAP 헤더(지원 버전·호출 차이)

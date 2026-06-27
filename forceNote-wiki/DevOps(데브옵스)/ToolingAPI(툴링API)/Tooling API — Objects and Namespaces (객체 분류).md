@@ -302,7 +302,7 @@ MetadataComponentDependency는 virtual entity이므로 SOSL 검색을 지원하�
 metadata save 작업이 경고를 생성하면 Tooling API의 기본 동작은 경고를 반환하지 않고 작업을 실패 처리하는 것이다. Tooling API와 Metadata API WSDL 양쪽에 모두 있는 객체에 대해서는, error-free save 작업이 경고를 반환하며 성공적으로 완료되도록 지정할 수 있다.
 
 - 방법: HTTP 요청에 헤더 `ignoreSaveWarnings`를 지정한다.
-- 경고가 반환되더라도 metadata를 저장하는 SOAP 헤더도 있다 → `MetadataWarningsHeader`(원문: on page 989) 참조. 헤더 상세는 후속 Tooling API SOAP·REST 헤더 노트(작성 예정) 소관.
+- 경고가 반환되더라도 metadata를 저장하는 SOAP 헤더도 있다 → `MetadataWarningsHeader`(원문: on page 989) 참조. 헤더 상세는 [[Tooling API — SOAP·REST 헤더]] 소관.
 
 ---
 
@@ -341,6 +341,7 @@ ApiFault 요소는 서비스 요청 처리 중 발생한 fault에 대한 정보�
 ## 관련 노트
 
 - [[Tooling API — 개요·REST·SOAP 호출 기초]] — Tooling API 폴더 허브. REST/SOAP 호출 기초·When to Use.
+- [[Tooling API — SOAP·REST 헤더]] — `MetadataWarningsHeader` 등 SOAP/REST 헤더 8+4개 상세(이 색인이 위임한 헤더 소관).
 - [[Tooling API 배포]] — MetadataContainer·ContainerAsyncRequest·*Member 배포 패밀리 객체의 필드·용법 권위 노트(위 분류 목록에서 색인만 제공, 상세는 여기).
 - [[Tooling API 디버그·로그·리플레이 sObject]] — TraceFlag·ApexLog·ApexExecutionOverlayAction/Result·HeapDump 등 디버그/로그 패밀리 권위 노트.
 - [[Field Service Metadata·Tooling API]] — CleanRule·TimeSheetTemplate 등 FSL 특화 Tooling 변형 객체 권위 노트.
