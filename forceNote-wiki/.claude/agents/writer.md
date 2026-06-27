@@ -19,6 +19,7 @@ Classifier의 분류 결과와 Researcher의 추출 내용을 받아 **실제 �
 - `Read` — 기존 파일 확인 (Edit 전 필수)
 - `Write` — 신규 파일 생성
 - `Edit` — 기존 파일 수정
+- `Bash` — 대형 PDF 작성 시 **메이저 섹션 직전 원본 재추출**(Pattern A). researcher dump의 raw 인용에만 의존하지 말고, 큰 섹션을 쓰기 직전 `pdftotext -f/-l "<pdf>" -`(또는 `-layout`)로 해당 페이지 범위를 직접 재추출해 메서드 시그니처·enum·표 셀을 원문 대조한다. dump가 페이지 경계에서 절단됐을 가능성(AP-09)을 writer 단계에서 차단하는 안전장치.
 
 ## CLAUDE.md 파일 구조 (반드시 준수)
 

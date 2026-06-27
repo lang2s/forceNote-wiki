@@ -38,9 +38,7 @@ updated: 2026-06-27
 
 ### 🔴 P0 — 즉시 (다음 작업 진행을 위해 필요)
 
-| # | 항목 | 소스/사유 | 상태 | 추가일 |
-|---|---|---|---|---|
-| PIPE-2 | `writer.md` frontmatter에 `Bash` 도구 추가 | 강화된 Pattern A의 "메이저 섹션 직전 sed 재추출"을 writer가 직접 실행할 수 있게 함. 현재 writer는 Read/Write/Edit만 가능 → researcher dump의 raw 인용에 강제 의존. | 🔲 대기 | 2026-05-23 |
+> 현재 열린 항목 없음. **PIPE-2**(writer `Bash` 도구 부여 + 본문 도구설명 동기화) ✅ 완료(2026-06-27) → [[WORK_BACKLOG_ARCHIVE]]. frontmatter엔 이미 `Bash` 존재했으나 본문 "사용 가능한 도구"가 Read/Write/Edit만 설명해 불일치였음 → Bash 행 추가 + Pattern A 재추출 용도(AP-09 절단 차단) 명시.
 
 ### 🟡 P1 — Task #4(대형 카탈로그) 전 필요
 
