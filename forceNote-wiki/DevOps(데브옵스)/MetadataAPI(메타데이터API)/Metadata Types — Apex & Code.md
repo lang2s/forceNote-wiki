@@ -342,3 +342,4 @@ Lightning Message Channel. LWC, Aura, Visualforce 간 크로스-UI 통신을 위
 - [[Metadata API CRUD 호출]] — createMetadata()로 Apex 클래스 생성
 - [[Metadata API 에러 처리]] — Apex 배포 오류 처리
 - [[2GP — Components - Apex & Code]] — 동일 컴포넌트의 2GP 패키징 관점 Manageability Rules 전수
+- [[Tooling API 객체 — Apex 코드·테스트·커버리지]] — 동명 `ApexClass`·`ApexTrigger`의 Tooling API **sObject**(질의·저장본). declarative metadata 타입과 별개 — 필드·용법 상이(경계 구분)

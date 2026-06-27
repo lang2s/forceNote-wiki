@@ -344,4 +344,5 @@ ApiFault 요소는 서비스 요청 처리 중 발생한 fault에 대한 정보�
 - [[Tooling API — SOAP·REST 헤더]] — `MetadataWarningsHeader` 등 SOAP/REST 헤더 8+4개 상세(이 색인이 위임한 헤더 소관).
 - [[Tooling API 배포]] — MetadataContainer·ContainerAsyncRequest·*Member 배포 패밀리 객체의 필드·용법 권위 노트(위 분류 목록에서 색인만 제공, 상세는 여기).
 - [[Tooling API 디버그·로그·리플레이 sObject]] — TraceFlag·ApexLog·ApexExecutionOverlayAction/Result·HeapDump 등 디버그/로그 패밀리 권위 노트.
+- [[Tooling API 객체 — Apex 코드·테스트·커버리지]] — ApexClass·ApexTrigger·ApexComponent·ApexPage·코드 커버리지·테스트 실행/결과/한도·SymbolTable 등 Apex 코드 군 17객체의 필드·용법 권위 노트.
 - [[Field Service Metadata·Tooling API]] — CleanRule·TimeSheetTemplate 등 FSL 특화 Tooling 변형 객체 권위 노트.
