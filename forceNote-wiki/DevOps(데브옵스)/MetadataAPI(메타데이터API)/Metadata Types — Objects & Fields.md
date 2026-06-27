@@ -202,6 +202,7 @@ Asset 파일 메타데이터. Salesforce 파일을 org 설정·구성에 사용�
 - [[Metadata API CRUD 호출]] — createMetadata()로 CustomObject 생성 예시
 - [[2GP — Components - Objects & Fields]] — 동일 오브젝트·필드 컴포넌트의 2GP Managed Package Manageability Rules 전수
 - [[Knowledge Metadata API 타입 — 아티클·채널·설정]] — ArticleType(`__kav`)·CustomField 등 Knowledge 전용 오브젝트·필드 메타데이터 타입 상세
+- [[Tooling API 객체 — Entity·Field·스키마]] — 동명 Tooling sObject(CustomObject·CustomField·RecordType·GlobalValueSet·LookupFilter 등)의 행 기반 SOQL 조회. 여기 Metadata 타입(파일 기반 배포)과 이름은 같으나 용법이 다른 경계 노트.
 
 ---
 

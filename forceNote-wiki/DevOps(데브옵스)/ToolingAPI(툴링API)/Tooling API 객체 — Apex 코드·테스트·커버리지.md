@@ -654,4 +654,5 @@ Apex 클래스를 ApexTestSuite에 연결하는 정션 객체. Tooling API 36.0 
 - [[Tooling API 배포]] — `ApexClassMember`·`ApexTriggerMember`·`ApexComponentMember`·`ApexPageMember`·MetadataContainer·ContainerAsyncRequest (편집/저장/컴파일 컨테이너 패밀리)
 - [[Tooling API 디버그·로그·리플레이 sObject]] — `ApexLog`·`ApexExecutionOverlayAction`·`ApexExecutionOverlayResult`·ExecuteAnonymousResult (디버그·리플레이 패밀리)
 - [[Metadata Types — Apex & Code]] — Metadata API의 declarative `ApexClass`·`ApexTrigger` 타입(Tooling sObject와 별개)
+- [[Tooling API 객체 — Entity·Field·스키마]] — 같은 Tooling 객체 패밀리의 스키마 군 형제 노트. `ApexTrigger.EntityDefinitionId`가 가리키는 EntityDefinition·FieldDefinition·CustomField 등 28객체.
 - [[테스트 전략]] — Apex 테스트 작성·커버리지 패턴(질의가 아닌 작성 관점)
