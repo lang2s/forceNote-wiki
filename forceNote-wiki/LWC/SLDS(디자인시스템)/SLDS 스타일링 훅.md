@@ -75,4 +75,5 @@ SLDS 스타일링 훅은 **SLDS 스타일시트를 직접 수정하지 않고** 
 - [[SLDS LWC 디자인 시스템]] — SLDS 2 개념·스타일링 훅·LWC 적용
 - [[SLDS 유틸리티 클래스 레퍼런스]] — 유틸리티 클래스 전수
 - [[LWR --dxp 스타일링 훅 레퍼런스]] — LWR 사이트는 `--slds-*` 대신 `--dxp-*` 훅으로 브랜딩(`--slds-c`/`--slds-g-color`로 미세조정·Remove SLDS)
+- [[SLDS 2 Starter Kit - SLDS 1·2 로더와 Shadow DOM]] — 다크 모드/테마를 `body` 클래스로 토글하는 스타터킷 구현
 - [[LWC MOC]]

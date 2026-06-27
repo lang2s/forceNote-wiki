@@ -194,6 +194,13 @@ Salesforce DX — 소스 중심 개발, Scratch Org, Unlocked Package, CI/CD
 | [[CI CD 패턴]] | Jenkins, CircleCI, JWT 인증 자동화 |
 | [[2GP — Prepare to Distribute]] | sf package version promote, AppExchange 등록, 코드 커버리지 75%, Installation Key |
 
+### [[AgentSkills(에이전트스킬)/index|AgentSkills(에이전트스킬)]]
+AI 에이전트가 사용자를 단계별로 안내하기 위해 동봉되는 `SKILL.md` 기반 절차 문서. 현재는 SLDS 2 Starter Kit에 git으로 ship되는 스킬을 다루며 다른 제품·도구로 확장될 수 있다.
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[SLDS 2 Starter Kit - 저장소 설정과 배포 스킬]] | repo-setup, first-time-deploy, gh CLI 저장소 생성, GitHub Pages, gh-pages 브랜치 |
+
 ### [[통합 MOC|Integration(통합)]]
 외부 시스템 연동 — Named Credential, Callout, REST/SOAP
 

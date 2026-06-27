@@ -12,6 +12,14 @@ created: 2026-05-21
 | 질문 | 파일 |
 |---|---|
 | Apex에서 LWC로 데이터 보내는 방법 | `LWC/ApexIntegration(Apex통합)/Wire 패턴.md` |
+| LWC를 로컬에서 Vite로 어떻게 띄우나 / 로컬 프로토타이핑 스캐폴드 / SLDS 2 Starter Kit 시작 | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - 개요와 프로젝트 구조.md` |
+| 클라이언트 사이드 라우팅 어떻게 / 멀티앱 셸 / SPA History API 라우터 | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - 라우팅과 멀티앱 셸.md` |
+| SLDS 1과 2를 어떻게 전환하나 / 테마 다크모드 전환 / synthetic vs native shadow | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - SLDS 1·2 로더와 Shadow DOM.md` |
+| LWC 아이콘 프리빌드 어떻게 / LightningModal 띄우기 / GitHub Pages로 LWC 배포 | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - 아이콘·모달·폼·배포.md` |
+| 스타터킷의 헤더·내비게이션·패널은 어떻게 만들어졌나 / 글로벌 헤더 App Launcher 도킹 패널 구현 / 콘솔 object switcher | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - 셸 UI 컴포넌트.md` |
+| SLDS 2 UI 코드 어떤 순서로 작성하나 / .builderrules 규칙 / 언제 base component 언제 blueprint 쓰나 / 스타일링 훅 시맨틱하게 쓰는 법 | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - UI 코딩 가이드라인.md` |
+| 스타터킷 lwc.config.json·런타임 플래그 어떻게 설정하나 / index.html 진입점 / 로딩 끝나면 보여주는 reveal-on-ready | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - 빌드 설정과 진입 HTML.md` |
+| gh로 깃허브 저장소 만들고 배포하는 법 / repo-setup·first-time-deploy 스킬 / GitHub Pages에 LWC 사이트 올리는 법 / gh-pages 브랜치 | `AgentSkills(에이전트스킬)/SLDS 2 Starter Kit - 저장소 설정과 배포 스킬.md` |
 | 자식 컴포넌트에서 부모로 데이터 전달 | `LWC/Events(이벤트)/CustomEvent 패턴.md` |
 | 관계없는 컴포넌트끼리 통신 | `LWC/Events(이벤트)/Lightning Message Service.md` |
 | 다른 LWC의 함수 호출 | `LWC/ComponentAPI(컴포넌트API)/@api 패턴.md` + `LWC/Events(이벤트)/Lightning Message Service.md` |

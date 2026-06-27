@@ -151,6 +151,18 @@ created: 2026-05-17
 - [[SLDS 블루프린트 카탈로그]] — CSS 전용 블루프린트 30종 인덱스
 - **디자인 패턴 21종** (data-entry·search·navigation·charts 등) → [[SLDS(디자인시스템)/index|SLDS(디자인시스템) 색인]]
 
+### SLDS 2 Starter Kit (로컬 프로토타이핑)
+
+> design-system-2-starter-kit (GitHub, Tier 2) — LWC + Vite 로컬 프로토타이핑 스캐폴드
+
+- [[SLDS 2 Starter Kit - 개요와 프로젝트 구조]] — 클러스터 허브: 프로젝트 구조·네임스페이스(shell/page/ui/data)·기술 스택·vite·엔트리 플로우
+- [[SLDS 2 Starter Kit - 라우팅과 멀티앱 셸]] — 클라이언트 라우터·routes/apps.config·Standard/Console/Builder 앱·History API SPA
+- [[SLDS 2 Starter Kit - SLDS 1·2 로더와 Shadow DOM]] — slds-loader lazy CSS·테마/다크모드 전환·synthetic vs native shadow
+- [[SLDS 2 Starter Kit - 아이콘·모달·폼·배포]] — 아이콘 prebuild·LightningModal·Base Component 폼·GitHub Pages 배포·agent skills
+- [[SLDS 2 Starter Kit - 셸 UI 컴포넌트]] — 글로벌 헤더·내비(App Launcher/Console switcher/Standard tabs)·도킹 패널(ui-panel 4종)·재사용 블록·예제 페이지(contacts/builder/home)
+- [[SLDS 2 Starter Kit - UI 코딩 가이드라인]] — `.builderrules` Salesforce UI Guidelines: UI 코드 5단계 결정 트리(LBC→blueprint→utility→styling hook→hardcoded)·스타일링 훅 시맨틱 사용
+- [[SLDS 2 Starter Kit - 빌드 설정과 진입 HTML]] — lwc.config.json·lwcRuntimeFlags·게이트 심·index.html 엔트리·loading.css reveal-on-ready·.gitignore/.nvmrc
+
 ## 🔒 보안 & 권한
 
 - [[LWC 보안 패턴]] — 권한 기반 UI, @api 노출 범위, userId, CSP

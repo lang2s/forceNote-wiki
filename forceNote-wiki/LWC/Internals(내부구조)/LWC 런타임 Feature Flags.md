@@ -147,3 +147,4 @@ setFeatureFlag('DISABLE_SYNTHETIC_SHADOW', true);
 - [[LWC 오픈소스 아키텍처]] — @lwc/features 패키지 역할 (공유 패키지)
 - [[LWC VM 내부 구조]] — DISABLE_NATIVE_CUSTOM_ELEMENT_LIFECYCLE 사용 위치
 - [[LWC Shadow DOM 모드]] — DISABLE_SYNTHETIC_SHADOW·ENABLE_FORCE_SHADOW_MIGRATE_MODE 플래그가 제어하는 Shadow 모드
+- [[SLDS 2 Starter Kit - 빌드 설정과 진입 HTML]] — `lwc.config.json`의 `lwcRuntimeFlags`로 ENABLE_NATIVE_CUSTOM_ELEMENT_LIFECYCLE를 끄는 실전 설정 예

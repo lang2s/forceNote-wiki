@@ -57,4 +57,6 @@ SLDS 준수 코드를 일관·확장·접근성 있게 작성하도록 돕는 �
 
 - [[SLDS(디자인시스템)/index|SLDS(디자인시스템) 색인]]
 - [[SLDS LWC 디자인 시스템]] — SLDS 2 개념·스타일링 훅·LWC 적용
+- [[SLDS 2 Starter Kit - 아이콘·모달·폼·배포]] — SLDS Linter·Agent Skills 도구 체인을 로컬 프로젝트에 적용한 예
+- [[SLDS 2 Starter Kit - 저장소 설정과 배포 스킬]] — `gh` CLI·GitHub Pages 배포를 안내하는 동봉 Agent Skill 2종(repo-setup·first-time-deploy)
 - [[LWC MOC]]

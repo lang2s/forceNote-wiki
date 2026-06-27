@@ -163,6 +163,18 @@ created: 2026-05-21
 | Search, SLDS Search 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Search.md` |
 | User Engagement, SLDS User Engagement 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - User Engagement.md` |
 
+## LWC — SLDS 2 Starter Kit (로컬 프로토타이핑)
+
+| 키워드 | 파일 |
+|---|---|
+| SLDS 2 Starter Kit, design-system-2-starter-kit, LWC Vite 로컬 개발, LWC를 로컬에서 어떻게 띄우나, 프로토타이핑 스캐폴드, 프로젝트 구조, 컴포넌트 네임스페이스 shell page ui data, 기술 스택, vite config, 엔트리 플로우, 네이밍 컨벤션 | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - 개요와 프로젝트 구조.md` |
+| SLDS 2 Starter Kit 라우팅, 클라이언트 라우터, router.js, routes.config.js, apps.config.js, 멀티앱 셸, Standard Console Builder 앱, ROUTE_COMPONENTS, navPage vs navHighlight, History API SPA, 클라이언트 사이드 라우팅 어떻게 | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - 라우팅과 멀티앱 셸.md` |
+| SLDS 1 2 로더, slds-loader.js, SLDS 1과 2를 어떻게 전환하나, lazy CSS 로딩, 테마 전환 theme switcher, 다크모드 dark mode, synthetic shadow vs native shadow, Shadow DOM 모드 | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - SLDS 1·2 로더와 Shadow DOM.md` |
+| SLDS 2 Starter Kit 아이콘 모달 폼 배포, prebuild-icons 아이콘 코드젠, LightningModal 패턴, Lightning Base Component 폼, GitHub Pages 배포, SLDS agent skills afv-library 스킬, 아이콘 프리빌드 | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - 아이콘·모달·폼·배포.md` |
+| SLDS 2 Starter Kit 셸 UI 컴포넌트, globalHeader globalNavigation, 글로벌 헤더 내비게이션, App Launcher waffle, Console object switcher, Standard tabs, docked panel shell-panel ui-panel 4종, 도킹 패널, pageHeader homeIntro builderHeader, lightning-datatable contacts 페이지, contactDetail builder home 예제 페이지, data/contacts fixture, 스타터킷 헤더 내비 패널 컴포넌트 어떻게 구현 | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - 셸 UI 컴포넌트.md` |
+| SLDS 2 Starter Kit UI 코딩 가이드라인, .builderrules, Salesforce UI Guidelines, LBC 우선, UI 코드 체크리스트, 스타일링 훅 시맨틱, explore_slds_blueprints, 컴포넌트 결정 트리, 5단계 결정 트리, blueprint utility styling hook hardcoded, UI 코드 어떤 순서로 작성 | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - UI 코딩 가이드라인.md` |
+| SLDS 2 Starter Kit 빌드 설정, lwc.config.json, lwcRuntimeFlags, ENABLE_NATIVE_CUSTOM_ELEMENT_LIFECYCLE, gate shim, gateComboboxElementInternalsClosed, index.html 엔트리, loading.css reveal on ready, gitignore nvmrc, 스타터킷 런타임 플래그 진입 HTML 어떻게 설정 | `LWC/SLDS(디자인시스템)/SLDS 2 Starter Kit - 빌드 설정과 진입 HTML.md` |
+
 > **lightning-* 개별 베이스 컴포넌트 레퍼런스**(`LWC/BaseComponents(베이스컴포넌트)/`)는 별도 샤드로 분할됨 → `_index/frontend-basecomponents.md` 참조.
 
 ## LWC Base Components (베이스 컴포넌트)

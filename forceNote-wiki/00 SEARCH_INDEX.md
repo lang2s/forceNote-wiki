@@ -29,6 +29,14 @@ created: 2026-05-17
 | Security · 시큐어 코딩 — XSS·SQLi·CSRF·Redirect·TLS·민감데이터·CRUD/FLS·Lightning보안·세션/브라우저통신·MC API·FAQ | `_index/security.md` | Security(보안)/ 폴더 전반 (Secure Coding Guide) |
 | CPQ · 견적 — Salesforce CPQ(`SBQQ`) API 모델·Quote/Config/Contract API·기타 API·플러그인(JSQCP·9종) | `_index/cpq.md` | CPQ(견적)/ 폴더 전반 (CPQ Developer Guide, managed package — RLM과 별개) |
 | Analytics · CRM Analytics · 리포트/대시보드 REST — Data Prep Recipe REST API(노드 Input·Response·Enum) + Reports and Dashboards REST API(reports·dashboards·folders·notifications·표현형) | `_index/analytics.md` | Analytics(애널리틱스)/ 폴더 전반 (Data Prep Recipe REST API Summer '26 + Reports and Dashboards REST API v67.0) |
+| Agent Skills · 에이전트 스킬 — SKILL.md 기반 단계별 안내 절차. SLDS 2 Starter Kit 스킬 + 공식 `forcedotcom/sf-skills` 라이브러리(Platform/Apex·Experience/LWC·Agentforce·Data 360·OmniStudio·Integration·DevOps·Design Systems·Diagram 등 도메인별 스킬) | `_index/agent-skills.md` | AgentSkills(에이전트스킬)/ 폴더 전반 (sf-skills 카탈로그: `AgentSkills(에이전트스킬)/sf-skills/index.md`) |
+| sf-skills refs · 다이어그램 — `external-diagram-mermaid/visual-generate` 스킬 레퍼런스 문서(ERD·OAuth 플로우·Mermaid 문법·비주얼 목업) | `_index/agent-skills-refs-diagram.md` | sf-skills/refs/ 다이어그램(45) (카탈로그: `AgentSkills(에이전트스킬)/sf-skills/refs/index.md`) |
+| sf-skills refs · Agentforce — `agentforce-generate/test/observe/d360-analyze/architecture-analyze` 스킬 레퍼런스 문서(Agent Script·테스트·관측성·STDM) | `_index/agent-skills-refs-agentforce.md` | sf-skills/refs/ Agentforce(43) |
+| sf-skills refs · Platform — `platform-data-manage/soql-query/apex-logs-debug/apex-test-*/metadata-deploy/trust-archive/...` 스킬 레퍼런스 문서(Apex·SOQL·데이터·메타데이터) | `_index/agent-skills-refs-platform.md` | sf-skills/refs/ Platform(50) |
+| sf-skills refs · Experience — `experience-lwc-generate`·`experience-ui-bundle-agentforce-client-generate` 스킬 레퍼런스 문서(LWC·UI Bundle) | `_index/agent-skills-refs-experience.md` | sf-skills/refs/ Experience(20) |
+| sf-skills refs · Integration — `integration-connectivity-generate/connected-app-configure`·`eventing-subscription/cdc-configure` 스킬 레퍼런스 문서(콜아웃·Named Credential·CDC·구독) | `_index/agent-skills-refs-integration.md` | sf-skills/refs/ Integration(25) |
+| sf-skills refs · OmniStudio — `omnistudio-datamapper/datapacks/dependencies/epc/flexcard/integration-procedure/omniscript` 스킬 레퍼런스 문서 | `_index/agent-skills-refs-omnistudio.md` | sf-skills/refs/ OmniStudio(17) |
+| sf-skills refs · Design Systems·DX·Mobile·Data 360·Commerce — `design-systems-slds*`·`dx-code-analyzer-*`·`mobile-platform-*`·`data360-orchestrate`·`*datacloud*`·`commerce-b2b-store-create` 스킬 레퍼런스 문서 | `_index/agent-skills-refs-misc.md` | sf-skills/refs/ 기타(52) |
 | 자연어 질문 — "~하는 방법" | `_index/questions.md` | 교차 도메인 질문 라우팅 |
 
 ---

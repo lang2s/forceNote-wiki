@@ -241,3 +241,4 @@ slot 처리나 일부 최적화 경로가 `isSyntheticShadow` 값에 따라 분�
 - [[Lightning Security 모델]] — Shadow DOM 격리와 LWS(Lightning Web Security) 보안 격리 모델 연계
 - [[Lightning Web Security (LWS)]] — Locker 대체 LWS의 namespace sandbox 격리 모델 (shadow DOM과 Privileged Script Tag 연계)
 - [[LWR 동작·캐싱·제약]] — LWR 템플릿의 shadow DOM → light DOM 전환(third-party analytics 통합)
+- [[SLDS 2 Starter Kit - SLDS 1·2 로더와 Shadow DOM]] — synthetic shadow를 플랫폼 밖 로컬 환경에서 재현하는 실전 예제
