@@ -110,6 +110,12 @@ created: 2026-05-18
 | [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 객체 — 변경 추적]] | Remote Change·Hidden Remote Change·Source Member Reference·Object Activity 4객체(30필드) | #reference |
 | [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center — User 필드·플랫폼 이벤트]] | User GitHub_Primary_Email 커스텀 필드 + 플랫폼 이벤트 5종 | #reference |
 
+### Tooling API (서브폴더 → [[DevOps(데브옵스)/ToolingAPI(툴링API)/index]])
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API — 개요·REST·SOAP 호출 기초]] | When to Use·REST Overview·REST 리소스 12개·단위테스트 REST·Composite·API EOL·SOAP 호출 16개 | #overview #reference |
+
 ---
 
 ## 빠른 선택
@@ -350,6 +356,7 @@ created: 2026-05-18
 - DevOps Center Async Operation Result·Deployment/Merge Result 객체? → [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 객체 — 비동기·결과]]
 - DevOps Center가 환경 변경을 추적하는 객체(Remote Change·Source Member Reference)? → [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center 객체 — 변경 추적]]
 - DevOps Center 플랫폼 이벤트 5종·User GitHub 이메일 커스텀 필드? → [[DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/DevOps Center — User 필드·플랫폼 이벤트]]
+- Tooling API가 뭔지·언제 쓰는지·REST/SOAP 호출 기초? → [[DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API — 개요·REST·SOAP 호출 기초]]
 
 ---
 

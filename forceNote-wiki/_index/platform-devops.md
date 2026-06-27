@@ -54,6 +54,12 @@ created: 2026-06-15
 
 > **패키징 키워드(Unlocked Package · 2GP Managed Package · 컴포넌트 Manageability Rules · Push Upgrade · LMA · Feature Management App · App Analytics)는 분할된 하위 샤드 `_index/platform-devops-2gp.md` 참조.**
 
+## DevOps — Tooling API
+
+| 키워드 | 파일 |
+|---|---|
+| Tooling API, 툴링 API, Tooling API 개요, When to Use Tooling API, 개발 도구용 메타데이터 API, IDE 메타데이터 접근, 세밀한 메타데이터 접근, Tooling REST API, Tooling SOAP API, REST 리소스, REST Resources, SOAP Calls, SOAP 호출 16개, executeAnonymous, 익명 Apex 실행, 익명 실행, query, queryMore, runTestsAsynchronous, runTestsSynchronous, 비동기 테스트 실행, 동기 테스트 실행, REST로 단위 테스트 실행, /sobjects, /composite, Composite, composite 요청, API End of Life, API EOL, 버전 종료, Tooling API로 Apex를 어떻게 실행하나, REST로 테스트를 돌리려면, Tooling API REST와 SOAP 차이, Tooling API 언제 쓰나, Tooling API REST 리소스 목록 | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API — 개요·REST·SOAP 호출 기초.md` |
+
 ## DevOps — Metadata API
 
 | 키워드 | 파일 |

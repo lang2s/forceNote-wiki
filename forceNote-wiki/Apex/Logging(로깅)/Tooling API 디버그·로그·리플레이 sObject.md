@@ -312,6 +312,7 @@ ExecuteAnonymousResult result = connection.executeAnonymous(apexCode);
 - [[Apex Debug Log]] — UI/선언적 디버그 로그(로그 카테고리·레벨·Developer Console). 이 노트는 같은 제어의 **API/프로그래밍 방식**. ⚠️ UI식 카테고리 명칭 ↔ API식 명칭 차이 주의
 - [[Anonymous Apex 실행]] — executeAnonymous의 언어 의미·SOAP executeAnonymous()/ExecuteAnonymousResult (이 노트는 REST 리소스)
 - [[Tooling API 배포]] — 같은 Tooling API의 배포 도메인(MetadataContainer·*Member). 디버그 vs 배포 경계
+- [[Tooling API — 개요·REST·SOAP 호출 기초]] — Tooling API 패밀리 개요/허브(REST 12·SOAP 16·executeAnonymous·Composite·EOL). 이 노트 sObject들의 REST/SOAP 호출 표면 진입점
 - [[DX 데이터 작업]] — Salesforce CLI로 TraceFlag 레코드 생성 운영 예제
 - [[Log 싱글턴 패턴]] — Apex 로깅 프레임워크(같은 Logging 폴더 형제)
 - [[platform-apex-logs-debug]] (sf-skill — 실행형) — TraceFlag·DebugLevel·ApexLog 기반 로그 디버깅 실행형 스킬

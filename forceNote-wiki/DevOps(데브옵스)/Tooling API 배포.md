@@ -298,3 +298,4 @@ REST에서는 `/composite` 리소스로 5개 subrequest를 한 번의 API 호출
 - [[Metadata API File-Based 호출]] — Metadata API의 `deploy()`/`retrieve()` 파일 기반 배포(대규모·전체 메타데이터 배포)
 - [[Anonymous Apex 실행]] — Tooling API/REST로 anonymous Apex 실행(executeAnonymous)
 - [[Tooling API 디버그·로그·리플레이 sObject]] — 같은 Tooling API의 디버그/로그 도메인(TraceFlag·DebugLevel·ApexLog·Overlay·HeapDump). 디버그 vs 배포 경계
+- [[Tooling API — 개요·REST·SOAP 호출 기초]] — Tooling API 패밀리 개요/허브(REST 12·SOAP 16·executeAnonymous·Composite·EOL). 컨테이너 배포 객체의 REST/SOAP 호출 표면 진입점
