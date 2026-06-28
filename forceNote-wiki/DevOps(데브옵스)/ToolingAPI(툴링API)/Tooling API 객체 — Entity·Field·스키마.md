@@ -1040,5 +1040,6 @@ req.setMethod('GET');
 - [[Tooling API — 개요·REST·SOAP 호출 기초]] — 폴더 허브. REST/SOQL 쿼리 리소스·헤더·composite·EOL 등 호출 기초.
 - [[Tooling API — Objects and Namespaces (객체 분류)]] — 객체↔네임스페이스 분류, SOQL/SOSL 한도, System Fields, ApiFault.
 - [[Tooling API 객체 — Apex 코드·테스트·커버리지]] — 형제 Ch4 도메인 노트(Apex 코드·테스트 sObject 군).
+- [[Tooling API 객체 — 보안·권한]] — 보안·권한·접근통제 sObject 38종(PermissionSet·Profile·NamedCredential·RestrictionRule 등) 형제 Ch4 도메인 노트.
 - [[Metadata Types — Objects & Fields]] — 같은 이름의 Metadata API **타입**(CustomField·CustomObject·RecordType·FieldSet 등) 카탈로그. 본 노트는 Tooling **sObject**(SOQL 조회), 그쪽은 배포용 declarative metadata.
 - [[ChangeEventHeader]] — EnrichedField의 상위 도메인인 Change Data Capture(채널·헤더) 메커니즘.
