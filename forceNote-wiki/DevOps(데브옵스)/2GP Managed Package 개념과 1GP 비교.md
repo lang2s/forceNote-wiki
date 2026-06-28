@@ -214,6 +214,7 @@ managed 2GP와 Unlocked Package는 **둘 다 2GP 패키징 모델**을 공유한
 - [[Unlocked Package 개념과 준비]] — 2GP의 다른 한 갈래(잠기지 않은 패키지)
 - [[Unlocked Package 릴리스와 설치]] — 패키지 버전 릴리스 흐름 (managed 2GP도 유사 패턴)
 - [[sfdx-project.json 레퍼런스]] — 의존성·ancestor·packageDirectories 등 선언적 설정
+- [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]] — Package2·Package2Version·Package2VersionCreateRequest(2GP)·MetadataPackage·MetadataPackageVersion(1GP)·SubscriberPackageVersion 등 패키징 Tooling sObject를 SOQL·API로 조회/생성하는 레퍼런스
 - [[Scratch Org 생성과 정의 파일]] — 개발·테스트 환경 만들기
 - [[Org Shape와 Snapshot]] — Limited Access 라이선스로 어디까지 가능한지
 - [[DX 인증 방식]] — Dev Hub에 CLI로 로그인하는 방법

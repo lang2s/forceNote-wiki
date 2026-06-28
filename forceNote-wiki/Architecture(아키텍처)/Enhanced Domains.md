@@ -155,3 +155,4 @@ Setup > My Domain > Enhanced Domains > Impact Check
 - [[Salesforce 플랫폼 개요]]
 - [[CSP와 RemoteSite]]
 - [[Site Namespace]]
+- [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]] — My Domain 프로비저닝 변경 이력(DomainProvision)과 org의 이전 My Domain 기록(OrgDomainLog) Tooling sObject 레퍼런스

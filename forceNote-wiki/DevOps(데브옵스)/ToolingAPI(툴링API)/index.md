@@ -24,6 +24,8 @@ created: 2026-06-27
 | [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] | 선언적 자동화 sObject 19종(Flow·FlowDefinition·FlowTest·FlowTestResult·FlowTestCoverage·FlowElementTestCoverage·ProcessFlowMigration·BusinessProcess·WorkflowRule·WorkflowAlert·WorkflowFieldUpdate·WorkflowOutboundMessage·WorkflowTask·ValidationRule·AssignmentRule·AutoResponseRule·MatchingRule·DuplicateJobDefinition·DuplicateJobMatchingRuleDefinition) | #reference #automation #flow #workflow |
 | [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] | UI·레이아웃·페이지·액션 sObject 22종(AnimationRule·CompactLayout·CompactLayoutInfo·CustomApplication·CustomHelpMenuSection·CustomTab·FlexiPage·HomePageComponent·HomePageLayout·IconDefinition·Layout·PathAssistant·PathAssistantStepInfo·PathAssistantStepItem·QuickActionDefinition·QuickActionList·QuickActionListItem·RecordActionDeployment·RelatedListColumnDefinition·SearchLayout·TabDefinition·WebLink) | #reference #ui #layout #lightning-page |
 | [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] | Aura·LWC 컴포넌트 번들 sObject 5종(AuraDefinition(DefType 16값)·AuraDefinitionBundle·LightningComponentBundle·LightningComponentResource·LightningOutApp) | #reference #lightning #aura #lwc |
+| [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]] | org 운영·라이프사이클 sObject 18종(SandboxInfo·SandboxProcess·SandboxProcessStage·SourceMember·SourceMemberDeployRequest·DeployRequest·DeployDetails·PlatformEventMigration·ReleaseUpdate·ReleaseUpdateStep·HistoryRetentionJob·OperationLog·DomainProvision·OrgDomainLog·CustomHttpHeader·BusinessProcessFeedback·BusinessProcessGroup·BusProcessFeedbackConfig) | #reference #sandbox #deploy #release-update |
+| [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]] | 패키징·브랜딩·정적콘텐츠 sObject 20종(MetadataPackage·MetadataPackageVersion·InstalledSubscriberPackage·InstalledSubscriberPackageVersion·SubscriberPackage·SubscriberPackageVersion·SubscriberPackageVersionUninstallRequest·Package2·Package2Member·Package2Version·Package2VersionCreateRequest·Package2VersionCreateRequestError·PackageInstallRequest·PackageUploadRequest·PackageVersionUninstallRequestError·BrandingSet·BrandingSetProperty·ColorDefinition·StaticResource·Scontrol) | #reference #packaging #2gp #branding |
 
 ---
 
@@ -41,6 +43,8 @@ created: 2026-06-27
 - Flow·Workflow·ValidationRule·자동화 sObject를 SOQL로 조회/배포? → [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]]
 - FlexiPage·Layout·QuickAction·Path·WebLink·탭/앱 등 UI·레이아웃 sObject? → [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]]
 - Aura/LWC 컴포넌트 번들(AuraDefinition·LightningComponentBundle 등)을 SOQL로 조회/배포? → [[Tooling API 객체 — Lightning (Aura·LWC 번들)]]
+- Sandbox·메타데이터 배포·릴리즈 업데이트·소스 추적·My Domain 운영 sObject? → [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]]
+- 1GP/2GP 패키지·구독자 설치·브랜딩·StaticResource sObject? → [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]]
 - 컨테이너 기반 Apex 배포? → [[Tooling API 배포]]
 - TraceFlag·ApexLog·체크포인트 등 디버그/로그? → [[Tooling API 디버그·로그·리플레이 sObject]]
 

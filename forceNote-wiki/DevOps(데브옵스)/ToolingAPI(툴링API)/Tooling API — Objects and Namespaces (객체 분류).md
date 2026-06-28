@@ -350,4 +350,6 @@ ApiFault 요소는 서비스 요청 처리 중 발생한 fault에 대한 정보�
 - [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — Flow·FlowDefinition·FlowTest·Workflow 액션·ValidationRule·배정/매칭/중복 룰 등 선언적 자동화 군 19객체의 필드·용법 권위 노트(분류 목록 Setup Objects 중 자동화 항목 상세).
 - [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] — FlexiPage·Layout·CompactLayout·CustomTab·CustomApplication·QuickActionDefinition·WebLink·SearchLayout 등 UI·레이아웃·페이지·액션 군 22객체의 필드·용법 권위 노트(분류 목록 Setup Objects 중 UI/레이아웃 항목 상세).
 - [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — AuraDefinition·AuraDefinitionBundle·LightningComponentBundle·LightningComponentResource·LightningOutApp 등 Aura·LWC 컴포넌트 번들 군 5객체의 필드·용법 권위 노트(분류 목록 Programming Objects 중 Aura/LWC 항목 상세).
+- [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]] — SandboxInfo·SandboxProcess·DeployRequest·ReleaseUpdate·SourceMember·DomainProvision·OperationLog 등 org 운영·라이프사이클 군 18객체의 필드·용법 권위 노트.
+- [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]] — MetadataPackage·Package2·SubscriberPackageVersion·PackageInstallRequest·BrandingSet·StaticResource·Scontrol 등 패키징·브랜딩·정적콘텐츠 군 20객체의 필드·용법 권위 노트.
 - [[Field Service Metadata·Tooling API]] — CleanRule·TimeSheetTemplate 등 FSL 특화 Tooling 변형 객체 권위 노트.

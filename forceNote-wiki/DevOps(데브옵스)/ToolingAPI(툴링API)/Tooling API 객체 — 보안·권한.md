@@ -1378,6 +1378,8 @@ Represents the access that the current user has to a field. Available in Tooling
 - [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — 선언적 자동화 sObject 19종(Flow·Workflow·ValidationRule·MatchingRule 등) 형제 Ch4 도메인 노트.
 - [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] — UI·레이아웃·페이지·액션 sObject 22종(FlexiPage·Layout·QuickAction·WebLink·Path 등) 형제 Ch4 도메인 노트. 본 노트의 ProfileLayout·PermissionSetTabSetting을 UI(탭·레이아웃) 관점에서 링크.
 - [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — Aura·LWC 컴포넌트 번들 sObject 5종(AuraDefinition·LightningComponentBundle 등) 형제 Ch4 도메인 노트.
+- [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]] — org 운영·라이프사이클 sObject 18종(Sandbox·DeployRequest·ReleaseUpdate·SourceMember·My Domain 등) 형제 Ch4 도메인 노트.
+- [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]] — 패키징·브랜딩·정적콘텐츠 sObject 20종(MetadataPackage·Package2·SubscriberPackage·BrandingSet·StaticResource 등) 형제 Ch4 도메인 노트.
 - [[Metadata Types — Objects & Fields]] — 같은 이름의 Metadata API **타입**(NamedCredential·ExternalCredential·Profile·PermissionSet·RestrictionRule 등) 카탈로그. 본 노트는 Tooling **sObject**(SOQL 조회/구성), 그쪽은 배포용 declarative metadata.
 - [[Permission Set 설계]] — 권한집합·권한집합그룹 설계 패턴(PermissionSet·PermissionSetGroup의 응용).
 - [[레코드 액세스 설계 (Enterprise Scale)]] — 제한·범위 규칙(RestrictionRule·FieldRestrictionRule)의 엔터프라이즈 레코드 액세스 설계.
