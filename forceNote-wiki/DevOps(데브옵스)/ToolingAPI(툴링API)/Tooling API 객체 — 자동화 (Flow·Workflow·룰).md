@@ -618,6 +618,7 @@ Represents a business process. This object is available in API version 33.0 and 
 - [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — Aura·LWC 컴포넌트 번들 sObject 5종(AuraDefinition·LightningComponentBundle 등) 형제 Ch4 도메인 노트.
 - [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]] — org 운영·라이프사이클 sObject 18종(Sandbox·DeployRequest·ReleaseUpdate·SourceMember·My Domain 등) 형제 Ch4 도메인 노트.
 - [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]] — 패키징·브랜딩·정적콘텐츠 sObject 20종(MetadataPackage·Package2·SubscriberPackage·BrandingSet·StaticResource 등) 형제 Ch4 도메인 노트.
+- [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — User·플랫폼이벤트·CDC 채널·이벤트 릴레이 sObject 7종 형제 Ch4 도메인 노트.
 - [[Flow MOC]] — Flow 섹션 전체 목차. Flow·FlowDefinition·플로우 종류의 응용·런타임 맥락.
 - [[Flow 종류와 변수]] — ProcessType·RunInMode·Status 등 플로우 종류·변수 개념.
 - [[Flow Interview API]] — 런타임 플로우 인터뷰(FlowTestResult/런타임 영역의 응용).

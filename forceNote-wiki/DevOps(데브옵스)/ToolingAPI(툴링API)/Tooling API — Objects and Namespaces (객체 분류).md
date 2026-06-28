@@ -352,4 +352,5 @@ ApiFault 요소는 서비스 요청 처리 중 발생한 fault에 대한 정보�
 - [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — AuraDefinition·AuraDefinitionBundle·LightningComponentBundle·LightningComponentResource·LightningOutApp 등 Aura·LWC 컴포넌트 번들 군 5객체의 필드·용법 권위 노트(분류 목록 Programming Objects 중 Aura/LWC 항목 상세).
 - [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]] — SandboxInfo·SandboxProcess·DeployRequest·ReleaseUpdate·SourceMember·DomainProvision·OperationLog 등 org 운영·라이프사이클 군 18객체의 필드·용법 권위 노트.
 - [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]] — MetadataPackage·Package2·SubscriberPackageVersion·PackageInstallRequest·BrandingSet·StaticResource·Scontrol 등 패키징·브랜딩·정적콘텐츠 군 20객체의 필드·용법 권위 노트.
+- [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — User·PlatformEventChannel(Member)·PlatformEventSubscriberConfig·EventRelayConfig 등 사용자 신원·플랫폼이벤트·CDC·이벤트 릴레이 군 7객체의 필드·용법 권위 노트(EventDelivery·EventSubscription 제거 객체 역사 기록 포함).
 - [[Field Service Metadata·Tooling API]] — CleanRule·TimeSheetTemplate 등 FSL 특화 Tooling 변형 객체 권위 노트.

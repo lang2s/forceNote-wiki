@@ -630,6 +630,7 @@ Represents information about the configuration for feedback collection. The feed
 - [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] — 형제 Ch4 도메인 노트. IconDefinition의 정본.
 - [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — 형제 Ch4 도메인 노트(Aura·LWC 번들 sObject 군).
 - [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]] — 같은 운영 도메인의 패키징·브랜딩 sObject 20종 형제 노트.
+- [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — User·플랫폼이벤트·CDC 채널·이벤트 릴레이 sObject 7종 형제 Ch4 도메인 노트. 본 노트의 PlatformEventMigration과 인접한 플랫폼이벤트 채널·구독·릴레이 객체의 정본.
 - [[Tooling API 디버그·로그·리플레이 sObject]] — (위임) TraceFlag·ApexLog 등 디버그·로그·리플레이 패밀리의 정본. OperationLog와 도메인은 다르나 모두 비동기/추적성 운영 객체.
 - [[Tooling API 배포]] — 컨테이너 기반 배포 패밀리(MetadataContainer·ContainerAsyncRequest·Apex\*Member)의 정본. DeployRequest·DeployDetails의 배포 맥락.
 - [[Sandbox 관리]] — 샌드박스 종류·복사 정책·프리뷰 타이밍 운영 맥락. SandboxInfo·SandboxProcess·SandboxProcessStage의 응용.

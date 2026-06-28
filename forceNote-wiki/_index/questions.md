@@ -37,6 +37,7 @@ created: 2026-05-21
 | 레코드 기본 표시 범위 어떻게 좁히나 / 공유 안 줄이고 보이는 레코드만 필터 / Scoping Rule 만드는 방법 / RestrictionRule | `Architecture(아키텍처)/Scoping Rules.md` |
 | API 콜 한도 얼마야 / 일일 API 콜 제한 / 동시 API 호출 제한 / Bulk API 배치 한도 / Metadata API 한도 / VF view state 한도 / org 한도 어디서 봐 | `Architecture(아키텍처)/Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF).md` |
 | CDC 트리거 변경 필드 확인 | `Apex/PlatformEvents(플랫폼이벤트)/ChangeEventHeader.md` |
+| CDC 커스텀 채널을 Tooling API로 만드는 객체 / 커스텀 플랫폼 이벤트 채널을 SOQL로 조회 / 플랫폼 이벤트 트리거 배치 크기·실행 사용자를 설정하는 Tooling 객체 / Amazon EventBridge 이벤트 릴레이를 Tooling API로 설정 | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널).md` |
 | DML 결과 에러 처리 방법 | `Apex/Data(데이터)/Database Namespace 상세.md` |
 | 리드 전환 Apex | `Apex/Data(데이터)/Database Namespace 상세.md` |
 | SOSL 검색 결과 Apex에서 | `Apex/Data(데이터)/Search Namespace.md` |

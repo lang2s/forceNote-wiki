@@ -82,4 +82,5 @@ Salesforce에는 이벤트 기반 기능이 여러 가지이며, 일부는 표�
 - [[Platform Event Apex 테스트]] — Test.getEventBus
 - [[Platform Event 발행]] · [[EventBus Namespace]] — Apex 발행
 - [[ChangeEventHeader]] — CDC 변경 이벤트
+- [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — 구독 트리거 배치 크기·실행 사용자를 구성하는 PlatformEventSubscriberConfig Tooling sObject 정본.
 - [[Governor Limits]] — 거버너 한도 일반

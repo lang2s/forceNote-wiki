@@ -240,6 +240,7 @@ Represents a Lightning Out 2.0 application. With a Lightning Out 2.0 app, you ca
 - [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]]
 - [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]] — org 운영·라이프사이클 sObject 18종(Sandbox·DeployRequest·ReleaseUpdate·SourceMember·My Domain 등)
 - [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]] — 패키징·브랜딩·정적콘텐츠 sObject 20종(MetadataPackage·Package2·SubscriberPackage·BrandingSet·StaticResource 등)
+- [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — User·플랫폼이벤트·CDC 채널·이벤트 릴레이 sObject 7종
 
 **Lightning 도메인**
 - [[Aura 컴포넌트 구조]] — AuraDefinition·AuraDefinitionBundle 의 번들 구성

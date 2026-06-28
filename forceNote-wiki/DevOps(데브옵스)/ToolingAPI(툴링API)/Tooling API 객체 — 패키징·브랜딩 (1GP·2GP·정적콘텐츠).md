@@ -952,6 +952,7 @@ Represents a custom s-control, which is custom content that our system hosts, bu
 - [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] — 형제 Ch4 도메인 노트. IconDefinition의 정본(여기서는 링크만).
 - [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — Aura·LWC 컴포넌트 번들 sObject 5종 형제 Ch4 도메인 노트.
 - [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]] — 같은 운영 도메인의 Sandbox·배포·릴리즈·소스추적 sObject 18종 형제 노트.
+- [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — User·플랫폼이벤트·CDC 채널·이벤트 릴레이 sObject 7종 형제 Ch4 도메인 노트.
 - [[2GP Managed Package 개념과 1GP 비교]] — Package2*(2GP)·MetadataPackage*(1GP)의 개념·세대 비교. 패키징 도메인 허브.
 - [[Tooling API 배포]] — MetadataContainer·ContainerAsyncRequest를 통한 Tooling API 배포(패키지 생성/업로드 라이프사이클과 인접).
 - [[Scratch Org 패턴]] — Package2VersionCreateRequest의 SourceOrg·검증용 scratch org, Dev Hub 워크플로 맥락.
