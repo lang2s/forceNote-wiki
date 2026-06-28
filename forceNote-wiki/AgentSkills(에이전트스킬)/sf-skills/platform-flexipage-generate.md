@@ -167,3 +167,4 @@ sf template generate flexipage --name Custom_Home --template HomePage --descript
 - [[platform-custom-application-generate]]
 - [[platform-custom-object-generate]]
 - [[platform-metadata-deploy]]
+- 📘 [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] — FlexiPage(라이트닝 페이지) Tooling sObject 필드·`Type` enum 레퍼런스(지식=위키·실행=스킬 프로토콜).

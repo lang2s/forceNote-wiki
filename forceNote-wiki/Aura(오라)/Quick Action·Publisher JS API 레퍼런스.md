@@ -617,3 +617,4 @@ public with sharing class KBController {
 - [[LWC/Navigation(네비게이션)/Lightning Console JS API|Lightning Console JS API]] — `workspaceAPI`/`utilityBarAPI`는 별개의 신형 콘솔 탭 제어 API.
 - [[Aura(오라)/Case Feed Visualforce 커스터마이즈|Case Feed Visualforce 커스터마이즈]] — 이 Publisher API를 사용하는 Case Feed VF 컴포넌트 커스터마이즈.
 - [[Service(서비스)/Knowledge(지식)/Lightning Knowledge 사용 — 액션·검색·스마트링크·채널|Lightning Knowledge 사용 — 액션·검색·스마트링크·채널]] — Knowledge 아티클을 이메일로 첨부하는 use case 맥락.
+- [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] — 퀵액션의 서버측 정의(QuickActionDefinition·QuickActionList·QuickActionListItem Tooling sObject). 이 Publisher/퀵액션 JS API의 런타임 짝.

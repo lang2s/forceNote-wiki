@@ -1042,5 +1042,6 @@ req.setMethod('GET');
 - [[Tooling API 객체 — Apex 코드·테스트·커버리지]] — 형제 Ch4 도메인 노트(Apex 코드·테스트 sObject 군).
 - [[Tooling API 객체 — 보안·권한]] — 보안·권한·접근통제 sObject 38종(PermissionSet·Profile·NamedCredential·RestrictionRule 등) 형제 Ch4 도메인 노트.
 - [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — 선언적 자동화 sObject 19종(Flow·Workflow·ValidationRule·MatchingRule 등) 형제 Ch4 도메인 노트. 본 노트의 `EntityDefinition.ValidationRules`·`WorkflowAlerts` 등 자식 관계가 가리키는 객체의 본문 정본.
+- [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] — UI·레이아웃·페이지·액션 sObject 22종(FlexiPage·Layout·QuickAction·WebLink·Path 등) 형제 Ch4 도메인 노트. 본 노트가 컬럼만 언급하는 CompactLayout·SearchLayout 객체 자체의 정본.
 - [[Metadata Types — Objects & Fields]] — 같은 이름의 Metadata API **타입**(CustomField·CustomObject·RecordType·FieldSet 등) 카탈로그. 본 노트는 Tooling **sObject**(SOQL 조회), 그쪽은 배포용 declarative metadata.
 - [[ChangeEventHeader]] — EnrichedField의 상위 도메인인 Change Data Capture(채널·헤더) 메커니즘.

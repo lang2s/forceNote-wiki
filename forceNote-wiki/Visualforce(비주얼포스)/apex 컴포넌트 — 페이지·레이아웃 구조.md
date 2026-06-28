@@ -1157,3 +1157,4 @@ A group of components within a toolbar that can be aligned to the left or right 
 - [[버튼·링크 오버라이드·Static Resource·커스텀 컴포넌트]] (커스텀 컴포넌트 작성 — `apex:component`/`apex:attribute` 활용)
 - [[동적 Visualforce — 바인딩·동적 컴포넌트]] (동적 컴포넌트로 facet 지정 등)
 - [[페이지 출력 제어 — HTML·PDF·SLDS]] (`apex:page` renderAs="pdf"·docType·HTML 출력 제어)
+- [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] (클래식 페이지 레이아웃의 Tooling sObject — Layout·CompactLayout·SearchLayout 필드 레퍼런스)
