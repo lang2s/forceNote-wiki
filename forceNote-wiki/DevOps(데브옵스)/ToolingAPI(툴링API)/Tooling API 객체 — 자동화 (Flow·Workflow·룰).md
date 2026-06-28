@@ -615,6 +615,7 @@ Represents a business process. This object is available in API version 33.0 and 
 - [[Tooling API 객체 — Entity·Field·스키마]] — 형제 Ch4 도메인 노트. ValidationRule을 `EntityDefinition.ValidationRules` 관계로 언급, BusinessProcessDefinition 본문 보유.
 - [[Tooling API 객체 — 보안·권한]] — 형제 Ch4 도메인 노트(보안·권한 sObject 군).
 - [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] — UI·레이아웃·페이지·액션 sObject 22종(FlexiPage·Layout·QuickAction·WebLink·Path 등) 형제 Ch4 도메인 노트. 본 노트가 C4-4로 이연한 RecordActionDeployment의 정본.
+- [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — Aura·LWC 컴포넌트 번들 sObject 5종(AuraDefinition·LightningComponentBundle 등) 형제 Ch4 도메인 노트.
 - [[Flow MOC]] — Flow 섹션 전체 목차. Flow·FlowDefinition·플로우 종류의 응용·런타임 맥락.
 - [[Flow 종류와 변수]] — ProcessType·RunInMode·Status 등 플로우 종류·변수 개념.
 - [[Flow Interview API]] — 런타임 플로우 인터뷰(FlowTestResult/런타임 영역의 응용).

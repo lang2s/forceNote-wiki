@@ -174,3 +174,4 @@ Salesforce 제공 base components: `lightning:button`, `lightning:card`, `lightn
 - [[Aura 이벤트]] — Component/Application Event 패턴
 - [[Aura vs LWC]] — 신규 개발 방향 결정
 - [[LWC/LWC MOC]] — Lightning Web Components
+- [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — AuraDefinition·AuraDefinitionBundle 등 Aura 번들의 Tooling sObject 표현(SOQL 조회·배포)

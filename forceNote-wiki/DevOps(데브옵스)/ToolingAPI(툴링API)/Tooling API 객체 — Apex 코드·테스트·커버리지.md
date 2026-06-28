@@ -658,4 +658,5 @@ Apex 클래스를 ApexTestSuite에 연결하는 정션 객체. Tooling API 36.0 
 - [[Tooling API 객체 — 보안·권한]] — 같은 Tooling 객체 패밀리의 보안·권한 군 형제 노트. 보안·권한·접근통제 sObject 38종(PermissionSet·Profile·NamedCredential·RestrictionRule 등).
 - [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — 선언적 자동화 sObject 19종(Flow·Workflow·ValidationRule·MatchingRule 등) 형제 Ch4 도메인 노트. FlowTestCoverage·FlowElementTestCoverage가 본 노트의 ApexCodeCoverage와 같은 커버리지 도메인.
 - [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] — UI·레이아웃·페이지·액션 sObject 22종(FlexiPage·Layout·QuickAction·WebLink·Path 등) 형제 Ch4 도메인 노트. ApexPage/ApexComponent의 UI 짝(Layout·FlexiPage·CustomTab 등).
+- [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — Aura·LWC 컴포넌트 번들 sObject 5종(AuraDefinition·LightningComponentBundle 등) 형제 Ch4 도메인 노트. 본 노트의 `ApexComponent`(Visualforce)는 Aura와 별개이며, Aura/LWC 번들 객체는 여기 소관.
 - [[테스트 전략]] — Apex 테스트 작성·커버리지 패턴(질의가 아닌 작성 관점)

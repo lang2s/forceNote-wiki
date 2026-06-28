@@ -51,6 +51,7 @@ created: 2026-05-21
 | Apex 디버깅 방법 / 디버그 로그 카테고리·레벨 설정 / System.debug 로그 보기 | `Apex/Logging(로깅)/Apex Debug Log.md` |
 | Tooling API로 디버그 로그 어떻게 켜? / API로 trace flag 생성·로그 레벨 설정 / 프로그래밍 방식 로그 활성화 | `Apex/Logging(로깅)/Tooling API 디버그·로그·리플레이 sObject.md` |
 | 리플레이 디버거 체크포인트 sObject가 뭐야? / 힙 덤프 캡처 / overlay action·result | `Apex/Logging(로깅)/Tooling API 디버그·로그·리플레이 sObject.md` |
+| Aura/LWC 컴포넌트 소스를 Tooling API로 가져오는 객체? / AuraDefinition·LightningComponentBundle SOQL 조회 / Aura·LWC 번들 프로그래밍 방식 배포 / DefType·Lightning Out | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API 객체 — Lightning (Aura·LWC 번들).md` |
 | 익명 Apex 실행 방법 / execute anonymous / 코드 한 번만 실행 / sf apex run | `Apex/ExecutionContext(실행컨텍스트)/Anonymous Apex 실행.md` |
 | webservice 키워드 사용법 / Apex를 SOAP 웹서비스로 노출 / WSDL 생성 | `Apex/Integration(통합)/SOAP Web Services 노출 (webservice 키워드).md` |
 | ApexDoc 작성법 / Apex 주석 문서화 / @param @return 태그 사용법 | `Apex/ApexDoc 주석 작성 가이드.md` |

@@ -147,3 +147,4 @@ Salesforce Lightning 플랫폼의 강한 하위 호환성 요구로 LWC에만 �
 - [[LWC API 버전 관리]] — apiVersion 설정 가이드
 
 - [[LWC Shadow DOM 모드]] — Native·Synthetic·None 모드, @lwc/synthetic-shadow 연계
+- [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — LightningComponentBundle·LightningComponentResource, LWC 소스의 Tooling sObject 표현(SOQL 조회·배포)

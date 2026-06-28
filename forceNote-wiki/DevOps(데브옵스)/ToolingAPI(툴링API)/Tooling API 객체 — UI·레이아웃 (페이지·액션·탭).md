@@ -894,6 +894,7 @@ Represents criteria for determining when an animation is displayed to Path users
 - [[Tooling API 객체 — Entity·Field·스키마]] — 형제 Ch4 도메인 노트. RecordType·FieldSet·CompactLayout 필드 컬럼, ValidationRule 관계 언급.
 - [[Tooling API 객체 — 보안·권한]] — 형제 Ch4 도메인 노트. ProfileLayout·PermissionSetTabSetting의 정본.
 - [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — 형제 Ch4 도메인 노트(자동화 sObject 군). RecordActionDeployment의 C4-3→C4-4 이연 출발점.
+- [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — Aura·LWC 컴포넌트 번들 sObject 5종(AuraDefinition·LightningComponentBundle 등) 형제 Ch4 도메인 노트. CustomTab의 `aura`/`flexiPage` 탭 타입이 가리키는 번들 객체.
 - [[Quick Action·Publisher JS API 레퍼런스]] — (Aura) 퀵액션/퍼블리셔의 클라이언트측 JS API. QuickActionDefinition의 런타임 짝.
 - [[apex 컴포넌트 — 페이지·레이아웃 구조]] — (Visualforce) 클래식 페이지 레이아웃의 구조·렌더링 맥락. Layout 객체의 응용.
 - ⚙️ [[platform-flexipage-generate]] — (sf-skill) FlexiPage(라이트닝 페이지) 생성/스캐폴딩 실행 대응(지식=위키·실행=스킬 프로토콜).
