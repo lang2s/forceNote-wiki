@@ -108,6 +108,12 @@ grep -rl "source.pdf 식별자" forceNote-wiki/ --include="*.md"
 - scout/researcher가 dump에 명시한 "미커버 챕터"가 있으면 그대로 인용하고, **없으면 직접 ToC 대비 매핑**한다.
 - 미커버 챕터는 아래 출력 "문서 레벨 커버리지" 섹션에 등재하고, 현재 노트 자체가 완전해도 **문서 레벨 공백은 PM/백로그로 보고**한다(노트 ✅와 별개 차원).
 
+#### 멀티사이클 인제스트 — 형제 노트 객체 중복 backstop (AP-10, 방어심층)
+
+> **Why:** 한 대형 PDF를 여러 사이클로 도메인 그룹 분할해 인제스트할 때(ING-26 Tooling API Ch4 C4-1~C4-9), 한 객체가 여러 도메인에 속해 나중 그룹 로스터에 다시 잡혀 **이미 앞 사이클 노트에 작성된 객체가 중복 작성**될 수 있다(C4-7 Certificate·IconDefinition·ProcessFlowMigration, C4-8 PlatformEventMigration). 1차 방어는 scout의 로스터 단계 grep 제외지만, 검증자도 노트를 이미 읽으므로 저비용 backstop을 둔다.
+
+- 멀티사이클 단일-PDF 인제스트의 새 노트를 검증할 때, 그 노트의 각 객체 섹션 헤딩이 **같은 인제스트의 형제 노트에 이미 작성된 객체와 중복되지 않는지** 1줄 확인한다(예: `grep -l "^### <ObjectName>" <wiki-folder>/*.md`로 2개 이상 노트에 같은 객체 헤딩이 나오면 중복). 중복 발견 시 출력에 플래그하고 writer/PM에 보고한다(노트 충실도 ✅와 별개 차원). additive — 기존 누락(missing) 검증 약화 없음.
+
 ## 출력 형식
 
 ```
