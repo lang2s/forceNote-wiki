@@ -150,3 +150,4 @@ trigger AccountTrigger on Account (after insert) {
 - [[Queueable]] — Flow 호출 후 비동기 처리
 - [[Governor Limits]] — Flow 실행 중 공유되는 한도 확인
 - [[Winter '25/Development]] — v62.0 versioned 업데이트 "Enforce Sharing Rules when Apex Launches a Flow"
+- [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — Tooling API로 Flow·FlowDefinition·FlowTest sObject를 SOQL 조회(런타임 FlowInterview는 Tooling 객체가 아님)

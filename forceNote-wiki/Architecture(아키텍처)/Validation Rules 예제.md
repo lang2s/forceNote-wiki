@@ -455,8 +455,9 @@ OR(AnnualRevenue < 0, AnnualRevenue > 100000000000)
 
 ---
 
-## 관련 문서
+## 관련 노트
 
 - [[Governor Limits]] — 수식 필드 및 검증 규칙 한도 확인
 - [[Custom Metadata Types]] — CMDT를 활용한 동적 검증 임계값 관리
 - [[Schema Namespace 상세]] — `REGEX`, 수식 함수 스키마 컨텍스트
+- [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — ValidationRule을 Tooling API sObject로 SOQL 조회·구성(필드·메타데이터 정본)

@@ -1375,6 +1375,7 @@ Represents the access that the current user has to a field. Available in Tooling
 - [[Tooling API — SOAP·REST 헤더]] — 호출 시 사용하는 SOAP/REST 헤더.
 - [[Tooling API 객체 — Apex 코드·테스트·커버리지]] — 형제 Ch4 도메인 노트(Apex 코드·테스트 sObject 군).
 - [[Tooling API 객체 — Entity·Field·스키마]] — 형제 Ch4 도메인 노트(스키마 메타데이터 sObject 군).
+- [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — 선언적 자동화 sObject 19종(Flow·Workflow·ValidationRule·MatchingRule 등) 형제 Ch4 도메인 노트.
 - [[Metadata Types — Objects & Fields]] — 같은 이름의 Metadata API **타입**(NamedCredential·ExternalCredential·Profile·PermissionSet·RestrictionRule 등) 카탈로그. 본 노트는 Tooling **sObject**(SOQL 조회/구성), 그쪽은 배포용 declarative metadata.
 - [[Permission Set 설계]] — 권한집합·권한집합그룹 설계 패턴(PermissionSet·PermissionSetGroup의 응용).
 - [[레코드 액세스 설계 (Enterprise Scale)]] — 제한·범위 규칙(RestrictionRule·FieldRestrictionRule)의 엔터프라이즈 레코드 액세스 설계.

@@ -656,4 +656,5 @@ Apex 클래스를 ApexTestSuite에 연결하는 정션 객체. Tooling API 36.0 
 - [[Metadata Types — Apex & Code]] — Metadata API의 declarative `ApexClass`·`ApexTrigger` 타입(Tooling sObject와 별개)
 - [[Tooling API 객체 — Entity·Field·스키마]] — 같은 Tooling 객체 패밀리의 스키마 군 형제 노트. `ApexTrigger.EntityDefinitionId`가 가리키는 EntityDefinition·FieldDefinition·CustomField 등 28객체.
 - [[Tooling API 객체 — 보안·권한]] — 같은 Tooling 객체 패밀리의 보안·권한 군 형제 노트. 보안·권한·접근통제 sObject 38종(PermissionSet·Profile·NamedCredential·RestrictionRule 등).
+- [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — 선언적 자동화 sObject 19종(Flow·Workflow·ValidationRule·MatchingRule 등) 형제 Ch4 도메인 노트. FlowTestCoverage·FlowElementTestCoverage가 본 노트의 ApexCodeCoverage와 같은 커버리지 도메인.
 - [[테스트 전략]] — Apex 테스트 작성·커버리지 패턴(질의가 아닌 작성 관점)

@@ -71,6 +71,7 @@ created: 2026-05-21
 | DevOps Center를 scratch org에서 어떻게 켜나 / DevOpsCenter feature 활성화 | `Architecture(아키텍처)/DevOps Center.md` |
 | DevOps Center 메타데이터 설정 / DevHubSettings enableDevOpsCenterGA | `Architecture(아키텍처)/DevOps Center.md` |
 | DevOps Center Beta vs GA 차이 / next-generation AI-powered DevOps Center | `Architecture(아키텍처)/DevOps Center.md` |
+| 워크플로우 룰을 Flow로 마이그레이션하는 Tooling 객체 / ProcessFlowMigration / Tooling API로 Flow·워크플로우·검증규칙 조회 | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API 객체 — 자동화 (Flow·Workflow·룰).md` |
 | Knowledge 아티클 Apex로 게시하는 방법 | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 번역 제출 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 보관 스케줄 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |

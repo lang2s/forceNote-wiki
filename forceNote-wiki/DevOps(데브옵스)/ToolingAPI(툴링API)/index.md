@@ -21,6 +21,7 @@ created: 2026-06-27
 | [[Tooling API 객체 — Apex 코드·테스트·커버리지]] | Apex 코드·테스트·커버리지 객체 17개(ApexClass·ApexTrigger·ApexComponent·ApexPage·ApexPageInfo·ApexCodeCoverage·ApexCodeCoverageAggregate·ApexOrgWideCoverage·ApexTestQueueItem·ApexTestResult·ApexTestResultLimits·ApexTestRunResult·ApexTestSuite·TestSuiteMembership·ApexEmailNotification·ApexResult·SymbolTable) | #reference #apex #testing #coverage |
 | [[Tooling API 객체 — Entity·Field·스키마]] | 스키마 객체 28개(EntityDefinition·EntityParticle·FieldDefinition·CustomField·CustomObject·CustomFieldDisplay·CustomFieldMember·DataType·RecordType·RelationshipDomain·RelationshipInfo·ObjectHierarchyRelationship·Index·IndexField·LookupFilter·FieldSet·FieldMapping·FormulaFunction·GlobalValueSet·EntityLimit·OwnerChangeOptionInfo·BusinessProcessDefinition·EnrichedField·ServiceFieldDataType(제거)) | #reference #schema #entity #field |
 | [[Tooling API 객체 — 보안·권한]] | 보안·권한·접근통제 객체 38종(PermissionSet·PermissionSetAssignment·PermissionSetGroup·PermissionSetGroupComponent·PermissionSetTabSetting·PermissionDependency·Profile·ProfileLayout·NamedCredential·ExternalCredential·ExternalDataSource·ExternalDataSrcDescriptor·ExternalAuthIdentityProvider·ExternalClientAppSettings·ConnectedApplication·RemoteProxy·CspTrustedSite·Certificate·AuthorizedEmailDomain·RestrictionRule·FieldRestrictionRule·UserAccessPolicy·UserAccessPolicyAction·UserAccessPolicyFilter·UserEntityAccess·UserFieldAccess·SecurityHealthCheck·SecurityHealthCheckRisks·TransactionSecurityPolicy·IPAddressRange·InboundNetworkConnection·InboundNetworkConnProperty·OutboundNetworkConnection·OutboundNetworkConnProperty·DelegateGroup·DelegateGroupGrant·DelegateGroupMember·Group) | #reference #security #permissions |
+| [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] | 선언적 자동화 sObject 19종(Flow·FlowDefinition·FlowTest·FlowTestResult·FlowTestCoverage·FlowElementTestCoverage·ProcessFlowMigration·BusinessProcess·WorkflowRule·WorkflowAlert·WorkflowFieldUpdate·WorkflowOutboundMessage·WorkflowTask·ValidationRule·AssignmentRule·AutoResponseRule·MatchingRule·DuplicateJobDefinition·DuplicateJobMatchingRuleDefinition) | #reference #automation #flow #workflow |
 
 ---
 
@@ -35,6 +36,7 @@ created: 2026-06-27
 - ApexClass·테스트 결과·코드 커버리지·SymbolTable이 필요하다 → [[Tooling API 객체 — Apex 코드·테스트·커버리지]]
 - EntityDefinition·FieldDefinition·CustomField·스키마 메타데이터가 필요하다 → [[Tooling API 객체 — Entity·Field·스키마]]
 - PermissionSet·Profile·NamedCredential·접근통제·보안 sObject가 필요하다 → [[Tooling API 객체 — 보안·권한]]
+- Flow·Workflow·ValidationRule·자동화 sObject를 SOQL로 조회/배포? → [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]]
 - 컨테이너 기반 Apex 배포? → [[Tooling API 배포]]
 - TraceFlag·ApexLog·체크포인트 등 디버그/로그? → [[Tooling API 디버그·로그·리플레이 sObject]]
 
