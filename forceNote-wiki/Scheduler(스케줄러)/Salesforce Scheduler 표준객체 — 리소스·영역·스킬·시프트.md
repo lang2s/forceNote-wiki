@@ -462,3 +462,4 @@ This object has the following associated objects. Unless noted, they're availabl
 - sObject/6 Standard Objects.md — 전체 표준객체 레퍼런스 (sObject 폴더 — 폴더 간 plain-text 참조)
 - sObject/API Field Properties.md — Field Properties(Create/Filter/Group/Nillable/Sort/Update 등) 의미
 - sObject/Field Service Objects.md — OperatingHours·TimeSlot·WorkType을 공유하는 Field Service 계열 객체
+- [[Tooling API 객체 — Service·OmniChannel (라우팅·대화채널·서비스카탈로그·스케줄링)]] — Skill 등 라우팅 sObject의 Tooling API facet

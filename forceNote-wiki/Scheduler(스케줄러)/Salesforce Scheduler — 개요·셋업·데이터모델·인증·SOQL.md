@@ -242,3 +242,4 @@ ServiceTerritory 번역 쿼리 결과 예시:
 - [[Salesforce Scheduler — ConnectApi LightningScheduler Apex]] — ConnectApi LightningScheduler Apex 메서드.
 - [[Salesforce Scheduler — Platform Events·Metadata API Types]] — Platform Events·Metadata API Types.
 - [[LxScheduler Namespace]] — Salesforce Scheduler의 Apex 네임스페이스(예약 후보 리소스/슬롯 조회, 외부 캘린더 연동).
+- [[Tooling API 객체 — Service·OmniChannel (라우팅·대화채널·서비스카탈로그·스케줄링)]] — Scheduler 객체(Skill 등 라우팅 sObject)의 Tooling API facet.

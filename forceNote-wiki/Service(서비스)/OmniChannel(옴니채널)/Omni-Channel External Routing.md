@@ -497,3 +497,4 @@ cometd.registerExtension('myReplayExtensionName', replayExtension);
 - [[ChangeEvent Objects]]
 - [[Platform Event 통합 패턴]]
 - [[Service Cloud Objects]]
+- [[Tooling API 객체 — Service·OmniChannel (라우팅·대화채널·서비스카탈로그·스케줄링)]] — 외부 라우팅 관련 설정 sObject의 Tooling API facet (QueueRoutingConfig·ServiceChannel 등)

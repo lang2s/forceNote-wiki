@@ -213,3 +213,4 @@ sforce.console.addEventListener(
 - [[Omni-Channel External Routing]]
 - [[Lightning Console JS API]]
 - [[Service Cloud Objects]]
+- [[Tooling API 객체 — Service·OmniChannel (라우팅·대화채널·서비스카탈로그·스케줄링)]] — Omni-Channel 설정 sObject의 Tooling API facet (ServiceChannel·QueueRoutingConfig·ServicePresenceStatus 등)

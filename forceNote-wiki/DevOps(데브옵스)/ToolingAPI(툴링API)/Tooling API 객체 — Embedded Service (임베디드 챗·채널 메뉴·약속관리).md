@@ -461,3 +461,4 @@ FullName·Metadata 필드 설명 끝에 동일하게 붙는 문구다.
 - [[Tooling API 객체 — UI·레이아웃 (페이지·액션·탭)]] — QuickAction·MenuItem 등 UI 인접 객체
 - [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — EmbeddedServiceFlow가 참조하는 Flow 객체
 - [[Chat 개발자 가이드 개요 & Deployment API — 로깅·윈도우·버튼]] — 임베디드 챗(Live Agent) 런타임 배포 API (Service 도메인)
+- [[Tooling API 객체 — Service·OmniChannel (라우팅·대화채널·서비스카탈로그·스케줄링)]] — 같은 Service 도메인 Tooling API sObject (라우팅·대화채널·서비스카탈로그·스케줄링 facet)
