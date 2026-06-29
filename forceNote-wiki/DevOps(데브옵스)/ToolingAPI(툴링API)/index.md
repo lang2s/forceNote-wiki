@@ -27,6 +27,7 @@ created: 2026-06-27
 | [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]] | org 운영·라이프사이클 sObject 18종(SandboxInfo·SandboxProcess·SandboxProcessStage·SourceMember·SourceMemberDeployRequest·DeployRequest·DeployDetails·PlatformEventMigration·ReleaseUpdate·ReleaseUpdateStep·HistoryRetentionJob·OperationLog·DomainProvision·OrgDomainLog·CustomHttpHeader·BusinessProcessFeedback·BusinessProcessGroup·BusProcessFeedbackConfig) | #reference #sandbox #deploy #release-update |
 | [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]] | 패키징·브랜딩·정적콘텐츠 sObject 20종(MetadataPackage·MetadataPackageVersion·InstalledSubscriberPackage·InstalledSubscriberPackageVersion·SubscriberPackage·SubscriberPackageVersion·SubscriberPackageVersionUninstallRequest·Package2·Package2Member·Package2Version·Package2VersionCreateRequest·Package2VersionCreateRequestError·PackageInstallRequest·PackageUploadRequest·PackageVersionUninstallRequestError·BrandingSet·BrandingSetProperty·ColorDefinition·StaticResource·Scontrol) | #reference #packaging #2gp #branding |
 | [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] | User·플랫폼이벤트·CDC 채널·이벤트 릴레이 Tooling sObject 7종 전수 — User identity·PlatformEventChannel(Member)·PlatformEventSubscriberConfig·EventRelayConfig(EventBridge) + 제거된 EventDelivery/EventSubscription(v46) | #reference #platform-event #cdc #user |
+| [[Tooling API 객체 — Embedded Service (임베디드 챗·채널 메뉴·약속관리)]] | Embedded Service(스냅인) 배포 sObject 13종 전수 — 배포핵심(EmbeddedServiceConfig·Branding)·임베디드 챗(LiveAgent·QuickAction)·채널 메뉴(MenuSettings·MenuItem)·약속관리(FieldService)·Flow 임베딩(Flow·FlowConfig)·커스터마이즈(CustomComponent·CustomLabel·Customization·Resource) | #reference #embedded-service #snap-ins #channel-menu |
 
 ---
 
@@ -47,6 +48,7 @@ created: 2026-06-27
 - Sandbox·메타데이터 배포·릴리즈 업데이트·소스 추적·My Domain 운영 sObject? → [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]]
 - 1GP/2GP 패키지·구독자 설치·브랜딩·StaticResource sObject? → [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]]
 - 플랫폼 이벤트 채널·CDC·이벤트 릴레이(EventBridge)·User Tooling sObject? → [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]]
+- 임베디드 챗(채팅 위젯)·채널 메뉴·약속관리·Flow 임베딩 등 Embedded Service(스냅인) sObject? → [[Tooling API 객체 — Embedded Service (임베디드 챗·채널 메뉴·약속관리)]]
 - 컨테이너 기반 Apex 배포? → [[Tooling API 배포]]
 - TraceFlag·ApexLog·체크포인트 등 디버그/로그? → [[Tooling API 디버그·로그·리플레이 sObject]]
 

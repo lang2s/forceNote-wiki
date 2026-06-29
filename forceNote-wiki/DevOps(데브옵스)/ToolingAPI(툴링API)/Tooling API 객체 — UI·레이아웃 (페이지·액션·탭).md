@@ -22,7 +22,7 @@ aliases: [AnimationRule, CompactLayout, CompactLayoutInfo, CustomApplication, Cu
 
 > [!note] 도메인 경계 — 다른 그룹/노트 소관
 > - **ProfileLayout · PermissionSetTabSetting** 은 이미 [[Tooling API 객체 — 보안·권한]]에 작성됨(프로파일/권한셋의 접근 통제 탭·레이아웃 관점). 여기서 재작성하지 않고 링크만 둔다.
-> - **EmbeddedService\* 11종**(EmbeddedServiceConfig·EmbeddedServiceFlow·EmbeddedServiceBranding 등)은 UI를 렌더하지만 Service Cloud 도메인이므로 → 차기 C4-9a Service 소관.
+> - **EmbeddedService\* 13종**(EmbeddedServiceConfig·EmbeddedServiceFlow·EmbeddedServiceBranding 등)은 UI를 렌더하지만 Service Cloud 도메인이므로 → [[Tooling API 객체 — Embedded Service (임베디드 챗·채널 메뉴·약속관리)]] 참조.
 > - **RecordType · FieldSet · CompactLayout 의 필드 컬럼**(어떤 필드가 레이아웃에 들어가는지)은 [[Tooling API 객체 — Entity·Field·스키마]] 참조. 단 **CompactLayout/SearchLayout 객체 자체의 정본은 이 노트**다.
 
 > [!note] 콘텐츠 갭

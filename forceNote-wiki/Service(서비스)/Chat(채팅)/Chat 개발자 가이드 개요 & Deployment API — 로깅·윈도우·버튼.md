@@ -325,5 +325,6 @@ document.getElementById('liveagent_button_offline_573xx0000000006_USER1'),
 - [[Pre-Chat API — 방문자 정보 수집 & 컨텍스트 설정]]
 - [[커스텀 Chat 윈도우(Visualforce) · Post-Chat · Direct-to-Agent 라우팅]]
 - [[Chat REST API 개요 & 시작]]
+- [[Tooling API 객체 — Embedded Service (임베디드 챗·채널 메뉴·약속관리)]] — 임베디드 챗·스냅인 위젯의 Tooling API 설정 sObject(EmbeddedServiceLiveAgent 등)
 
 > 이 노트(chat_dev_guide) = JavaScript Deployment/Pre-Chat API·Visualforce 기반 웹페이지 임베드 관점. ING-13a(chat_rest) = 네이티브 앱·커스텀 클라이언트용 REST API 관점.
