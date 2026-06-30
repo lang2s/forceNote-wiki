@@ -506,6 +506,7 @@ sforce.update(records);
 - [[Tooling API — 개요·REST·SOAP 호출 기초]] — Tooling API 호출 기초·허브
 - [[Tooling API — Objects and Namespaces (객체 분류)]] — 전체 객체 분류 카탈로그
 - [[Tooling API 객체 — Service·OmniChannel (라우팅·대화채널·서비스카탈로그·스케줄링)]] — 같은 C4-9 Service/버티컬 그룹 형제 노트
+- [[Tooling API 객체 — 통합·데이터·결제·마케팅 (외부서비스·Data Kit·페이먼트·Account Engagement)]] — 같은 C4-9 그룹 형제 노트(커머스 결제·외부서비스 인접)
 - [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — 같은 폴더 형제(직전 사이클)
 - [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]] — EmailTemplate 1GP·ManageableState 패키징 맥락
 - [[Field Service Mobile App (LWC)]] — BriefcaseDefinition: Field Service 모바일 오프라인 priming

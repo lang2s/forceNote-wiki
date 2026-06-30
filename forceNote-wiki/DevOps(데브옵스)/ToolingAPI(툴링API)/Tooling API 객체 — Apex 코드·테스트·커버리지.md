@@ -662,4 +662,5 @@ Apex 클래스를 ApexTestSuite에 연결하는 정션 객체. Tooling API 36.0 
 - [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]] — org 운영·라이프사이클 sObject 18종(Sandbox·DeployRequest·ReleaseUpdate·SourceMember·My Domain 등) 형제 Ch4 도메인 노트.
 - [[Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠)]] — 패키징·브랜딩·정적콘텐츠 sObject 20종(MetadataPackage·Package2·SubscriberPackage·BrandingSet·StaticResource 등) 형제 Ch4 도메인 노트.
 - [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — User·플랫폼이벤트·CDC 채널·이벤트 릴레이 sObject 7종 형제 Ch4 도메인 노트.
+- [[Tooling API 객체 — 통합·데이터·결제·마케팅 (외부서비스·Data Kit·페이먼트·Account Engagement)]] — SOQLResult 등 종속 복합타입의 Tooling API 정의(ApexExecutionOverlayResult 본체는 본 노트군).
 - [[테스트 전략]] — Apex 테스트 작성·커버리지 패턴(질의가 아닌 작성 관점)

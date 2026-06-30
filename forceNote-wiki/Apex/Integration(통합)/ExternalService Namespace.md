@@ -106,3 +106,4 @@ if (response.Code == 200) {
 - [[HttpCalloutMock]] — 테스트 모킹
 - [[External Services]] — Admin 설정 기반 외부 서비스 등록 가이드
 - [[LxScheduler Namespace]] — Lightning Scheduler가 외부 캘린더 시스템을 ExternalService로 연동하는 호출자
+- [[Tooling API 객체 — 통합·데이터·결제·마케팅 (외부서비스·Data Kit·페이먼트·Account Engagement)]] — ExternalServiceRegistration의 Tooling API sObject facet(등록 메타데이터를 API로 조회·관리하는 쪽)

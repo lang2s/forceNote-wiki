@@ -638,6 +638,7 @@ external video provider의 구성. Salesforce에서 provider로 event를 relay�
 - [[Tooling API — 개요·REST·SOAP 호출 기초]] — Tooling API 호출 기초·허브
 - [[Tooling API — Objects and Namespaces (객체 분류)]] — 전체 객체 분류 카탈로그
 - [[Tooling API 객체 — Embedded Service (임베디드 챗·채널 메뉴·약속관리)]] — 같은 Service 도메인 임베디드 위젯 sObject
+- [[Tooling API 객체 — 통합·데이터·결제·마케팅 (외부서비스·Data Kit·페이먼트·Account Engagement)]] — 같은 C4-9 그룹 형제 노트(통합·데이터·결제·마케팅 sObject)
 - [[Omni-Channel 객체·메타데이터·콘솔 컴포넌트]] — Omni-Channel 런타임 객체·콘솔 (Service 도메인)
 - [[Omni-Channel External Routing]] — 외부 라우팅 (Service 도메인)
 - [[Salesforce Scheduler 표준객체 — 리소스·영역·스킬·시프트]] — Scheduler 표준객체(Skill 등)

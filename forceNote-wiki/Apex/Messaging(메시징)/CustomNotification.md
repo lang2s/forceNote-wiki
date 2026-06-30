@@ -161,3 +161,4 @@ public without sharing class NotificationService {
 - [[서비스 레이어 패턴]] — 알림 로직 캡슐화
 - [[Messaging Namespace]] — CustomNotification이 속한 상위 네임스페이스 (이메일·SMS·푸시 통합 카탈로그)
 - [[Mobile Notifications]] — 표준 invocable action REST(`customNotificationAction`)·모바일 push 발송. 이 노트의 `Messaging.CustomNotification` Apex 클래스와 호출 방식·수신자 허용 범위가 다른 동명이의 메커니즘
+- [[Tooling API 객체 — 통합·데이터·결제·마케팅 (외부서비스·Data Kit·페이먼트·Account Engagement)]] — CustomNotificationType 등의 Tooling API sObject facet(알림 타입을 메타데이터로 정의하는 쪽)
