@@ -410,3 +410,4 @@ aliases: [FieldServiceSettings, CleanRule, TimeSheetTemplate, FS Metadata API, F
 - [[Field Service 개요와 데이터 모델]]
 - [[Field Service Objects]] — Skill·TimeSheet 등 FSL 표준 오브젝트 레퍼런스 카탈로그
 - [[Field Service REST API]] — 같은 가이드의 REST 리소스(Flow·Mobile Settings·Service Report Template·Appointment Bundling)
+- [[Tooling API 객체 — Experience·콘텐츠·커머스 (사이트·모더레이션·관리형콘텐츠·웹스토어)]] — BriefcaseDefinition 등의 Tooling API sObject facet

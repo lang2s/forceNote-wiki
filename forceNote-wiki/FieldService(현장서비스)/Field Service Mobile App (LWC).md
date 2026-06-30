@@ -979,3 +979,4 @@ function scanRoom(options) {
 - [[Field Service 개요와 데이터 모델]] — Field Service 데이터 모델·개요 허브. 이 모바일 앱 노트의 상위 컨텍스트.
 - [[모바일 & 오프라인 (LWC)]] — LWC Offline 일반 메커니즘(Briefcase 프라이밍·GraphQL wire·draft records). 이 노트의 동반 가이드(보완 관계).
 - [[모바일 기능 패턴]] — `lightning/mobileCapabilities` 모바일 기능 플러그인(BarcodeScanner·BiometricsService·LocationService 등) 일반 패턴.
+- [[Tooling API 객체 — Experience·콘텐츠·커머스 (사이트·모더레이션·관리형콘텐츠·웹스토어)]] — BriefcaseDefinition 등의 Tooling API sObject facet

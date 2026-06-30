@@ -77,6 +77,7 @@ created: 2026-05-21
 | 워크플로우 룰을 Flow로 마이그레이션하는 Tooling 객체 / ProcessFlowMigration / Tooling API로 Flow·워크플로우·검증규칙 조회 | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API 객체 — 자동화 (Flow·Workflow·룰).md` |
 | Sandbox를 Tooling API로 생성/새로고침하는 객체 / SandboxInfo·SandboxProcess / 메타데이터 배포 상태·소스 추적·릴리즈 업데이트·My Domain을 Tooling API로 조회 | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈).md` |
 | 2GP 패키지 버전을 Tooling API로 생성/조회하는 객체 / Package2·Package2Version·Package2VersionCreateRequest / 1GP MetadataPackage·구독자 패키지 설치·브랜딩·StaticResource 조회 | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API 객체 — 패키징·브랜딩 (1GP·2GP·정적콘텐츠).md` |
+| Experience Cloud 모더레이션 룰을 Tooling API로 조회하는 객체 / ModerationRule·KeywordList·UserCriteria로 커뮤니티 모더레이션 구성 / Experience 사이트 상세(SiteDetail)·네비게이션 메뉴(MenuItem)를 SOQL로 조회 / 관리형 콘텐츠 타입(ManagedContentType)을 Tooling API로 조회 / 커머스 웹스토어 생성 템플릿(WebStoreTemplate)·제품 속성 세트를 SOQL로 조회 / 이메일 템플릿·오프라인 브리프케이스를 Tooling API로 조회 | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API 객체 — Experience·콘텐츠·커머스 (사이트·모더레이션·관리형콘텐츠·웹스토어).md` |
 | Knowledge 아티클 Apex로 게시하는 방법 | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 번역 제출 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |
 | Knowledge 아티클 보관 스케줄 Apex | `Apex/Integration(통합)/KbManagement Namespace.md` |

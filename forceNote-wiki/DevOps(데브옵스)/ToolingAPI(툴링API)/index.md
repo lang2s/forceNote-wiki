@@ -30,6 +30,7 @@ created: 2026-06-27
 | [[Tooling API 객체 — Embedded Service (임베디드 챗·채널 메뉴·약속관리)]] | Embedded Service(스냅인) 배포 sObject 13종 전수 — 배포핵심(EmbeddedServiceConfig·Branding)·임베디드 챗(LiveAgent·QuickAction)·채널 메뉴(MenuSettings·MenuItem)·약속관리(FieldService)·Flow 임베딩(Flow·FlowConfig)·커스터마이즈(CustomComponent·CustomLabel·Customization·Resource) | #reference #embedded-service #snap-ins #channel-menu |
 | [[Tooling API 객체 — Service·OmniChannel (라우팅·대화채널·서비스카탈로그·스케줄링)]] | Service Cloud/Omni-Channel setup sObject 25종 전수 — 라우팅·프레즌스·스킬 9(ServiceChannel·QueueRoutingConfig·PresenceUserConfig·OmniSupervisorConfig·WorkSkillRouting(+Attribute)·Skill·ServicePresenceStatus·PresenceDeclineReason)·대화/메시징 채널 6(ConversationChannelDefinition·ConversationVendorInfo·EngagementInsightType·ExtConvParticipantIntegDef·CustomMsgChannel·ContactCenterChannel)·서비스 카탈로그 5(SvcCatalogItemDef·SvcCatalogCategory·SvcCatalogCategoryItem·SvcCatalogFulfillmentFlow·SvcCatalogFulfillFlowItem)·스케줄링·워크포스 4(SchedulingObjective·SchedulingRule·ShiftSegmentType·TimeSheetTemplateAssignment)·가상 방문 1(VirtualVisitConfig) | #reference #omni-channel #routing #service-catalog #scheduling |
 | [[Tooling API 객체 — 세일즈·예측·AI (포캐스팅·머신러닝·Einstein·Agentforce)]] | 세일즈·예측·AI/ML 도메인 sObject 25종 전수 — 세일즈·예측 14(AdvAccountForecastSet·AdvAcctFrcstDisplayGroup·AdvAcctForecastMeasureDef·ForecastingType·ForecastingTypeSource·ForecastingSourceDefinition·ForecastingFilter·ForecastingFilterCondition·ForecastingDisplayedFamily·AccountPlanObjMeasCalcCond·AccountPlanObjMeasCalcDef·OpportunitySplitType·PipelineInspMetricConfig·Territory2SupportedObject)·AI/ML/Agentforce 11(AIApplication·AIApplicationConfig·MLDataDefinition·MLField·MLFilter·MLPredictionDefinition·GenAiFunctionDefinition·GenAiPlannerDefinition·RecommendationStrategy·CleanDataService·InvocableActionExtension) | #reference #forecasting #sales #ai #machine-learning #einstein #agentforce |
+| [[Tooling API 객체 — Experience·콘텐츠·커머스 (사이트·모더레이션·관리형콘텐츠·웹스토어)]] | Experience·콘텐츠·커머스 도메인 sObject 14종 전수(150필드) — ① Experience·모더레이션 6(ModerationRule·KeywordList·UserCriteria·CommunityWorkspacesNode·MenuItem·SiteDetail)·② 관리형콘텐츠·문서·템플릿 5(Document·EmailTemplate·ManagedContentType·ManagedContentNodeType·PostTemplate)·③ 커머스 2(WebStoreTemplate·ProductAttributeSet)·④ Field Service 1(BriefcaseDefinition). 공통 enum(Language 18값·ManageableState 8값) 블록 | #reference #experience-cloud #moderation #managed-content #commerce #email-template |
 
 ---
 
@@ -54,6 +55,7 @@ created: 2026-06-27
 - 옴니채널 라우팅·프레즌스·스킬·대화/메시징 채널·서비스 카탈로그·스케줄링·가상 방문 sObject? → [[Tooling API 객체 — Service·OmniChannel (라우팅·대화채널·서비스카탈로그·스케줄링)]]
 - 예측 유형·고급 계정 예측·어카운트 플랜·기회 분할·파이프라인 검사·테리토리 등 세일즈·예측 sObject? → [[Tooling API 객체 — 세일즈·예측·AI (포캐스팅·머신러닝·Einstein·Agentforce)]]
 - Einstein 예측/추천·머신러닝 모델 정의(ML*)·Agentforce 액션/플래너(GenAi*)·데이터 정제 등 AI/ML sObject? → [[Tooling API 객체 — 세일즈·예측·AI (포캐스팅·머신러닝·Einstein·Agentforce)]]
+- Experience Cloud 모더레이션(ModerationRule·KeywordList·UserCriteria)·사이트·관리형 콘텐츠·커머스 웹스토어 템플릿·이메일 템플릿·브리프케이스 sObject? → [[Tooling API 객체 — Experience·콘텐츠·커머스 (사이트·모더레이션·관리형콘텐츠·웹스토어)]]
 - 컨테이너 기반 Apex 배포? → [[Tooling API 배포]]
 - TraceFlag·ApexLog·체크포인트 등 디버그/로그? → [[Tooling API 디버그·로그·리플레이 sObject]]
 
