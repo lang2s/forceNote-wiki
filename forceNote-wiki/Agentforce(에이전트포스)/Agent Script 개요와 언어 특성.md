@@ -40,7 +40,7 @@ Script에서 expressions로 다음을 정의할 수 있다.
 Agent Script는 자연어 prompt의 conversational skill·complex reasoning 능력을 보존하면서 programmatic instruction의 determinism을 추가한다. 정의할 수 있는 것은 다음과 같다.
 
 - **LLM이 reasoning 결정을 자유롭게 하는 영역** — Reasoning Instructions 참조.
-- **agent가 deterministic하게 실행해야 하는 영역** — Reasoning Instructions 참조.
+- **agent가 deterministic하게 실행해야 하는 영역** — Logic Instructions 참조 (Reasoning Instructions의 하위).
 - **Variables** — agent의 current state 정보를 LLM context memory에 의존하지 않고 신뢰성 있게 저장한다. Variables 참조.
 - **Conditional expressions** — agent의 실행 경로 또는 LLM의 발화를 결정한다. 예: `is_member` 변수 값에 따라 고객에게 다르게 말하기; `appointment_type` 변수 값에 따라 실행할 action을 deterministic하게 지정. Conditional Expressions 참조.
 - **subagent transition 조건** — deterministic transition이 가능하다. 또는 subagent transition을 LLM에 tool로 노출해, LLM이 언제/여부를 결정하게 할 수도 있다. Tools, Utils 참조.
@@ -282,4 +282,5 @@ pound `#` 기호 뒤에 comment를 단다. `#` 뒤의 줄 내용은 script가 �
 - [[Agent Script 실행 흐름과 모델 설정]] — 런타임 실행 순서(3경로·11단계 프롬프트 구성)·model_config 모델 설정
 - [[Agent Script 레퍼런스 — 액션 (apex·flow·prompt)]] — 액션 정의 레퍼런스(target URI·파라미터 타입 12종·Action/Output 속성)
 - [[Agent Script 레퍼런스 — 툴과 유틸 (@utils·tool 문법)]] — 툴(reasoning actions) 문법과 @utils 4종(transition to·setVariables·escalate·end_session)
+- [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]] — 변수·인스트럭션(Logic/Prompt)·표현식·연산자 레퍼런스
 - [[스킬 ↔ 위키 토픽 맵]] — Agentforce 실행 스킬(agentforce-generate 등) 디스패처. 지식(이 노트) vs 실행(스킬) 레이어 구분

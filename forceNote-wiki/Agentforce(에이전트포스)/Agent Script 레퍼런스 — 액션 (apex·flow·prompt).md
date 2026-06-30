@@ -290,6 +290,7 @@ Agent Script에는 두 개의 `actions` 블록이 있다. 혼동을 피하기 �
 - [[Agent Script 개요와 언어 특성]]
 - [[Agent Script 블록 8종 (System·Config·Subagent 등)]]
 - [[Agent Script 실행 흐름과 모델 설정]]
+- [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]] — 변수·인스트럭션(Logic/Prompt)·표현식·연산자 레퍼런스
 - [[Apex MOC]]
 - [[Flow MOC]]
 - [[스킬 ↔ 위키 토픽 맵]]
