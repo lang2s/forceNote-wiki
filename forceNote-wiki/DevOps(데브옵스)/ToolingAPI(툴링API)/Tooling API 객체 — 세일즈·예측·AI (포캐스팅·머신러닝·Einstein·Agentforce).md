@@ -677,3 +677,4 @@ WHERE DeveloperName = 'My_Filter'
 - [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — InvocableActionExtension가 확장하는 invocable action
 - [[Tooling API 객체 — 통합·데이터·결제·마케팅 (외부서비스·Data Kit·페이먼트·Account Engagement)]] — 같은 C4-9 그룹 형제 노트(통합·데이터·결제·마케팅 sObject)
 - [[Metadata Types — Einstein & Analytics]] — AIApplication·AIApplicationConfig·RecommendationStrategy·AccountPlanObjMeasCalcDef의 Metadata API 타입 facet (BOUNDARY 교차)
+- [[Agent Script 메타데이터 배포 (DX·패키징)]] — `GenAiFunction`/`GenAiPlannerBundle` 배포 메타데이터 타입 (BOUNDARY: 여기 GenAiFunctionDefinition·GenAiPlannerDefinition sObject vs 배포 메타데이터 타입)

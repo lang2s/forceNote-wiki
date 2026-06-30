@@ -371,6 +371,7 @@ reasoning:
 ## 관련 노트
 
 - [[Agent Script 패턴 — 라우팅·전환·필수 워크플로우]] — 짝 노트(라우팅·전환·필수 워크플로우 패턴)
+- [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]] — 짝 노트(변수·리스트·리소스 참조·시스템 오버라이드·멀티턴), 조건 표현식·`available when` 공유
 - [[Agent Script 레퍼런스 — 액션 (apex·flow·prompt)]] — `run @actions` / 입출력 변수 수동 설정
 - [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]] — 조건 표현식·연산자(`and`/`or`/`is None`/`==`)·괄호 우선순위
 - [[Agent Script 레퍼런스 — 툴과 유틸 (@utils·tool 문법)]] — reasoning action(tool) 정의

@@ -431,4 +431,5 @@ Agent Script의 syntax·keyword·concept를 lookup하는 종합 레퍼런스다.
 - [[Agent Script 레퍼런스 — 액션 (apex·flow·prompt)]]
 - [[Agent Script 레퍼런스 — 툴과 유틸 (@utils·tool 문법)]] — after_reasoning의 transition to 차이
 - [[Agent Script 패턴 — 액션 체이닝·조건·데이터 페치·필터링]] — 표현식·연산자를 활용한 조건 분기·필터링 실전 패턴
+- [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]] — 이 레퍼런스의 변수·리스트·`{!@변수}` 참조 문법을 활용한 실전 패턴
 - [[스킬 ↔ 위키 토픽 맵]]

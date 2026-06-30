@@ -51,11 +51,11 @@ aliases: [Agent Router, agent router pattern, start_agent, transitions, "@utils.
 | Fetch Data | Run actions to retrieve data before the LLM begins reasoning | [[Agent Script 패턴 — 액션 체이닝·조건·데이터 페치·필터링]] (N7) |
 | Filtering with Available When | Control when subagents and actions are visible to the reasoning engine | [[Agent Script 패턴 — 액션 체이닝·조건·데이터 페치·필터링]] (N7) |
 | Required Subagent Workflow | Guarantee users pass through required steps before proceeding | 이 노트 |
-| Resource References | Reference variables and actions directly in reasoning instructions | Resource References (C6 예정) |
-| System Overrides | Override global system instructions to change behavior per subagent | System Overrides (C6 예정) |
+| Resource References | Reference variables and actions directly in reasoning instructions | [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]] (N8) |
+| System Overrides | Override global system instructions to change behavior per subagent | [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]] (N8) |
 | Transitions | Move execution between subagents with `@utils.transition to` | 이 노트 |
-| Variables | Store and use state effectively across subagents | Variables (C6 예정) |
-| Variables (List) | Store variables in a list, also called a collection. Use a variable from your list just like a regular variable. Use an index to iterate through your list. | Variables (List) (C6 예정) |
+| Variables | Store and use state effectively across subagents | [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]] (N8) |
+| Variables (List) | Store variables in a list, also called a collection. Use a variable from your list just like a regular variable. Use an index to iterate through your list. | [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]] (N8) |
 
 관련 리소스(원본 Resources 섹션): An Agentforce Guide to Context Engineering (`ai.agent_context_engineering.htm`) · Agent Script Examples · Agent Script Reference.
 
@@ -263,7 +263,7 @@ reasoning:
 
 - Use filtering (`available when`) when you want to remove options.
 - Use the required flow pattern (also described as a "conditional transition") when users must complete a step before anything else occurs.
-- Use Enforce Required Workflows Through Subagents In Multi Turn Conversations to enforce step-by-step sequencing across conversation turns. This pattern ensures a required workflow through subagents, where the next subagent depends on a customer's response to a previous subagent. (multi-turn 패턴은 C6 예정.)
+- Use Enforce Required Workflows Through Subagents In Multi Turn Conversations to enforce step-by-step sequencing across conversation turns. This pattern ensures a required workflow through subagents, where the next subagent depends on a customer's response to a previous subagent. (multi-turn 패턴은 [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]]의 "멀티턴 워크플로우 강제" 참조.)
 
 ### 접근 방식 비교표 (3행 전수)
 
@@ -339,7 +339,7 @@ subagent Order_Management:
 
 > This pattern works in any subagent, particularly in the agent router. Use it to enforce a complex subagent workflow throughout multi-turn conversations.
 
-원본은 별도 예제 문서 "Agent Script Example: Use Step Variables to Enforce Subagent Workflows"(multi-turn 예제)를 참조한다 — C6 예정.
+원본은 별도 예제 문서 "Agent Script Example: Use Step Variables to Enforce Subagent Workflows"(multi-turn 예제)를 참조한다 — [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]]의 "멀티턴 워크플로우 강제" 패턴 참조.
 
 ### Tips (3개 전수)
 
@@ -352,6 +352,7 @@ subagent Order_Management:
 ## 관련 노트
 
 - [[Agent Script 패턴 — 액션 체이닝·조건·데이터 페치·필터링]] — 짝 노트(액션 체이닝·조건·페치·필터링 패턴)
+- [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]] — 짝 노트(변수·리스트·리소스 참조·시스템 오버라이드·멀티턴), 이 카탈로그의 나머지 5패턴
 - [[Agent Script 실행 흐름과 모델 설정]] — 전환 시 실행 흐름·프롬프트 폐기 동작
 - [[Agent Script 레퍼런스 — 툴과 유틸 (@utils·tool 문법)]] — `@utils.transition` 문법, reasoning action(tool) 정의
 - [[Agent Script 블록 8종 (System·Config·Subagent 등)]] — `start_agent`·`subagent` 블록

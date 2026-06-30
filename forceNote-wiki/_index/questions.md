@@ -140,3 +140,6 @@ created: 2026-05-21
 | B2C Commerce 주문이 Salesforce 어느 객체·필드로 매핑돼 / storefront 주문 데이터 맵 / Order XSD → SF 필드 | `Commerce(커머스)/B2C Commerce Storefront Order Data Map.md` |
 | storefront 주문을 OM으로 import하는 방법 / OrderSummary 생성하는 방법 / 과거 주문 bulk load | `Commerce(커머스)/Order Management — Import·Fulfillment·Taxation.md` |
 | 교환 RMA 처리 API / Preview·Submit Cart to Exchange Order / payment sequencing 결제 순서 제어 | `Commerce(커머스)/Order Management — Exchanges·Payment Sequencing·확장.md` |
+| 에이전트 스크립트 어떻게 쓰나 / Agentforce 에이전트를 코드로 정의하는 법 / Agent Script가 뭐야 / Agentforce Builder로 에이전트 만드는 법 | `Agentforce(에이전트포스)/Agent Script 개요와 언어 특성.md` |
+| Agent Script 변수 어떻게 써 / 리스트(컬렉션) 변수 다루는 법 / 멀티턴 순서 강제·슬롯 필링 / 시스템 인스트럭션 오버라이드 | `Agentforce(에이전트포스)/Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드.md` |
+| 에이전트 다른 org로 배포 / Agentforce 에이전트를 샌드박스에서 프로덕션으로 옮기는 법 / sf CLI로 Bot·GenAiPlannerBundle 메타데이터 배포 / package.xml 매니페스트로 에이전트 retrieve·deploy | `Agentforce(에이전트포스)/Agent Script 메타데이터 배포 (DX·패키징).md` |

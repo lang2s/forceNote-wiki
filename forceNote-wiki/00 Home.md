@@ -213,6 +213,22 @@ AI 에이전트가 사용자를 단계별로 안내하기 위해 동봉되는 `S
 |---|---|
 | [[SLDS 2 Starter Kit - 저장소 설정과 배포 스킬]] | repo-setup, first-time-deploy, gh CLI 저장소 생성, GitHub Pages, gh-pages 브랜치 |
 
+### [[Agentforce(에이전트포스)/index|Agentforce(에이전트포스)]]
+Agentforce Agent Script — Agentforce Builder에서 agent를 정의하는 언어. 개요·블록·실행 흐름·레퍼런스(액션/툴/변수)·패턴·메타데이터 배포 (Agent Script 10노트 도메인)
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| [[Agent Script 개요와 언어 특성]] | Agent Script란, 작성 3방식, Agentforce DX, 언어 특성 9종, 토큰 치트시트 |
+| [[Agent Script 블록 8종 (System·Config·Subagent 등)]] | system·config·variables·subagent·start_agent, Config 파라미터 |
+| [[Agent Script 실행 흐름과 모델 설정]] | 3대 실행 경로, 프롬프트 구성 11단계, model_config, 모델 우선순위 |
+| [[Agent Script 레퍼런스 — 액션 (apex·flow·prompt)]] | action target URI, apex/flow/prompt 호출, 파라미터 타입 12 |
+| [[Agent Script 레퍼런스 — 툴과 유틸 (@utils·tool 문법)]] | tool 문법(wrap·with·set), @utils(transition·escalate·end_session) |
+| [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]] | 변수 3종, 인스트럭션(Reasoning/Logic/Prompt), 조건 표현식, 연산자 14종 |
+| [[Agent Script 패턴 — 라우팅·전환·필수 워크플로우]] | agent router(start_agent), @utils.transition, 필수 워크플로우 강제 |
+| [[Agent Script 패턴 — 액션 체이닝·조건·데이터 페치·필터링]] | action chaining, conditionals(is None vs ""), fetch data, available when 필터링 |
+| [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]] | 변수 효과적 사용, 리스트 변수, 리소스 직접 참조, 시스템 오버라이드, 멀티턴 |
+| [[Agent Script 메타데이터 배포 (DX·패키징)]] | sf CLI retrieve/deploy, Bot·GenAiPlannerBundle, package.xml, 다른 org로 이동 |
+
 ### [[통합 MOC|Integration(통합)]]
 외부 시스템 연동 — Named Credential, Callout, REST/SOAP
 

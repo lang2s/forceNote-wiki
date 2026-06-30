@@ -283,5 +283,6 @@ subagent routing·filtering에 start agent block을 사용하는 가이드는 Su
 - [[Agent Script 레퍼런스 — 액션 (apex·flow·prompt)]] — actions 블록에 정의하는 액션 레퍼런스(target URI·파라미터 타입·Action/Output 속성)
 - [[Agent Script 레퍼런스 — 툴과 유틸 (@utils·tool 문법)]] — reasoning.actions 블록의 툴 문법과 @utils 4종
 - [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]] — 변수·인스트럭션(Logic/Prompt)·표현식·연산자 레퍼런스
+- [[Agent Script 메타데이터 배포 (DX·패키징)]] — `Bot`/`BotVersion`/`AiAuthoringBundle` 메타데이터 ↔ 이 블록 구조의 배포 표현 대응
 - [[스킬 ↔ 위키 토픽 맵]] — Agentforce 실행 스킬(agentforce-generate 등) 디스패처. 지식(이 노트) vs 실행(스킬) 레이어 구분
 - [[Tooling API 객체 — 세일즈·예측·AI (포캐스팅·머신러닝·Einstein·Agentforce)]] — GenAiFunctionDefinition·GenAiPlannerDefinition 등 GenAi 메타데이터를 조회하는 Tooling API sObject(언어가 아닌 다른 API 레이어)

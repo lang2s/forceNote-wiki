@@ -23,8 +23,8 @@ created: 2026-06-30
 | [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]] | 변수 3종(@variables·linked·system)·인스트럭션(Reasoning/Logic/Prompt + before/after_reasoning)·조건 표현식(if/else)·연산자 14종 + 문법 치트시트 38행 | #reference #variables #instructions #expressions #operators |
 | [[Agent Script 패턴 — 라우팅·전환·필수 워크플로우]] | 에이전트 라우터(start_agent)·서브에이전트 전환(@utils.transition·조건 전환)·필수 워크플로우(신원확인 등) 강제 패턴 | #pattern #routing #transitions |
 | [[Agent Script 패턴 — 액션 체이닝·조건·데이터 페치·필터링]] | 액션 보장 순차 실행·조건문(if/else) 결정적 제어·추론 전 데이터 페치·available when 필터링 패턴 | #pattern #actions #conditionals #fetch #filtering |
-| (N8 예정) 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드 | (작성 예정) | — |
-| (N9 예정) 에이전트 메타데이터 배포 (Agentforce DX) | (작성 예정) | — |
+| [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]] | 패턴 5종 — 변수 효과적 사용·리스트(컬렉션) 변수·리소스 직접 참조·시스템 오버라이드·멀티턴 워크플로우(슬롯 필링) 강제 | #pattern #variables #list-variables #resource-references #system-overrides #multi-turn |
+| [[Agent Script 메타데이터 배포 (DX·패키징)]] | 에이전트를 다른 org로 — 메타데이터 타입 9종(Bot·BotVersion·GenAiPlannerBundle·AiAuthoringBundle 등)·draft/committed/legacy 구분·sf CLI 7단계 retrieve/deploy·매니페스트 3종·username 문자열 치환 | #deployment #metadata-api #package-xml #sf-cli |
 
 ---
 
