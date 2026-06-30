@@ -21,8 +21,9 @@ created: 2026-05-17
 | Apex 네임스페이스 — 통합/HTTP·Commerce·Industries·Metadata | `_index/apex-namespaces.md` | 통합 및 산업 네임스페이스 (Order Management 섹션 포함 — 아래 Commerce 행 참조) |
 | Commerce · Order Management(주문 관리) · B2C Commerce — Salesforce Order Management(SOM): OrderSummary·FulfillmentOrder·OrderItemSummary 데이터 모델 · B2C Commerce Storefront 주문 데이터 맵(XSD 매핑) · Import/Fulfillment/Taxation(주문 가져오기·이행·세금) · Exchanges(RMA 교환)/Payment Sequencing | `_index/apex-namespaces.md` | `Commerce(커머스)/` 폴더 4노트 — 샤드 내 "Order Management — B2C Commerce" 섹션. 자연어 질문은 `_index/questions.md` |
 | Architecture · Admin · Integration(플랫폼) | `_index/platform.md` | VF·Sites·Canvas·AppLauncher·VisualEditor·Enhanced Domains·Admin·외부연동 등 (DevOps/DX 제외) |
-| 플랫폼 DevOps / DX — Salesforce DX · Scratch Org · Sandbox · Source Tracking · DX 인증 · CI/CD · Metadata API · DevOps Center (패키징 제외) | `_index/platform-devops.md` | `DevOps(데브옵스)/` 폴더 — DX 코어·Metadata API·DevOps Center |
+| 플랫폼 DevOps / DX — Salesforce DX · Scratch Org · Sandbox · Source Tracking · DX 인증 · CI/CD · Metadata API · DevOps Center (패키징·Tooling API 제외) | `_index/platform-devops.md` | `DevOps(데브옵스)/` 폴더 — DX 코어·Metadata API·DevOps Center |
 | 플랫폼 DevOps 패키징 — Unlocked Package · 2GP Managed Package · 컴포넌트 Manageability Rules · Push Upgrade · AppExchange · LMA · Feature Management App · App Analytics | `_index/platform-devops-2gp.md` | `DevOps(데브옵스)/` 폴더 — 패키징(2GP/Unlocked) 클러스터 (platform-devops.md에서 분할) |
+| 플랫폼 DevOps Tooling API — 개발 도구용 메타데이터 API: 개요·REST/SOAP 호출·헤더·네임스페이스 분류 + 도메인별 Tooling sObject(Apex·스키마·보안·자동화·UI·Lightning·운영·패키징·이벤트·Service·세일즈/AI·Experience·통합) 전수 | `_index/platform-devops-tooling.md` | `DevOps(데브옵스)/ToolingAPI(툴링API)/` 폴더 — Tooling API 클러스터 (platform-devops.md에서 분할) |
 | 릴리즈 노트 — Spring/Summer/Winter (v59~v67) | `_index/release.md` | 릴리즈별 변경 |
 | sObject Reference — Field 타입·Object 그룹·Associated Objects·Custom Objects·Object Interfaces·표준 Object 카탈로그 | `_index/sobject-reference.md` | Object Reference v67.0 |
 | Service Cloud · Knowledge — 데이터모델·SOAP/REST/Metadata/UI API·아티클·데이터카테고리 | `_index/service.md` | Service(서비스)/ 폴더 전반 |
