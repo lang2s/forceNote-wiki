@@ -309,4 +309,5 @@ variables:
 - [[Agent Script 블록 8종 (System·Config·Subagent 등)]]
 - [[Agent Script 실행 흐름과 모델 설정]]
 - [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]] — 변수·인스트럭션(Logic/Prompt)·표현식·연산자 레퍼런스
+- [[Agent Script 패턴 — 라우팅·전환·필수 워크플로우]] — @utils.transition 단방향 전이를 활용한 라우팅·전환·필수 워크플로우 실전 패턴
 - [[스킬 ↔ 위키 토픽 맵]]

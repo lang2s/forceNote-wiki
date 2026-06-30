@@ -21,8 +21,8 @@ created: 2026-06-30
 | [[Agent Script 레퍼런스 — 액션 (apex·flow·prompt)]] | 액션 정의·target URI 3종(apex/flow/prompt)·파라미터 타입 12·Action/Output Properties·결정적 호출 | #reference #actions |
 | [[Agent Script 레퍼런스 — 툴과 유틸 (@utils·tool 문법)]] | 툴(reasoning actions) 문법(wrap·with·set·available when)·@utils 4종(transition·setVariables·escalate·end_session)·subagent 직접 참조 | #reference #tools |
 | [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]] | 변수 3종(@variables·linked·system)·인스트럭션(Reasoning/Logic/Prompt + before/after_reasoning)·조건 표현식(if/else)·연산자 14종 + 문법 치트시트 38행 | #reference #variables #instructions #expressions #operators |
-| (N6 예정) 패턴 — 라우팅·전환·필수 워크플로우 | (작성 예정) | — |
-| (N7 예정) 패턴 — 액션·조건·데이터·필터 | (작성 예정) | — |
+| [[Agent Script 패턴 — 라우팅·전환·필수 워크플로우]] | 에이전트 라우터(start_agent)·서브에이전트 전환(@utils.transition·조건 전환)·필수 워크플로우(신원확인 등) 강제 패턴 | #pattern #routing #transitions |
+| [[Agent Script 패턴 — 액션 체이닝·조건·데이터 페치·필터링]] | 액션 보장 순차 실행·조건문(if/else) 결정적 제어·추론 전 데이터 페치·available when 필터링 패턴 | #pattern #actions #conditionals #fetch #filtering |
 | (N8 예정) 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드 | (작성 예정) | — |
 | (N9 예정) 에이전트 메타데이터 배포 (Agentforce DX) | (작성 예정) | — |
 

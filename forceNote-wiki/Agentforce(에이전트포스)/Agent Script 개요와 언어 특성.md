@@ -283,4 +283,6 @@ pound `#` 기호 뒤에 comment를 단다. `#` 뒤의 줄 내용은 script가 �
 - [[Agent Script 레퍼런스 — 액션 (apex·flow·prompt)]] — 액션 정의 레퍼런스(target URI·파라미터 타입 12종·Action/Output 속성)
 - [[Agent Script 레퍼런스 — 툴과 유틸 (@utils·tool 문법)]] — 툴(reasoning actions) 문법과 @utils 4종(transition to·setVariables·escalate·end_session)
 - [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]] — 변수·인스트럭션(Logic/Prompt)·표현식·연산자 레퍼런스
+- [[Agent Script 패턴 — 라우팅·전환·필수 워크플로우]] — 언어 요소를 조합한 라우팅·subagent 전환·필수 워크플로우 실전 패턴
+- [[Agent Script 패턴 — 액션 체이닝·조건·데이터 페치·필터링]] — 액션 체이닝·조건 분기·데이터 페치·필터링 실전 패턴
 - [[스킬 ↔ 위키 토픽 맵]] — Agentforce 실행 스킬(agentforce-generate 등) 디스패처. 지식(이 노트) vs 실행(스킬) 레이어 구분

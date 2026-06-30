@@ -248,4 +248,5 @@ EinsteinHyperClassifier를 subagent classification에 사용할 때의 **장점(
 - [[Agent Script 레퍼런스 — 액션 (apex·flow·prompt)]] — 액션의 결정적 호출(run·after_reasoning) 실행 시점·target URI·파라미터 타입
 - [[Agent Script 레퍼런스 — 툴과 유틸 (@utils·tool 문법)]] — transition 단방향 전이·flow of control·@utils 4종 문법
 - [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]] — 변수·인스트럭션(Logic/Prompt)·표현식·연산자 레퍼런스
+- [[Agent Script 패턴 — 라우팅·전환·필수 워크플로우]] — 이 실행 흐름 위에서 subagent 전환·라우팅·필수 워크플로우를 구성하는 패턴
 - [[스킬 ↔ 위키 토픽 맵]] — Agentforce 실행 스킬 디스패처
