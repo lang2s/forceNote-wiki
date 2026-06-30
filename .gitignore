@@ -21,5 +21,8 @@ _user-docs/
 # Claude Code 런타임 락 (머신별 임시 파일)
 scheduled_tasks.lock
 
+# Obsidian vault 개인 설정 (workspace.json 등 머신별 UI 상태 — 커밋 제외)
+forceNote-wiki/.obsidian/
+
 # Claude Code 머신별 권한 캐시 (settings.json은 commit, settings.local.json은 제외)
 forceNote-wiki/.claude/settings.local.json
