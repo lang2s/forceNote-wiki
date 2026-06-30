@@ -38,6 +38,7 @@ created: 2026-05-21
 | API 콜 한도 얼마야 / 일일 API 콜 제한 / 동시 API 호출 제한 / Bulk API 배치 한도 / Metadata API 한도 / VF view state 한도 / org 한도 어디서 봐 | `Architecture(아키텍처)/Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF).md` |
 | CDC 트리거 변경 필드 확인 | `Apex/PlatformEvents(플랫폼이벤트)/ChangeEventHeader.md` |
 | CDC 커스텀 채널을 Tooling API로 만드는 객체 / 커스텀 플랫폼 이벤트 채널을 SOQL로 조회 / 플랫폼 이벤트 트리거 배치 크기·실행 사용자를 설정하는 Tooling 객체 / Amazon EventBridge 이벤트 릴레이를 Tooling API로 설정 | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널).md` |
+| Einstein 예측 정의를 Tooling API로 조회하는 객체 / 머신러닝 모델 정의를 SOQL로 조회 / Agentforce 액션·플래너 메타데이터를 Tooling API로 조회 / 예측 유형(ForecastingType)을 프로그래밍으로 구성 / 기회 분할 유형을 Tooling API로 조회 / 추천 전략(RecommendationStrategy)을 SOQL로 조회 | `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API 객체 — 세일즈·예측·AI (포캐스팅·머신러닝·Einstein·Agentforce).md` |
 | DML 결과 에러 처리 방법 | `Apex/Data(데이터)/Database Namespace 상세.md` |
 | 리드 전환 Apex | `Apex/Data(데이터)/Database Namespace 상세.md` |
 | SOSL 검색 결과 Apex에서 | `Apex/Data(데이터)/Search Namespace.md` |

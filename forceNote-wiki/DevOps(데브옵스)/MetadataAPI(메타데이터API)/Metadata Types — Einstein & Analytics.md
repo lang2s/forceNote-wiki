@@ -336,6 +336,7 @@ Einstein for Service 기능(Einstein Article Recommendations 등) 설정 및 관
 - [[Metadata API MCP Tool]] — AI 도구로 타입 컨텍스트 조회
 - [[Metadata API File-Based 호출]] — Wave/Analytics 배포
 - [[2GP — Components - Einstein & Analytics]] — 같은 타입의 2GP 패키징 동작 (Manageability Rules·Editable Properties)
+- [[Tooling API 객체 — 세일즈·예측·AI (포캐스팅·머신러닝·Einstein·Agentforce)]] — AIApplication·RecommendationStrategy 등의 Tooling API sObject facet(query 조회·구성)
 
 ---
 
