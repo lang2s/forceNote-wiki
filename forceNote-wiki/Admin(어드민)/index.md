@@ -30,6 +30,14 @@ created: 2026-05-19
 | [[Schema Builder (스키마 빌더)]] | 오브젝트·관계를 시각적으로 보고 드래그앤드롭으로 커스텀 오브젝트·필드·관계 추가 — 데이터 모델 ERD | #customization |
 | [[Reports (리포트)]] | Report Builder로 데이터를 조회·분석 — Report Type·Format(tabular/summary/matrix/joined) | #analytics |
 | [[Dashboards (대시보드)]] | report 데이터를 chart·gauge·metric·table·Visualforce 컴포넌트로 시각화 — dynamic dashboard | #analytics |
+| [[Company Information & Fiscal Year (회사 정보·회계연도)]] | 조직 기본값(locale·언어·통화)·라이선스·스토리지·회계연도(표준/커스텀) | #org-setup |
+| [[Business Hours & Holidays (영업 시간·휴일)]] | 지원 시간·휴일(에스컬레이션 경과시간 기준) | #org-setup |
+| [[Multiple Currencies (멀티 통화)]] | 멀티통화(영구·비활성화 불가)·환율·corporate currency | #org-setup |
+| [[Setup Audit Trail (설정 감사 추적)]] | 설정 변경 이력(누가·무엇·언제) | #org-setup |
+| [[Users (사용자 관리)]] | 사용자 생성·deactivate(라이선스 반환)·freeze(로그인 차단) | #user-mgmt |
+| [[Roles & Role Hierarchy (역할·역할 계층)]] | 레코드 접근 수직 상속(role≠profile) | #user-mgmt |
+| [[Public Groups (공개 그룹)]] | 사용자·역할 묶음(공유 대상) | #user-mgmt |
+| [[Delegated Administration (위임 관리)]] | 부분 관리 권한 위임 | #user-mgmt |
 
 ---
 
@@ -50,6 +58,14 @@ created: 2026-05-19
 - 오브젝트·관계를 시각적으로 설계? → [[Schema Builder (스키마 빌더)]]
 - 데이터를 조회·분석하는 리포트 만들기? → [[Reports (리포트)]]
 - 리포트 데이터를 차트·게이지로 시각화? → [[Dashboards (대시보드)]]
+- 조직 기본값·라이선스·회계연도 설정? → [[Company Information & Fiscal Year (회사 정보·회계연도)]]
+- 지원 시간·휴일(에스컬레이션 기준) 설정? → [[Business Hours & Holidays (영업 시간·휴일)]]
+- 멀티통화·환율·회사 통화 관리? → [[Multiple Currencies (멀티 통화)]]
+- 설정을 누가·언제 바꿨는지 추적? → [[Setup Audit Trail (설정 감사 추적)]]
+- 사용자 생성·비활성화·동결(freeze)? → [[Users (사용자 관리)]]
+- 역할 계층으로 레코드 접근 상속 설계? → [[Roles & Role Hierarchy (역할·역할 계층)]]
+- 사용자·역할을 묶어 공유 대상 만들기? → [[Public Groups (공개 그룹)]]
+- 부분 관리 권한을 다른 사용자에게 위임? → [[Delegated Administration (위임 관리)]]
 - Salesforce란 무엇인가? → [[Architecture(아키텍처)/Salesforce 플랫폼 개요]]
 
 ---

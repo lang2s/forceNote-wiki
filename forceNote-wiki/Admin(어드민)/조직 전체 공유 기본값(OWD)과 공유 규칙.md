@@ -199,6 +199,7 @@ Auto Number, Checkbox, Date, Date/Time, Email, **Lookup Relationship**(사용자
 ---
 
 ## 관련 노트
+- [[Roles & Role Hierarchy (역할·역할 계층)]] — Grant Access Using Hierarchies로 역할 계층의 자동 접근 상속을 제어(공유 모델의 수직 축)
 - [[레코드 액세스 설계 (Enterprise Scale)]] — OWD·공유 규칙 변경이 유발하는 **공유 재계산 성능**과 skew 함정(본 노트의 성능 짝)
 - [[Permission Set 설계]] — 오브젝트/필드 수준 명시적 접근 권한 부여(공유 모델과 상호 보완)
 - [[Scoping Rules]] — 접근은 그대로 두고 사용자가 기본으로 보는 레코드만 좁힘(공유가 접근을 확대/제한하는 것과 직교)

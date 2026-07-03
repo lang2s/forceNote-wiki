@@ -119,3 +119,4 @@ Master(Account)  ◀── master-detail ──  Detail(Invoice__c)
 ## 관련 노트
 - [[Formula 필드]] — 또 다른 자동 계산 커스텀 필드(파생 값). roll-up이 관련 레코드를 집계하는 반면 formula는 같은 레코드 내(또는 cross-object)의 값을 계산.
 - [[Object Relationships]] — master-detail/lookup 관계(roll-up summary의 전제 구조).
+- [[Multiple Currencies (멀티 통화)]] — 멀티통화 org에서 master 레코드 통화가 roll-up 통화를 결정하고, advanced currency management는 currency roll-up을 무효화한다.
