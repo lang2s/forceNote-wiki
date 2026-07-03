@@ -63,6 +63,7 @@ aliases: [통합 MOC, Integration Index]
 - [[Users Resources - 프로필·대화·메시지·팔로우]] — 사용자 정보·프로필·비공개 대화/메시지·팔로우·그룹·설정 REST(17 리소스)
 - [[Users Resources - Recommendations·Reputation]] — Chatter 추천 6종·평판(action·objectCategory·idPrefix)
 - [[User Profiles · Subscriptions · Followers on Records Resources]] — 사용자 프로필·사진/배너·구독(언팔)·레코드 팔로워 REST(5 리소스)
+- [[Topics · Announcements · Q&A Resources]] — 토픽 endorsement·knowledgeable·opt-out·공지·Q&A 제안 REST(10 리소스)
 
 ## 테스트
 

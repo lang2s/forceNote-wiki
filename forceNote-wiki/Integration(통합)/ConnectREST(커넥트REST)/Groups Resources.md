@@ -377,5 +377,6 @@ Group Page · Group Detail · Batch Results · Announcement Page · Announcement
 ## 관련 노트
 - [[Feeds Resources]] — 그룹의 피드는 groups 리소스가 아니라 record feed 리소스에 `groupId`를 넘겨 조회·게시한다(groups ≠ feed).
 - [[Feed Elements Resources]] — 그룹에 게시하는 feed element(post) 처리.
+- [[Topics · Announcements · Q&A Resources]] — 그룹 공지 게시(리소스 4)의 조회·수정·삭제는 이 노트의 Announcements 리소스가 담당.
 - [[Connect REST API 요청·응답 규약]] — base URI·페이지네이션·바이너리(multipart) 업로드 규약.
 - [[Connect REST API 개요]] — Connect REST API 상위 개요.
