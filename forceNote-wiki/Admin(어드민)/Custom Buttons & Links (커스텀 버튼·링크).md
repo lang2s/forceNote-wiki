@@ -59,3 +59,4 @@ Object Manager → Buttons, Links, and Actions → New
 ## 관련 노트
 - [[Page Layouts (페이지 레이아웃)]] — 버튼·링크를 배치하는 레이아웃
 - [[Quick Actions & Global Actions (퀵 액션·글로벌 액션)]] — JavaScript 버튼의 현대적 대체
+- [[New Button or Link & Action 생성 가이드 (타입·설정·예시)]] — Display Type·Behavior·Content Source 등 생성 심화 가이드

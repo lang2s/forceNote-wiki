@@ -75,3 +75,4 @@ Global Action: 컨텍스트 무관(레코드 생성·통화 로그) → Global P
 - [[Page Layouts (페이지 레이아웃)]] — object-specific action을 page layout에 추가.
 - [[Custom Buttons & Links (커스텀 버튼·링크)]] — 레거시 JavaScript 버튼의 현대적 대체 대상.
 - [[List Views (리스트 뷰)]] — 리스트 뷰에서 mass quick action으로 실행되는 액션 정의.
+- [[New Button or Link & Action 생성 가이드 (타입·설정·예시)]] — Action Type(Create·Update·Log a Call 등) 생성 심화 가이드.

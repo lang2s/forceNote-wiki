@@ -68,6 +68,7 @@ created: 2026-07-03
 | Quick Actions, 퀵 액션, 빠른 실행, Global Actions, 글로벌 액션, object-specific action, global publisher layout, 글로벌 퍼블리셔 레이아웃, action bar, 액션 바 | `Admin(어드민)/Quick Actions & Global Actions (퀵 액션·글로벌 액션).md` |
 | Compact Layouts, 컴팩트 레이아웃, highlights panel, 하이라이트 패널, key fields, 핵심 필드, 모바일 카드 필드 | `Admin(어드민)/Compact Layouts (컴팩트 레이아웃).md` |
 | Custom Buttons, 커스텀 버튼, Custom Links, 커스텀 링크, URL button, URL 버튼, Visualforce button, VF 버튼, JavaScript 버튼, 레거시 버튼 | `Admin(어드민)/Custom Buttons & Links (커스텀 버튼·링크).md` |
+| New Button or Link, 버튼 링크 생성, 버튼 만드는 법, Display Type, Detail Page Button, List Button, Behavior, Content Source, URL 버튼 생성, Visualforce 버튼 생성, Window Open Properties, merge field 버튼, Action Type, 액션 타입, Create a Record, Log a Call, Update a Record, Custom Action, object-specific global, 커스텀 버튼 어떻게 만드나, 액션 타입 종류 | `Admin(어드민)/New Button or Link & Action 생성 가이드 (타입·설정·예시).md` |
 
 ## 자동화 (Automation)
 
