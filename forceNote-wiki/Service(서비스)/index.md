@@ -5,7 +5,7 @@ created: 2026-06-17
 
 # Service(서비스) — 도메인 허브
 
-> Salesforce Service Cloud — 고객 서비스·지원 도메인. 현재는 Knowledge(지식)·Chat(채팅, 레거시 Live Agent REST)·OmniChannel(옴니채널, Standard v67.0 EOL)·Lightning Flow for Service(Actions & Recommendations)를 다루며, 향후 Case·Entitlement·Messaging 등으로 확장되는 거점이다.
+> Salesforce Service Cloud — 고객 서비스·지원 도메인. Knowledge(지식)·Chat(채팅, 레거시 Live Agent REST)·OmniChannel(옴니채널, Standard v67.0 EOL)·Lightning Flow for Service(Actions & Recommendations)에 더해 케이스 관리 코어(Cases·배정/에스컬레이션·큐·Email/Web-to-Case·엔타이틀먼트/마일스톤)와 상담원 도구(서비스 콘솔·매크로·Open CTI 전화 통합)를 다룬다.
 
 **상위:** [[00 Home]]
 
@@ -22,6 +22,22 @@ created: 2026-06-17
 
 ---
 
+## 케이스 관리 & 콘솔 (Service Cloud 코어)
+
+| 노트 | 설명 |
+|---|---|
+| [[Service Cloud 개요]] | (허브) Service Cloud(=Agentforce Service) 기능 맵·case lifecycle — 케이스 관리부터 콘솔·생산성 도구까지 진입점 |
+| [[Cases (케이스)]] | 고객 질문/피드백/이슈를 추적하는 case 레코드 — 케이스 관리 기본 |
+| [[Case Assignment & Escalation Rules (케이스 배정·에스컬레이션 규칙)]] | 케이스 자동 배정 규칙 + 시간(business hours) 기준 에스컬레이션 규칙 |
+| [[Queues (큐)]] | 레코드 공유 대기열로 워크로드 분배 — Omni-Channel 라우팅 연계 |
+| [[Email-to-Case & Web-to-Case (이메일·웹 투 케이스)]] | 이메일/웹 폼 유입을 case로 자동 생성 |
+| [[Entitlements & Milestones (엔타이틀먼트·마일스톤)]] | SLA 관리 — 지원 수준(엔타이틀먼트)·시간 기준 단계(마일스톤: 첫 응답/해결 시간) |
+| [[Service Console (서비스 콘솔)]] | 에이전트 워크스페이스 — Lightning Service Console·유틸리티 바 |
+| [[Macros (매크로)]] | 반복 작업 자동화로 상담원 생산성 향상 — 매크로 빌더 |
+| [[Open CTI & Telephony (전화 통합)]] | CTI 전화 통합(소프트폰·콜센터) — 은퇴 예정, Salesforce Voice로 전환 |
+
+---
+
 ## 빠른 선택
 
 - Knowledge 객체·API 전반(개발자) → [[Service(서비스)/Knowledge(지식)/index|Knowledge(지식)]]
@@ -33,6 +49,12 @@ created: 2026-06-17
 - Chat Developer Guide(Deployment API·Pre-Chat·Visualforce 커스텀 윈도우) → [[Service(서비스)/Chat(채팅)/index|Chat(채팅)]]
 - Omni-Channel 객체·메타데이터·콘솔 메서드·External Routing(서드파티 라우팅 통합) → [[Service(서비스)/OmniChannel(옴니채널)/index|OmniChannel(옴니채널)]]
 - 에이전트에게 "논리적 다음 단계" 액션 목록 띄우기(Actions & Recommendations·RecordAction) → [[Lightning Flow for Service (Actions & Recommendations)]]
+- Service Cloud 전체 기능 맵·case lifecycle부터 시작 → [[Service Cloud 개요]]
+- 케이스 관리·자동 배정·에스컬레이션·큐 → [[Cases (케이스)]] · [[Case Assignment & Escalation Rules (케이스 배정·에스컬레이션 규칙)]] · [[Queues (큐)]]
+- 이메일/웹 폼으로 케이스 자동 생성 → [[Email-to-Case & Web-to-Case (이메일·웹 투 케이스)]]
+- SLA(엔타이틀먼트·마일스톤: 첫 응답/해결 시간) → [[Entitlements & Milestones (엔타이틀먼트·마일스톤)]]
+- 상담원 워크스페이스·생산성(콘솔·매크로) → [[Service Console (서비스 콘솔)]] · [[Macros (매크로)]]
+- 전화 통합(Open CTI·소프트폰, Salesforce Voice 전환) → [[Open CTI & Telephony (전화 통합)]]
 
 ---
 

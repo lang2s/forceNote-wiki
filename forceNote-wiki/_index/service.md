@@ -91,6 +91,20 @@ created: 2026-06-17
 |---|---|
 | Lightning Flow for Service, Salesforce Flow for Service, Actions and Recommendations, Actions & Recommendations 컴포넌트, RecordAction, RecordActionDeployment, RecordActionHistory, guided engagement, guided action, 가이드 인게이지먼트, 액션 추천 컴포넌트, 액션 권장 사항, 다음 단계 목록, next best action 추천, NBA 추천 RecordAction, 에이전트에게 다음 단계 액션 띄우기, 레코드 페이지 액션 목록, deployment 채널별 기본 액션, Open CTI 액션, RecordAction 정션 객체, Process Builder 액션 연결, SOAP Apex Metadata 액션 API | `Service(서비스)/Lightning Flow for Service (Actions & Recommendations).md` |
 
+## Service Cloud — 케이스 관리 & 콘솔 (Case Management · Console · Productivity)
+
+| 키워드 | 파일 |
+|---|---|
+| Service Cloud, Agentforce Service, 서비스 클라우드, case management, 서비스 개요, case lifecycle, 케이스 라이프사이클, 서비스 클라우드 기능 맵, Service Cloud가 뭐야, 서비스 클라우드 어디서 시작해, 고객 지원 기능 뭐 있어 | `Service(서비스)/Service Cloud 개요.md` |
+| Cases, 케이스, case management, 케이스 관리, 지원 요청, support case, 고객 질문 이슈 추적, 케이스가 뭐야, 케이스 어떻게 관리해, 고객 문의 어떻게 기록해 | `Service(서비스)/Cases (케이스).md` |
+| assignment rules, escalation rules, 케이스 배정, 에스컬레이션, case routing, business hours, 케이스 자동 배정, 케이스 배정 규칙, 에스컬레이션 규칙, 영업시간, 케이스 자동으로 어떻게 배정해, 시간 지나면 케이스 에스컬레이션 어떻게 해 | `Service(서비스)/Case Assignment & Escalation Rules (케이스 배정·에스컬레이션 규칙).md` |
+| Queues, 큐, 대기열, case queue, work distribution, 워크로드 분배, 레코드 공유 대기열, Omni-Channel 라우팅, 큐가 뭐야, 케이스 큐 어떻게 만들어, 작업 어떻게 분배해 | `Service(서비스)/Queues (큐).md` |
+| Email-to-Case, Web-to-Case, 이메일 투 케이스, 웹 투 케이스, 케이스 자동 생성, 지원 폼, 이메일로 케이스 자동 생성, 웹 폼으로 케이스, 이메일을 케이스로 어떻게 바꿔, 웹사이트 문의를 케이스로 어떻게 받아 | `Service(서비스)/Email-to-Case & Web-to-Case (이메일·웹 투 케이스).md` |
+| Entitlements, Milestones, 엔타이틀먼트, 마일스톤, SLA, entitlement process, 첫 응답 시간, 해결 시간, 지원 수준, 시간 기준 단계, SLA 어떻게 관리해, 엔타이틀먼트가 뭐야, 마일스톤으로 응답 시간 어떻게 추적해 | `Service(서비스)/Entitlements & Milestones (엔타이틀먼트·마일스톤).md` |
+| Service Console, 서비스 콘솔, lightning service console, agent workspace, utility bar, 상담원 콘솔, 에이전트 워크스페이스, 유틸리티 바, 서비스 콘솔이 뭐야, 상담원 화면 어떻게 구성해, 콘솔 앱 어떻게 설정해 | `Service(서비스)/Service Console (서비스 콘솔).md` |
+| Macros, 매크로, macro builder, agent productivity, 반복 작업 자동화, 매크로 빌더, 상담원 생산성, 매크로가 뭐야, 반복 작업 어떻게 자동화해, 케이스 처리 매크로 어떻게 만들어 | `Service(서비스)/Macros (매크로).md` |
+| Open CTI, telephony, 전화 통합, softphone, salesforce voice, call center, CTI, 소프트폰, 콜센터, 전화 통합 어떻게 해, Open CTI가 뭐야, Salesforce Voice로 전환, CTI 은퇴 예정 | `Service(서비스)/Open CTI & Telephony (전화 통합).md` |
+
 ## Chat — Developer Guide (chat_dev_guide, Deployment/Pre-Chat/VF · 레거시 Live Agent · 2026-02-14 은퇴)
 
 | 키워드 | 파일 |
