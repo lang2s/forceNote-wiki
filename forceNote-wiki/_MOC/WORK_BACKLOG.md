@@ -76,7 +76,7 @@ updated: 2026-06-27
 | ADMIN-6 | **Data Loader**(✅) · Import Wizard(✅) | ✅ **완료** — Data Loader(2026-06-14) + **Data Import Wizard(2026-07-03)** `Admin(어드민)/Data Import Wizard.md`(help.salesforce.com Tier 2). 8단계 절차·지원/미지원 객체·Import Limits 표(50,000건·100MB·400KB·90필드·32KB) 전수. Data Loader 비교표로 위임(중복0). `_index/platform.md` 등재. qa PASS | ✅ 완료 | 2026-06-14 |
 | ADMIN-7 | **Duplicate · Matching Rules** | ✅ **완료 (2026-07-03)** — `Admin(어드민)/Duplicate & Matching Rules (중복·매칭 규칙).md`(help.salesforce.com Tier 2). match key·matching equation·한도 5/3/1/5·안도는 조건 7·오버라이드 3 전수. qa PASS | ✅ 완료 | 2026-06-14 |
 | ADMIN-8 | **Schema Builder** | ✅ **완료 (2026-07-03)** — `Admin(어드민)/Schema Builder (스키마 빌더).md`(help.salesforce.com Tier 2). 시각 데이터모델·커스텀오브젝트·lookup/master-detail·Geolocation 제외. qa PASS | ✅ 완료 | 2026-06-14 |
-| ADMIN-9 | **Sales Cloud · Service Cloud** (기능 레벨 가이드) | `Service Cloud Objects`(sObject)만, 기능 가이드 없음 | 🔲 대기 | 2026-06-14 |
+| ADMIN-9 | **Sales Cloud · Service Cloud** (기능 레벨 가이드) | ✅ **완료 (2026-07-03)** — 신규 `SalesCloud(세일즈클라우드)/`(11) + `Service(서비스)/` 확장(9) + `DataCloud(데이터클라우드)/`(8) + `Clouds(클라우드)/` 개요(7) = 35노트. help.salesforce.com Tier 2. 기존 CPQ·FieldService·Knowledge·OmniChannel·Chat·Datacloud Namespace 링크 흡수. qa PASS. **ADMIN 갭 1~9 전부 완료** | ✅ 완료 | 2026-06-14 |
 | QA-GAP-1 | 면접 Q&A → `_index/questions.md` 보강 검토 | 컬렉션의 회사별(TCS·Deloitte 등)·시나리오 면접 Q&A. reference 아님 + Tier 3 → 보존 가치 낮음. 자연어 질문 라우팅 키워드만 선별 흡수 검토 | 🔲 대기 | 2026-06-14 |
 
 ### 🟢 INGEST — Salesforce Documents 공식 PDF 인제스트 (2026-06-14 시작)
