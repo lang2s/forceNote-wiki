@@ -55,3 +55,4 @@ Setup → Fiscal Year:
 
 ## 관련 노트
 - [[Collaborative Forecasts (예측)]] — 회계연도가 예측·리포트 기간의 기준이 됨(fiscal year 설정이 예측 기간을 규정).
+- [[Data Export & Storage (데이터 내보내기·스토리지)]] — 스토리지 사용량(Storage Usage)을 Company Information 에서 확인.

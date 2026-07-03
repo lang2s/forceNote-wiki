@@ -87,3 +87,4 @@ cross-object: Account.AnnualRevenue   // 관계 따라 상위 오브젝트 참�
 
 ## 관련 노트
 - [[Roll-Up Summary 필드]] — master-detail의 detail 레코드를 집계하는 또 다른 자동 계산 필드
+- [[Custom Objects & Custom Fields (커스텀 오브젝트·필드)]] — formula는 커스텀 필드 생성 시 선택하는 필드 타입

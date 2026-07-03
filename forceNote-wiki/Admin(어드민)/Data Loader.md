@@ -136,3 +136,4 @@ process.bat "C:\dl\conf" csvAccountUpsert
 - [[Salesforce 플랫폼 개요]] — 에디션·환경
 - [[Data Skew]] — 대량 적재 시 부모 잠금·스큐 회피(ParentId 정렬)
 - [[platform-data-manage]] (sf-skill — 실행형) — 레코드 bulk import/export 실행형 스킬(Data Loader 대안 CLI 경로)
+- [[Data Export & Storage (데이터 내보내기·스토리지)]] — 예약 백업(Data Export Service) vs 온디맨드 export 대안

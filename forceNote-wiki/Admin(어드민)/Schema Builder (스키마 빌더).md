@@ -48,3 +48,4 @@ Setup → Quick Find: "Schema Builder" → Schema Builder
 
 ## 관련 노트
 - [[Object Relationships]] — Schema Builder가 시각화·생성하는 lookup/master-detail 관계
+- [[Custom Objects & Custom Fields (커스텀 오브젝트·필드)]] — Schema Builder로 시각 생성하는 오브젝트·필드의 Setup 기반 생성 경로

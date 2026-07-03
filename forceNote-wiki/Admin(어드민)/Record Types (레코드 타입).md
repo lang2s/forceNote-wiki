@@ -66,3 +66,4 @@ Object(Opportunity)
 - [[Page Layouts (페이지 레이아웃)]] — record type × 프로파일 조합이 실제 표시 레이아웃을 결정한다.
 - [[Profiles (프로파일)]] — record type을 사용자에게 할당하는 기본 그릇(record type assignments).
 - [[Permission Sets (권한 집합)]] — record type assignments를 추가로 부여하는 수단.
+- [[Picklists — Global Value Sets & Dependent Picklists (피클리스트)]] — record type별로 사용 가능한 picklist 값을 지정한다.

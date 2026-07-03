@@ -35,3 +35,19 @@ created: 2026-07-03
 | Login IP Ranges, 로그인 IP 범위, Login Hours, 로그인 시간, Trusted IP, 신뢰 IP, Network Access, IP 제한, 프로파일 IP 하드 거부, org 챌린지, 로그인 시간 제한 | `Admin(어드민)/Login IP Ranges & Login Hours (로그인 IP·시간 제한).md` |
 | Health Check, 보안 상태 점검, Security Health Check, baseline, 보안 점수, security score, 보안 baseline 부합도, 위험 수정 | `Admin(어드민)/Security Health Check (보안 상태 점검).md` |
 | Field History Tracking, 필드 이력 추적, 필드 변경 추적, history related list, Field Audit Trail, 이전 이후 값, 최대 20필드, History 관련목록 | `Admin(어드민)/Field History Tracking (필드 이력 추적).md` |
+
+## 데이터 관리 (Data Management)
+
+| 키워드 | 파일 |
+|---|---|
+| Mass Transfer, 대량 이전, Mass Delete, 대량 삭제, 소유권 이전, 레코드 재배정, 대량 작업, 소유권 대량 이전, 레코드 대량 삭제 | `Admin(어드민)/Mass Transfer & Mass Delete (대량 이전·삭제).md` |
+| Data Export, 데이터 내보내기, export service, 백업, storage, 스토리지, 용량, 주간 내보내기, 데이터 백업, 스토리지 사용량 | `Admin(어드민)/Data Export & Storage (데이터 내보내기·스토리지).md` |
+
+## 오브젝트·필드 커스터마이제이션 (Objects & Fields Customization)
+
+| 키워드 | 파일 |
+|---|---|
+| Custom Objects, 커스텀 오브젝트, Custom Fields, 커스텀 필드, Object Manager, __c, 오브젝트 만들기, 필드 추가, 커스텀 오브젝트 생성 | `Admin(어드민)/Custom Objects & Custom Fields (커스텀 오브젝트·필드).md` |
+| Picklists, 피클리스트, Global Value Set, 전역 값 집합, Dependent Picklist, 종속 피클리스트, controlling field, field dependency, 필드 종속성 | `Admin(어드민)/Picklists — Global Value Sets & Dependent Picklists (피클리스트).md` |
+| Custom Settings, 커스텀 설정, List Custom Setting, Hierarchy Custom Setting, 캐시 설정, 구성 데이터, 리스트 커스텀 설정, 계층 커스텀 설정 | `Admin(어드민)/Custom Settings (커스텀 설정).md` |
+| Custom Labels, 커스텀 레이블, 사용자 정의 레이블, 번역, localization, 지역화, 번역 가능한 텍스트 | `Admin(어드민)/Custom Labels (커스텀 레이블).md` |
