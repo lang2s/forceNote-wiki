@@ -86,7 +86,7 @@ updated: 2026-06-27
 
 | # | PDF (페이지) | 도메인 | 상태 |
 |---|---|---|---|
-| ING-13b | salesforce_chatter_rest_api (2350, **분할 필요**) = **Connect REST API Developer Guide** (v67.0 Summer '26) | Chatter/Connect/Integration | 🔲 대기 — ★ 분리(2026-06-18 내용확인): 파일명과 달리 Connect REST API(Chatter 피드·커뮤니티 등 수백 리소스). **2,350p 초대형 → 단일 파이프라인 불가, DEC-1식 도메인 분할 전략 선결 필요**. 별도 대형 이니셔티브로 취급 |
+| ING-13b | salesforce_chatter_rest_api (2350, **분할 필요**) = **Connect REST API Developer Guide** (v67.0 Summer '26) | Chatter/Connect/Integration | 🟡 **Phase 1 완료(2026-07-03)** — 협업 코어 11노트 신규 `Integration(통합)/ConnectREST(커넥트REST)/`(Foundation 2 + Feed Elements·Feeds·Comments/Likes/Mentions·Groups·Users×3·Profiles/Subscriptions/Followers·Topics/Announcements/Q&A). 샤드 `_index/connect-rest.md`. Apex ConnectApi 짝 링크. 상세 [[project_connect_rest_ingest]]. **Phase 2(선택): 미커버 도메인 중 위키 갭인 것만** — Commerce·Payments·OM·Scheduler·Surveys·Data360·CMS·Personalization·Experience Cloud·Files·Knowledge는 이미 커버/별도. 남은 순수 Connect 갭(Notifications·Files Connect·Recommendation Definitions 등) 소규모·저우선 |
 | ING-18 | esm_developer_guide (55) = **Enterprise Sales Management** (Industries CME) | Sales/Industries | ⏸️ 후순위(niche) — 파일명과 달리 Embedded Service 아님. Industries CME 버티컬의 네임드 API(b2bExpress_*·ESM_* 수십 개) 솔루션. 일반 dev 가치 낮아 보류 |
 | ING-25 | extend_click_automate (1027, 분할) | Automation/Flow | 🔲 대기 |
 | ING-28 | lightning (553, 분할) | Aura/LWC | 🔲 대기 |
