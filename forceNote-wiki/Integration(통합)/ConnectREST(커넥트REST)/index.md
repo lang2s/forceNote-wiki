@@ -1,0 +1,35 @@
+---
+tags: [index, integration, connect-rest-api]
+created: 2026-07-03
+---
+
+# ConnectREST(커넥트REST) — 로컬 인덱스
+
+> Connect REST API(Chatter/협업 REST) 노트 클러스터 — 피드·그룹·사용자·댓글·토픽 등 협업 리소스의 HTTP 엔드포인트. Apex `ConnectApi`(Connect in Apex)의 HTTP 짝. 현재 Foundation 2노트(개요·요청/응답 규약)이며, 앞으로 Feeds·Comments·Groups·Users·Topics 리소스 배치가 추가될 예정이다. (출처: Connect REST API Developer Guide v67.0 Summer '26)
+
+**상위:** [[통합 MOC]] → [[00 Home]] · 키워드 검색은 `_index/connect-rest.md`
+
+---
+
+## 파일 목록
+
+### Foundation
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[Connect REST API 개요]] | Connect REST API 용도·아키텍처·인증(OAuth)·Limits·Quick Start·Connect in Apex 관계 | #overview |
+| [[Connect REST API 요청·응답 규약]] | resource URL·HTTP 메서드·필터(filterGroup·exclude/include)·상태 코드·multipart 업로드 | #convention |
+
+---
+
+## 빠른 선택
+
+- Connect REST API가 뭐고 언제 쓰는지, 인증·한도부터? → [[Connect REST API 개요]]
+- 요청 URL·메서드·필터·상태 코드 등 wire-level 규약? → [[Connect REST API 요청·응답 규약]]
+
+---
+
+## 관련 폴더
+
+- 통합 패턴 전반 → [[통합 MOC]]
+- Apex에서 HTTP callout 없이 같은 기능 호출(Connect in Apex) → `Apex/Integration(통합)/index`

@@ -203,6 +203,8 @@ SOQL로 접근하기 어려운 Chatter/Community/Commerce 데이터를 Apex에�
 ## 관련 노트
 
 - [[ConnectApi Chatter 패턴]] — postFeedItemWithRichText, @멘션, Flow 리치 텍스트 변환 상세
+- [[Connect REST API 개요]] — HTTP 측 짝. 동일 Connect 기능을 REST callout으로 접근(모바일·외부앱), 용도·아키텍처·OAuth·Limits
+- [[Connect REST API 요청·응답 규약]] — Connect REST의 리소스 URL·HTTP 메서드·필터(filterGroup/include/exclude)·상태 코드 wire 규약
 - [[Platform Event 통합 패턴]] — 이벤트 기반 시스템 간 통합
 - [[Custom REST Endpoint]] — @RestResource, inbound REST 패턴
 - [[Spring '26/Development]] — v66.0 신규 Connect in Apex 메서드(`RecordUi.getPicklistValuesByRecordType`·`NamedCredentials` CRUD 등)

@@ -158,6 +158,21 @@ updated: 2026-06-27
 
 > 등재된 RECON 항목 전부 ✅ 완료/de-scoped → [[WORK_BACKLOG_ARCHIVE]] RECON 섹션 이관(2026-06-27). apex_developer_guide·대형 5종 챕터 재감사 종료, 미커버 잔여 0. 신규 미커버 챕터 발견 시 이 표에 RECON-N 🔲로 추가.
 
+### 🟩 COVERAGE-GAP — 큰 그림 커버리지 갭 (갭 분석 2026-07-03, "뭐가 더 없어?")
+
+> **배경:** ADMIN 1~9·권한 10노트·클라우드 도메인 35노트 완료 후 위키 전체(1,198 콘텐츠 노트) 도메인 지도 재훑기. 로컬 PDF 65종 대비 위키 source 인용 교차확인 + 핵심 개발/통합 주제 전용 노트 존재 여부 판정. 아래는 **신규 발견 갭**(기존 INGEST/ADMIN 대형 항목과 중복 아님). Tier 주의: 로컬 PDF=Tier 2 그대로, 로컬 PDF 없는 도메인=help.salesforce.com Tier 2(라이브 렌더) 방식.
+
+| # | 항목 | 소스/사유 | 크기(추정) | 상태 | 추가일 |
+|---|---|---|---|---|---|
+| CDC-1 | **Change Data Capture 개발자 가이드 인제스트** | `Salesforce Documents/salesforce_change_data_capture.pdf`(112p, **로컬 Tier 2**) 전용 가이드가 **미채굴**(위키 source 인용 1건뿐). 채널 정의·커스텀 채널·enrichment 필드·gap/overflow 이벤트·CometD/replayId·Pub/Sub API 구독. `ChangeEventHeader`(Apex)·`ChangeEvent Objects`(sObject)·Tooling CDC 채널과 중복 제외하고 **이벤트 구독/채널 관리 계층**을 채운다. **Streaming API 공백도 부분 해소**. | ~4–6노트 | 🔲 대기 | 2026-07-03 |
+| SVC-DEV-1 | **Service Cloud 개발자 가이드 소형 클러스터** | 로컬 소형 Tier 2 PDF 5종이 부분 인용에 그침: `case_feed_dev_guide`(45p,5인용)·`service_presence_developer_guide`(23p,4)·`omnichannel_supervisor`(32p,1)·`salesforce_guided_engagement`(40p,3)·`caf_dev`(27p,3). Service(서비스) 폴더(39노트)에 개발자 API 계층으로 통합. omnichannel_supervisor(1인용)가 가장 얇음. | ~5–8노트 | 🔲 대기 | 2026-07-03 |
+| INT-DEEP-1 | **통합 패턴 심화 — Streaming API · Salesforce Connect(OData/External Object) · Outbound Messaging** | `Integration(통합)` 폴더 8노트로 얇음. **전용 노트 부재 확인:** Streaming API/CometD/PushTopic(0)·Salesforce Connect/OData 어댑터/External Data Source(0, `sObject/External Objects.md`는 레퍼런스만·`External Services.md`는 OpenAPI 액션으로 별개)·Outbound Messaging(0, 레거시). 로컬 전용 PDF 없음 → help.salesforce.com Tier 2. Streaming은 CDC-1과 부분 겹침(먼저 CDC-1 권장). | ~3–4노트 | 🔲 대기 | 2026-07-03 |
+| EXP-DEV-1 | **Experience Cloud 개발자 가이드 통합** | `communities_dev.pdf`(105p, **로컬 Tier 2**, 6인용) 미통합. 현재 Experience Cloud는 LWR(8)·Aura(2)·Security(2)·sObject(1)로 **분산 커버**되나 개발자 가이드 계층(네트워크 멤버·사이트 관리·모더레이션·평판(reputation)·CMS Connect)이 미집약. 분산 노트와 중복 제외 후 갭만. | ~3–5노트 | 🔲 대기 | 2026-07-03 |
+| OMNISTUDIO-1 | **OmniStudio 위키 지식 계층** | sf-skills에 OmniStudio 8스킬(OmniScript·FlexCard·DataMapper·Integration Procedure·EPC·DataPack) 존재하나 **위키 콘텐츠 0** — 지식(위키)↔실행(스킬) 레이어에서 지식측 완전 공백([[스킬 ↔ 위키 토픽 맵]] 콘텐츠 갭 항목). 로컬 PDF 없음 → help.salesforce.com Tier 2. 대형 도메인. | ~6–10노트 | 🔲 대기 | 2026-07-03 |
+| AI-CLASSIC-1 | **Einstein 예측형 AI(비-생성형)** — Prediction Builder·Next Best Action·Einstein Discovery | Agentforce/AgentScript(생성형)는 깊으나 **클래식 예측 AI 전용 노트 0**(DevOps 메타데이터 타입 언급만). 로컬 PDF 없음 → help.salesforce.com Tier 2. 니치·저우선. | ~3–4노트 | 🔲 대기 | 2026-07-03 |
+
+> **재확인(신규 아님, 이미 등재됨):** ING-13b(Connect/Chatter REST 2350p 초대형)·ING-25(extend_click_automate 1027p 선언적 자동화 레퍼런스)·ING-28(lightning 553p)·pages_dev(817p Visualforce 부분)는 위 INGEST 표에 이미 있음. Marketing Cloud는 `Clouds/Marketing Cloud 개요.md`만 존재(심화는 로컬 PDF 없음·대형 별도 이니셔티브라 미등재 보류). Slack은 `Apex/Integration/Slack Namespace.md`로 Apex측 커버(앱 SDK는 스코프 밖).
+
 ### ⚪ P4 — 장기 (큰 인프라 결정)
 
 | # | 항목 | 소스/사유 | 상태 | 추가일 |

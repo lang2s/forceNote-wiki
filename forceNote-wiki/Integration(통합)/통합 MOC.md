@@ -50,6 +50,13 @@ aliases: [통합 MOC, Integration Index]
 
 - [[External Services]] — OpenAPI 스펙 등록으로 Apex 클래스·Flow Action 자동 생성
 
+## Connect REST API (Chatter/협업 REST)
+
+> 모바일·인트라넷·서드파티 앱을 Salesforce 협업(피드·그룹·사용자·댓글·토픽)과 통합하는 REST API. Apex `ConnectApi`(Connect in Apex)의 HTTP 짝. 폴더: [[ConnectREST(커넥트REST)/index|ConnectREST]]
+
+- [[Connect REST API 개요]] — 용도·아키텍처·인증(OAuth)·Limits·Quick Start·Connect in Apex 관계
+- [[Connect REST API 요청·응답 규약]] — resource URL·HTTP 메서드·필터(filterGroup·exclude/include)·상태 코드·multipart 업로드
+
 ## 테스트
 
 - [[HttpCalloutMock]] — HTTP 모킹 (SuccessCalloutMock / ErrorCalloutMock)

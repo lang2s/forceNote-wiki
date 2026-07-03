@@ -174,5 +174,6 @@ curl https://MyDomain.my.salesforce.com/services/data/v67.0/composite/sobjects/ 
 - [[Custom REST Endpoint]] — Apex `@RestResource` 인바운드
 - [[Named Credential]] — 외부 호출 인증·URL 관리
 - [[UI API 개요]] — UI 인지 REST(LWC/모바일)
+- [[Connect REST API 개요]] — 프레젠테이션 지향 REST(Chatter·Experience·CMS·파일). sObject CRUD·데이터 추출은 이 표준 REST API, 지역화·렌더링용 피드는 Connect REST
 - [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]] — 24시간 API 콜 할당량·동시 요청·타임아웃·`/limits`·요청 크기 한도 전체
 - [[통합 MOC]]

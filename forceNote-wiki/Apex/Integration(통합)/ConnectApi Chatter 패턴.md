@@ -216,4 +216,5 @@ ConnectApi.BannerPhoto updatedBanner = ConnectApi.UserProfiles.setBannerPhoto(
 - [[Flow 유틸리티 액션 모음]] — PostRichChatter Invocable Action
 - [[@InvocableMethod 패턴]] — Invocable Action 구조
 - [[ConnectApi Namespace 개요]] — ConnectApi 전체 클래스 목록, EinsteinLLM/CdpQuery/CommerceCart
+- [[Connect REST API 개요]] — 같은 Chatter 피드 작업을 HTTP REST로 수행하는 짝(모바일·외부앱). Apex callout 없이 vs REST 접근 비교
 - [[특정 표준 객체 트리거 고려사항 — Chatter · Knowledge]] — ConnectApi로 게시한 피드가 FeedItem 트리거에 미치는 영향·FeedItem/FeedComment 트리거 고유 제약
