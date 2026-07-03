@@ -69,13 +69,13 @@ updated: 2026-06-27
 | # | 항목 | 사유/현황 | 상태 | 추가일 |
 |---|---|---|---|---|
 | ADMIN-1 | **Approval Process** (선언적 승인 워크플로) | ✅ **완료 (2026-07-03)** — `Admin(어드민)/Approval Process (승인 프로세스).md`(help.salesforce.com Tier 2). Classic 개요·용어 15종·2 마법사·자동화 액션 4그룹×4타입·Record Locking·Flow 대안. Apex `Approval Namespace`와 declarative↔programmatic 양방향. qa PASS | ✅ 완료 | 2026-06-14 |
-| ADMIN-2 | **Formula / Roll-Up Summary 필드** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
-| ADMIN-3 | **Profiles · Page Layouts · Record Types** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
+| ADMIN-2 | **Formula / Roll-Up Summary 필드** | ✅ **완료 (2026-07-03)** — `Admin(어드민)/Formula 필드.md` + `Roll-Up Summary 필드.md`(help.salesforce.com Tier 2). 자동계산·cross-object·COUNT/SUM/MIN/MAX·master-detail 전수. qa PASS | ✅ 완료 | 2026-06-14 |
+| ADMIN-3 | **Profiles · Page Layouts · Record Types** | ✅ **완료 (2026-07-03)** — Profiles는 권한시리즈 `Security(보안)/Profiles (프로파일).md`, 신규 `Admin(어드민)/Page Layouts (페이지 레이아웃).md` + `Record Types (레코드 타입).md`(help.salesforce.com Tier 2). qa PASS | ✅ 완료 | 2026-06-14 |
 | ADMIN-4 | **OWD · Sharing Rules** (선언적 공유 모델 전체) | ✅ **완료 (2026-07-03)** — `Admin(어드민)/조직 전체 공유 기본값(OWD)과 공유 규칙.md`(help.salesforce.com Tier 2 라이브). OWD 접근수준 4종·내부/외부 설정 절차·소유기반 8단계·기준기반 9단계·criteria 필드타입 13종 전수. draes 노트와 "설정↔성능 짝" 양방향. `_index/security.md` 신규 "공유 모델" 섹션. qa PASS | ✅ 완료 | 2026-06-14 |
-| ADMIN-5 | **Reports & Dashboards** (선언적) | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
+| ADMIN-5 | **Reports & Dashboards** (선언적) | ✅ **완료 (2026-07-03)** — `Admin(어드민)/Reports (리포트).md` + `Dashboards (대시보드).md`(help.salesforce.com Tier 2). Report Builder·4포맷·컴포넌트 6종·한도 전수. `_index/analytics.md` 등재. qa PASS | ✅ 완료 | 2026-06-14 |
 | ADMIN-6 | **Data Loader**(✅) · Import Wizard(✅) | ✅ **완료** — Data Loader(2026-06-14) + **Data Import Wizard(2026-07-03)** `Admin(어드민)/Data Import Wizard.md`(help.salesforce.com Tier 2). 8단계 절차·지원/미지원 객체·Import Limits 표(50,000건·100MB·400KB·90필드·32KB) 전수. Data Loader 비교표로 위임(중복0). `_index/platform.md` 등재. qa PASS | ✅ 완료 | 2026-06-14 |
-| ADMIN-7 | **Duplicate · Matching Rules** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
-| ADMIN-8 | **Schema Builder** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
+| ADMIN-7 | **Duplicate · Matching Rules** | ✅ **완료 (2026-07-03)** — `Admin(어드민)/Duplicate & Matching Rules (중복·매칭 규칙).md`(help.salesforce.com Tier 2). match key·matching equation·한도 5/3/1/5·안도는 조건 7·오버라이드 3 전수. qa PASS | ✅ 완료 | 2026-06-14 |
+| ADMIN-8 | **Schema Builder** | ✅ **완료 (2026-07-03)** — `Admin(어드민)/Schema Builder (스키마 빌더).md`(help.salesforce.com Tier 2). 시각 데이터모델·커스텀오브젝트·lookup/master-detail·Geolocation 제외. qa PASS | ✅ 완료 | 2026-06-14 |
 | ADMIN-9 | **Sales Cloud · Service Cloud** (기능 레벨 가이드) | `Service Cloud Objects`(sObject)만, 기능 가이드 없음 | 🔲 대기 | 2026-06-14 |
 | QA-GAP-1 | 면접 Q&A → `_index/questions.md` 보강 검토 | 컬렉션의 회사별(TCS·Deloitte 등)·시나리오 면접 Q&A. reference 아님 + Tier 3 → 보존 가치 낮음. 자연어 질문 라우팅 키워드만 선별 흡수 검토 | 🔲 대기 | 2026-06-14 |
 

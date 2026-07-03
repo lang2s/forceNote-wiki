@@ -73,6 +73,12 @@ created: 2026-05-21
 | Approval Process, Classic Approval Process, approval workflow, Jump Start Wizard, Standard Wizard, approval steps, assigned approver, delegated approver, record locking, outbound message, 승인 프로세스, 승인 워크플로, 승인 단계, 위임 승인자, 레코드 잠금, 승인 프로세스 만드는 법, Flow Approval Processes | `Admin(어드민)/Approval Process (승인 프로세스).md` |
 | MFA, Multi-Factor Authentication, 다중 인증, Salesforce Authenticator, TOTP, 보안 키, FIDO2, Trusted IP Ranges, 신원 확인, 이중 인증, MFA 의무화 | `Admin(어드민)/Salesforce ID 인증.md` |
 | AddressSettings, CountriesAndStates, State and Country Picklist, State and Country/Territory Picklists, `Settings:Address`, Address.settings, Country State isoCode integrationValue, 국가/주 피클리스트, 국가 영토 피클리스트, 주소 설정, 국가 주 활성화, 주 도 피클리스트, "국가/주 피클리스트를 메타데이터로 설정하려면?", "AddressSettings로 국가 주 값 편집", 텍스트 주소를 표준 피클리스트로 변환 | `Admin(어드민)/State and Country Picklist.md` |
+| Formula Field, 수식 필드, 포뮬러 필드, cross-object formula, 크로스오브젝트 수식, Check Syntax, 계산 필드, read-only 필드, 10 관계 한도, "다른 필드로 값 자동 계산", "formula 필드 만드는 법", "부모 객체 값 가져오는 수식" | `Admin(어드민)/Formula 필드.md` |
+| Roll-Up Summary, 롤업 요약 필드, 집계 필드, COUNT SUM MIN MAX, master-detail 집계, 자식 레코드 합계, 부모 필드 집계, "자식 레코드 개수 세기", "detail 레코드 합계 구하기", "master 레코드에서 집계" | `Admin(어드민)/Roll-Up Summary 필드.md` |
+| Page Layouts, 페이지 레이아웃, enhanced page layout editor, mini page layout, feed-based layout, 레이아웃 할당, 필드 배치, 버튼 관련목록 배치, 프로파일 레코드타입 레이아웃, "레코드 페이지에 필드 배치", "페이지 레이아웃 만드는 법", "프로파일별 레이아웃 할당" | `Admin(어드민)/Page Layouts (페이지 레이아웃).md` |
+| Record Types, 레코드 타입, business process, 비즈니스 프로세스, Master record type, sales process, support process, 레코드 타입 할당, 피클리스트 값 제어, "사용자별 다른 페이지 레이아웃", "레코드 타입 만드는 법", "비즈니스 프로세스 분기" | `Admin(어드민)/Record Types (레코드 타입).md` |
+| Duplicate Rules, Matching Rules, 중복 규칙, 매칭 규칙, duplicate management, match key, matching method, Allow Block Report, 중복 방지, 데이터 품질, "중복 레코드 막는 법", "매칭 규칙으로 중복 탐지", "중복 발견 시 차단" | `Admin(어드민)/Duplicate & Matching Rules (중복·매칭 규칙).md` |
+| Schema Builder, 스키마 빌더, data model, 데이터 모델, ERD, custom object 관계, 스키마 시각화, 드래그앤드롭 오브젝트, "데이터 모델 시각화", "오브젝트 관계 보기", "스키마 빌더로 필드 추가" | `Admin(어드민)/Schema Builder (스키마 빌더).md` |
 
 ---
 

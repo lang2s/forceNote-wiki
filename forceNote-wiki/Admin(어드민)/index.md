@@ -22,6 +22,14 @@ created: 2026-05-19
 | [[State and Country Picklist]] | AddressSettings 메타데이터 타입 — 국가/주 피클리스트 구성, isoCode/integrationValue, Metadata API 편집 | #metadata-api |
 | [[조직 전체 공유 기본값(OWD)과 공유 규칙]] | OWD로 레코드 기본 접근 수준을 정하고 공유 규칙(소유 기반/기준 기반)으로 접근 확대, Sharing Settings 설정법 | #security |
 | [[Approval Process (승인 프로세스)]] | 레코드 승인 단계·승인자·시점별 자동 액션을 정의하는 선언적 승인 워크플로 — Jump Start/Standard 마법사, 용어 15종, 액션 4타입, Flow 대안 | #automation |
+| [[Formula 필드]] | 다른 필드로부터 값을 자동 계산하는 read-only 커스텀 필드 — cross-object formula(최대 10관계), Check Syntax, 계산 필드 | #customization |
+| [[Roll-Up Summary 필드]] | master-detail의 master측에서 detail 레코드를 COUNT/SUM/MIN/MAX로 집계하는 필드 | #customization |
+| [[Page Layouts (페이지 레이아웃)]] | 레코드 페이지의 버튼·필드·관련목록 배치 제어 — enhanced editor, mini layout, 프로파일×레코드타입 할당 | #customization |
+| [[Record Types (레코드 타입)]] | 사용자별 다른 비즈니스 프로세스·피클리스트 값·페이지 레이아웃 제공 — sales/support process, 레코드 타입 할당 | #customization |
+| [[Duplicate & Matching Rules (중복·매칭 규칙)]] | Matching Rule(무엇이 중복)+Duplicate Rule(발견 시 Allow/Block/Report) — 데이터 품질·중복 방지 | #data-quality |
+| [[Schema Builder (스키마 빌더)]] | 오브젝트·관계를 시각적으로 보고 드래그앤드롭으로 커스텀 오브젝트·필드·관계 추가 — 데이터 모델 ERD | #customization |
+| [[Reports (리포트)]] | Report Builder로 데이터를 조회·분석 — Report Type·Format(tabular/summary/matrix/joined) | #analytics |
+| [[Dashboards (대시보드)]] | report 데이터를 chart·gauge·metric·table·Visualforce 컴포넌트로 시각화 — dynamic dashboard | #analytics |
 
 ---
 
@@ -34,6 +42,14 @@ created: 2026-05-19
 - OWD·공유 규칙으로 레코드 접근 설계? → [[조직 전체 공유 기본값(OWD)과 공유 규칙]]
 - 레코드 승인 워크플로(단계·승인자·자동 액션) 만들기? → [[Approval Process (승인 프로세스)]]
 - 국가/주 피클리스트를 메타데이터로 설정? → [[State and Country Picklist]]
+- 다른 필드로 값을 자동 계산하는 필드? → [[Formula 필드]]
+- 자식 레코드를 COUNT/SUM/MIN/MAX로 집계? → [[Roll-Up Summary 필드]]
+- 레코드 페이지에 버튼·필드·관련목록 배치? → [[Page Layouts (페이지 레이아웃)]]
+- 사용자별 다른 비즈니스 프로세스·레이아웃? → [[Record Types (레코드 타입)]]
+- 중복 레코드 방지·매칭 규칙 설정? → [[Duplicate & Matching Rules (중복·매칭 규칙)]]
+- 오브젝트·관계를 시각적으로 설계? → [[Schema Builder (스키마 빌더)]]
+- 데이터를 조회·분석하는 리포트 만들기? → [[Reports (리포트)]]
+- 리포트 데이터를 차트·게이지로 시각화? → [[Dashboards (대시보드)]]
 - Salesforce란 무엇인가? → [[Architecture(아키텍처)/Salesforce 플랫폼 개요]]
 
 ---

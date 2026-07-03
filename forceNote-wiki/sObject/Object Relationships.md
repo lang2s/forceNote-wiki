@@ -164,3 +164,5 @@ SELECT Id, Contact.Name FROM AccountContactRole
 - [[System Fields]] — OwnerId 동작 및 소유권 이전 규칙
 - [[External Objects]] — External Lookup·Indirect Lookup 관계 유형
 - [[Data Skew]] — master-detail/lookup 편중이 일으키는 레코드 잠금·공유 재계산 병목 (LDV)
+- [[Schema Builder (스키마 빌더)]] — 오브젝트 관계를 시각적으로 생성·조회하는 도구
+- [[Roll-Up Summary 필드]] — master-detail 관계에서 부모에 집계 필드를 생성

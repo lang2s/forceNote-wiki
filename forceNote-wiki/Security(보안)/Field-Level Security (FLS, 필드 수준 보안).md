@@ -106,3 +106,4 @@ Page Layout (표현/배치)         ──▶ 레코드 페이지에서 필드 �
 - [[Object Permissions (오브젝트 권한 — CRUD·View All·Modify All)]] — "View All Fields"가 FLS를 override
 - [[StripInaccessible]] — Apex에서 FLS/공유 위반 필드를 런타임에 제거
 - [[Permission Sets (권한 집합)]] — FLS를 담아 관리하는 권장 그릇
+- [[Page Layouts (페이지 레이아웃)]] — FLS(접근 여부) vs 레이아웃(배치)의 상보 관계

@@ -66,3 +66,14 @@ created: 2026-06-21
 | Dashboard List, Dashboard Results, Dashboard Describe, Dashboard Status, Dashboard Filter Options, Dashboard Error Codes, 대시보드 목록, 대시보드 결과 표현형, 대시보드 describe, 대시보드 상태, 대시보드 필터 옵션, 대시보드 표현형 전체, 대시보드 에러 코드 | `Analytics(애널리틱스)/Reports and Dashboards REST API — Dashboards 표현형.md` |
 | Analytics Folders API, Folder Collections, Folder Operations, Folder Shares, Folder Recipients, Folder Child, /folders, 폴더 API, 폴더 컬렉션, 폴더 공유, 폴더 수신자, 하위 폴더, 리포트 폴더 REST, 폴더 권한 REST | `Analytics(애널리틱스)/Reports and Dashboards REST API — Folders 표현형.md` |
 | Analytics Download, Report Download, Notification List, Notification Limits, Filter Operator List, filteroperators, 다운로드 표현형, 알림 목록 표현형, 알림 한도, 필터 연산자 목록, 필드별 필터 연산자, 리포트 다운로드 표현형, 어떤 필터 연산자를 쓸 수 있나 | `Analytics(애널리틱스)/Reports and Dashboards REST API — Analytics Download·Notifications·Filter Operators 표현형.md` |
+
+---
+
+# Admin — 선언적 리포트·대시보드 (Report Builder / Dashboard 빌더)
+
+> 코드 없이 Setup UI에서 만드는 리포트·대시보드. REST API(위 섹션)와 달리 클릭 기반 어드민 관점.
+
+| 키워드 | 파일 |
+|---|---|
+| Reports, 리포트, 보고서, Report Builder, Report Type, Report Format, tabular summary matrix joined, 리포트 만들기, 리포트 유형, 요약 리포트, 매트릭스 리포트, 조인 리포트, 데이터 조회 분석, "리포트 어떻게 만들어", "Report Builder 사용법", "리포트 포맷 종류" | `Admin(어드민)/Reports (리포트).md` |
+| Dashboards, 대시보드, dashboard component, chart gauge metric table, dynamic dashboard, Visualforce 컴포넌트, 대시보드 만들기, 동적 대시보드, 차트 게이지 지표, 데이터 시각화, "대시보드 만드는 법", "대시보드 컴포넌트 종류", "리포트를 차트로 시각화" | `Admin(어드민)/Dashboards (대시보드).md` |
