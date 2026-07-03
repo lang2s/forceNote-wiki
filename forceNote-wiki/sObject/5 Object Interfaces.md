@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, object-interfaces, price-adjustment, sales-transaction, b2b-commerce, subscription-management]
 source: object_reference.pdf p.95-104 (v67.0 Summer '26)
 created: 2026-05-22

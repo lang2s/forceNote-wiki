@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [home, index, salesforce]
 created: 2026-05-17
 ---
@@ -104,6 +104,23 @@ Visualforce Developer Guide v67.0 — Salesforce Classic 기반 태그형 마크
 | [[Salesforce 네비게이션]] | App Launcher, 전역 검색, 리스트뷰 |
 | [[Salesforce ID 인증]] | MFA, Salesforce Authenticator, Trusted IP |
 
+### [[SalesCloud(세일즈클라우드)/index|Sales Cloud]]
+영업 표준 기능(= Agentforce Sales) — 기회·제품/가격표·캠페인·거래처/연락처·견적·리드·활동·예측·영역 관리·계약/주문. **전체는 [[Sales Cloud 개요]]에서 시작** (11노트)
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| 🗺️ [[Sales Cloud 개요]] | Sales Cloud 기능 맵 진입점, 영업 프로세스 전반 |
+| [[Opportunities (기회)]] | sales stage, opportunity product, 파이프라인 |
+| [[Products & Price Books (제품·가격표)]] | 제품 카탈로그, 표준/커스텀 가격표, price book entry |
+| [[Campaigns (캠페인)]] | campaign member, hierarchy, Campaign Influence |
+| [[Accounts & Contacts (거래처·연락처)]] | business/person account, 거래처 계층 |
+| [[Quotes (견적)]] | quote line item, quote sync |
+| [[Leads (리드)]] | 전환(conversion), web-to-lead, assignment rules |
+| [[Activities — Tasks & Events (활동)]] | task, event, calendar |
+| [[Collaborative Forecasts (예측)]] | 파이프라인 예측, quota, forecast category |
+| [[Territory Management (영역 관리)]] | territory model, ETM(Enterprise Territory Management) |
+| [[Contracts & Orders (계약·주문)]] | 계약, 주문, order product |
+
 ### [[Service(서비스)/index|Service Cloud]]
 고객 서비스·지원 — Knowledge(지식)·Chat(채팅, 레거시)·Omni-Channel(Standard, v67.0 EOL)·Lightning Flow for Service
 
@@ -116,6 +133,33 @@ Visualforce Developer Guide v67.0 — Salesforce Classic 기반 태그형 마크
 | [[Omni-Channel 객체·메타데이터·콘솔 컴포넌트]] | AgentWork, ServiceChannel, UserServicePresence, PendingServiceRouting, 콘솔 메서드 |
 | [[Omni-Channel External Routing]] | 서드파티 라우팅 통합, CDC Pub/Sub·Apex Trigger, AgentWork 생성 |
 | [[Lightning Flow for Service (Actions & Recommendations)]] | RecordAction, RecordActionDeployment, guided engagement, NBA 추천 |
+
+### [[DataCloud(데이터클라우드)/index|Data Cloud (Data 360)]]
+Data Cloud(현 명칭 Data 360) — 모든 소스의 고객 데이터를 수집·조화·통합해 단일 프로파일 생성. 파이프라인(연결→수집→조화→통합→세그먼트→발행). **전체는 [[Data Cloud 개요]]에서 시작** (8노트). *개발자 측 `Datacloud` Apex 네임스페이스는 apex-namespaces 샤드 참조.*
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| 🗺️ [[Data Cloud 개요]] | Data 360 파이프라인 전체 진입점 |
+| [[Data Streams & Ingestion (데이터 스트림·수집)]] | Data Stream, data bundle, zero copy |
+| [[Data Lake Objects & Data Model Objects (DLO·DMO)]] | DLO, DMO, Customer 360 Data Model, 데이터 조화 |
+| [[Identity Resolution (아이덴티티 해석)]] | match rule, ruleset, unified profile |
+| [[Calculated Insights (계산된 인사이트)]] | 지표·KPI 계산, LTV |
+| [[Segments (세그먼트)]] | 오디언스 세그먼트, 고객 그룹 |
+| [[Activations (액티베이션)]] | 세그먼트 발행, full/incremental refresh |
+| [[Data Spaces (데이터 스페이스)]] | 데이터 파티션, 거버넌스 경계 |
+
+### [[Clouds(클라우드)/index|Clouds(클라우드) — 제품 클라우드 지도]]
+Salesforce 주요 제품 클라우드 개요 모음 — 심층 폴더가 없는 클라우드의 개요 + 전체 제품 지도. **전체는 [[Salesforce 제품 클라우드 개요]]에서 시작** (7노트)
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| 🗺️ [[Salesforce 제품 클라우드 개요]] | 전체 제품 클라우드 지도 허브 |
+| [[Experience Cloud 개요]] | 사이트·포털·커뮤니티, 디지털 경험 |
+| [[Commerce Cloud 개요]] | B2C/B2B 커머스, storefront |
+| [[Marketing Cloud 개요]] | 마케팅 자동화, Engagement, Account Engagement |
+| [[CRM Analytics 개요]] | 고급 분석 플랫폼, 구 Tableau CRM |
+| [[Revenue Cloud 개요]] | quote-to-cash, CPQ, Billing |
+| [[Net Zero Cloud 개요]] | 지속가능성, 탄소 회계 |
 
 ### [[Scheduler(스케줄러)/index|Salesforce Scheduler]]
 Salesforce Scheduler(구 Lightning Scheduler) Developer Guide v67.0 — 적절한 사람을 적절한 장소·시간에 매칭해 예약(appointment)을 잡는 스케줄링 솔루션. 표준/커스텀 객체·Platform Events·Metadata·Business(REST/Connect) API·ConnectApi.LightningScheduler Apex·커스텀 예약 시나리오 12노트. (Field Service·Omni-Channel과 객체 공유)

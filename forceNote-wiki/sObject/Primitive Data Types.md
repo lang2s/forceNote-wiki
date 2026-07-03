@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, primitive-types, field-types, soap, api]
 source: object_reference.pdf p.1-3 (v67.0 Summer '26)
 created: 2026-05-22

@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, associated-objects, feed, history, share, owner-sharing-rule, change-event, cdc]
 source: object_reference.pdf p.55-77 (v67.0 Summer '26)
 created: 2026-05-22

@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, custom-objects, custom-metadata, mdt, apex, field-service]
 source: object_reference.pdf p.78-94 (v67.0 Summer '26)
 created: 2026-05-22

@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [apex, dml, security, pattern]
 source: apex-recipes/DMLRecipes.cls, AccountServiceLayer.cls
 created: 2026-05-17

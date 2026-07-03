@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, field-types, api, wsdl, id-field, junction-list, picklist, reference, compound]
 source: object_reference.pdf p.4-10 (v67.0 Summer '26)
 created: 2026-05-22

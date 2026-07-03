@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [architecture, salesforce-basics, platform, org, object, record, cloud]
 source: basics.pdf
 created: 2026-05-19

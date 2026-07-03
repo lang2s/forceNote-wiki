@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [apex, soql, security, pattern]
 source: apex-recipes/SOQLRecipes.cls
 created: 2026-05-17

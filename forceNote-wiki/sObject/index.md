@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, index, object-reference]
 source: object_reference.pdf (v67.0 Summer '26)
 created: 2026-05-22

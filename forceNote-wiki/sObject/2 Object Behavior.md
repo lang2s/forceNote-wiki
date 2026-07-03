@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, object-behavior, object-groups, data-cloud, big-objects, external-objects, object-types]
 source: object_reference.pdf p.40-54 (v67.0 Summer '26)
 created: 2026-05-22

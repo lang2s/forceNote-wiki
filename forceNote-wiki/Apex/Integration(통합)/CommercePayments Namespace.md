@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [apex, namespace, commercepayments, payment-gateway, b2b-commerce, d2c-commerce, payment]
 source: salesforce_apex_reference_guide.pdf p.317–526
 created: 2026-05-20

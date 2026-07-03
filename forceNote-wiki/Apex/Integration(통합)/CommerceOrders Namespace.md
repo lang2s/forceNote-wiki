@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [apex, namespace, commerceorders, b2b-commerce, d2c-commerce, order]
 source: salesforce_apex_reference_guide.pdf p.316
 created: 2026-05-20

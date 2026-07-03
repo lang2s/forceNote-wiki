@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [apex, platform-event, publish, trigger, pattern]
 source: apex-recipes/PlatformEventRecipes.cls
 created: 2026-05-17

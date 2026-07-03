@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [backlog, coverage, work-tracking]
 created: 2026-05-18
 updated: 2026-06-27

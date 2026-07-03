@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [apex, namespace, commercebuygrp, b2b-commerce, d2c-commerce, buyer-group]
 source: salesforce_apex_reference_guide.pdf p.301-306
 created: 2026-05-20

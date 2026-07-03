@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, field-types, primitive-types, compound-fields, external-objects, big-objects, api-properties]
 source: object_reference.pdf p.1-39 (v67.0 Summer '26)
 created: 2026-05-22

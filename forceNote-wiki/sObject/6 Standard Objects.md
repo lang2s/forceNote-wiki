@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, standard-objects, object-catalog, account, contact, case, opportunity]
 source: object_reference.pdf p.105+ (v67.0 Summer '26)
 created: 2026-05-22

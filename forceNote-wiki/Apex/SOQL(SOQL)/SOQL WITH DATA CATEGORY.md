@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [apex, soql, knowledge, data-category, with-절]
 source: salesforce_soql_sosl.pdf p.33-38 (v67.0 Summer '26)
 created: 2026-05-22

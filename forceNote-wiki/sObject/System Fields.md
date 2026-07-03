@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, system-fields, audit-fields, ownerid, record-type, created-date, lastmodified, systemmodstamp]
 source: object_reference.pdf p.12-15 (v67.0 Summer '26)
 created: 2026-05-22

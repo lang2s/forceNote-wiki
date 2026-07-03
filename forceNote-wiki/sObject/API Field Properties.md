@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [sobject-reference, api-field-properties, describe, aggregatable, filter, nillable, required-fields]
 source: object_reference.pdf p.10-12 (v67.0 Summer '26)
 created: 2026-05-22
