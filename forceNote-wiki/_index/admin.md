@@ -8,6 +8,12 @@ created: 2026-07-03
 > 루트 라우터: `00 SEARCH_INDEX.md` · 다른 샤드는 라우터에서 이동.
 > 참고: 커스터마이제이션 세부(Formula·Roll-Up·Page Layout·Record Type·Data Loader·DIW·Approval 등)는 `_index/platform.md`, OWD/공유는 `_index/security.md`, Reports/Dashboards는 `_index/analytics.md`도 참조.
 
+## 🗺️ 진입점 / 개요 (Start Here)
+
+| 키워드 | 파일 |
+|---|---|
+| Salesforce Admin, 어드민 개요, 관리자 개요, Admin Overview, 어드민 종합 지도, 어드민 시작, 무엇부터, 어드민 8도메인 진입 지도 | `Admin(어드민)/Salesforce 어드민 종합 개요.md` |
+
 ## 조직 설정 (Organization Setup)
 
 | 키워드 | 파일 |

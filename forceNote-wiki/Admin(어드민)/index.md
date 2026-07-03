@@ -15,6 +15,7 @@ created: 2026-05-19
 
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
+| 🗺️ [[Salesforce 어드민 종합 개요]] | **어드민 전체 지도** — 8개 도메인(조직 설정·사용자/접근·보안·데이터·오브젝트/필드·UI·자동화·분석) 43노트를 묶는 진입점. 무엇부터 볼지 여기서 시작 | #overview #hub |
 | [[Salesforce 네비게이션]] | App Launcher, 탐색바, 전역 검색, 리스트뷰, 레코드 페이지 구조 | #navigation |
 | [[Salesforce ID 인증]] | MFA, Authenticator App, 인증 방식 종류와 설정 | #security |
 | [[Data Loader]] | CSV 대량 insert/update/upsert/delete/export, Bulk API, CLI 배치(Windows), 최대 1.5억 건 | #data |
@@ -64,6 +65,7 @@ created: 2026-05-19
 
 ## 빠른 선택
 
+- 🗺️ **어드민 전체를 어디서부터 볼지 모르겠다? → [[Salesforce 어드민 종합 개요]]** (8도메인 진입 지도)
 - Lightning Experience 화면 구조 이해? → [[Salesforce 네비게이션]]
 - MFA 설정 방법? → [[Salesforce ID 인증]]
 - 대량 데이터 적재·내보내기? → [[Data Loader]]

@@ -96,10 +96,11 @@ Visualforce Developer Guide v67.0 — Salesforce Classic 기반 태그형 마크
 | [[apex 컴포넌트 — 페이지·레이아웃 구조]] | apex:page/pageBlock/panel*/form, 표준 컴포넌트 레퍼런스 |
 
 ### Admin(어드민)
-일반 사용자 / 관리자 가이드 — 네비게이션, 인증, 기초 개념
+일반 사용자 / 관리자 가이드 — 네비게이션, 인증, 기초 개념. **어드민 전체는 [[Salesforce 어드민 종합 개요]]에서 시작**
 
 | 하위 주제 | 핵심 키워드 |
 |---|---|
+| 🗺️ [[Salesforce 어드민 종합 개요]] | 어드민 8도메인 43노트 진입 지도, 무엇부터 |
 | [[Salesforce 네비게이션]] | App Launcher, 전역 검색, 리스트뷰 |
 | [[Salesforce ID 인증]] | MFA, Salesforce Authenticator, Trusted IP |
 
