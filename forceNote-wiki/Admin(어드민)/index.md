@@ -38,6 +38,11 @@ created: 2026-05-19
 | [[Roles & Role Hierarchy (역할·역할 계층)]] | 레코드 접근 수직 상속(role≠profile) | #user-mgmt |
 | [[Public Groups (공개 그룹)]] | 사용자·역할 묶음(공유 대상) | #user-mgmt |
 | [[Delegated Administration (위임 관리)]] | 부분 관리 권한 위임 | #user-mgmt |
+| [[Session Settings (세션 설정)]] | 세션 타임아웃·로그인 보안 수준(High Assurance)·IP 잠금 | #security |
+| [[Password Policies (비밀번호 정책)]] | 복잡도·만료·이력·로그인 실패 잠금(프로파일 override) | #security |
+| [[Login IP Ranges & Login Hours (로그인 IP·시간 제한)]] | 프로파일 IP 하드 거부 vs org Trusted IP 챌린지·로그인 시간 | #security |
+| [[Security Health Check (보안 상태 점검)]] | 보안 설정 baseline 부합도 점수·위험 수정 | #security |
+| [[Field History Tracking (필드 이력 추적)]] | 필드 변경 이력(최대 20필드·History 관련목록) | #security |
 
 ---
 
@@ -66,6 +71,11 @@ created: 2026-05-19
 - 역할 계층으로 레코드 접근 상속 설계? → [[Roles & Role Hierarchy (역할·역할 계층)]]
 - 사용자·역할을 묶어 공유 대상 만들기? → [[Public Groups (공개 그룹)]]
 - 부분 관리 권한을 다른 사용자에게 위임? → [[Delegated Administration (위임 관리)]]
+- 세션 타임아웃·High Assurance 보안 수준 설정? → [[Session Settings (세션 설정)]]
+- 비밀번호 복잡도·만료·계정 잠금 정책 설정? → [[Password Policies (비밀번호 정책)]]
+- 로그인 IP·시간을 제한(프로파일 vs Trusted IP)? → [[Login IP Ranges & Login Hours (로그인 IP·시간 제한)]]
+- 보안 설정을 baseline과 비교해 점수 확인? → [[Security Health Check (보안 상태 점검)]]
+- 필드 변경 이력(이전·이후 값) 추적? → [[Field History Tracking (필드 이력 추적)]]
 - Salesforce란 무엇인가? → [[Architecture(아키텍처)/Salesforce 플랫폼 개요]]
 
 ---

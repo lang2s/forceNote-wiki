@@ -44,3 +44,4 @@ Setup → Quick Find "View Setup Audit Trail" → View Setup Audit Trail
 
 ## 관련 노트
 - [[Multiple Currencies (멀티 통화)]] — 멀티통화 활성화 등 되돌릴 수 없는 변경이 기록됨
+- [[Field History Tracking (필드 이력 추적)]] — 레코드 **필드 데이터 변경** 추적. Setup Audit Trail의 **설정(Setup) 변경** 추적과 대비

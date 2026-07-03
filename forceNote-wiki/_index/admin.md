@@ -25,3 +25,13 @@ created: 2026-07-03
 | Roles, Role Hierarchy, 역할, 역할 계층, 레코드 접근, record access, role vs profile, 역할과 프로파일 차이, 수직 상속, 레코드 접근 확대 | `Admin(어드민)/Roles & Role Hierarchy (역할·역할 계층).md` |
 | Public Groups, 공개 그룹, 공용 그룹, 그룹, sharing 대상, 공유 그룹, 사용자 역할 묶음, 공유 대상 그룹 | `Admin(어드민)/Public Groups (공개 그룹).md` |
 | Delegated Administration, 위임 관리, delegated admin, 부분 관리 권한, 위임 관리자, 관리 권한 위임 | `Admin(어드민)/Delegated Administration (위임 관리).md` |
+
+## 보안 설정 (Security Settings)
+
+| 키워드 | 파일 |
+|---|---|
+| Session Settings, 세션 설정, session timeout, 세션 타임아웃, High Assurance, 세션 보안, 자동 로그아웃, 세션 보안 수준, IP 잠금, 로그인 보안 | `Admin(어드민)/Session Settings (세션 설정).md` |
+| Password Policies, 비밀번호 정책, 암호 정책, lockout, 계정 잠금, 비밀번호 만료, 로그인 실패, 복잡도, 비밀번호 이력, 프로파일 override | `Admin(어드민)/Password Policies (비밀번호 정책).md` |
+| Login IP Ranges, 로그인 IP 범위, Login Hours, 로그인 시간, Trusted IP, 신뢰 IP, Network Access, IP 제한, 프로파일 IP 하드 거부, org 챌린지, 로그인 시간 제한 | `Admin(어드민)/Login IP Ranges & Login Hours (로그인 IP·시간 제한).md` |
+| Health Check, 보안 상태 점검, Security Health Check, baseline, 보안 점수, security score, 보안 baseline 부합도, 위험 수정 | `Admin(어드민)/Security Health Check (보안 상태 점검).md` |
+| Field History Tracking, 필드 이력 추적, 필드 변경 추적, history related list, Field Audit Trail, 이전 이후 값, 최대 20필드, History 관련목록 | `Admin(어드민)/Field History Tracking (필드 이력 추적).md` |
