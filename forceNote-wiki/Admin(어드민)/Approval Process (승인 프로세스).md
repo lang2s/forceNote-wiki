@@ -103,3 +103,4 @@ Setup → Quick Find: "Approval Processes" → Approval Processes
 
 ## 관련 노트
 - [[Approval Namespace]] — 프로그래밍 방식 승인(Apex `Approval.process()`로 제출·승인·거부). 선언적 승인 프로세스의 코드 짝(declarative ↔ programmatic)
+- [[Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답)]] — 승인 단계에서 호출하는 Email Alert 발송 액션

@@ -49,3 +49,4 @@ Case 생성 → Assignment Rule(rule entry 순서 평가)
 - [[Cases (케이스)]] — 배정·에스컬레이션 대상
 - [[Queues (큐)]] — 배정 대상 큐
 - [[Business Hours & Holidays (영업 시간·휴일)]] — escalation 경과 시간 계산 기준(영업 시간)·holiday 중단
+- [[Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답)]] — 자동 배정 vs 자동 회신(케이스·리드 생성 시 함께 구성)

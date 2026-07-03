@@ -49,6 +49,16 @@ created: 2026-05-19
 | [[Picklists — Global Value Sets & Dependent Picklists (피클리스트)]] | 피클리스트·전역 값 집합·종속 피클리스트 | #customization |
 | [[Custom Settings (커스텀 설정)]] | List vs Hierarchy 커스텀 설정(캐시 접근) | #customization |
 | [[Custom Labels (커스텀 레이블)]] | 번역 가능한 커스텀 텍스트 | #customization |
+| [[Lightning App Builder & Pages (라이트닝 앱 빌더·페이지)]] | 커스텀 페이지(App/Home/Record) 조립·활성화(FlexiPage) | #ui-customization |
+| [[Lightning Apps & Tabs (라이트닝 앱·탭)]] | App Manager로 앱 구성·탭 4유형·유틸리티 바 | #ui-customization |
+| [[List Views (리스트 뷰)]] | 필터 목록·버튼 레이아웃·Kanban·mass quick action | #ui-customization |
+| [[Quick Actions & Global Actions (퀵 액션·글로벌 액션)]] | object-specific vs global 액션·글로벌 퍼블리셔 레이아웃 | #ui-customization |
+| [[Compact Layouts (컴팩트 레이아웃)]] | 하이라이트 패널 핵심 필드(모바일 카드) | #ui-customization |
+| [[Custom Buttons & Links (커스텀 버튼·링크)]] | URL·Visualforce 버튼·링크(JS 레거시) | #ui-customization |
+| [[Flow — 선언적 자동화 개요 (플로우)]] | 주력 선언적 자동화 유형 개요(Flow MOC 위임) | #automation |
+| [[Workflow Rules & Migrate to Flow (워크플로 규칙·플로우 이전)]] | 레거시 워크플로·Migrate to Flow 이전 | #automation |
+| [[Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답)]] | 이메일 발송 액션·템플릿·자동 회신 규칙 | #automation |
+| [[Organization-Wide Email Addresses & Deliverability (조직 전체 이메일·전달성)]] | 공통 발신 주소·발송 전달성·이메일 인증 | #email |
 
 ---
 
@@ -88,6 +98,16 @@ created: 2026-05-19
 - 피클리스트·전역 값 집합·종속 피클리스트 설정? → [[Picklists — Global Value Sets & Dependent Picklists (피클리스트)]]
 - List/Hierarchy 커스텀 설정으로 구성 데이터를 캐시 접근? → [[Custom Settings (커스텀 설정)]]
 - 번역 가능한 텍스트를 커스텀 레이블로 관리? → [[Custom Labels (커스텀 레이블)]]
+- 커스텀 페이지(App/Home/Record)를 조립·활성화? → [[Lightning App Builder & Pages (라이트닝 앱 빌더·페이지)]]
+- App Manager로 앱·탭·유틸리티 바 구성? → [[Lightning Apps & Tabs (라이트닝 앱·탭)]]
+- 리스트 뷰 필터·버튼 레이아웃·mass quick action 설정? → [[List Views (리스트 뷰)]]
+- object-specific/global 퀵 액션 만들기? → [[Quick Actions & Global Actions (퀵 액션·글로벌 액션)]]
+- 하이라이트 패널에 핵심 필드 노출? → [[Compact Layouts (컴팩트 레이아웃)]]
+- URL·Visualforce 커스텀 버튼·링크 추가? → [[Custom Buttons & Links (커스텀 버튼·링크)]]
+- 선언적 자동화(Flow) 유형 개요를 알고 싶다면? → [[Flow — 선언적 자동화 개요 (플로우)]]
+- 레거시 워크플로를 Flow로 이전? → [[Workflow Rules & Migrate to Flow (워크플로 규칙·플로우 이전)]]
+- 이메일 알림·템플릿·자동 응답 규칙 설정? → [[Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답)]]
+- 조직 전체 발신 주소·이메일 전달성 관리? → [[Organization-Wide Email Addresses & Deliverability (조직 전체 이메일·전달성)]]
 - Salesforce란 무엇인가? → [[Architecture(아키텍처)/Salesforce 플랫폼 개요]]
 
 ---

@@ -51,3 +51,28 @@ created: 2026-07-03
 | Picklists, 피클리스트, Global Value Set, 전역 값 집합, Dependent Picklist, 종속 피클리스트, controlling field, field dependency, 필드 종속성 | `Admin(어드민)/Picklists — Global Value Sets & Dependent Picklists (피클리스트).md` |
 | Custom Settings, 커스텀 설정, List Custom Setting, Hierarchy Custom Setting, 캐시 설정, 구성 데이터, 리스트 커스텀 설정, 계층 커스텀 설정 | `Admin(어드민)/Custom Settings (커스텀 설정).md` |
 | Custom Labels, 커스텀 레이블, 사용자 정의 레이블, 번역, localization, 지역화, 번역 가능한 텍스트 | `Admin(어드민)/Custom Labels (커스텀 레이블).md` |
+
+## UI 커스터마이제이션 (UI Customization)
+
+| 키워드 | 파일 |
+|---|---|
+| Lightning App Builder, 라이트닝 앱 빌더, Lightning Pages, 라이트닝 페이지, FlexiPage, Record Page, App Page, Home Page, 페이지 조립, 커스텀 페이지 만들기, 페이지 활성화 | `Admin(어드민)/Lightning App Builder & Pages (라이트닝 앱 빌더·페이지).md` |
+| Lightning Apps, 라이트닝 앱, App Manager, Tabs, 탭, custom tab, 커스텀 탭, utility bar, 유틸리티 바, 웹탭, 앱 만들기, 탭 4유형 | `Admin(어드민)/Lightning Apps & Tabs (라이트닝 앱·탭).md` |
+| List Views, 리스트 뷰, 목록 보기, List View Button Layout, 리스트 뷰 버튼 레이아웃, Kanban, 칸반, mass quick action, 대량 퀵 액션, 필터 목록 | `Admin(어드민)/List Views (리스트 뷰).md` |
+| Quick Actions, 퀵 액션, 빠른 실행, Global Actions, 글로벌 액션, object-specific action, global publisher layout, 글로벌 퍼블리셔 레이아웃, action bar, 액션 바 | `Admin(어드민)/Quick Actions & Global Actions (퀵 액션·글로벌 액션).md` |
+| Compact Layouts, 컴팩트 레이아웃, highlights panel, 하이라이트 패널, key fields, 핵심 필드, 모바일 카드 필드 | `Admin(어드민)/Compact Layouts (컴팩트 레이아웃).md` |
+| Custom Buttons, 커스텀 버튼, Custom Links, 커스텀 링크, URL button, URL 버튼, Visualforce button, VF 버튼, JavaScript 버튼, 레거시 버튼 | `Admin(어드민)/Custom Buttons & Links (커스텀 버튼·링크).md` |
+
+## 자동화 (Automation)
+
+| 키워드 | 파일 |
+|---|---|
+| Flow, 플로우, Flow Builder, 플로우 빌더, record-triggered flow, 레코드 트리거 플로우, screen flow, 화면 플로우, scheduled flow, 예약 플로우, 선언적 자동화, 자동화 유형 개요 | `Admin(어드민)/Flow — 선언적 자동화 개요 (플로우).md` |
+| Workflow Rules, 워크플로 규칙, Migrate to Flow, 플로우 이전, 레거시 자동화, time-dependent action, 시간 기반 액션, 워크플로 마이그레이션 | `Admin(어드민)/Workflow Rules & Migrate to Flow (워크플로 규칙·플로우 이전).md` |
+| Email Alerts, 이메일 알림, Email Templates, 이메일 템플릿, Auto-Response Rules, 자동 응답 규칙, merge field, 병합 필드, 이메일 발송 액션, 자동 회신 | `Admin(어드민)/Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답).md` |
+
+## 이메일 (Email)
+
+| 키워드 | 파일 |
+|---|---|
+| Organization-Wide Email Addresses, 조직 전체 이메일 주소, 공통 발신 주소, Deliverability, 전달성, Access to Send Email, 이메일 발송 권한, 이메일 인증, 발송 전달성 | `Admin(어드민)/Organization-Wide Email Addresses & Deliverability (조직 전체 이메일·전달성).md` |
