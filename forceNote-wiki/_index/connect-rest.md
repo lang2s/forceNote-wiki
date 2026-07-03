@@ -24,3 +24,4 @@ created: 2026-07-03
 |---|---|
 | feed elements, 피드 요소, feed-elements, capabilities, message segment, feed item input, 피드 게시, 좋아요 댓글 투표 REST, capability, 피드 요소 POST 검색, 피드에 글 어떻게 올려, 45개 capability | `Integration(통합)/ConnectREST(커넥트REST)/Feed Elements Resources.md` |
 | feeds, 피드, feed type, 피드 타입, news feed, record feed, feed directory, groups feed, topics feed, 23 feed type, 뉴스 피드, 레코드 피드, 그룹 피드, 토픽 피드, 피드 종류 뭐가 있어, feed-elements 파라미터 | `Integration(통합)/ConnectREST(커넥트REST)/Feeds Resources.md` |
+| comments, 댓글, likes, 좋아요, mentions, 멘션, threaded comments, 스레드 댓글, verified comment, upvote downvote, mention completions, mention validations, feedEntityStatus, 댓글 조회 편집, 좋아요 어떻게, 멘션 자동완성 검증 | `Integration(통합)/ConnectREST(커넥트REST)/Comments · Likes · Mentions Resources.md` |

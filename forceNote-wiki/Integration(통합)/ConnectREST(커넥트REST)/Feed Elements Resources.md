@@ -269,6 +269,7 @@ trackedChanges(32) · upDownVote(41)
 
 ## 관련 노트
 - [[Feeds Resources]] — feed type별 피드(이 리소스가 반환되는 피드)
+- [[Comments · Likes · Mentions Resources]] — 개별 댓글·좋아요·멘션 레벨 리소스(comment 편집·스레드·verify·vote, like GET/DELETE, mention completions/validations)
 - [[Connect REST API 요청·응답 규약]] — base URI · 필터 · 상태코드
 - [[Connect REST API 개요]] — 상위 개요
 - [[ConnectApi Chatter 패턴]] — Apex 측 피드 작업 짝
