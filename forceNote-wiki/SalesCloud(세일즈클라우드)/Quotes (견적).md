@@ -69,3 +69,4 @@ Opportunity ──(다수 quote 가능, 1개만 sync)──▶ Quote
 - [[Products & Price Books (제품·가격표)]] — quote line item의 제품·가격 원천
 - [[Contracts & Orders (계약·주문)]] — 견적 → 주문/계약으로 이어지는 영업 흐름
 - [[CPQ Quote API]] — 고급 견적(구성·가격 규칙)으로의 확장
+- [[Revenue Cloud 개요]] — 구성·가격·청구가 필요할 때의 고급 제품(기본 vs 고급 대비)
