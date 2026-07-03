@@ -64,15 +64,16 @@ updated: 2026-06-27
 > **출처:** `Salesforce Documents/Complete Salesforce Notes & Interview Questions and Answers/`(제3자 학습노트·면접 Q&A 321 PDF) **vs 위키** 갭 분석 결과.
 > **⚠️ Tier 주의:** 그 컬렉션은 **Tier 3**(제3자 노트)이므로 **갭 식별용으로만** 쓴다. 실제 작성은 공식 소스(Tier 2: `help.salesforce.com` 어드민 가이드, 공식 PDF)로 채운다 — 컬렉션 본문을 그대로 옮기지 않는다.
 > **배경:** 위키는 개발(Apex 106·LWC 128노트) 영역은 깊으나 **선언적 어드민**은 `Admin(어드민)/` 3개 파일뿐. CLAUDE.md 스코프(Admin/Setup·Sales/Service Cloud)와 실제 콘텐츠의 불균형.
+> **🆕 소싱 경로 확장 (2026-07-03, 사용자 승인):** ADMIN-4·6을 **help.salesforce.com 라이브 공식 문서를 Tier 2로 채택**해 완료. WebFetch 정적 추출이 SPA 본문에서 실패하면 **브라우저 렌더링(claude-in-chrome)으로 본문 verbatim 확보**(절차·한도표). source frontmatter에 URL+접속일 명시(라이브 문서는 버전 변동 → 재검증 가능하게). ⇒ **남은 ADMIN 갭(1·2·3·5·7·8·9)은 더 이상 공식 PDF 게이트가 아니다** — 동일 방식으로 진행 가능.
 
 | # | 항목 | 사유/현황 | 상태 | 추가일 |
 |---|---|---|---|---|
-| ADMIN-1 | **Approval Process** (선언적 승인 워크플로) | `Approval Namespace`(Apex)만 존재, 선언적 설정 how-to 없음. 공식 소스 필요 | 🔲 대기 | 2026-06-14 |
+| ADMIN-1 | **Approval Process** (선언적 승인 워크플로) | ✅ **완료 (2026-07-03)** — `Admin(어드민)/Approval Process (승인 프로세스).md`(help.salesforce.com Tier 2). Classic 개요·용어 15종·2 마법사·자동화 액션 4그룹×4타입·Record Locking·Flow 대안. Apex `Approval Namespace`와 declarative↔programmatic 양방향. qa PASS | ✅ 완료 | 2026-06-14 |
 | ADMIN-2 | **Formula / Roll-Up Summary 필드** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
 | ADMIN-3 | **Profiles · Page Layouts · Record Types** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
-| ADMIN-4 | **OWD · Sharing Rules** (선언적 공유 모델 전체) | `Permission Set 설계` + **`레코드 액세스 설계 (Enterprise Scale)`(공유 재계산·implicit sharing·skew, draes Tier 2)** 추가. 선언적 OWD/Sharing Rule **설정 how-to**(공유 규칙 유형·기준 기반/소유 기반)는 여전히 미작성 | 🟡 부분 | 2026-06-14 |
+| ADMIN-4 | **OWD · Sharing Rules** (선언적 공유 모델 전체) | ✅ **완료 (2026-07-03)** — `Admin(어드민)/조직 전체 공유 기본값(OWD)과 공유 규칙.md`(help.salesforce.com Tier 2 라이브). OWD 접근수준 4종·내부/외부 설정 절차·소유기반 8단계·기준기반 9단계·criteria 필드타입 13종 전수. draes 노트와 "설정↔성능 짝" 양방향. `_index/security.md` 신규 "공유 모델" 섹션. qa PASS | ✅ 완료 | 2026-06-14 |
 | ADMIN-5 | **Reports & Dashboards** (선언적) | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
-| ADMIN-6 | **Data Loader**(~~완료~~) · Import Wizard | **Data Loader ✅ 완료 (2026-06-14)**: `Admin(어드민)/Data Loader.md` (salesforce_data_loader.pdf v67.0, Tier 2 — UI/CLI·Bulk API·작업·process-conf.xml·vs Import Wizard 비교). Import Wizard 전용 노트는 미작성(현재 비교표로만 커버) | 🟡 부분 | 2026-06-14 |
+| ADMIN-6 | **Data Loader**(✅) · Import Wizard(✅) | ✅ **완료** — Data Loader(2026-06-14) + **Data Import Wizard(2026-07-03)** `Admin(어드민)/Data Import Wizard.md`(help.salesforce.com Tier 2). 8단계 절차·지원/미지원 객체·Import Limits 표(50,000건·100MB·400KB·90필드·32KB) 전수. Data Loader 비교표로 위임(중복0). `_index/platform.md` 등재. qa PASS | ✅ 완료 | 2026-06-14 |
 | ADMIN-7 | **Duplicate · Matching Rules** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
 | ADMIN-8 | **Schema Builder** | 전용 노트 없음 | 🔲 대기 | 2026-06-14 |
 | ADMIN-9 | **Sales Cloud · Service Cloud** (기능 레벨 가이드) | `Service Cloud Objects`(sObject)만, 기능 가이드 없음 | 🔲 대기 | 2026-06-14 |

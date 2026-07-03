@@ -106,6 +106,7 @@ HAVING COUNT(Id) > 10000
 ## 관련 노트
 
 - 📖 공식: [Designing Record Access for Enterprise Scale](https://developer.salesforce.com/docs/atlas.en-us.draes.meta/draes/)
+- [[조직 전체 공유 기본값(OWD)과 공유 규칙]] — OWD·공유 규칙의 선언적 설정 방법(본 노트의 설정 짝; 이 노트는 그 변경이 유발하는 재계산 성능을 다룸)
 - [[Data Skew]] — account/ownership/parent-child skew·record-locking·defer sharing (본 노트와 짝)
 - [[대용량 데이터 (LDV) — 대량 로드·삭제]] — 대량 로드 시 순차 적재·defer sharing으로 공유 재계산 부하 관리
 - [[Permission Set 설계]] — 명시적 접근 권한 부여

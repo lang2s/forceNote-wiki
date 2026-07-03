@@ -208,3 +208,4 @@ UI 클릭 없이 프로그래밍 방식으로 승인 워크플로를 구동해�
 - [[Platform Event 발행]] — 승인 완료 후 이벤트 발행 패턴
 - [[Batch Apex]] — 대량 레코드 일괄 승인 제출
 - [[Context Namespace]] — Industries Context 서비스 API (자매 네임스페이스)
+- [[Approval Process (승인 프로세스)]] — 선언적 승인 워크플로(Setup 마법사로 승인 단계·승인자·자동 액션 구성). 이 네임스페이스는 그 프로세스를 Apex로 제출·승인·거부하는 프로그래밍 짝(declarative ↔ programmatic)

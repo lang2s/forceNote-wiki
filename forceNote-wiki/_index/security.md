@@ -58,6 +58,27 @@ created: 2026-06-18
 | Authorization and Access Control, 권한 접근 제어, CRUD FLS bypass, AccessLevel, USER_MODE 장점, stripInaccessible, with sharing, inherited sharing, privilege escalation, Apex에서 권한 강제하는 법 | `Security(보안)/권한과 접근 제어 위협.md` |
 | DescribeSObjectResult 권한, isAccessible, isCreateable, isUpdateable, isDeletable, sharing violation, 필드 레벨 보안 검사 | `Security(보안)/권한과 접근 제어 위협.md` |
 
+## 공유 모델 (OWD / 공유 규칙)
+
+| 키워드 | 파일 |
+|---|---|
+| OWD, Organization-Wide Defaults, sharing rules, owner-based, criteria-based sharing rule, Grant Access Using Hierarchies, External Sharing Model, 조직 전체 기본값, 공유 규칙, 소유 기반 공유 규칙, 기준 기반 공유 규칙, OWD 어떻게 설정, 공유 규칙 만드는 법, 외부 사용자 공유 | `Admin(어드민)/조직 전체 공유 기본값(OWD)과 공유 규칙.md` |
+
+## 권한 모델 (Profile · Permission Set · 권한 종류)
+
+| 키워드 | 파일 |
+|---|---|
+| permissions model, 권한 모델, permissions and access settings, profile vs permission set, grant not deny, 권한 종류, 접근 설정, 권한 어디서 관리 | `Security(보안)/Salesforce 권한 모델 개요.md` |
+| Profiles, 프로파일, standard profile, custom profile, Minimum Access Salesforce, login hours, login IP ranges, 프로파일이란 | `Security(보안)/Profiles (프로파일).md` |
+| Permission Sets, 권한 집합, permset, standard/integration/session-based permission set, 권한 추가 부여, 권한 집합 할당 | `Security(보안)/Permission Sets (권한 집합).md` |
+| Permission Set Groups, 권한 집합 그룹, PSG, muting permission set, 뮤팅, combined permissions, 직무별 권한 묶기 | `Security(보안)/Permission Set Groups (권한 집합 그룹).md` |
+| Object Permissions, 오브젝트 권한, CRUD, create read edit delete, View All Records, Modify All Records, View All Fields, 오브젝트 권한 공유 무시 | `Security(보안)/Object Permissions (오브젝트 권한 — CRUD·View All·Modify All).md` |
+| Field-Level Security, FLS, 필드 수준 보안, field permissions, 필드 권한, read-only field, FLS vs page layout, 필드 숨기기 | `Security(보안)/Field-Level Security (FLS, 필드 수준 보안).md` |
+| User Permissions, System Permissions, App Permissions, 사용자 권한, 시스템 권한, View All Data, Modify All Data, API Enabled, View Setup and Configuration | `Security(보안)/User and System Permissions (사용자·시스템 권한).md` |
+| Custom Permissions, 커스텀 권한, access check, FeatureManagement.checkPermission, $Permission, 커스텀 권한으로 기능 게이트 | `Security(보안)/Custom Permissions (커스텀 권한).md` |
+| Session-Based Permission Sets, 세션 기반 권한 집합, SessionPermSetActivation, session activation required, step-up 접근 | `Security(보안)/Session-Based Permission Sets (세션 기반 권한 집합).md` |
+| App Settings, System Settings, Apex class access, Visualforce page access, setup entity access, connected app access, 접근 설정 | `Security(보안)/Permission Set 접근 설정 (App·System·Apex·VF 접근).md` |
+
 ## Lightning 보안
 
 | 키워드 | 파일 |

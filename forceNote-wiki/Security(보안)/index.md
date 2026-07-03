@@ -33,6 +33,23 @@ created: 2026-06-18
 
 ---
 
+## 권한 모델 (Profile · Permission Set · 권한 종류)
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[Salesforce 권한 모델 개요]] | (허브) 권한을 담는 그릇(Profile·Permission Set·PSG)과 대상(Object·Field·System·Custom 권한) 격자 + grant-only 원칙 | #concept |
+| [[Profiles (프로파일)]] | 사용자당 1개 배정되는 기본 설정 그릇(user license type 1개)·page layout·login hours/IP 전용 | #permission |
+| [[Permission Sets (권한 집합)]] | 특정 직무·작업 권한을 추가 부여(additive)·다중 할당 가능 | #permission |
+| [[Permission Set Groups (권한 집합 그룹)]] | 직무별 permission set 묶음(combined permissions)·Muting으로 특정 권한 비활성화 | #permission |
+| [[Object Permissions (오브젝트 권한 — CRUD·View All·Modify All)]] | 오브젝트별 CRUD base 접근·View All/Modify All Records는 공유 무시 | #permission |
+| [[Field-Level Security (FLS, 필드 수준 보안)]] | 필드 view/edit 통제·전 채널(API·리포트 포함)·FLS vs 페이지 레이아웃 | #permission |
+| [[User and System Permissions (사용자·시스템 권한)]] | 작업·기능 권한(App/System)·View All/Modify All Data 등 관리자 권한 | #permission |
+| [[Custom Permissions (커스텀 권한)]] | 커스텀 프로세스/앱 access check·수식·Apex·Flow에서 체크 | #permission |
+| [[Session-Based Permission Sets (세션 기반 권한 집합)]] | 특정 세션 동안만 권한 부여·세션마다 활성화(step-up) | #permission |
+| [[Permission Set 접근 설정 (App·System·Apex·VF 접근)]] | permission set의 App/System 범주 + Apex 클래스·VF 페이지 등 Setup Entity Access | #permission |
+
+---
+
 ## 빠른 선택
 
 - 입력값을 화면에 출력할 때 스크립트 주입을 막으려면? → [[XSS 방어]]
@@ -50,6 +67,15 @@ created: 2026-06-18
 - 전체 가이드 범위·Flow 보안 원칙부터? → [[Secure Coding 개요]]
 - Experience Cloud 사이트를 게스트/외부 사용자에게 안전하게 노출? → [[Experience Cloud 사이트 보안 — 인증·게스트 사용자]]
 - Aura 사이트 CSP·Locker·LWS·third-party 컴포넌트 보안? → [[Experience Cloud 사이트 — CSP·Locker·LWS]]
+- 권한을 어디서/무엇으로 관리하나(Profile·Permission Set 큰 그림)? → [[Salesforce 권한 모델 개요]]
+- Profile vs Permission Set — 어느 것에 권한을 넣나? → [[Profiles (프로파일)]] · [[Permission Sets (권한 집합)]]
+- 직무별로 permission set을 묶고 특정 권한만 끄려면(Muting)? → [[Permission Set Groups (권한 집합 그룹)]]
+- 오브젝트 CRUD·View All/Modify All Records를 주려면? → [[Object Permissions (오브젝트 권한 — CRUD·View All·Modify All)]]
+- 특정 필드를 숨기거나 read-only로(FLS)? → [[Field-Level Security (FLS, 필드 수준 보안)]]
+- View All Data·API Enabled 같은 기능/시스템 권한? → [[User and System Permissions (사용자·시스템 권한)]]
+- 커스텀 기능을 권한으로 게이트(수식·Apex·Flow 체크)? → [[Custom Permissions (커스텀 권한)]]
+- 세션 동안만 권한을 부여(step-up)? → [[Session-Based Permission Sets (세션 기반 권한 집합)]]
+- permission set에서 Apex 클래스·VF 페이지 접근을 열려면? → [[Permission Set 접근 설정 (App·System·Apex·VF 접근)]]
 
 ---
 
