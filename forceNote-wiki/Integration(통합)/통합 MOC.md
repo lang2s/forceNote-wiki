@@ -64,6 +64,9 @@ aliases: [통합 MOC, Integration Index]
 - [[Users Resources - Recommendations·Reputation]] — Chatter 추천 6종·평판(action·objectCategory·idPrefix)
 - [[User Profiles · Subscriptions · Followers on Records Resources]] — 사용자 프로필·사진/배너·구독(언팔)·레코드 팔로워 REST(5 리소스)
 - [[Topics · Announcements · Q&A Resources]] — 토픽 endorsement·knowledgeable·opt-out·공지·Q&A 제안 REST(10 리소스)
+- [[Files & Folders Resources]] — 네이티브 Salesforce Files 파일·폴더·공유·미리보기·렌디션 REST(21 엔드포인트)
+- [[Files Connect Repository Resources]] — 외부 저장소(SharePoint·Google Drive·OneDrive) 파일·권한 REST(14+3)
+- [[Notifications Resources]] — in-app/push 알림·알림 설정 REST(10 엔드포인트)
 
 ## 테스트
 
