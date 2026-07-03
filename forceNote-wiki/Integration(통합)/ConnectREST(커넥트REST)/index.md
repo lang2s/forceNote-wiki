@@ -20,12 +20,21 @@ created: 2026-07-03
 | [[Connect REST API 개요]] | Connect REST API 용도·아키텍처·인증(OAuth)·Limits·Quick Start·Connect in Apex 관계 | #overview |
 | [[Connect REST API 요청·응답 규약]] | resource URL·HTTP 메서드·필터(filterGroup·exclude/include)·상태 코드·multipart 업로드 | #convention |
 
+### Resources
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[Feed Elements Resources]] | 피드 요소 POST·검색·capability(45)·Message Segment·Feed Item Input | #resource |
+| [[Feeds Resources]] | 23개 feed type(news·record·groups·topics 등)·feed-elements 파라미터 | #resource |
+
 ---
 
 ## 빠른 선택
 
 - Connect REST API가 뭐고 언제 쓰는지, 인증·한도부터? → [[Connect REST API 개요]]
 - 요청 URL·메서드·필터·상태 코드 등 wire-level 규약? → [[Connect REST API 요청·응답 규약]]
+- 피드에 글 올리기·좋아요/댓글 등 피드 요소 조작(capability)? → [[Feed Elements Resources]]
+- 어떤 피드 타입(news·record·groups·topics 등)이 있고 어떻게 조회? → [[Feeds Resources]]
 
 ---
 

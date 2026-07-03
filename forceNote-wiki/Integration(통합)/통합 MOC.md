@@ -56,6 +56,8 @@ aliases: [통합 MOC, Integration Index]
 
 - [[Connect REST API 개요]] — 용도·아키텍처·인증(OAuth)·Limits·Quick Start·Connect in Apex 관계
 - [[Connect REST API 요청·응답 규약]] — resource URL·HTTP 메서드·필터(filterGroup·exclude/include)·상태 코드·multipart 업로드
+- [[Feed Elements Resources]] — 피드 요소 POST·검색·capability(45)·Message Segment·Feed Item Input
+- [[Feeds Resources]] — 23개 feed type(news·record·groups·topics 등)·feed-elements 파라미터
 
 ## 테스트
 
