@@ -167,5 +167,6 @@ GET /chatter/feeds/record/{recordId}/feed-elements   → Feed Element Page (실�
 
 ## 관련 노트
 - [[Feed Elements Resources]] — 피드가 담는 feed element, capability, POST용 Feed Item Input
+- [[Groups Resources]] — 그룹 피드는 record feed 리소스에 `groupId`를 넘겨 조회·게시한다(그룹 정보·멤버·사진 관리는 이쪽)
 - [[Connect REST API 요청·응답 규약]] — base URI·페이지네이션·헤더
 - [[Connect REST API 개요]] — Connect REST API 상위 개요
