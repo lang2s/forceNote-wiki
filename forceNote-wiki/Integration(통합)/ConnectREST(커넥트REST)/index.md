@@ -28,6 +28,9 @@ created: 2026-07-03
 | [[Feeds Resources]] | 23개 feed type(news·record·groups·topics 등)·feed-elements 파라미터 | #resource |
 | [[Comments · Likes · Mentions Resources]] | 댓글(조회·편집·verified·status·투표)·좋아요·멘션(자동완성·검증) REST | #resource |
 | [[Groups Resources]] | Chatter 그룹 CRUD·멤버·멤버십 요청·사진·배너·공지·레코드·초대 REST(17 리소스) | #resource |
+| [[Users Resources - 프로필·대화·메시지·팔로우]] | 사용자 정보·프로필·비공개 대화/메시지·팔로우·그룹·설정 REST(17 리소스) | #resource |
+| [[Users Resources - Recommendations·Reputation]] | Chatter 추천 6종(channel·people also viewed·static 등)·평판(action·objectCategory·idPrefix) | #resource |
+| [[User Profiles · Subscriptions · Followers on Records Resources]] | 사용자 프로필·사진/배너·구독(언팔)·레코드 팔로워 REST(5 리소스) | #resource |
 
 ---
 
