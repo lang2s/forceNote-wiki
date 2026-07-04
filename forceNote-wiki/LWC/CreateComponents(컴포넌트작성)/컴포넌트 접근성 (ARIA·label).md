@@ -1,9 +1,9 @@
 ---
 tags: [lwc, accessibility, aria, a11y, screen-reader, label, shadow-dom]
-source: developer.salesforce.com (Lightning Web Components Developer Guide — Create Components > Component Accessibility; 라이브 공식 문서, Tier 2, 접속 2026-07-04)
+source: developer.salesforce.com (Lightning Web Components Developer Guide — Create Components > Component Accessibility(create-components-accessibility) + Handle Focus(create-components-focus); 라이브 공식 문서, Tier 2, 접속 2026-07-04)
 official_doc: https://developer.salesforce.com/docs/platform/lwc/guide/create-components-accessibility.html
 created: 2026-07-04
-aliases: [component accessibility, 접근성, a11y, ARIA, aria-label, ariaLabel, aria-pressed, screen reader, label, WCAG, 기본 ARIA, role 고정, ID ARIA 링크, camel-case ARIA]
+aliases: [component accessibility, 접근성, a11y, ARIA, aria-label, ariaLabel, aria-pressed, screen reader, label, WCAG, 기본 ARIA, role 고정, ID ARIA 링크, camel-case ARIA, focus, tabindex, delegatesFocus, 키보드 접근성, keyboard accessibility]
 ---
 
 # LWC Component Accessibility (ARIA·label)
@@ -23,10 +23,10 @@ aliases: [component accessibility, 접근성, a11y, ARIA, aria-label, ariaLabel,
 
 컴포넌트를 접근 가능하게 만드는 두 축은 다음과 같다.
 
-1. **accessibility attributes 사용** — screen reader·보조기술에 컴포넌트를 노출한다. (이 노트의 범위)
+1. **accessibility attributes 사용** — screen reader·보조기술에 컴포넌트를 노출한다.
 2. **focus 처리(Handle focus)** — 키보드 포커스 이동 관리.
 
-> Focus 처리는 이 노트 범위 밖이며 별도 주제(Handle focus)로 위임된다. 여기서는 accessibility attributes만 다룬다.
+> 두 축 모두 이 노트에서 다룬다. accessibility attributes는 아래에서, focus 처리는 [[#Focus 처리 (키보드 접근성)]] 섹션에서 설명한다.
 
 ---
 
@@ -170,6 +170,68 @@ export default class MyTab extends LightningElement {
 두 요소를 `id`·ARIA로 링크하려면 **light DOM**을 사용해 두 요소를 같은 템플릿에 배치한다.
 
 > light DOM vs native shadow DOM의 차이는 [[LWC Shadow DOM 모드]]·[[CSS 스타일시트와 스코핑]] 참조.
+
+---
+
+## Focus 처리 (키보드 접근성)
+
+접근성을 위해 **어느 요소가 focus를 갖는지 프로그래밍**한다. 브라우저는 **tab 키**로 키보드 네비게이션을 지원한다.
+
+### interactive vs 비-interactive 요소
+
+tab으로 이동할 때 **interactive 요소**(`<a>`·`<button>`·`<input>`·`<textarea>`)는 자동으로 focus를 받는다. 반면 **비-interactive 요소**(`<div>`·`<span>`)는 기본적으로 focus를 받지 못하므로, focus를 받게 하려면 **`tabindex="0"`** 을 붙여야 한다.
+
+> ⚠️ LWC에서 `tabindex`는 **`0`과 `-1`만 지원**한다.
+> - `tabindex="0"` — 표준 tab 순서로 focus를 받는다.
+> - `tabindex="-1"` — tab 순서에는 포함되지 않지만 프로그래밍적으로(예: `.focus()`) focus 가능하다.
+
+```html
+<!-- 구조 예시 — 실제 동작 코드 아님 -->
+<!-- interactive 요소는 자동 focus -->
+<button>Save</button>
+
+<!-- 비-interactive 요소는 tabindex="0"으로 표준 tab 순서에 편입 -->
+<div tabindex="0">Focusable div</div>
+
+<!-- tabindex="-1": tab으로는 못 가지만 프로그래밍 focus는 가능 -->
+<div tabindex="-1">Programmatically focusable</div>
+```
+
+### 커스텀 컴포넌트의 focus
+
+커스텀 컴포넌트에서는 focus가 **컴포넌트 컨테이너를 건너뛰고 내부 요소로 이동**한다(예: parent의 button → child의 input, 이때 child 컨테이너는 스킵된다).
+
+커스텀 컴포넌트 **전체(컨테이너)에 focus**를 주려면 parent 템플릿에서 child 컴포넌트에 **`tabindex` 속성**을 설정한다.
+
+```html
+<!-- 구조 예시 — 실제 동작 코드 아님 -->
+<!-- parent 템플릿: child 컴포넌트 전체(컨테이너)를 tab 순서에 넣으려면 tabindex 사용 -->
+<c-cool-button tabindex="0"></c-cool-button>
+```
+
+### delegatesFocus
+
+커스텀 컴포넌트 내부에 focusable 요소가 있어 `tabindex` 관리가 복잡할 때는 shadow DOM 옵션 **`delegatesFocus`** 를 `true`로 설정한다. 활성화 시 동작은 다음과 같다.
+
+- `coolButton.focus()` 호출 시 컴포넌트 내부의 native 요소(예: button)에 focus가 추가된다.
+- shadow DOM 내부의 **focusable하지 않은** 노드를 클릭하면 **첫 번째 focusable 영역**이 focus를 받는다.
+- shadow DOM 내부 노드가 focus를 얻으면 **`:focus` CSS selector가 host 요소에도 적용**된다.
+
+> ⚠️ **`tabindex`와 `delegatesFocus`를 함께 쓰지 말 것** — focus 순서가 어긋난다.
+
+```js
+// 구조 예시 — 실제 동작 코드 아님
+import { LightningElement } from 'lwc';
+
+export default class CoolButton extends LightningElement {
+    // delegatesFocus: 내부에 focusable 요소가 여럿이라 tabindex 관리가 복잡할 때 사용
+    static delegatesFocus = true;
+
+    // 주의: delegatesFocus를 쓸 때는 tabindex 속성과 병용하지 않는다
+}
+```
+
+> focus와 함께 쓰는 이벤트 리스너 연결·키보드 접근성 세부는 별도 주제(Attach Event Listeners, WebAIM Keyboard Accessibility)로 위임된다.
 
 ---
 

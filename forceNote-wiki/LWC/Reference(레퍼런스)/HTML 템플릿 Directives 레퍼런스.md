@@ -1,9 +1,9 @@
 ---
 tags: [lwc, reference, html-template, directives, lwc-if, for-each, iterator, slots, lwc-ref]
-source: developer.salesforce.com (Lightning Web Components Developer Guide — Reference > HTML Template Directives; 라이브 공식 문서, Tier 2, 접속 2026-07-04)
+source: developer.salesforce.com (Lightning Web Components Developer Guide — Reference > HTML Template Directives + Dynamic Event Listeners Considerations; 라이브 공식 문서, Tier 2, 접속 2026-07-04)
 official_doc: https://developer.salesforce.com/docs/platform/lwc/guide/reference-directives.html
 created: 2026-07-04
-aliases: [LWC directives, HTML template directives, lwc:if, lwc:elseif, lwc:else, if:true, for:each, for:item, for:index, iterator, key, lwc:ref, lwc:dom, lwc:spread, lwc:on, lwc:slot-data, lwc:slot-bind, lwc:is, lwc:component, 조건 렌더링, 리스트 렌더링, 슬롯]
+aliases: [LWC directives, HTML template directives, lwc:if, lwc:elseif, lwc:else, if:true, for:each, for:item, for:index, iterator, key, lwc:ref, lwc:dom, lwc:spread, lwc:on, lwc:slot-data, lwc:slot-bind, lwc:is, lwc:component, 조건 렌더링, 리스트 렌더링, 슬롯, dynamic event listeners, 동적 이벤트 리스너, lwc:on 고려사항]
 ---
 
 # HTML 템플릿 Directives 레퍼런스
@@ -168,6 +168,45 @@ export default class extends LightningElement {
         const el = this.refs.myDiv; // querySelector보다 권장
     }
 }
+```
+
+### lwc:on 고려사항 (동적 이벤트 리스너)
+
+`lwc:on={eventHandlers}`로 이벤트 리스너를 동적으로 다룰 때 지켜야 할 규칙.
+
+- ⚠️ **`lwc:on`에 전달한 변수가 참조하는 객체를 mutate(변형)하는 것은 허용되지 않는다.** 리스너를 바꾸려면 프로퍼티를 직접 수정하지 말고 객체를 **새 객체로 재할당**한다.
+- **재할당(reassignment)은 허용**되며, 이전 객체와 새 객체의 프로퍼티 차이로 리스너가 다음과 같이 반영된다:
+
+| 프로퍼티 상태 (이전 → 새 객체) | 이벤트 리스너 동작 |
+|---|---|
+| 이전에는 있었으나 새 객체에서 **누락** | 해당 리스너 **제거(remove)** |
+| 이전에는 없었으나 새 객체에 **존재** | 해당 리스너 **추가(add)** |
+| **양쪽 객체 모두**에 존재 | 해당 리스너 **업데이트(update)** |
+
+- 동적 이벤트 리스너 추가는 **`lwc:spread`보다 `lwc:on` 사용을 권장**한다.
+- ⚠️ HTML 템플릿에서 **같은 이벤트 타입**에 `lwc:on`과 `onevent`(선언적 핸들러) 리스너를 함께 지정하면 **에러**가 발생한다.
+- 반면 **같은 이벤트 타입**에 `lwc:on`과 `lwc:spread`로 둘 다 리스너를 지정하면 → **두 리스너 모두 attach**된다.
+
+**동적 컴포넌트 조합** — 동적으로 로드한 컴포넌트에 프로퍼티를 설정하고 이벤트 리스너를 attach하려면 세 directive를 함께 쓴다:
+
+- **`lwc:component` + `lwc:is`** — 컴포넌트를 동적으로 로드한다.
+- **`lwc:spread`** — 전달할 프로퍼티를 지정한다.
+- **`lwc:on`** — attach할 이벤트 리스너를 지정한다.
+
+```javascript
+// 구조 예시 — lwc:on 리스너 재할당 (실제 동작 코드 아님)
+export default class extends LightningElement {
+    // ❌ mutate 금지: this.eventHandlers.click = ... (직접 변형 불가)
+    // ✅ 새 객체로 재할당
+    updateListeners() {
+        this.eventHandlers = { ...this.eventHandlers, focus: this.handleFocus };
+    }
+}
+```
+
+```html
+<!-- 구조 예시 — lwc:on + lwc:spread로 동적 컴포넌트에 프로퍼티·리스너 -->
+<lwc:component lwc:is={componentCtor} lwc:spread={childProps} lwc:on={eventHandlers}></lwc:component>
 ```
 
 ---
