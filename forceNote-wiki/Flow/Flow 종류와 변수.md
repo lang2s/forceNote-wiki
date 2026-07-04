@@ -1,6 +1,6 @@
 ---
 tags: [flow, processType, variable, concept]
-source: dreamhouse-lwc, lwc-recipes, agent-script-recipes
+source: dreamhouse-lwc, lwc-recipes, agent-script-recipes, Salesforce Help — Schedule-Triggered Flow Considerations (sf.flow_considerations_trigger_schedule, Tier 2)
 created: 2026-05-17
 aliases: [Flow 종류, Screen Flow, AutolaunchedFlow, Flow 변수]
 ---
@@ -28,6 +28,15 @@ aliases: [Flow 종류, Screen Flow, AutolaunchedFlow, Flow 변수]
 <!-- Autolaunched Flow (Apex/Agent에서 호출) -->
 <processType>AutoLaunchedFlow</processType>
 ```
+
+### ⚠️ Schedule-Triggered Flow 한도
+
+`Schedule` 유형으로 대량 레코드를 예약 배치 처리할 때는 다음 하드 한도를 반드시 고려한다:
+
+- **24시간당 실행되는 스케줄 트리거 Flow 인터뷰 수는 250,000건, 또는 조직의 사용자 라이선스 수 × 200 중 큰 값**으로 상한이 있다.
+- 이 상한을 초과하는 대상 레코드를 예약하면 인터뷰가 조용히 잘리거나 밀릴 수 있으므로, 배치 설계 시 대상 레코드 수가 이 한도 안에 들어오는지 확인해야 한다.
+
+> 근거: Salesforce Help — Schedule-Triggered Flow Considerations (`sf.flow_considerations_trigger_schedule`)
 
 ---
 

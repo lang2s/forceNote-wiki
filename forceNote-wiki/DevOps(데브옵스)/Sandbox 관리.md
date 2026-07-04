@@ -1,6 +1,6 @@
 ---
 tags: [devops, salesforce-dx, sandbox, sandbox-definition-file, org-create-sandbox, sandbox-clone, sandbox-refresh]
-source: sfdx_dev.pdf (Salesforce DX Developer Guide v67.0)
+source: sfdx_dev.pdf (Salesforce DX Developer Guide v67.0); help.salesforce.com — Refresh a Sandbox (Tier 2); help.salesforce.com — Sandbox Types and Storage Limits (Tier 2)
 created: 2026-05-23
 aliases: [Sandbox CLI 관리, sandbox-def.json, org create sandbox, org refresh sandbox, org clone sandbox, Sandbox 생성 CLI, Sandbox 갱신]
 ---
@@ -159,6 +159,15 @@ sf org resume sandbox \
 sf org web login --instance-url https://test.salesforce.com
 ```
 
+### ⚠️ Partial Copy Sandbox 데이터 한도
+
+`licenseType: Partial`(Partial Copy)로 생성하는 Sandbox는 **선택한 오브젝트별 데이터 한도**가 있다:
+
+- 선택한 오브젝트당 **최대 10,000개 레코드**(+ 관련 자식 레코드)
+- 총 **5GB 스토리지**
+
+`templateId`(Sandbox 템플릿)로 어떤 오브젝트를 복사할지 지정해야 하며(위 옵션 표에서 Partial용 `templateId` 필수), 템플릿에 포함된 오브젝트만 데이터가 복사된다. **전체 Production 데이터가 복사되는 것은 Full Sandbox뿐**이다. 이 한도를 모르고 Partial Copy로 대규모 회귀 테스트를 시도하면 데이터 부족으로 막힌다. (출처: help.salesforce.com — Sandbox Licenses and Storage Limits / Sandbox Types)
+
 ### 왜 별칭(Alias)을 권장하는가
 
 Sandbox 생성 시 자동 생성되는 사용자명은 `username@company.com.dev1` 형태다. 고유성 충돌 시 `00x7Vqusername@company.com.dev1`처럼 복잡해진다. 별칭으로 관리하면 기억하기 쉽고 명령 실행이 빨라진다.
@@ -221,6 +230,19 @@ sf org refresh sandbox \
   --target-org prodOrg \
   --definition-file config/full-sandbox-def.json
 ```
+
+### ⚠️ 새로고침 간격 한도 (Refresh Interval)
+
+Sandbox 타입마다 **최소 재새로고침 간격**이 있어, 이 기간 내에 다시 refresh를 요청하면 차단된다. 간격은 마지막 **생성 또는 새로고침 요청 시점**부터 계산된다.
+
+| Sandbox 타입 | 최소 새로고침 간격 |
+|---|---|
+| Developer | 1일 (하루 1회) |
+| Developer Pro | 1일 (하루 1회) |
+| Partial Copy | 5일 |
+| Full | 29일 |
+
+CI/CD 파이프라인에서 `sf org refresh sandbox`를 반복 호출하도록 구성할 때 이 간격을 고려하지 않으면 새로고침이 차단되어 파이프라인이 막힌다. (출처: help.salesforce.com — Refresh a Sandbox)
 
 ---
 

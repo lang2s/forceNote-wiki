@@ -1,6 +1,6 @@
 ---
 tags: [agentforce, agent-script, prompt-template, genaiprompttemplate, apex-grounding, prompt-builder, invocable]
-source: agent-script-recipes-main/force-app/main/02_actionConfiguration/promptTemplateActions/ (실전 예시 — .agent·genAiPromptTemplate·PersonalizedGuestExperiences.cls) + developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_genaiprompttemplate.htm (GenAiPromptTemplate 메타 레퍼런스) + developer.salesforce.com/blogs/2024/04/ground-your-prompt-templates-with-data-using-flow-or-apex (Apex 그라운딩)
+source: agent-script-recipes-main/force-app/main/02_actionConfiguration/promptTemplateActions/ (실전 예시 — .agent·genAiPromptTemplate·PersonalizedGuestExperiences.cls) + developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_genaiprompttemplate.htm (GenAiPromptTemplate 메타 레퍼런스) + developer.salesforce.com/blogs/2024/04/ground-your-prompt-templates-with-data-using-flow-or-apex (Apex 그라운딩) + help.salesforce.com/s/articleView?id=ai.prompt_builder_enable.htm (Enable Prompt Builder, Tier 2) + help.salesforce.com/s/articleView?id=sf.generative_ai_enable.htm (Set Up Einstein Generative AI — Turn on Einstein 선행 단계, Tier 2)
 created: 2026-07-04
 aliases: [Prompt Template Action, generatePromptResponse, GenAiPromptTemplate, Apex Data Provider, Prompt Grounding, 프롬프트 템플릿 액션, Apex 그라운딩, 프롬프트 데이터 프로바이더]
 ---
@@ -81,6 +81,18 @@ actions:
 ## 3. 레이어 B — GenAiPromptTemplate 메타데이터 저작
 
 `generatePromptResponse://`가 실행하는 대상이 이 메타다. **API 60.0+**, Prompt Builder 활성화 + Prompt Template Manager 권한 필요. 파일 접미사 `.genAiPromptTemplate`, 폴더 `genAiPromptTemplates/`.
+
+### ⚠️ 전제조건 — Einstein 생성형 AI를 먼저 켜야 함
+
+Prompt Builder 활성화 항목은 **Einstein 생성형 AI가 켜져 있어야만 나타난다.** Prompt Builder만 먼저 찾으면 활성화 항목이 없어 막힌다. 순서를 지킨다.
+
+| 순서 | 단계 | 경로 |
+|---|---|---|
+| 1 | **Einstein 켜기 (선행)** | Setup → Quick Find `Einstein Setup` → **Turn on Einstein** 토글을 켠다 |
+| 2 | **Prompt Builder 활성화** | (1 완료 후에야 나타남) Setup → Prompt Builder 활성화 |
+| 3 | **권한 부여** | 저작자에게 **Prompt Template Manager** 권한 |
+
+> `Turn on Einstein` 토글이 Prompt Builder 활성화의 선행 단계다. 이 단계를 건너뛰면 Setup에서 Prompt Builder 활성화 항목 자체가 보이지 않는다.
 
 ### GenAiPromptTemplate (루트) 필드
 

@@ -1,6 +1,6 @@
 ---
 tags: [aura, lightning-components, component-bundle, markup, attribute]
-source: lightningAura.pdf
+source: [lightningAura.pdf, "Lightning Aura Components Developer Guide — Enable Debug Mode (developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/aura_debug_mode.htm, Tier 2)"]
 created: 2026-05-19
 aliases: [Aura 번들, Aura Bundle, Aura 컴포넌트, aura:component, aura:attribute]
 ---
@@ -137,6 +137,16 @@ aliases: [Aura 번들, Aura Bundle, Aura 컴포넌트, aura:component, aura:attr
     }
 })
 ```
+
+---
+
+## ⚠️ 전제조건 — JS 디버깅에는 Debug Mode 필요
+
+위 `Controller.js`/`Helper.js`의 JS 로직을 브라우저 개발자 도구에서 실제로 디버깅하려면 **Debug Mode를 먼저 켜야 한다.** Debug Mode가 꺼진 기본 상태에서는 컴파일된 JavaScript가 **최적화·minify되어 배포**되므로 소스 브레이크포인트 설정·단계별 디버깅이 사실상 불가능하다.
+
+- 활성화 경로: **Setup → 빠른 찾기 `Debug Mode` 입력 → Debug Mode → Debug Mode Users**에서 대상 사용자를 선택해 Debug Mode를 켠다.
+- Debug Mode에서는 컴파일된 JavaScript가 최적화/minify되지 않아 소스 그대로 디버깅할 수 있다.
+- ⚠️ Debug Mode는 성능을 느리게 하므로 **실제로 디버깅 중인 사용자에게만** 켠다(전체/운영 사용자 대상 상시 활성화 금지).
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 tags: [agent-skill, sf-skills, omnistudio, omniscript, omniprocess, guided-flow]
-source: forcedotcom/sf-skills (skills/omnistudio-omniscript-generate/SKILL.md, 공식 Salesforce)
+source: forcedotcom/sf-skills (skills/omnistudio-omniscript-generate/SKILL.md, 공식 Salesforce); help.salesforce.com Enable OmniStudio Metadata API Support (sf.os_enable_omnistudio_metadata_api_support.htm) — Tier 2
 created: 2026-06-26
 aliases: [omnistudio-omniscript-generate, OmniStudio OmniScript 생성 스킬, 가이드형 디지털 경험, OmniProcess element, Type SubType Language]
 ---
@@ -85,6 +85,18 @@ Score: 102/120 ---- Very Good
 ```
 
 ### Phase 4 — Deployment
+
+#### ⚠️ 전제조건 — OmniStudio Metadata API Support 활성화
+`OmniProcess`/`OmniProcessElement` 메타데이터를 **Metadata API로 배포·retrieve하려면** 먼저 **Setup → OmniStudio Settings**에서 **OmniStudio Metadata**(Metadata API Support) 토글을 활성화해야 한다. 이 토글이 꺼진(managed-package runtime만 있는) 조직에서는 OmniProcess를 Metadata API로 다룰 수 없어 배포가 막힌다.
+
+활성화 자체가 선행 조건을 요구한다 — 하나라도 불충족이면 활성화 실패:
+1. 조직이 **standard object model**을 사용해야 함
+2. 모든 컴포넌트가 **유효한 unique name**을 가져야 함 — 하나라도 무효면 활성화 실패 + 이메일 통지
+3. **OmniStudio configuration 테이블에 기존 레코드가 없어야** 함(empty config tables)
+
+> REST API로 직접 생성(Phase 3)하는 경로와 별개로, `platform-metadata-deploy`를 통한 메타데이터 배포·retrieve 흐름에는 이 활성화가 필수 전제다.
+
+#### 배포 절차
 1. org auth(`sf org display -o <org>`)·참조 DataRaptor/IP active 확인 2. 의존성(DataRaptor·IP·참조 OmniScript) 먼저 배포 3. `scripts/deploy-omniscript.sh <Name> <Type> <SubType> <org>`(배포·활성화 검증, 실패 시 recovery 출력) 4. 미자동 활성 시 버전 활성화.
 
 ### Phase 5 — Testing

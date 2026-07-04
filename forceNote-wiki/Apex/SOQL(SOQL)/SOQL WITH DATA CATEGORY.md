@@ -1,6 +1,6 @@
 ---
 tags: [apex, soql, knowledge, data-category, with-절]
-source: salesforce_soql_sosl.pdf p.33-38 (v67.0 Summer '26)
+source: salesforce_soql_sosl.pdf p.33-38 (v67.0 Summer '26); Tier 2 — developer.salesforce.com knowledge_dev SELECT WITH DATA CATEGORY (전제조건)
 created: 2026-05-22
 aliases: [WITH DATA CATEGORY, 데이터 카테고리 필터, Knowledge 카테고리 쿼리, SOQL 카테고리]
 ---
@@ -22,6 +22,18 @@ SOQL의 `WITH` 절은 FROM에 지정된 Object 외의 기준으로 레코드를 
 | `WITH SECURITY_ENFORCED` | **v67.0 제거 → 사용 금지** |
 | `WITH USER_MODE` | Apex CRUD·FLS 보안 적용 |
 | `WITH RecordVisibilityContext` | 레코드 가시성 속성 조회 (API v48.0+) |
+
+---
+
+## ⚠️ 전제조건 — Knowledge·데이터 카테고리 선행 설정
+
+`WITH DATA CATEGORY`는 데이터 카테고리가 Salesforce Knowledge 기능의 일부이므로, 쿼리를 실행하기 전에 아래 설정이 먼저 완료되어 있어야 한다. 미설정 상태에서 실행하면 대상 객체·카테고리 참조가 실패한다.
+
+1. **Salesforce(Lightning) Knowledge 활성화** — 활성화해야 `KnowledgeArticleVersion`·아티클 타입(`*__kav`) 객체가 org에 존재한다. Knowledge 미활성 org에서는 `FROM KnowledgeArticleVersion` 자체가 성립하지 않는다.
+2. **Data Category Group 생성 및 카테고리 정의** — 데이터 카테고리 그룹(예: `Geography__c`)을 만들고 그 안에 카테고리 계층(예: `usa__c`, `northAmerica__c`)을 정의한다.
+3. **카테고리 그룹을 Knowledge에 할당** — 생성한 데이터 카테고리 그룹을 Knowledge에 할당해야 아티클을 그 카테고리로 분류·필터할 수 있다.
+
+> [!warning] Knowledge 미활성 또는 카테고리 그룹 미구성 상태에서 이 SOQL을 실행하면 대상 객체·카테고리 참조가 실패한다. `WITH DATA CATEGORY` 문법은 위 선행 설정을 전제로 한다.
 
 ---
 

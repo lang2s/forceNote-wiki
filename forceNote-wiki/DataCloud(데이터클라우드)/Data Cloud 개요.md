@@ -1,6 +1,6 @@
 ---
 tags: [data-cloud, data-360, cdp, customer-360, overview]
-source: help.salesforce.com (Salesforce Help — About Salesforce Data Cloud (Data 360); 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — About Salesforce Data Cloud (Data 360); 라이브 공식 문서, Tier 2, 접속 2026-07-03) · Salesforce Help — Manage Access with Data Cloud Permission Sets (sf.c360_a_setup_permission_sets.htm) 및 Data Cloud Standard Permission Sets (sf.c360_a_userpermissions.htm), Tier 2
 official_doc: https://help.salesforce.com/s/articleView?id=sf.c360_a_data_cloud.htm&type=5
 created: 2026-07-03
 aliases: [Data Cloud, Data 360, 데이터 클라우드, CDP, Customer Data Platform, Customer 360, Unified Profile]
@@ -26,6 +26,16 @@ Data Cloud는 **구조적(structured)·비구조적(unstructured) 데이터를 �
 - **통합(Unify)** — **identity resolution ruleset**으로 여러 소스에 흩어진 동일 고객의 레코드를 하나의 **unified profile(단일 고객 뷰)** 로 묶는다.
 
 여기에 **Segmentation**과 **Activation**을 더해, 의미 있는 audience segment를 만들고 개인화된 커뮤니케이션과 journey를 실행한다.
+
+## ⚠️ 전제조건 — 활성화·권한 (파이프라인 사용 전 필수)
+
+아래 파이프라인(data stream·ruleset·insight 등)을 만들려면 먼저 Data Cloud를 **활성화하고 표준 permission set을 할당**해야 한다. 이 셋업 없이는 어떤 오브젝트도 생성할 수 없다.
+
+- **활성화** — **Developer Edition org에서는 Data Cloud를 수동으로 Enable**해야 한다. 기존 org에서는 **Setup > Data Cloud Setup**을 완료해야 data stream·ruleset·insight를 만들 수 있다.
+- **권한** — 관리자가 사용자에게 **Data Cloud 표준 permission set**을 할당해야 한다. 예: **Data Cloud Admin(현 Data Cloud Architect)**. 각 표준 permission set에는 대응하는 **Permission Set License**가 포함된다.
+- 순서: **① Data Cloud 활성화(Data Cloud Setup) → ② 표준 permission set + Permission Set License 할당 → ③ 파이프라인 오브젝트 생성**.
+
+> 근거: Salesforce Help — *Manage Access with Data Cloud Permission Sets* (`sf.c360_a_setup_permission_sets.htm`), *Data Cloud Standard Permission Sets* (`sf.c360_a_userpermissions.htm`).
 
 ## 파이프라인 (핵심 흐름)
 

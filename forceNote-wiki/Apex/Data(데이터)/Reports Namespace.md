@@ -1,6 +1,6 @@
 ---
 tags: [apex, reports, analytics, report-api, async-report, report-metadata, fact-map]
-source: salesforce_apex_reference_guide (Version 67.0, Summer '26)
+source: salesforce_apex_reference_guide (Version 67.0, Summer '26); Apex Analytics — Reports and Dashboards API Limits and Considerations (developer.salesforce.com, Tier 2)
 created: 2026-05-18
 aliases: [Reports namespace, ReportManager, ReportMetadata, ReportResults, ReportFact, ReportFilter, runReport, runAsyncReport, FactMap]
 ---
@@ -70,6 +70,20 @@ if (completed.getStatus() == 'Success') {
 | `getReportInstance(instanceId)` | `ReportInstance` | 비동기 인스턴스 한 건 조회 |
 | `getReportInstances(reportId)` | `List<ReportInstance>` | 보고서의 비동기 인스턴스 목록 |
 | `getDatatypeFilterOperatorMap()` | `Map<String, List<FilterOperator>>` | 데이터 타입별 사용 가능한 필터 연산자 목록 |
+
+### ⚠️ 한도·주의 (Reports & Dashboards API — Apex 포함)
+
+`getAllData()`가 `true`여도 **전체 데이터가 무제한으로 나오지 않는다.** Reports & Dashboards API(Apex `Reports` 네임스페이스 포함)에는 아래 하드 한도가 적용된다. `getAllData()=true`면 "전체가 나온다"고 오해하면 **2,000행에서 잘린다.**
+
+| 한도 | 값 | 대응 |
+|---|---|---|
+| `runReport` 반환 행 수 | 최대 **2,000 report row** | 더 필요하면 필터로 데이터를 분할해 여러 번 실행 |
+| 보고서 처리 컬럼(필드) 수 | 최대 **100개 필드** | 컬럼을 줄여 재실행 |
+| 커스텀 필드 필터 수 | 최대 **20개** | 필터 개수를 20개 이내로 |
+| 동기 실행(`runReport`) 빈도 | 시간당 **500회** | 초과 시 비동기(`runAsyncReport`) 사용 |
+| 동기 실행 동시 요청 | 최대 **20개 동시** | 동시성 초과 시 대기·재시도 |
+
+> 근거: [Apex Analytics — Reports and Dashboards API Limits and Considerations](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_analytics_limitations.htm) (2,000 rows · 100 fields · 20 custom field filters · 500 synchronous runs/hour · 20 concurrent).
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 tags: [salesforce, integration, named-credential, security, pattern]
-source: apex-recipes/RestClient.cls, NamedCredentialRecipes.cls
+source: apex-recipes/RestClient.cls, NamedCredentialRecipes.cls; help.salesforce.com — Enable External Credential Principals (nc_enable_ext_cred_principal, Tier 2)
 created: 2026-05-17
 aliases: [Named Credential, 네임드 크레덴셜, callout:]
 ---
@@ -80,6 +80,24 @@ Setup → Security → Named Credentials → New Named Credential
 - Identity Type: Named Principal / Per-User
 - Authentication Protocol: No Auth / Password / OAuth 2.0 / JWT / AWS Signature V4
 ```
+
+---
+
+## ⚠️ 신형 모델 필수 셋업 — External Credential Principal 접근 권한 부여
+
+신형 Named Credential + External Credential 구조에서는 논리적 이름(`callout:NC`)만 맞아도 **callout 실행 사용자에게 External Credential Principal 접근 권한이 없으면 인증 callout이 접근 오류로 실패**한다. 신형 구조를 쓴다면 아래 권한 부여 단계를 반드시 완료해야 한다.
+
+```
+1. Permission Set 생성 (Setup → Permission Sets → New)
+2. 해당 Permission Set의 Apps 섹션 → External Credential Principal Access 열기
+3. 대상 Principal을 Available → Enabled 로 이동
+4. callout을 실행할 사용자에게 이 Permission Set 할당
+   (User External Credentials 오브젝트 접근 권한이 부여됨)
+```
+
+이 매핑을 하지 않으면 Named Credential URL·External Credential 설정이 모두 올바르고 Apex의 `callout:NC` 이름이 맞더라도 런타임에 인증 접근 오류로 막힌다. Legacy Named Credential에는 이 단계가 없지만, External Credential을 분리한 신형 모델(Per-User Principal 포함)에서는 필수다.
+
+> 근거: [Enable External Credential Principals](https://help.salesforce.com/s/articleView?id=xcloud.nc_enable_ext_cred_principal.htm) — "create a permission set granting users access to the principal… select External Credential Principal Access and move the principal to Enabled". User External Credential 오브젝트 접근이 필요하다.
 
 ---
 

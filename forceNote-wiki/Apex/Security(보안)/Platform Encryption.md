@@ -1,6 +1,6 @@
 ---
 tags: [Security, Platform-Encryption, Shield, Encryption, Field-Encryption, Database-Encryption, Data-Cloud]
-source: external-knowledge; apex-recipes-main/force-app/main/default/classes/Encryption Recipes/EncryptionRecipes.cls
+source: external-knowledge; apex-recipes-main/force-app/main/default/classes/Encryption Recipes/EncryptionRecipes.cls; help.salesforce.com security_pe_permissions (Tier 2)
 created: 2026-05-23
 aliases: [Platform Encryption, 플랫폼 암호화, Shield Platform Encryption, 필드 암호화, 데이터베이스 암호화, constant-time comparison, 타이밍 공격, areEqualConstantTime, 초기화 벡터, developer-managed IV]
 ---
@@ -182,6 +182,23 @@ public static void checkSHA512HashRecipe(Blob hash, Blob dataToCheck) {
 ---
 
 ## 설정 방법
+
+### ⚠️ 전제조건 (Encryption Policy 설정 전 필수)
+
+Encryption Policy에서 필드를 선택하기 **전에** 아래 선행 단계를 반드시 완료해야 한다. Setup의 Encryption Policy로 바로 진입하는 것이 아니다.
+
+```
+1. 권한 확인 — 다음 두 권한이 모두 필요하다:
+   - Manage Encryption Keys
+   - Customize Application
+
+2. Tenant Secret 생성 (Key Management)
+   Setup > Platform Encryption > Key Management > Generate Tenant Secret
+   → 활성(active) 테넌트 시크릿이 없으면 암호화 정책 적용 불가
+   → 테넌트 시크릿 생성 후에야 필드/파일 암호화 활성화 가능
+```
+
+> 위 [키 관리 (Key Management)](#키-관리-key-management) 섹션의 Tenant Secret은 개념 설명이고, 여기서는 **정책 설정의 선행 필수 순서**로서 명시한다. 활성 테넌트 시크릿 → 그다음 Encryption Policy에서 필드 선택 순서.
 
 ### 필드 암호화 활성화
 

@@ -1,6 +1,6 @@
 ---
 tags: [sales-cloud, products, price-books, product-schedules, pricing]
-source: help.salesforce.com (Salesforce Help — Sales Basics; Products and Price Books; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Sales Basics; Products and Price Books; 라이브 공식 문서, Tier 2, 접속 2026-07-03) · help.salesforce.com Knowledge Article 000385004 "No Standard Price Defined for This Product" (Tier 2, 접속 2026-07-04)
 official_doc: https://help.salesforce.com/s/articleView?id=sales.products_pricebooks.htm&type=5
 created: 2026-07-03
 aliases: [Products, Price Books, 제품, 가격표, Standard Price Book, Custom Price Book, Price Book Entry, Product Schedule, List Price]
@@ -28,6 +28,12 @@ aliases: [Products, Price Books, 제품, 가격표, Standard Price Book, Custom 
 ## Price Book Entry (가격표 항목)
 
 **Price Book Entry** 는 특정 가격표 안에서의 한 제품의 가격이다. 즉 **제품 × 가격표**의 교차점으로, 하나의 제품이 여러 가격표에 각각 다른 가격으로 등재될 수 있다. 표준 가격표의 항목은 표준가를 담고, 커스텀 가격표의 항목은 그 세그먼트에 맞는 list price를 담는다.
+
+> [!warning] ⚠️ 전제조건 — 커스텀 가격표에 추가하려면 **표준가(standard price)가 먼저** 있어야 한다
+> 표준·커스텀 가격표는 개념상 병렬이지만 **필수 순서 의존성**이 있다. 어떤 제품이든 **먼저 Standard Price Book에 활성(active) 표준가 entry**를 가져야만 커스텀 가격표에 추가할 수 있다.
+> - 표준가가 없는 제품을 커스텀 가격표에 추가하려 하면 그 제품이 **검색 결과에 아예 뜨지 않거나**, `No Standard Price Defined for This Product` **에러**가 난다.
+> - 해결: 해당 제품을 먼저 **Standard Price Book에 추가하고 표준가 entry를 활성화**한 뒤 커스텀 가격표 항목을 생성한다.
+> - 순서: 제품 생성 → **Standard Price Book에 활성 표준가 등록** → 커스텀 가격표에 list price 항목 추가.
 
 ## Product Schedules (제품 스케줄)
 

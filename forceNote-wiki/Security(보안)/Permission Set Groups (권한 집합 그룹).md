@@ -1,6 +1,6 @@
 ---
 tags: [security, permissions, permission-set-groups, muting-permission-set, access-control, admin]
-source: help.salesforce.com (Salesforce Help — Manage Users and Data Access; Permission Set Groups; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Manage Users and Data Access; Permission Set Groups; 라이브 공식 문서, Tier 2, 접속 2026-07-03) + help.salesforce.com (Permission Set Group Status and Recalculation, id=platform.perm_set_groups_status_recalc.htm; 재계산 Failed 원인 id=002723601; Tier 2, 접속 2026-07-04)
 official_doc: https://help.salesforce.com/s/articleView?id=platform.perm_set_groups.htm&type=5
 created: 2026-07-03
 aliases: [Permission Set Groups, 권한 집합 그룹, PSG, Muting Permission Set, 뮤팅 권한 집합, Combined Permissions, Session-based Permission Set Group]
@@ -87,10 +87,47 @@ Permission Set Group "Sales Rep"
 3. 구성   그룹에 permission set을 추가한다
           (필요 시 muting permission set으로 특정 권한 차감)
 4. 할당   그룹을 사용자에게 할당한다
-          → 사용자는 combined permissions를 즉시 부여받는다
+          → 사용자는 combined permissions를 부여받는다
+          ⚠️ 단, 그룹 status가 'Updated'일 때만 할당 가능 (아래 참조)
 ```
 
 생성 전에 **기존 permission set과 사용자를 평가**하는 준비 단계가 권장된다.
+
+---
+
+## Status 라이프사이클과 재계산 (실무 블로커)
+
+PSG는 포함된 permission set들로부터 **결합 권한을 계산**하며, 이 계산 결과에 따라 그룹에 **status**가 부여된다. 위 "할당" 단계는 이 라이프사이클을 전제로 하므로, 변경 직후 status를 확인하지 않으면 할당·권한 반영이 실무에서 막힌다.
+
+### status 값
+
+| Status | 의미 |
+|---|---|
+| **Updated** | 결합 권한 계산이 완료된 상태. **이 상태에서만 사용자 할당이 가능**하다. |
+| **Updating** | 결합 권한을 재계산 중. 계산이 끝나 Updated가 될 때까지 권한 반영이 지연될 수 있다. |
+| **Outdated** | 그룹 또는 포함된 permission set에 변경이 있어 재계산이 필요한 상태. 아직 결합 권한이 최신이 아니다. |
+| **Failed** | 재계산이 실패한 상태. 수동 recalculation이 필요하다. |
+
+> **원문:** *"You can assign users only to permission set groups that have a status of Updated."*
+
+### 블로커 1 — 할당은 Updated 상태에서만
+
+사용자는 status가 **Updated**인 PSG에만 할당할 수 있다. 그룹을 방금 만들었거나 구성을 바꾼 직후에는 status가 **Outdated / Updating**일 수 있고, 이 상태에서는 할당·권한 반영이 지연된다. 할당 단계 전에 그룹 상세 화면에서 status가 Updated인지 확인한다.
+
+### 블로커 2 — 재계산 트리거와 Failed 원인
+
+다음이 발생하면 결합 권한 **재계산이 트리거**된다.
+
+- 그룹에 포함된 permission set을 **편집**할 때
+- 관련 **배포(deploy)·패키지 업데이트**가 있을 때
+
+재계산 과정에서 permission set에 **잘못된 데이터**가 있으면 status가 **Failed**로 떨어지고 **수동 recalculation**이 필요하다. 대표적 원인은 permission set에 다음과 같은 **오브젝트 권한**이 포함된 경우다.
+
+- **View Setup**
+- **Edit Setup**
+- **Create Setup**
+
+이런 setup 오브젝트 권한이 결합 계산을 실패시키므로, Failed 상태를 만나면 해당 permission set의 잘못된 권한을 정리한 뒤 그룹을 다시 recalculate한다.
 
 ---
 

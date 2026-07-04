@@ -1,6 +1,6 @@
 ---
 tags: [field-service, fsl, 현장서비스, data-model, work-order, service-appointment, inventory, preventive-maintenance, warranty, pricing, er-diagram]
-source: field_service_dev.pdf (Field Service Developer Guide v67.0 Summer '26)
+source: field_service_dev.pdf (Field Service Developer Guide v67.0 Summer '26) · Trailhead "Install the Field Service Managed Package" (Tier 2) · Salesforce Help pfs_install.htm (Tier 2)
 created: 2026-06-23
 aliases: [Field Service, FSL, 현장 서비스, 필드 서비스, Field Service 데이터 모델, Field Service Data Model, Field Service 개요, Core Data Model, Inventory Management Data Model, Preventive Maintenance Data Model, Product Service Campaign Data Model, Warranty Management Data Model, Pricing Data Model]
 ---
@@ -37,6 +37,17 @@ field service 기능을 프로그래밍적으로 다루기 전, org에서 Field 
 3. **Save**를 클릭한다.
 
 이제 이 가이드에 나열된 Salesforce의 표준 field service 오브젝트에 접근할 수 있다. 다만 이는 시작에 불과하며, 프로그래밍 작업 전 *Set Up Field Service*에 정리된 setup 작업을 한 번 훑어보는 것이 좋다.
+
+### ⚠️ 전제조건 — 개발 착수 전 두 필수 선행 단계
+
+위의 Field Service Settings 토글은 **표준 field service 오브젝트 접근을 여는 것뿐**이다. 그러나 FSL Apex 네임스페이스([[FSL Apex Namespace]])·스케줄링·디스패처 콘솔·최적화(optimization)·모바일 등 **개발자 가이드 대부분 기능이 의존하는 두 선행 단계**가 별도로 필요하다. 둘 중 하나라도 빠지면 관련 기능이 동작하지 않거나 **조용히 실패**한다.
+
+1. **Field Service managed package(FSL) 설치** — Field Service를 켠 뒤, 스케줄링·최적화·디스패처 콘솔·모바일용 커스텀 오브젝트·Apex 클래스·Guided Setup을 제공하는 **Field Service managed package**를 org에 설치한다. FSL Apex 네임스페이스와 24개 커스텀 트리거는 이 패키지가 설치되어 있어야 존재한다.
+2. **third-party 접근 승인 (Approve third-party access)** — 패키지 설치 과정에서 **geolocation / street-level routing 및 optimization 서비스용 third-party 접근을 승인**한다. 이 승인이 없으면 지오코딩(geocoding)과 스케줄 최적화가 **에러 없이 조용히 실패**하는 흔한 블로커가 된다. 반드시 설치 시점에 함께 승인한다.
+
+> [!warning] third-party 접근 미승인은 field service 개발에서 가장 흔한 무증상 블로커다. 지오코딩·최적화가 실패하는데 명시적 에러가 안 뜨면 이 승인 여부를 먼저 확인한다.
+>
+> 근거: Trailhead *Install the Field Service Managed Package* (Enable Field Service → Install managed package → Approve third-party access for geolocation & optimization) · Salesforce Help `pfs_install.htm`
 
 ---
 

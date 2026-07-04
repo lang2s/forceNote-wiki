@@ -2,6 +2,8 @@
 tags: [sales-cloud, leads, lead-conversion, web-to-lead, assignment-rules]
 source: help.salesforce.com (Salesforce Help — Sales Basics; Leads / 리드 전환 FAQ / Web-to-Lead / Lead Assignment Rules; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
 official_doc: https://help.salesforce.com/s/articleView?id=sales.faq_leads_what_happens_when.htm&type=5
+source_web_to_lead: help.salesforce.com — How many leads can we capture (500/day) (sales.faq_leads_how_many_leads) · Setting Up Web-to-Lead (sf.setting_up_web-to-lead), Tier 2
+source_assignment_rules: help.salesforce.com — Assignment Rules / Guidelines (only one rule active at a time) (sf.customize_leadrules), Tier 2
 created: 2026-07-03
 aliases: [Leads, 리드, Lead Conversion, 리드 전환, Web-to-Lead, Lead Assignment Rules, 리드 할당 규칙]
 ---
@@ -42,11 +44,28 @@ Lead를 전환하면 lead 하나가 Account·Contact·Opportunity 레코드로 �
 
 웹사이트에서 lead를 생성하는 기능. 웹 폼 제출을 받아 Salesforce에 lead 레코드로 만든다(폼 제출 → lead 레코드).
 
+### ⚠️ 전제조건 — 먼저 활성화 + HTML 폼 생성
+
+폼만 붙인다고 동작하지 않는다. 다음을 먼저 해야 한다.
+
+1. **Setup → Web-to-Lead에서 기능을 활성화**한다.
+2. Salesforce가 생성해 주는 **HTML 폼을 만들어** 웹사이트에 게시한다. 이 폼이 제출되면 lead 레코드가 생성된다.
+
+### 한도·주의
+
+- **하루 최대 500건**까지만 lead를 캡처한다.
+- **500건을 초과한 제출분**은 lead로 생성되지 않고, **default lead creator에게 이메일로 보내지거나 보류**된다(무한정 캡처 아님).
+
 ---
 
 ## Lead Assignment Rules (리드 할당 규칙)
 
 Lead를 사용자 또는 큐(queue)에 **자동으로 배정(auto-route)**하는 규칙. 유입된 lead가 정해진 조건에 따라 적절한 소유자/큐로 자동 라우팅된다.
+
+### ⚠️ 실무 함정
+
+- **활성 규칙은 한 번에 단 1개뿐** — 여러 할당 규칙을 만들 수 있지만, active로 지정 가능한 규칙은 동시에 하나만이다.
+- **'Assign using active assignment rules' 체크박스가 켜져 있어야 실제로 돈다** — lead 저장 시 이 체크박스가 활성 규칙을 적용한다. 수동으로 lead를 생성할 때는 기본적으로 적용되지 않을 수 있으므로, 규칙을 태우려면 이 체크박스를 켜야 한다.
 
 ---
 

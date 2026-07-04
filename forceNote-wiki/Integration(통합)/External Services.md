@@ -1,6 +1,6 @@
 ---
 tags: [External-Services, OpenAPI, REST, Integration, Named-Credential, Flow, Apex]
-source: external-knowledge
+source: external-knowledge; Salesforce 공식 문서 (Tier 2) — enhanced_external_services_considerations.htm, external_services_schema_def_limits.htm
 created: 2026-05-23
 aliases: [External Services, 외부 서비스, OpenAPI Apex 통합, External Service Registration, 외부 서비스 등록]
 ---
@@ -50,6 +50,19 @@ OpenAPI 스펙 업로드
 5. 작업(Operations) 선택 — 사용할 API 엔드포인트 선택
 6. Save → Apex 클래스 자동 생성 확인
 ```
+
+### ⚠️ 스키마 구조 제약 (등록 실패 블로커)
+
+한도 표의 등록 개수·오퍼레이션 수만 충족해도, 아래 **스키마 구조 제약**을 위반하면 등록 시 `unsupported schema` 오류로 막힌다. 스펙을 올리기 전에 반드시 확인한다.
+
+| 제약 | 내용 |
+|---|---|
+| 모든 parameter는 named여야 함 | 이름 없는(unnamed) 파라미터는 지원 안 됨 |
+| 모든 property는 값이 할당돼야 함 | 값이 없는(빈) property가 있으면 등록 실패 |
+| nested/complex object 입력·출력 | **표준 External Services에서는 미지원.** nested/complex object를 입력·출력으로 쓰려면 **Enhanced External Services**여야 함 |
+| 스키마 정의 최대 크기 | **100,000자** (스키마 정의 문자 수 상한) |
+
+> 표준 External Services에서 중첩 객체를 입력·출력으로 사용하려면 Enhanced External Services로 등록해야 한다. 자세한 고려사항은 공식 문서 `enhanced_external_services_considerations.htm` 참조.
 
 ### OpenAPI 스펙 예시 (등록용)
 
@@ -166,7 +179,10 @@ if (resp.Code == 200) {
 | 등록 가능 External Service | **700개** (기존 200개에서 증가) |
 | 스키마 당 오브젝트/오퍼레이션 수 | **3,000개** (기존 100개에서 증가) |
 | 단일 스키마 파일 크기 | 1MB |
+| 스키마 정의 최대 크기 | **100,000자** (이 상한을 넘으면 등록 불가) |
 | 동시 Callout 제한 | Apex 거버너 한도 동일 (트랜잭션 당 100회) |
+
+> 구조 제약(parameter named·property 값 할당·nested object 미지원)은 위 [스키마 구조 제약](#️-스키마-구조-제약-등록-실패-블로커) 소절 참조.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 tags: [admin, roll-up-summary, custom-field, master-detail, customization]
-source: help.salesforce.com (Salesforce Help — Extend Salesforce with Clicks, Not Code; Roll-Up Summary Field; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Extend Salesforce with Clicks, Not Code; Roll-Up Summary Field; 라이브 공식 문서, Tier 2, 접속 2026-07-03) · help.salesforce.com 000386702 (Increase the Maximum Limit of Roll-Up Summary Fields on an Object, Tier 2)
 official_doc: https://help.salesforce.com/s/articleView?id=platform.fields_about_roll_up_summary_fields.htm&type=5
 created: 2026-07-03
 aliases: [Roll-Up Summary Field, 롤업 요약 필드, 집계 필드, COUNT SUM MIN MAX, Master-Detail 집계]
@@ -63,6 +63,15 @@ Contact Manager, Group, Professional, Enterprise, Performance, Unlimited, Develo
 - **Auto number** 필드 (집계 대상 필드로 사용 불가)
 
 또한 **current date·current user** 같이 자동으로 파생되는 값을 가진 필드는 집계에 사용할 수 없다.
+
+---
+
+## 한도 · 주의
+
+- **오브젝트당 roll-up summary 필드 개수:** 기본 **오브젝트당 최대 25개**. Salesforce 지원(support) 요청으로 **최대 40개**까지만 증설 가능하다.
+- 복잡한 데이터 모델에서 자주 부딪히는 하드 한도이며, 40개를 초과해야 하면 **DLRS(Declarative Lookup Rollup Summaries)** 또는 **Flow** 같은 우회책이 필요하다.
+
+> 출처: Salesforce Help — *Increase the Maximum Limit of Roll-Up Summary Fields on an Object* (기본 25, 최대 40). https://help.salesforce.com/s/articleView?id=000386702&type=1
 
 ---
 

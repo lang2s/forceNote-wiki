@@ -1,6 +1,6 @@
 ---
 tags: [field-service, fsl, sobject, object-reference, appointment-bundling, 현장서비스, 예약번들, 객체레퍼런스]
-source: field_service_dev.pdf (Field Service Developer Guide v67.0 Summer '26)
+source: field_service_dev.pdf (Field Service Developer Guide v67.0 Summer '26); Salesforce Help — Appointment Bundling Limitations (service.fs_set_up_bundling_limitations, Tier 2)
 created: 2026-06-23
 aliases: [ApptBundleAggrDurDnscale, ApptBundleAggrPolicy, ApptBundleConfig, ApptBundlePolicy, ApptBundlePolicySvcTerr, ApptBundlePropagatePolicy, ApptBundleRestrictPolicy, ApptBundleSortPolicy, Appointment Bundling, 예약 번들, 번들 정책]
 ---
@@ -161,6 +161,10 @@ Policy that defines how the bundling of service appointments should be handled. 
 | Priority | int | Create, Filter, Group, idLookup, Sort, Update | The priority level that this bundle policy should be given when the bundle policies are analyzed using the automatic mode. |
 
 > **[sic] 원문 표기 보존:** 필드명은 `IsTimeCalcByBundleDurationFld`(끝이 `Fld`)이나, 설명 본문에서는 `IsTimeCalcByBundleDurationField`(`Field`)로 표기 — 둘 다 PDF 원문 그대로다. `CanAllowSchleDepndInBundle`도 원문의 축약 표기 그대로 보존.
+
+> [!warning] 한도·주의 — 번들당 최대 bundle member 200개
+> `LimitAmountOfBundleMembers`(번들에 포함 가능한 bundle member 최대 수)와 수동 번들 생성 시 선택 가능한 서비스 약속 수에는 **플랫폼 하드 상한 200개**가 적용된다. `LimitAmountOfBundleMembers`에 200을 초과하는 값을 설정해도 실제로는 200에서 잘린다(설정값이 무시되고 200이 상한). 정책을 설계할 때 이 상한을 넘는 번들 크기는 만들 수 없다.
+> — 근거: Salesforce Help *Appointment Bundling Limitations* (`service.fs_set_up_bundling_limitations`, maximum Bundle Members is 200).
 
 **Special Access Rules:** 8객체 공통 (위 참조)
 

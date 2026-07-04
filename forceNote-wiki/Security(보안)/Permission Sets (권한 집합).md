@@ -1,6 +1,6 @@
 ---
 tags: [security, permissions, permission-sets, access-control, admin]
-source: help.salesforce.com (Salesforce Help — Manage Users and Data Access; Permission Sets; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Manage Users and Data Access; Permission Sets; 라이브 공식 문서, Tier 2, 접속 2026-07-03) | Salesforce Help — Increase Number of Permission Sets per Organization (id=000390856, Tier 2) | Salesforce Help — Permission Set Considerations (id=platform.perm_sets_considerations.htm, Tier 2)
 official_doc: https://help.salesforce.com/s/articleView?id=platform.perm_sets_overview.htm&type=5
 created: 2026-07-03
 aliases: [Permission Sets, 권한 집합, permset, Standard Permission Set, Integration Permission Set, Session-based Permission Set, Permission Set Assignment]
@@ -39,6 +39,22 @@ Permission set은 **설정(settings)과 권한(permissions)의 묶음**으로, �
 
 - **UI:** Salesforce Classic + Lightning Experience 모두.
 - **Editions:** Essentials, Contact Manager, Professional, Group, Enterprise, Performance, Unlimited, Developer, Database.com.
+
+---
+
+## 한도·주의 — org당 생성 가능 개수
+
+> ⚠️ Permission set 기반 설계(아래 '권장' 지침·[[Permission Set 설계]])를 따르기 전에 반드시 확인해야 하는 **에디션별 하드 한도**다.
+
+한 org에서 생성할 수 있는 permission set 개수는 edition에 따라 다르다.
+
+| Edition | org당 permission set 기본 한도 |
+|---|---|
+| **Professional Edition** | 기본 **최대 10개** (11번째 생성 시 오류) |
+| **Enterprise · Performance · Unlimited · Developer** 등 | 기본 **최대 1,500개** |
+
+- **Group / Professional 에디션**에서 permission set 중심으로 접근을 설계하면 이 한도에 **빠르게 도달**한다. 저에디션에서는 permission set 남발 전에 한도를 감안해 설계한다.
+- 근거: Salesforce Help — *Increase Number of Permission Sets per Organization* / *Permission Set Considerations*.
 
 ---
 

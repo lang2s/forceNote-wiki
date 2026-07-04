@@ -1,6 +1,6 @@
 ---
 tags: [visualforce, vf, email-template, charting, maps, flow, templating, legacy]
-source: salesforce_pages_developers_guide.pdf (Visualforce Developer Guide, v67.0 Summer '26)
+source: salesforce_pages_developers_guide.pdf (Visualforce Developer Guide, v67.0 Summer '26); help.salesforce.com — Email Deliverability & Sandbox 기본값 (id=000384750 / platform.data_sandbox_email_deliverability.htm, Tier 2); help.salesforce.com — Single Email Daily Limits & Email Limit Types (id=000384947 / id=000386730, Tier 2)
 created: 2026-06-21
 aliases: [Visualforce 이메일 템플릿, apex:chart, apex:map, flow:interview, apex:composition 템플릿, messaging emailTemplate]
 ---
@@ -22,6 +22,16 @@ aliases: [Visualforce 이메일 템플릿, apex:chart, apex:map, flow:interview,
 Visualforce로 contacts·leads·recipients에게 이메일을 보낼 수 있고, Salesforce 레코드를 순회하는 재사용 가능한 이메일 템플릿도 만들 수 있다. 아웃바운드 이메일은 Apex `Messaging.SingleEmailMessage` 클래스가 처리한다.
 
 > `Messaging.SingleEmailMessage`·`Messaging.sendEmail`·`Messaging.EmailFileAttachment`의 클래스 레퍼런스 자체는 [[SingleEmailMessage]] / [[Messaging Namespace]] 참조. 이 절은 Visualforce 페이지·컨트롤러에서의 사용 패턴만 다룬다.
+
+> [!warning] ⚠️ 전제조건 — Email Deliverability 접근 레벨
+> 아래 컨트롤러 코드를 실행하기 전, org의 **Email Deliverability 접근 레벨**을 확인해야 한다. 새로 refresh된 샌드박스는 Deliverability가 기본 **'System email only'** 로 설정되어 있어, Apex/Visualforce에서 보내는 단일 이메일이 다음 예외로 차단된다:
+> ```
+> System.EmailException: NO_MASS_MAIL_PERMISSION,
+> Single email is not enabled for your organization or profile
+> ```
+> **해결:** Setup → Email → **Deliverability** → **Access to Send Email** 을 **'All email'** 로 변경해야 코드가 정상 동작한다. (샌드박스는 실수로 실제 고객에게 메일이 나가는 것을 막기 위해 기본이 'System email only'다.)
+>
+> 근거: help.salesforce.com — NO_MASS_MAIL_PERMISSION on Email Sent via Apex Trigger (id=000384750) / Sandbox Email Deliverability 기본값 (platform.data_sandbox_email_deliverability.htm)
 
 ### 1.1 Messaging 클래스를 쓰는 커스텀 컨트롤러
 
@@ -111,6 +121,13 @@ return null;
 - subject/body는 별도 Visualforce 페이지에서 설정해 컨트롤러로 전달한다.
 - `send()` 메서드명은 Visualforce 버튼의 action명과 일치해야 한다.
 - recipients(`toAddresses[]`)는 연관 account의 contacts 주소다. contacts/leads/records로 recipient 목록을 만들 때는 각 레코드에 email이 정의돼 있는지 loop로 확인하는 것이 good practice다.
+
+> Note (한도 — Apex/API 단일 이메일 발송): 위 예제처럼 account의 모든 contact를 순회해 `toAddresses`에 넣는 패턴은 아래 하드 한도에 직접 부딪힌다.
+> - **일일 외부 수신자 한도:** org당 하루 최대 **5,000개 외부 이메일 주소**로만 `SingleEmailMessage`를 발송할 수 있다. 초과 시 `SINGLE_EMAIL_LIMIT_EXCEEDED` 예외가 발생한다.
+> - **단일 메시지당 수신자 한도:** To 최대 **100** / CC 최대 **25** / BCC 최대 **25** 수신자.
+> - **내부 User는 한도 미포함:** `setTargetObjectId`로 내부 User(또는 Contact·Lead)에게 보내면 일일 외부 수신자 한도에 포함되지 않는다.
+>
+> 근거: help.salesforce.com — Single email daily limits (5,000 external addresses/day, id=000384947) / Overview of Salesforce Email Limit Types (id=000386730)
 
 시각자료: "Example of the Form on sendEmailPage" — (PDF 스크린샷 — 텍스트만)
 

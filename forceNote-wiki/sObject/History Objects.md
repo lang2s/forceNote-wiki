@@ -1,6 +1,6 @@
 ---
 tags: [sobject-reference, history, field-history, associated-objects, StandardObjectNameHistory]
-source: object_reference.pdf p.63-64 (v67.0 Summer '26)
+source: object_reference.pdf p.63-64 (v67.0 Summer '26); Salesforce Security Implementation Guide — Track Field History for Standard Objects (developer.salesforce.com, Tier 2)
 created: 2026-05-22
 aliases: [History Objects, StandardObjectNameHistory, AccountHistory, CaseHistory, FieldHistory, 필드 변경 이력, 히스토리 오브젝트, Field History Tracking]
 ---
@@ -20,6 +20,24 @@ aliases: [History Objects, StandardObjectNameHistory, AccountHistory, CaseHistor
 ```
 
 특정 버전 정보는 표준 Object 문서를 참조한다.
+
+---
+
+## ⚠️ 전제조건 — Field History Tracking 활성화 (per-object)
+
+History Object가 자동 생성되어도, **실제 데이터가 기록되려면 오브젝트별로 추적 필드를 명시적으로 활성화**해야 한다. 활성화하지 않으면 History Object는 존재하지만 변경 이력이 쌓이지 않는다.
+
+**활성화 경로:** Setup → 대상 Object → **Set History Tracking** → 추적할 필드 선택
+
+### 필드 추적 하드 한도
+
+| 대상 | 추적 가능 필드 수 |
+|---|---|
+| 대부분의 표준/커스텀 Object | 오브젝트당 **최대 20개 필드** |
+| Field Audit Trail 구매 시 | 오브젝트당 **최대 60개 필드** |
+| **Task · Event** | 각 **6개 필드** (더 낮음) |
+
+> 21번째 필드(또는 한도 초과 필드) 추가 시 **`Exceeded the allowed number of fields to track`** 에러로 막힌다. 실무에서 추적 필드 세트를 설계할 때 이 한도를 미리 고려한다.
 
 ---
 

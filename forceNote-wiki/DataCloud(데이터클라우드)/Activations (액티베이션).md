@@ -1,6 +1,6 @@
 ---
 tags: [data-cloud, data-360, activation, segment-activation, marketing-cloud]
-source: help.salesforce.com (Salesforce Help — Activation for a Segment; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Activation for a Segment; 라이브 공식 문서, Tier 2, 접속 2026-07-03) + Salesforce Help — Activation Targets (c360_a_activation_targets.htm), Activation and Activation Targets (data.c360_a_activation.htm) (Tier 2, 접속 2026-07-04)
 official_doc: https://help.salesforce.com/s/articleView?id=sf.c360_a_activation_for_a_segment.htm&type=5
 created: 2026-07-03
 aliases: [Activation, 액티베이션, Activation Target, Full Refresh, Incremental Refresh, 세그먼트 발행]
@@ -24,6 +24,15 @@ Activation Target은 세그먼트가 발행되는 **대상 플랫폼**이다. �
 - **외부 플랫폼(external platform)** — Data 360 외부의 활성화 대상
 
 > activation target 설정·필드 매핑 세부는 공식 문서로 위임한다 (본 노트 범위 밖).
+
+## ⚠️ 전제조건 (액티베이션 실행 전 필수)
+
+액티베이션을 **실행하려면** 먼저 다음 선행 단계가 갖춰져 있어야 한다. 하나라도 없으면 액티베이션 생성이 막힌다.
+
+- **Activation Target을 Setup에서 먼저 구성** — 대상 플랫폼(Marketing Cloud Engagement 등)용 Activation Target을 Setup에서 미리 구성해 두어야 한다. Target이 없으면 세그먼트를 발행할 수 없다.
+- **Contact point 최소 1개 매핑** — Marketing Cloud Engagement 등 대상은 activation membership에 매핑된 **contact point가 반드시 있어야** 활성화 가능하다. **Email Address / Mobile App / Phone Number 중 최소 1개**의 contact point가 매핑돼 있어야 하며, 없으면 액티베이션 생성이 막힌다.
+
+> Activation Target 구성·필드 매핑의 상세 절차는 공식 문서 참조 — Salesforce Help *Activation Targets* (`help.salesforce.com/s/articleView?id=sf.c360_a_activation_targets.htm`), *Activation and Activation Targets* (`data.c360_a_activation.htm`).
 
 ## Refresh 유형
 

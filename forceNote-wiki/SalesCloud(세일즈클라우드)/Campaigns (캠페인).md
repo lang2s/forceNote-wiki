@@ -1,6 +1,6 @@
 ---
 tags: [sales-cloud, campaigns, campaign-members, campaign-influence, marketing]
-source: help.salesforce.com (Salesforce Help — Sales Basics; Get to Know Salesforce Campaigns + Campaign Influence; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Sales Basics; Get to Know Salesforce Campaigns + Campaign Influence; 라이브 공식 문서, Tier 2, 접속 2026-07-03) · help.salesforce.com (Enable Customizable Campaign Influence — campaigns_influence_customizable_setup.htm; Understanding Customizable Campaign Influence — campaigns_influence_customizable_understanding.htm; Tier 2, 접속 2026-07-04)
 official_doc: https://help.salesforce.com/s/articleView?id=sales.campaigns_def.htm&type=5
 created: 2026-07-03
 aliases: [Campaigns, 캠페인, Campaign Members, Campaign Hierarchy, Campaign Influence, First-Touch, Last-Touch, Even-Distribution]
@@ -51,6 +51,14 @@ Campaign Influence는 member status와 **무관하게 모든 campaign member**�
 | **Last-Touch** | deal이 close되기 **직전 마지막 touch** 캠페인에 **100%** 할당 |
 
 > 원조 모델인 **Campaign Influence 1.0** 도 존재한다.
+
+### ⚠️ 전제조건 — 모델이 동작하기 전에 켜야 할 설정
+
+위 attribution 모델은 **기본 상태에서 자동으로 동작하지 않는다.** 다음 셋업이 선행돼야 한다.
+
+- **Customizable Campaign Influence 활성화:** Setup에서 먼저 활성화해야 한다. 활성화 전에는 표준/커스텀 attribution 모델 기능을 사용할 수 없다.
+- **자동 매출 기여(auto-association)는 기본 꺼짐:** 캠페인이 opportunity에 자동으로 revenue share를 기여하게 하려면 **Auto-Association Settings**에서 상태를 **Enabled**로 켜야 한다. 켜기 전에는 revenue share를 수동으로만 추가할 수 있다.
+- **Opportunity Contact Roles 선행:** influence는 opportunity에 **contact role이 부여된 멤버만** 잡는다. 따라서 Opportunity Contact Roles 설정이 먼저 돼 있어야 하며, contact role이 없는 opportunity에는 campaign influence가 생성되지 않는다.
 
 ## 구조 개념도
 

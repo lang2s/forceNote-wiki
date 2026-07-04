@@ -1,6 +1,6 @@
 ---
 tags: [apex, namespace, wave, crm-analytics, saql, data]
-source: salesforce_apex_reference_guide.pdf p.4476-4492
+source: salesforce_apex_reference_guide.pdf p.4476-4492 · CRM Analytics SDK Dev Guide (developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_sdk) · Trailhead Wave Apps Basics (Tier 2)
 created: 2026-05-20
 aliases: [Wave, wave namespace, CRM Analytics SDK Apex, SAQL 빌더, QueryBuilder, QueryNode, ProjectionNode, Templates, TemplatesSearchOptions]
 ---
@@ -8,6 +8,18 @@ aliases: [Wave, wave namespace, CRM Analytics SDK Apex, SAQL 빌더, QueryBuilde
 # Wave Namespace
 
 > CRM Analytics Analytics SDK — Apex에서 SAQL 쿼리를 프로그래밍적으로 빌드·실행하고, CRM Analytics 템플릿을 조회하는 클래스 모음.
+
+---
+
+## ⚠️ 전제조건 — CRM Analytics 활성화
+
+`Wave` 네임스페이스 클래스는 CRM Analytics(구 Wave/Einstein Analytics) 플랫폼이 조직에 프로비저닝·활성화되어 있어야 실행된다. 아래 셋업이 없으면 코드가 컴파일돼도 런타임에서 데이터셋·템플릿을 조회할 수 없다.
+
+1. **라이선스 구매** — CRM Analytics Platform 라이선스(**Growth** 또는 **Plus**)가 필요하다. 표준 Salesforce 라이선스만으로는 Wave 클래스를 실행할 수 없다.
+2. **Analytics 활성화** — Setup → **Wave Analytics**(Getting Started)에서 **Enable Analytics**를 클릭해 조직에 CRM Analytics를 활성화한다.
+3. **권한 세트 배정** — Wave 클래스를 실행할 사용자에게 **CRM Analytics 권한 세트**를 배정한다.
+
+> 근거: CRM Analytics SDK Dev Guide — Apex SDK(bi_sdk_apex) · Trailhead *Wave Apps Basics* 모듈 (Tier 2). 라이선스·활성화·권한 세트 없이는 `Wave` 클래스가 실제로 동작하지 않는다.
 
 ---
 

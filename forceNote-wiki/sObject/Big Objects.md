@@ -1,12 +1,14 @@
 ---
 title: Big Objects
 tags: [salesforce, sobject, big-objects, archive, large-scale-data]
-source: object_reference.pdf v67.0 — Ch1 pp.31–34 (물리 pp.73–76)
+source: object_reference.pdf v67.0 — Ch1 pp.31–34 (물리 pp.73–76); Tier 2 — developer.salesforce.com Big Object Considerations
 created: 2026-05-22
 aliases: [Big Object, __b suffix, FieldHistoryArchive, 빅오브젝트, 대용량 보관]
 ---
 
 # Big Objects
+
+> 수억~수십억 건의 대용량 데이터를 일관된 성능으로 저장하는 오브젝트. `__b` 접미사, Metadata API로 정의, org당 최대 100개.
 
 ## 개요
 
@@ -71,8 +73,21 @@ Big Object에서 지원되는 API:
 ## 네이밍 컨벤션
 
 - API 이름: 두 언더스코어 + 소문자 `b` 접미사 `__b`
-  - 예: `HistoricalInventoryLevels` → `HistoricalInventoryLevels__b`
 - 이름은 표준·커스텀·외부·빅 오브젝트 모두 통틀어 고유해야 함.
+
+```
+HistoricalInventoryLevels   →   HistoricalInventoryLevels__b
+```
+
+---
+
+## 한도·주의
+
+- **org당 최대 100개** — 표준·커스텀 big object를 통틀어 한 org에 생성 가능한 big object는 최대 100개다(org 단위 하드 한도). 대규모 아카이브 설계 시 이 상한에 부딪힐 수 있으니 오브젝트 개수를 미리 계획한다.
+- **인덱스 텍스트 합산 100자** — 인덱스에 포함되는 모든 텍스트 필드 길이 합산은 100자 이내(위 CustomField `length` 참조).
+- **인덱스 불변성** — 배포된 인덱스는 수정·삭제 불가. 변경하려면 새 Big Object를 생성해야 한다(아래 IndexField 참조).
+
+> 근거: developer.salesforce.com — Big Object Considerations, "You can create up to 100 big objects per org."
 
 ---
 

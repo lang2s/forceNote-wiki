@@ -1,6 +1,6 @@
 ---
 tags: [agent-skill, sf-skills, commerce, b2b, storefront]
-source: forcedotcom/sf-skills (skills/commerce-b2b-store-create/SKILL.md, 공식 Salesforce)
+source: forcedotcom/sf-skills (skills/commerce-b2b-store-create/SKILL.md, 공식 Salesforce); help.salesforce.com experience.networks_enable.htm · commerce.comm_intro.htm · commerce.comm_create_store_on_site.htm (Tier 2, 전제조건·에디션 제약)
 created: 2026-06-26
 aliases: [commerce-b2b-store-create, B2B 커머스 스토어 생성, B2B Commerce Store, Storefront 메타데이터 retrieve, DigitalExperienceBundle]
 ---
@@ -24,6 +24,19 @@ Commerce B2B는 **Store(백엔드 데이터) + Storefront(프런트엔드 메타
 - "Deploy B2B storefront"
 
 **호환성(compatibility):** Commerce 라이선스, Experience Cloud, Salesforce CLI 필요.
+
+---
+
+## ⚠️ 전제조건 (Store 마법사 실행 전 필수)
+
+Setup → Commerce → Stores 마법사(Step 2)가 **나타나기 전에** 두 개의 선행 활성화 토글을 켜야 한다. 이걸 켜지 않으면 마법사 자체가 보이지 않아 스킬이 진행되지 않는다.
+
+1. **Digital Experiences 활성화** — Setup → Digital Experiences → Settings → **Enable Digital Experiences** (도메인 설정 포함).
+2. **Commerce 활성화** — Setup → Commerce → Settings → **Enable Commerce** → **Launch Commerce**.
+
+**에디션 하드 제약:** B2B Commerce는 **Developer · Enterprise · Unlimited** 에디션에서만 지원된다. 그 외 에디션에서는 아예 막혀 Store를 생성할 수 없다.
+
+> 근거: help.salesforce.com — Enable Digital Experiences(experience.networks_enable.htm), Enable Commerce → Launch Commerce(commerce.comm_intro.htm, comm_create_store_on_site.htm).
 
 ---
 

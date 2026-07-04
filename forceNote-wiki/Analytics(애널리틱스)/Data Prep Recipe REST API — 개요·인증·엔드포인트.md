@@ -1,6 +1,6 @@
 ---
 tags: [analytics, crm-analytics, data-prep, recipe, rest-api, connect-rest]
-source: salesforce_recipes_api.pdf (Data Prep Recipe REST API Developer Guide, Summer '26)
+source: salesforce_recipes_api.pdf (Data Prep Recipe REST API Developer Guide, Summer '26) · help.salesforce.com — Enable CRM Analytics and Create Permission Sets (sf.bi_setup_enable_create_permset.htm), CRM Analytics Permission Set Licenses and User Permissions (bi_setup_user_permissions.htm) [Tier 2]
 created: 2026-06-21
 aliases: [Data Prep Recipe REST API, CRM Analytics Recipe API, 레시피 REST API, wave recipes 엔드포인트, 레시피 실행 스케줄, dataflowjobs]
 ---
@@ -25,6 +25,25 @@ Recipe REST API는 **Connect REST API 기반**이며 그 규약(conventions)을 
 Data Prep Recipes Connect REST API의 최신 업데이트·변경은 Salesforce Release Notes로 확인한다. 신규·변경된 REST 리소스·request/response body는 Release Notes의 **CRM Analytics** 섹션에서 *Data Prep Recipes REST API* 항목을 찾는다.
 
 > [!note] Release Notes에 *API: New and Changed Items* 섹션이 없으면, 그 릴리스에 업데이트가 없다는 뜻이다.
+
+---
+
+## ⚠️ 전제조건 (Prerequisites — org 활성화·사용자 라이선스)
+
+OAuth 인증만으로는 `/wave/recipes` 등 recipe 엔드포인트가 동작하지 않는다. 아래 org 활성화와 사용자 라이선스/퍼미션이 **먼저** 갖춰져야 하며, 없으면 첫 recipe 호출부터 접근이 막힌다.
+
+**1. org에서 CRM Analytics(Tableau CRM) 활성화**
+
+- Setup → **Analytics / CRM Analytics → Enable** 로 org 차원에서 CRM Analytics를 먼저 활성화해야 한다. 활성화 전에는 모든 recipe(및 Data Prep) 엔드포인트 접근 불가.
+
+**2. 호출 사용자에게 CRM Analytics 퍼미션셋 라이선스(PSL) 할당**
+
+- 각 CRM Analytics 사용자는 **CRM Analytics Growth**(또는 CRM Analytics Plus) 퍼미션셋 라이선스가 필요하다.
+- PSL을 담은 퍼미션셋을 만들어 사용자에게 할당한다. recipe를 만들고 관리하려면 **`Manage CRM Analytics`**, 조회/사용만 하려면 **`Use CRM Analytics`** + 외부 데이터 업로드가 필요하면 **`Upload External Data to CRM Analytics`** 시스템 퍼미션을 부여한다.
+
+> [!important] 위 org 활성화와 사용자 라이선스/퍼미션이 없으면 OAuth 토큰이 유효해도 recipe 리소스 요청이 실패한다. `licenseType`(`EinsteinAnalytics`·`Cdp` 등) 파라미터는 결과 **필터링용**일 뿐, 사용자 라이선스 전제를 대체하지 않는다.
+>
+> 상세: Salesforce Help *Enable CRM Analytics and Create Permission Sets* · *CRM Analytics Permission Set Licenses and User Permissions* 참조.
 
 ---
 

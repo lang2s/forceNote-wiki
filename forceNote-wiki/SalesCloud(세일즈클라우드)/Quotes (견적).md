@@ -1,7 +1,8 @@
 ---
 tags: [sales-cloud, quotes, quote-line-items, quote-sync, opportunity]
-source: help.salesforce.com (Salesforce Help — Sales Basics; Quotes + How Quote Syncing Works; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Sales Basics; Quotes + How Quote Syncing Works; Enable Quotes; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
 official_doc: https://help.salesforce.com/s/articleView?id=sales.quotes_overview.htm&type=5
+official_doc_enable: https://help.salesforce.com/s/articleView?id=sales.quotes_enable.htm&type=5
 created: 2026-07-03
 aliases: [Quotes, 견적, Quote Line Items, Quote Sync, 견적 동기화, Quote PDF]
 ---
@@ -9,6 +10,19 @@ aliases: [Quotes, 견적, Quote Line Items, Quote Sync, 견적 동기화, Quote 
 # Quotes (견적)
 
 > opportunity에서 만든 제품·서비스의 **제안 가격(견적)** 레코드. quote sync로 opportunity와 제품 목록을 양방향 동기화하며, 한 opportunity는 여러 quote를 갖되 한 번에 하나만 sync한다.
+
+---
+
+## ⚠️ 전제조건 — Quotes 활성화
+
+Quotes는 **기본적으로 비활성**이다. 활성화 전에는 quote·quote line item·quote sync 기능이 나타나지 않는다. 아래를 먼저 설정해야 한다.
+
+1. **Setup → Quick Find에 `Quote Settings` 입력**(Salesforce Classic에서는 `Quotes Settings`) → **Enable Quotes**를 켠다.
+2. quote가 opportunity에서 보이도록, **opportunity 페이지 레이아웃에 Quotes 관련 목록(related list)을 추가**한다.
+
+활성화 후에야 opportunity에서 quote를 생성하고 이 노트의 sync 동작을 사용할 수 있다.
+
+> 활성화 절차 상세는 official_doc_enable 참조 (Enable Quotes).
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 tags: [commerce, order-management, b2c-commerce, data-model, connect-api, platform-events, overview, hub]
-source: order_management_developer_guide_html.pdf (Version 66.0, Spring '26, Tier 2) — Order Management Developer Resources(p.2-3)·Order Summary Entity Relationships(p.4)
+source: order_management_developer_guide_html.pdf (Version 66.0, Spring '26, Tier 2) — Order Management Developer Resources(p.2-3)·Order Summary Entity Relationships(p.4) | Prerequisites for Order Management, help.salesforce.com (commerce.om_impl_before_you_begin, Tier 2)
 official_doc: https://developer.salesforce.com/docs/atlas.en-us.order_management_developer_guide.meta/order_management_developer_guide/
 created: 2026-06-20
 aliases: [Order Management, Salesforce Order Management, SOM, OM 개요, 주문 관리, OrderSummary Entity Relationships, OM Developer Resources, FulfillmentOrder, OrderSummary]
@@ -23,6 +23,23 @@ Salesforce Order Management(SOM)은 storefront에서 들어온 주문을 받아 
 즉 OM은 단독으로 동작하지 않고 **storefront·inventory·fulfillment 세 시스템과 통합**되는 것을 전제로 한다. 주문 한 건은 내부적으로 하나의 **order summary**와 그에 연결된 여러 레코드(item·delivery group·payment 등)로 표현된다(아래 [Order Summary Entity Relationships](#order-summary-entity-relationships) 참조).
 
 이 가이드(`order_management_developer_guide_html.pdf`, v66.0 Spring '26)는 단일 챕터 아래 9개 절로 구성되며, 본 위키에서는 4개 노트로 분할해 다룬다.
+
+> ⚠️ 아래 리소스 카탈로그·데이터 모델·폴더 전체 how-to(주문 import·fulfillment·exchanges)는 모두 **OM이 이미 활성화된 org를 전제**로 한다. OM은 기본 상태에서 사용 불가이므로 먼저 아래 [전제조건](#-전제조건--om-활성화-선행-게이트)을 충족해야 한다.
+
+---
+
+## ⚠️ 전제조건 — OM 활성화 (선행 게이트)
+
+Order Management은 **기본 상태에서 사용 불가**하다. 위 리소스·데이터 모델·폴더 전체 how-to를 쓰기 전에 아래 선행 조건을 충족해야 한다(공식 *Prerequisites for Order Management*).
+
+| # | 전제조건 | 상세 |
+|---|---|---|
+| 1 | **Order Management 라이선스 구매·활성화** | *Purchase and activate an Order Management license.* Developer org 및 승인된 트라이얼 템플릿에는 라이선스가 포함되어 있다. |
+| 2 | **Lightning Experience 필수** | OM은 Lightning Experience에서만 동작한다. **Salesforce Classic·모바일 미지원.** |
+| 3 | **Chatter 활성화** | `Setup → Feature Controls → Chatter → Chatter Settings`에서 Chatter를 켠다. |
+| 4 | **Commerce Setup Assistant 실행** | B2B/D2C(B2B2C) Commerce를 함께 쓰는 경우 **Commerce Setup Assistant** 실행이 선행돼야 한다. |
+
+> 근거: *Prerequisites for Order Management* — help.salesforce.com (`commerce.om_impl_before_you_begin`, Tier 2).
 
 | OM 가이드 노트 | 다루는 PDF 절 |
 |---|---|

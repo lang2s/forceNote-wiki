@@ -1,6 +1,6 @@
 ---
 tags: [Aura, ExperienceCloud, ExperienceBuilder, Community, forceCommunity, ThemeLayout, 사이트개발]
-source: communities_dev.pdf (Experience Cloud Developer Guide, v66.0 Spring '26)
+source: communities_dev.pdf (Experience Cloud Developer Guide, v66.0 Spring '26) · Salesforce Help: Enable Digital Experiences (help.salesforce.com articleView id=experience.networks_enable.htm) [Tier 2]
 created: 2026-06-21
 aliases: [Experience Builder Aura 개발, Experience Builder Aura 컴포넌트 만들기, forceCommunity 인터페이스, availableForAllPageTypes, 커스텀 테마 레이아웃, themeLayout, Aura 사이트 expression, CurrentUser expression, swappable search profile menu, Aura 드래그앤드롭 컴포넌트, design resource Experience Builder, Personalization Target Developer Name, Aura 사이트 브랜딩, Experience Cloud Aura 사이트, 익스피리언스 빌더 Aura, 개인정보 표시 설정, PII 숨기기 Experience, UserPreferencesShowEmail, UserPreferencesShowEmailToExternalUsers, UserPreferencesShowEmailToGuestUsers]
 ---
@@ -8,6 +8,20 @@ aliases: [Experience Builder Aura 개발, Experience Builder Aura 컴포넌트 �
 # Experience Builder Aura 사이트 개발
 
 > Aura Components 모델 기반 Experience Builder 사이트에서 커스텀 Aura 컴포넌트를 드래그앤드롭 가능하게 만들고(`forceCommunity:*` 인터페이스), 테마 레이아웃·검색/프로필 메뉴를 스왑하고, expression으로 동적 데이터를 표시하는 방법.
+
+---
+
+## ⚠️ 전제조건 — Digital Experiences 활성화 (사이트 생성 전 선행)
+
+이 노트의 모든 개발(Experience Builder 사이트·드래그앤드롭 커스텀 Aura 컴포넌트·테마 레이아웃)은 org에 **Digital Experiences가 이미 활성화되어 있음을 전제**한다. 활성화·도메인 없이는 Experience Builder 자체가 존재하지 않으므로, 사이트 생성 전에 아래를 먼저 완료해야 한다.
+
+1. **Setup → Digital Experiences → Settings**로 이동해 **Enable Digital Experiences**를 켠다. 이것이 Experience Cloud 사이트 생성의 **첫 단계**다.
+2. **도메인 이름을 등록**한다(예: `myorg.my.site.com`). Digital Experiences 도메인(또는 커스텀 도메인)을 구성해야 사이트 URL이 발급된다.
+3. 활성화 후에야 Experience Builder·템플릿·`forceCommunity:*` 인터페이스 기반 컴포넌트 개발이 가능해진다.
+
+> **비가역성 (원문):** *"Enabling digital experiences is the first step to creating an Experience Cloud site... After you enable digital experiences, you can't disable it."* — **한 번 활성화하면 비활성화할 수 없다.** 프로덕션에 켜기 전 영향 범위를 확인한다.
+
+> 근거: Salesforce Help — *Enable Digital Experiences* (`articleView id=experience.networks_enable.htm`) + *Configure a Custom/Digital Experiences Domain* [Tier 2]. 아래 "커스텀 컴포넌트 보안" 섹션의 "Digital Experiences가 org에 활성화되고"는 이 활성화를 가리킨다.
 
 ---
 

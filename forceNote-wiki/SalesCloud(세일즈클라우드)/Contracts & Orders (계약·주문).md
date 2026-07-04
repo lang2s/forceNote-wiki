@@ -1,7 +1,8 @@
 ---
 tags: [sales-cloud, contracts, orders, order-products, agreements]
-source: help.salesforce.com (Salesforce Help — Orders / Contracts; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Orders / Contracts; 라이브 공식 문서, Tier 2, 접속 2026-07-03) · help.salesforce.com — Enable Orders (Tier 2)
 official_doc: https://help.salesforce.com/s/articleView?id=sales.order_overview.htm&type=5
+enable_orders_doc: https://help.salesforce.com/s/articleView?id=sales.customize_order_enable.htm&type=5
 created: 2026-07-03
 aliases: [Contracts, Orders, 계약, 주문, Order Products, 주문 제품, Contract]
 ---
@@ -26,6 +27,12 @@ aliases: [Contracts, Orders, 계약, 주문, Order Products, 주문 제품, Cont
 **Order**는 고객이 요청한/제공할 **제품·서비스**를 추적하는 레코드다.
 
 - **contract에 연결(associate)**되거나, 독립적으로 존재할 수 있다.
+
+> ⚠️ **전제조건 — Orders 활성화 (기본 비활성)**
+> Orders는 조직에서 **기본적으로 비활성**이다. 활성화하기 전에는 order 오브젝트·**Orders 탭**·order 관련 목록이 나타나지 않는다.
+> - **Setup → Quick Find `Order Settings` → Enable Orders** 체크로 활성화한다.
+> - **reduction order(감축 주문)**를 쓰려면 같은 화면에서 **Enable Reduction Orders**도 별도로 켜야 한다.
+> 근거: [Enable Orders (Salesforce Help)](https://help.salesforce.com/s/articleView?id=sales.customize_order_enable.htm&type=5)
 
 > 감축 order(reduction order) 등 order의 세부 유형·필드·상태 전이는 공식 문서 위임.
 

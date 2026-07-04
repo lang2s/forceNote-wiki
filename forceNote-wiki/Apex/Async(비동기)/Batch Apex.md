@@ -1,6 +1,6 @@
 ---
 tags: [apex, async, batch, pattern, release-notes]
-source: apex-recipes/BatchApexRecipes.cls
+source: apex-recipes/BatchApexRecipes.cls; salesforce_app_limits_cheatsheet.pdf (Apex Flex Queue 동시성 한도, Tier 2); help.salesforce.com/s/articleView?id=000386672
 created: 2026-05-17
 aliases: [batch apex, 배치, 대용량 처리, apex cursor, batch vs cursor, test discovery api]
 ---
@@ -81,6 +81,17 @@ System.scheduleBatch(new MyBatch(), 'Daily Batch', 1440); // 24시간마다
 > [!tip] QueryLocator vs Iterable
 > - `Database.QueryLocator`: SOQL 결과 최대 5천만 건, 힙 한도 우회
 > - `Iterable<SObject>`: 복잡한 필터링이 필요할 때, 최대 5만 건
+
+---
+
+## 동시성 한도 — Apex Flex Queue
+
+> [!warning] org당 동시 배치 잡 5개 한도
+> 한 org에서 동시에 **queued 또는 active** 상태일 수 있는 배치 잡은 **최대 5개**까지만 허용된다. 이 한도를 초과해 제출한 잡은 실패하지 않고 **Apex Flex Queue에 `Holding` 상태로 최대 100개까지** 대기했다가, 앞선 잡이 완료되면 자동으로 queued로 승격된다.
+>
+> - 대량 배치를 한꺼번에 `Database.executeBatch()`로 스케줄링하면 6번째부터는 즉시 실행되지 않고 Flex Queue에서 `Holding` 상태로 정체된다 — 이 한도를 모르면 "왜 배치가 안 돌지" 하는 정체를 겪는다.
+> - Flex Queue(Setup → Apex Flex Queue)에서 Holding 잡의 실행 순서를 재정렬할 수 있다.
+> - 한도 요약: **동시 queued/active 5개 + Holding 최대 100개**.
 
 ---
 

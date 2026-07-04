@@ -1,6 +1,6 @@
 ---
 tags: [flow, apex, invocable, action, pattern]
-source: automation-components, dreamhouse-lwc-main/force-app/main/default/classes/GeocodingService.cls, agent-script-recipes-main/force-app/main/04_architecturalPatterns/externalAPIIntegration/classes/WeatherService.cls
+source: automation-components, dreamhouse-lwc-main/force-app/main/default/classes/GeocodingService.cls, agent-script-recipes-main/force-app/main/04_architecturalPatterns/externalAPIIntegration/classes/WeatherService.cls, developer.salesforce.com Apex Reference — InvocableMethod Annotation (Tier 2), help.salesforce.com Article 000385708 — uncommitted work pending (Tier 2)
 created: 2026-05-17
 aliases: [InvocableMethod, Flow Action, Invocable Apex, callout=true, Agentforce Apex Action, apex 액션]
 ---
@@ -75,6 +75,18 @@ global with sharing class FilterRecordsWithFieldValue {
 | 실제 로직 | `private static invoke()` 로 분리 → 단위 테스트 직접 호출 가능 |
 | 파라미터 클래스 | `global inner class` + `@InvocableVariable` |
 | 공유 키워드 | `with sharing` (Flow는 사용자 컨텍스트에서 실행) |
+
+### ⚠️ 하드 제약 (컴파일 실패 방지)
+
+`@InvocableMethod`에는 아래 세 하드 제약이 있다. automation-components가 **액션마다 별도 클래스**를 두는 이유가 여기 있다 — 한 클래스에 여러 액션을 몰아넣거나 `@future`와 결합하려다 컴파일에서 막힌다.
+
+| 제약 | 규칙 |
+|---|---|
+| 클래스당 메서드 1개 | **한 클래스에서 `@InvocableMethod`를 붙일 수 있는 메서드는 단 1개.** 여러 액션이 필요하면 클래스를 분리한다. |
+| 결합 가능 어노테이션 | `@InvocableMethod`와 함께 쓸 수 있는 어노테이션은 **`@Deprecated` 뿐.** `@future`·`@AuraEnabled`·`@RemoteAction` 등과 결합 불가. |
+| 입력 파라미터 최대 1개 | 인보커블 메서드의 입력 파라미터는 **최대 1개**(관례상 `List<Input>`). 여러 값은 이너 클래스 필드로 묶는다. |
+
+> 근거: [Salesforce Apex 개발자 가이드 — InvocableMethod Annotation](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableMethod.htm) — "Only one method in a class can have the InvocableMethod annotation." / "The only annotation that can be used with the InvocableMethod annotation is Deprecated." / "There can be at most one input parameter"
 
 ---
 
@@ -197,6 +209,24 @@ public with sharing class GeocodingService {
 | 출력 타입 | `List<Coordinates>` — 응답 이너 클래스 자체를 반환. Flow는 `geocode_address.lat` 처럼 하위 필드 접근 |
 
 > 이 패턴은 **Remote Site 기반 익명 콜아웃**이다. Named Credential 기반의 관리형 콜아웃은 [[RestClient 패턴]] 참조(인증·엔드포인트를 Named Credential에 위임).
+
+#### ⚠️ 최다 블로커 — "uncommitted work pending" (같은 트랜잭션 DML → 콜아웃)
+
+`callout=true`와 Remote Site Setting을 갖춰도, **같은 트랜잭션에서 DML(Create/Update Records) 이후 콜아웃**을 하면 런타임에 다음 예외로 막힌다:
+
+```text
+CalloutException: You have uncommitted work pending.
+Please commit or rollback before calling out.
+```
+
+Record-Triggered Flow에서 이 콜아웃 액션을 저장(DML) **이후 동기 경로**에 배치하면 이 예외가 발생한다. Apex는 미커밋 DML이 열려 있는 상태에서 콜아웃을 허용하지 않기 때문이다. 해결책 두 가지:
+
+| 해결책 | 방법 |
+|---|---|
+| 콜아웃을 DML 앞으로 | Flow에서 콜아웃 액션을 Create/Update Records 요소 **이전**에 배치 |
+| 비동기 경로로 분리 | Record-Triggered Flow에서 콜아웃을 **Run Asynchronously**(비동기 경로)로 실행 → 별도 트랜잭션에서 콜아웃 |
+
+> 근거: [Salesforce Help — 'You have uncommitted work pending. Please commit or rollback before calling out'](https://help.salesforce.com/s/articleView?id=000385708&type=1) (DML before callout in same transaction)
 
 ### Screen Flow에서 호출 — `actionCall` + `faultConnector`
 

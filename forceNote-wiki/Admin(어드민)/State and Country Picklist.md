@@ -1,6 +1,6 @@
 ---
 tags: [admin, metadata-api, metadata-types, address-settings, state-country-picklist, picklist, country, state, v67]
-source: api_meta.pdf (Metadata API Developer Guide, v67.0 Summer '26 — AddressSettings)
+source: api_meta.pdf (Metadata API Developer Guide, v67.0 Summer '26 — AddressSettings) · help.salesforce.com Enable and Disable State and Country/Territory Picklists (admin_state_country_picklist_enable / _scan_metadata / _convert_data, Tier 2)
 created: 2026-06-19
 aliases: [State and Country Picklist, AddressSettings, 국가 주 피클리스트, 주소 설정, country picklist, state picklist, Address.settings, Settings Address, countriesAndStates, isoCode, integrationValue, 국가 영토 피클리스트, 주 도 피클리스트, State and Country/Territory Picklists]
 ---
@@ -157,6 +157,20 @@ aliases: [State and Country Picklist, AddressSettings, 국가 주 피클리스�
 package.xml 매니페스트 파일에서 wildcard 문자 `*`(asterisk)는 **feature settings 메타데이터 타입에는 적용되지 않는다.** wildcard는 **모든 settings를 검색(retrieve)할 때만 적용**되며, 개별 setting에는 적용되지 않는다. 자세한 내용은 `Settings` 및 매니페스트 파일 사용 관련 문서(Deploying and Retrieving Metadata with the Zip File)를 참조한다.
 
 ---
+
+## ⚠️ 전제조건 — Setup 활성화 워크플로 (4단계)
+
+위 `AddressSettings` 메타데이터 필드는 **피클리스트를 이미 활성화(enable)한 조직에서만** 실효를 가진다. 텍스트 기반 주소 값을 표준 피클리스트로 전환하려면 Setup에서 **State and Country/Territory Picklists**로 이동해 아래 4단계를 순서대로 밟는다.
+
+| 단계 | 이름 | 하는 일 |
+|---|---|---|
+| 1 | **Configure** | 각 state·country/territory의 `integrationValue`(integration value)를 설정한다. 활성화 **전에** integration value를 구성하면 활성화 후에도 그 값이 계속 작동한다. (지정하지 않으면 Salesforce 기본값 사용 — 위 `Country.integrationValue` 참조) |
+| 2 | **Scan** | 기존 데이터와 커스터마이제이션(워크플로 field update·이메일 템플릿·Visualforce·리포트 등)에서 state·country/territory 텍스트 값을 스캔해, 변환 시 영향받는 항목을 파악한다. |
+| 3 | **Convert** | 레코드에 저장된 텍스트 값을 표준 피클리스트 값으로 **변환**한다. (Convert 없이 Enable만 하면 기존 텍스트 레코드가 표준 값에 매핑되지 않는다.) |
+| 4 | **Enable** | 피클리스트를 사용자에게 노출한다. 활성화 후에는 `active` 상태를 `false`로 되돌릴 수 없다(위 `active` 필드의 **중요** 주석과 동일). |
+
+> [!warning] **Disable은 사실상 비가역**
+> 피클리스트 활성화 후 state·country/territory 값이 저장된 레코드가 있는 상태에서 **Disable**하면, 그 값에 의존하던 커스터마이제이션 — **워크플로 field update·이메일 템플릿·Visualforce 페이지·리포트의 컬럼/필터** — 이 무효화된다. 데이터·커스터마이제이션 손실을 되돌릴 수 없으므로, 프로덕션 조직에서는 활성화를 사실상 비가역 결정으로 취급한다.
 
 ## 관련 노트
 

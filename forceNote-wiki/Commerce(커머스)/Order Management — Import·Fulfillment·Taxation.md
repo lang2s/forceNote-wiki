@@ -1,6 +1,6 @@
 ---
 tags: [commerce, order-management, import, fulfillment, taxation, order-summary, bulk-api, location-capacity]
-source: order_management_developer_guide_html.pdf (Version 66.0, Spring '26, Tier 2) — Importing Order Data(p.39-46)·Fulfillment Orders(p.47-49)·Taxation in Order Management(p.50-52)
+source: order_management_developer_guide_html.pdf (Version 66.0, Spring '26, Tier 2) — Importing Order Data(p.39-46)·Fulfillment Orders(p.47-49)·Taxation in Order Management(p.50-52); Enable High-Scale Integration for Order Management (help.salesforce.com/s/articleView?id=commerce.om_hi_scale.htm, Tier 2)
 official_doc: https://developer.salesforce.com/docs/atlas.en-us.order_management_developer_guide.meta/order_management_developer_guide/
 created: 2026-06-20
 aliases: [Importing Order Data, Order Management Import, Fulfillment Orders, OM Taxation, Location Capacity, High-Scale Orders, Deduplication, 주문 가져오기, 이행 주문, 세금 계산]
@@ -164,6 +164,12 @@ Salesforce에서 다른 주문을 생성하면 **고유한 `ExternalReferenceIde
 > API version 55.0에서, 표준 B2C Commerce integration은 이 값을 `"SFDC" + "@" + nanotime + "@" + UUID`로 설정했고, High Scale Orders는 이후 버전에서 사용하는 값으로 설정했다.
 
 ### High-Scale Orders and Deduplication
+
+> [!warning] ⚠️ 전제조건 — High-Scale Orders는 기본 활성 기능이 아니다
+> `PendingOrderSummary`·**Pending Order Summaries REST API**·HSOI를 사용하려면 먼저 **High-Scale Orders 기능을 활성화**해야 한다. 이 기능은 org에 기본으로 켜져 있지 않다.
+> - 활성화 절차: Setup의 **Enable High-Scale Integration for Order Management** (`help.salesforce.com` — Commerce/Order Management).
+> - 개발자 가이드는 *"The High-Scale Orders feature must be active"* 라고 명시한다. 활성화 없이 `PendingOrderSummary`·Pending Order Summaries API 경로를 따라가면 막힌다.
+> - **B2C Commerce 연결은 불필요** — High-Scale Orders 활성화만으로 이 API를 쓸 수 있다.
 
 High-Scale Orders는 **Pending Order Summaries REST API**를 사용해 order summary graph로부터 summary를 생성한다. **request parameter에 포함된 엔티티는 deduplication rules의 적용을 받지 않는다.** (p.46)
 

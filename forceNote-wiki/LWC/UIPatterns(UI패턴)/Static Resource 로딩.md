@@ -1,6 +1,6 @@
 ---
 tags: [lwc, static-resource, loadScript, loadStyle, pattern]
-source: dreamhouse-lwc/propertyListMap
+source: [dreamhouse-lwc/propertyListMap, "Salesforce LWC Guide — Create Static Resources (developer.salesforce.com/docs/platform/lwc/guide/create-resources.html) — Tier 2"]
 created: 2026-05-17
 aliases: [loadScript, loadStyle, Static Resource, 서드파티 라이브러리]
 ---
@@ -117,12 +117,31 @@ const marker = L.marker([lat, lng]);
 
 ---
 
+## ⚠️ 한도 — Static Resource 크기 (업로드 블로커)
+
+| 한도 | 값 |
+|---|---|
+| 단일 Static Resource 최대 크기 | **5 MB** |
+| org 전체 Static Resource 합계 | **250 MB** |
+
+> 공식 문서: *"The maximum file size is 5 MB. An org can have up to 250 MB of static resources."*
+
+Leaflet·Chart.js처럼 큰 라이브러리를 업로드할 때, 특히 소스맵·에셋을 포함한 배포용 zip은 **5 MB를 넘어 업로드 자체가 막히는** 경우가 많다. 회피책:
+
+- **minify된 배포본만** 사용 (`.min.js` / `.min.css`) — 개발용 비압축 버전·소스맵 제외
+- zip에는 **런타임에 실제로 필요한 파일만** 포함 (docs·examples·테스트·`.map` 파일 제거)
+- 라이브러리를 여러 개 올릴 경우 org 합계 **250 MB** 상한도 함께 관리 (초과 시 신규 업로드 실패)
+- CDN을 대체 수단으로 쓸 수 없으므로(외부 CDN 직접 사용 불가), 필수 파일만 추린 zip으로 5 MB 이내를 맞추는 것이 유일한 경로
+
+---
+
 ## 주의사항
 
 | 항목 | 내용 |
 |---|---|
 | CSP Trusted Site | 외부 URL 타일/API 사용 시 필요 (`isApplicableToImgSrc` 등) |
 | Static Resource 업로드 | 외부 CDN 직접 사용 불가 — 항상 Static Resource로 업로드 후 사용 |
+| Static Resource 크기 한도 | 단일 5 MB / org 합계 250 MB (위 "한도" 소절 참조) |
 | `this.template.querySelector` | `renderedCallback` 이후에만 DOM 접근 가능 |
 | 오류 처리 | `error.message` 또는 `error.body?.message` 둘 다 확인 |
 

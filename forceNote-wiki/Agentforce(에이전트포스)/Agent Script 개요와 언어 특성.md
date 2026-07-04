@@ -1,6 +1,6 @@
 ---
 tags: [agentforce, agent-script, language, overview, ai-agent]
-source: AgentScriptDocs (Salesforce Agent Script Developer Guide, 2026-06-17판) — agent-script/agent-script.md, agent-script/ascript-lang.md, agent-script/ascript-examples.md
+source: AgentScriptDocs (Salesforce Agent Script Developer Guide, 2026-06-17판) — agent-script/agent-script.md, agent-script/ascript-lang.md, agent-script/ascript-examples.md ; help.salesforce.com (Tier 2) — Enable Agentforce (ai.agent_setup_enable.htm), Access Agentforce Studio and the New Agentforce Builder (ai.agent_builder_studio.htm)
 created: 2026-06-30
 aliases: [Agent Script, 에이전트 스크립트, Agentforce, agent script language, 언어 특성, Compiled, Declarative, reasoning instructions, logic instructions, "Agent Script가 뭐야", "에이전트 스크립트 언어 특성", "-> 와 | 차이"]
 ---
@@ -83,6 +83,17 @@ start_agent hello_world:
 ---
 
 ## 작성 방법 — Agentforce Builder 3가지 뷰 + Agentforce DX
+
+> [!warning] ⚠️ 전제조건 — 이걸 먼저 해야 Script view 화면에 도달한다
+> 아래 3가지가 선행돼야 Agentforce Builder / Script view에 접근하고 에이전트를 생성할 수 있다. 이 전제 없이는 Script 작성 화면 자체에 도달하지 못한다.
+>
+> 1. **Einstein 켜기** — Setup → Quick Find에서 **Generative AI** 검색 → **Einstein Setup**에서 **Turn on Einstein**.
+> 2. **Agentforce 활성화** — org에서 Agentforce를 활성화한다.
+> 3. **사용자 권한 부여** — 에이전트를 생성·편집할 사용자에게 **Manage AI Agents** 권한을 부여한다.
+>
+> 활성화 후 Agentforce Studio → 새 Agentforce Builder에서 에이전트를 생성한다.
+>
+> (근거: help.salesforce.com — *Enable Agentforce* `ai.agent_setup_enable.htm` / *Access Agentforce Studio and the New Agentforce Builder* `ai.agent_builder_studio.htm`)
 
 Agent Script로 hands-on을 시작하려면 **Create an Agent → view picker에서 Script 선택**한다. 또는 Agentforce DX로 agent를 작성한다. (Agentforce Builder의 Agent Script UI 화면이 원문에 이미지 `agent-script-view3.png`로 제공되나, 본 위키에는 텍스트 설명만 둔다.)
 

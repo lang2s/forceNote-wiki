@@ -1,6 +1,6 @@
 ---
 tags: [data-cloud, data-360, segments, segmentation, audience]
-source: help.salesforce.com (Salesforce Help — Create and Activate Segments; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Create and Activate Segments; 라이브 공식 문서, Tier 2, 접속 2026-07-03); help.salesforce.com — Increase Segment Refresh with Rapid Segment Publish (sf.c360_a_rapid_segment_publish.htm, Tier 2)
 official_doc: https://help.salesforce.com/s/articleView?id=sf.c360_a_segments.htm&type=5
 created: 2026-07-03
 aliases: [Segments, 세그먼트, Segmentation, 세그멘테이션, Audience, 오디언스]
@@ -33,6 +33,17 @@ Data Cloud의 **Segmentation**은 통합된 데이터에서 **의미 있는 audi
 세그먼트를 만든 뒤에는 **Activation**으로 활성화 플랫폼(예: Marketing Cloud, 외부 플랫폼)으로 발행한다. 이 발행 과정을 통해 세그먼트가 실제 커뮤니케이션 채널에서 사용 가능해진다.
 
 > 세그먼트 발행의 상세 메커니즘은 [[Activations (액티베이션)]] 참조.
+
+### 발행 스케줄 · 한도
+
+세그먼트 발행(publish) 주기에는 두 가지 모드가 있고 각각 하드 한도가 있다:
+
+| 모드 | 발행 주기 | 전송 대상 | org당 한도 |
+|---|---|---|---|
+| **Standard Publish** | 최소 12시간 ~ 최대 24시간 | 제한 없음 | — |
+| **Rapid Segment Publish** | 최소 1시간 ~ 최대 4시간 | **Marketing Cloud로만 전송 가능** | **Rapid 세그먼트 20개** |
+
+> ⚠️ 세그먼트를 **생성한 뒤에는 Standard → Rapid 스케줄로 변경할 수 없다.** Rapid Publish가 필요하면 세그먼트 생성 시점에 지정해야 한다.
 
 ## 세그먼트 흐름
 

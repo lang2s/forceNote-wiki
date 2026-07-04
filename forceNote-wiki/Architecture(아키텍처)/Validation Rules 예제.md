@@ -1,7 +1,7 @@
 ---
 tags: [architecture, validation, formula, regex, isblank, isnumber, ischanged, priorvalue, vlookup, ispickval]
 aliases: [Validation Rule, 검증 규칙, 유효성 규칙, 수식 검증, REGEX 검증, SSN 형식, 우편번호 검증]
-source: salesforce_useful_validation_formulas.pdf (Spring '26)
+source: salesforce_useful_validation_formulas.pdf (Spring '26) · help.salesforce.com — Validation Rule Considerations (Tier 2) · developer.salesforce.com — Reducing Formula Compile Size (Tier 2) · help.salesforce.com — VLOOKUP (Tier 2)
 created: 2026-05-22
 updated: 2026-05-22
 ---
@@ -12,6 +12,24 @@ updated: 2026-05-22
 > 아래 수식은 **true일 때 오류**를 반환한다.
 
 **상위:** [[Architecture MOC]] → [[00 Home]]
+
+---
+
+## 0. 한도·주의 (수식 작성 전 필독)
+
+아래 예제 상당수(주·국가 코드 전체 나열 CONTAINS, 대형 REGEX)는 실무의 두 하드 한도에 걸릴 수 있다. 저장이 막히기 전에 확인한다.
+
+### 객체당 active validation rule 개수 한도
+
+- 대부분의 객체에서 **활성(active) 검증 규칙은 객체당 100개**까지다(edition에 따라 상향될 수 있음). 한도에 도달하면 **신규 규칙을 활성화할 수 없다** — 기존 규칙을 비활성화해야 새 규칙을 켤 수 있다.
+
+### 컴파일된 수식 크기 5,000 bytes 한도
+
+- 검증 규칙 수식은 저장 시 컴파일되며, **컴파일된 크기가 5,000 bytes를 초과하면 저장이 막히고** `Compiled formula is too big to execute` 오류가 난다.
+- ⚠️ **수식 소스가 3,900자 미만이어도** 참조하는 필드가 많으면 컴파일 크기가 폭증한다. 위의 미국 주 코드(`CONTAINS` 대형 문자열)·ISO 3166 국가 코드 전체 나열·중첩 `CASE`/`IF` 예제가 대표적으로 이 한도에 부딪힐 수 있다.
+- 헬퍼 필드로 분리하거나 필드명을 짧게 바꿔도 **컴파일 크기 문제는 해결되지 않는다**(컴파일러가 참조를 전개하므로). 근본 대응은 참조 필드 수·중첩 depth를 줄이거나 로직을 [[Custom Metadata Types]] 조회·Flow·Apex로 옮기는 것이다.
+
+> 근거: help.salesforce.com — Validation Rule Considerations · developer.salesforce.com — Reducing Formula Compile Size (compiled formula 5,000 bytes 한도).
 
 ---
 
@@ -87,6 +105,14 @@ VLOOKUP(
 ) <> BillingCity
 ```
 > `Zip_Code__c` 커스텀 오브젝트(ZIP 코드 → State_Code__c 매핑)가 필요.
+
+> [!warning] VLOOKUP 제약 (따라 하기 전 확인)
+> `VLOOKUP`은 제약이 강해 아래 조건을 어기면 규칙이 저장되지 않거나 조회가 실패한다.
+> 1. **커스텀 오브젝트만 조회 가능** — 표준 오브젝트는 VLOOKUP 대상이 될 수 없다. 위 예제의 `Zip_Code__c`·`Role_Limits__c`가 커스텀 오브젝트인 이유다.
+> 2. **매칭은 대상 오브젝트의 Name 필드로만** 가능 — `field_on_lookup_object`(반환할 필드)는 임의 필드지만, 비교(매칭) 대상은 반드시 레코드의 **Name 필드**여야 한다(다른 필드로 매칭 불가).
+> 3. **검증 규칙에서만 사용 가능** — 수식 필드 등 다른 곳에서는 VLOOKUP을 쓸 수 없다.
+> 4. **데이터 타입 일치 필수** — `field_on_lookup_object`와 `lookup_value`의 데이터 타입이 동일해야 한다.
+> 5. VLOOKUP이 참조하는 **커스텀 필드·오브젝트는 삭제할 수 없다**(참조가 살아있는 동안).
 
 **오류:** `Billing Zip Code doesn't exist in specified Billing State.`
 
@@ -339,7 +365,7 @@ Discount_Percent__c > VLOOKUP(
   $UserRole.Name
 )
 ```
-> `Role_Limits__c` 커스텀 오브젝트(역할명 → 한도 맵핑)가 필요.
+> `Role_Limits__c` 커스텀 오브젝트(역할명 → 한도 맵핑)가 필요. `$UserRole.Name`이 `Role_Limits__c`의 **Name 필드**와 매칭된다(§1의 VLOOKUP 제약 참조 — 커스텀 오브젝트·Name 매칭·검증 규칙 전용).
 
 ### 사용자 커스텀 필드와 비교 ($User)
 
@@ -448,7 +474,7 @@ OR(AnnualRevenue < 0, AnnualRevenue > 100000000000)
 | `MOD(num, divisor)` | 나머지 — 짝수/홀수, 배수 검증 |
 | `FLOOR(num)` | 정수 부분 — 정수 여부 검증 |
 | `CONTAINS(text, substr)` | 포함 여부 — 주/국가 코드 목록 검증 |
-| `VLOOKUP(field, lookupField, lookupValue)` | 다른 오브젝트 값 조회 — 역할별 한도, ZIP↔State |
+| `VLOOKUP(field, lookupField, lookupValue)` | 다른 오브젝트 값 조회 — 역할별 한도, ZIP↔State. **커스텀 오브젝트만·Name 필드 매칭·검증 규칙 전용**(§1 제약 참조) |
 | `$User.FieldName` | 현재 사용자 커스텀 필드 참조 |
 | `$Profile.Name` | 현재 사용자 프로필 이름 (Enterprise+ 전용) |
 | `$UserRole.Name` | 현재 사용자 역할 이름 |

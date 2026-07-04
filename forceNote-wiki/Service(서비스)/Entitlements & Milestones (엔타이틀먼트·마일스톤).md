@@ -1,7 +1,8 @@
 ---
 tags: [service-cloud, entitlements, milestones, sla, entitlement-process]
-source: help.salesforce.com (Salesforce Help — Service; Entitlements and Milestones / Work with Milestones; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Service; Entitlements and Milestones / Work with Milestones / Enable Entitlements; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
 official_doc: https://help.salesforce.com/s/articleView?id=service.entitlements_milestones_parent.htm&type=5
+enablement_doc: https://help.salesforce.com/s/articleView?id=sf.entitlements_enabling.htm&type=5
 created: 2026-07-03
 aliases: [Entitlements, Milestones, 엔타이틀먼트, 마일스톤, SLA, Entitlement Process, Milestone Tracker]
 ---
@@ -9,6 +10,16 @@ aliases: [Entitlements, Milestones, 엔타이틀먼트, 마일스톤, SLA, Entit
 # Entitlements & Milestones (엔타이틀먼트·마일스톤)
 
 > Service Cloud의 **SLA 엔진**. Entitlement가 고객이 받을 수 있는 지원 수준을, Milestone이 시간 기준 단계(첫 응답·해결 시간)를 정의하며, Entitlement Process가 이들을 타임라인으로 묶는다(최대 10 마일스톤).
+
+---
+
+## ⚠️ 전제조건 — Entitlement Management 활성화
+
+Entitlement·Entitlement Process·Milestone을 만들려면 **먼저 Entitlement Management를 켜야 한다.** 이 활성화가 선행되지 않으면 Entitlement 관련 객체·related list·프로세스가 나타나지 않는다.
+
+1. **Setup**(Service Setup) → Quick Find에 **Entitlement Settings** 입력
+2. **Enable Entitlement Management** 체크
+3. **Save**
 
 ---
 

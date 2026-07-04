@@ -1,6 +1,6 @@
 ---
 tags: [sobject-reference, share, owner-sharing-rule, associated-objects, StandardObjectNameShare, StandardObjectNameOwnerSharingRule, 공유 오브젝트]
-source: object_reference.pdf p.65-67 (v67.0 Summer '26)
+source: object_reference.pdf p.65-67 (v67.0 Summer '26); help.salesforce.com security_sharing_owd_about (Tier 2)
 created: 2026-05-22
 aliases: [Share Objects, OwnerSharingRule, StandardObjectNameShare, StandardObjectNameOwnerSharingRule, AccountShare, AccountOwnerSharingRule, RowCause, 수동 공유, Manual Share, 소유자 공유 규칙]
 ---
@@ -26,6 +26,19 @@ aliases: [Share Objects, OwnerSharingRule, StandardObjectNameShare, StandardObje
 ## StandardObjectName Share
 
 레코드 단위 공유 항목을 나타낸다. Org-Wide Default(OWD)에 공유 규칙과 수동 공유가 결합되어 실제 공유 현황이 결정된다.
+
+### ⚠️ 전제조건 — OWD가 Private 또는 Public Read Only여야 함
+
+```
+수동 공유(RowCause = Manual) Share 레코드를 생성하려면
+해당 Object의 Org-Wide Default(OWD) 내부 접근이
+Private 또는 Public Read Only여야 한다.
+
+OWD가 Public Read/Write이면 수동 공유가 불필요·불가하며
+Share 레코드 insert가 거부/무의미해진다.
+```
+
+수동 공유는 "기본 접근보다 더 넓은 접근을 예외적으로 부여"하는 메커니즘이다. 따라서 기본 접근(OWD)이 이미 최소 Private 또는 Public Read Only로 제한되어 있어야 그 위에 Share 엔트리로 추가 접근을 얹을 수 있다. OWD가 Public Read/Write면 모든 사용자가 이미 읽기/쓰기 권한을 갖고 있으므로 더 부여할 것이 없어 Share 엔트리 관리 자체가 성립하지 않는다.
 
 ### RowCause = Manual 전용 쓰기 규칙
 

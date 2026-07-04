@@ -1,7 +1,7 @@
 ---
 tags: [architecture, custom-metadata, cmdt, metadata, deployment, configuration, cache]
 aliases: [CMDT, Custom Metadata, __mdt, CustomMetadata, 커스텀 메타데이터]
-source: salesforce_apex_reference_guide.pdf (v67.0)
+source: salesforce_apex_reference_guide.pdf (v67.0); help.salesforce.com — Custom Metadata Allocations and Usage Calculations (platform.custommetadatatypes_limits.htm, Tier 2)
 created: 2026-05-22
 updated: 2026-05-22
 ---
@@ -26,7 +26,7 @@ updated: 2026-05-22
 | **수식/검증 규칙** | ✅ | ✅ | ❌ |
 | **Flow 사용** | ✅ | ✅ | SOQL 필요 |
 | **사용자·프로필 계층** | ❌ | ✅ (Hierarchy 설정) | ❌ |
-| **대용량 레코드** | 제한 (수백 건) | 제한 (수백 건) | 무제한 |
+| **대용량 레코드** | 제한 (org 전체 CMDT 합산 10M자 한도 — §7 참조) | 제한 (수백 건) | 무제한 |
 | **비밀 저장** | ❌ (Public CMDT는 Guest 포함 모두 읽기 가능) | ❌ | 암호화 필드 사용 |
 
 > ⚠️ **Protected CMDT**: 관리 패키지 바깥에서는 Public과 동일하게 동작한다.  
@@ -204,6 +204,28 @@ public class RateCardSelector implements IRateCardSelector {
 | **이메일 템플릿 ID** | 환경별 템플릿 ID를 코드 외부에 관리 |
 | **검증 규칙 설정** | 조직 설정에 따라 ON/OFF |
 | **관리 패키지 설정** | 구독자 org에 배포 가능한 앱 설정값 |
+
+---
+
+## 7. 한도·주의 (Allocations)
+
+CMDT는 **data storage가 아니라 configuration data limits**에 집계된다. 대량 매핑 테이블·요율표를 설계할 때 아래 하드 한도에 부딪히므로 설계 단계에서 반드시 확인한다.
+
+| 한도 | 값 | 비고 |
+|---|---|---|
+| **org 전체 모든 CMDT 합산** | 최대 **10,000,000자 (10M characters)** | 모든 커스텀 메타데이터 타입의 레코드를 합산 |
+| **타입당 커스텀 필드** | 최대 **100개** | 한 `__mdt` 타입당 |
+| **레코드당 크기** | 최대 **10 KB** | 아래 "사용량 계산" 방식으로 집계 |
+
+### 7-1. 사용량(character) 계산 방식
+
+사용량은 **실제 입력값의 길이가 아니라 필드 타입의 최대 크기**로 계산된다.
+
+- 예: **Text Area 필드**는 입력 길이와 무관하게 레코드당 **255자**로 집계된다.
+- 표준 필드 **Label / Name / Namespace** 도 집계에 포함된다.
+- 즉, 짧은 값을 넣어도 필드 타입의 최대 크기만큼 소비되므로 10M자 한도는 예상보다 빨리 소진될 수 있다.
+
+> ⚠️ 대량 데이터(수천 건 이상의 매핑/요율)는 CMDT 대신 **Custom Object**(무제한, SOQL 접근) 사용을 검토한다. CMDT는 배포·패키징이 필요한 **설정 데이터**에 적합하다.
 
 ---
 

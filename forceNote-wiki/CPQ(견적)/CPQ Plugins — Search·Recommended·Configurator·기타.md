@@ -1,6 +1,6 @@
 ---
 tags: [CPQ, 견적, Salesforce CPQ, Plugin, Apex, Product Search Plugin, Recommended Products Plugin, External Configurator, Document Store Plugin, Electronic Signature Plugin, Custom Action Plugin, Guided Selling]
-source: cpq_developer_guide.pdf (Salesforce CPQ Developer Guide v65.0 Winter '26)
+source: cpq_developer_guide.pdf (Salesforce CPQ Developer Guide v65.0 Winter '26); help.salesforce.com — Manage Trusted URLs (sf.csp_trusted_sites.htm, Tier 2); developer.salesforce.com — Content Security Policy Overview (lightning-components-security, Tier 2)
 created: 2026-06-21
 aliases: [Product Search Plugin, Recommended Products Plugin, Product Recommendation Plugin, External Configurator, Document Store Plugin, Electronic Signature Plugin, Custom Action Plugin, Legacy Quote Calculator Plugin, Guided Selling Plugin, CPQ 플러그인, 제품 검색 플러그인, 제품 추천 플러그인, 외부 컨피규레이터, 전자서명 플러그인]
 ---
@@ -386,6 +386,12 @@ global class ProductRecommendationPluginJH implements SBQQ.ProductRecommendation
 
 - **EDITIONS:** Available in Salesforce CPQ Winter '16 and later (Create an External Configurator 및 일부 하위 항목은 Winter '18)
 
+> ⚠️ **전제조건 — 외부(Heroku/비-Salesforce) configurator를 iframe으로 띄우려면 CSP Trusted URLs 등록이 필수.**
+> Lightning Experience에서 external configurator(Heroku 등 외부 웹 앱, 3-B의 외부 host 방식)를 quote line editor의 iframe으로 launch하려면, 그 도메인을 **Setup → CSP Trusted URLs(Trusted Sites)** 에 **`frame-src` 컨텍스트**로 등록해야 한다. 등록하지 않으면 CSP가 프레임을 차단해 configurator가 **빈 화면**으로 뜬다(브라우저 콘솔에 `frame-src` CSP 위반 로그가 남는다). 이는 외부 앱 host 시 가장 흔한 블로커다.
+> - Visualforce 페이지로 self-host(3-B의 Salesforce host 방식)하는 경우에는 same-origin이라 해당하지 않는다. **외부 앱을 host할 때 특히 발생**한다.
+> - URL은 반드시 **HTTPS**여야 한다(3-A 6번에서 secure https 요구와 동일 조건). CSP frame-src 등록과 HTTPS는 별개 요건이며 둘 다 충족해야 한다.
+> - 근거: help.salesforce.com — Manage Trusted URLs(`frame-src` 컨텍스트로 iframe 콘텐츠 허용) + developer.salesforce.com Content Security Policy(신뢰되지 않은 외부 프레임을 CSP가 차단). External Configurator URL 설정 문서(3-E)는 이 CSP 전제를 별도로 언급하지 않으므로 여기 명시한다.
+
 ### 3-A. Set Up an External Configurator to Launch from a Custom Action
 
 non-CPQ configurator를 launch하는 custom action을 생성한다. 추가해야 할 layout/value:
@@ -634,6 +640,7 @@ quote line editor에서 custom configurator를 launch하도록 CPQ package를 �
 2. Salesforce CPQ package → Configure.
 3. Additional Settings 탭 선택.
 4. External Configurator URL 필드 → external configurator URL 입력. (Visualforce 페이지 URL은 preview 클릭으로 획득. 절대/상대 URL 가능. Experience Cloud와 함께 쓰려면 relative URL 사용 — Lightning과 외부 웹 앱의 URL 형식이 다르다.)
+   > ⚠️ 외부(Heroku/비-Salesforce) URL을 입력할 경우, 이 URL을 입력하기 전에 그 도메인을 **Setup → CSP Trusted URLs**에 `frame-src`로 등록해야 iframe이 차단되지 않는다(§3 상단 전제조건 참조). 미등록 시 configurator가 빈 화면으로 뜬다.
 5. Optional: Additional Settings 페이지에서 Third Party Configurator 필드를 선택할 수 있다. 활성 시 external configurator가 전체 화면을 차지한다. configurator를 닫는 모든 액션(cancel/save)은 launch한 페이지로 redirect한다.
 6. external configurator로 구성할 제품을 찾는다.
    - a. 각 제품 record에서 Externally Configurable 필드를 선택한다.

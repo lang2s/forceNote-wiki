@@ -1,7 +1,7 @@
 ---
 title: External Objects
 tags: [salesforce, sobject, external-objects, salesforce-connect, odata]
-source: object_reference.pdf v67.0 — Ch1 pp.29–31 (물리 pp.71–73)
+source: object_reference.pdf v67.0 — Ch1 pp.29–31 (물리 pp.71–73) · [Tier 2] help.salesforce.com platform_connect_license (Salesforce Connect Adapters Included per Add-On License)
 created: 2026-05-22
 aliases: [External Object, __x suffix, Salesforce Connect, OData, External Lookup, 외부 오브젝트]
 ---
@@ -21,6 +21,18 @@ Salesforce Connect나 Files Connect를 통해 웹 서비스 콜아웃으로 **�
 **적합한 상황:**
 - 대용량 데이터를 Salesforce에 저장하기 어렵거나 원하지 않을 때
 - 한 번에 소량의 데이터만 사용하면 될 때
+
+---
+
+## ⚠️ 전제조건 — Salesforce Connect 라이선스
+
+External Object를 만들려면 **먼저 Salesforce Connect add-on을 확보·설정**해야 한다. Salesforce Connect는 기본 포함 기능이 아니라 **별도 유료 add-on 라이선스**다.
+
+- **한 라이선스 = 하나의 외부 데이터 소스(엔드포인트)에 대응.** 여러 외부 시스템에 연결하려면 그만큼의 add-on 라이선스가 필요하다.
+- 라이선스가 없는 org에서는 **External Data Source 생성 자체가 막힌다** → External Object도 만들 수 없다.
+- 어떤 어댑터(Cross-org / OData 2.0 / OData 4.0 / Custom Apex)가 add-on 라이선스에 포함되는지는 라이선스 종류에 따라 다르다 (근거: help.salesforce.com — *Salesforce Connect Adapters Included per Add-On License*).
+
+> Files Connect(Google Drive·Box·SharePoint 등) 기반 외부 오브젝트도 마찬가지로 Files Connect 활성화가 선행되어야 한다.
 
 ---
 
@@ -93,7 +105,7 @@ Files Connect는 서드파티 콘텐츠 시스템에 접근한다:
 ## 제약사항
 
 - 외부 오브젝트 레코드 데이터는 **항상 실시간으로 외부 시스템에서 조회** — 항상 최신 상태 반영
-- Salesforce Connect와 Files Connect를 통해서만 사용 가능
+- Salesforce Connect와 Files Connect를 통해서만 사용 가능 (Salesforce Connect는 **유료 add-on 라이선스** — 위 "⚠️ 전제조건" 참조)
 - 관계 타입: Lookup, External Lookup, Indirect Lookup만 지원
 
 ---

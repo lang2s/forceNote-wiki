@@ -1,6 +1,6 @@
 ---
 tags: [sales-cloud, accounts, contacts, person-accounts, relationships]
-source: help.salesforce.com (Salesforce Help — Sales Basics; Manage Accounts and Contacts + Contacts to Multiple Accounts + Person Accounts; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Sales Basics; Manage Accounts and Contacts + Contacts to Multiple Accounts + Person Accounts; 라이브 공식 문서, Tier 2, 접속 2026-07-03) · help.salesforce.com — Enable Person Accounts (sales.account_person_enable.htm) + Cannot disable Person Accounts (000387315), Tier 2
 official_doc: https://help.salesforce.com/s/articleView?id=sales.sales_core_manage_accounts_contacts.htm&type=5
 created: 2026-07-03
 aliases: [Accounts, Contacts, 거래처, 연락처, Business Account, Person Account, Contacts to Multiple Accounts, Primary Account, 거래처 계층]
@@ -22,6 +22,15 @@ aliases: [Accounts, Contacts, 거래처, 연락처, Business Account, Person Acc
 | **Person Account** | 개별 사람(individual person) 정보를 저장 |
 
 Business account는 회사 단위로 거래하는 B2B 시나리오에, person account는 개인 소비자를 직접 고객으로 다루는 B2C 시나리오에 쓰인다.
+
+### ⚠️ 전제조건 — Person Accounts 활성화 (비가역)
+
+Person account는 조직에 **기본 제공되지 않는다.** 사용하려면 먼저 Salesforce가 기능을 **명시적으로 활성화(enable)** 해야 하며, 활성화 전에 아래 전제조건을 충족해야 한다.
+
+- **계정 record type이 1개 이상** 존재해야 한다 (Person account를 위한 record type 구성이 필요).
+
+> [!warning] 한 번 활성화하면 되돌릴 수 없다 — 영구적
+> Person Accounts는 **한 번 활성화하면 비활성화(disable)할 수 없다.** 이 변경은 영구적이므로, 프로덕션 조직에서 활성화하기 전 반드시 데이터 모델·보안·통합 영향을 검토하고 sandbox에서 먼저 테스트한다. (근거: Salesforce Help — Enable Person Accounts / Cannot disable Person Accounts)
 
 ## Contacts (연락처)
 

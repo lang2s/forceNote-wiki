@@ -1,6 +1,6 @@
 ---
 tags: [apex, platform-events, cdc, change-data-capture, change-event-header, eventbus]
-source: salesforce_apex_reference_guide (Version 67.0, Summer '26)
+source: salesforce_apex_reference_guide (Version 67.0, Summer '26) · Change Data Capture Developer Guide (developer.salesforce.com/docs/atlas.en-us.change_data_capture.meta — cdc_trigger_intro, Tier 2)
 created: 2026-05-17
 aliases: [ChangeEventHeader, CDC, Change Data Capture, 변경 데이터 캡처, changetype, recordids]
 ---
@@ -8,6 +8,27 @@ aliases: [ChangeEventHeader, CDC, Change Data Capture, 변경 데이터 캡처, 
 # EventBus.ChangeEventHeader
 
 > Change Data Capture(CDC) 이벤트의 헤더 필드를 담는 클래스. CDC 트리거에서 변경된 레코드·필드 정보 파악에 사용.
+
+---
+
+## ⚠️ 전제조건 — CDC 엔티티 선택 (트리거 작성 전 필수)
+
+`{Object}ChangeEvent` 트리거는 코드를 배포한다고 발화하지 않는다. **먼저 Setup에서 대상 엔티티를 선택·저장해 change event가 채널에 발행되도록 켜야** 한다. 엔티티를 선택하지 않으면 채널에 이벤트가 아예 발행되지 않아 트리거는 절대 실행되지 않는다.
+
+**활성화 경로:** `Setup → Change Data Capture`(또는 `Integrations → Change Data Capture`) → **Edit** → 대상 엔티티를 Selected Entities로 이동 → **Save**
+
+```
+// 구조 예시 — 실제 동작 코드 아님 (Setup UI 절차)
+Setup → Change Data Capture → Edit
+   Available Entities → [Account] → Selected Entities
+   Save
+→ AccountChangeEvent 채널로 change event 발행 시작
+→ 이후 AccountChangeEvent 트리거가 발화
+```
+
+**하드 한도:** 이 화면에서 선택할 수 있는 엔티티는 **표준 + 커스텀 합쳐 최대 5개**다. 더 많은 엔티티에 CDC가 필요하면 추가 Change Data Capture 라이선스가 필요하다.
+
+> 커스텀 채널로 엔티티를 구성하는 메타데이터 방식(PlatformEventChannel·PlatformEventChannelMember)은 [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] 참조.
 
 ---
 

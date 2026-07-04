@@ -1,6 +1,6 @@
 ---
 tags: [scheduler, salesforce-scheduler, lightning-scheduler, appointment-booking, overview, soql-tolabel]
-source: salesforce_scheduler_dev_guide.pdf (Salesforce Scheduler Developer Guide, v67.0 Summer '26)
+source: salesforce_scheduler_dev_guide.pdf (Salesforce Scheduler Developer Guide, v67.0 Summer '26) + help.salesforce.com — Licenses for Salesforce Scheduler (platform.ls_licenses_for_salesforce_scheduler) · Salesforce Scheduler Limitations (sf.ls_limitations) [Tier 2 공식]
 created: 2026-06-22
 aliases: [Salesforce Scheduler, Lightning Scheduler, Scheduler 셋업, toLabel SOQL, Scheduler 인증, 예약 데이터모델]
 ---
@@ -36,9 +36,27 @@ Scheduler 리소스를 사용하기 전에 다음 항목으로 Scheduler를 구�
 - **Work types 생성** — 예약 주제를 특정 위치와 연결하고, 예약 소요시간(duration), 준비·마무리 버퍼(preparation and wrap-up buffers), 가용성 타이밍(availability timings) 같은 핵심 파라미터를 정의하는 예약 템플릿(appointment templates)을 나타낸다.
 - **Schedule customer appointments** — 정의된 주제, 참석자, 소요시간, 위치로 고객 예약을 스케줄링한다.
 
+### ⚠️ 한도·주의 — multi-day 스케줄링 미지원
+
+Salesforce Scheduler는 **multi-day 스케줄링을 지원하지 않는다** — 하루를 넘겨(자정 경과) **하루 이상에 걸치는 예약은 잡을 수 없다.** `schedStartTime`/`schedEndTime`을 날짜 경계 너머로 설정하려 하면 막히므로, 각 예약은 단일 날짜 내로 유지해야 한다.
+
+> Tier 2 근거: help.salesforce.com — *Salesforce Scheduler Limitations*: *"Salesforce Scheduler doesn't support multi-day scheduling ... you can't schedule appointments that span more than one day."*
+
 ---
 
 ## 2. Set Up Salesforce Scheduler — 셋업 선행작업
+
+### ⚠️ 전제조건 — 제품 활성화·라이선스 (셋업 진입 전 선행)
+
+아래 셋업 절차(service resource·territory·work type 구성)는 **Salesforce Scheduler 제품이 이미 조직에 프로비저닝·활성화된 상태**를 전제한다. Salesforce Scheduler는 무료 표준 기능이 아니라 **유료 add-on**이므로, 라이선스 전제가 충족되지 않으면 Setup에 Scheduler 자체가 나타나지 않아 이 노트대로 따라가도 막힌다. (개별 표준객체 노트의 *"Special Access Rules: Salesforce Scheduler must be enabled"*가 암시하는 활성화 조건이 바로 이것이다.)
+
+- **Edition 조건** — Salesforce Scheduler는 **Enterprise Edition 또는 Unlimited Edition**에서, **Lightning Experience** 내에서만 사용할 수 있다.
+- **라이선스** — base 라이선스(Sales Cloud·Service Cloud 등) 위에 **Salesforce Scheduler add-on** 프로비저닝이 필요하다.
+- **권한 할당** — 예약을 잡는 사용자와 service resource에게 **permission set license / permission set 할당**이 선행돼야 한다.
+
+> Tier 2 근거: help.salesforce.com — *Licenses for Salesforce Scheduler* (add-on·base 라이선스·Enterprise/Unlimited) / *Salesforce Scheduler Limitations* (*"Available only in Enterprise and Unlimited Editions within Lightning Experience."*)
+
+---
 
 조직에 Salesforce Scheduler를 설정한다. 사용자에게 권한과 객체 접근 권한을 할당하고, 관련 목록(related lists)과 탭 가시성(tab visibility)을 갱신하며, multi-resource 스케줄링·concurrent 스케줄링·다중 시간대 선택(multiple time zone selection)·지도 및 위치 서비스(map and location services)를 위한 Salesforce Scheduler 설정을 구성한다. 선택적으로 Salesforce Scheduler용 **Asset Scheduling**을 설정한다.
 

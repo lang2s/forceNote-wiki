@@ -1,7 +1,8 @@
 ---
 tags: [service-cloud, macros, agent-productivity, automation]
-source: help.salesforce.com (Salesforce Help — Service; Create Macros in Lightning Experience; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Service; Create Macros in Lightning Experience; 라이브 공식 문서, Tier 2, 접속 2026-07-03) · help.salesforce.com (Automate Repetitive Tasks with Macros — Run Macros / Manage Macros / Manage Macros Users Can't Undo 권한, Tier 2, 접속 2026-07-04)
 official_doc: https://help.salesforce.com/s/articleView?id=service.macros_create_lightning.htm&type=5
+official_doc_permissions: https://help.salesforce.com/s/articleView?id=sf.macros_def.htm&type=5
 created: 2026-07-03
 aliases: [Macros, 매크로, Macro Builder, Agent Productivity]
 ---
@@ -23,6 +24,19 @@ aliases: [Macros, 매크로, Macro Builder, Agent Productivity]
 - case 필드(예: status) 업데이트
 
 이런 단계들을 macro 하나에 정의해 두면, 담당자는 클릭 한 번으로 전체 흐름을 실행할 수 있다.
+
+## ⚠️ 전제조건 — 필요 사용자 권한
+
+macro는 아래 권한이 없으면 **실행·저장 자체가 되지 않는다.** 노트가 예시로 든 '이메일 전송'·'case status 업데이트'는 되돌릴 수 없는(irreversible) 액션이라 별도 권한이 추가로 필요하다.
+
+| 하려는 작업 | 필요 권한 |
+|---|---|
+| macro 실행 | **Run Macros** |
+| macro 생성·편집·삭제 | **Manage Macros** (+ 대상 객체의 CRUD 권한) |
+| 되돌릴 수 없는(irreversible) 액션을 담은 macro의 생성·실행 | **Manage Macros Users Can't Undo** |
+
+- 이메일 전송, case status 업데이트처럼 **한 번 실행하면 되돌릴 수 없는 단계**를 포함한 macro는 `Manage Macros Users Can't Undo` 권한이 반드시 있어야 한다. 이 권한이 없으면 이 노트의 예시 macro는 실행되지도, 저장되지도 않는다.
+- macro가 업데이트하는 필드에 대한 객체 CRUD 권한도 함께 필요하다(예: case status 업데이트 → Case 편집 권한).
 
 ## 접근 — Utility Bar
 

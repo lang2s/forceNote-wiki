@@ -1,6 +1,6 @@
 ---
 tags: [sales-cloud, forecasting, collaborative-forecasts, quotas, forecast-types]
-source: help.salesforce.com (Salesforce Help — Collaborative Forecasts / Elements / Quotas / Forecast Types / Adjustments; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Collaborative Forecasts / Elements / Quotas / Forecast Types / Adjustments; 라이브 공식 문서, Tier 2, 접속 2026-07-03) + help.salesforce.com (Turn On Salesforce Forecasting and Define Forecast Settings; Show Quota Information in Collaborative Forecasts; Tier 2, 접속 2026-07-04)
 official_doc: https://help.salesforce.com/s/articleView?id=sf.forecasts3_overview.htm&type=5
 created: 2026-07-03
 aliases: [Collaborative Forecasts, 예측, 매출 예측, Forecast Types, Forecast Category, Quota, 할당량, Forecast Adjustment, Territory Forecast]
@@ -9,6 +9,17 @@ aliases: [Collaborative Forecasts, 예측, 매출 예측, Forecast Types, Foreca
 # Collaborative Forecasts (예측)
 
 > opportunity 파이프라인을 기반으로 매출을 예측하는 Sales Cloud 기능. forecast type·category별로 예측을 집계하고, quota(할당량) 대비 진척을 보며, adjustment로 예측치를 보정한다.
+
+---
+
+## ⚠️ 전제조건 — 예측 활성화 (기본 비활성)
+
+Collaborative Forecasts는 **기본으로 비활성**이다. 아래를 켜기 전에는 예측 탭 자체가 나타나지 않으며, forecast type·quota·adjustment를 사용할 수 없다.
+
+1. **Setup → Quick Find에 `Forecast Settings` 입력 → Enable Forecasts**를 켠다.
+2. 예측할 **forecast type을 추가·활성화**한다 — 각 유형에 예측할 **measure와 hierarchy(집계 기준)를 지정**해야 한다. forecast type을 하나 이상 활성화해야 예측 탭이 표시된다.
+
+> 근거: [Turn On Salesforce Forecasting and Define Forecast Settings](https://help.salesforce.com/s/articleView?id=sales.forecasts3_defining_forecasts_settings.htm&type=5) (Tier 2)
 
 ---
 
@@ -44,7 +55,13 @@ org에는 여러 개의 **pipeline forecast type**을 활성화할 수 있으며
 - Quota 데이터는 **revenue(매출), quantity(수량), 또는 custom measure**를 사용할 수 있다.
 - **여러 forecast type이 활성화되어 있으면, 각 forecast type이 별도의 quota 정보를 유지**한다. 즉 하나의 사용자가 여러 예측 유형에 대해 각기 다른 할당량을 가질 수 있다.
 
-이 목표치는 예측 화면에서 각 기간의 예측 금액과 나란히 표시되어, quota 대비 진척(달성률)을 한눈에 확인할 수 있게 한다.
+### ⚠️ Quota 표시는 기본 숨김 — 'Show Quotas' 활성화 필요
+
+Quota는 **기본으로 예측 페이지에 숨겨져 있다.** 관리자가 **Forecast Settings에서 'Show Quotas'를 켜야** 예측 페이지에 quota와 달성률이 나타난다(Show Quota Information in Collaborative Forecasts). 이 표시 옵션을 켜기 전에는 할당량이 예측 화면에 나오지 않는다.
+
+활성화하면 이 목표치가 예측 화면에서 각 기간의 예측 금액과 나란히 표시되어, quota 대비 진척(달성률)을 한눈에 확인할 수 있게 된다.
+
+> 근거: [Show Quota Information in Collaborative Forecasts](https://help.salesforce.com/s/articleView?id=sf.forecasts3_enabling_quotas_in_forecasts.htm&type=5) (Tier 2)
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 tags: [sobject-reference, change-event, cdc, change-data-capture, associated-objects, StandardObjectNameChangeEvent]
-source: object_reference.pdf p.68-77 (v67.0 Summer '26)
+source: object_reference.pdf p.68-77 (v67.0 Summer '26); Tier 2 — Change Data Capture Developer Guide, cdc_allocations.htm (developer.salesforce.com)
 created: 2026-05-22
 aliases: [ChangeEvent Objects, CDC, Change Data Capture, StandardObjectNameChangeEvent, AccountChangeEvent, ChangeEventHeader, changeType, changedFields, replayId, schema, 변경 이벤트, 변경감지]
 ---
@@ -14,6 +14,18 @@ aliases: [ChangeEvent Objects, CDC, Change Data Capture, StandardObjectNameChang
 ## 핵심 제약
 
 > [!important] ChangeEvent는 Salesforce Object가 아님 — CRUD 작업 및 쿼리 불가. CDC 스트림 구독 전용.
+
+---
+
+## ⚠️ 전제조건 — CDC 활성화 및 엔터티 한도
+
+> [!warning] ChangeEvent는 기본적으로 **비활성**이다. 구독을 시작하기 전에 Setup에서 대상 엔터티를 선택해 Change Data Capture를 활성화해야 한다.
+
+- **활성화 절차:** Setup → **Change Data Capture** → **Edit** 에서 이벤트를 받을 대상 엔터티를 선택해 활성화한다. (선택하지 않은 엔터티의 ChangeEvent는 발행되지 않는다.)
+- **표준 CDC allocation:** 표준 CDC로는 **표준 + 커스텀 오브젝트를 합쳐 최대 5개 엔터티**만 선택할 수 있다. 이 5-엔터티 한도는 하드 리밋이다.
+- **한도 초과가 필요한 경우:** **add-on 라이선스**를 구매하면 엔터티 선택 제한이 해제되고 이벤트 전달(event delivery) allocation이 증가한다.
+
+> 참고: 위 활성화·한도는 Setup에서 선택한 엔터티에 적용된다. 개별 Object별 특수 접근 규칙(권한·기능 활성화)은 아래 "특수 접근 규칙"을 함께 확인한다.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 tags: [data-cloud, data-360, identity-resolution, unified-profile, match-rules]
-source: help.salesforce.com (Salesforce Help — Identity Resolution; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Identity Resolution; 라이브 공식 문서, Tier 2, 접속 2026-07-03) · Salesforce Help — Data 360 Limits and Guidelines (c360_a_limits_and_guidelines.htm, Tier 2)
 official_doc: https://help.salesforce.com/s/articleView?id=sf.c360_a_identity_resolution.htm&type=5
 created: 2026-07-03
 aliases: [Identity Resolution, 아이덴티티 해석, 신원 해석, Unified Profile, 통합 프로파일, Match Rules, Ruleset]
@@ -58,6 +58,16 @@ identity resolution 결과의 품질은 **calculated insight**로 진단한다. 
 | **Contributing Contact Points** | 수집 후·ruleset 생성 **전** | Contact Point Address/Email/Phone·Party Identification의 **반복 값** 점검(데이터 품질) |
 
 > calculated insight의 정의·작성 방법은 [[Calculated Insights (계산된 인사이트)]] 참조.
+
+---
+
+## 한도·주의
+
+> [!warning] Ruleset 개수 하드 한도 — 최대 2개
+> 한 Data Cloud org에서 **데이터 모델·data space당 identity resolution ruleset은 최대 2개까지만** 생성할 수 있다. ruleset을 자유롭게 여러 개 만들 수 있는 것처럼 보이지만 실제로는 이 하드 한도에 자주 막힌다.
+>
+> - **3번째 ruleset을 만들려면** 기존 ruleset 하나를 **먼저 삭제**해야 한다.
+> - 삭제 시 해당 ruleset의 **종속 오브젝트(dependent objects)까지 함께 삭제**해야 한다.
 
 ---
 

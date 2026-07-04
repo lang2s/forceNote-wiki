@@ -1,6 +1,6 @@
 ---
 tags: [agent-skill, sf-skills, integration, cdc, change-data-capture, platform-event-channel]
-source: forcedotcom/sf-skills (skills/integration-eventing-cdc-configure/SKILL.md, 공식 Salesforce)
+source: forcedotcom/sf-skills (skills/integration-eventing-cdc-configure/SKILL.md, 공식 Salesforce); Tier 2 — Change Data Capture Developer Guide, "Allocations for Change Data Capture" (developer.salesforce.com/docs/atlas.en-us.change_data_capture.meta/change_data_capture/cdc_allocations.htm)
 created: 2026-06-26
 aliases: [integration-eventing-cdc-configure, CDC 활성화 구성, Change Data Capture, PlatformEventChannelMember, PlatformEventChannel, EnrichedField, 변경 이벤트 필터]
 ---
@@ -18,7 +18,7 @@ aliases: [integration-eventing-cdc-configure, CDC 활성화 구성, Change Data 
 **SKIP:** platform event 발행·Pub/Sub API·REST/SOAP → [[integration-connectivity-generate]]; `ManagedEventSubscription`(CDC 범위 밖) → [[integration-eventing-subscription-configure]]. **CDC channel-membership metadata는 항상 이 스킬 사용.**
 
 **In scope:** CDC용 `PlatformEventChannelMember`·`PlatformEventChannel` 생성, 표준/커스텀 객체 구독, enrichment field, filter expression, 커스텀 data channel 정의.
-**Out of scope:** custom platform event(`PlatformEvent`) 발행, Pub/Sub API·외부 Kafka/Bayeux, pricing/limits([CDC Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.change_data_capture.meta/change_data_capture/) 참조), Apex event-bus subscriber.
+**Out of scope:** custom platform event(`PlatformEvent`) 발행, Pub/Sub API·외부 Kafka/Bayeux, Apex event-bus subscriber. (엔티티·채널 한도는 아래 "엔티티·채널 한도" 소절 참조 — 배포 전 반드시 확인.)
 
 ## 워크플로 / 단계
 
@@ -96,6 +96,19 @@ member는 동일 DeveloperName으로 참조: `<eventChannel>PartnerSync__chn</ev
 
 ### 6. Filter expression 추가(요청 시)
 predicate를 `<filterExpression>...</filterExpression>`로 감쌈. body는 `WHERE` 키워드 없는 WHERE-clause body(예: `Status__c != null`, `WHERE Status__c != null` 아님). 지원 operator·field type·함정은 `references/filter-expressions.md` 참조.
+
+## 엔티티·채널 한도 (배포 블로커)
+
+CDC add-on을 구매하지 않은 조직은 구독 가능한 엔티티 수에 하드 한도가 있다. `PlatformEventChannelMember`가 문법적으로 완벽해도 이 allocation을 넘으면 배포가 막힌다 — 이 스킬로 따라 하다 가장 흔히 부딪히는 실무 블로커다.
+
+| 한도 | 값 | 비고 |
+|---|---|---|
+| 선택(구독) 가능 엔티티 수 (add-on 미구매) | **기본 `ChangeEvents` 채널 + 모든 커스텀 채널 합산 최대 5개** | 6번째 `PlatformEventChannelMember` 배포 시 allocation 초과로 실패 |
+| 선택 가능 엔티티 수 (Change Data Capture add-on 구매) | **한도 제거(무제한)** | add-on 라이선스가 엔티티 한도를 해제 |
+| 커스텀 채널(`PlatformEventChannel`) 수 | **조직당 최대 100개** | `data` channelType 커스텀 채널 총량 |
+
+> 5개는 **채널을 가로질러 합산**된다 — 기본 채널에 3개 + 커스텀 채널에 2개 = 이미 5개 소진. 커스텀 채널을 여러 개 만들어도 엔티티 총량 한도(add-on 미구매 시 5)는 우회되지 않는다.
+> 근거: [Allocations for Change Data Capture](https://developer.salesforce.com/docs/atlas.en-us.change_data_capture.meta/change_data_capture/cdc_allocations.htm) (Tier 2).
 
 ## 핵심 규칙·가드레일
 
