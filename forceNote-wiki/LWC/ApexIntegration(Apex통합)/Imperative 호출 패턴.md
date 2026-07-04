@@ -153,3 +153,4 @@ public static List<Contact> getContactList() { ... }
 - [[Wire vs Imperative 선택]]
 - [[Wire 패턴]]
 - [[에러 패널 패턴]]
+- [[@salesforce Modules 레퍼런스]] — `@salesforce/apex/...` import 문법 레퍼런스

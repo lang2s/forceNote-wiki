@@ -13,6 +13,15 @@ created: 2026-05-21
 |---|---|
 | LWC, Lightning Web Components, LWC 개요, LWC 시작, get started, LWC란 무엇인가, web components, base components, 표준 웹 기술, W3C TC39, 오픈소스, Aura 상호운용, LWC vs Aura, choose LWC, 시작 경로, LWC 진입점 | `LWC/LWC 개요 (Get Started).md` |
 
+## LWC — Reference (레퍼런스)
+
+| 키워드 | 파일 |
+|---|---|
+| LWC directives, HTML template directives, lwc:if lwc:elseif lwc:else, if:true, for:each for:item for:index, iterator, key, lwc:ref, lwc:dom, lwc:spread, lwc:on, lwc:slot-data slot-bind, lwc:is, 조건 렌더링, 리스트 렌더링, 슬롯 | `LWC/Reference(레퍼런스)/HTML 템플릿 Directives 레퍼런스.md` |
+| @salesforce modules, salesforce 모듈, @salesforce/apex, @salesforce/schema, @salesforce/label, @salesforce/resourceUrl, @salesforce/contentAssetUrl, @salesforce/user, @salesforce/userPermission, @salesforce/customPermission, @salesforce/client/formFactor, @salesforce/community, @salesforce/site, @salesforce/messageChannel, getSObjectValue, refreshApex, import salesforce 리소스, LWC에서 Apex label 정적리소스 import | `LWC/Reference(레퍼런스)/@salesforce Modules 레퍼런스.md` |
+| js-meta.xml, LWC 설정 파일, configuration file, targets, target, capability, isExposed, apiVersion, masterLabel, targetConfig, lightning__RecordPage, lightning__AppPage, lightning__FlowScreen, lightning__UrlAddressable, lightning__Tab, lightning__UtilityBar, lightning__HomePage, AgentforceInput, 컴포넌트 어디에 노출 | `LWC/Reference(레퍼런스)/XML Config File Elements (js-meta.xml) 레퍼런스.md` |
+| PageReference, PageReference Types, NavigationMixin, standard__recordPage, standard__objectPage, standard__navItemPage, standard__component, standard__webPage, standard__flow, standard__quickAction, comm__namedPage, LWC 네비게이션 타입, 페이지 이동 | `LWC/Reference(레퍼런스)/PageReference Types 레퍼런스.md` |
+
 ## LWC — Apex 호출 / 데이터 로드
 
 | 키워드 | 파일 |

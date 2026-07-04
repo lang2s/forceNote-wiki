@@ -144,3 +144,4 @@ public static List<Contact> getContactList() { ... }
 - [[Wire vs Imperative 선택]]
 - [[Imperative 호출 패턴]]
 - [[getRecord 패턴]]
+- [[@salesforce Modules 레퍼런스]] — `@salesforce/apex`·`@salesforce/schema`·`getSObjectValue` import 문법 레퍼런스

@@ -155,6 +155,7 @@ async openTabHandler() {
 
 ## 관련 노트
 
+- [[PageReference Types 레퍼런스]] — pageReference 타입·프로퍼티 전수 레퍼런스(이 노트는 how-to)
 - [[Toast & 모달 패턴]]
 - [[LWC 보안 패턴]]
 - [[Screen Flow 설계]] — LWC에서 NavigationMixin으로 Screen Flow를 기동하는 패턴

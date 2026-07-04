@@ -386,3 +386,4 @@ Content Source = URL 버튼에서 **URL-addressable Lightning 컴포넌트**(Aur
 - [[Quick Actions & Global Actions (퀵 액션·글로벌 액션)]] — 액션 개요.
 - [[Page Layouts (페이지 레이아웃)]] — 버튼·액션 배치.
 - [[Flow — 선언적 자동화 개요 (플로우)]] — Custom 액션이 호출하는 Flow.
+- [[XML Config File Elements (js-meta.xml) 레퍼런스]] — URL 버튼 대상 LWC의 `lightning__UrlAddressable` 타깃·`isExposed` 설정.

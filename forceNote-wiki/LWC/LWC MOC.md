@@ -15,6 +15,17 @@ created: 2026-05-17
 
 ---
 
+## 📑 Reference (레퍼런스)
+
+> LWC Dev Guide Reference 섹션 갭을 채우는 전수 레퍼런스. 전체 색인: [[LWC/Reference(레퍼런스)/index|Reference(레퍼런스) 색인]]
+
+- [[HTML 템플릿 Directives 레퍼런스]] — HTML 템플릿 directive 전수(lwc:if/elseif/else·for:each/item/index·iterator·key·slot·lwc:ref/dom/spread/on/is) + 위치별 지원 매트릭스
+- [[@salesforce Modules 레퍼런스]] — `@salesforce/*` 스코프드 모듈 전수(apex·schema·label·resourceUrl·contentAssetUrl·user·userPermission·customPermission·client/formFactor·community·site·messageChannel) + getSObjectValue·refreshApex
+- [[XML Config File Elements (js-meta.xml) 레퍼런스]] — 컴포넌트 설정 파일 `*.js-meta.xml` 요소 전수(targets·capability·isExposed·apiVersion·targetConfig·lightning__ 타깃) — 컴포넌트 노출 위치 정의
+- [[PageReference Types 레퍼런스]] — NavigationMixin PageReference 타입 전수(standard__recordPage·objectPage·navItemPage·component·webPage·flow·quickAction·comm__namedPage) — 페이지 이동 대상 정의
+
+---
+
 ## ⚡ Apex 통합
 
 - [[Wire vs Imperative 선택]] — @wire(property/function) vs async/await 결정 매트릭스
