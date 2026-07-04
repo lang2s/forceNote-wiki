@@ -72,5 +72,3 @@ Account acc = [SELECT Id FROM Account WHERE Name = 'Singha' WITH USER_MODE LIMIT
 - [[Release MOC]]
 - [[Spring '26]] — 이전 릴리즈 (v66.0)
 - [[Winter '26]] — 이전이전 릴리즈
-</content>
-</invoke>

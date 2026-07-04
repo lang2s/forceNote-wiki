@@ -128,4 +128,3 @@ delete as user [SELECT Id FROM Account WHERE Name = 'Integration Test Account' W
 - [[Summer '26]] — 상위 허브
 - [[Summer '26/Development]] — `System.IntegrationTest`·`String.template` 등 개발자 항목
 - [[Queueable]] — 비동기 Apex 실행 모델
-</content>

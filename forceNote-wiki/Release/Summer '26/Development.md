@@ -549,4 +549,3 @@ Description { value }
 - [[Safely]] · [[StripInaccessible]] — FLS·공유 패턴
 - [[Queueable]] — Elastic Limits 대상
 - [[EventBus Namespace]] — `publishWithAccessLevel()`
-</content>

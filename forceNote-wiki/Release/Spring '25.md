@@ -88,5 +88,3 @@ aliases: [Spring '25, Spring25, v63.0, API 63, 스프링 25]
 - [[Winter '25]] — 이전 릴리즈
 - [[Summer '25]] — 다음 릴리즈
 - [[Spring '25/index]] — 폴더 인덱스
-</content>
-</invoke>
