@@ -1,8 +1,8 @@
 ---
 tags: [flow, apex, invocable, action, pattern]
-source: automation-components
+source: automation-components, dreamhouse-lwc-main/force-app/main/default/classes/GeocodingService.cls, agent-script-recipes-main/force-app/main/04_architecturalPatterns/externalAPIIntegration/classes/WeatherService.cls
 created: 2026-05-17
-aliases: [InvocableMethod, Flow Action, Invocable Apex]
+aliases: [InvocableMethod, Flow Action, Invocable Apex, callout=true, Agentforce Apex Action, apex 액션]
 ---
 
 # @InvocableMethod 패턴
@@ -124,6 +124,110 @@ global String sortKeys;  // '[{"field":"Name","direction":"desc"}]'
 // Apex 역직렬화
 List<SortKey> keys = (List<SortKey>) JSON.deserialize(sortKeys, List<SortKey>.class);
 ```
+
+---
+
+## 외부 REST 콜아웃 인보커블 — `callout=true` + raw Http (dreamhouse)
+
+인보커블 액션 안에서 **외부 REST API를 직접 GET 콜아웃**하는 실전 패턴. dreamhouse-lwc의 `GeocodingService`가 주소를 OpenStreetMap Nominatim으로 지오코딩한다. 위의 컬렉션/데이터 인보커블과 달리 세 가지가 추가된다: **(1)** `@InvocableMethod(callout=true)` 수식자, **(2)** `Http`/`HttpRequest`/`HttpResponse`로 raw 동기 콜아웃, **(3)** 응답 JSON을 `@InvocableVariable` 이너 클래스로 역직렬화.
+
+```apex
+public with sharing class GeocodingService {
+    private static final String BASE_URL = 'https://nominatim.openstreetmap.org/search?format=json';
+
+    @InvocableMethod(callout=true label='Geocode address')
+    public static List<Coordinates> geocodeAddresses(
+        List<GeocodingAddress> addresses
+    ) {
+        List<Coordinates> computedCoordinates = new List<Coordinates>();
+        for (GeocodingAddress address : addresses) {
+            String geocodingUrl = BASE_URL;
+            geocodingUrl += (String.isNotBlank(address.street))
+                ? '&street=' + address.street : '';
+            geocodingUrl += (String.isNotBlank(address.city))
+                ? '&city=' + address.city : '';
+            // ... state / country / postalcode 동일하게 URL 파라미터로 누적
+
+            Coordinates coords = new Coordinates();
+            if (geocodingUrl != BASE_URL) {
+                Http http = new Http();
+                HttpRequest request = new HttpRequest();
+                request.setEndpoint(geocodingUrl);
+                request.setMethod('GET');
+                request.setHeader(
+                    'http-referer',
+                    URL.getOrgDomainUrl().toExternalForm()
+                );
+                HttpResponse response = http.send(request);
+                if (response.getStatusCode() == 200) {
+                    List<Coordinates> deserializedCoords = (List<Coordinates>) JSON.deserialize(
+                        response.getBody(),
+                        List<Coordinates>.class
+                    );
+                    coords = deserializedCoords[0];
+                }
+            }
+            computedCoordinates.add(coords);
+        }
+        return computedCoordinates;
+    }
+
+    public class GeocodingAddress {
+        @InvocableVariable public String street;
+        @InvocableVariable public String city;
+        @InvocableVariable public String state;
+        @InvocableVariable public String country;
+        @InvocableVariable public String postalcode;
+    }
+
+    public class Coordinates {
+        @InvocableVariable public Decimal lat;
+        @InvocableVariable public Decimal lon;
+    }
+}
+```
+
+**핵심 규칙:**
+
+| 항목 | 규칙 |
+|---|---|
+| `callout=true` | 액션이 HTTP 콜아웃을 하면 **필수**. 없으면 Flow가 트랜잭션 규칙 위반으로 런타임 에러 |
+| 콜아웃 방식 | `new Http().send(request)` — **동기** 콜아웃. Remote Site Setting(엔드포인트 도메인 등록) 기반 익명 콜아웃 |
+| 응답 매핑 | `JSON.deserialize(response.getBody(), List<Coordinates>.class)` — 응답 이너 클래스 필드명이 JSON 키(`lat`/`lon`)와 일치해야 자동 매핑 |
+| 출력 타입 | `List<Coordinates>` — 응답 이너 클래스 자체를 반환. Flow는 `geocode_address.lat` 처럼 하위 필드 접근 |
+
+> 이 패턴은 **Remote Site 기반 익명 콜아웃**이다. Named Credential 기반의 관리형 콜아웃은 [[RestClient 패턴]] 참조(인증·엔드포인트를 Named Credential에 위임).
+
+### Screen Flow에서 호출 — `actionCall` + `faultConnector`
+
+`Create_property` 스크린 Flow가 위 액션을 `actionType=apex`로 호출하고, 콜아웃 실패 시 `faultConnector`로 에러 화면으로 분기한다.
+
+```xml
+<!-- Create_property.flow-meta.xml (발췌) -->
+<actionCalls>
+    <name>geocode_address</name>
+    <label>Geocode Address</label>
+    <actionName>GeocodingService</actionName>
+    <actionType>apex</actionType>
+    <connector>
+        <targetReference>property_details</targetReference>
+    </connector>
+    <faultConnector>
+        <targetReference>Error5</targetReference>   <!-- 콜아웃 실패 시 에러 화면으로 -->
+    </faultConnector>
+    <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+    <inputParameters>
+        <name>city</name>
+        <value><elementReference>property_address.city</elementReference></value>
+    </inputParameters>
+    <!-- country / postalcode / state / street 동일하게 매핑 -->
+    <storeOutputAutomatically>true</storeOutputAutomatically>
+</actionCalls>
+```
+
+- `inputParameters`의 `<name>`은 인보커블 이너 클래스(`GeocodingAddress`)의 `@InvocableVariable` 필드명과 **정확히 일치**해야 한다(`city`·`street`·`state`·`country`·`postalcode`).
+- `storeOutputAutomatically=true` → Flow가 반환 `Coordinates`를 `geocode_address.lat`/`geocode_address.lon`으로 자동 저장.
+- `faultConnector` 없이 콜아웃 액션을 두면 실패 시 Flow 전체가 unhandled fault로 중단된다 → 콜아웃 액션엔 fault 경로를 항상 배선.
 
 ---
 
@@ -271,6 +375,88 @@ EventBus.publishWithAccessLevel(eventList, EventBus.AccessLevel.USER);
 
 ---
 
+## Agentforce 에이전트 액션으로 노출 — `apex://` 타깃 (agent-script-recipes)
+
+동일한 `@InvocableMethod`를 **Agentforce 에이전트 액션**으로도 배선할 수 있다. Flow 관점(bulkInvoke·category·Flow 타입 매핑)과 별개로, 에이전트 관점에선 세 가지 계약이 추가된다. agent-script-recipes의 `WeatherService`가 예시다.
+
+```apex
+public with sharing class WeatherService {
+    public class WeatherRequest {
+        @InvocableVariable(label='City Name' required=true)
+        public String cityName;
+    }
+    public class WeatherResponse {
+        @InvocableVariable(label='Success')      public Boolean success;
+        @InvocableVariable(label='Error Message') public String error_message;
+        @InvocableVariable(label='Temperature')  public Integer temperature;
+        @InvocableVariable(label='Humidity')     public Integer humidity;
+        @InvocableVariable(label='Conditions')   public String conditions;
+    }
+
+    @InvocableMethod(label='Get Weather'
+        description='Retrieves current weather information for a specified location')
+    public static List<WeatherResponse> getWeather(List<WeatherRequest> requests) {
+        // ... 요청별 WeatherResponse 생성 후 반환
+    }
+}
+```
+
+### 1) 필드명 = 액션 inputs/outputs 이름 (네이밍 계약)
+
+`.agent` 액션의 `inputs`/`outputs` 이름은 Apex Request/Response 이너 클래스의 `@InvocableVariable` 필드명과 **글자 그대로 일치**해야 배선된다. `WeatherResponse.error_message`(스네이크 케이스 그대로) → 액션 output `error_message`.
+
+```yaml
+# ExternalAPIIntegration.agent (발췌) — 실제 Agent Script
+actions:
+   get_weather:
+      description: "Fetch weather data from external API via Flow"
+      inputs:
+         cityName: string          # = WeatherRequest.cityName
+            is_required: True
+      outputs:
+         temperature: object       # = WeatherResponse.temperature
+            complex_data_type_name: "lightning__integerType"
+         conditions: string        # = WeatherResponse.conditions
+         humidity: object          # = WeatherResponse.humidity
+            complex_data_type_name: "lightning__integerType"
+         success: boolean          # = WeatherResponse.success
+         error_message: string     # = WeatherResponse.error_message
+      target: "apex://WeatherService"
+```
+
+### 2) Apex primitive 출력 → `object` + `complex_data_type_name`
+
+Apex의 `Integer`/`Boolean`/`Date` 같은 primitive 출력을 에이전트 액션에서 쓰려면, 액션 output을 단순 타입이 아니라 **`object` + `complex_data_type_name`으로 감싸 선언**해야 한다. 위에서 `temperature`(Apex `Integer`)가 `object` / `complex_data_type_name: "lightning__integerType"`로 선언된 이유다.
+
+| Apex 출력 타입 | 액션 output 선언 |
+|---|---|
+| `String` | `string` (그대로) |
+| `Boolean` | `boolean` (그대로) |
+| `Integer` | `object` + `complex_data_type_name: "lightning__integerType"` |
+
+> `success`(Boolean)·`conditions`(String)은 primitive 그대로 두고, `temperature`·`humidity`(Integer)만 `object` 래핑된 점에 주의 — 래핑 규칙은 타입별로 다르다.
+
+### 3) `genAiFunction`(invocationTargetType=apex)이 클래스를 액션으로 배선
+
+`.agent` 번들의 `target: "apex://..."`와 별개로, 메타데이터 배포 경로에서는 `GenAiFunction`이 `invocationTargetType=apex`로 Apex 클래스를 에이전트 액션에 연결한다(같은 레포의 `Submit_Case` 예시).
+
+```xml
+<!-- Submit_Case.genAiFunction-meta.xml (발췌) -->
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <developerName>Submit_Case</developerName>
+    <invocationTarget>CaseSubmissionService</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <masterLabel>Submit Case</masterLabel>
+</GenAiFunction>
+```
+
+- `invocationTarget` = Apex 클래스명, `invocationTargetType=apex` → 해당 `@InvocableMethod`가 에이전트 함수로 노출.
+- Agent Script(`.agent`) 방식과 `genAiFunction` 메타데이터 방식은 같은 인보커블을 배선하는 두 경로다. Agent Script 문법·액션 참조는 [[Agent Script 레퍼런스 — 액션 (apex·flow·prompt)]] 참조.
+
+> 하나의 `@InvocableMethod`가 **Flow 액션 · Agentforce 액션 둘 다**로 재사용된다 — Request/Response 이너 클래스 설계가 두 소비자 모두의 계약이 된다.
+
+---
+
 ## 관련 노트
 
 - [[Flow Interview API]] — Apex에서 Flow를 실행하는 반대 방향 패턴
@@ -282,3 +468,5 @@ EventBus.publishWithAccessLevel(eventList, EventBus.AccessLevel.USER);
 - [[Summer '26]] — no-arg 생성자 필수, EventBus.publishWithAccessLevel
 - [[Summer '26/Development]] — no-arg 생성자 필수, InvocableActionExtension 메타데이터 상세
 - [[Aura Flow 로컬 액션 (availableForFlowActions)]] — 서버 인보커블(이 노트)의 클라이언트 짝. 브라우저 전용 동작(네비게이션·유틸리티바)은 로컬 액션으로 (선택 기준 비교)
+- [[RestClient 패턴]] — Named Credential 기반 관리형 콜아웃 (이 노트의 `callout=true` 익명 콜아웃과 대비)
+- [[Agent Script 레퍼런스 — 액션 (apex·flow·prompt)]] — 인보커블을 `apex://` 에이전트 액션으로 배선하는 Agent Script 문법

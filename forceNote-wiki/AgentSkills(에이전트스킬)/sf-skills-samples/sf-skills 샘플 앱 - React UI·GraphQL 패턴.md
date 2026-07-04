@@ -1,8 +1,8 @@
 ---
 tags: [agent-skill, sf-skills, samples, react, ui-bundle, graphql, frontend]
-source: forcedotcom/sf-skills (samples/ui-bundle-template-app-react-sample-b2e/, 공식 Salesforce)
+source: forcedotcom/sf-skills (samples/ui-bundle-template-app-react-sample-b2e/, 공식 Salesforce) | multiframework-recipes/force-app/main/react-recipes/uiBundles/reactRecipes/src/recipes/ (React Recipes — CRUD·alias·cursor·sdk.fetch 실전 예시)
 created: 2026-06-27
-aliases: [샘플 앱 React UI, UI Bundle React 구조, GraphQL 데이터 접근, Salesforce GraphQL 쿼리, tsx 컴포넌트 구조, ui-bundle frontend]
+aliases: [샘플 앱 React UI, UI Bundle React 구조, GraphQL 데이터 접근, Salesforce GraphQL 쿼리, tsx 컴포넌트 구조, ui-bundle frontend, sdk.fetch, DataSDK fetch, UI API REST, Connect REST React, Apex REST React, GraphQL Create Delete 뮤테이션, RecordDeleteInput, GraphQL alias 멀티오브젝트, 커서 페이지네이션, Relay pagination React]
 ---
 
 # sf-skills 샘플 앱 — React UI·GraphQL 패턴
@@ -365,6 +365,157 @@ mutation UpdateApplicationStatus($input: Application__cUpdateInput!) {
 
 현재 사용자 정보도 Chatter가 아니라 GraphQL로 (`getUserInfo.graphql` → `uiapi.query.User(first: 1)`, `Name @optional`).
 
+> 아래 `### Create·Delete 뮤테이션 전체` · `### 별칭 멀티오브젝트 쿼리` · `### 커서 페이지네이션` · `## 명령형 REST 호출` 네 섹션은 같은 UI Bundle 계열의 자매 샘플 **React Recipes**(`multiframework-recipes` — `force-app/main/react-recipes/uiBundles/reactRecipes/src/recipes/`)에서 발췌한 실전 정본이다. 이 앱은 Data SDK를 `@salesforce/sdk-data`에서 import하고 `const sdk = await createDataSDK()` 후 `sdk.graphql?.<T>({query,variables})` / `sdk.fetch?.(url)`를 **명령형으로** 직접 호출한다(property 앱의 `graphqlClient.ts` 얇은 래퍼와 형태는 다르지만 동일한 Data SDK). CRUD/별칭/커서/REST 각 레시피는 대응 LWC(`lightning/uiRecordApi`·graphql wire) 매핑을 코드 상단 주석으로 명시한다.
+
+### Create·Delete 뮤테이션 전체 (Recipes 정본)
+
+위 `### 뮤테이션 패턴`은 Update(`<Object__c>Update` + `@optional`)만 보였다. 나머지 두 연산은 **입력 타입·중첩 위치가 서로 다르다**.
+
+**Create** — 입력 타입은 `<Object>CreateInput!`, 필드는 오브젝트명 키(`Account`) 아래에 중첩(`CreateRecord.tsx`, verbatim).
+
+```tsx
+const CREATE_ACCOUNT = gql`
+  mutation CreateAccount($input: AccountCreateInput!) {
+    uiapi {
+      AccountCreate(input: $input) {
+        Record { Id  Name { value } }
+      }
+    }
+  }
+`;
+// 호출 — 필드는 <Object> 키 아래 중첩, top-level Id 없음
+const res = await sdk.graphql?.<CreateAccountResponse>({
+  query: CREATE_ACCOUNT,
+  variables: { input: { Account: { Name: name.trim() } } },
+});
+const record = res?.data.uiapi?.AccountCreate?.Record;   // { Id, Name:{value} }
+```
+
+**Delete** — 오브젝트별 타입이 아니라 **제네릭 `RecordDeleteInput!`**, 입력은 `{ Id }`뿐, 응답은 삭제된 `Id`만 반환(`Record` 없음)(`DeleteRecord.tsx`, verbatim).
+
+```tsx
+// Note: 입력 타입은 RecordDeleteInput (제네릭) — AccountDeleteInput 아님
+const DELETE_MUTATION = gql`
+  mutation DeleteAccount($input: RecordDeleteInput!) {
+    uiapi {
+      AccountDelete(input: $input) { Id }
+    }
+  }
+`;
+const res = await sdk.graphql?.<DeleteResponse>({
+  query: DELETE_MUTATION,
+  variables: { input: { Id: id } },
+});
+setAccounts(prev => prev.filter(a => a.Id !== id));   // 서버 재조회 없이 로컬 state에서 행 제거
+```
+
+**입력 형태 3종 대조** (셀별 매핑 — 이 형태 차이가 흔한 실수 지점):
+
+| 연산 | 입력 타입 | `Id` 위치 | 필드 위치 |
+|---|---|---|---|
+| Create | `<Object>CreateInput!` | 없음 | `input.<Object>.<Field>` (예 `input.Account.Name`) |
+| Update | `<Object>UpdateInput!` | **top-level** `input.Id` | `input.<Object>.<Field>` (예 `input.Account.Name`) |
+| Delete | `RecordDeleteInput!` (제네릭) | **top-level** `input.Id` | 없음 |
+
+Update 호출 verbatim(`UpdateRecord.tsx`) — `Id`는 `Account` 안이 아니라 최상위다.
+
+```tsx
+variables: { input: { Id: accountId, Account: { Name: name, Industry: industry } } }
+```
+
+**LWC `lightning/uiRecordApi` 매핑과 캐시 차이** (각 레시피 상단 주석 근거):
+
+| Recipes (Data SDK GraphQL) | LWC 대응 | 캐시 동작 차이 |
+|---|---|---|
+| `AccountCreate` 뮤테이션 | `createRecord({apiName, fields})` | — |
+| `AccountUpdate` 뮤테이션 | `updateRecord({fields})` | LWC: 해당 레코드를 참조하는 `@wire`가 **자동 갱신** |
+| `AccountDelete` 뮤테이션 | `deleteRecord(recordId)` | LWC: `@wire` 자동 무효화 |
+
+React 쪽은 `@wire` 자동 무효화가 **없다** → Create/Update/Delete 후 서버 응답으로 **로컬 `setState`를 수동 동기화**해야 한다(Update는 응답 Record로 patch, Delete는 `prev.filter(...)`로 행 제거).
+
+**서버측 필수필드 누락 에러의 위치**(`ServerErrorHandling.tsx`) — 필수 `LastName`을 뺀 `ContactCreate`를 보내면 `REQUIRED_FIELD_MISSING`은 **field-level 검증이 아니라 top-level `result.errors[]`** 로 온다. HTTP는 여전히 성공일 수 있으므로 `result.errors?.length`를 반드시 검사한다.
+
+```tsx
+// LastName을 일부러 생략 → 서버가 top-level GraphQL 에러 반환
+const result = await sdk.graphql?.<ContactCreateResult>({
+  query: CREATE_CONTACT,
+  variables: { input: { Contact: { Email: email || undefined, Phone: phone || undefined } } },
+});
+if (result?.errors?.length) {          // errors 는 throw 되지 않고 result.errors[] 에 담김
+  setTopLevelError(result.errors.map(e => e.message).join('; '));
+  return;
+}
+```
+
+> LWC `createRecord()`는 반대로 promise를 **reject**하며 `error.body.message` + `error.body.output.fieldErrors`(field-level 상세)를 준다 — GraphQL의 flat `errors[]`와 형태가 다르다.
+
+### 별칭 멀티오브젝트 쿼리 — 단일 라운드트립 (Recipes 정본)
+
+`### 대표 쿼리`와 `[[experience-ui-bundle-salesforce-data-access]]`는 단일 오브젝트 쿼리만 다룬다. 한 요청에서 **여러 오브젝트를 GraphQL alias로 조회**하면 라운드트립을 줄일 수 있다(`AliasedMultiObjectQuery.tsx`, verbatim).
+
+```graphql
+query MultiObjectCounts {
+  uiapi {
+    query {
+      # UIAPI 에는 COUNT() 집계가 없음 — edges.length 가 워크어라운드.
+      # first: 50 캡이므로 그 이상이면 undercount 됨.
+      accounts: Account(first: 50) { edges { node { Id } } }
+      contacts: Contact(first: 50) { edges { node { Id } } }
+    }
+  }
+}
+```
+
+- `accounts:` / `contacts:` **각 alias가 응답 `data.uiapi.query`의 독립 키**가 된다 → `query.accounts.edges`, `query.contacts.edges`로 따로 접근.
+- **UIAPI에 `COUNT()` 집계가 없어** 카운트는 `edges.length ?? 0`으로 센다. 단 `first: 50` 캡 때문에 레코드가 50건을 넘으면 **undercount**되니 진짜 카운트가 필요하면 이 패턴을 쓰지 않는다.
+- LWC 대응: 오브젝트 2개면 `@wire` 2개(또는 wrapper 반환 Apex 1개)가 필요 — alias 하나로 합치는 이 절감이 안 된다.
+
+### 커서(Relay) 페이지네이션 — Load More 누적 (Recipes 정본)
+
+`### 대표 쿼리`는 `pageInfo { hasNextPage endCursor }`를 스키마 형태로만 보였고 실제 페이지 이어받기는 제네릭 `searchObjects`에 위임했다. 명시적 **클라이언트 누적 루프**(`PaginatedList.tsx`, verbatim)는 다음과 같다.
+
+```tsx
+// 첫 페이지는 $after 생략(또는 null) — endCursor 를 다음 요청 $after 로 넘겨 이어받음
+const QUERY = gql`
+  query PaginatedContacts($after: String) {
+    uiapi { query {
+      Contact(first: 2, after: $after, orderBy: { Name: { order: ASC } }) {
+        pageInfo { hasNextPage  endCursor }
+        edges { node { Id  Name @optional { value }  Title @optional { value } } }
+      }
+    } }
+  }
+`;
+
+async function fetchPage(after?: string | null) {
+  const sdk = await createDataSDK();
+  const variables = after ? { after } : {};        // 첫 페이지는 after 없이
+  const result = await sdk.graphql?.<PaginatedContactsResponse>({ query: QUERY, variables });
+  // ...errors 검사...
+  const connection = result?.data?.uiapi?.query?.Contact;
+  const nodes = (connection?.edges ?? [])
+    .map(edge => edge?.node)
+    .filter(Boolean)                               // UIAPI edges 는 null node 포함 가능 — 매핑 전 필터
+    .map(node => ({ id: node.Id, name: node.Name?.value ?? 'Unknown', title: node.Title?.value ?? null }));
+  return { contacts: nodes, hasNextPage: connection?.pageInfo?.hasNextPage ?? false,
+           endCursor: connection?.pageInfo?.endCursor ?? null };
+}
+
+function loadMore() {
+  if (!endCursor) return;
+  fetchPage(endCursor).then(page => {
+    setContacts(prev => [...prev, ...page.contacts]);   // 새 페이지를 기존 리스트에 누적
+    setHasNextPage(page.hasNextPage);
+    setEndCursor(page.endCursor);                        // 다음 커서로 갱신
+  });
+}
+```
+
+- **커서 전달**: `pageInfo.endCursor`(opaque 문자열)를 다음 요청의 `$after`로 넘긴다. 첫 페이지는 `$after` 생략.
+- **누적**: `setContacts(prev => [...prev, ...page.contacts])` — 페이지를 교체하지 않고 로컬 state에 이어붙인다(Load More UX).
+- **종료 판정**: `pageInfo.hasNextPage`가 `false`면 "Load More" 버튼을 숨긴다.
+- LWC 대응: graphql `@wire`도 같은 커서 패턴을 쓰되 `endCursor`를 **reactive 변수**로 넘기면 adapter가 자동 재조회한다 — 여기서는 `fetchPage`를 수동 호출한다.
+
 ### 도메인 서비스 — `.graphql` → 타입드 함수
 
 각 엔티티 폴더(`api/properties/`)는 `.graphql`을 `?raw`로 import하고 codegen 타입과 묶어 타입 안전한 함수를 노출한다. 페이지는 GraphQL을 직접 모르고 이 서비스만 호출한다.
@@ -392,6 +543,87 @@ export async function getProperties(first: number = 12, after?: string): Promise
 ### Salesforce 데이터 모델 연결
 
 GraphQL 쿼리의 `Property__c` / `Tenant__c` / `Lease__c` / `Application__c` 등은 `force-app/main/default/objects/`의 커스텀 오브젝트, 필드(`Monthly_Rent__c`, `Status__c` ...)는 그 `fields/` 메타데이터와 1:1로 대응한다. 즉 GraphQL 스키마는 배포된 메타데이터 + permission set 할당 후에야 커스텀 오브젝트를 노출한다. 오브젝트·필드·관계의 전모는 `[[sf-skills 샘플 앱 - 데이터 모델]]` 참조.
+
+---
+
+## 명령형 REST 호출 — `sdk.fetch` (GraphQL로 못 다루는 경우)
+
+이 노트는 위에서 "GraphQL이 못 다루는 경우에만 `sdk.fetch`"라고 규칙만 명시했고 실사용을 보이지 않았다. 자매 샘플 **React Recipes**의 `salesforce-apis/` 레시피가 `sdk.fetch`의 정본이다. 세 엔드포인트 계열(Apex REST · UI API REST · Connect REST)을 모두 커버한다.
+
+**공통 시그니처** — `createDataSDK()`로 sdk를 얻고 `sdk.fetch?.(url)`을 호출한다. 반환은 표준 `Response`류라 `res.ok` / `res.status` / `await res.json()`으로 처리한다(옵셔널 체이닝 `?.` — fetch 미지원 런타임 방어).
+
+```ts
+const sdk = await createDataSDK();
+const res = await sdk.fetch?.(url);
+if (!res?.ok) throw new Error(`... error: ${res?.status}`);
+return (await res.json()) as T;
+```
+
+- 모든 REST 경로는 **버전 접두** `/services/data/v66.0/…`(Apex REST만 `/services/apexrest/…`)를 쓴다. 조직 API 버전이 바뀌면 이 경로 문자열을 갱신한다.
+- **응답 JSON 형태 차이** — 아래처럼 엔드포인트마다 필드 래핑이 다르다.
+
+| 엔드포인트 | 경로 | 응답 필드 형태 |
+|---|---|---|
+| Apex REST | `/services/apexrest/contacts?name=…` | **평문 JSON** (`{ id, name, title, ... }`) — `{ value }` 래퍼 없음 |
+| Connect REST | `/services/data/v66.0/chatter/feeds/news/me/feed-elements` | **평문 JSON** (`{ elements: [{ actor, body:{text} }] }`) |
+| UI API REST | `/services/data/v66.0/ui-api/list-records/{id}` | **`{ value }` 래퍼** (`fields.Name.value`) — UIAPI GraphQL과 동일 |
+
+> UI API REST만 GraphQL과 같은 `{ value }`(+`displayValue`) 래퍼를 준다. Apex/Connect는 개발자가 반환 형태를 직접 정하는 평문 JSON이다.
+
+**Apex REST**(`ApexRest.tsx`, verbatim) — 커스텀 `@RestResource` 엔드포인트 호출. LWC 대응은 imperative Apex import(`import { apexMethod } from '@salesforce/apex/...'`).
+
+```ts
+// Apex class: ContactsResource (@RestResource urlMapping='/contacts')
+async function fetchContactsFromApex(nameFilter: string): Promise<ApexContact[]> {
+  const sdk = await createDataSDK();
+  const url = nameFilter
+    ? `/services/apexrest/contacts?name=${encodeURIComponent(nameFilter)}`
+    : '/services/apexrest/contacts';
+  const res = await sdk.fetch?.(url);
+  if (!res?.ok) throw new Error(`Apex REST error: ${res?.status}`);
+  return (await res.json()) as ApexContact[];   // 평문 JSON — { value } 래퍼 없음
+}
+```
+
+**UI API REST — 2단계 list view 탐색**(`UiApiRest.tsx`, verbatim). GraphQL이 노출하지 않는 locale-aware `displayValue`가 필요할 때 쓴다. `list-ui`로 list view를 찾아 그 `id`로 `list-records`를 조회한다.
+
+```ts
+async function fetchContactsViaUiApi(): Promise<UiApiRecord[]> {
+  const sdk = await createDataSDK();
+  // Step 1: Contact 의 list view 목록 조회 → AllContacts 찾기
+  const listUiRes = await sdk.fetch?.('/services/data/v66.0/ui-api/list-ui/Contact');
+  if (!listUiRes?.ok) throw new Error(`List UI fetch failed (${listUiRes?.status})`);
+  const listUiData: ListUiResponse = await listUiRes.json();
+  const allContactsList = listUiData.lists.find(l => l.apiName === 'AllContacts');
+  if (!allContactsList) throw new Error('AllContacts list view not found');
+
+  // Step 2: 그 list view 의 id 로 레코드 조회 (fields= 로 컬럼 지정)
+  const listRecordsRes = await sdk.fetch?.(
+    `/services/data/v66.0/ui-api/list-records/${allContactsList.id}?fields=Contact.Name,Contact.Title,Contact.Phone,Contact.Picture__c`
+  );
+  if (!listRecordsRes?.ok) throw new Error(`List records fetch failed (${listRecordsRes?.status})`);
+  const listRecordsData: ListRecordsResponse = await listRecordsRes.json();
+  return listRecordsData.records;   // records[i].fields.Name.value 형태
+}
+```
+
+LWC 대응: `@wire(getListUi)` + `@wire(getListRecords)` — 같은 데이터를 **자동 캐싱**과 함께 준다(여기선 캐시 없음).
+
+**Connect REST (Chatter)**(`ConnectApi.tsx`, verbatim) — 현재 사용자 뉴스 피드. `feed-elements` 엔드포인트, 평문 JSON.
+
+```ts
+async function fetchChatterFeed(): Promise<FeedElement[]> {
+  const sdk = await createDataSDK();
+  const res = await sdk.fetch?.(
+    '/services/data/v66.0/chatter/feeds/news/me/feed-elements?pageSize=5'
+  );
+  if (!res?.ok) throw new Error(`Connect API error: ${res?.status}`);
+  const data: FeedResponse = await res.json();
+  return data.elements ?? [];        // { elements:[{ actor:{displayName,photo}, body:{text} }] }
+}
+```
+
+> 사용자 정보의 경우 property 앱은 `users/me` 대신 GraphQL(`uiapi.query.User`)로 얻는다(위 `### 뮤테이션 패턴` 참조). Connect/Chatter 리소스는 일부만 LWC wire adapter가 있고, 나머지는 imperative Apex callout이 필요하다.
 
 ---
 

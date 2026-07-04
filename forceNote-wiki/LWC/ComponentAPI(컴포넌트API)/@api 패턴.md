@@ -1,8 +1,8 @@
 ---
 tags: [lwc, api, property, method, getter-setter, pattern]
-source: lwc-recipes/apiProperty, apiMethod, apiSetterGetter, apiSpread
+source: lwc-recipes/apiProperty, apiMethod, apiSetterGetter, apiSpread, lwc-recipes-main/force-app/main/default/lwc/dispatchEventHeadlessAction, navigateToRecordHeadlessAction, editRecordScreenAction
 created: 2026-05-17
-aliases: [@api, api property, api method, lwc:spread]
+aliases: [@api, api property, api method, lwc:spread, invoke, headless action, screen action, 헤드리스액션, 퀵액션]
 ---
 
 # @api 패턴
@@ -127,6 +127,146 @@ export default class ApiSpread extends LightningElement {
 ```
 
 > props 객체의 key가 자식의 `@api` 이름과 **정확히 일치**해야 함.
+
+---
+
+## 패턴 5: @api invoke() — 헤드리스 / 스크린 퀵액션
+
+`@api method` 중 특수한 계약이 하나 있다. 컴포넌트를 `lightning__RecordAction` 타깃으로 노출하면, **플랫폼이** 사용자가 레코드 페이지의 액션 버튼을 클릭할 때 `invoke()`라는 이름의 `@api` 메서드를 자동 호출한다. 즉 `refresh()`(패턴 2)처럼 부모 컴포넌트가 호출하는 게 아니라 **런타임이 진입점으로 호출**하는 예약 메서드다.
+
+js-meta.xml의 `<actionType>`에 따라 두 모드로 갈린다.
+
+| actionType | 템플릿(HTML) | invoke() | 동작 |
+|---|---|---|---|
+| `Action` (헤드리스) | 없음 / 빈 `<template> </template>` | 클릭 즉시 실행 | UI 없이 로직만 (toast·navigate·DML). 끝나면 자동 종료 |
+| `ScreenAction` | 모달 패널 UI | 정의 안 함 | 퀵액션 모달을 띄우고, 버튼 핸들러가 로직 수행 후 `CloseActionScreenEvent`로 닫음 |
+
+### 5-1. 헤드리스 액션 (actionType=Action) — 템플릿 없음
+
+`invoke()`가 UI 없이 실행되고 완료되면 액션이 자동으로 사라진다. `async`로 선언해 await도 가능하다.
+
+```javascript
+// dispatchEventHeadlessAction.js
+import { LightningElement, api } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+
+export default class DispatchEventHeadlessAction extends LightningElement {
+    @api recordId;
+    @api async invoke() {
+        // Fire Toast message
+        let event = new ShowToastEvent({
+            title: 'I am a headless action!',
+            message: 'Hi there! Starting...'
+        });
+        this.dispatchEvent(event);
+        // Wait and fire another another Toast message
+        await this.sleep(2000);
+        // Fire Toast message
+        event = new ShowToastEvent({
+            title: 'I am a headless action on record with id ' + this.recordId,
+            message: 'All done!'
+        });
+        this.dispatchEvent(event);
+    }
+
+    sleep(ms) {
+        // eslint-disable-next-line @lwc/lwc/no-async-operation
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+}
+```
+
+```html
+<!-- dispatchEventHeadlessAction.html — 렌더링할 UI가 없다 -->
+<template> </template>
+```
+
+```xml
+<!-- dispatchEventHeadlessAction.js-meta.xml -->
+<targets>
+    <target>lightning__RecordAction</target>
+</targets>
+<targetConfigs>
+    <targetConfig targets="lightning__RecordAction">
+        <actionType>Action</actionType>
+    </targetConfig>
+</targetConfigs>
+```
+
+> [!note] 레코드 컨텍스트
+> 헤드리스 액션도 `@api recordId`로 대상 레코드 Id를 플랫폼에서 주입받는다. `invoke()` 안에서 그 Id로 후속 작업을 한다.
+
+### 5-2. invoke() 안에서 navigate — NavigationMixin
+
+`invoke()`는 헤드리스이므로 toast뿐 아니라 화면 전환도 트리거할 수 있다. `NavigationMixin`을 믹스인해 진입점에서 바로 네비게이트한다. (여기선 `async` 불필요 — 반환값을 기다리지 않는다.)
+
+```javascript
+// navigateToRecordHeadlessAction.js
+import { LightningElement, api } from 'lwc';
+import { NavigationMixin } from 'lightning/navigation';
+
+export default class NavigateToRecordHeadlessAction extends NavigationMixin(
+    LightningElement
+) {
+    @api invoke() {
+        this[NavigationMixin.Navigate]({
+            type: 'standard__objectPage',
+            attributes: {
+                objectApiName: 'Contact',
+                actionName: 'home'
+            }
+        });
+    }
+}
+```
+
+### 5-3. 스크린 액션 (actionType=ScreenAction) — 모달 UI + invoke 없음
+
+`ScreenAction`은 `invoke()`를 **정의하지 않는다.** 대신 컴포넌트의 템플릿이 퀵액션 모달로 렌더링되고, 버튼 클릭 핸들러가 로직을 수행한 뒤 `CloseActionScreenEvent`로 모달을 닫는다. `@api recordId` / `@api objectApiName`는 플랫폼이 주입한다.
+
+```javascript
+// editRecordScreenAction.js (발췌)
+import { CloseActionScreenEvent } from 'lightning/actions';
+import { getRecord, updateRecord } from 'lightning/uiRecordApi';
+
+export default class EditRecordScreenAction extends LightningElement {
+    @api recordId;
+    @api objectApiName;
+
+    async handleSave() {
+        // ...recordInput 구성...
+        try {
+            await updateRecord(recordInput);
+            this.dispatchEvent(new ShowToastEvent({
+                title: 'Success', message: 'Contact updated', variant: 'success'
+            }));
+            this.dispatchEvent(new CloseActionScreenEvent()); // 모달 닫기
+        } catch (error) {
+            this.dispatchEvent(new ShowToastEvent({
+                title: 'Error updating record, try again...',
+                message: error.body.message, variant: 'error'
+            }));
+        }
+    }
+
+    handleCancel() {
+        this.dispatchEvent(new CloseActionScreenEvent());
+    }
+}
+```
+
+```xml
+<!-- editRecordScreenAction.js-meta.xml -->
+<targetConfig targets="lightning__RecordAction">
+    <actionType>ScreenAction</actionType>
+</targetConfig>
+```
+
+> [!tip] 언제 어느 쪽?
+> - **UI 없이 즉시 실행**(레코드 상태 변경 후 toast, 다른 페이지로 이동) → `Action` + `@api invoke()`
+> - **사용자 입력 폼이 필요**(필드 편집 후 저장) → `ScreenAction` + 템플릿 + `CloseActionScreenEvent`
+>
+> `js-meta.xml`의 `lightning__RecordAction` 타깃·`actionType` 등 config 요소 자체는 [[XML Config File Elements (js-meta.xml) 레퍼런스]] 참조. 여기서는 `@api invoke()` 계약과 두 actionType의 실행 흐름 차이에 집중한다.
 
 ---
 

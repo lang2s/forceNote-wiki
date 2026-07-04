@@ -1,8 +1,8 @@
 ---
 tags: [lwc, base-component, datatable, table, reference]
-source: TrailheadApp/lwc-recipes-main (Tier 1) + cx-router 메타데이터 (Tier 2) + external-knowledge (Tier 3)
+source: TrailheadApp/lwc-recipes-main (Tier 1) + cx-router 메타데이터 (Tier 2) + external-knowledge (Tier 3) + TrailheadApp/visualforce-to-lwc-main/lwc/apexUtils · listWithParentRecordData (Tier 1)
 created: 2026-05-17
-aliases: [lightning-datatable, 데이터 테이블, datatable, 인라인 편집]
+aliases: [lightning-datatable, 데이터 테이블, datatable, 인라인 편집, SObject 평탄화, flatten, 부모 필드, 관계 필드]
 ---
 
 # lightning-datatable
@@ -150,6 +150,102 @@ const COLS = [
     hide-checkbox-column="true"
 ></c-custom-data-types>
 ```
+
+---
+
+## Apex 부모(관계) 필드 표시 — 중첩 SObject 평탄화 *(visualforce-to-lwc-main/apexUtils + listWithParentRecordData — Tier 1)*
+
+datatable의 `columns[].fieldName`은 데이터 행 객체의 **평면 키 하나**를 조회한다. 그런데 Apex 메서드가 반환한 SObject의 부모(관계) 필드는 **중첩 객체**로 온다 — 예: `Account.Owner.Name`은 `row.Owner.Name`이지 `row['Owner.Name']`이 아니다. 그래서 `fieldName: 'Owner.Name'`을 넣어도 datatable이 값을 못 찾아 셀이 비어 보인다.
+
+해결: Apex가 준 각 SObject를 재귀적으로 **점표기 평면 키**(`Owner.Name`, `Owner.Profile.Name` …)로 평탄화한 뒤 `data`에 넘긴다. 이 프로젝트는 이 로직을 공유 유틸 모듈 `c/apexUtils`로 분리했다.
+
+```javascript
+// c/apexUtils — apexUtils.js (실제 소스, Tier 1)
+/**
+ * Formats a list of sObjects returned by an Apex method call
+ * @param {SObject[]} sObjects
+ * @return {Object[]} formattedObjects, ready to use by lightning-datatable
+ */
+export function formatApexSObjects(sObjects) {
+    try {
+        return sObjects.map(formatApexSObject);
+    } catch (err) {
+        return [];
+    }
+}
+
+function formatApexSObject(sObject) {
+    return flatten(sObject, '');
+}
+
+function flatten(source, prefix) {
+    const target = {};
+    Object.keys(source).forEach((key) => {
+        const value = source[key];
+        const field = `${prefix}${key}`;
+        if (typeof value === 'object') {
+            const nested = flatten(value, `${field}.`);
+            Object.assign(target, nested);
+        } else {
+            target[field] = value;
+        }
+    });
+    return target;
+}
+```
+
+`flatten`은 값이 객체면 `부모.` 접두사를 붙여 재귀 진입하고, 원시값이면 `Owner.Name` 같은 점표기 키에 그대로 할당한다. 다단계 관계(`Owner.Manager.Name`)도 재귀로 자동 처리된다.
+
+사용 컴포넌트 — getter에서 `@wire` 결과를 평탄화해 `data`에 바인딩:
+
+```javascript
+// listWithParentRecordData.js (실제 소스, Tier 1)
+import { LightningElement, wire } from 'lwc';
+import { formatApexSObjects } from 'c/apexUtils';
+import getAccounts from '@salesforce/apex/ListWithParentRecordDataControllerLwc.getAccounts';
+import ACCOUNT_NAME_FIELD from '@salesforce/schema/Account.Name';
+import ACCOUNT_TYPE_FIELD from '@salesforce/schema/Account.Type';
+import ACCOUNT_PHONE_FIELD from '@salesforce/schema/Account.Phone';
+import ACCOUNT_OWNER_NAME_FIELD from '@salesforce/schema/Account.Owner.Name';
+
+const COLUMNS = [
+    { label: 'Account Name', fieldName: ACCOUNT_NAME_FIELD.fieldApiName, type: 'text' },
+    { label: 'Type', fieldName: ACCOUNT_TYPE_FIELD.fieldApiName, type: 'text' },
+    { label: 'Phone', fieldName: ACCOUNT_PHONE_FIELD.fieldApiName, type: 'phone' },
+    // Owner.Name → fieldApiName === 'Owner.Name' (점표기 평면 키)
+    { label: 'Owner Name', fieldName: ACCOUNT_OWNER_NAME_FIELD.fieldApiName, type: 'text' }
+];
+
+export default class ListWithParentRecordData extends LightningElement {
+    columns = COLUMNS;
+
+    @wire(getAccounts)
+    accounts;
+
+    // Needed only when bringing parent records data
+    get formattedAccounts() {
+        return this.accounts.data ? formatApexSObjects(this.accounts.data) : [];
+    }
+}
+```
+
+```html
+<!-- data에는 원본 accounts.data가 아니라 평탄화된 formattedAccounts를 넘긴다 -->
+<template if:true={accounts.data}>
+    <lightning-datatable
+        key-field="id"
+        data={formattedAccounts}
+        columns={columns}
+    ></lightning-datatable>
+</template>
+```
+
+**핵심 포인트:**
+
+- 관계 필드 컬럼의 `fieldName`은 `@salesforce/schema/Account.Owner.Name`의 `fieldApiName`(= `'Owner.Name'`)을 그대로 쓴다 — 이 점표기 문자열이 평탄화된 행 객체의 키와 정확히 일치한다.
+- 평탄화는 **부모 필드를 가져올 때만 필요**하다(주석 `Needed only when bringing parent records data`). 평면 필드만 있으면 Apex 결과를 그대로 `data`에 넘겨도 된다.
+- 부모 필드를 UI API(`getRecord`)나 LDS로 가져올 때는 이 문제가 없다 — 이 평탄화는 **Apex가 반환한 원시 SObject**를 datatable에 태울 때만 쓰는 어댑터다.
+- 로직을 `c/apexUtils` 공유 모듈로 빼면 부모 필드를 표시하는 여러 datatable 컴포넌트가 재사용한다.
 
 ---
 

@@ -1,9 +1,9 @@
 ---
 tags: [lwc, lds, graphql, wire-adapter, data, lightning-graphql]
-source: developer.salesforce.com (Lightning Web Components Developer Guide — lightning/graphql Wire Adapter (v2) · graphql; 라이브 공식 문서, Tier 2, 접속 2026-07-04)
+source: developer.salesforce.com (Lightning Web Components Developer Guide — lightning/graphql Wire Adapter (v2) · graphql; 라이브 공식 문서, Tier 2, 접속 2026-07-04) · 실전 예시 lwc-recipes-main/force-app/main/default/lwc/graphqlPagination/graphqlPagination.js (Tier 1)
 official_doc: https://developer.salesforce.com/docs/platform/lwc/guide/reference-graphql-wire.html
 created: 2026-07-04
-aliases: [GraphQL wire, lightning/graphql, gql, graphql wire adapter, GraphQL API LWC, variables getter, errors 프로퍼티, uiGraphQLApi, GraphQL 쿼리 LWC, 그래프QL]
+aliases: [GraphQL wire, lightning/graphql, gql, graphql wire adapter, GraphQL API LWC, variables getter, errors 프로퍼티, uiGraphQLApi, GraphQL 쿼리 LWC, 그래프QL, GraphQL 페이지네이션, cursor pagination, pageInfo, endCursor, hasNextPage, totalCount, after cursor, Relay connection, 커서 페이지네이션]
 ---
 
 # GraphQL Wire Adapter
@@ -116,6 +116,123 @@ export default class GraphqlAccounts extends LightningElement {
     }
 }
 ```
+
+## 커서 페이지네이션 (Relay connection)
+
+GraphQL API는 **Cursor Connections Specification(Relay)**을 따르므로, `edges` 옆의 **`pageInfo`**와 **`totalCount`**를 함께 요청해 커서 기반 페이지네이션을 구현한다. `first`(페이지 크기)와 함께 **`after`** 변수에 이전 페이지의 `endCursor`를 넘겨 다음 페이지를 로드한다 — offset/LIMIT가 아니라 커서로 이동한다.
+
+**쿼리에 요청하는 connection 필드:**
+
+| 필드 | 위치 | 설명 |
+|---|---|---|
+| `first: $pageSize` | Connection 인자 | 한 페이지에 가져올 edge 수. |
+| `after: $after` | Connection 인자 | 이 커서 **이후**의 페이지를 로드. 첫 페이지는 `null`. |
+| `pageInfo.endCursor` | Connection | 현재 페이지 마지막 edge의 커서. 다음 페이지의 `after`로 사용. |
+| `pageInfo.hasNextPage` | Connection | 다음 페이지 존재 여부. |
+| `pageInfo.hasPreviousPage` | Connection | 이전 페이지 존재 여부(첫 페이지 판별에 사용). |
+| `totalCount` | Connection | 전체 레코드 수. ⚠️ 큰/복잡한 쿼리에서는 **성능에 영향**이 있어 신중히 사용(소스 주석 명시). |
+
+**reactivity 원리:** `after` 프로퍼티를 tracked 상태로 두고 `variables` getter가 이를 읽으므로, `after`를 새 `endCursor`로 바꾸면 wire가 자동으로 재실행돼 다음 페이지를 가져온다. offset을 직접 계산하지 않는다.
+
+### 코드 예시 — graphqlPagination (lwc-recipes)
+
+실제 lwc-recipes 컴포넌트 `graphqlPagination`의 전체 소스다(정렬 ASC·페이지 크기 3, `after` 커서로 다음 페이지 이동).
+
+```js
+import { LightningElement, wire } from 'lwc';
+import { gql, graphql } from 'lightning/graphql';
+
+const pageSize = 3;
+
+export default class GraphqlPagination extends LightningElement {
+    after;
+    pageNumber = 1;
+
+    @wire(graphql, {
+        query: gql`
+            query paginatedContacts($after: String, $pageSize: Int!) {
+                uiapi {
+                    query {
+                        Contact(
+                            first: $pageSize
+                            after: $after
+                            orderBy: { Name: { order: ASC } }
+                        ) {
+                            edges {
+                                node {
+                                    Id
+                                    Name {
+                                        value
+                                    }
+                                }
+                            }
+                            pageInfo {
+                                endCursor
+                                hasNextPage
+                                hasPreviousPage
+                            }
+                            # Requesting totalCount can have performance implications
+                            # for large and/or complex queries. Use with caution.
+                            totalCount
+                        }
+                    }
+                }
+            }
+        `,
+        variables: '$variables'
+    })
+    contacts;
+
+    get variables() {
+        return {
+            after: this.after || null,
+            pageSize
+        };
+    }
+
+    get currentPageNumber() {
+        return this.totalCount === 0 ? 0 : this.pageNumber;
+    }
+
+    get isFirstPage() {
+        return !this.contacts.data?.uiapi.query.Contact.pageInfo
+            .hasPreviousPage;
+    }
+
+    get isLastPage() {
+        return !this.contacts.data?.uiapi.query.Contact.pageInfo.hasNextPage;
+    }
+
+    get totalCount() {
+        return this.contacts.data?.uiapi.query.Contact.totalCount || 0;
+    }
+
+    get totalPages() {
+        return Math.ceil(this.totalCount / pageSize);
+    }
+
+    handleNext() {
+        if (this.contacts.data?.uiapi.query.Contact.pageInfo.hasNextPage) {
+            this.after =
+                this.contacts.data.uiapi.query.Contact.pageInfo.endCursor;
+            this.pageNumber++;
+        }
+    }
+
+    handleReset() {
+        this.after = null;
+        this.pageNumber = 1;
+    }
+}
+```
+
+**핵심 포인트:**
+
+- **`after: this.after || null`** — 첫 페이지는 `null`(커서 없음)로 시작. `after`를 바꾸는 것만으로 wire가 재실행된다.
+- **`handleNext`** — `hasNextPage`가 true일 때만 `endCursor`를 `after`에 넣고 `pageNumber++`. 커서를 그대로 물려주므로 offset 계산이 불필요.
+- **`handleReset`** — `after = null`, `pageNumber = 1`로 첫 페이지 복귀.
+- **`totalPages`** — `Math.ceil(totalCount / pageSize)`로 전체 페이지 수 계산. `isFirstPage`/`isLastPage`는 `pageInfo`로 버튼 disabled를 제어한다.
+- 이 예시는 **다음(forward) 이동**만 구현한다 — 이전 페이지가 필요하면 `before`/`hasPreviousPage`와 커서 스택을 별도로 관리해야 한다.
 
 ## Known Issues / 제약
 

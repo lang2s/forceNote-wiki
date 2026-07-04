@@ -1,8 +1,8 @@
 ---
 tags: [agentforce, agent-script, deployment, metadata-api, package-xml, salesforce-dx, sf-cli, string-replacement]
-source: AgentScriptDocs (Salesforce Agent Script Developer Guide, 2026-06-17판) — deploy-metadata/{agent-dx-deploy-metadata, metadata, package-allagents, package-singleagent, package-single-mismatch, string-replace-example}.md + agent-script/ascript-manage.md
+source: AgentScriptDocs (Salesforce Agent Script Developer Guide, 2026-06-17판) — deploy-metadata/{agent-dx-deploy-metadata, metadata, package-allagents, package-singleagent, package-single-mismatch, string-replace-example}.md + agent-script/ascript-manage.md · 실전 예시 — agent-script-recipes-main/force-app/main/02_actionConfiguration/customLightningTypes/genAiFunctions/Submit_Case/ (Submit_Case.genAiFunction-meta.xml + input/schema.json + output/schema.json)
 created: 2026-07-01
-aliases: [metadata deploy, Bot, BotVersion, GenAiPlannerBundle, AiAuthoringBundle, GenAiPlugin, GenAiFunction, GenAiPromptTemplate, ApexClass, Flow, package.xml, manifest, sf project retrieve start, sf project deploy start, sf template generate project, sf org login web, string replacement, TARGET_AGENT_USER, draft committed legacy, 에이전트 메타데이터 배포, 매니페스트, 에이전트 다른 org로 옮기기, 샌드박스에서 프로덕션으로 에이전트 이동, draft committed legacy 차이]
+aliases: [metadata deploy, Bot, BotVersion, GenAiPlannerBundle, AiAuthoringBundle, GenAiPlugin, GenAiFunction, GenAiPromptTemplate, ApexClass, Flow, package.xml, manifest, sf project retrieve start, sf project deploy start, sf template generate project, sf org login web, string replacement, TARGET_AGENT_USER, draft committed legacy, genAiFunction-meta.xml, input schema, output schema, lightning:type, copilotAction:isUserInput, lightning:isPII, lightning__objectType, invocationTarget, 에이전트 메타데이터 배포, 매니페스트, 에이전트 다른 org로 옮기기, 샌드박스에서 프로덕션으로 에이전트 이동, draft committed legacy 차이, genAiFunction 번들 구조, 액션 입출력 스키마]
 ---
 
 # Agent Script 메타데이터 배포 (DX·패키징)
@@ -419,6 +419,138 @@ agent user에 대한 자세한 내용은 create or assign the default agent user
 | `AiAuthoringBundle` | `<agent>_<N>` (언더스코어, v 없음) | `NGA_Service_Agent_2` | `TestAgentFromSource_9` (draft 9) |
 
 **mismatch 핵심**: draft(`AiAuthoringBundle`) = **9** ↔ committed(`Bot`/`BotVersion`·`GenAiPlannerBundle`) = **7**. commit한 것보다 많은 버전을 저장하면 이 불일치가 발생한다. 어느 draft 버전이 어느 committed 버전에 대응하는지는 `bundle-meta.xml`의 `target` 메타데이터로 확인한다(Step 4).
+
+---
+
+## GenAiFunction 번들의 실제 구조 (에이전트 액션 메타데이터 층)
+
+위 매니페스트 섹션은 `GenAiFunction`을 `package.xml`의 **메타데이터 타입 이름**으로만 나열한다(= "에이전트 액션을 표현하는 타입"). 하지만 retrieve하면 각 `GenAiFunction`은 파일 하나가 아니라 **3파일 번들**로 내려온다 — 이 번들이 에이전트 액션(액션의 대상 Apex/Flow 배선 + 입출력 계약)의 실제 메타데이터 층이다. 아래는 recipes 레포의 `Submit_Case` 액션(케이스 제출) 번들 전수 발췌다.
+
+> 액션 자체(무엇을 하는가·`invocationTargetType` 대상 종류)는 [[Agent Script 레퍼런스 — 액션 (apex·flow·prompt)]] 소관. 이 섹션은 그 액션이 **배포 시 디스크에 어떤 파일/필드로 표현되는가**(메타데이터 형상)에 한정한다.
+
+### 번들 디렉터리 레이아웃
+
+```
+customLightningTypes/genAiFunctions/Submit_Case/
+├── Submit_Case.genAiFunction-meta.xml   ← 액션 루트 정의 (Apex/Flow 배선 + UX)
+├── input/schema.json                    ← 액션 입력 JSON 스키마 (planner → 액션)
+└── output/schema.json                   ← 액션 출력 JSON 스키마 (액션 → planner/표시)
+```
+
+### 1) `-meta.xml` — 액션 루트 정의
+
+`GenAiFunction` 루트 element의 필드가 **어느 Apex 클래스/Flow에 배선되는지**와 실행 UX를 정한다.
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Submits a support case</description>
+    <developerName>Submit_Case</developerName>
+    <invocationTarget>CaseSubmissionService</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Submit_Case</localDeveloperName>
+    <masterLabel>Submit Case</masterLabel>
+    <progressIndicatorMessage>Submitting your case...</progressIndicatorMessage>
+</GenAiFunction>
+```
+
+| 필드 | 이 예제 값 | 의미 |
+|---|---|---|
+| `description` | `Submits a support case` | 액션 설명 (planner가 언제 이 액션을 쓸지 판단하는 힌트) |
+| `developerName` / `localDeveloperName` | `Submit_Case` | 액션 API 이름 (= 번들 폴더명, package.xml `<members>`에 넣는 이름) |
+| `invocationTarget` | `CaseSubmissionService` | 배선 대상. 여기서는 Apex 클래스명 → package.xml의 `ApexClass` 타입으로 함께 배포해야 함 |
+| `invocationTargetType` | `apex` | 대상 종류. `apex`(이 예제) / `flow` 등. Flow 액션이면 대상 Flow를 package.xml `Flow`로 함께 배포 |
+| `isConfirmationRequired` | `false` | 실행 전 사용자 확인 요구 여부 |
+| `isIncludeInProgressIndicator` | `true` | 진행 표시기에 이 액션을 포함할지 |
+| `masterLabel` | `Submit Case` | UI 표시 라벨 |
+| `progressIndicatorMessage` | `Submitting your case...` | 실행 중 표시 메시지 |
+
+**배포 함의**: `invocationTarget`이 배선 참조이므로, `GenAiFunction` 하나를 배포하면 그 대상(`ApexClass` `CaseSubmissionService`)도 매니페스트에 함께 있어야 배선이 끊기지 않는다. 이것이 위 매니페스트 예제들이 `GenAiFunction`과 `ApexClass`/`Flow`를 같은 `package.xml`에 나란히 나열하는 이유다.
+
+### 2) `input/schema.json` — 액션 입력 계약
+
+planner가 액션에 넘기는 입력을 JSON Schema로 선언한다. 각 프로퍼티에 `lightning:*`·`copilotAction:*` 확장 키워드가 붙는다.
+
+```json
+{
+    "required": ["case_data"],
+    "unevaluatedProperties": false,
+    "properties": {
+        "case_data": {
+            "title": "case_data",
+            "description": "Case details including subject, priority, and description",
+            "lightning:type": "c__caseInput",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": true
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}
+```
+
+- `"lightning:type": "lightning__objectType"` (루트) — 이 스키마가 하나의 객체 타입임을 표시. Salesforce 예약 타입.
+- `case_data.lightning:type`: `c__caseInput` — 프로퍼티 타입이 **커스텀 Lightning 타입**(`c__` 네임스페이스 접두). 즉 입력이 커스텀 CLT(Custom Lightning Type) 구조를 참조.
+- `copilotAction:isUserInput: true` — 이 값이 **사용자(대화) 입력**에서 채워짐을 표시. planner가 이 필드를 사용자로부터 수집.
+- `lightning:isPII: false` — PII(개인식별정보) 아님. (`true`면 PII로 취급되어 로깅/마스킹 정책 적용)
+- `required: ["case_data"]` — 필수 프로퍼티. `unevaluatedProperties: false` — 선언되지 않은 추가 프로퍼티 금지.
+
+### 3) `output/schema.json` — 액션 출력 계약
+
+액션이 반환하는 출력. 입력과 달리 `copilotAction:isDisplayable`·`isUsedByPlanner`·`useHydratedPrompt` 키워드가 등장한다.
+
+```json
+{
+    "unevaluatedProperties": false,
+    "properties": {
+        "case_number": {
+            "title": "case_number",
+            "description": "The case number assigned to the new case",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": false,
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
+        },
+        "case_result": {
+            "title": "case_result",
+            "description": "The created case details for display",
+            "lightning:type": "c__caseResult",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": true,
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}
+```
+
+| 출력 프로퍼티 | `lightning:type` | `isDisplayable` | `isUsedByPlanner` | `useHydratedPrompt` |
+|---|---|---|---|---|
+| `case_number` | `lightning__textType` (내장 텍스트 타입) | `false` | `true` | `false` |
+| `case_result` | `c__caseResult` (커스텀 CLT) | `true` | `true` | `false` |
+
+- `copilotAction:isDisplayable` — 사용자에게 표시 가능한 값인지. `case_number`는 표시 안 함(`false`), `case_result`는 표시(`true`).
+- `copilotAction:isUsedByPlanner` — planner가 후속 추론에 이 값을 사용할지. 두 프로퍼티 모두 `true`.
+- `copilotAction:useHydratedPrompt` — 프롬프트에 하이드레이트(주입)할지. 둘 다 `false`.
+- 입력 스키마의 `copilotAction:isUserInput`은 출력에는 없다 — 출력은 사용자 입력이 아니므로. 반대로 `isDisplayable`/`isUsedByPlanner`/`useHydratedPrompt`는 출력 전용이다.
+
+### 요약 — `lightning:*` / `copilotAction:*` 확장 키워드
+
+이 번들 스키마는 표준 JSON Schema에 Salesforce 확장 키워드 2계열을 더한다.
+
+| 키워드 | 위치 | 역할 |
+|---|---|---|
+| `lightning:type` | 루트 + 각 프로퍼티 | 타입 지정. `lightning__objectType`/`lightning__textType`(내장) 또는 `c__<CLT명>`(커스텀 Lightning 타입) |
+| `lightning:isPII` | 각 프로퍼티 | PII 여부 (마스킹/로깅 정책) |
+| `copilotAction:isUserInput` | **입력** 프로퍼티 | 사용자 대화 입력에서 채워지는 값인지 |
+| `copilotAction:isDisplayable` | **출력** 프로퍼티 | 사용자에게 표시 가능한 값인지 |
+| `copilotAction:isUsedByPlanner` | **출력** 프로퍼티 | planner 후속 추론에 사용되는 값인지 |
+| `copilotAction:useHydratedPrompt` | **출력** 프로퍼티 | 프롬프트에 주입되는 값인지 |
+
+`c__caseInput`·`c__caseResult` 같은 커스텀 타입은 별도의 CLT(Custom Lightning Type) 번들로 정의되며 이 액션 배포와 함께 org에 존재해야 한다 — CLT 자체 정의는 이 노트 범위 밖(액션의 입출력 타입 배선만 여기서 다룬다).
 
 ---
 

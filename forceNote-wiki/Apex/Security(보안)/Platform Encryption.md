@@ -1,8 +1,8 @@
 ---
 tags: [Security, Platform-Encryption, Shield, Encryption, Field-Encryption, Database-Encryption, Data-Cloud]
-source: external-knowledge
+source: external-knowledge; apex-recipes-main/force-app/main/default/classes/Encryption Recipes/EncryptionRecipes.cls
 created: 2026-05-23
-aliases: [Platform Encryption, 플랫폼 암호화, Shield Platform Encryption, 필드 암호화, 데이터베이스 암호화]
+aliases: [Platform Encryption, 플랫폼 암호화, Shield Platform Encryption, 필드 암호화, 데이터베이스 암호화, constant-time comparison, 타이밍 공격, areEqualConstantTime, 초기화 벡터, developer-managed IV]
 ---
 
 # Platform Encryption
@@ -76,6 +76,108 @@ System.assertEquals(plainText, decryptedText);
 Blob hmacKey = Crypto.generateAesKey(256);
 Blob mac = Crypto.generateMac('HmacSHA256', Blob.valueOf(plainText), hmacKey);
 ```
+
+---
+
+## 실전 Crypto 패턴 — 개발자 관리 IV & 상수 시간 비교
+
+> 출처: `apex-recipes-main` `EncryptionRecipes.cls` (Salesforce Apex Recipes, Tier 1 로컬 소스)
+
+위의 `encryptWithManagedIV`는 IV(초기화 벡터)를 Salesforce가 내부적으로 관리하므로 같은 org 안에서 복호화할 때만 유효하다. **외부 수신자와 암호문을 주고받을 때**는 발신자가 IV를 직접 생성해 암호문과 함께 전송해야 한다. Apex Recipes는 이 두 가지 실전 문제를 다룬다.
+
+### 1. 개발자 관리 IV — 암호문 앞 16바이트에 IV를 붙여 전송
+
+`Crypto.encrypt(algorithm, key, iv, data)`는 IV를 직접 넘긴다. IV는 **16바이트(128비트) 랜덤값**이어야 하고 AES 키와 같은 값을 쓰면 안 된다. 수신자가 복호화하려면 IV를 알아야 하므로, 암호문 **앞에 IV를 이어 붙여** 하나의 Blob으로 전송하는 패턴을 쓴다.
+
+```apex
+// IV 생성 — Apex에 전용 메서드가 없어 generateAesKey(128)로 128비트 랜덤값을 만든다
+// (IV와 AES 키에 같은 값을 절대 쓰지 말 것)
+public static Blob generateInitializationVector() {
+    return Crypto.generateAesKey(128);
+}
+
+// 암호화: encrypt한 뒤 IV를 암호문 앞에 이어 붙인다
+public static Blob encryptAES256Recipe(Blob dataToEncrypt, Blob initializationVector) {
+    Blob encryptedData = Crypto.encrypt(
+        AESAlgorithm.AES256.name(),   // 'AES256'
+        AES_KEY,
+        initializationVector,
+        dataToEncrypt
+    );
+    // IV(hex) + 암호문(hex)을 이어 붙여 하나의 Blob으로 반환 → 수신자에게 IV까지 함께 전달
+    String blobsAsHex =
+        EncodingUtil.convertToHex(initializationVector) +
+        EncodingUtil.convertToHex(encryptedData);
+    return EncodingUtil.convertFromHex(blobsAsHex);
+}
+```
+
+복호화 측은 받은 Blob의 **앞 16바이트(hex 32자)를 IV로, 나머지를 암호문**으로 분리한다.
+
+```apex
+public static Blob decryptAES256Recipe(Blob dataToDecrypt) {
+    String blobsAsHex = EncodingUtil.convertToHex(dataToDecrypt);
+    // 앞 32 hex 문자 = 16바이트 = 128비트 IV
+    String initializationVectorString = blobsAsHex.substring(0, 32);
+    // 나머지 = 암호문
+    String encryptedDataString = blobsAsHex.substring(32);
+    Blob initializationVector = EncodingUtil.convertFromHex(initializationVectorString);
+    Blob encryptedData = EncodingUtil.convertFromHex(encryptedDataString);
+    return Crypto.decrypt(
+        AESAlgorithm.AES256.name(),
+        AES_KEY,
+        initializationVector,
+        encryptedData
+    );
+}
+```
+
+| 방식 | IV 관리 | 용도 |
+|---|---|---|
+| `encryptWithManagedIV` / `decryptWithManagedIV` | Salesforce가 IV 자동 관리 | 같은 org 내부 저장·복호화 |
+| `encrypt` / `decrypt` (developer-managed IV) | 발신자가 IV 생성 후 암호문에 동봉 | 외부 수신자와 암호문 교환 |
+
+### 2. 상수 시간 비교 — 타이밍 공격 방어
+
+해시·HMAC·서명을 검증할 때 재계산한 값과 수신한 값을 **일반 `==`로 비교하면 안 된다.** `==`는 첫 불일치 바이트에서 즉시 반환(early exit)하므로, 비교에 걸리는 시간 차이로 공격자가 정답을 한 바이트씩 추측할 수 있다([타이밍 공격](https://en.wikipedia.org/wiki/Timing_attack)). 방어책은 **입력 내용과 무관하게 항상 전체를 끝까지 순회하는 상수 시간 비교**다.
+
+```apex
+/**
+ * 암호학 관련 비교는 타이밍 공격을 피하기 위해 상수 시간으로 수행해야 한다.
+ */
+public static boolean areEqualConstantTime(String first, String second) {
+    Boolean result = true;
+    if (first.length() != second.length()) {
+        result = false;
+    }
+    Integer max = first.length() > second.length()
+        ? second.length()
+        : first.length();
+    // 불일치를 찾아도 break하지 않고 항상 끝까지 순회 → 비교 시간이 내용에 의존하지 않음
+    for (Integer i = 0; i < max; i++) {
+        if (first.substring(i, i + 1) != second.substring(i, i + 1)) {
+            result = false;
+        }
+    }
+    return result;
+}
+```
+
+해시 검증 시 이 함수를 사용한다 (HMAC은 `Crypto.verifyHMAC`, 서명은 `Crypto.verify`가 내부적으로 안전 비교를 수행하므로 직접 비교가 불필요하다).
+
+```apex
+public static void checkSHA512HashRecipe(Blob hash, Blob dataToCheck) {
+    Blob recomputedHash = Crypto.generateDigest(HashAlgorithm.SHA512.name(), dataToCheck);
+    // 일반 == 대신 상수 시간 비교
+    if (!areEqualConstantTime(
+            EncodingUtil.base64Encode(hash),
+            EncodingUtil.base64Encode(recomputedHash))) {
+        throw new CryptographicException('Wrong hash!');
+    }
+}
+```
+
+> 핵심: **직접 재계산한 해시를 비교할 때만** `areEqualConstantTime`가 필요하다. HMAC/서명 검증은 플랫폼 API(`verifyHMAC`, `verify`)가 안전 비교까지 담당하므로 그 반환 Boolean만 확인하면 된다.
 
 ---
 

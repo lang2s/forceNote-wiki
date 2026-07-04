@@ -1,9 +1,9 @@
 ---
 tags: [lwc, reference, salesforce-modules, apex, schema, label, resource-url, user, permissions]
-source: developer.salesforce.com (Lightning Web Components Developer Guide — Reference > @salesforce Modules; 라이브 공식 문서, Tier 2, 접속 2026-07-04)
+source: developer.salesforce.com (Lightning Web Components Developer Guide — Reference > @salesforce Modules; 라이브 공식 문서, Tier 2, 접속 2026-07-04) + lwc-recipes-main/force-app/main/default/lwc/miscI18n/miscI18n.js (실전 예시, Tier 1)
 official_doc: https://developer.salesforce.com/docs/platform/lwc/guide/reference-salesforce-modules.html
 created: 2026-07-04
-aliases: [@salesforce modules, salesforce modules, @salesforce/apex, @salesforce/schema, @salesforce/label, @salesforce/resourceUrl, @salesforce/contentAssetUrl, @salesforce/i18n, @salesforce/user, @salesforce/userPermission, @salesforce/customPermission, @salesforce/client/formFactor, @salesforce/community, @salesforce/site, @salesforce/messageChannel, getSObjectValue, refreshApex, formFactor]
+aliases: [@salesforce modules, salesforce modules, @salesforce/apex, @salesforce/schema, @salesforce/label, @salesforce/resourceUrl, @salesforce/contentAssetUrl, @salesforce/i18n, @salesforce/i18n/locale, @salesforce/i18n/currency, Intl.DateTimeFormat, Intl.NumberFormat, 로케일 포맷, 통화 포맷, @salesforce/user, @salesforce/userPermission, @salesforce/customPermission, @salesforce/client/formFactor, @salesforce/community, @salesforce/site, @salesforce/messageChannel, getSObjectValue, refreshApex, formFactor]
 ---
 
 # @salesforce Modules 레퍼런스
@@ -163,6 +163,60 @@ import internationalizationPropertyName from '@salesforce/i18n/internationalizat
 
 - 예: `@salesforce/i18n/dir`·`@salesforce/i18n/lang`.
 - 전체 프로퍼티 목록은 공식 문서 "Access Internationalization Properties"에 위임된다(본 노트 범위 밖).
+
+#### 실전 패턴 — /locale·/currency + Intl 포맷팅
+
+실무에서 가장 자주 쓰는 두 식별자는 **`/locale`**(현재 사용자 로케일, 예 `en-US`)과 **`/currency`**(조직 통화 ISO 코드, 예 `USD`)다. 이 값을 브라우저 표준 **`Intl.DateTimeFormat`·`Intl.NumberFormat`** 생성자에 넘겨 사용자 로케일 기반으로 날짜·통화를 포맷한다.
+
+```javascript
+// 실제 코드 — lwc-recipes: miscI18n/miscI18n.js
+import { LightningElement } from 'lwc';
+import USER_LOCALE from '@salesforce/i18n/locale';
+import USER_CURRENCY from '@salesforce/i18n/currency';
+
+export default class I18n extends LightningElement {
+    userLocale = USER_LOCALE;
+    userCurrency = USER_CURRENCY;
+    japanLocale = 'ja-JP';
+    japanCurrency = 'JPY';
+
+    // 날짜 — 사용자 로케일로 포맷
+    get dateUserLocale() {
+        const date = new Date();
+        return new Intl.DateTimeFormat(USER_LOCALE).format(date);
+    }
+
+    // 날짜 — 특정 로케일(일본)로 강제
+    get dateJapanLocale() {
+        const date = new Date();
+        return new Intl.DateTimeFormat(this.japanLocale).format(date);
+    }
+
+    // 통화 — 사용자 로케일 + 조직 통화
+    get currencyUserLocale() {
+        return new Intl.NumberFormat(USER_LOCALE, {
+            style: 'currency',
+            currency: USER_CURRENCY,
+            currencyDisplay: 'symbol'
+        }).format(100);
+    }
+
+    // 통화 — 특정 로케일(일본) + JPY
+    get currencyJapanLocale() {
+        return new Intl.NumberFormat(this.japanLocale, {
+            style: 'currency',
+            currency: this.japanCurrency,
+            currencyDisplay: 'symbol'
+        }).format(100);
+    }
+}
+```
+
+- import한 `USER_LOCALE`·`USER_CURRENCY`는 **컴파일 타임에 확정되는 상수 값**이다(고정 식별자 세트). 프로퍼티에 대입해 템플릿에서 바로 노출하거나, getter에서 `Intl.*` 생성자에 넘긴다.
+- `Intl.DateTimeFormat(locale).format(date)` — 로케일별 날짜 표기(예 `en-US` → `7/4/2026`, `ja-JP` → `2026/7/4`).
+- `Intl.NumberFormat(locale, { style: 'currency', currency, currencyDisplay: 'symbol' }).format(amount)` — 통화 기호·자릿수·구분자를 로케일 규칙대로 렌더(예 `$100.00` vs `￥100`).
+- 사용자 로케일 대신 **특정 로케일을 강제**하려면 `'ja-JP'` 같은 BCP 47 로케일 문자열을 직접 넘긴다(위 `dateJapanLocale`·`currencyJapanLocale`).
+- `Intl`은 Salesforce API가 아니라 **브라우저 표준(ECMAScript Internationalization API)**이므로 별도 import 없이 사용한다.
 
 ### @salesforce/label — 커스텀 라벨
 

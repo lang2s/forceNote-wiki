@@ -1,8 +1,8 @@
 ---
 tags: [apex, async, queueable, pattern, release-notes]
-source: apex-recipes/QueueableRecipes.cls, QueueableWithCalloutRecipes.cls
+source: apex-recipes/QueueableRecipes.cls, QueueableWithCalloutRecipes.cls, apex-recipes-main/force-app/main/default/classes/LDV Recipes/LDVRecipes.cls
 created: 2026-05-17
-aliases: [queueable, 큐어블, 비동기 체이닝, elastic limits, apex cursor queueable]
+aliases: [queueable, 큐어블, 비동기 체이닝, elastic limits, apex cursor queueable, keyset pagination, LDV queueable, safeToReenqueue, getLimitQueueableJobs]
 ---
 
 # Queueable
@@ -208,6 +208,72 @@ public class CursorQueueable implements Queueable {
 > - Batch Apex: 트랜잭션 격리가 필요할 때, `Database.Stateful`로 상태 유지가 필요할 때
 >
 > 자세한 비교는 [[Batch Apex]] 참고.
+
+---
+
+## 실전 LDV 패턴 — Cursor 없이 keyset 페이지네이션 + 잡 한도 가드
+
+> 출처: apex-recipes `LDVRecipes.cls` (LDV Recipes) — Tier 1 실제 코드
+
+앞의 Cursor 패턴이 `cursor.fetch(offset, PAGE_SIZE)`로 페이지를 당겨오는 반면, 이 실전 레시피는 **Cursor 없이** 순수 SOQL keyset 페이지네이션으로 수십만 건을 self-chaining Queueable로 순차 처리한다. 프로덕션의 Queueable은 max-queue depth가 없어, execute마다 새 잡을 **딱 1개만** enqueue하는 한 전체 데이터셋을 소진할 때까지 스스로 순환한다(주석의 "Ouroboros — 자기 꼬리를 먹는 뱀" 비유).
+
+### 왜 SOQL `OFFSET`이 아니라 Id keyset인가
+
+`OFFSET` SOQL 키워드는 **최대 2000**까지만 지원되므로 2000건을 넘는 LDV에는 쓸 수 없다. 대신 마지막으로 처리한 레코드의 `Id`를 offset으로 넘겨 `WHERE Id > :offsetId ORDER BY Id ASC LIMIT :chunkSize`로 다음 청크를 가져온다. `Id`는 인덱스 필드라 최대 규모 테이블에서도 full table scan을 피한다.
+
+```apex
+private List<ContentDocumentLink> getRecordsToProcess(Id offsetId) {
+    // Map to hold all the bind variables used in the query
+    Map<String, Object> queryBinds = new Map<String, Object>{
+        'offsetId' => offsetId,
+        'chunkSize' => this.chunkSize
+    };
+    String queryString = '';
+    queryString += 'SELECT ContentDocumentId,ContentDocument.Title, ContentDocument.CreatedDate,LinkedEntityId ';
+    queryString += 'FROM ContentDocumentLink ';
+    queryString += 'WHERE LinkedEntityId in (SELECT Id FROM Account) ';
+    if (offsetId != null) {
+        queryString += 'AND Id > :offsetId ';
+    }
+    queryString += 'ORDER BY Id ASC ';
+    queryString += 'LIMIT :chunkSize';
+    return Database.queryWithBinds(
+        queryString,
+        queryBinds,
+        AccessLevel.USER_MODE
+    );
+}
+```
+
+- 첫 잡은 offset 없는 생성자(`new LDVRecipes()`)로 시작하고, 체인을 **이어가는** 잡은 `new LDVRecipes(lastRecordId)`로 offset Id를 넘긴다.
+- offset이 `null`이면 `AND Id > :offsetId` 조건을 아예 붙이지 않아 첫 페이지부터 처리한다.
+
+### self-enqueue 전 잡 한도 가드 — `safeToReenqueue()`
+
+재귀 체이닝의 핵심 안전장치. execute는 처리한 청크의 **마지막 Id**를 다음 offset으로 삼아, (1) 남은 레코드가 있고 (2) 재큐가 안전할 때만 새 잡을 enqueue한다. 안전 판정은 **남은 Queueable 잡 한도가 이미 사용한 수보다 큰지**를 `Limits`로 확인한다.
+
+```apex
+public void execute(System.QueueableContext queueableContext) {
+    // Used to demonstrate the method was executed.
+    LDVRecipes.chunksExecuted += 1;
+    Id lastRecordId = objectsToProcess[objectsToProcess.size() - 1].id;
+
+    if (getRecordsToProcess(lastRecordId).size() > 0 && safeToReenqueue()) {
+        LDVRecipes newQueueable = new LDVRecipes(lastRecordId);
+        System.enqueueJob(newQueueable);
+    }
+}
+
+private Boolean safeToReenqueue() {
+    return Limits.getLimitQueueableJobs() > Limits.getQueueableJobs();
+}
+```
+
+- `Limits.getLimitQueueableJobs()` = 이 트랜잭션에서 허용된 총 Queueable enqueue 한도, `Limits.getQueueableJobs()` = 이미 enqueue한 수. 전자가 후자보다 커야만 재큐해 `LimitException`을 사전 차단한다.
+- 이 가드는 앞서 나온 `AsyncOptions.MaximumQueueableStackDepth`(stack depth 상한)와 **다른 축**의 방어다. depth 가드는 "몇 단계까지 체이닝하나"를, 이 한도 가드는 "이번 트랜잭션에서 enqueue를 한 번 더 해도 되나"를 본다. LDV 재귀에서는 둘을 함께 쓰면 더 견고하다.
+
+> [!note] 테스트 컨텍스트 제약
+> 테스트 컨텍스트에서는 Queueable 재-enqueue가 불가능하다. 따라서 이 재귀 패턴의 단위 테스트는 `chunkSize`(예: 20건) 이하 한 청크 분량으로만 검증된다 — 체인 전체를 테스트로 돌릴 수 없다.
 
 ---
 

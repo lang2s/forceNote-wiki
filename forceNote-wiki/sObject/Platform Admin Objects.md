@@ -1,8 +1,8 @@
 ---
 tags: [sobject-reference, standard-objects, platform-admin, user, permission-set, profile, record-type, flow, setup]
-source: object_reference.pdf (v67.0 Summer '26)
+source: object_reference.pdf (v67.0 Summer '26); automation-components-main/src-flows/main/default/classes/FlowPickerController.cls, GetFlowMetadata.cls (FlowDefinitionView 실전 패턴)
 created: 2026-05-22
-aliases: [Platform Admin Objects, User, PermissionSet, Profile, RecordType, FlowRecord, Group, Organization, SetupAuditTrail]
+aliases: [Platform Admin Objects, User, PermissionSet, Profile, RecordType, FlowRecord, FlowDefinitionView, Group, Organization, SetupAuditTrail, Flow 픽커, 동적 SOQL Flow 조회]
 ---
 
 # Platform Admin Objects — 플랫폼·Admin·보안 오브젝트
@@ -357,6 +357,113 @@ List<AsyncApexJob> jobs = [
     WITH USER_MODE
 ];
 ```
+
+---
+
+## FlowDefinitionView — Apex로 Flow 목록/메타데이터 조회 (실전 패턴)
+
+`FlowDefinitionView`(위 Flow 계열 표)는 org의 활성 Flow 정의를 조회할 수 있는 읽기 전용 뷰다. LWC 플로우 픽커·동적 Flow 실행 컴포넌트에 목록을 공급할 때 **`@AuraEnabled(cacheable=true)` + 동적 SOQL**로 감싸는 패턴이 실무에서 쓰인다. `automation-components`(Trailhead 샘플)의 두 클래스가 이 뷰의 대표 사용 2가지를 보여준다.
+
+조회 가능한 주요 필드: `ApiName`, `Label`, `ActiveVersionId`, `LatestVersionId`, `DurableId`, `Description`, `NamespacePrefix`, `ProcessType`(Flow 유형: `Flow`/`AutoLaunchedFlow`/`Workflow` 등).
+
+### 1) 단순 필터 — 바인드 변수로 안전 조회 (`GetFlowMetadata`)
+
+`ApiName` 또는 `DurableId`(= Flow Definition Id)로 하나의 Flow 메타데이터를 가져온다. 바인드 변수(`:apiName`)를 써서 인젝션 위험이 없다.
+
+```apex
+// GetFlowMetadata.cls — 실제 소스
+private final static String BASE_QUERY =
+    'SELECT Id, ApiName, Label, ActiveVersionId, Description, DurableId, ' +
+    'LatestVersionId, NamespacePrefix, ProcessType FROM FlowDefinitionView';
+
+private static String getQuery(String apiName, String definitionId) {
+    String query = BASE_QUERY;
+    if (apiName != null && definitionId != null) {
+        query += ' WHERE DurableId = :definitionId AND ApiName = :apiName';
+    } else if (apiName != null) {
+        query += ' WHERE ApiName = :apiName';
+    } else /** definitionId != null */ {
+        query += ' WHERE DurableId = :definitionId';
+    }
+    return query + ' LIMIT 1';
+}
+
+// 호출부 (@InvocableMethod 내부)
+FlowDefinitionView[] flows = Database.query(getQuery(apiName, definitionId));
+```
+
+- 반환된 `flows[0].DurableId`가 곧 Flow Definition Id로, output의 `flowDefinitionId`에 매핑된다.
+- `@InvocableMethod(category='Flows')`로 노출돼 Flow 안에서 다른 Flow의 메타데이터를 조회하는 데도 쓰인다.
+
+### 2) 동적 필터 조립 — cacheable 픽커용 (`FlowPickerController`)
+
+LWC 플로우 픽커가 넘기는 필터 목록(`FilterParameter`)을 받아 **WHERE 절을 런타임에 조립**한다. 등호·`LIKE`(검색)·`IN`(다중값)·부정(`NOT`/`!`) 연산자를 필터 성격에 따라 자동 선택한다.
+
+```apex
+// FlowPickerController.cls — 실제 소스
+@AuraEnabled(cacheable=true)
+@SuppressWarnings('PMD.ApexSOQLInjection')
+global static List<FlowDefinitionView> getFlowNames(
+    List<FilterParameter> filterParams
+) {
+    String query = getSearchQuery(filterParams);
+    return (List<FlowDefinitionView>) Database.query(query);
+}
+
+@TestVisible
+private static String getSearchQuery(List<FilterParameter> filterParams) {
+    String query = 'SELECT ApiName, Label FROM FlowDefinitionView';
+    if (filterParams != null && filterParams.size() > 0) {
+        query += ' WHERE';
+        Boolean isFirst = true;
+        for (FilterParameter param : filterParams) {
+            // 부정 절: 다중값이면 'NOT ', 단일값이면 '!'
+            String negativeClause = '';
+            if (param.isNegative()) {
+                negativeClause = param.hasMultipleValues() ? 'NOT ' : '!';
+            }
+            // 연산자 선택: 검색='LIKE', 다중='IN', 기본='='
+            String operator = '= ';
+            if (param.isSearch()) {
+                operator = 'LIKE ';
+            } else if (param.hasMultipleValues()) {
+                operator = 'IN ';
+            }
+            // 값 포맷: NULL / 다중('a','b') / 단일 (escapeSingleQuotes)
+            String value;
+            if (param.value == null) {
+                value = 'NULL';
+            } else if (param.hasMultipleValues()) {
+                value = '(\'' + String.join(param.getValues(), '\',\'') + '\')';
+            } else {
+                value = '\'' + String.escapeSingleQuotes(param.value) + '\'';
+            }
+            query +=
+                (isFirst ? ' ' : ' AND ') +
+                param.key.replace('!', '') + ' ' +
+                negativeClause + operator + value;
+            isFirst = false;
+        }
+    }
+    return query + ' ORDER BY Label ASC';
+}
+```
+
+`FilterParameter`(inner class)가 필터의 성격을 판정한다:
+
+| 메서드 | 판정 로직 | 결과 연산자 |
+|---|---|---|
+| `isNegative()` | `key`가 `!`로 시작 | `NOT`(다중) / `!`(단일) 접두 |
+| `isSearch()` | `value`에 `%` 포함 | `LIKE` |
+| `hasMultipleValues()` | 콤마 분리 후 값 2개 이상 | `IN` |
+| `getValues()` | `escapeSingleQuotes` → 공백 제거 → `,` split | 다중값 리스트 |
+
+동적 SOQL 인젝션 방어 포인트(문자열 조립인데도 안전한 이유):
+- 값은 `String.escapeSingleQuotes()`로 이스케이프(단일·다중 모두).
+- `SELECT`/`FROM`은 하드코딩, WHERE 필드명(`param.key`)만 클라이언트에서 오므로 신뢰 경계에 유의(샘플은 `@SuppressWarnings('PMD.ApexSOQLInjection')`로 정적 분석 억제).
+- 결과 타입을 `List<FlowDefinitionView>`로 명시 캐스팅해 `cacheable=true` LWC 와이어에 그대로 노출.
+
+> ProcessType·NamespacePrefix 등으로 Screen Flow만 / 특정 네임스페이스만 걸러 픽커에 뿌리는 식으로 확장한다. `FlowDefinitionView`는 읽기 전용이라 DML 대상이 아니다 — Flow 자체의 정의/버전 구조는 위 "Flow · Process 자동화" 표의 `FlowRecord`·`FlowVersionView` 참조.
 
 ---
 

@@ -1,8 +1,8 @@
 ---
 tags: [lwc, lds, uiRecordApi, createRecord, updateRecord, pattern]
-source: lwc-recipes/ldsCreateRecord, ldsDeleteRecord, datatableInlineEditWithUiApi
+source: lwc-recipes/ldsCreateRecord, ldsDeleteRecord, datatableInlineEditWithUiApi; ebikes-lwc-main/force-app/main/default/lwc/orderBuilder/orderBuilder.js
 created: 2026-05-17
-aliases: [uiRecordApi, createRecord, updateRecord, deleteRecord]
+aliases: [uiRecordApi, createRecord, updateRecord, deleteRecord, 낙관적 업데이트, optimistic update, 롤백]
 ---
 
 # uiRecordApi — 프로그래밍 방식 레코드 CRUD
@@ -106,6 +106,136 @@ async handleDelete(event) {
     }
 }
 ```
+
+---
+
+## 실전 패턴 — 낙관적 UI 업데이트 + 실패 롤백 (ebikes orderBuilder)
+
+> ebikes `orderBuilder`는 명령형 DML을 **낙관적 업데이트**로 감싼다: 서버 응답을 기다리지 않고 클라이언트 상태를 먼저 반영(즉각 반응성) → DML `.catch()`에서 이전 상태로 롤백 + `ShowToastEvent`. Apex wire 결과(`getOrderItems`)를 목록으로 쓰고, 개별 항목 CRUD는 `lightning/uiRecordApi`로 처리하는 혼합 구조다.
+
+핵심 3단계:
+1. **이전 상태 보존** — DML 직전 `const previousOrderItems = this.orderItems;`
+2. **클라이언트 선반영** — 서버 응답 전에 `setOrderItems(...)`로 UI 즉시 갱신
+3. **실패 롤백** — `.catch()`에서 `setOrderItems(previousOrderItems)` + 에러 토스트
+
+### 업데이트 — 낙관적 반영 후 실패 시 롤백
+
+```javascript
+/** Handles event to change Order_Item__c details. */
+handleOrderItemChange(evt) {
+    const orderItemChanges = evt.detail;
+
+    // optimistically make the change on the client
+    const previousOrderItems = this.orderItems;
+    const orderItems = this.orderItems.map((orderItem) => {
+        if (orderItem.Id === orderItemChanges.Id) {
+            // synthesize a new Order_Item__c SObject
+            return Object.assign({}, orderItem, orderItemChanges);
+        }
+        return orderItem;
+    });
+    this.setOrderItems(orderItems);
+
+    // update Order_Item__c on the server
+    const recordInput = { fields: orderItemChanges };
+    updateRecord(recordInput)
+        .then(() => {
+            // if there were triggers/etc that invalidate the Apex result then we'd refresh it
+            // return refreshApex(this.wiredOrderItems);
+        })
+        .catch((e) => {
+            // error updating server so rollback to previous data
+            this.setOrderItems(previousOrderItems);
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error updating order item',
+                    message: reduceErrors(e).join(', '),
+                    variant: 'error'
+                })
+            );
+        });
+}
+```
+
+### 삭제 — 필터로 선제거 후 실패 시 롤백
+
+```javascript
+/** Handles event to delete Order_Item__c. */
+handleOrderItemDelete(evt) {
+    const id = evt.detail.id;
+
+    // optimistically make the change on the client
+    const previousOrderItems = this.orderItems;
+    const orderItems = this.orderItems.filter(
+        (orderItem) => orderItem.Id !== id
+    );
+    this.setOrderItems(orderItems);
+
+    // delete Order_Item__c SObject on the server
+    deleteRecord(id)
+        .then(() => {
+            // return refreshApex(this.wiredOrderItems);
+        })
+        .catch((e) => {
+            // error updating server so rollback to previous data
+            this.setOrderItems(previousOrderItems);
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error deleting order item',
+                    message: reduceErrors(e).join(', '),
+                    variant: 'error'
+                })
+            );
+        });
+}
+```
+
+> [!note] 롤백이 성립하는 이유
+> `setOrderItems`가 `orderItems.slice()`로 **새 배열**을 만들고 요약값(수량·가격)을 재계산하므로, `previousOrderItems` 참조는 변형되지 않고 그대로 남는다 → catch에서 그 참조를 다시 넣기만 하면 UI가 원상 복구된다. 서버가 진실의 원천이고 클라이언트 반영은 잠정치라는 사고방식이다.
+
+### recordInput 필드를 schema 임포트로 조립 (create)
+
+drag-drop으로 새 `Order_Item__c`를 만들 때, `fields` 키를 문자열이 아니라 **schema 임포트의 `.fieldApiName`**으로 조립한다. `ORDER_FIELD.fieldApiName`이 곧 관계 필드 API명(`Order__c`)이며, 존재하지 않는 필드를 참조하면 컴파일/배포 시 검출된다.
+
+```javascript
+import ORDER_ITEM_OBJECT from '@salesforce/schema/Order_Item__c';
+import ORDER_FIELD from '@salesforce/schema/Order_Item__c.Order__c';
+import PRODUCT_FIELD from '@salesforce/schema/Order_Item__c.Product__c';
+import PRICE_FIELD from '@salesforce/schema/Order_Item__c.Price__c';
+import PRODUCT_MSRP_FIELD from '@salesforce/schema/Product__c.MSRP__c';
+
+handleDrop(event) {
+    event.preventDefault();
+    const product = JSON.parse(event.dataTransfer.getData('product'));
+
+    // build new Order_Item__c record — schema 임포트로 필드 API명 조립
+    const fields = {};
+    fields[ORDER_FIELD.fieldApiName] = this.recordId;      // 'Order__c'
+    fields[PRODUCT_FIELD.fieldApiName] = product.Id;        // 'Product__c'
+    fields[PRICE_FIELD.fieldApiName] = Math.round(
+        getSObjectValue(product, PRODUCT_MSRP_FIELD) * DISCOUNT
+    );
+
+    // create Order_Item__c record on server
+    const recordInput = {
+        apiName: ORDER_ITEM_OBJECT.objectApiName,           // 'Order_Item__c'
+        fields
+    };
+    createRecord(recordInput)
+        .then(() => refreshApex(this.wiredOrderItems))       // 목록 새로고침
+        .catch((e) => {
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error creating order',
+                    message: reduceErrors(e).join(', '),
+                    variant: 'error'
+                })
+            );
+        });
+}
+```
+
+> **낙관적 업데이트를 안 쓰는 create 경로:** 여기서는 새 레코드의 서버측 Id·계산값이 필요하므로 선반영 대신 `refreshApex(this.wiredOrderItems)`로 서버 데이터를 다시 받는다. update/delete는 변경 내용이 클라이언트에 이미 있어 선반영이 가능하지만, create는 서버가 만든 결과를 받아야 하므로 refresh가 적합하다.
 
 ---
 
