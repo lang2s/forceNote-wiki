@@ -24,7 +24,8 @@ _user-docs/
 scheduled_tasks.lock
 
 # Obsidian vault 개인 설정 (workspace.json 등 머신별 UI 상태 — 커밋 제외)
-forceNote-wiki/.obsidian/
+# 앵커 없는 패턴 → 레포 루트·forceNote-wiki/ 어디의 .obsidian/든 매치
+.obsidian/
 
 # Claude Code 머신별 권한 캐시 (settings.json은 commit, settings.local.json은 제외)
 forceNote-wiki/.claude/settings.local.json
