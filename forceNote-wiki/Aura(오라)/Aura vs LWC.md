@@ -161,3 +161,4 @@ export default class MyComponent extends LightningElement {
 - [[Aura 이벤트]] — Aura 이벤트 패턴
 - [[LWC/LWC MOC]] — LWC 전체 가이드
 - [[Tooling API 객체 — Lightning (Aura·LWC 번들)]] — AuraDefinition ↔ LightningComponentBundle, Aura·LWC 번들의 Tooling sObject 표현
+- [[Aura → LWC 마이그레이션]] — 비교 후 실제 전환 절차 (번들 파일·마크업·이벤트·CSS·Apex 매핑)
