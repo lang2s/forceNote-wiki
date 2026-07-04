@@ -23,6 +23,7 @@ created: 2026-05-17
 - [[@salesforce Modules 레퍼런스]] — `@salesforce/*` 스코프드 모듈 전수(apex·schema·label·resourceUrl·contentAssetUrl·user·userPermission·customPermission·client/formFactor·community·site·messageChannel) + getSObjectValue·refreshApex
 - [[XML Config File Elements (js-meta.xml) 레퍼런스]] — 컴포넌트 설정 파일 `*.js-meta.xml` 요소 전수(targets·capability·isExposed·apiVersion·targetConfig·lightning__ 타깃) — 컴포넌트 노출 위치 정의
 - [[PageReference Types 레퍼런스]] — NavigationMixin PageReference 타입 전수(standard__recordPage·objectPage·navItemPage·component·webPage·flow·quickAction·comm__namedPage) — 페이지 이동 대상 정의
+- [[LWC API Modules 레퍼런스]] — `lightning/*`·`experience/*` 스코프 API 모듈 23종 전수(uiRecordApi·graphql·uiObjectInfoApi·uiListsApi·empApi·mobileCapabilities·analyticsWaveApi·platformWorkspaceApi·cmsDeliveryApi) + 각 모듈 First API Version
 
 ---
 
@@ -164,6 +165,7 @@ created: 2026-05-17
 - [[LWR 컴포넌트 개발 심화]] — js-meta.xml targets·targetConfigs·@salesforce 모듈·화면 크기 반응형·커스텀 레이아웃/내비게이션
 - [[LWR --dxp 스타일링 훅 레퍼런스]] — LWR 브랜딩(--dxp-g/-s/-c 훅)·Theme 패널 속성 매핑·커스텀 폰트·Remove SLDS·컴포넌트 브랜딩 오버라이드
 - [[LWR Tag Manager 데이터 관리]] — Experience/Google Tag Manager·experience_interaction 이벤트·Tag Manager Event Reference·Consent·Website Engagement DMO → Data Cloud
+- [[Lightning Out 2.0 (외부 앱 임베드)]] — 비-Salesforce 외부 앱에 LWC 임베드(LWR 기반·frontdoor-url·app-id·closed shadow DOM iframe·lo.application.ready·window.postMessage) — Lightning Out beta 대체 GA
 
 ## 🎨 SLDS 디자인 시스템
 

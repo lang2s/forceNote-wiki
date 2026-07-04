@@ -253,6 +253,7 @@ import hasPermission from '@salesforce/customPermission/PermissionName';
 ## 관련 노트
 - [[Wire 패턴]] — `@salesforce/apex`를 @wire로 호출.
 - [[Imperative 호출 패턴]] — `@salesforce/apex`를 imperative로 호출.
+- [[LWC API Modules 레퍼런스]] — 형제 Reference: `lightning/*`·`experience/*` API 데이터 모듈 카탈로그(`@salesforce/*` 런타임 리소스와 구분).
 - [[uiRecordApi]] — `@salesforce` 없는 `lightning/*` 데이터 모듈(범용 리소스).
 - [[getRecord 패턴]] — record 데이터 조회(`notifyRecordUpdateAvailable`와 연계).
 - [[HTML 템플릿 Directives 레퍼런스]] — Reference 형제 노트.

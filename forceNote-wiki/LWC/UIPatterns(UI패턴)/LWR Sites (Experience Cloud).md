@@ -290,4 +290,5 @@ LWR 사이트에 언어를 추가하면 멀티링궐(multilingual) 사이트가 
 - [[LWC API 버전 관리]] — `.js-meta.xml` targets/targetConfigs 구조
 - [[SLDS LWC 디자인 시스템]] — `--slds-*` 훅 (LWR은 `--dxp-*` 사용)
 - [[CRM Analytics 대시보드용 LWC]] — 다른 LWC 타깃 surface
+- [[Lightning Out 2.0 (외부 앱 임베드)]] — 형제 LWR 런타임: 외부(비-Salesforce) 앱에 LWC를 임베드(LWR 기반·shadow DOM iframe)
 - [[LWC MOC]]

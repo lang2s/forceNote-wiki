@@ -19,6 +19,7 @@ created: 2026-07-04
 | [[@salesforce Modules 레퍼런스]] | `@salesforce/*` 스코프드 모듈 전수(apex·schema·label·resourceUrl·contentAssetUrl·user·userPermission·customPermission·client/formFactor·community·site·messageChannel) + getSObjectValue·refreshApex | #reference |
 | [[XML Config File Elements (js-meta.xml) 레퍼런스]] | 컴포넌트 설정 파일 `*.js-meta.xml` 요소 전수(targets·target·capability·isExposed·apiVersion·masterLabel·targetConfig·lightning__ 타깃) — 컴포넌트 노출 위치 정의 | #reference |
 | [[PageReference Types 레퍼런스]] | NavigationMixin PageReference 타입 전수(standard__recordPage·objectPage·navItemPage·component·webPage·flow·quickAction·comm__namedPage) — 페이지 이동 대상 정의 | #reference |
+| [[LWC API Modules 레퍼런스]] | record 데이터·Salesforce API 접근용 `lightning/*`·`experience/*` 스코프 API 모듈 23종 전수(uiRecordApi·graphql·uiObjectInfoApi·uiListsApi·empApi·mobileCapabilities·analyticsWaveApi·platformWorkspaceApi·cmsDeliveryApi) + 각 모듈 First API Version | #reference |
 
 ---
 
@@ -28,6 +29,7 @@ created: 2026-07-04
 - Apex·schema·label·정적 리소스 등 `@salesforce/*` 모듈 임포트를 찾을 때? → [[@salesforce Modules 레퍼런스]]
 - 컴포넌트를 어디에(레코드 페이지·앱 페이지·Flow 등) 노출할지 `js-meta.xml` 설정을 찾을 때? → [[XML Config File Elements (js-meta.xml) 레퍼런스]]
 - NavigationMixin으로 이동할 페이지 타입(PageReference)을 찾을 때? → [[PageReference Types 레퍼런스]]
+- `lightning/uiRecordApi`·`lightning/graphql` 등 어떤 wire adapter/API 모듈이 있고 언제부터 쓸 수 있는지 찾을 때? → [[LWC API Modules 레퍼런스]]
 
 ---
 

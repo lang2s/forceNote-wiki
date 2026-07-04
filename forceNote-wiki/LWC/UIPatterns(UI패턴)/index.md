@@ -30,6 +30,7 @@ created: 2026-05-17
 | [[LWR 컴포넌트 개발 심화]] | LWR 컴포넌트 개발 — js-meta.xml targets·targetConfigs·@salesforce 모듈·화면 크기 반응형·커스텀 레이아웃/내비게이션 | #reference |
 | [[LWR --dxp 스타일링 훅 레퍼런스]] | LWR 브랜딩 — --dxp-g/-s/-c 스타일링 훅·Theme 패널 속성 매핑·커스텀 폰트·Remove SLDS·컴포넌트 브랜딩 오버라이드 | #reference |
 | [[LWR Tag Manager 데이터 관리]] | LWR 데이터 관리 — Experience/Google Tag Manager·experience_interaction·Tag Manager Event Reference·Consent·Website Engagement DMO → Data Cloud | #reference |
+| [[Lightning Out 2.0 (외부 앱 임베드)]] | 비-Salesforce 외부 앱에 LWC 임베드 — LWR 기반·frontdoor-url·app-id·closed shadow DOM iframe·lo.application.ready·window.postMessage (Lightning Out beta 대체 GA) | #reference |
 
 ---
 
@@ -51,3 +52,4 @@ created: 2026-05-17
 - LWR 커스텀 컴포넌트 개발·js-meta.xml targets·반응형·커스텀 레이아웃/내비? → [[LWR 컴포넌트 개발 심화]]
 - LWR 사이트 색상·폰트·브랜딩·--dxp 스타일링 훅? → [[LWR --dxp 스타일링 훅 레퍼런스]]
 - LWR 사이트 인터랙션 추적·Google Tag Manager·Data Cloud 데이터 전송? → [[LWR Tag Manager 데이터 관리]]
+- 외부(비-Salesforce) 사이트/앱에 LWC를 임베드? → [[Lightning Out 2.0 (외부 앱 임베드)]]
