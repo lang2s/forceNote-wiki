@@ -130,7 +130,7 @@ git 객체 저장소에는 파일이 존재하므로 `git show`로 내용을 읽
 ```
 Layer 0  00 Home.md              — 전체 진입점 (사람용 큐레이션)
 Layer 1  00 SEARCH_INDEX.md      — 라우터 (도메인 → 샤드 매핑만, 개별 페이지 나열 안 함)
-Layer 2  _index/{도메인}.md      — 키워드 → 파일 경로 샤드 (frontend/frontend-basecomponents/visualforce/apex-core/apex-namespaces/platform/platform-devops/platform-devops-2gp/platform-devops-tooling/release/sobject-reference/service/scheduler/field-service/cpq/analytics/security/agentforce/agent-skills/questions)
+Layer 2  _index/{도메인}.md      — 키워드 → 파일 경로 샤드 (frontend/frontend-basecomponents/visualforce/apex-core/apex-namespaces/platform/platform-devops/platform-devops-2gp/platform-devops-tooling/release/sobject-reference/service/scheduler/field-service/cpq/analytics/security/admin/sales/clouds/data-cloud/connect-rest/agentforce/agent-skills/agent-skills-refs-{agentforce,diagram,experience,integration,misc,omnistudio,platform}/questions)
          Apex/Apex MOC.md        — Apex 섹션 전체 목차 (사람용 브라우즈)
          LWC/LWC MOC.md / Flow/Flow MOC.md / Integration(통합)/통합 MOC.md
 Layer 3  */index.md              — 각 subfolder 로컬 인덱스 (파일 목록 + 빠른 선택)
@@ -344,7 +344,7 @@ Step 0 검증 + 4단계를 모두 완료해야 추가 작업이 끝난 것으로
 |---|---|
 | 전체 진입점 | `00 Home.md` |
 | 키워드 라우터 | `00 SEARCH_INDEX.md` (도메인 → 샤드) |
-| 키워드 샤드 | `_index/frontend.md` · `_index/frontend-basecomponents.md` · `_index/visualforce.md` · `_index/apex-core.md` · `_index/apex-namespaces.md` · `_index/platform.md` · `_index/platform-devops.md` · `_index/platform-devops-2gp.md` · `_index/platform-devops-tooling.md` · `_index/release.md` · `_index/sobject-reference.md` · `_index/service.md` · `_index/scheduler.md` · `_index/field-service.md` · `_index/cpq.md` · `_index/analytics.md` · `_index/security.md` · `_index/agentforce.md` · `_index/agent-skills.md` · `_index/questions.md` |
+| 키워드 샤드 | `_index/frontend.md` · `_index/frontend-basecomponents.md` · `_index/visualforce.md` · `_index/apex-core.md` · `_index/apex-namespaces.md` · `_index/platform.md` · `_index/platform-devops.md` · `_index/platform-devops-2gp.md` · `_index/platform-devops-tooling.md` · `_index/release.md` · `_index/sobject-reference.md` · `_index/service.md` · `_index/scheduler.md` · `_index/field-service.md` · `_index/cpq.md` · `_index/analytics.md` · `_index/security.md` · `_index/admin.md` · `_index/sales.md` · `_index/clouds.md` · `_index/data-cloud.md` · `_index/connect-rest.md` · `_index/agentforce.md` · `_index/agent-skills.md` · `_index/agent-skills-refs-agentforce.md` · `_index/agent-skills-refs-diagram.md` · `_index/agent-skills-refs-experience.md` · `_index/agent-skills-refs-integration.md` · `_index/agent-skills-refs-misc.md` · `_index/agent-skills-refs-omnistudio.md` · `_index/agent-skills-refs-platform.md` · `_index/questions.md` |
 | Apex 섹션 | `Apex/Apex MOC.md` |
 | LWC 섹션 | `LWC/LWC MOC.md` |
 | Flow 섹션 | `Flow/Flow MOC.md` |
@@ -381,6 +381,8 @@ Step 0 검증 + 4단계를 모두 완료해야 추가 작업이 끝난 것으로
 | LWC/BaseComponents(베이스컴포넌트) | `LWC/BaseComponents(베이스컴포넌트)/index.md` |
 | LWC/Internals(내부구조) | `LWC/Internals(내부구조)/index.md` |
 | LWC/SLDS(디자인시스템) | `LWC/SLDS(디자인시스템)/index.md` |
+| LWC/CreateComponents(컴포넌트작성) | `LWC/CreateComponents(컴포넌트작성)/index.md` |
+| LWC/Reference(레퍼런스) | `LWC/Reference(레퍼런스)/index.md` |
 | Aura(오라) | `Aura(오라)/index.md` |
 | Visualforce(비주얼포스) | `Visualforce(비주얼포스)/index.md` |
 | Flow | `Flow/index.md` |
