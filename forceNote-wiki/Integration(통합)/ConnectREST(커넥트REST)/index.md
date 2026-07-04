@@ -35,6 +35,9 @@ created: 2026-07-03
 | [[Files & Folders Resources]] | 네이티브 Salesforce Files 파일·폴더·공유·미리보기·렌디션 REST(21 엔드포인트) | #resource |
 | [[Files Connect Repository Resources]] | 외부 저장소(SharePoint·Google Drive·OneDrive) 파일·권한 REST(14+3) | #resource |
 | [[Notifications Resources]] | in-app/push 알림·알림 설정 REST(10 엔드포인트) | #resource |
+| [[Topics Resources - 일반·레코드]] | 조직 토픽 CRUD·병합·suggestion·trending·레코드 할당 REST(10 엔드포인트) | #resource |
+| [[Managed Topics Resources - Experience Cloud]] | Experience Cloud 사이트 managed topic 계층(navigational·featured·content)·재정렬 REST(2 엔드포인트) | #resource |
+| [[Action Links Resources]] | 피드 element 버튼(웹·다운로드·API 호출)·action link group·정의·템플릿 REST(5 엔드포인트) | #resource |
 
 ---
 

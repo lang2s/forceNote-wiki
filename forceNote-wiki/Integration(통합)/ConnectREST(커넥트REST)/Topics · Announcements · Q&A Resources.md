@@ -218,5 +218,6 @@ DELETE /connect/topic-opt-outs/0ebD0000000003oIAA
 ## 관련 노트
 - [[Feed Elements Resources]] — 피드 엘리먼트의 topics·question-and-answers capability(피드 레벨) vs 이 노트(토픽 endorsement·공지)
 - [[Groups Resources]] — 그룹 공지 게시(announcements)·그룹의 토픽
+- [[Topics Resources - 일반·레코드]] — 같은 "Topics" 이름이지만 별개 리소스: 이 노트는 토픽 endorsement·opt-out, 저기는 토픽 엔터티 CRUD·병합·레코드 할당
 - [[Connect REST API 요청·응답 규약]] — base URI·페이지네이션
 - [[Connect REST API 개요]] — 상위 개요
