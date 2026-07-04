@@ -7,6 +7,12 @@ created: 2026-05-21
 > LWC·Aura·Flow·Base Components 키워드 → 파일
 > 루트 라우터: `00 SEARCH_INDEX.md` · 다른 샤드는 라우터에서 이동.
 
+## LWC — 개요 / 시작 (Get Started)
+
+| 키워드 | 파일 |
+|---|---|
+| LWC, Lightning Web Components, LWC 개요, LWC 시작, get started, LWC란 무엇인가, web components, base components, 표준 웹 기술, W3C TC39, 오픈소스, Aura 상호운용, LWC vs Aura, choose LWC, 시작 경로, LWC 진입점 | `LWC/LWC 개요 (Get Started).md` |
+
 ## LWC — Apex 호출 / 데이터 로드
 
 | 키워드 | 파일 |

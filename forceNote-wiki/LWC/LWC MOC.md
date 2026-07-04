@@ -9,6 +9,12 @@ created: 2026-05-17
 
 ---
 
+## 🚀 개요 / 시작 (Get Started)
+
+- [[LWC 개요 (Get Started)]] — LWC란 무엇인가·base components·표준 웹 기술(W3C/TC39)·Aura 상호운용·시작 경로 (LWC 섹션 개념 진입점)
+
+---
+
 ## ⚡ Apex 통합
 
 - [[Wire vs Imperative 선택]] — @wire(property/function) vs async/await 결정 매트릭스
