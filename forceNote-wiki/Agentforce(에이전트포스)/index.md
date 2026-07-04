@@ -25,6 +25,8 @@ created: 2026-06-30
 | [[Agent Script 패턴 — 액션 체이닝·조건·데이터 페치·필터링]] | 액션 보장 순차 실행·조건문(if/else) 결정적 제어·추론 전 데이터 페치·available when 필터링 패턴 | #pattern #actions #conditionals #fetch #filtering |
 | [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]] | 패턴 5종 — 변수 효과적 사용·리스트(컬렉션) 변수·리소스 직접 참조·시스템 오버라이드·멀티턴 워크플로우(슬롯 필링) 강제 | #pattern #variables #list-variables #resource-references #system-overrides #multi-turn |
 | [[Agent Script 메타데이터 배포 (DX·패키징)]] | 에이전트를 다른 org로 — 메타데이터 타입 9종(Bot·BotVersion·GenAiPlannerBundle·AiAuthoringBundle 등)·draft/committed/legacy 구분·sf CLI 7단계 retrieve/deploy·매니페스트 3종·username 문자열 치환 | #deployment #metadata-api #package-xml #sf-cli |
+| [[Agentforce 커스텀 Lightning Type — 에이전트 액션 입출력 UI]] | 에이전트 액션 입출력에 커스텀 LWC UI — Custom Lightning Types(lightning__AgentforceInput/Output)·Lightning Type Bundle(schema/editor/renderer.json)·componentOverrides·@apexClassType·valuechange | #reference #custom-ui |
+| [[Agentforce Prompt Template 액션 — genAiPromptTemplate·Apex 그라운딩]] | 에이전트에서 프롬프트 템플릿 실행 — generatePromptResponse 액션·GenAiPromptTemplate 메타(templateVersions·templateDataProviders)·Apex data provider(InvocableMethod) 그라운딩·머지필드 | #reference #prompt-template |
 
 ---
 
@@ -32,6 +34,8 @@ created: 2026-06-30
 
 - Agent Script가 처음? → [[Agent Script 개요와 언어 특성]]
 - 블록 문법/속성 찾기? → [[Agent Script 블록 8종 (System·Config·Subagent 등)]]
+- 에이전트 액션 입출력에 커스텀 LWC UI 붙이기? → [[Agentforce 커스텀 Lightning Type — 에이전트 액션 입출력 UI]]
+- 에이전트에서 프롬프트 템플릿 실행·Apex 그라운딩? → [[Agentforce Prompt Template 액션 — genAiPromptTemplate·Apex 그라운딩]]
 
 ---
 

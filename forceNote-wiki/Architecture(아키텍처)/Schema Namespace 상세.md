@@ -691,3 +691,4 @@ for (Schema.DescribeTabSetResult app : appDescs) {
 - [[SOQL 패턴]] — 동적 필드를 이용한 동적 SOQL 구성
 - [[Safely]] — StripInaccessible, CanTheUser — FLS 필드 필터링
 - [[System Namespace]] — 코어 시스템 API — getGlobalDescribe와 함께 쓰는 런타임 클래스 레퍼런스
+- [[메타데이터 카탈로그 SOQL (EntityDefinition·FieldDefinition)]] — describe 대신 SOQL로 스키마 조회(대형 조직 대안). 명령형 describe의 선언형 짝

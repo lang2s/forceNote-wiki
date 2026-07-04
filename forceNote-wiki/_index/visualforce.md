@@ -43,6 +43,7 @@ created: 2026-06-22
 | JavaScript Remoting, @RemoteAction, Visualforce.remoting.invokeAction, $Component, JS 라이브러리 포함, includeScript, Lightning message service, sforce.one publish subscribe, LMS across DOM, VF에서 Apex 메서드 직접 호출, Remoting으로 비동기 호출, VF DOM 경계 통신 | `Visualforce(비주얼포스)/JavaScript·Remoting·LMS across DOM.md` |
 | Visualforce 베스트 프랙티스, View State 관리, view state 줄이기, VF 성능 최적화, Visualforce 보안 팁, transient 키워드, VF 컨트롤러 모범사례, Visualforce 페이지 느릴 때, 뷰 스테이트가 너무 클 때, VF 보안 권고 | `Visualforce(비주얼포스)/Visualforce 베스트 프랙티스.md` |
 | Visualforce Global Variables, $User, $Action, $Resource, $ObjectType, $Label, $Setup, VF 표현식 함수, formula 함수, VF 연산자, 머지 필드, expression operators, VF 표현식에서 쓸 수 있는 변수, $Action 종류, Visualforce formula 함수 목록 | `Visualforce(비주얼포스)/Global Variables·함수·표현식 연산자.md` |
+| Lightning Out, apex:includeLightning, $Lightning.use, $Lightning.createComponent, ltng:outApp, ltng:outAppUnstyled, aura:dependency, LWC in Visualforce, Lightning components for Visualforce, embed LWC in VF page, embed LWC external site, lightningEndPointURI, authToken, VF에 LWC 임베드, Visualforce에서 LWC 사용, 라이트닝 아웃, 외부 웹페이지에 LWC 넣기, 의존성 앱, VF와 LWC 상호운용, Visualforce에서 LWC 메서드 호출·이벤트 수신, VF에 라이트닝 웹 컴포넌트 임베드하는 법, 비-Salesforce 사이트에 LWC 올리기 | `Visualforce(비주얼포스)/Lightning Out — Visualforce·외부 페이지에 LWC 임베드.md` |
 
 ---
 

@@ -22,6 +22,7 @@ created: 2026-05-22
 | [[SOQL 패턴]] | WITH USER_MODE, SOQL for loop, 집계 패턴, Apex Cursor | #pattern |
 | [[Dynamic SOQL]] | queryWithBinds, SOQL 인젝션 방어 | #pattern |
 | [[SOSL 패턴]] | FIND 구문, IN SearchGroup, RETURNING, 여러 Object 전문 검색 | #pattern |
+| [[메타데이터 카탈로그 SOQL (EntityDefinition·FieldDefinition)]] | EntityDefinition/FieldDefinition로 스키마를 SOQL 조회 — QualifiedApiName·IsCalculated·RelationshipName·DataType, describe 대신 SOQL로 포뮬러/룩업 필드 찾기 | #reference |
 
 ---
 
@@ -34,3 +35,4 @@ created: 2026-05-22
 - WITH USER_MODE, SOQL for loop? → [[SOQL 패턴]]
 - 동적 쿼리·인젝션 방어? → [[Dynamic SOQL]]
 - 여러 Object에서 키워드 검색? → [[SOSL 패턴]]
+- SOQL로 스키마 조회(포뮬러/룩업 필드 찾기)? → [[메타데이터 카탈로그 SOQL (EntityDefinition·FieldDefinition)]]

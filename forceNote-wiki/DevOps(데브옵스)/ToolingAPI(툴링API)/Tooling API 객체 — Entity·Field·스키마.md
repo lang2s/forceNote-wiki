@@ -1049,3 +1049,4 @@ req.setMethod('GET');
 - [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — User·플랫폼이벤트·CDC 채널·이벤트 릴레이 sObject 7종 형제 Ch4 도메인 노트.
 - [[Metadata Types — Objects & Fields]] — 같은 이름의 Metadata API **타입**(CustomField·CustomObject·RecordType·FieldSet 등) 카탈로그. 본 노트는 Tooling **sObject**(SOQL 조회), 그쪽은 배포용 declarative metadata.
 - [[ChangeEventHeader]] — EnrichedField의 상위 도메인인 Change Data Capture(채널·헤더) 메커니즘.
+- [[메타데이터 카탈로그 SOQL (EntityDefinition·FieldDefinition)]] — 같은 EntityDefinition·FieldDefinition을 **일반 Apex SOQL**로 조회하는 관점(Tooling REST/SOAP 대비).

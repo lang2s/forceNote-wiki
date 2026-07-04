@@ -27,6 +27,7 @@ aliases: [Flow MOC, Flow Index]
 
 - [[@InvocableMethod 패턴]] — Flow Action Apex 표준 구조, bulkInvoke, JSON 우회, Queueable 연동
 - [[Flow Screen LWC 패턴]] — FlowAttributeChangeEvent, @api validate(), Custom Property Editor
+- [[Aura Flow 로컬 액션 (availableForFlowActions)]] — availableForFlowActions Aura 로컬 액션으로 Screen Flow에서 클라이언트 JS 실행(페이지 이동·유틸리티바 최소화), lightning:navigation·force:utilityBarAPI, 로컬 액션 vs @InvocableMethod
 - [[Flow Interview API]] — Apex에서 Flow 기동, Interview.createInterview/start/resume, 입출력 변수
 - [[quickChoice Screen Component]] — render() 멀티 템플릿, picklist/list 소스, Custom Property Editor 실전 패턴
 - [[멀티 패키지 구조]] — sfdx-project.json, 도메인별 독립 패키지

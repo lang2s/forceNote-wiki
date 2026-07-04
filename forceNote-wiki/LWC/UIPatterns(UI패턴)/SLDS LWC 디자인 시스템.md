@@ -251,6 +251,7 @@ Winter '26에서 밀도 인식(compact/comfortable/spacious) 스타일링 지원
 - [[SLDS 스타일링 훅]] — `--slds-*` CSS 커스텀 속성 상세
 - [[SLDS 접근성]] · [[SLDS 모범 사례]] · [[SLDS 개발 도구]] · [[SLDS 블루프린트 카탈로그]]
 - [[SLDS 2 Starter Kit - 개요와 프로젝트 구조]] — LWC + Vite + SLDS 1/2 로컬 프로토타이핑 공식 스타터킷(4부작 허브)
+- [[design-system-react — SLDS React 컴포넌트 라이브러리]] — React on Salesforce(UI Bundle)에서 SLDS를 입히는 방법(LWC 베이스컴포넌트의 React 대응)
 - [[Lightning Base Components 레퍼런스]]
 - [[Toast & 모달 패턴]]
 - [[LWC 보안 패턴]]

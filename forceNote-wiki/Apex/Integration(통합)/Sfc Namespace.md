@@ -109,3 +109,4 @@ public class ContentDownloadHandlerFactoryImpl implements Sfc.ContentDownloadHan
 ## 관련 노트
 
 - [[ConnectApi Namespace 개요]] — Connect API 파일 엔드포인트(`/connect/files/`) 관련 (ContentDownloadContext.REST_API)
+- [[Apex에서 Salesforce Files 다루기 (ContentVersion·ContentDistribution)]] — 파일 생성·공유·공개 링크(ContentVersion/ContentDocumentLink/ContentDistribution) 패턴. Sfc는 그 다운로드 동작을 커스터마이징

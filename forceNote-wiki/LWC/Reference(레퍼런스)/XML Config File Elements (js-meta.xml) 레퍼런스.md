@@ -148,4 +148,5 @@ capability는 컴포넌트가 **할 수 있는 것**을 정의한다 (target = �
 - [[PageReference Types 레퍼런스]] — `lightning__UrlAddressable` target 컴포넌트를 가리키는 `standard__component` 타입(짝)
 - [[NavigationMixin 패턴]] — `lightning__UrlAddressable` target으로 노출한 컴포넌트로의 네비게이션
 - [[New Button or Link & Action 생성 가이드 (타입·설정·예시)]] — URL 버튼으로 `lightning__UrlAddressable` 컴포넌트 이동
+- [[Agentforce 커스텀 Lightning Type — 에이전트 액션 입출력 UI]] — `lightning__AgentforceInput`/`AgentforceOutput` target + `targetType`/`sourceType` targetConfig의 실전 사용
 - [[LWC MOC]] — LWC 섹션 목차

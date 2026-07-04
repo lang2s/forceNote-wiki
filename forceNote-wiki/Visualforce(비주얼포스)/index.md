@@ -28,6 +28,7 @@ created: 2026-06-22
 | [[JavaScript·Remoting·LMS across DOM|JavaScript · Remoting · LMS across the DOM (Visualforce)]] | `$Component` DOM 참조·JS 라이브러리·JavaScript Remoting(`@RemoteAction`)·Lightning message service(`sforce.one`) | #pattern |
 | [[Visualforce 베스트 프랙티스]] | View State 관리·성능·컴포넌트·컨트롤러·보안 권고 (Ch23 + Appendix B Security Tips) | #pattern |
 | [[Global Variables·함수·표현식 연산자|Visualforce Global Variables · 함수 · 표현식 연산자]] | `{! }` 표현식 — 전역 변수($User·$Action·$Resource 등)·formula 함수 80개·연산자 (Appendix A) | #reference |
+| [[Lightning Out — Visualforce·외부 페이지에 LWC 임베드]] | `apex:includeLightning`·`$Lightning.use`/`createComponent`·`ltng:outApp`(styled/Unstyled)·`aura:dependency` 의존성 앱으로 VF·외부 비-Salesforce 페이지에 LWC 임베드 | #reference |
 
 ---
 
@@ -56,6 +57,7 @@ created: 2026-06-22
 - VF에서 JS·Remoting으로 Apex 직접 호출·DOM 경계 통신 → [[JavaScript·Remoting·LMS across DOM|JavaScript · Remoting · LMS across the DOM (Visualforce)]]
 - 느린 VF 페이지·view state·보안 최적화 → [[Visualforce 베스트 프랙티스]]
 - `{! }` 표현식의 전역 변수·함수·연산자 레퍼런스 → [[Global Variables·함수·표현식 연산자|Visualforce Global Variables · 함수 · 표현식 연산자]]
+- VF 페이지나 외부 사이트에 LWC를 임베드 → [[Lightning Out — Visualforce·외부 페이지에 LWC 임베드]]
 - 특정 `apex:` 태그 속성을 찾는다 → 레이아웃 [[apex 컴포넌트 — 페이지·레이아웃 구조]] · 입력 [[apex 컴포넌트 — 입력·폼|Visualforce 표준 컴포넌트 레퍼런스 — 입력·폼 (27개)]] · 출력/데이터 [[apex 컴포넌트 — 출력·데이터·반복·차트]] · AJAX [[apex 컴포넌트 — AJAX·액션·Remote Objects·기타]]
 - `chatter:`/`liveAgent`/`messaging:`/`knowledge:` 등 비-`apex:` 컴포넌트 → [[비-apex 표준 컴포넌트 — chatter·support·liveAgent·기타]]
 

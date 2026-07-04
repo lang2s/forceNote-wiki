@@ -25,6 +25,7 @@ updated: 2026-05-22
 | [[Reports Namespace]] | Apex에서 보고서 실행·조회 — ReportManager.runReport/runAsyncReport, FactMap, ReportMetadata | #reference |
 | [[Datacloud Namespace]] | Duplicate Management API — FindDuplicates/FindDuplicatesByIds, DuplicateResult, MatchRecord (Salesforce Data Cloud 제품과 무관) | #reference |
 | [[Wave Namespace]] | CRM Analytics Analytics SDK — QueryBuilder/QueryNode/ProjectionNode로 SAQL 쿼리 빌드·실행, Templates 조회 | #reference |
+| [[Apex에서 Salesforce Files 다루기 (ContentVersion·ContentDistribution)]] | ContentVersion으로 파일 생성·ContentDocumentLink로 레코드 첨부·ContentDistribution으로 인증 없는 공개 URL 배포 — VersionData/PathOnClient/ShareType/Visibility | #pattern |
 
 ---
 
@@ -43,6 +44,7 @@ updated: 2026-05-22
 - Apex에서 SAQL 쿼리로 CRM Analytics 데이터 조회? → [[Wave Namespace]] → QueryBuilder.load
 - CRM Analytics 집계(sum/avg/count)를 Apex로? → [[Wave Namespace]] → ProjectionNode
 - CRM Analytics 템플릿 목록 Apex로 가져오기? → [[Wave Namespace]] → Templates.getTemplates
+- Apex로 레코드에 파일 첨부·공개 링크 생성? → [[Apex에서 Salesforce Files 다루기 (ContentVersion·ContentDistribution)]]
 
 ## 보안 연동
 

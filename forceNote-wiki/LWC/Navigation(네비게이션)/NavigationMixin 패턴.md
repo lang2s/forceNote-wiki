@@ -159,3 +159,4 @@ async openTabHandler() {
 - [[Toast & 모달 패턴]]
 - [[LWC 보안 패턴]]
 - [[Screen Flow 설계]] — LWC에서 NavigationMixin으로 Screen Flow를 기동하는 패턴
+- [[Aura Flow 로컬 액션 (availableForFlowActions)]] — Aura `lightning:navigation`(navService)으로 Flow에서 페이지 이동. NavigationMixin의 Aura·Flow 대응

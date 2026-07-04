@@ -69,6 +69,7 @@ created: 2026-07-03
 | Compact Layouts, 컴팩트 레이아웃, highlights panel, 하이라이트 패널, key fields, 핵심 필드, 모바일 카드 필드 | `Admin(어드민)/Compact Layouts (컴팩트 레이아웃).md` |
 | Custom Buttons, 커스텀 버튼, Custom Links, 커스텀 링크, URL button, URL 버튼, Visualforce button, VF 버튼, JavaScript 버튼, 레거시 버튼 | `Admin(어드민)/Custom Buttons & Links (커스텀 버튼·링크).md` |
 | New Button or Link, 버튼 링크 생성, 버튼 만드는 법, Display Type, Detail Page Button, List Button, Behavior, Content Source, URL 버튼 생성, Visualforce 버튼 생성, Window Open Properties, merge field 버튼, Action Type, 액션 타입, Create a Record, Log a Call, Update a Record, Custom Action, object-specific global, 커스텀 버튼 어떻게 만드나, 액션 타입 종류 | `Admin(어드민)/New Button or Link & Action 생성 가이드 (타입·설정·예시).md` |
+| In-App Guidance, In App Guidance, Prompt metadata, promptVersions, displayType, FloatingPanel, DockedComposer, Targeted prompt, displayPosition, elementRelativePosition, targetPageType, targetPageKey1, targetPageKey2, stepNumber, walkthrough, single prompt, uiFormulaRule, userAccess, userProfileAccess, delayDays, timesToDisplay, 인앱 가이던스, 인앱 안내, 프롬프트, 워크스루, 멀티스텝, 사용자 온보딩, 기능 도입, 라이트닝 안내 메시지, 인앱 프롬프트 어떻게 만들어, 사용자 온보딩 투어 만들기, 프롬프트 메타데이터 배포, 특정 페이지에 안내 띄우기, 프로필별 안내 표시 | `Admin(어드민)/In-App Guidance — 프롬프트·워크스루 (사용자 온보딩).md` |
 
 ## 자동화 (Automation)
 

@@ -66,6 +66,7 @@ created: 2026-05-17
 - [[ldsUtils reduceErrors]] — 에러 정규화 유틸리티
 - [[getPicklistValues 패턴]] — Record Type별 Picklist 옵션 로드, 종속 Picklist validFor 필터링
 - [[GraphQL Wire Adapter]] — lightning/graphql gql 쿼리, variables getter, errors 프로퍼티, refresh
+- [[GraphQL 뮤테이션 (executeMutation) — Create·Update·Delete]] — lightning/graphql executeMutation으로 Apex 없이 레코드 CRUD(AccountCreate·ContactUpdate·RecordDelete), variables 인젝션 방지, 뮤테이션 후 wire refresh
 - [[RefreshView API]] — lightning/refresh RefreshViewEvent로 컴포넌트 하위 트리 데이터 갱신(페이지 리로드 없이); refreshApex·refreshGraphQL·notifyRecordUpdateAvailable 비교
 
 ## 📚 Base Components 상세 레퍼런스
@@ -170,6 +171,7 @@ created: 2026-05-17
 - [[LWR --dxp 스타일링 훅 레퍼런스]] — LWR 브랜딩(--dxp-g/-s/-c 훅)·Theme 패널 속성 매핑·커스텀 폰트·Remove SLDS·컴포넌트 브랜딩 오버라이드
 - [[LWR Tag Manager 데이터 관리]] — Experience/Google Tag Manager·experience_interaction 이벤트·Tag Manager Event Reference·Consent·Website Engagement DMO → Data Cloud
 - [[Lightning Out 2.0 (외부 앱 임베드)]] — 비-Salesforce 외부 앱에 LWC 임베드(LWR 기반·frontdoor-url·app-id·closed shadow DOM iframe·lo.application.ready·window.postMessage) — Lightning Out beta 대체 GA
+- [[LWC 드래그앤드롭 패턴 (HTML5 dataTransfer)]] — HTML5 drag & drop(draggable·ondragstart/ondragover/ondrop·dataTransfer setData/getData·effectAllowed/dropEffect·setDragImage)로 컴포넌트 간 레코드 전달
 
 ## 🎨 SLDS 디자인 시스템
 
@@ -181,6 +183,7 @@ created: 2026-05-17
 - [[SLDS 모범 사례]] — SLDS 1 vs 2, 3단계 커스터마이즈 모델
 - [[SLDS 개발 도구]] — Figma Kit, SLDS Linter/Validator
 - [[SLDS 블루프린트 카탈로그]] — CSS 전용 블루프린트 30종 인덱스
+- [[design-system-react — SLDS React 컴포넌트 라이브러리]] — DSR(React on Salesforce UI 번들용 SLDS 컴포넌트), IconSettings/iconPath 아이콘 경로 3방식, blueprint vs shadcn+Tailwind, optimizeDeps CJS pre-bundle
 - **디자인 패턴 21종** (data-entry·search·navigation·charts 등) → [[SLDS(디자인시스템)/index|SLDS(디자인시스템) 색인]]
 
 ### SLDS 2 Starter Kit (로컬 프로토타이핑)

@@ -161,3 +161,4 @@ disconnectedCallback() {
 - [[Lightning Message Service]] — 형제/크로스 컴포넌트 통신
 - [[컴포지션 패턴]]
 - [[상태 관리]] — CustomEvent 기반 컴포넌트 간 상태 공유 패턴
+- [[LWC 드래그앤드롭 패턴 (HTML5 dataTransfer)]] — 드래그가 아닌 "선택→전달" 통신 대안 (드래그앤드롭 노트가 CustomEvent를 대안으로 비교)

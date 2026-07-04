@@ -64,6 +64,7 @@ created: 2026-05-21
 | Syndication Feed SOQL, 피드 SOQL, RSS Atom 피드 매핑, 공개 사이트 피드, Public Site SOQL 피드 | `Apex/SOQL(SOQL)/Syndication Feed SOQL.md` |
 | SOSL, FIND 구문, 전문 검색, IN NAME FIELDS, RETURNING, 여러 오브젝트 검색, List<List<SObject>>, WITH SNIPPET, WITH HIGHLIGHT, SOSL 레퍼런스, SOSL 전체 문법, FIND 와일드카드, SOSL 예약문자 이스케이프, SearchQuery 문자수 제한, SOSL ORDER BY, SOSL OFFSET, SOSL FORMAT(), SOSL toLabel, SOSL convertCurrency, USING Listview SOSL, UPDATE TRACKING SOSL, UPDATE VIEWSTAT SOSL, WITH HIGHLIGHT 지원 필드, WITH METADATA LABELS, WITH DivisionFilter, WITH PricebookId, WITH SPELL_CORRECTION, SOSL 검색 알고리즘, SOSL External Object 제한, SOSL WHERE 연산자, SOSL 이스케이프 시퀀스, SOSL vs SOQL | `Apex/SOQL(SOQL)/SOSL 패턴.md` |
 | Dynamic SOQL, 동적 쿼리, String.escapeSingleQuotes, 바인딩 변수 | `Apex/SOQL(SOQL)/Dynamic SOQL.md` |
+| EntityDefinition, FieldDefinition, QualifiedApiName, IsCalculated, RelationshipName, DataType, getSObjects, metadata catalog SOQL, schema introspection, 메타데이터 카탈로그, 스키마 인트로스펙션, SOQL로 스키마 조회, 포뮬러 필드 찾기, 계산 필드 쿼리, 룩업 관계 필드 찾기, describe 대신 SOQL, 오브젝트 필드 메타데이터, SOQL로 스키마 조회하는 법, 조직의 모든 포뮬러 필드 찾는 법, 필드가 어떤 오브젝트를 룩업하는지 | `Apex/SOQL(SOQL)/메타데이터 카탈로그 SOQL (EntityDefinition·FieldDefinition).md` |
 
 ## Apex — 데이터 (DML / Namespace)
 
@@ -79,6 +80,7 @@ created: 2026-05-21
 | Wave.ProjectionNode, sum avg min max unique alias, 집계 함수 체이닝 Apex, SAQL projection | `Apex/Data(데이터)/Wave Namespace.md` |
 | Wave.Templates, getTemplate, getTemplateConfig, getTemplates, TemplatesSearchOptions, CRM Analytics 템플릿 조회, filterGroup options type | `Apex/Data(데이터)/Wave Namespace.md` |
 | 페이징, PagedResult, 오프셋, OFFSET LIMIT, 페이지네이션 | `Apex/Data(데이터)/PagedResult 패턴.md` |
+| ContentVersion, ContentDocumentLink, ContentDistribution, VersionData, PathOnClient, FirstPublishLocationId, ContentLocation, DistributionPublicUrl, ShareType, Visibility, Salesforce Files Apex, 파일 생성 Apex, 레코드에 파일 첨부, 레코드에 파일 붙이기, 공개 링크 생성, 파일 공개 URL 만들기, Apex로 파일 업로드, 파일 버전 추가, ContentDocument 자동 생성, Apex에서 파일 첨부하는 법, 인증 없는 공개 링크 배포 | `Apex/Data(데이터)/Apex에서 Salesforce Files 다루기 (ContentVersion·ContentDistribution).md` |
 
 ## Apex — 비동기
 

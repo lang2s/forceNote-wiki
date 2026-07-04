@@ -131,4 +131,5 @@ export default class GraphqlAccounts extends LightningElement {
 - [[Wire 패턴]] — `@wire` 일반 사용 패턴
 - [[@salesforce Modules 레퍼런스]] — LWC 모듈 레퍼런스
 - [[RefreshView API]] — `refreshGraphQL`로 GraphQL wire 데이터 refresh 개시(refresh 짝)
+- [[GraphQL 뮤테이션 (executeMutation) — Create·Update·Delete]] — 이 wire(조회)의 쓰기 짝. `executeMutation`으로 Apex 없이 CRUD 완성
 - [[LWC MOC]]

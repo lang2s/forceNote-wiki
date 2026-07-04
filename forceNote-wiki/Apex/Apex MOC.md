@@ -47,6 +47,7 @@ created: 2026-05-17
 - [[SOQL 패턴]] — WITH USER_MODE, SOQL for loop, 청크 반복
 - [[Dynamic SOQL]] — queryWithBinds, SOQL 인젝션 방어
 - [[SOSL 패턴]] — FIND 구문, IN SearchGroup, RETURNING, 여러 Object 전문 검색
+- [[메타데이터 카탈로그 SOQL (EntityDefinition·FieldDefinition)]] — EntityDefinition/FieldDefinition로 스키마를 SOQL 조회(QualifiedApiName·IsCalculated·RelationshipName·DataType), describe 대신 포뮬러/룩업 필드 찾기
 
 ## 📊 데이터 (DML / Namespace)
 
@@ -59,6 +60,7 @@ created: 2026-05-17
 - [[Reports Namespace]] — ReportManager.runReport/runAsyncReport, ReportMetadata 필터 재정의, FactMap 탐색
 - [[Datacloud Namespace]] — Duplicate Management Apex — FindDuplicates/FindDuplicatesByIds, DuplicateResult, MatchRecord (이름 주의: Salesforce Data Cloud 제품과 무관)
 - [[Wave Namespace]] — CRM Analytics SDK — QueryBuilder/QueryNode/ProjectionNode로 SAQL 쿼리 빌드·실행, Templates 조회
+- [[Apex에서 Salesforce Files 다루기 (ContentVersion·ContentDistribution)]] — ContentVersion 파일 생성·ContentDocumentLink 레코드 첨부·ContentDistribution 인증 없는 공개 URL 배포(VersionData/PathOnClient/ShareType/Visibility)
 
 ## ⚡ 비동기
 

@@ -24,6 +24,7 @@ created: 2026-05-17
 | [[getPicklistValues 패턴]] | Record Type별 Picklist 옵션 로드, 종속 Picklist validFor 필터링 | #pattern |
 | [[GraphQL Wire Adapter]] | lightning/graphql gql 쿼리, variables getter, errors 프로퍼티, refresh | #pattern |
 | [[RefreshView API]] | lightning/refresh RefreshViewEvent로 컴포넌트 하위 트리 데이터 갱신(페이지 리로드 없이), refreshApex·refreshGraphQL·notifyRecordUpdateAvailable 비교 | #pattern |
+| [[GraphQL 뮤테이션 (executeMutation) — Create·Update·Delete]] | lightning/graphql executeMutation으로 Apex 없이 레코드 생성/수정/삭제 — AccountCreate·ContactUpdate·RecordDelete, variables 인젝션 방지, 뮤테이션 후 wire refresh | #pattern |
 
 ---
 
@@ -34,6 +35,7 @@ created: 2026-05-17
 - 레코드 생성/수정/삭제? → [[uiRecordApi]]
 - LDS 에러 메시지 정규화? → [[ldsUtils reduceErrors]]
 - 페이지 리로드 없이 데이터 새로고침? → [[RefreshView API]]
+- Apex 없이 GraphQL로 레코드 생성/수정/삭제? → [[GraphQL 뮤테이션 (executeMutation) — Create·Update·Delete]]
 
 ## LDS vs Apex
 

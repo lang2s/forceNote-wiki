@@ -22,6 +22,7 @@ created: 2026-06-13
 | [[SLDS 모범 사례]] | SLDS 1 vs 2, 3단계 커스터마이즈 모델 |
 | [[SLDS 개발 도구]] | Figma Kit, SLDS Linter/Validator 등 |
 | [[SLDS 블루프린트 카탈로그]] | CSS 전용 블루프린트 30종 인덱스 |
+| [[design-system-react — SLDS React 컴포넌트 라이브러리]] | design-system-react(DSR) — React on Salesforce UI 번들용 SLDS 컴포넌트, IconSettings/iconPath 아이콘 경로 3방식, blueprint vs shadcn+Tailwind, optimizeDeps CJS pre-bundle |
 
 ## 디자인 패턴 (SLDS 2)
 

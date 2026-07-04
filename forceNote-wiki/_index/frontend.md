@@ -65,6 +65,7 @@ created: 2026-05-21
 | getPicklistValues, Picklist 옵션 로드, 동적 Picklist, 종속 Picklist, validFor, controllerValues, LWC에서 콤보박스 옵션 | `LWC/LDS/getPicklistValues 패턴.md` |
 | GraphQL wire, lightning/graphql, gql, graphql wire adapter, GraphQL API LWC, variables getter, errors 프로퍼티, uiGraphQLApi, LWC에서 GraphQL 쿼리, 그래프QL, refresh | `LWC/LDS/GraphQL Wire Adapter.md` |
 | RefreshView API, lightning/refresh, RefreshViewEvent, view refresh, 데이터 새로고침, refreshApex, refreshGraphQL, notifyRecordUpdateAvailable, 컴포넌트 데이터 갱신, 페이지 리로드 없이 갱신, 뷰 새로고침 어떻게, 표준 새로고침 API | `LWC/LDS/RefreshView API.md` |
+| executeMutation, lightning/graphql mutation, gql mutation, AccountCreate, ContactUpdate, ContactDelete, RecordDelete, uiapi mutation input, GraphQL 뮤테이션, GraphQL 레코드 생성 수정 삭제, Apex 없이 CRUD, LWC에서 GraphQL로 레코드 만들기, graphql wire refresh, GraphQL variables 인젝션 방지 | `LWC/LDS/GraphQL 뮤테이션 (executeMutation) — Create·Update·Delete.md` |
 
 ## LWC — UI / 네비게이션 / 모달
 
@@ -88,6 +89,7 @@ created: 2026-05-21
 | LWR 스타일링 훅, --dxp 스타일링 훅, --dxp-g --dxp-s --dxp-c, dxp-g-brand, LWR 브랜딩, Brand Your LWR Site, LWR 사이트 색상 폰트 어떻게 바꾸나, Theme 패널 속성 매핑, Color Palette, Text Site Spacing 훅, Button Colors 훅, Site Logo 훅, 커스텀 폰트 Custom Fonts, Remove SLDS, Override Component Branding, 컴포넌트 브랜딩 오버라이드, part dxp, 커스텀 CSS 오버라이드, dxp 변수 의미 | `LWC/UIPatterns(UI패턴)/LWR --dxp 스타일링 훅 레퍼런스.md` |
 | LWR Tag Manager, Experience Tag Manager, Google Tag Manager, GTM, LWR 데이터 관리, Manage Data, experience_interaction, Experience Data Layer, Tag Manager Event Reference, 인터랙션 이벤트 추적, Cart Catalog Consent Email Engagement Error Line Item Search Wish-List Interactions, set-consent, Consent Opt-In, Website Engagement DMO, Data Cloud, x-oasis-script, LWR 사이트 인터랙션 추적, LWR 사이트 데이터 어떻게 Data Cloud로 보내나, GTM LWR 연동 | `LWC/UIPatterns(UI패턴)/LWR Tag Manager 데이터 관리.md` |
 | Lightning Out 2.0, Lightning Out, 외부 앱 임베드, lightning-out-application, frontdoor-url, app-id, LWR 외부, iframe LWC, closed shadow DOM, lo.application.ready, window.postMessage, 외부 사이트에 LWC 임베드, 비-Salesforce 앱에 LWC 넣기 | `LWC/UIPatterns(UI패턴)/Lightning Out 2.0 (외부 앱 임베드).md` |
+| LWC drag and drop, HTML5 drag drop, dataTransfer, draggable, ondragstart, ondrop, ondragover, setData, getData, effectAllowed, dropEffect, preventDefault, setDragImage, dragenter, dragleave, dragend, SObject 직렬화, 레코드 드래그, 드래그앤드롭, 드래그 앤 드롭, 컴포넌트 간 데이터 전달, LWC에서 드래그로 레코드 옮기기, 드롭존 만들기 | `LWC/UIPatterns(UI패턴)/LWC 드래그앤드롭 패턴 (HTML5 dataTransfer).md` |
 
 ## LWC — 보안 / 모바일
 
@@ -155,6 +157,7 @@ created: 2026-05-21
 | Flow 이름 규칙, Flow 네이밍, API 이름 접두어, Get_ Update_ Insert_ APEX_ SUB_ SC01_, Flow 요소 이름, 이벤트 약어 BI BU AI AU BD | `Flow/Flow 네이밍 컨벤션.md` |
 | Flow 에러 처리, faultConnector, FaultMessage, Flow fault, Flow 오류 화면, Flow 에러 이메일, 에러 로그 레코드 | `Flow/Flow 에러 처리.md` |
 | Flow 베스트 프랙티스, Fast Field Update, Flow 바이패스, 하드코딩 ID 금지, Flow 거버너, Mixed DML, Asynchronous Path, Flow 서킷 브레이커, Entry Criteria, Flow Trigger Explorer | `Flow/Flow 설계 베스트 프랙티스.md` |
+| availableForFlowActions, Flow local action, Aura local action, invoke method, lightning:navigation, navService.navigate, PageReference types, standard__recordPage, standard__objectPage, standard__navItemPage, force:utilityBarAPI, lightning:utilityBarAPI, minimizeUtility, getUtilityInfo, Flow 로컬 액션, 플로우 클라이언트 액션, Flow에서 페이지 이동, 유틸리티바 최소화, Screen Flow 네비게이션, Flow에서 레코드로 이동하려면, Flow에서 유틸리티바 닫는 법, 로컬 액션 vs 인보커블 | `Flow/Aura Flow 로컬 액션 (availableForFlowActions).md` |
 
 ---
 
@@ -171,6 +174,7 @@ created: 2026-05-21
 | SLDS 모범 사례, Best Practices, SLDS1 vs SLDS2, 3단계 커스터마이즈 모델, 마이그레이션 | `LWC/SLDS(디자인시스템)/SLDS 모범 사례.md` |
 | SLDS 개발 도구, SLDS Tools, Figma Kit, SLDS Linter, SLDS Validator, VS Code 확장 | `LWC/SLDS(디자인시스템)/SLDS 개발 도구.md` |
 | SLDS 블루프린트, Blueprint, CSS 전용 컴포넌트, slds-timeline slds-tree, activity-timeline alert app-launcher, 블루프린트 카탈로그 | `LWC/SLDS(디자인시스템)/SLDS 블루프린트 카탈로그.md` |
+| design-system-react, DSR, IconSettings, iconPath, onRequestIconPath, Icon category name, SLDS blueprint, SLDS React, React on Salesforce UI bundle, shadcn Tailwind SLDS, optimizeDeps CJS pre-bundle, @salesforce-ux/design-system, slds-card blueprint, slds-button variant, Lucide icons, SLDS React 컴포넌트, 리액트에서 SLDS UI 만들기, 아이콘 경로 설정, 카드 버튼 아이콘 세 방식 비교, React SLDS 스타일링, 리액트 SLDS 블루프린트 vs shadcn, React UI Bundle 스타일링 | `LWC/SLDS(디자인시스템)/design-system-react — SLDS React 컴포넌트 라이브러리.md` |
 | Agentic Experiences, SLDS Agentic Experiences 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Agentic Experiences.md` |
 | Builder, SLDS Builder 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Builder.md` |
 | Charts, SLDS Charts 패턴, 디자인 패턴, SLDS 2 pattern | `LWC/SLDS(디자인시스템)/SLDS 패턴 - Charts.md` |

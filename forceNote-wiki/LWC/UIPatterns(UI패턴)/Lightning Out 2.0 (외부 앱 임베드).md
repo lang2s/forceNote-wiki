@@ -134,4 +134,5 @@ loApp.addEventListener('lo.component.ready', () => {
 - [[LWR Sites (Experience Cloud)]] — Lightning Out 2.0이 기반으로 삼는 LWR 런타임
 - [[CustomEvent 패턴]] — EventTarget/CustomEvent 이벤트 생성·처리
 - [[LWC Shadow DOM 모드]] — 임베드 iframe이 root가 되는 closed shadow DOM
+- [[Lightning Out — Visualforce·외부 페이지에 LWC 임베드]] — 클래식 Lightning Out(`$Lightning.use`/`ltng:outApp`). Visualforce 임베드의 정본 경로이자 이 2.0의 대체 대상
 - [[LWC MOC]]

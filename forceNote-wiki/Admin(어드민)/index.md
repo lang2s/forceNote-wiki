@@ -57,6 +57,7 @@ created: 2026-05-19
 | [[Compact Layouts (컴팩트 레이아웃)]] | 하이라이트 패널 핵심 필드(모바일 카드) | #ui-customization |
 | [[Custom Buttons & Links (커스텀 버튼·링크)]] | URL·Visualforce 버튼·링크(JS 레거시) | #ui-customization |
 | [[New Button or Link & Action 생성 가이드 (타입·설정·예시)]] | 커스텀 버튼·링크 생성(Display Type·Behavior·Content Source·Window Open Properties·merge field)+Action Type 생성 심층 how-to | #ui-customization |
+| [[In-App Guidance — 프롬프트·워크스루 (사용자 온보딩)]] | 인앱 프롬프트·워크스루로 사용자 온보딩·기능 도입 — Prompt 메타데이터(displayType/Targeted·Docked·Floating)·targetPage·uiFormulaRule·프로필별 표시·delayDays/timesToDisplay | #ui-customization |
 | [[Flow — 선언적 자동화 개요 (플로우)]] | 주력 선언적 자동화 유형 개요(Flow MOC 위임) | #automation |
 | [[Workflow Rules & Migrate to Flow (워크플로 규칙·플로우 이전)]] | 레거시 워크플로·Migrate to Flow 이전 | #automation |
 | [[Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답)]] | 이메일 발송 액션·템플릿·자동 회신 규칙 | #automation |
@@ -107,6 +108,7 @@ created: 2026-05-19
 - object-specific/global 퀵 액션 만들기? → [[Quick Actions & Global Actions (퀵 액션·글로벌 액션)]]
 - 하이라이트 패널에 핵심 필드 노출? → [[Compact Layouts (컴팩트 레이아웃)]]
 - URL·Visualforce 커스텀 버튼·링크 추가? → [[Custom Buttons & Links (커스텀 버튼·링크)]]
+- 인앱 프롬프트·워크스루로 사용자 온보딩·기능 안내? → [[In-App Guidance — 프롬프트·워크스루 (사용자 온보딩)]]
 - 선언적 자동화(Flow) 유형 개요를 알고 싶다면? → [[Flow — 선언적 자동화 개요 (플로우)]]
 - 레거시 워크플로를 Flow로 이전? → [[Workflow Rules & Migrate to Flow (워크플로 규칙·플로우 이전)]]
 - 이메일 알림·템플릿·자동 응답 규칙 설정? → [[Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답)]]

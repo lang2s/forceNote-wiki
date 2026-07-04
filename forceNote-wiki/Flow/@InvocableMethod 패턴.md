@@ -281,3 +281,4 @@ EventBus.publishWithAccessLevel(eventList, EventBus.AccessLevel.USER);
 - [[Winter '26]] — InvocableActionExtension 메타데이터
 - [[Summer '26]] — no-arg 생성자 필수, EventBus.publishWithAccessLevel
 - [[Summer '26/Development]] — no-arg 생성자 필수, InvocableActionExtension 메타데이터 상세
+- [[Aura Flow 로컬 액션 (availableForFlowActions)]] — 서버 인보커블(이 노트)의 클라이언트 짝. 브라우저 전용 동작(네비게이션·유틸리티바)은 로컬 액션으로 (선택 기준 비교)
