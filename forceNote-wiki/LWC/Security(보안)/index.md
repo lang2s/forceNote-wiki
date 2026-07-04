@@ -16,6 +16,7 @@ created: 2026-05-17
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
 | [[LWC 보안 패턴]] | customPermission, userId, CSP Locker Service, DOM XSS 방어 | #pattern |
+| [[Lightning Web Security vs Lightning Locker]] | LWS vs Locker 아키텍처 비교, distortion, secure wrapper, strict mode, CSP | #reference |
 
 ---
 

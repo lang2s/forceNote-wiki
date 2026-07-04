@@ -43,6 +43,7 @@ created: 2026-05-21
 | 키워드 | 파일 |
 |---|---|
 | CustomEvent, 자식→부모, dispatchEvent, detail, bubbles, composed, 이벤트 버블링 | `LWC/Events(이벤트)/CustomEvent 패턴.md` |
+| 이벤트 전파, event propagation, bubbles, composed, Event.target, currentTarget, composedPath, event retargeting, shadow 경계 이벤트, props down events up, 네임스페이스 이벤트, 이벤트가 부모로 전파, bubble 설정 | `LWC/Events(이벤트)/이벤트 전파 (bubbles·composed).md` |
 | LMS, Lightning Message Service, 형제 컴포넌트, 크로스 컴포넌트, publish, subscribe, MessageContext, pubsub | `LWC/Events(이벤트)/Lightning Message Service.md` |
 | @api property, @api method, 부모→자식, querySelector, getter setter, lwc:spread | `LWC/ComponentAPI(컴포넌트API)/@api 패턴.md` |
 | LWC API 버전 관리, apiVersion, js-meta.xml, lwc:if, lwc:elseif, lwc:else, 동적 임포트, dynamic import, Lightning Web Security, LWS, if:true deprecated, createComponent, sfdx-project.json sourceApiVersion | `LWC/ComponentAPI(컴포넌트API)/LWC API 버전 관리.md` |
@@ -61,6 +62,7 @@ created: 2026-05-21
 | createRecord, updateRecord, deleteRecord, uiRecordApi, notifyRecordUpdateAvailable, 레코드 생성 수정 삭제, LWC에서 DML | `LWC/LDS/uiRecordApi.md` |
 | reduceErrors, 에러 정규화, ldsUtils | `LWC/LDS/ldsUtils reduceErrors.md` |
 | getPicklistValues, Picklist 옵션 로드, 동적 Picklist, 종속 Picklist, validFor, controllerValues, LWC에서 콤보박스 옵션 | `LWC/LDS/getPicklistValues 패턴.md` |
+| GraphQL wire, lightning/graphql, gql, graphql wire adapter, GraphQL API LWC, variables getter, errors 프로퍼티, uiGraphQLApi, LWC에서 GraphQL 쿼리, 그래프QL, refresh | `LWC/LDS/GraphQL Wire Adapter.md` |
 
 ## LWC — UI / 네비게이션 / 모달
 
@@ -90,6 +92,7 @@ created: 2026-05-21
 | 키워드 | 파일 |
 |---|---|
 | LWC 보안, CSP 브라우저, 권한 기반 UI, userId | `LWC/Security(보안)/LWC 보안 패턴.md` |
+| Lightning Web Security, LWS, Lightning Locker, 클라이언트 보안, client-side security, distortion, secure wrapper, JavaScript strict mode, CSP, Content Security Policy, 가상 JS 샌드박스, LWS vs Locker, 어떤 보안 아키텍처 | `LWC/Security(보안)/Lightning Web Security vs Lightning Locker.md` |
 | 모바일, getBarcodeScanner, 바코드, getLocationService, GPS, isAvailable | `LWC/Mobile(모바일)/모바일 기능 패턴.md` |
 | 모바일 오프라인, LWC Offline, Offline GraphQL, Briefcase 프라이밍, draft records 충돌, mobileCapabilities 전체 서비스, getBiometrics getNfc getContacts getCalendar getPayments getDocumentScanner getGeofencing, 오프라인 캐시 | `LWC/Mobile(모바일)/모바일 & 오프라인 (LWC).md` |
 

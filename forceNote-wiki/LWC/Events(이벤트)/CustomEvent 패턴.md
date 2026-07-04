@@ -157,6 +157,7 @@ disconnectedCallback() {
 ## 관련 노트
 
 - [[@api 패턴]] — 부모 → 자식 방향
+- [[이벤트 전파 (bubbles·composed)]] — 생성·디스패치한 이벤트의 bubbles·composed 전파 규칙 (shadow 경계·retargeting)
 - [[Lightning Message Service]] — 형제/크로스 컴포넌트 통신
 - [[컴포지션 패턴]]
 - [[상태 관리]] — CustomEvent 기반 컴포넌트 간 상태 공유 패턴

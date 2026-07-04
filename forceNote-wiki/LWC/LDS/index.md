@@ -22,6 +22,7 @@ created: 2026-05-17
 | [[uiRecordApi]] | createRecord, updateRecord, deleteRecord, notifyRecordUpdateAvailable | #pattern |
 | [[ldsUtils reduceErrors]] | 8가지 에러 타입 정규화 유틸리티 | #pattern |
 | [[getPicklistValues 패턴]] | Record Type별 Picklist 옵션 로드, 종속 Picklist validFor 필터링 | #pattern |
+| [[GraphQL Wire Adapter]] | lightning/graphql gql 쿼리, variables getter, errors 프로퍼티, refresh | #pattern |
 
 ---
 

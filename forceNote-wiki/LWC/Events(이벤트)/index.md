@@ -16,6 +16,7 @@ created: 2026-05-17
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
 | [[CustomEvent 패턴]] | 자식→부모, dispatchEvent, bubbles/composed, 이벤트 위임 | #pattern |
+| [[이벤트 전파 (bubbles·composed)]] | bubbles/composed 4조합, retargeting, composedPath, shadow 경계 전파 | #reference |
 | [[Lightning Message Service]] | 크로스 컴포넌트 publish/subscribe, MessageContext | #pattern |
 | [[상태 관리]] | @lwc/state, atom, computed, 공유 상태, fromContext | #pattern |
 

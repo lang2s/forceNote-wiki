@@ -51,6 +51,7 @@ created: 2026-05-17
 ## 📡 이벤트 & 통신
 
 - [[CustomEvent 패턴]] — detail 전달, bubbles, composed, 이벤트 위임
+- [[이벤트 전파 (bubbles·composed)]] — bubbles/composed 4조합, event retargeting, composedPath, shadow 경계 전파, props down/events up
 - [[Lightning Message Service]] — publish/subscribe, MessageContext, pubsub 대체
 - [[상태 관리]] — @lwc/state, setter 기반 reactive, 단방향 데이터 흐름
 
@@ -63,6 +64,7 @@ created: 2026-05-17
 - [[getRecord 패턴]] — static import, dynamic string, getFieldValue, getRecords
 - [[ldsUtils reduceErrors]] — 에러 정규화 유틸리티
 - [[getPicklistValues 패턴]] — Record Type별 Picklist 옵션 로드, 종속 Picklist validFor 필터링
+- [[GraphQL Wire Adapter]] — lightning/graphql gql 쿼리, variables getter, errors 프로퍼티, refresh
 
 ## 📚 Base Components 상세 레퍼런스
 
@@ -194,6 +196,7 @@ created: 2026-05-17
 ## 🔒 보안 & 권한
 
 - [[LWC 보안 패턴]] — 권한 기반 UI, @api 노출 범위, userId, CSP
+- [[Lightning Web Security vs Lightning Locker]] — LWS vs Locker 클라이언트 보안 아키텍처 비교, distortion, secure wrapper, strict mode, CSP
 
 ## 📱 모바일
 

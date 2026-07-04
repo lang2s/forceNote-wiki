@@ -129,6 +129,7 @@ loApp.addEventListener('lo.component.ready', () => {
 ---
 
 ## 관련 노트
+- [[Lightning Web Security vs Lightning Locker]] — ⚠️ LWS 활성화 org에서는 Lightning Out 미지원 (Lightning Out 필수 시 Locker 필요)
 - [[Aura vs LWC]] — Lightning 프로그래밍 모델 비교 (Lightning Out 2.0은 LWC 기반)
 - [[LWR Sites (Experience Cloud)]] — Lightning Out 2.0이 기반으로 삼는 LWR 런타임
 - [[CustomEvent 패턴]] — EventTarget/CustomEvent 이벤트 생성·처리
