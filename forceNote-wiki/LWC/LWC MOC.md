@@ -26,6 +26,15 @@ created: 2026-05-17
 
 ---
 
+## 🏗️ Create Components (컴포넌트 작성)
+
+> LWC Dev Guide **Create Components** 섹션 기초 갭 노트. 전체 색인: [[LWC/CreateComponents(컴포넌트작성)/index|CreateComponents(컴포넌트작성) 색인]]
+
+- [[Lifecycle Hooks]] — 라이프사이클 훅 전수(constructor·connectedCallback·disconnectedCallback·renderedCallback·errorCallback) + hasRendered·isConnected·error boundary
+- [[CSS 스타일시트와 스코핑]] — LWC CSS 스타일시트·scoped CSS·shadow DOM 스코핑·`:host` 셀렉터·static stylesheets·cascade/specificity/inheritance·미지원(`::part`/`:host-context`)
+
+---
+
 ## ⚡ Apex 통합
 
 - [[Wire vs Imperative 선택]] — @wire(property/function) vs async/await 결정 매트릭스

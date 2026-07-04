@@ -13,6 +13,13 @@ created: 2026-05-21
 |---|---|
 | LWC, Lightning Web Components, LWC 개요, LWC 시작, get started, LWC란 무엇인가, web components, base components, 표준 웹 기술, W3C TC39, 오픈소스, Aura 상호운용, LWC vs Aura, choose LWC, 시작 경로, LWC 진입점 | `LWC/LWC 개요 (Get Started).md` |
 
+## LWC — Create Components (컴포넌트 작성)
+
+| 키워드 | 파일 |
+|---|---|
+| lifecycle hooks, LWC 라이프사이클, 생명주기, constructor, connectedCallback, disconnectedCallback, renderedCallback, errorCallback, error boundary, hasRendered, isConnected, 컴포넌트 렌더 후 실행, DOM 삽입 제거 시 코드 | `LWC/CreateComponents(컴포넌트작성)/Lifecycle Hooks.md` |
+| LWC CSS, CSS 스타일시트, scoped CSS, :host selector, shadow DOM 스코핑, static stylesheets, cascade specificity inheritance, host-context ::part 미지원, LWC 스타일링, 컴포넌트 CSS | `LWC/CreateComponents(컴포넌트작성)/CSS 스타일시트와 스코핑.md` |
+
 ## LWC — Reference (레퍼런스)
 
 | 키워드 | 파일 |
