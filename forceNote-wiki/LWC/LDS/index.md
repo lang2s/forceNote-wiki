@@ -23,6 +23,7 @@ created: 2026-05-17
 | [[ldsUtils reduceErrors]] | 8가지 에러 타입 정규화 유틸리티 | #pattern |
 | [[getPicklistValues 패턴]] | Record Type별 Picklist 옵션 로드, 종속 Picklist validFor 필터링 | #pattern |
 | [[GraphQL Wire Adapter]] | lightning/graphql gql 쿼리, variables getter, errors 프로퍼티, refresh | #pattern |
+| [[RefreshView API]] | lightning/refresh RefreshViewEvent로 컴포넌트 하위 트리 데이터 갱신(페이지 리로드 없이), refreshApex·refreshGraphQL·notifyRecordUpdateAvailable 비교 | #pattern |
 
 ---
 
@@ -32,6 +33,7 @@ created: 2026-05-17
 - 레코드 필드 값 읽기? → [[getRecord 패턴]]
 - 레코드 생성/수정/삭제? → [[uiRecordApi]]
 - LDS 에러 메시지 정규화? → [[ldsUtils reduceErrors]]
+- 페이지 리로드 없이 데이터 새로고침? → [[RefreshView API]]
 
 ## LDS vs Apex
 

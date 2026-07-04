@@ -154,3 +154,4 @@ get typeOptions() {
 - [[ldsUtils reduceErrors]]
 
 - [[UI API 개요]] — LDS 전체 구조, 캐시·ETag·HTTP 상태코드
+- [[RefreshView API]] — `@wire(getRecord)` + `notifyRecordUpdateAvailable`로 record 데이터 refresh 개시(refresh 짝)

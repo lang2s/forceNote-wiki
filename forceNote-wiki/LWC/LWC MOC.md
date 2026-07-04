@@ -33,6 +33,7 @@ created: 2026-05-17
 
 - [[Lifecycle Hooks]] — 라이프사이클 훅 전수(constructor·connectedCallback·disconnectedCallback·renderedCallback·errorCallback) + hasRendered·isConnected·error boundary
 - [[CSS 스타일시트와 스코핑]] — LWC CSS 스타일시트·scoped CSS·shadow DOM 스코핑·`:host` 셀렉터·static stylesheets·cascade/specificity/inheritance·미지원(`::part`/`:host-context`)
+- [[컴포넌트 접근성 (ARIA·label)]] — LWC 접근성(a11y): ARIA 속성·camel-case 프로퍼티(ariaLabel)·기본 ARIA·role 고정·ID 기반 ARIA 링크·label·screen reader·WCAG
 
 ---
 
@@ -65,6 +66,7 @@ created: 2026-05-17
 - [[ldsUtils reduceErrors]] — 에러 정규화 유틸리티
 - [[getPicklistValues 패턴]] — Record Type별 Picklist 옵션 로드, 종속 Picklist validFor 필터링
 - [[GraphQL Wire Adapter]] — lightning/graphql gql 쿼리, variables getter, errors 프로퍼티, refresh
+- [[RefreshView API]] — lightning/refresh RefreshViewEvent로 컴포넌트 하위 트리 데이터 갱신(페이지 리로드 없이); refreshApex·refreshGraphQL·notifyRecordUpdateAvailable 비교
 
 ## 📚 Base Components 상세 레퍼런스
 

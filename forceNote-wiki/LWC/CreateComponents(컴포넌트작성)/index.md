@@ -17,6 +17,7 @@ created: 2026-07-04
 |---|---|---|
 | [[Lifecycle Hooks]] | LWC 라이프사이클 훅 전수(constructor·connectedCallback·disconnectedCallback·renderedCallback·errorCallback) + hasRendered·isConnected·error boundary 패턴 | #pattern |
 | [[CSS 스타일시트와 스코핑]] | LWC CSS 스타일시트·scoped CSS·shadow DOM 스코핑·`:host` 셀렉터·static stylesheets·cascade/specificity/inheritance·미지원(`::part`/`:host-context`) | #reference |
+| [[컴포넌트 접근성 (ARIA·label)]] | LWC 접근성(a11y) — ARIA 속성·camel-case 프로퍼티(ariaLabel)·기본 ARIA·role 고정·ID 기반 ARIA 링크·label·screen reader·WCAG | #reference |
 
 ---
 
@@ -24,6 +25,7 @@ created: 2026-07-04
 
 - 컴포넌트가 언제 생성·삽입·렌더·제거·에러되는지 훅 시점을 찾을 때? → [[Lifecycle Hooks]]
 - 컴포넌트 CSS 스타일링·`:host`·shadow DOM 스코핑·static stylesheet를 찾을 때? → [[CSS 스타일시트와 스코핑]]
+- ARIA·aria-label·스크린리더 등 컴포넌트 접근성을 찾을 때? → [[컴포넌트 접근성 (ARIA·label)]]
 
 ---
 

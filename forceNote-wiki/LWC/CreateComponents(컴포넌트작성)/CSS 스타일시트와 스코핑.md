@@ -124,4 +124,5 @@ export class ChildComponent extends MyComponent {
 - [[SLDS 스타일링 훅]] — CSS custom properties(스타일링 훅)로 shadow 경계를 넘어 스타일링하는 디자인 토큰.
 - [[SLDS LWC 디자인 시스템]] — SLDS 디자인 시스템 전반과 LWC 적용.
 - [[Lifecycle Hooks]] — 형제 Create Components 기초 주제.
+- [[컴포넌트 접근성 (ARIA·label)]] — 형제 Create Components: ID↔ARIA 링크는 별도 템플릿 간 shadow DOM 제약으로 light DOM이 필요(스코핑 관련).
 - [[LWC MOC]] — LWC 섹션 전체 목차.

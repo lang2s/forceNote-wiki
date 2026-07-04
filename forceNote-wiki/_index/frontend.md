@@ -19,6 +19,7 @@ created: 2026-05-21
 |---|---|
 | lifecycle hooks, LWC 라이프사이클, 생명주기, constructor, connectedCallback, disconnectedCallback, renderedCallback, errorCallback, error boundary, hasRendered, isConnected, 컴포넌트 렌더 후 실행, DOM 삽입 제거 시 코드 | `LWC/CreateComponents(컴포넌트작성)/Lifecycle Hooks.md` |
 | LWC CSS, CSS 스타일시트, scoped CSS, :host selector, shadow DOM 스코핑, static stylesheets, cascade specificity inheritance, host-context ::part 미지원, LWC 스타일링, 컴포넌트 CSS | `LWC/CreateComponents(컴포넌트작성)/CSS 스타일시트와 스코핑.md` |
+| 컴포넌트 접근성, accessibility, a11y, ARIA, aria-label, ariaLabel, aria-pressed, screen reader, label, WCAG, 기본 ARIA, role 고정, ID ARIA 링크, camel-case ARIA, 접근성 속성, LWC에서 aria 속성 어떻게, 스크린리더 대응 | `LWC/CreateComponents(컴포넌트작성)/컴포넌트 접근성 (ARIA·label).md` |
 
 ## LWC — Reference (레퍼런스)
 
@@ -63,6 +64,7 @@ created: 2026-05-21
 | reduceErrors, 에러 정규화, ldsUtils | `LWC/LDS/ldsUtils reduceErrors.md` |
 | getPicklistValues, Picklist 옵션 로드, 동적 Picklist, 종속 Picklist, validFor, controllerValues, LWC에서 콤보박스 옵션 | `LWC/LDS/getPicklistValues 패턴.md` |
 | GraphQL wire, lightning/graphql, gql, graphql wire adapter, GraphQL API LWC, variables getter, errors 프로퍼티, uiGraphQLApi, LWC에서 GraphQL 쿼리, 그래프QL, refresh | `LWC/LDS/GraphQL Wire Adapter.md` |
+| RefreshView API, lightning/refresh, RefreshViewEvent, view refresh, 데이터 새로고침, refreshApex, refreshGraphQL, notifyRecordUpdateAvailable, 컴포넌트 데이터 갱신, 페이지 리로드 없이 갱신, 뷰 새로고침 어떻게, 표준 새로고침 API | `LWC/LDS/RefreshView API.md` |
 
 ## LWC — UI / 네비게이션 / 모달
 

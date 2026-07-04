@@ -130,4 +130,5 @@ export default class GraphqlAccounts extends LightningElement {
 - [[getRecord 패턴]] — LDS 단건 레코드 wire (대비: 그래프 쿼리 vs 단건 wire)
 - [[Wire 패턴]] — `@wire` 일반 사용 패턴
 - [[@salesforce Modules 레퍼런스]] — LWC 모듈 레퍼런스
+- [[RefreshView API]] — `refreshGraphQL`로 GraphQL wire 데이터 refresh 개시(refresh 짝)
 - [[LWC MOC]]

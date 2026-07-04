@@ -212,4 +212,5 @@ export default class Boundary extends LightningElement {
 - [[Lightning Message Service]] — MessageChannel 구독은 connectedCallback, 해제는 disconnectedCallback
 - [[HTML 템플릿 Directives 레퍼런스]] — `for:each`의 `key`와 `<slot>` 요소 재사용/재렌더 규칙
 - [[CSS 스타일시트와 스코핑]] — 형제 Create Components 기초 주제 (컴포넌트 스타일링)
+- [[컴포넌트 접근성 (ARIA·label)]] — 형제 Create Components: 기본 ARIA는 `constructor()`가 아니라 `connectedCallback()`에서 정의
 - [[LWC MOC]] — LWC 섹션 전체 목차
