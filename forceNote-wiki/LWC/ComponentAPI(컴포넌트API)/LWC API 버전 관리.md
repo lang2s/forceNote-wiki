@@ -1,9 +1,9 @@
 ---
 tags: [lwc, api-version, js-meta-xml, component-bundle, versioning, dynamic-import, lws]
 aliases: [LWC API Version, apiVersion, js-meta.xml apiVersion, 컴포넌트 API 버전]
-source: Release/Winter '24.md (Tier 1) + 외부 지식 (Tier 3)
+source: Release/Winter '24.md (Tier 1) + developer.salesforce.com LWC Dev Guide - Create Conditional Rendering + Learn MOAR Spring '23 blog (Tier 2) + 외부 지식 (Tier 3)
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-07-05
 ---
 
 # LWC API 버전 관리
@@ -58,8 +58,8 @@ updated: 2026-05-22
 | API 버전 | 릴리즈 | 주요 변경 |
 |---|---|---|
 | **55.0** | Spring '22 | 동적 컴포넌트 import (`await import('c/...')`) 사용 가능 최솟값 |
-| **57.0** | Spring '23 | `lwc:ref` 지시자 도입 |
-| **58.0** | Summer '23 | `lwc:spread` GA; `lwc:if/lwc:elseif/lwc:else` 도입 (기존 `if:true`/`if:false` 대체) |
+| **57.0** | Spring '23 | `lwc:ref` 지시자 도입; `lwc:if/lwc:elseif/lwc:else` 조건 디렉티브 도입 (기존 `if:true`/`if:false` 대체) |
+| **58.0** | Summer '23 | `lwc:spread` GA |
 | **59.0** | Winter '24 | 컴포넌트 수준 `<apiVersion>` 지정 GA; 동적 임포트 + 인스턴스화 GA |
 | **60.0** | Spring '24 | `@salesforce/userPermission` 등 권한 모듈 확장 |
 | **61.0** | Summer '24 | `@lwc/state` Alpha (상태 관리) |
@@ -88,12 +88,16 @@ async loadDynamicComponent() {
 
 ---
 
-## 5. lwc:if / lwc:elseif / lwc:else (apiVersion ≥ 58.0)
+## 5. lwc:if / lwc:elseif / lwc:else (apiVersion ≥ 57.0)
 
-`if:true` / `if:false`는 deprecated. `apiVersion 58.0` 이상에서는 새 디렉티브를 사용한다.
+> [!note] 도입 버전 정정
+> `lwc:if/lwc:elseif/lwc:else` 조건 디렉티브는 **Spring '23 / API 57.0**에 도입됐다(Summer '23 / 58.0 아님). 따라서 57.0 컴포넌트에서도 사용할 수 있다.
+> 근거: [Learn MOAR Spring '23 — LWC Enhancements](https://developer.salesforce.com/blogs/2023/01/lwc-enhancements-for-developers-learn-moar-spring-23) · [Create Conditional Rendering](https://developer.salesforce.com/docs/platform/lwc/guide/create-conditional.html)
+
+`if:true` / `if:false`는 deprecated. `apiVersion 57.0` 이상에서는 새 디렉티브를 사용한다.
 
 ```html
-<!-- apiVersion >= 58.0 권장 방식 -->
+<!-- apiVersion >= 57.0 권장 방식 -->
 <template lwc:if={isAdmin}>
     <p>관리자 전용 내용</p>
 </template>
@@ -106,7 +110,7 @@ async loadDynamicComponent() {
 ```
 
 ```html
-<!-- apiVersion < 58.0 구형 방식 (deprecated) -->
+<!-- apiVersion < 57.0 구형 방식 (deprecated) -->
 <template if:true={isAdmin}>
     <p>관리자 전용 내용</p>
 </template>
@@ -122,7 +126,7 @@ async loadDynamicComponent() {
 | **레거시 컴포넌트 유지** | 동작이 검증된 버전 고정 (업그레이드 테스트 후 올리기) |
 | **패키지 배포** | 패키지 최솟값 API 버전과 맞추거나 그 이상 |
 | **동적 임포트 필요** | `apiVersion >= 55.0` + LWS 활성화 확인 |
-| **if:true → lwc:if 마이그레이션** | `apiVersion >= 58.0` 으로 올린 뒤 템플릿 수정 |
+| **if:true → lwc:if 마이그레이션** | `apiVersion >= 57.0` 으로 올린 뒤 템플릿 수정 |
 
 ---
 

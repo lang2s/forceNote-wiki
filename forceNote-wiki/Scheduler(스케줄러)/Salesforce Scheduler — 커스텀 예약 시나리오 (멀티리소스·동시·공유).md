@@ -1,6 +1,6 @@
 ---
 tags: [scheduler, salesforce-scheduler, appointment-booking, multi-resource, concurrent-appointment, api-scenario]
-source: salesforce_scheduler_dev_guide.pdf (Salesforce Scheduler Developer Guide, v67.0 Summer '26)
+source: salesforce_scheduler_dev_guide.pdf (Salesforce Scheduler Developer Guide, v67.0 Summer '26); Tier 2 보강 — Salesforce Help "New Connected Apps Can No Longer Be Created in Spring '26" (help.salesforce.com id=005228017)
 created: 2026-06-22
 aliases: [멀티리소스 예약, multi-resource appointment, concurrent appointment, sharing availability, dummy resource, Scheduler 예약 시나리오]
 ---
@@ -69,6 +69,10 @@ Assigned Resource 객체의 **Primary Resource** 필드 FLS를 업데이트한�
 ### 4. Authenticate with a Connected App
 
 OAuth access token으로 연결한다 (SOAP/REST API 호출의 가장 안전한 인증 방식).
+
+> [!warning] 후속 권장: External Client App (ECA)
+> Spring '26부터 **신규 Connected App 생성이 차단**된다. 신규 org·신규 통합은 Connected App 대신 **External Client App(ECA)**로 OAuth 인증을 구성해야 한다. 이미 존재하는 Connected App은 계속 사용·수정 가능하므로 아래 절차는 기존 앱 기준으로만 유효하다.
+> 근거: [New Connected Apps Can No Longer Be Created in Spring '26](https://help.salesforce.com/s/articleView?id=005228017&type=1) (Tier 2 · Salesforce Help)
 
 > **Note:** prospects/unauthenticated user용 앱은 반드시 **logged-in user**(integration user 또는 administrator)로 구축한다.
 
@@ -679,6 +683,10 @@ concurrent time slot은 **service territory member에만** 적용된다. member 
 ### 3. Authenticate with a Connected App
 
 OAuth access token으로 인증한다. prospects/unauthenticated용은 logged-in user(integration user/admin)로 구축하고 API Enabled 권한을 확인한다.
+
+> [!warning] 후속 권장: External Client App (ECA)
+> Spring '26부터 **신규 Connected App 생성이 차단**된다. 신규 통합은 **External Client App(ECA)**로 OAuth 인증을 구성한다(시나리오 7 4단계와 동일). 기존 Connected App은 계속 유효하다.
+> 근거: [New Connected Apps Can No Longer Be Created in Spring '26](https://help.salesforce.com/s/articleView?id=005228017&type=1) (Tier 2 · Salesforce Help)
 
 ### 4. Get Work Type Groups
 

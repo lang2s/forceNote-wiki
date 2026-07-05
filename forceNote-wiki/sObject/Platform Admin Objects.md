@@ -1,6 +1,6 @@
 ---
 tags: [sobject-reference, standard-objects, platform-admin, user, permission-set, profile, record-type, flow, setup]
-source: object_reference.pdf (v67.0 Summer '26); automation-components-main/src-flows/main/default/classes/FlowPickerController.cls, GetFlowMetadata.cls (FlowDefinitionView 실전 패턴)
+source: object_reference.pdf (v67.0 Summer '26); automation-components-main/src-flows/main/default/classes/FlowPickerController.cls, GetFlowMetadata.cls (FlowDefinitionView 실전 패턴); help.salesforce.com rn_functions_retired.htm (Tier 2 — Salesforce Functions 2025-01-31 은퇴)
 created: 2026-05-22
 aliases: [Platform Admin Objects, User, PermissionSet, Profile, RecordType, FlowRecord, FlowDefinitionView, Group, Organization, SetupAuditTrail, Flow 픽커, 동적 SOQL Flow 조회]
 ---
@@ -270,9 +270,14 @@ aliases: [Platform Admin Objects, User, PermissionSet, Profile, RecordType, Flow
 | `OrgSnapshot` | Org 스냅샷 |
 | `DataKitDeployEvent` | Data Kit 배포 이벤트 |
 | `DataKitDeploymentLog` | Data Kit 배포 로그 |
-| `FunctionConnection` | Function 연결 (Salesforce Functions) |
-| `FunctionInvocationRequest` | Function 호출 요청 |
-| `FunctionReference` | Function 참조 |
+| `FunctionConnection` | Function 연결 (은퇴 — Salesforce Functions, 2025-01-31 EOL) |
+| `FunctionInvocationRequest` | Function 호출 요청 (은퇴 — Salesforce Functions, 2025-01-31 EOL) |
+| `FunctionReference` | Function 참조 (은퇴 — Salesforce Functions, 2025-01-31 EOL) |
+
+> [!warning] 은퇴(retired) — Salesforce Functions (Elastic Services)
+> `FunctionConnection` · `FunctionInvocationRequest` · `FunctionReference` 세 오브젝트가 속한 **Salesforce Functions**는 **2025-01-31자로 완전히 은퇴(retired)**했다. 신규 개발에 사용 불가.
+> **후속(migration):** Salesforce는 서버리스 로직을 **Heroku** 또는 외부 서버리스 플랫폼(AWS Lambda 등)으로 마이그레이션할 것을 권고한다.
+> 근거: [Salesforce Functions Is Being Retired](https://help.salesforce.com/s/articleView?id=release-notes.rn_functions_retired.htm)
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 tags: [visualforce, vf, apex-page, controller, legacy]
-source: salesforce_pages_developers_guide.pdf (Visualforce Developer Guide, v67.0 Summer '26)
+source: salesforce_pages_developers_guide.pdf (Visualforce Developer Guide, v67.0 Summer '26); Adobe Flash Player EOL 정정 근거 (Tier 2) https://www.adobe.com/products/flashplayer/end-of-life.html
 created: 2026-06-21
 aliases: [Visualforce 개요, apex:page, Visualforce 퀵스타트, VF 개발 도구, Visualforce vs LWC]
 ---
@@ -219,7 +219,11 @@ development mode 활성화 시 페이지 URL로 이동하면 내용 조회·편�
 
 활성화 절차: 1) personal settings → Quick Find `Advanced User Details` → 선택 (없으면 `Personal Information`). 2) **Edit**. 3) **Development Mode** 체크(미선택 시). 4) **Show View State in Development Mode** 체크. 5) **Save**.
 
-View State 탭은 folder node로 구성된다. folder 클릭 시 Content 탭이 있는 pie chart 표시(자식 custom controllers/Apex objects/fields). 그래프 hover로 parent 전체 크기 기여 요소 확인. **chart는 브라우저에 Flash version 6 이상이 필요하다.**
+View State 탭은 folder node로 구성된다. folder 클릭 시 Content 탭이 있는 pie chart 표시(자식 custom controllers/Apex objects/fields). 그래프 hover로 parent 전체 크기 기여 요소 확인.
+
+> [!warning] 낡은 요구사항 — Flash 의존 서술
+> 원본 문서는 "chart는 브라우저에 Flash version 6 이상이 필요하다"고 서술하나, **Adobe Flash Player는 2020-12-31에 end-of-life** 되었고 이후 모든 주요 브라우저에서 실행이 차단되었다. 따라서 이 Flash 요구사항은 현재 성립하지 않는다(현행 pie chart는 Flash 없이 렌더). 브라우저에 Flash를 설치해야 한다는 전제는 무시한다.
+> 근거: [Adobe Flash Player EOL 2020-12-31](https://www.adobe.com/products/flashplayer/end-of-life.html)
 
 **최대 view state 크기: 170KB.** 작을수록 로드가 빠르다. 최소화 방법: (a) controller/extension의 objects가 큰 비중이면 SOQL을 VF 페이지 관련 데이터만 반환하도록 정제, (b) component tree가 크면 의존 컴포넌트 수 감소.
 

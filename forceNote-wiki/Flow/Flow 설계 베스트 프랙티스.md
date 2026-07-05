@@ -1,6 +1,6 @@
 ---
 tags: [flow, best-practice, design, pattern, performance]
-source: Salesforce-Flow-Best-Practices-White-Paper-June-2025
+source: Salesforce-Flow-Best-Practices-White-Paper-June-2025; §9 버전 정정 근거(Tier 2)=admin.salesforce.com/blog/2023 Flow HTTP Callouts(Summer '23 GA) · help.salesforce.com platform.flow_http_callout_configure.htm
 created: 2026-05-17
 aliases: [Flow 베스트 프랙티스, Flow 설계 원칙, Flow 성능, Flow 바이패스, Fast Field Update, Flow 거버너]
 ---
@@ -167,9 +167,12 @@ Flow 요소 설명 예시:
 
 ---
 
-## 9. 외부 API 호출 — HTTP Callout in Flow *(Winter '24 GA)*
+## 9. 외부 API 호출 — External Services & HTTP Callout in Flow
 
 External Services + Flow 조합으로 Apex 없이 외부 REST API를 호출할 수 있다. **Apex 없이 통합 가능한 경우 Flow 우선 고려.**
+
+> [!note] 두 기능은 별개 — 정확한 GA 릴리스
+> 아래 본문(OpenAPI 3.0 스펙 등록 · Named Credential)은 **External Services**를 설명하며 External Services는 Spring '17경에 GA된 기능이다. Flow의 무코드 **HTTP Callout**은 별개 기능으로 Spring '23 Beta(GET) → **Summer '23 GA**(GET, 이후 POST)로 출시됐다. (이전 문서의 'Winter '24 GA' 태그는 두 기능 어느 쪽에도 맞지 않는 오기였다.)
 
 ```
 [Get Records: Account]

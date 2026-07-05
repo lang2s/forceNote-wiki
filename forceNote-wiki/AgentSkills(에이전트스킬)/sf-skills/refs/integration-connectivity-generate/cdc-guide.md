@@ -1,6 +1,6 @@
 ---
 tags: [agent-skill, sf-skills, reference, integration, change-data-capture]
-source: forcedotcom/sf-skills (skills/integration-connectivity-generate/references/cdc-guide.md, 공식 Salesforce)
+source: forcedotcom/sf-skills (skills/integration-connectivity-generate/references/cdc-guide.md, 공식 Salesforce); Tier 2 — Salesforce Streaming API Developer Guide (cdc_event_diff_pubsub_cometd.htm, Pub/Sub API 권장)
 created: 2026-06-27
 aliases: [Change Data Capture, 변경 데이터 캡처, CDC, ChangeEventHeader]
 ---
@@ -137,6 +137,10 @@ trigger AccountCDC on AccountChangeEvent (after insert) {
 ```
 Channel: /data/AccountChangeEvent
 ```
+
+> [!warning] 후속 권장: Pub/Sub API
+> 위 CometD 채널(`/data/...`)은 **레거시 Streaming API** 방식이다. Salesforce는 CDC 이벤트의 외부 구독 수단으로 **Pub/Sub API**(gRPC/HTTP 2 기반)를 권장하며, Pub/Sub API가 레거시 Streaming API(CometD)를 대체한다.
+> 근거: [Receive Change Events with the Pub/Sub API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/cdc_event_diff_pubsub_cometd.htm)
 
 ## Handling Specific Changes
 

@@ -1,6 +1,6 @@
 ---
 tags: [Security, SecureCoding, Lightning, Aura, LWC, CSP, LightningLocker, 보안가이드, 위협모델]
-source: secure_coding (Secure Coding Guide, v67.0 Summer '26)
+source: secure_coding (Secure Coding Guide, v67.0 Summer '26); developer.salesforce.com/docs/component-library/bundle/ui:inputSecret (Tier 2 — deprecation 검증)
 created: 2026-06-18
 aliases: [Lightning Security, Lightning Locker, CSP Directives, Lightning component 보안, AuraEnabled 보안, with sharing controller, Lightning CRUD FLS, Lightning XSS, Lightning CSRF, unsafe attribute, secret inputs, LWC 보안 모델, AuraEnabled 메서드 권한 검사, Lightning 컴포넌트 안전하게 만들기, CSP 때문에 외부 리소스 차단]
 ---
@@ -181,7 +181,19 @@ third-party redirect 시: ① HTTPS, ② domain을 source에 hardcode하거나 c
 
 ## Secret Inputs
 
-VF의 `<apex:inputSecret>`는 Lightning에서 `<ui:inputSecret />`이다.
+VF의 `<apex:inputSecret>`는 (구 Aura 방식에서) Lightning의 `<ui:inputSecret />`에 대응한다.
+
+> [!warning] `<ui:inputSecret />`은 **API 버전 47.0부터 deprecated**이며, `ui` 네임스페이스 Aura 컴포넌트 전체가 **Summer '21에 retire**되었다. 신규 개발에는 사용하지 말 것.
+> 후속(replacement): **LWC의 `lightning-input`** 컴포넌트(Aura에서는 `lightning:input`) `type="password"`를 사용한다. 공식 문서 원문: *"Deprecated as of API version 47.0. We recommend migrating to Lightning Web Components and using the lightning-input component."*
+> ([ui:inputSecret 문서](https://developer.salesforce.com/docs/component-library/bundle/ui:inputSecret/documentation) 참조)
+
+```html
+<!-- 후속 권장 문법 -->
+<!-- LWC -->
+<lightning-input type="password" label="Secret" name="secret"></lightning-input>
+<!-- Aura -->
+<lightning:input type="password" label="Secret" name="secret" />
+```
 
 ---
 

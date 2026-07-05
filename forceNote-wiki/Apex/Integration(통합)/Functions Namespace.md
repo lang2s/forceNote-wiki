@@ -1,6 +1,6 @@
 ---
 tags: [apex, functions, namespace, salesforce-functions, invoke, async, mock, reference]
-source: salesforce_apex_reference_guide.pdf v67.0 — Functions Namespace (doc p.2905~2920)
+source: salesforce_apex_reference_guide.pdf v67.0 — Functions Namespace (doc p.2905~2920) · [Tier 2] Salesforce Functions Retirement (EOL 2025-01-31) — https://devcenter.heroku.com/articles/salesforce-functions-retirement · https://help.salesforce.com/s/articleView?id=000381744
 created: 2026-05-20
 aliases: [Functions Namespace, functions.Function, FunctionInvocation, FunctionCallback, FunctionInvokeMock, MockFunctionInvocationFactory, FunctionErrorType, FunctionInvocationStatus, Salesforce Functions Apex, 함수 호출 Apex]
 ---
@@ -8,6 +8,10 @@ aliases: [Functions Namespace, functions.Function, FunctionInvocation, FunctionC
 # Functions Namespace
 
 > Salesforce Functions를 Apex에서 동기/비동기로 호출하고 결과를 받기 위한 클래스·인터페이스·Enum 모음. 테스트 모킹 전용 클래스(FunctionInvokeMock / MockFunctionInvocationFactory)까지 포함.
+
+> [!warning] 은퇴(retired) — Salesforce Functions(Elastic Services)는 **2025-01-31자로 완전히 은퇴(End-of-Life)**했다. 이 `functions` 네임스페이스(Function.get/invoke, FunctionCallback, FunctionInvocation, FunctionInvokeMock 등) API는 org에서 더 이상 실행되지 않는다. 아래 내용은 **역사적 참고용**이며 현행 기능이 아니다.
+> - **후속(replacement):** Salesforce 공식 권고는 **Heroku 기반 서비스** 또는 외부 서버리스 플랫폼으로의 마이그레이션이다.
+> - **근거:** [Salesforce Functions Retirement (EOL 2025-01-31)](https://devcenter.heroku.com/articles/salesforce-functions-retirement) · [Active Product & Feature Retirements](https://help.salesforce.com/s/articleView?id=000381744)
 
 ---
 

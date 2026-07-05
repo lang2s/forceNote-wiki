@@ -1,6 +1,6 @@
 ---
 tags: [sobject-reference, standard-objects, experience-cloud, network, community, chatter, collaboration-group, topic, feed-item]
-source: object_reference.pdf (v67.0 Summer '26)
+source: object_reference.pdf (v67.0 Summer '26); Chatter Answers Retirement (help.salesforce.com id=000381733, Tier 2)
 created: 2026-05-22
 aliases: [Experience Cloud Objects, Network, CollaborationGroup, Topic, FeedItem, Community, Chatter, Idea, Question]
 ---
@@ -92,18 +92,22 @@ aliases: [Experience Cloud Objects, Network, CollaborationGroup, Topic, FeedItem
 
 ## Question · Reply (Q&A)
 
+> [!warning] 은퇴(retired) — Chatter Answers 포털
+> `Reply`·`ReplyText`·`ReplyEmailSettings`·`ChatterAnswersActivity`·`ChatterAnswersReputationLevel`(및 여기의 `Question` 계열)은 **은퇴된 Chatter Answers 포털** 기능의 오브젝트다. Chatter Answers는 은퇴됐으며, 마이그레이션 시 **`Reply` → `FeedComment`**, **`Question` → `FeedItem`** 으로 변환된다(Chatter Questions/피드 기반으로 대체). 후속: 피드 기반 Q&A(`FeedItem`·`FeedComment`) 및 Experience Cloud Questions.
+> 근거: [Chatter Answers Retirement](https://help.salesforce.com/s/articleView?id=000381733)
+
 | Object | 설명 |
 |---|---|
-| `Question` | 질문 |
+| `Question` | 질문 (⚠️ 은퇴된 Chatter Answers — 마이그레이션 시 `FeedItem`으로 변환) |
 | `QuestionDataCategorySelection` | 질문 데이터 카테고리 선택 |
 | `QuestionReportAbuse` | 질문 신고 |
 | `QuestionSubscription` | 질문 구독 |
-| `Reply` | 답변 |
-| `ReplyEmailSettings` | 답변 이메일 설정 |
+| `Reply` | 답변 (⚠️ 은퇴된 Chatter Answers — 마이그레이션 시 `FeedComment`으로 변환) |
+| `ReplyEmailSettings` | 답변 이메일 설정 (⚠️ 은퇴된 Chatter Answers) |
 | `ReplyReportAbuse` | 답변 신고 |
-| `ReplyText` | 답변 텍스트 |
-| `ChatterAnswersActivity` | Chatter Answers 활동 |
-| `ChatterAnswersReputationLevel` | Chatter Answers 명성 레벨 |
+| `ReplyText` | 답변 텍스트 (⚠️ 은퇴된 Chatter Answers) |
+| `ChatterAnswersActivity` | Chatter Answers 활동 (⚠️ 은퇴) |
+| `ChatterAnswersReputationLevel` | Chatter Answers 명성 레벨 (⚠️ 은퇴) |
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 tags: [data-cloud, data-360, segments, segmentation, audience]
-source: help.salesforce.com (Salesforce Help — Create and Activate Segments; 라이브 공식 문서, Tier 2, 접속 2026-07-03); help.salesforce.com — Increase Segment Refresh with Rapid Segment Publish (sf.c360_a_rapid_segment_publish.htm, Tier 2)
+source: help.salesforce.com (Salesforce Help — Create and Activate Segments; 라이브 공식 문서, Tier 2, 접속 2026-07-03); help.salesforce.com — Increase Segment Refresh with Rapid Segment Publish (sf.c360_a_rapid_segment_publish.htm, Tier 2); help.salesforce.com — Rapidly Publish Segments to Hyperscaler Targets (Summer '24 release-notes rn_cdp_2024_summer_rapid_activation_hyperscaler_targets, Tier 2)
 official_doc: https://help.salesforce.com/s/articleView?id=sf.c360_a_segments.htm&type=5
 created: 2026-07-03
 aliases: [Segments, 세그먼트, Segmentation, 세그멘테이션, Audience, 오디언스]
@@ -41,7 +41,9 @@ Data Cloud의 **Segmentation**은 통합된 데이터에서 **의미 있는 audi
 | 모드 | 발행 주기 | 전송 대상 | org당 한도 |
 |---|---|---|---|
 | **Standard Publish** | 최소 12시간 ~ 최대 24시간 | 제한 없음 | — |
-| **Rapid Segment Publish** | 최소 1시간 ~ 최대 4시간 | **Marketing Cloud로만 전송 가능** | **Rapid 세그먼트 20개** |
+| **Rapid Segment Publish** | 최소 1시간 ~ 최대 4시간 | Marketing Cloud + 파일 스토리지/하이퍼스케일러(Amazon S3·Microsoft Azure·SFTP·Google Cloud Storage)·Data 360 | **Rapid 세그먼트 20개** |
+
+> ℹ️ **전송 대상 확대(Summer '24):** Rapid Segment Publish는 이전에 Marketing Cloud로만 전송 가능했으나, Summer '24 릴리스('Rapidly Publish Segments to Hyperscaler Targets')부터 Marketing Cloud Engagement 외에 파일 스토리지/하이퍼스케일러 타깃(Amazon S3·Microsoft Azure·SFTP·Google Cloud Storage) 및 Data 360로도 rapid publish할 수 있다. (근거: [Summer '24 릴리스 노트](https://help.salesforce.com/s/articleView?id=release-notes.rn_cdp_2024_summer_rapid_activation_hyperscaler_targets.htm&release=250&type=5) · [Rapid Segment Publish 공식 문서](https://help.salesforce.com/s/articleView?id=data.c360_a_rapid_segment_publish.htm&type=5))
 
 > ⚠️ 세그먼트를 **생성한 뒤에는 Standard → Rapid 스케줄로 변경할 수 없다.** Rapid Publish가 필요하면 세그먼트 생성 시점에 지정해야 한다.
 

@@ -1,6 +1,6 @@
 ---
 tags: [sales-cloud, campaigns, campaign-members, campaign-influence, marketing]
-source: help.salesforce.com (Salesforce Help — Sales Basics; Get to Know Salesforce Campaigns + Campaign Influence; 라이브 공식 문서, Tier 2, 접속 2026-07-03) · help.salesforce.com (Enable Customizable Campaign Influence — campaigns_influence_customizable_setup.htm; Understanding Customizable Campaign Influence — campaigns_influence_customizable_understanding.htm; Tier 2, 접속 2026-07-04)
+source: help.salesforce.com (Salesforce Help — Sales Basics; Get to Know Salesforce Campaigns + Campaign Influence; 라이브 공식 문서, Tier 2, 접속 2026-07-03) · help.salesforce.com (Enable Customizable Campaign Influence — campaigns_influence_customizable_setup.htm; Understanding Customizable Campaign Influence — campaigns_influence_customizable_understanding.htm; Tier 2, 접속 2026-07-04) · help.salesforce.com (Campaign Influence 1.0 — campaigns_influence_original.htm; '1.0 isn't supported in Lightning Experience', Tier 2, 접속 2026-07-05)
 official_doc: https://help.salesforce.com/s/articleView?id=sales.campaigns_def.htm&type=5
 created: 2026-07-03
 aliases: [Campaigns, 캠페인, Campaign Members, Campaign Hierarchy, Campaign Influence, First-Touch, Last-Touch, Even-Distribution]
@@ -50,7 +50,9 @@ Campaign Influence는 member status와 **무관하게 모든 campaign member**�
 | **Even-Distribution** | prospect가 touch한 **모든** 캠페인에 **균등(even) %** 할당 |
 | **Last-Touch** | deal이 close되기 **직전 마지막 touch** 캠페인에 **100%** 할당 |
 
-> 원조 모델인 **Campaign Influence 1.0** 도 존재한다.
+> [!warning] Campaign Influence 1.0은 레거시 — Lightning Experience 미지원
+> 원조 모델인 **Campaign Influence 1.0** 도 존재하지만, 공식 문서는 **"Campaign Influence 1.0 isn't supported in Lightning Experience"** 라고 명시한다. 1.0은 **Salesforce Classic 전용**이며, Lightning Experience에서는 후속인 **Customizable Campaign Influence**(위 표준 attribution 모델)로 전환해 사용해야 한다.
+> 근거: help.salesforce.com — `campaigns_influence_original.htm` (Campaign Influence 1.0)
 
 ### ⚠️ 전제조건 — 모델이 동작하기 전에 켜야 할 설정
 

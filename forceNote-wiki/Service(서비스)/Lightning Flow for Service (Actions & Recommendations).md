@@ -1,6 +1,6 @@
 ---
 tags: [service, lightning-flow-for-service, actions-recommendations, recordaction, deployment, flow, next-best-action, open-cti]
-source: salesforce_guided_engagement.pdf (Lightning Flow for Service Developer Guide, Spring '26, Tier 2)
+source: salesforce_guided_engagement.pdf (Lightning Flow for Service Developer Guide, Spring '26, Tier 2); Process Builder 은퇴 근거 = help.salesforce.com/s/articleView?id=001096524 (Workflow Rules & Process Builder End of Support, Tier 2)
 official_doc: https://developer.salesforce.com/docs/atlas.en-us.guided_engagement.meta/guided_engagement/
 created: 2026-06-20
 aliases: [Actions and Recommendations, Lightning Flow for Service, Salesforce Flow for Service, RecordAction, RecordActionDeployment, RecordActionHistory, guided engagement, guided action, 가이드 인게이지먼트, 액션 추천 컴포넌트, 액션 권장 사항]
@@ -10,11 +10,21 @@ aliases: [Actions and Recommendations, Lightning Flow for Service, Salesforce Fl
 
 > **Actions & Recommendations 컴포넌트**로 레코드 페이지에 논리적 다음 단계(플로우·퀵액션·NBA 추천) 목록을 띄우는 Service Cloud 기능. 핵심은 **RecordAction 정션 객체**와 deployment. (`salesforce_guided_engagement.pdf` = Lightning Flow for Service Developer Guide, Spring '26)
 
+> [!warning] Process Builder 은퇴 — 선언적 연결은 Flow로
+> 이 노트는 액션·RecordAction을 레코드에 연결하는 방법 중 하나로 **Process Builder**를 상세히 다루지만, Salesforce는 Workflow Rules·Process Builder를 은퇴시켰다.
+> - **Winter '23**부터 신규 **Workflow Rule** 생성 불가
+> - **Spring '25**부터 신규 **Process Builder 프로세스** 생성 불가 (기존 프로세스는 계속 실행)
+> - **2025-12-31**자로 공식 **End of Support**(버그 수정·지원 종료)
+> - **후속(replacement) = Flow Builder(Salesforce Flow)**. Salesforce는 **Migrate to Flow** 마이그레이션 도구를 제공한다.
+>
+> 따라서 **신규 org에서는 아래 "Process Builder로 연결" 절차대로 RecordAction을 만들 수 없다.** 선언적 연결은 **deployment의 channel defaults** 또는 **Flow Builder(레코드 트리거 플로우로 RecordAction 생성)**를 사용한다. Process Builder 관련 서술은 기존 프로세스 유지보수 참고용으로만 남긴다. (참고: 근거 가이드 자체는 Spring '26 기준으로 여전히 Process Builder를 문서화한다.)
+> 근거: [Salesforce Workflow Rules & Process Builder End of Support](https://help.salesforce.com/s/articleView?id=001096524)
+
 ---
 
 ## 개요 — Actions & Recommendations 컴포넌트
 
-Salesforce Flow for Service와 **Actions & Recommendations 컴포넌트**는 사용자에게 "논리적 다음 단계" 목록을 보여준다. 액션을 레코드 페이지에 연결하는 방법은 세 갈래다 — **Actions & Recommendations deployment**, Salesforce 자동화 도구(Process Builder), **API**(SOAP·Apex·Metadata). 채널(phone·chat)별 기본 액션을 구성하고, 사용자가 먼저/마지막에 완료할 액션을 지정할 수 있다.
+Salesforce Flow for Service와 **Actions & Recommendations 컴포넌트**는 사용자에게 "논리적 다음 단계" 목록을 보여준다. 액션을 레코드 페이지에 연결하는 방법은 세 갈래다 — **Actions & Recommendations deployment**, Salesforce 자동화 도구(Process Builder → **은퇴: Spring '25부터 신규 생성 불가, 2025-12-31 End of Support, Flow Builder로 대체** — 상단 경고 참조), **API**(SOAP·Apex·Metadata). 채널(phone·chat)별 기본 액션을 구성하고, 사용자가 먼저/마지막에 완료할 액션을 지정할 수 있다.
 
 컴포넌트는 **RecordAction 정션 객체**의 목록을 표시한다. 하나의 RecordAction은 액션(스크린 플로우·필드 서비스 모바일 플로우·autolaunched 플로우·퀵액션)을 부모 레코드와 연결한다. 사용자가 Next Best Action 추천을 수락할 때도 RecordAction이 생성되어, 추천 안의 플로우를 레코드와 연결한다.
 
@@ -172,6 +182,8 @@ deployment를 구성할 때 정의하는 설정:
 
 컴포넌트 목록 사용 방식을 미세 조정하는 7가지 옵션. 각 옵션은 보통 **deployment(channel defaults) / Process Builder / API** 세 경로로 설정한다. 아래 표가 세 경로를 통합한다.
 
+> [!warning] 아래 표의 **Process Builder 열**은 신규 org에 적용 불가 — Process Builder는 Spring '25부터 신규 생성 불가, 2025-12-31 End of Support(Flow Builder로 대체, 상단 경고 참조). 새 구현에서는 해당 열 대신 **Flow(레코드 트리거 플로우)** 또는 **deployment/API** 경로를 사용한다.
+
 | 옵션 | 효과 | Deployment (channel defaults) | Process Builder | API |
 |---|---|---|---|---|
 | **Show Top Recommendations** | Einstein NBA 전략의 top 추천 표시 | deployment에서 Recommendations 구성 (전략 선택·표시 방식) | — (deployment 또는 API 필요) | metadata type `RecordActionDeployment`로 구성 |
@@ -217,6 +229,9 @@ History 탭은 레코드에 연결된 액션의 **상태 변화(started/paused/r
 phone screen popup, chat, list view, related record에서 레코드가 열릴 때의 default 액션을 보여준다. NBA 추천도 deployment로 표시 가능. 설정 절차는 위 "Deployment 설정 항목" 참조.
 
 ### Process Builder로 연결 (필드값 표)
+
+> [!warning] Process Builder 은퇴 — 신규 org에서는 사용 불가
+> **Spring '25부터 신규 Process Builder 프로세스 생성 불가**, **2025-12-31 End of Support**. **후속 권장: Flow Builder(레코드 트리거 플로우로 "Create Records" 요소를 써서 RecordAction 생성)** — Salesforce **Migrate to Flow** 도구 제공. 아래 절차·필드값 표는 **기존 Process Builder 프로세스 유지보수 참고용**으로만 유효하며, 새 구현에는 적용되지 않는다. 근거: [Workflow Rules & Process Builder End of Support](https://help.salesforce.com/s/articleView?id=001096524).
 
 Process Builder는 새/수정 레코드가 기준을 충족할 때 시작되는 프로세스를 설계하는 point-and-click 도구다. 트리거 시 **RecordAction을 생성**하는 프로세스를 만든다.
 

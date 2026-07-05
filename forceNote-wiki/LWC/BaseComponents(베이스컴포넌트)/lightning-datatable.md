@@ -1,6 +1,6 @@
 ---
 tags: [lwc, base-component, datatable, table, reference]
-source: TrailheadApp/lwc-recipes-main (Tier 1) + cx-router 메타데이터 (Tier 2) + external-knowledge (Tier 3) + TrailheadApp/visualforce-to-lwc-main/lwc/apexUtils · listWithParentRecordData (Tier 1)
+source: TrailheadApp/lwc-recipes-main (Tier 1) + cx-router 메타데이터 (Tier 2) + external-knowledge (Tier 3) + TrailheadApp/visualforce-to-lwc-main/lwc/apexUtils · listWithParentRecordData (Tier 1) + LWC Reference Directives 공식 문서 (Tier 2, if:true/false no longer recommended)
 created: 2026-05-17
 aliases: [lightning-datatable, 데이터 테이블, datatable, 인라인 편집, SObject 평탄화, flatten, 부모 필드, 관계 필드]
 ---
@@ -239,6 +239,20 @@ export default class ListWithParentRecordData extends LightningElement {
     ></lightning-datatable>
 </template>
 ```
+
+> [!warning] `if:true`/`if:false`는 더 이상 권장되지 않는 디렉티브(no longer recommended)다. 공식 문서가 "intends to deprecate and remove"로 명시하고 있으므로 신규 코드에서는 사용하지 않는다. 후속 권장: `lwc:if`/`lwc:elseif`/`lwc:else`(API 57.0 / Spring '23 이상). 위 예시는 원본 소스(`visualforce-to-lwc-main`)를 그대로 보존한 것이며, 같은 노트의 인라인 편집 예시(L49)는 이미 `lwc:if`를 사용한다. 후속 문법으로 옮기면:
+>
+> ```html
+> <template lwc:if={accounts.data}>
+>     <lightning-datatable
+>         key-field="id"
+>         data={formattedAccounts}
+>         columns={columns}
+>     ></lightning-datatable>
+> </template>
+> ```
+>
+> 근거: [LWC Reference Directives — if:true|false (no longer recommended)](https://developer.salesforce.com/docs/platform/lwc/guide/reference-directives.html)
 
 **핵심 포인트:**
 

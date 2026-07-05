@@ -1,6 +1,6 @@
 ---
 tags: [lwc, experience-cloud, lwr, sites, community, dxp, multilingual, experience-delivery]
-source: exp_cloud_lwr.pdf (LWR Sites for Experience Cloud v66.0, Spring '26, Tier 2)
+source: exp_cloud_lwr.pdf (LWR Sites for Experience Cloud v66.0, Spring '26, Tier 2); if:true|false 비권장 근거 = LWC Reference Directives 공식 문서 (Tier 2, developer.salesforce.com/docs/platform/lwc/guide/reference-directives.html)
 official_doc: https://developer.salesforce.com/docs/atlas.en-us.exp_cloud_lwr.meta/exp_cloud_lwr/
 created: 2026-06-14
 aliases: [LWR Sites, Experience Cloud LWR, Build Your Own LWR, Microsite, lightningCommunity__Page, dxp styling hooks, --dxp, Experience Builder LWC, Enhanced LWR, enhanced sites and content platform, partial deployment, expression-based visibility, site content search, Experience Delivery, SSR, CSR, server-side rendering, custom record component, GlobalSearchController, logout link, secur/logout.jsp, Build Your Own vs Microsite, Editions]
@@ -203,6 +203,26 @@ theme layout search 컴포넌트가 사용자를 search results 페이지로 보
     </template>
 </template>
 ```
+
+> [!warning] `if:true|false`는 비권장(no longer recommended) 디렉티브 — 향후 deprecate/제거 예정
+> 위 PDF 발췌 예시의 `if:false={isGuest}`는 공식 문서상 더 이상 권장되지 않는다. 새 코드에서는 후속 디렉티브 **`lwc:if` / `lwc:elseif` / `lwc:else`**를 쓴다. 부정 조건은 getter를 뒤집어 표현한다.
+>
+> ```html
+> <!-- 구조 예시 — 후속 문법(lwc:if) 권장 버전 -->
+> <template>
+>     <template lwc:if={isAuthenticated}>
+>         <a href={logoutLink}>Logout</a>
+>     </template>
+> </template>
+> ```
+>
+> ```javascript
+> // 구조 예시 — 부정 getter (isGuest의 반대)
+> get isAuthenticated() {
+>     return !isGuest;
+> }
+> ```
+> 📖 근거: [Directives for Rendering DOM Elements Conditionally](https://developer.salesforce.com/docs/platform/lwc/guide/reference-directives.html) — *if:true|false — no longer recommended, will be deprecated/removed*
 
 ```javascript
 // exp_cloud_lwr.pdf 발췌 — PDF 원문 코드

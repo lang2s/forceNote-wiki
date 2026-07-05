@@ -1,6 +1,6 @@
 ---
 tags: [agent-skill, sf-skills, reference, integration, platform-events]
-source: forcedotcom/sf-skills (skills/integration-connectivity-generate/references/platform-events-guide.md, 공식 Salesforce)
+source: forcedotcom/sf-skills (skills/integration-connectivity-generate/references/platform-events-guide.md, 공식 Salesforce); Tier 2 정정 근거 — help.salesforce.com 000389396 (Process Builder Retirement), developer.salesforce.com api_streaming/cdc_event_diff_pubsub_cometd (Streaming API vs Pub/Sub API)
 created: 2026-06-27
 aliases: [Platform Events, 플랫폼 이벤트, EventBus, ReplayId]
 ---
@@ -39,7 +39,7 @@ Platform Events enable event-driven architecture in Salesforce. They provide a s
 | High-volume streaming | ✅ High Volume | Change Data Capture |
 | Simple record sync | Consider | Change Data Capture |
 | External system notifications | ✅ Best choice | - |
-| Internal process triggers | ✅ Good choice | Process Builder, Flow |
+| Internal process triggers | ✅ Good choice | Flow (Process Builder는 은퇴 — EOS 2025-12-31) |
 
 ## Creating Platform Events
 
@@ -103,9 +103,15 @@ List<Database.SaveResult> results = EventBus.publish(events);
 
 ### From Process Builder
 
+> [!warning] Process Builder 은퇴(retired) — 신규 발행 수단으로 사용 금지
+> Process Builder는 **Summer '23부터 신규 생성 불가**이며 공식 End of Support가 **2025-12-31로 이미 지났다**. 플랫폼 이벤트 발행은 아래 **Flow Builder(Record-Triggered Flow)**를 사용하고, 기존 Process Builder는 **Migrate to Flow** 도구로 마이그레이션한다.
+> 근거: [Transition to Flow: Workflow and Process Builder Retirement](https://help.salesforce.com/s/articleView?id=000389396&type=1)
+
 1. Add Immediate Action
 2. Select "Create a Record"
 3. Choose Platform Event
+
+*(레거시 참고용 — 신규 구현에서는 위 배너대로 Flow로 대체)*
 
 ## Subscribing to Events
 
@@ -133,7 +139,11 @@ trigger OrderUpdateSubscriber on Order_Update_Event__e (after insert) {
 
 ### External (CometD)
 
-External systems can subscribe using CometD streaming:
+> [!warning] 후속 권장: Pub/Sub API (gRPC)
+> CometD 기반 Streaming API는 **레거시**다. 외부 시스템 구독은 **Pub/Sub API**(gRPC 기반, Spring '22 GA)가 공식 권장 후속 경로이며, Salesforce가 적극 투자하는 유일한 스트리밍 API다. CometD는 하위 호환을 위해 유지되지만 신규 구현은 Pub/Sub API를 사용한다.
+> 근거: [Streaming API vs Pub/Sub API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/cdc_event_diff_pubsub_cometd.htm)
+
+External systems can subscribe using CometD streaming (legacy):
 
 ```
 /event/Order_Update_Event__e
@@ -276,7 +286,11 @@ WHERE Topic = 'Order_Update_Event__e'
 
 ### Subscribe from External System
 
-Use CometD client to connect to Streaming API:
+> [!warning] 후속 권장: Pub/Sub API (gRPC)
+> 아래 CometD(`/cometd/`) 기반 Streaming API는 레거시다. 신규 외부 구독은 **Pub/Sub API**(Spring '22 GA)를 사용한다 — 위 "External (CometD)" 섹션 참조.
+> 근거: [Streaming API vs Pub/Sub API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/cdc_event_diff_pubsub_cometd.htm)
+
+Use CometD client to connect to Streaming API (legacy):
 
 ```
 Endpoint: /cometd/62.0

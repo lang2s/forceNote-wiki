@@ -1,6 +1,6 @@
 ---
 tags: [External-Services, OpenAPI, REST, Integration, Named-Credential, Flow, Apex]
-source: external-knowledge; Salesforce 공식 문서 (Tier 2) — enhanced_external_services_considerations.htm, external_services_schema_def_limits.htm
+source: external-knowledge; Salesforce 공식 문서 (Tier 2) — enhanced_external_services_considerations.htm, external_services_schema_def_limits.htm, external_services_intro_openapi_2_3_support.htm (OpenAPI 2.0 and 3.0 Support)
 created: 2026-05-23
 aliases: [External Services, 외부 서비스, OpenAPI Apex 통합, External Service Registration, 외부 서비스 등록]
 ---
@@ -16,7 +16,11 @@ aliases: [External Services, 외부 서비스, OpenAPI Apex 통합, External Ser
 
 ## 개념 설명
 
-External Services는 외부 REST API의 **OpenAPI 2.0 또는 JSON 스키마**를 Salesforce에 등록하면, Apex 클래스와 Flow Invocable Action을 자동으로 생성하는 기능이다. 코드 없이도 외부 API를 Flow나 Apex에서 호출할 수 있다.
+External Services는 외부 REST API의 **OpenAPI 스키마**를 Salesforce에 등록하면, Apex 클래스와 Flow Invocable Action을 자동으로 생성하는 기능이다. 코드 없이도 외부 API를 Flow나 Apex에서 호출할 수 있다.
+
+> [!tip] 등록 포맷 — OpenAPI 3.0 권장 (Spring '22 GA)
+> External Services는 **OpenAPI 2.0(Swagger 2.0)** 과 **OpenAPI 3.0** 두 포맷을 모두 지원한다. **Spring '22부터 OpenAPI 3.0 JSON 포맷 직접 등록이 GA** — 스키마를 수정·변환하지 않고 그대로 업로드할 수 있다. 3.0이 현재 업계 표준이므로 **신규 통합은 OpenAPI 3.0 사용을 권장**한다. 아래 예시는 하위 호환용 Swagger 2.0 형식이며, 신규 등록 시 3.0(`"openapi": "3.0.0"`, `servers`/`components` 구조) 사용을 우선 고려한다.
+> 근거: [Learn MOAR in Spring '22 — OpenAPI 3.0 Support for External Services](https://developer.salesforce.com/blogs/2022/02/learn-moar-in-spring-22-with-openapi-3-0-support-for-external-services) · [OpenAPI 2.0 and 3.0 Support](https://help.salesforce.com/s/articleView?id=sf.external_services_intro_openapi_2_3_support.htm)
 
 ### 동작 원리
 
@@ -36,7 +40,7 @@ OpenAPI 스펙 업로드
 
 1. **Named Credential** — 외부 API의 인증 정보 및 엔드포인트 URL
 2. **Remote Site Settings 또는 CSP** — 외부 도메인 허용
-3. **OpenAPI 2.0 스펙 파일** (JSON 형식) 또는 URL
+3. **OpenAPI 스펙 파일** (JSON 형식) 또는 URL — OpenAPI 2.0(Swagger 2.0) 또는 **OpenAPI 3.0**(Spring '22부터 GA, 신규 권장)
 
 ### 등록 절차
 
@@ -65,6 +69,8 @@ OpenAPI 스펙 업로드
 > 표준 External Services에서 중첩 객체를 입력·출력으로 사용하려면 Enhanced External Services로 등록해야 한다. 자세한 고려사항은 공식 문서 `enhanced_external_services_considerations.htm` 참조.
 
 ### OpenAPI 스펙 예시 (등록용)
+
+> 아래는 하위 호환용 **Swagger 2.0** 형식이다. 신규 등록은 **OpenAPI 3.0**(`"openapi": "3.0.0"` + `servers`/`components/schemas` 구조)을 권장한다 — Spring '22부터 3.0 JSON을 변환 없이 직접 업로드 가능.
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
 tags: [Flow, Aura, LocalAction, availableForFlowActions, Navigation, UtilityBar, ScreenFlow, invoke]
-source: automation-components-main/src-ui/main/default/aura/navigate + automation-components-main/src-ui/main/default/aura/minimizeUtilityItem (실전 예시) + developer.salesforce.com lightning:availableForFlowActions·lightning:navigation·PageReference Types·lightning:utilityBarAPI (레퍼런스)
+source: automation-components-main/src-ui/main/default/aura/navigate + automation-components-main/src-ui/main/default/aura/minimizeUtilityItem (실전 예시) + developer.salesforce.com lightning:availableForFlowActions·lightning:navigation·PageReference Types·lightning:utilityBarAPI (레퍼런스) + developer.salesforce.com LWC Guide - Create Flow Local Actions Using Lightning Web Components, Winter '26 (Tier 2, LWC 후속 경로)
 created: 2026-07-04
 aliases: [Flow Local Action, Aura Local Action, availableForFlowActions, Flow 로컬 액션, 플로우 클라이언트 액션, Flow 네비게이션, Flow 유틸리티바 최소화, invoke method flow, lightning navigation aura, Flow에서 페이지 이동]
 ---
@@ -8,6 +8,9 @@ aliases: [Flow Local Action, Aura Local Action, availableForFlowActions, Flow �
 # Aura Flow 로컬 액션 (availableForFlowActions)
 
 > `lightning:availableForFlowActions`를 구현한 Aura 컴포넌트의 `invoke` 컨트롤러 메서드로 Flow(주로 Screen Flow)에서 **클라이언트 측 동작**(페이지 네비게이션·유틸리티바 제어 등)을 실행한다 — 서버 왕복 없이 브라우저에서 즉시 실행되는 "로컬 액션".
+
+> [!note] 후속 권장 — LWC 로컬 액션 (Winter '26)
+> **Winter '26**부터 Screen Flow에서 **LWC를 로컬 액션으로 직접 사용**할 수 있다(공식 LWC 개발자 가이드 *Create Flow Local Actions Using Lightning Web Components*). 이 노트가 다루는 Aura(`lightning:availableForFlowActions`) 방식은 **deprecated는 아니며 계속 동작**하지만, **신규 개발의 권장 후속 경로는 LWC 로컬 액션**이다. 근거: <https://developer.salesforce.com/docs/platform/lwc/guide/use-flow-local-actions.html>
 
 ---
 
@@ -18,6 +21,9 @@ Flow의 **Action** 요소는 보통 Apex `@InvocableMethod`(서버 실행)를 �
 - Aura 컴포넌트가 `lightning:availableForFlowActions` 인터페이스를 `implements` 하면, 그 컴포넌트의 클라이언트 컨트롤러 `invoke` 메서드가 **Flow의 Action 요소로 노출**된다.
 - Flow 런타임(Lightning Experience)에서 실행되며, 서버 트랜잭션과 별개로 브라우저에서 즉시 동작한다.
 - **Lightning Experience / Lightning 런타임 전용** — Classic이나 서버 전용 런타임에서는 지원되지 않는다.
+
+> [!tip] Aura vs LWC 로컬 액션
+> 여기서 소개하는 Aura 컴포넌트 방식(`lightning:availableForFlowActions` + `invoke`)은 **Winter '26** 이전부터 로컬 액션을 만드는 유일한 경로였고 지금도 유효하다. Winter '26부터는 동일한 로컬 액션을 **LWC**로도 구현할 수 있게 되어(공식 가이드 *Create Flow Local Actions Using Lightning Web Components*), LWC 기반 프론트엔드를 쓰는 신규 프로젝트에서는 LWC 로컬 액션이 권장된다. 기존 Aura 로컬 액션을 계속 유지·확장하는 것은 문제없다.
 
 ```
 Flow (Screen/Autolaunched, Lightning 런타임)

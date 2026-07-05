@@ -1,6 +1,6 @@
 ---
 tags: [CPQ, Salesforce CPQ, SBQQ, API Models, 데이터모델, 견적, Apex]
-source: cpq_developer_guide.pdf (Salesforce CPQ Developer Guide, v65.0 Winter '26)
+source: cpq_developer_guide.pdf (Salesforce CPQ Developer Guide, v65.0 Winter '26); CPQ Developer Guide 인트로 (Tier 2, https://developer.salesforce.com/docs/revenue/cpq-developer-guide/guide/cpq-developer-guide-intro.html)
 created: 2026-06-21
 aliases: [CPQ API Models, CPQ 데이터 모델, SBQQ 모델 클래스, QuoteModel 필드, QuoteLineModel, OptionModel, ConfigurationModel, ProductModel, QuoteProposalModel, QuoteTermModel, 견적 라인 모델, CPQ 모델 클래스, SBQQ 모델, "QuoteModel 필드가 뭐야", "CPQ API 모델 만들기"]
 ---
@@ -12,6 +12,10 @@ aliases: [CPQ API Models, CPQ 데이터 모델, SBQQ 모델 클래스, QuoteMode
 CPQ API를 사용하려면 각 데이터 모델에 대응하는 Apex 클래스를 org에 직접 만들어야 한다. 아래 11개 모델은 견적(Quote) · 견적 라인(Quote Line) · 번들 구성(Configuration) · 제품(Product) · 견적서 문서(Quote Proposal) · 견적 조항(Quote Term)을 표현한다.
 
 **EDITIONS** — 모든 모델 공통: Available in Salesforce CPQ, Summer '16 and later. (CPQ API Models 인덱스 페이지 자체만 Spring '17 and later로 표기되며, 개별 모델은 모두 Summer '16 and later다.)
+
+> [!warning] 신규 구현 비권장 — 후속 권장: Revenue Cloud (RLM)
+> Salesforce CPQ managed package(`SBQQ` 네임스페이스)는 **기존 고객에게는 계속 제공**되지만 **더 이상 신규 기능 개발이 이루어지지 않으며**(no new feature development), 신규 고객 대상 end-of-sale(2025~) 상태다. 공식 CPQ Developer Guide 인트로: *"The Salesforce CPQ managed package continues to be available for existing customers, however, there is no longer any new feature development. For a more comprehensive and robust CPQ solution, we recommend exploring Revenue Cloud."*
+> 따라서 **신규 설계·구현 시에는 CPQ가 아니라 후속 platform-native 제품인 Revenue Cloud Advanced(RLM, Revenue Lifecycle Management)를 채택**한다. 기존 CPQ 고객의 API 동작·이 노트의 기술 내용은 그대로 유효하다. 근거: https://developer.salesforce.com/docs/revenue/cpq-developer-guide/guide/cpq-developer-guide-intro.html
 
 > 이 문서가 다루는 CPQ는 managed package 제품(`SBQQ` 네임스페이스)이다. Salesforce의 후속 platform-native 제품인 RLM(Revenue Lifecycle Management / Revenue Cloud, `PlaceQuote` · `RevSalesTrxn` 네임스페이스)과는 **별개 제품**이다. 혼동 주의.
 

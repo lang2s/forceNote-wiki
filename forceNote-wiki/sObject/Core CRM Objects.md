@@ -1,6 +1,6 @@
 ---
 tags: [sobject-reference, standard-objects, core-crm, account, contact, lead, opportunity, campaign]
-source: object_reference.pdf (v67.0 Summer '26)
+source: object_reference.pdf (v67.0 Summer '26); help.salesforce.com rn_sales_datadotcom_retired (Data.com 은퇴, Tier 2)
 created: 2026-05-22
 aliases: [Core CRM Objects, Sales Cloud Objects, Account, Contact, Lead, Opportunity, Campaign, Task, Event, Contract, Quote, Pricebook2, Product2]
 ---
@@ -8,6 +8,9 @@ aliases: [Core CRM Objects, Sales Cloud Objects, Account, Contact, Lead, Opportu
 # Core CRM Objects — 핵심 CRM 및 Sales Cloud 오브젝트
 
 > Object Reference v67.0 Ch6 — 핵심 CRM(Sales Cloud) 도메인 표준 오브젝트 목록
+
+> [!warning] Data.com 제품 은퇴 — CleanInfo 객체 서술 정정
+> `AccountCleanInfo` · `ContactCleanInfo` · `LeadCleanInfo`의 원출처였던 **Data.com Prospector·Data.com Clean 제품은 은퇴**했다: 구매/갱신 중단 2019, 서비스 종료 2020-07-31, 컨택 데이터 삭제 2021-02-01. 객체 자체는 **Lightning Data / 데이터 통합 규칙(Data Integration Rules)** 의 정리(clean) 결과 저장용으로 잔존하나, 이를 현행 'Data.com' 제품처럼 설명하면 은퇴 사실을 감춘다. 근거: [Data.com Prospector and Data.com Clean Have Been Retired](https://help.salesforce.com/s/articleView?id=release-notes.rn_sales_datadotcom_retired.htm)
 
 ---
 
@@ -17,7 +20,7 @@ aliases: [Core CRM Objects, Sales Cloud Objects, Account, Contact, Lead, Opportu
 |---|---|
 | `Account` | 회사·조직 레코드. CRM의 핵심 Object |
 | `AccountBrand` | 계정 브랜드 정보 |
-| `AccountCleanInfo` | Data.com 정리 정보 |
+| `AccountCleanInfo` | 데이터 정리(clean) 정보. ⚠️ 원출처 Data.com 제품은 은퇴(2020-07-31 서비스 종료) — 현재는 Lightning Data / 데이터 통합 규칙용 잔존 객체 |
 | `AccountContactRelation` | Account-Contact 다대다 관계 |
 | `AccountContactRole` | Account의 Contact 역할 |
 | `AccountInsight` | Einstein 기반 Account 인사이트 |
@@ -47,7 +50,7 @@ aliases: [Core CRM Objects, Sales Cloud Objects, Account, Contact, Lead, Opportu
 | Object | 설명 |
 |---|---|
 | `Contact` | 개인 연락처 |
-| `ContactCleanInfo` | Data.com 정리 정보 |
+| `ContactCleanInfo` | 데이터 정리(clean) 정보. ⚠️ 원출처 Data.com 제품은 은퇴(2020-07-31 서비스 종료) — 현재는 Lightning Data / 데이터 통합 규칙용 잔존 객체 |
 | `ContactDailyMetric` | Contact 일일 지표 |
 | `ContactMonthlyMetric` | Contact 월별 지표 |
 | `ContactOwnerSharingRule` | Contact 소유자 공유 규칙 |
@@ -69,7 +72,7 @@ aliases: [Core CRM Objects, Sales Cloud Objects, Account, Contact, Lead, Opportu
 | Object | 설명 |
 |---|---|
 | `Lead` | 잠재 고객 |
-| `LeadCleanInfo` | Data.com Lead 정리 정보 |
+| `LeadCleanInfo` | Lead 데이터 정리(clean) 정보. ⚠️ 원출처 Data.com 제품은 은퇴(2020-07-31 서비스 종료) — 현재는 Lightning Data / 데이터 통합 규칙용 잔존 객체 |
 | `LeadDailyMetric` | Lead 일일 지표 |
 | `LeadMonthlyMetric` | Lead 월별 지표 |
 | `LeadOwnerSharingRule` | Lead 소유자 공유 규칙 |

@@ -1,6 +1,6 @@
 ---
 tags: [Aura, ExperienceCloud, ExperienceBuilder, Community, forceCommunity, ThemeLayout, 사이트개발]
-source: communities_dev.pdf (Experience Cloud Developer Guide, v66.0 Spring '26) · Salesforce Help: Enable Digital Experiences (help.salesforce.com articleView id=experience.networks_enable.htm) [Tier 2]
+source: communities_dev.pdf (Experience Cloud Developer Guide, v66.0 Spring '26) · Salesforce Help: Enable Digital Experiences (help.salesforce.com articleView id=experience.networks_enable.htm) · Salesforce Component Reference: ui namespace (Legacy/Deprecated) + Action Menu Item (Deprecated) · Spring '20 Release Notes: Aura Components in the ui Namespace Are Deprecated (help.salesforce.com id=release-notes.rn_aura_ui_deprecate.htm) [Tier 2]
 created: 2026-06-21
 aliases: [Experience Builder Aura 개발, Experience Builder Aura 컴포넌트 만들기, forceCommunity 인터페이스, availableForAllPageTypes, 커스텀 테마 레이아웃, themeLayout, Aura 사이트 expression, CurrentUser expression, swappable search profile menu, Aura 드래그앤드롭 컴포넌트, design resource Experience Builder, Personalization Target Developer Name, Aura 사이트 브랜딩, Experience Cloud Aura 사이트, 익스피리언스 빌더 Aura, 개인정보 표시 설정, PII 숨기기 Experience, UserPreferencesShowEmail, UserPreferencesShowEmailToExternalUsers, UserPreferencesShowEmailToGuestUsers]
 ---
@@ -642,6 +642,12 @@ Aura 컴포넌트에 이 인터페이스를 추가하면 템플릿의 커스텀 
     </ui:menu>
 </aura:component>
 ```
+
+> [!warning] `ui` 네임스페이스 컴포넌트는 deprecated (비권장)
+> 위 샘플이 쓰는 **`ui:menu` · `ui:menuTriggerLink` · `ui:menuList` · `ui:actionMenuItem`**(전체 `ui` 네임스페이스)는 공식적으로 **deprecated**다. Spring '20 릴리즈 노트 *"Aura Components in the ui Namespace Are Deprecated"*에서 전체 `ui` 네임스페이스가 deprecated 선언됐고(`ui:menu`는 **API v47.0부터 deprecated**), 공식 Component Reference는 이들을 *Legacy Components / (Deprecated)*로 분류한다. 기존 코드는 계속 동작하지만 신규 커스텀 profile menu를 이 컴포넌트로 작성하지 않는다.
+> - **후속 권장:** `lightning:buttonMenu` + `lightning:menuItem` (LWC는 `lightning-button-menu` + `lightning-menu-item`).
+> - 위 코드는 PDF 원문 샘플 보존을 위해 그대로 둔다 — 실제 작성 시 후속 컴포넌트로 대체.
+> - 근거: Salesforce Component Reference — *`ui` namespace (Legacy)* · *Action Menu Item (Deprecated)* · Spring '20 Release Notes — *Aura Components in the ui Namespace Are Deprecated* [Tier 2]
 
 ### `forceCommunity:searchInterface`
 

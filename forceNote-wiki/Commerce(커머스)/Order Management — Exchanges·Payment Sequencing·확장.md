@@ -1,6 +1,6 @@
 ---
 tags: [commerce, order-management, exchanges, rma, payment-sequencing, lightning-components, apex-extension, connect-api]
-source: order_management_developer_guide_html.pdf (Version 66.0, Spring '26, Tier 2) — Exchanges with RMA Returns(p.53-56)·Payment Sequencing(p.57-61)·Lightning Components·Order on Behalf Of(p.62)·Expand Data Sources for Return Insights(p.63-64)·API End-of-Life(p.65)
+source: order_management_developer_guide_html.pdf (Version 66.0, Spring '26, Tier 2) — Exchanges with RMA Returns(p.53-56)·Payment Sequencing(p.57-61)·Lightning Components·Order on Behalf Of(p.62)·Expand Data Sources for Return Insights(p.63-64)·API End-of-Life(p.65); CLI 현행화 근거(Tier 2): sfdx_cli_reference "Migrate sfdx-Style Commands to sf"(sfdx deprecated) + Commerce "Extensions" guide(sf plugins install @salesforce/commerce)
 official_doc: https://developer.salesforce.com/docs/atlas.en-us.order_management_developer_guide.meta/order_management_developer_guide/
 created: 2026-06-20
 aliases: [Exchanges RMA, Preview Cart, Submit Cart, Payment Sequencing, EnsureFunds, EnsureRefunds, ProductExpandService, commerce_ordermanagement, Order on Behalf Of, Return Insights, 교환, 결제 시퀀싱, 반품 인사이트]
@@ -583,10 +583,32 @@ SELECT Id FROM WebStore LIMIT 1
 
 반환 값에서 web store ID를 선택한다. web store의 ID를 EPN에 매핑한다.
 
-**(B) CLI / sfdx 플러그인으로 등록·매핑** — extension class 등록·매핑은 **Salesforce CLI**와 **Salesforce Commerce plug-in for sfdx** 사용이 권장된다. extension 관리는 최신 버전 Salesforce CLI를 사용한다. plug-in 설치:
+**(B) CLI / 플러그인으로 등록·매핑** — extension class 등록·매핑은 **Salesforce CLI**와 **Salesforce Commerce plug-in**으로 한다. extension 관리는 최신 버전 Salesforce CLI를 사용한다.
+
+> [!warning] deprecated CLI — `sfdx` 실행파일·`sfdx`-스타일 콜론 명령은 비권장. 후속 권장: `sf` (v2) CLI
+> 아래 PDF 원문 코드블록은 **`sfdx` (v7) 실행파일과 `sfdx`-스타일 콜론 명령(`sfdx commerce:extension:register` 등)**을 쓴다. **`sfdx` CLI는 2023년 4월 deprecated**됐고 **`sfdx`-스타일 명령 레퍼런스는 2024-06-12에 제거**됐다. 지원되는 후속은 **`sf` (v2) CLI**다. 또한 플러그인 패키지명도 아래의 `@salesforce-commerce`가 아니라 **`@salesforce/commerce`**가 올바른 현행 이름이다. 구 sfdx 명령을 그대로 실행하면 sf-only 환경에서 동작하지 않는다.
+>
+> **현행(`sf`) 형태 — 아래 sfdx 블록 대신 이것을 사용:**
+> ```bash
+> # 현행 Salesforce CLI (sf v2) — Commerce plug-in 설치 및 extension 등록/매핑
+> # plug-in 설치 (패키지명 @salesforce/commerce)
+> sf plugins install @salesforce/commerce
+>
+> # Register an extension class
+> sf commerce extension register --target-org user@abc.com --apex-class-name ProductExpandServiceSample --extension-point-name Commerce_Domain_OrderManagement_Product --registered-extension-name ProductExpandServiceSample
+>
+> # Map an extension class  (store-ID는 web store ID)
+> sf commerce extension map --registered-extension-name ProductExpandServiceSample --store-id <store_id>
+>
+> # Unmap an extension class
+> sf commerce extension unmap --registered-extension-name ProductExpandServiceSample --store-id <store_id>
+> ```
+> 근거: [Migrate sfdx-Style Commands to sf](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_migrate.htm) · [Commerce Extensions guide](https://developer.salesforce.com/docs/commerce/salesforce-commerce/guide/extensions.html) (Tier 2)
+
+plug-in 설치 (아래는 PDF 원문 발췌 — **deprecated `sfdx` 형태, 참고용 보존**. 실행은 위 `sf` 블록 사용):
 
 ```bash
-# PDF 원문 발췌 — Commerce plug-in 설치 및 extension 등록/매핑
+# PDF 원문 발췌 (deprecated sfdx CLI — 위 sf 블록으로 대체) — Commerce plug-in 설치 및 extension 등록/매핑
 # plug-in 설치
 sfdx plugins:install @salesforce-commerce
 

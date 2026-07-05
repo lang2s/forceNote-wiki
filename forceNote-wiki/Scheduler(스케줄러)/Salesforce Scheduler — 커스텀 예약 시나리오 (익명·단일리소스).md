@@ -1,6 +1,6 @@
 ---
 tags: [scheduler, salesforce-scheduler, appointment-booking, anonymous-appointment, single-resource, api-scenario]
-source: salesforce_scheduler_dev_guide.pdf (Salesforce Scheduler Developer Guide, v67.0 Summer '26)
+source: salesforce_scheduler_dev_guide.pdf (Salesforce Scheduler Developer Guide, v67.0 Summer '26); help.salesforce.com "New Connected Apps Can No Longer Be Created in Spring '26" (id=005228017, Tier 2)
 created: 2026-06-22
 aliases: [익명 예약, anonymous appointment, single-resource appointment, location first, appointment distribution, Scheduler 예약 시나리오]
 ---
@@ -14,6 +14,11 @@ aliases: [익명 예약, anonymous appointment, single-resource appointment, loc
 이 노트는 *Salesforce Scheduler Developer Guide* (v67.0 Summer '26) Chapter 12 "Custom Appointment Booking" 중 **시나리오 1–6**을 다룬다. 시나리오 7–11(Multi-Resource·Concurrent·Sharing Availability·Dummy Resource)은 이 노트 범위 밖이다.
 
 > 사용된 API 엔드포인트(`available-territory-slots`, `service-appointments`, `service-territories`, `engagement-channel-types`, `getAppointmentCandidates`, `getAppointmentSlots`)의 레퍼런스는 [[Salesforce Scheduler — Business REST·Connect 엔드포인트]] 참조. 호출되는 객체(`ServiceAppointment`, `AssignedResource` 등)는 [[Salesforce Scheduler 표준객체 — 핵심 예약]] 참조. OAuth 인증·셋업·SOQL은 [[Salesforce Scheduler — 개요·셋업·데이터모델·인증·SOQL]] 참조.
+
+> [!warning] 인증 방식 — Connected App은 후속(External Client App)으로 대체됨
+> 아래 모든 시나리오의 **"Authenticate with a Connected App"** 단계는 PDF 원문 절차를 그대로 보존한 것이다. 그러나 Salesforce는 **Winter '26(신규 org)·Spring '26(전 org)** 부터 **신규 Connected App 생성을 차단**했다 — 오늘 새 통합을 만든다면 Connected App을 새로 생성할 수 없다.
+> - **후속 권장:** 신규 통합은 **External Client App(ECA)** 으로 만든다. ECA도 동일한 OAuth 2.0 플로우(access token 발급)를 제공하므로 아래 각 시나리오의 나머지 API 호출 시퀀스·JSON은 그대로 유효하다. **기존 Connected App은 계속 동작**하므로 이미 운영 중인 앱은 마이그레이션 강제 아님.
+> - 근거: help.salesforce.com "New Connected Apps Can No Longer Be Created in Spring '26" (id=005228017). ECA vs Connected App 비교: salesforceben.com "External Client vs Connected Apps".
 
 > [!note] PDF 시각 자료
 > Chapter 12 전체에는 UI mockup 스크린샷이 매우 많고("Here's how a ... page can look."), 시나리오 4에는 절차 개요 플로우차트("This flowchart provides an overview of the procedure:")가 있다. 이들 스크린샷·플로우차트는 PDF에 이미지로만 존재하며 텍스트로 추출되지 않았다. 이 노트는 API 호출 시퀀스와 JSON만 다루며, 화면·다이어그램은 재현하지 않는다.
@@ -46,6 +51,8 @@ OAuth access token을 받는다.
 > Note: "To build a custom appointment scheduling application using Salesforce Scheduler APIs for prospects or unauthenticated users, you must build it using a logged-in user. For example, an integration user or an administrator."
 
 Developer/Enterprise Edition 이상에서 **API Enabled** permission을 확인한다(기본 활성). 참조: Connect REST API Quick Start.
+
+> [!warning] 신규 통합은 Connected App 대신 **External Client App(ECA)** 로 생성한다 — Spring '26부터 신규 Connected App 생성 차단. 상단 인증 방식 경고 참조.
 
 ### Step 2 — Get Work Type Groups
 
@@ -1122,6 +1129,8 @@ OAuth.
 
 API Enabled permission을 확인한다.
 
+> [!warning] 신규 통합은 Connected App 대신 **External Client App(ECA)** 로 생성한다 — Spring '26부터 신규 Connected App 생성 차단. 상단 인증 방식 경고 참조.
+
 ### Step 2 — Get Service Appointments
 
 `query` on **AssignedResource** object — 특정 리소스 관련 scheduled appointment ID 조회.
@@ -1326,6 +1335,8 @@ OAuth.
 > Note: "To build a custom appointment scheduling application using Salesforce Scheduler APIs for prospects or unauthenticated users, you must build it using a logged-in user. For example, an integration user or an administrator."
 
 API Enabled permission을 확인한다.
+
+> [!warning] 신규 통합은 Connected App 대신 **External Client App(ECA)** 로 생성한다 — Spring '26부터 신규 Connected App 생성 차단. 상단 인증 방식 경고 참조.
 
 ### Step 2 — Get Work Type Groups
 

@@ -1,6 +1,6 @@
 ---
 tags: [lwc, track, decorator, internals, cmpFields, reactive-proxy, observable-membrane, getReactiveProxy]
-source: lwc-master/packages/@lwc/engine-core/src/framework/decorators/track.ts, register.ts
+source: lwc-master/packages/@lwc/engine-core/src/framework/decorators/track.ts, register.ts | Tier2 Spring '20 Release Notes (rn_lwc_track.htm — 필드 자동 반응형 API 48.0)
 created: 2026-05-22
 aliases: [@track 내부, internalTrackDecorator, getReactiveProxy, observable-membrane, vm.cmpFields, @track 동작 원리, LWC 반응성 내부]
 ---
@@ -106,7 +106,11 @@ export default function track(target: unknown, context?: ClassFieldDecoratorCont
 
 ## API 버전과 @track 필요성
 
-LWC API 39.0+부터 클래스 필드는 **자동으로 반응형**이 된다. 즉, 원시값(string, number, boolean)의 경우 `@track` 없이도 템플릿이 변경을 감지한다.
+**Spring '20 (API 48.0)** 부터 LWC 클래스의 모든 필드는 `@track` 없이도 **자동으로 반응형**이 된다. 즉, 원시값(string, number, boolean)의 경우 `@track` 없이도 템플릿이 변경을 감지한다.
+
+> [!note] 버전 정정
+> 이전 서술의 "API 39.0"은 오기다. LWC 자체가 API 45.0(Spring '19)에 GA되어 39.0은 LWC 존재 이전 버전이다. 필드 자동 반응형은 Spring '20 릴리즈노트 *"All Fields in a Lightning Web Component Class Are Reactive"* 에서 도입된 **API 48.0** 기능이다.
+> 근거: [Spring '20 Release Notes](https://releasenotes.docs.salesforce.com/en-us/spring20/release-notes/rn_lwc_track.htm)
 
 `@track`이 **여전히 필요한 경우**:
 - 객체·배열의 **중첩 프로퍼티** 변경을 추적할 때

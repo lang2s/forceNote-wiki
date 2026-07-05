@@ -1,6 +1,6 @@
 ---
 tags: [agent-skill, sf-skills, reference, lwc, experience, anti-patterns]
-source: forcedotcom/sf-skills (skills/experience-lwc-generate/references/template-anti-patterns.md, 공식 Salesforce)
+source: forcedotcom/sf-skills (skills/experience-lwc-generate/references/template-anti-patterns.md, 공식 Salesforce) · 조건부 렌더링 후속 정정 근거 Tier 2 https://developer.salesforce.com/docs/platform/lwc/guide/create-conditional.html
 created: 2026-06-27
 aliases: [LWC Template Anti-Patterns, 템플릿 안티패턴, LLM 코드 실수, 템플릿 제약]
 ---
@@ -8,6 +8,15 @@ aliases: [LWC Template Anti-Patterns, 템플릿 안티패턴, LLM 코드 실수,
 # LWC Template Anti-Patterns — LWC 템플릿 안티패턴
 
 > LWC 템플릿에서 발생하는 체계적 오류 모음 — 특히 LLM이 자주 잘못 생성하는 패턴 중심 (React/Vue 대비 엄격한 제약).
+
+> [!warning] 조건부 렌더링 지시자 — 후속 권장(`lwc:if|elseif|else`)
+> 이 노트의 여러 예시(섹션 2·4·6·7 등)가 조건부 렌더링에 레거시 `if:true` / `if:false` 지시자를 사용한다. 공식 LWC 문서는 **"The legacy `if:true` and `if:false` directives are no longer recommended. ...replace them with the `lwc:if|elseif|else` conditional directives."** 라고 명시한다.
+> - **후속 권장:** 새 코드는 `lwc:if={cond}` / `lwc:elseif={cond}` / `lwc:else` 를 사용한다 (API 57.0 / Spring '23부터 GA).
+>   - `<template if:true={x}>` → `<template lwc:if={x}>`
+>   - `<template if:false={x}>` → `<template lwc:else>` (또는 `lwc:if={negatedGetter}`)
+>   - `if:true`/`else` 부재로 verbose하던 다중 분기는 `lwc:if`/`lwc:elseif`/`lwc:else` 로 else 분기를 직접 표현 가능.
+> - 아래 예시들은 원본 스킬 자료 보존을 위해 `if:true`/`if:false` 표기를 유지하되, 위 후속 문법으로 대체하는 것을 권장한다.
+> - 근거: [Render DOM Elements Conditionally (LWC Dev Guide)](https://developer.salesforce.com/docs/platform/lwc/guide/create-conditional.html) · 같은 스킬의 `lwc-best-practices.md`도 이를 deprecated(Legacy→Modern)로 표시.
 
 ---
 
@@ -165,10 +174,32 @@ export default class StatusDisplay extends LightningElement {
 </template>
 ```
 
-### ✅ GOOD: Use if:true/if:false for Conditional Rendering
+### ✅ GOOD: Conditional Rendering (후속 권장: `lwc:if|else`)
+
+> [!warning] `if:true`/`if:false`는 no longer recommended — `lwc:if|elseif|else` 사용
+> 아래는 원본 예시(레거시 지시자)이며, 새 코드는 `lwc:if`/`lwc:else` 로 작성한다. `if:false`는 별도 조건 대신 `lwc:else` 로 else 분기를 직접 표현할 수 있어 더 간결하다.
 
 ```html
-<!-- component.html -->
+<!-- 후속 권장 문법 (lwc:if|else, API 57.0 / Spring '23+) -->
+<template>
+    <template lwc:if={isActive}>
+        <p class="active">Active</p>
+    </template>
+    <template lwc:else>
+        <p class="inactive">Inactive</p>
+    </template>
+
+    <template lwc:if={hasCount}>
+        <span>{count}</span>
+    </template>
+    <template lwc:else>
+        <span>None</span>
+    </template>
+</template>
+```
+
+```html
+<!-- 원본 예시 (레거시 if:true/if:false — no longer recommended) -->
 <template>
     <template if:true={isActive}>
         <p class="active">Active</p>
@@ -605,6 +636,27 @@ get processedCategories() {
 
 ## 7. Conditional Rendering Issues
 
+> [!warning] 지시자 문법 — 후속 권장(`lwc:if|elseif|else`)
+> 이 섹션의 예시는 레거시 `if:true`/`if:false`를 쓰지만, 공식 문서는 이를 no longer recommended로 보고 `lwc:if`/`lwc:elseif`/`lwc:else` 로 대체하라고 명시한다. 아래 "Multiple Conditions Without Else"처럼 else 분기가 필요한 다중 조건은 `lwc:if|elseif|else` 로 훨씬 간결하게 표현된다:
+>
+> ```html
+> <!-- 후속 권장 (lwc:if|elseif|else, API 57.0 / Spring '23+) -->
+> <template>
+>     <template lwc:if={isLoadingState}>
+>         <lightning-spinner></lightning-spinner>
+>     </template>
+>     <template lwc:elseif={isErrorState}>
+>         <c-error-display error={error}></c-error-display>
+>     </template>
+>     <template lwc:elseif={isSuccessState}>
+>         <c-data-display data={data}></c-data-display>
+>     </template>
+>     <template lwc:else>
+>         <c-empty-state></c-empty-state>
+>     </template>
+> </template>
+> ```
+
 ### ❌ BAD: if:true on Non-Boolean Values
 
 ```html
@@ -924,11 +976,11 @@ get containerClass() {
 |---------------|-------------------------|-------------|
 | Arithmetic | `{a + b}` | Getter: `get sum() { return a + b; }` |
 | String concat | `{a + ' ' + b}` | Getter with template literal |
-| Ternary | `{x ? a : b}` | Getter or if:true/if:false |
+| Ternary | `{x ? a : b}` | Getter or `lwc:if`/`lwc:else` (레거시 `if:true`/`if:false`은 no longer recommended) |
 | Method call | `{items.length}` | Getter: `get count() { return items.length; }` |
 | Comparison | `if:true={x > 5}` | Getter: `get isBig() { return x > 5; }` |
 | Logical AND | `if:true={a && b}` | Getter: `get both() { return a && b; }` |
-| Negation | `if:true={!x}` | `if:false={x}` or getter |
+| Negation | `if:true={!x}` | `lwc:else` (또는 `lwc:if={negatedGetter}`; 레거시 `if:false={x}`은 no longer recommended) |
 | Object literal | `config={{ key: val }}` | Class property |
 | Event args | `onclick={fn(x)}` | Use data attributes |
 | Two-way bind | `value={name}` auto-update | `value={name}` + `onchange` |

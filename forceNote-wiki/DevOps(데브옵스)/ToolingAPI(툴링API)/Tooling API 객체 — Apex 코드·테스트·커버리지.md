@@ -1,6 +1,6 @@
 ---
 tags: [tooling-api, devops, apex, test, coverage]
-source: api_tooling.pdf v67.0 (Summer '26)
+source: api_tooling.pdf v67.0 (Summer '26); Tier2 help.salesforce.com rn_deployment_ant_migration_tool_eol (Ant Migration Tool EOL Spring '24)
 created: 2026-06-27
 aliases: [ApexClass, ApexTrigger, ApexComponent, ApexPage, ApexPageInfo, ApexCodeCoverage, ApexCodeCoverageAggregate, ApexOrgWideCoverage, ApexTestQueueItem, ApexTestResult, ApexTestResultLimits, ApexTestRunResult, ApexTestSuite, TestSuiteMembership, ApexEmailNotification, ApexResult, SymbolTable, 코드 커버리지, 테스트 결과, 테스트 큐, 심볼 테이블, Apex 트리거 sObject]
 ---
@@ -18,7 +18,10 @@ aliases: [ApexClass, ApexTrigger, ApexComponent, ApexPage, ApexPageInfo, ApexCod
 > - **Metadata API의 동명 *타입*** (declarative metadata `ApexClass` 등)은 Tooling sObject와 별개다 → [[Metadata Types — Apex & Code]] 참조(필드·용법 상이).
 
 > [!important] Apex 클래스·트리거 생성/수정/삭제 제약
-> `ApexClass`·`ApexTrigger`는 Create·Update 필드 속성을 갖지만, API로 직접 create/update/delete를 시도하면 런타임 예외가 발생한다. 실제 편집·저장·컴파일은 *Member* 컨테이너([[Tooling API 배포]])나 Salesforce Extensions for VS Code / Ant Migration Tool로 한다. 또한 프로덕션 org에서는 클래스·트리거를 생성·편집·삭제할 수 없다.
+> `ApexClass`·`ApexTrigger`는 Create·Update 필드 속성을 갖지만, API로 직접 create/update/delete를 시도하면 런타임 예외가 발생한다. 실제 편집·저장·컴파일은 *Member* 컨테이너([[Tooling API 배포]])나 Salesforce CLI(`sf`) / Salesforce Extensions for VS Code로 한다. 또한 프로덕션 org에서는 클래스·트리거를 생성·편집·삭제할 수 없다.
+
+> [!warning] Ant Migration Tool 은퇴(retired) — 후속: Salesforce CLI(`sf`)
+> 예전 편집·저장·컴파일 경로로 함께 쓰이던 **Ant Migration Tool은 Spring '24부터 공식 End of Life(EOL)**로 미지원·미갱신 상태다(API v59.0 이후 기능이 반영되지 않는다). 신규 작업에서는 사용하지 말고, 후속 도구인 **Salesforce CLI(`sf`)**로 대체한다. 근거: [Ant Migration Tool End of Life](https://help.salesforce.com/s/articleView?id=release-notes.rn_deployment_ant_migration_tool_eol.htm) · [Moving on from the Ant Migration Tool to sf CLI](https://developer.salesforce.com/blogs/2024/01/moving-on-from-the-ant-migration-tool-to-sf-cli-v2).
 
 ---
 

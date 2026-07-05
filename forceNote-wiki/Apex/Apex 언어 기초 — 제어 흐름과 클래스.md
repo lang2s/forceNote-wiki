@@ -1,6 +1,6 @@
 ---
 tags: [Apex, 언어기초, 제어흐름, 클래스, 인터페이스, 생성자, 접근제어자, 상속, sharing, switch, 키워드]
-source: salesforce_apex_developer_guide.pdf (v67.0 Summer '26, Writing Apex 챕터 — Control Flow Statements p.57-64 / Classes, Objects, and Interfaces p.65-132)
+source: salesforce_apex_developer_guide.pdf (v67.0 Summer '26, Writing Apex 챕터 — Control Flow Statements p.57-64 / Classes, Objects, and Interfaces p.65-132) · Tier 2 검증 병기 — IsTest 어노테이션(testMethod 대체): https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_isTest.htm
 created: 2026-06-17
 aliases: [Apex Control Flow, Apex Switch, Apex Classes, Apex Interfaces, Access Modifiers, with sharing, Apex Constructor, Apex Properties, Apex 제어흐름, Apex 클래스, 접근제어자, 인터페이스]
 ---
@@ -1290,6 +1290,17 @@ System.assert(ideaMoreFields.Categories == null);
 }
 }
 ```
+
+> [!warning] `testMethod` 키워드는 비권장(superseded)
+> 위 예제의 `static testMethod void testC2Method()`는 Apex Developer Guide 원문에서 발췌한 구식 표기다. 테스트 메서드 정의의 공식 후속(replacement)은 **`@IsTest` 어노테이션**이며, Salesforce는 `testMethod` 키워드가 향후 릴리스에서 versioned out될 수 있다고 명시한다. 신규 코드에서는 아래처럼 쓴다.
+> ```apex
+> // 후속 권장 문법 (testMethod 키워드 대체)
+> @IsTest
+> static void testC2Method() {
+>     // ...
+> }
+> ```
+> 근거: [IsTest 어노테이션 — Apex Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_isTest.htm). (같은 위키의 [[Introducing Apex — 개요와 개발 프로세스]] 노트에도 기술됨. 동일 구식 표기가 Support Namespace·LxScheduler Namespace·SOAP Web Services 노트 예제에도 존재.)
 
 - **Setting Package Versions:** managed package subscriber가 버전 지정. (Summer '25+ migrated 2GP도 가능.)
 

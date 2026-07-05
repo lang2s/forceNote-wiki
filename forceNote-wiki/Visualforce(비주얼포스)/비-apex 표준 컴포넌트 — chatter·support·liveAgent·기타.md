@@ -1,6 +1,6 @@
 ---
 tags: [visualforce, vf, component-reference, chatter, liveagent, support, messaging, legacy]
-source: salesforce_pages_developers_guide.pdf (Visualforce Developer Guide, v67.0 Summer '26)
+source: salesforce_pages_developers_guide.pdf (Visualforce Developer Guide, v67.0 Summer '26); help.salesforce.com rn_chat_retirement.htm + miaw_replacing_chat_considerations.htm (Chat 리타이어 2026-02-14 → MIAW, Tier 2); releasenotes.docs.salesforce.com rn_chatter_answers_eol.htm (Chatter Answers EOL Winter '18 → Chatter Questions, Tier 2)
 created: 2026-06-22
 aliases: [chatter:feed, liveAgent 컴포넌트, knowledge:articleList, messaging:emailTemplate, wave:dashboard, Visualforce 비-apex 컴포넌트, chatteranswers]
 ---
@@ -126,6 +126,9 @@ Uploads a user's photo to their Chatter profile page.
 ---
 
 ## chatteranswers (14)
+
+> [!warning] 은퇴(retired) — Chatter Answers는 **Winter '18 릴리즈에서 End of Life** 되어 더 이상 지원되지 않는다(게시·답변·조회 불가). 후속: **Chatter Questions**로 마이그레이션. 아래 14개 `chatteranswers:*` 컴포넌트는 이력 참고용이며 신규 페이지에 사용 금지.
+> 근거: [Chatter Answers End of Life](https://releasenotes.docs.salesforce.com/en-us/spring17/release-notes/rn_chatter_answers_eol.htm) (Salesforce 공식 릴리즈 노트, Tier 2)
 
 ### chatteranswers:aboutme
 
@@ -699,6 +702,9 @@ rootCategory="phone" level="-1">
 ---
 
 ## liveAgent (13)
+
+> [!warning] 은퇴(retired) — Chat(구 Live Agent) 기능 자체가 **2026-02-14에 리타이어**된다. 후속: **Enhanced Chat = Messaging for In-App and Web(MIAW)** 로 마이그레이션. 아래 13개 `liveAgent:*` 컴포넌트로 커스텀 chat 창을 신규 구축하면 곧 사라질 기능 위에 얹는 것이므로 금지 — 이력 참고용으로만 본다.
+> 근거: [Legacy Chat Is Being Retired](https://help.salesforce.com/s/articleView?id=release-notes.rn_chat_retirement.htm) · [Considerations for Replacing Chat with Messaging](https://help.salesforce.com/s/articleView?id=service.miaw_replacing_chat_considerations.htm) (Salesforce 공식 문서, Tier 2)
 
 > 네임스페이스 공통 — 거의 모든 `liveAgent:*` 컴포넌트는 `<liveAgent:clientChat>` 안에서만 사용한다. 각 컴포넌트 설명 원문에 보존.
 

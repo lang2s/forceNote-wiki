@@ -1,6 +1,6 @@
 ---
 tags: [devops, tooling-api, apex, deploy, compile, metadata-container, async, container-async-request, member-sobject, v67]
-source: api_tooling.pdf — Tooling API Developer Guide (Save Apex Code / MetadataContainer · ContainerAsyncRequest · *Member objects)
+source: api_tooling.pdf — Tooling API Developer Guide (Save Apex Code / MetadataContainer · ContainerAsyncRequest · *Member objects); Ant Migration Tool EOL(Tier 2) — help.salesforce.com rn_deployment_ant_migration_tool_eol (Spring '24)
 created: 2026-06-20
 aliases: [Tooling API 배포, Tooling API Apex deploy, MetadataContainer, ContainerAsyncRequest, ApexClassMember, ApexTriggerMember, ApexComponentMember, ApexPageMember, IsCheckOnly, compile and deploy apex, Apex 컴파일 배포, Tooling API로 Apex 저장, 단일 요소 배포, working copy 컴파일, Tooling API 컨테이너 배포는 어떻게]
 ---
@@ -287,7 +287,12 @@ REST에서는 `/composite` 리소스로 5개 subrequest를 한 번의 API 호출
 
 ## 주의사항 (PDF 명시)
 
-- Apex 클래스·트리거는 Create/Update 필드 속성이 있어도 **API로 직접 create/update/delete 시 런타임 예외**가 발생한다. 대신 Salesforce Extensions for VS Code, Ant Migration Tool, 또는 위의 `*Member` + `ContainerAsyncRequest` 워크플로를 쓴다. **production org에서는 Apex 클래스·트리거를 만들거나 편집·삭제할 수 없다.**
+- Apex 클래스·트리거는 Create/Update 필드 속성이 있어도 **API로 직접 create/update/delete 시 런타임 예외**가 발생한다. 대신 Salesforce Extensions for VS Code, ~~Ant Migration Tool~~, 또는 위의 `*Member` + `ContainerAsyncRequest` 워크플로를 쓴다. **production org에서는 Apex 클래스·트리거를 만들거나 편집·삭제할 수 없다.**
+
+> [!warning] Ant Migration Tool은 은퇴(End of Life)됨 — Spring '24
+> **Ant Migration Tool은 Spring '24부터 공식 End of Life(은퇴)** 다. 마지막 릴리즈는 Winter '24이며 **API v59.0 이후** 신규 메타데이터 타입/기능이 반영되지 않고 지원도 없다. 위 목록에 편집/배포 대안으로 남아 있으나 **신규로 채택하지 말 것**.
+> **후속(replacement): Salesforce CLI (`sf`, v2)** — CI/소스 관리 연동 배포는 sf CLI로 대체한다.
+> 근거: [Salesforce Ant Migration Tool End of Life (Spring '24)](https://help.salesforce.com/s/articleView?id=release-notes.rn_deployment_ant_migration_tool_eol.htm) · [Moving On from the Ant Migration Tool to sf CLI v2](https://developer.salesforce.com/blogs/2024/01/moving-on-from-the-ant-migration-tool-to-sf-cli-v2)
 - 서로 의존하는 소스 파일은 같은 `MetadataContainer`에 담아 함께 저장·컴파일해야 컴파일러 오류를 피한다(예: VF 페이지+컴포넌트, 또는 상호 호출 클래스).
 - 컨테이너는 재사용 가능하지만 컨테이너 멤버는 1회 성공 배포 후 재사용 불가.
 

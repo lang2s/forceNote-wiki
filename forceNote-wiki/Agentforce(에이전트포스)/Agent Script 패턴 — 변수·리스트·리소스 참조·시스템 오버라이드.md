@@ -1,6 +1,6 @@
 ---
 tags: [agentforce, agent-script, pattern, variables, list-variables, resource-references, system-overrides, multi-turn]
-source: AgentScriptDocs (Salesforce Agent Script Developer Guide, 2026-06-17판) — agent-script/patterns/{ascript-patterns-variables, var-list, resource-references, system-overrides, multi-turn}.md
+source: AgentScriptDocs (Salesforce Agent Script Developer Guide, 2026-06-17판) — agent-script/patterns/{ascript-patterns-variables, var-list, resource-references, system-overrides, multi-turn}.md · Tier 2 deprecation 근거 developer.salesforce.com/docs/einstein/genai/guide (Agentforce Developer Guide, Agent Script reference: 'topic — Deprecated. Use subagent instead', 'Beginning in April 2026, agent topics are now called subagents')
 created: 2026-07-01
 aliases: [Using Variables Effectively, Using List Variables, list variables, collection variables, Reference Resources Directly, System Overrides, Instruction Overrides, Multi-Turn Workflows, slot filling, 변수 패턴, 리스트 변수, 컬렉션 변수, 리소스 직접 참조, 시스템 오버라이드, 멀티턴 워크플로우, 슬롯 필링, Agent Script에서 변수 어떻게 써, 멀티턴 순서 어떻게 강제해]
 ---
@@ -8,6 +8,10 @@ aliases: [Using Variables Effectively, Using List Variables, list variables, col
 # Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드
 
 > Agent Script 패턴 5종 — 변수 효과적 사용·리스트(컬렉션) 변수·리소스 직접 참조·시스템 오버라이드·멀티턴 워크플로우 강제. ([[Agent Script 패턴 — 라우팅·전환·필수 워크플로우]] 카탈로그의 C6 예정 5행을 채운다.)
+
+> [!warning] `topic` / `@topic`은 deprecated — `subagent` / `@subagent` 사용
+> Beginning in April 2026, agent **topics** are now called **subagents**. There are no changes to functionality. During this transition, you may see a mix of the new and previous terms in our documentation.
+> (2026년 4월부터 agent **topics**는 **subagents**로 명칭이 바뀌었다. 기능 변화가 없는 순수 리네임이다. 구문 레퍼런스는 `topic — Deprecated. Use subagent instead`로 명시한다.) 이 노트의 일부 예제(아래 리스트 변수·순회 섹션)는 원본 소스 표기를 보존하기 위해 옛 `topic ask_questions:` / `transition to @topic.end_interview` 문법을 그대로 인용한다 — **현행 문법은 `subagent ask_questions:` / `transition to @subagent.end_interview`이다.** 근거: [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]]의 구문 표(`topic` 행: "Deprecated. Use `subagent` instead").
 
 ---
 
@@ -214,6 +218,9 @@ variables:
                 transition to @topic.end_interview
 ```
 
+> [!warning] `@topic`은 deprecated — 현행 문법은 `transition to @subagent.end_interview`
+> 위 예제는 원본 소스 표기 그대로다. `@topic`은 2026년 4월 리네임으로 deprecated되었으므로 새로 작성할 때는 `transition to @subagent.end_interview`를 쓴다(기능 동일).
+
 ### Get the Length of a List — 리스트 길이
 
 `len(@variables.MyList)`를 사용해 리스트의 항목 수를 구한다. `len(@variables.MyList)`는 프롬프트, `available when` 필터, 조건 표현식에서 사용할 수 있다.
@@ -230,6 +237,9 @@ reasoning:
 Agent Script에는 `for` 루프가 없다. 대신 매 턴 후에 인덱스 변수를 증가시켜 순회한다.
 
 이 예제는 리스트의 각 질문을 한 번에 하나씩 묻는다. 에이전트가 답변을 기록하면 인덱스가 전진한다. 인덱스가 리스트 길이에 도달하면 에이전트는 다음 토픽으로 전환한다.
+
+> [!warning] `topic`은 deprecated — 현행 문법은 `subagent ask_questions:`
+> 아래 예제는 원본 소스 표기 그대로다. `topic` 키워드는 2026년 4월 리네임으로 deprecated되었으므로 새로 작성할 때는 `subagent ask_questions:`를 쓴다(기능 동일).
 
 ```agentscript
 variables:

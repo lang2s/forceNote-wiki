@@ -1,6 +1,6 @@
 ---
 tags: [sobject-reference, standard-objects, service-cloud, case, entitlement, knowledge, livechat, messaging, omnichannel]
-source: object_reference.pdf (v67.0 Summer '26)
+source: object_reference.pdf (v67.0 Summer '26); Solutions 레거시 근거 — help.salesforce.com sf.solutions_def.htm (Tier 2)
 created: 2026-05-22
 aliases: [Service Cloud Objects, Case, Entitlement, Knowledge, LiveChat, Messaging, Omni-Channel, AgentWork, SLA, ServiceContract]
 ---
@@ -26,7 +26,7 @@ aliases: [Service Cloud Objects, Case, Entitlement, Knowledge, LiveChat, Messagi
 | `CaseParticipant` | 케이스 참여자 |
 | `CaseRelatedIssue` | 케이스 관련 이슈 (Incident/Problem 연결) |
 | `CaseShare` | Case 공유 |
-| `CaseSolution` | 케이스 솔루션 |
+| `CaseSolution` | 케이스-솔루션 정션 객체 ⚠️ **레거시(Solutions 모듈)** — 후속 권장: Salesforce Knowledge(Lightning Knowledge). 아래 배너 참조 |
 | `CaseStatus` | Case 상태 피클리스트 |
 | `CaseSubjectParticle` | 케이스 제목 파티클 |
 | `CaseTag` | Case 태그 |
@@ -35,6 +35,11 @@ aliases: [Service Cloud Objects, Case, Entitlement, Knowledge, LiveChat, Messagi
 | `CaseTeamTemplate` | 케이스 팀 템플릿 |
 | `CaseTeamTemplateMember` | 케이스 팀 템플릿 멤버 |
 | `CaseTeamTemplateRecord` | 케이스 팀 템플릿 레코드 |
+
+> [!warning] `CaseSolution` / `Solution` — 레거시 (Solutions 모듈)
+> **Solutions 모듈**은 Salesforce **Knowledge(→ Lightning Knowledge)**로 대체된 레거시 기능이다. Spring '12 이후 신규 org에서는 Solutions가 기본 활성화되지 않으며, 공식 문서는 신규 org에 Solutions 대체재로 **Salesforce Knowledge** 사용을 안내한다. `CaseSolution`은 `Case`↔`Solution` 정션 객체로, 기존 org에서만 유효하다.
+> 후속 권장: **Salesforce Knowledge / Lightning Knowledge** (위 [Knowledge 계열](#knowledge-계열) 참조).
+> 근거: [Solutions — Salesforce Help](https://help.salesforce.com/s/articleView?id=sf.solutions_def.htm) (신규 org은 Salesforce Knowledge를 Solutions 대체재로 사용)
 
 ---
 
