@@ -94,5 +94,7 @@ created: 2026-05-21
 | Queueable Callout, 비동기 외부 호출, DML+Callout 조합, uncommitted work pending, You have uncommitted work pending, CalloutException, DML 후 콜아웃 에러, 콜아웃 전 DML 금지, 콜아웃 안 될 때, 콜아웃 순서 | `Integration(통합)/Queueable + Callout 패턴.md` |
 | Platform Event 통합, 이벤트 기반 통합, 시스템 간 느슨한 결합, LWC empApi | `Integration(통합)/Platform Event 통합 패턴.md` |
 | External Services, 외부 서비스, OpenAPI Apex 통합, External Service Registration, 외부 서비스 등록, OpenAPI 2.0 스펙, 타입 안전 외부 호출, Binary File 지원, 3000 오브젝트, 700 등록 한도, Winter 26 한도 증가, Flow External Service Action | `Integration(통합)/External Services.md` |
+| Auth Provider, 인증 공급자, 소셜 로그인, SSO, RegistrationHandler, AuthProviderPluginClass, Custom Auth Provider, 외부 IdP 인증 | `Integration(통합)/Auth Provider (인증 공급자).md` |
+| Connected App, 연결된 앱, Consumer Key, Consumer Secret, OAuth Scope, OAuth Flow, JWT Bearer, External Client App, OAuth 클라이언트 | `Integration(통합)/Connected App (연결된 앱) — OAuth 클라이언트.md` |
 
 ---

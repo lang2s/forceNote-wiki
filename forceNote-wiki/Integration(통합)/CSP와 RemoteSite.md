@@ -1,8 +1,8 @@
 ---
 tags: [security, csp, remote-site, integration, pattern]
-source: dreamhouse-lwc/cspTrustedSites, remoteSiteSettings
+source: dreamhouse-lwc/cspTrustedSites, remoteSiteSettings; Salesforce REST API Developer Guide — Configure Salesforce CORS Allowlist (Tier 2)
 created: 2026-05-17
-aliases: [CSP Trusted Site, Remote Site, 외부 연동 보안]
+aliases: [CSP Trusted Site, Remote Site, 외부 연동 보안, CORS, CORS allowlist, 인바운드 cross-origin]
 ---
 
 # CSP Trusted Sites & Remote Site Settings
@@ -119,6 +119,52 @@ Nominatim Geocoding API (Apex callout)
 | 인증 정보 | 없음 | OAuth / Basic Auth |
 | URL 방식 | 도메인 등록 | `callout:NC_Name` |
 | 관리 위치 | 메타데이터 XML | Setup > Named Credentials |
+
+---
+
+## CORS — 인바운드 cross-origin (방향이 반대)
+
+> ⚠️ **CSP Trusted Site / Remote Site Setting과 CORS는 요청 방향이 정반대다.**
+
+지금까지 다룬 CSP Trusted Site·Remote Site Setting은 모두 **Salesforce가 외부로 나가는(아웃바운드)** 요청을 허용하는 설정이다. 반대로 **CORS allowlist는 외부 웹페이지의 브라우저 JavaScript가 Salesforce API로 들어오는(인바운드) cross-origin 요청**을 허용하는 설정이다.
+
+| | CSP Trusted Site / Remote Site | CORS allowlist |
+|---|---|---|
+| 방향 | **아웃바운드** (SF → 외부) | **인바운드** (외부 브라우저 JS → SF API) |
+| 무엇을 허용 | SF가 외부 도메인에 접근 | 외부 오리진이 SF에 접근 |
+| 등록 대상 | 외부 서비스 URL/도메인 | 요청을 보내는 **오리진**(`https://origin`) |
+
+외부 도메인(예: `https://myapp.example.com`)에 호스팅된 웹앱의 브라우저 JS가 Salesforce REST API를 직접 호출하려 하면, 브라우저는 Same-Origin Policy에 따라 preflight(`OPTIONS`) 요청을 보낸다. 이때 **해당 오리진이 Salesforce CORS allowlist에 등록돼 있으면** Salesforce가 응답에 `Access-Control-Allow-Origin` 헤더로 그 오리진을 돌려주고, 브라우저가 실제 요청을 진행한다. 등록돼 있지 않으면 Salesforce는 **HTTP 403**을 반환하고 브라우저가 요청을 차단한다.
+
+### 설정
+
+**Setup → Security → CORS** → allowlist에 오리진을 추가한다.
+
+| 항목 | 규칙 |
+|---|---|
+| 오리진 형식 | `https://origin`(+선택적 포트). HTTPS 프로토콜 필수 (localhost 제외) |
+| 와일드카드 | `*`는 2차 도메인 **앞에만** 허용 — `https://*.example.com`(모든 서브도메인). `*example.com`, 도메인 없는 `*`는 무효 |
+| 메타데이터 타입 | `CorsWhitelistOrigin` |
+
+### 지원 API
+
+REST API, Apex REST 리소스, Lightning Out을 비롯해 브라우저에서 호출 가능한 Salesforce API(Bulk API, Connect REST / Chatter REST, UI API, GraphQL 등)가 CORS allowlist를 통해 cross-origin으로 접근 가능하다.
+
+### 인증은 여전히 필요
+
+> CORS allowlist 등록은 **오리진 허용일 뿐 인증을 대체하지 않는다.** allowlist에 올라간 오리진이라도 요청에는 여전히 **유효한 인증(OAuth 액세스 토큰 등)** 이 필요하다. CORS는 "이 오리진의 브라우저 요청을 막지 않는다"는 게이트일 뿐, 데이터 접근 권한은 인증·공유·CRUD/FLS로 별도 결정된다.
+
+---
+
+## 3-way 결정표 — 방향별 필요한 설정
+
+| 시나리오 | 요청 주체 (레이어) | 방향 | 필요한 설정 |
+|---|---|---|---|
+| Apex에서 외부 HTTP callout | Salesforce 서버 (Apex) | 아웃바운드 | **Remote Site Setting** (또는 Named Credential) |
+| LWC(브라우저)에서 외부 API/이미지 로드 | 사용자 브라우저 (LWC) | 아웃바운드 | **CSP Trusted Site** |
+| 외부 웹앱 브라우저 JS → Salesforce API 호출 | 외부 브라우저 (외부 오리진) | 인바운드 | **CORS allowlist** (+ 인증) |
+
+> 셋을 헷갈리지 말 것: **아웃바운드 서버 = Remote Site/Named Credential**, **아웃바운드 브라우저 = CSP Trusted Site**, **인바운드 = CORS allowlist**.
 
 ---
 
