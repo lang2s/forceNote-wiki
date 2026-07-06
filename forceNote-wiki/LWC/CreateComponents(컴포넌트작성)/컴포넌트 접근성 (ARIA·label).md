@@ -1,9 +1,9 @@
 ---
 tags: [lwc, accessibility, aria, a11y, screen-reader, label, shadow-dom]
-source: developer.salesforce.com (Lightning Web Components Developer Guide — Create Components > Component Accessibility(create-components-accessibility) + Handle Focus(create-components-focus); 라이브 공식 문서, Tier 2, 접속 2026-07-04)
+source: developer.salesforce.com (Lightning Web Components Developer Guide — Create Components > Component Accessibility(create-components-accessibility) + Handle Focus(create-components-focus); 라이브 공식 문서, Tier 2, 접속 2026-07-04) + sf-skills refs/experience-lwc-generate/accessibility-guide.md (div-버튼 keydown 패턴 교차검증, Tier 2)
 official_doc: https://developer.salesforce.com/docs/platform/lwc/guide/create-components-accessibility.html
 created: 2026-07-04
-aliases: [component accessibility, 접근성, a11y, ARIA, aria-label, ariaLabel, aria-pressed, screen reader, label, WCAG, 기본 ARIA, role 고정, ID ARIA 링크, camel-case ARIA, focus, tabindex, delegatesFocus, 키보드 접근성, keyboard accessibility]
+aliases: [component accessibility, 접근성, a11y, ARIA, aria-label, ariaLabel, aria-pressed, screen reader, label, WCAG, 기본 ARIA, role 고정, ID ARIA 링크, camel-case ARIA, focus, tabindex, delegatesFocus, 키보드 접근성, keyboard accessibility, keydown, Enter Space 활성화, role=button, div 버튼]
 ---
 
 # LWC Component Accessibility (ARIA·label)
@@ -197,6 +197,46 @@ tab으로 이동할 때 **interactive 요소**(`<a>`·`<button>`·`<input>`·`<t
 <div tabindex="-1">Programmatically focusable</div>
 ```
 
+### div를 버튼처럼 — role + tabindex + keydown 3종 세트
+
+`<div>`·`<span>` 같은 비-interactive 요소를 클릭 가능한 버튼처럼 만들 때는 `tabindex="0"`만으로 부족하다. **세 가지를 모두** 갖춰야 키보드 사용자·screen reader 모두에게 버튼으로 동작한다.
+
+1. **`role="button"`** — screen reader가 버튼으로 인식 (role 값은 [[#속성 변경 방지 (고정 값)]]의 getter 고정 패턴으로 보호 가능)
+2. **`tabindex="0"`** — 표준 tab 순서에 편입
+3. **`onkeydown`에서 Enter/Space 처리** — native `<button>`과 달리 div는 키보드 활성화가 자동으로 되지 않으므로, `Enter`·`Space` 키에서 클릭 로직을 직접 실행한다. **Space는 `event.preventDefault()`로 페이지 스크롤을 막아야** 한다.
+
+```html
+<!-- 구조 예시 — 실제 동작 코드 아님 -->
+<template>
+    <!-- role + tabindex + onclick + onkeydown 모두 필요 -->
+    <div role="button"
+         tabindex="0"
+         onclick={handleSelect}
+         onkeydown={handleKeyDown}>
+        Select
+    </div>
+</template>
+```
+
+```js
+// 구조 예시 — 실제 동작 코드 아님
+export default class MyCard extends LightningElement {
+    handleKeyDown(event) {
+        // Enter 또는 Space가 버튼을 활성화 (native button 동작 재현)
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault(); // Space의 기본 스크롤 방지
+            this.handleSelect();    // 클릭과 동일한 로직 실행
+        }
+    }
+
+    handleSelect() {
+        // 클릭/키보드 공통 활성화 로직
+    }
+}
+```
+
+> 이 패턴은 sf-skills `refs/experience-lwc-generate/accessibility-guide.md`(Keyboard Event Handlers — "Enter or Space activates" + `role`/`tabindex="0"`/`onkeydown`/`onclick` 템플릿)와 교차검증했다. 리스트형 UI라면 같은 handler에 `ArrowDown`/`ArrowUp`으로 `querySelectorAll('[role="listitem"]')` 항목 간 `.focus()` 이동, `Escape`로 닫기를 추가하는 확장 패턴도 동일 가이드에 있다.
+
 ### 커스텀 컴포넌트의 focus
 
 커스텀 컴포넌트에서는 focus가 **컴포넌트 컨테이너를 건너뛰고 내부 요소로 이동**한다(예: parent의 button → child의 input, 이때 child 컨테이너는 스킵된다).
@@ -231,7 +271,7 @@ export default class CoolButton extends LightningElement {
 }
 ```
 
-> focus와 함께 쓰는 이벤트 리스너 연결·키보드 접근성 세부는 별도 주제(Attach Event Listeners, WebAIM Keyboard Accessibility)로 위임된다.
+> Enter/Space 활성화 패턴은 위 [[#div를 버튼처럼 — role + tabindex + keydown 3종 세트]] 참조. 그 외 이벤트 리스너 연결 일반론·키보드 접근성 심화는 별도 주제(Attach Event Listeners, WebAIM Keyboard Accessibility)로 위임된다.
 
 ---
 

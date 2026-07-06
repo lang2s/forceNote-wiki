@@ -22,6 +22,7 @@ created: 2026-05-21
 | 키워드 | 파일 |
 |---|---|
 | RestClient, HTTP 호출 추상화, makeApiCall, HttpVerb, PATCH 우회 | `Apex/Integration(통합)/RestClient 패턴.md` |
+| Http, HttpRequest, HttpResponse, Http.send, setTimeout, setEndpoint, setMethod, setHeader, setBody, getStatusCode, getBody, 콜아웃 타임아웃, 타임아웃 밀리초, 기본 10초, CalloutException, HTTP 콜아웃 레퍼런스, 콜아웃 타임아웃 몇 초, Apex HTTP 표준 클래스 | `Apex/Integration(통합)/Http·HttpRequest·HttpResponse 레퍼런스.md` |
 | @RestResource, Inbound REST, HttpGet HttpPost, urlmapping, 외부→SF | `Apex/Integration(통합)/Custom REST Endpoint.md` |
 | webservice 키워드, @WebService, SOAP Web Services 노출, Apex를 SOAP로 노출, Apex SOAP 웹서비스, WSDL 생성, Apex 메서드 SOAP 노출, system context 보안, AJAX Toolkit, sforce.apex.execute, webservice 오버로딩 불가, SOAP API Apex, custom SOAP endpoint, webservice 키워드 사용법, Apex를 SOAP로 외부 노출 | `Apex/Integration(통합)/SOAP Web Services 노출 (webservice 키워드).md` |
 | ConnectApi, Chatter 게시, postFeedItemWithRichText, Chatter 멘션, ConnectApiHelper, 리치 텍스트 피드, getCommunities, getCommunity, ConnectApi.Communities, ConnectApi.UserProfiles, getUserProfile, getPhoto, getBannerPhoto, Experience Cloud 사이트 조회, 사용자 프로필 사진 | `Apex/Integration(통합)/ConnectApi Chatter 패턴.md` |

@@ -19,6 +19,7 @@ created: 2026-06-20
 |---|---|---|
 | [[Omni-Channel 객체·메타데이터·콘솔 컴포넌트]] | API 객체 24종(AgentWork·ServiceChannel·UserServicePresence·PendingServiceRouting 등)·Metadata API 타입 11종·Salesforce 콘솔 통합 컴포넌트(Lightning Console JS API + Classic Console Integration Toolkit) 레퍼런스 | #reference |
 | [[Omni-Channel External Routing]] | 서드파티 라우팅 엔진 통합 — 기술 아키텍처·CDC 구독(Pub/Sub API & Apex Trigger)·AgentWork 생성·예상 동작 시나리오·트러블슈팅 | #reference |
+| [[Omni-Channel 라우팅 유형 — Queue 기반 vs Skills 기반]] | 4가지 라우팅 목적지(Queue·Skill·Agent·Bot)와 유형별 개념·동작·설정·선택 기준 — QueueRoutingConfig(우선순위·모델·capacity) vs Skills-Based Routing Rules·Omni-Channel Flow·SkillRequirement | #reference |
 
 ---
 
@@ -26,6 +27,7 @@ created: 2026-06-20
 
 - Omni-Channel 객체·필드(AgentWork, ServiceChannel, UserServicePresence, PendingServiceRouting)가 필요할 때? → [[Omni-Channel 객체·메타데이터·콘솔 컴포넌트]]
 - Omni-Channel 콘솔 메서드·이벤트(Lightning Console JS API / Console Integration Toolkit)가 필요할 때? → [[Omni-Channel 객체·메타데이터·콘솔 컴포넌트]]
+- Queue 기반 vs Skills 기반 라우팅 중 무엇을 쓸지 / 라우팅 유형·설정? → [[Omni-Channel 라우팅 유형 — Queue 기반 vs Skills 기반]]
 - Omni-Channel을 서드파티 라우팅 엔진과 통합할 때(External Routing)? → [[Omni-Channel External Routing]]
 - CDC(Pub/Sub API·Apex Trigger)로 PendingServiceRouting을 구독해 AgentWork를 생성할 때? → [[Omni-Channel External Routing]]
 

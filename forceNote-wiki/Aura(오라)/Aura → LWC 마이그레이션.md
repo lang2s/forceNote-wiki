@@ -3,7 +3,7 @@ tags: [aura, lwc, migration, interoperability, bundle-mapping]
 source: developer.salesforce.com (Lightning Web Components Developer Guide — Migrate Aura Components to Lightning Web Components; 라이브 공식 문서, Tier 2, 접속 2026-07-04)
 official_doc: https://developer.salesforce.com/docs/platform/lwc/guide/migrate-introduction.html
 created: 2026-07-04
-aliases: [Aura to LWC, Aura LWC 마이그레이션, migrate aura, 번들 파일 매핑, aura:attribute, cmp html, controller helper renderer, aura interop, Aura LWC 공존, 마이그레이션 치트시트]
+aliases: [Aura to LWC, Aura LWC 마이그레이션, migrate aura, 번들 파일 매핑, aura:attribute, aura:method, Aura 메서드 노출, cmp html, controller helper renderer, aura interop, Aura LWC 공존, 마이그레이션 치트시트]
 ---
 
 # Aura → LWC 마이그레이션
@@ -154,6 +154,22 @@ Aura의 마크업 표현식 문법은 LWC에서 **표현식을 JavaScript(프로
 아래 영역들은 각각 별도 위키 노트가 메커니즘을 보유한다. 이 노트에서는 **Aura → LWC 대응 방향만** 남기고 세부는 위임한다.
 
 - **Events (migrate-events)** — Aura 컴포넌트/애플리케이션 이벤트 → LWC는 **`CustomEvent`**(위로 전파). 관계 없는 컴포넌트 간에는 pubsub / **Lightning Message Service**. → 상세는 [[CustomEvent 패턴]] · [[Lightning Message Service]].
+- **Methods (`aura:method`)** — Aura의 `<aura:method>`(부모가 자식 컴포넌트의 메서드를 직접 호출하도록 노출) → LWC는 **`@api` 퍼블릭 메서드**로 대응한다. JS 클래스 메서드에 `@api` 데코레이터를 붙이면 부모가 자식 요소 참조로 직접 호출할 수 있다.
+
+  ```javascript
+  // 구조 예시 — 실제 동작 코드 아님
+  // Aura:  <aura:method name="refresh" />  +  controller의 refresh 함수
+  // LWC:   @api 퍼블릭 메서드
+  import { LightningElement, api } from 'lwc';
+
+  export default class Sample extends LightningElement {
+      @api refresh() {
+          // 부모가 this.template.querySelector('c-sample').refresh() 로 호출
+      }
+  }
+  ```
+
+  → 호출 방식·언제 method vs property인지 등 상세는 [[@api 패턴]](패턴 2: @api Method) 위임.
 - **Interfaces (migrate-interfaces)** — Aura 인터페이스(`force:hasRecordId` 등) → LWC의 대응 방식. (상세 페이지 위임.)
 - **CSS (migrate-css)** — `sample.css`를 **그대로 이동**. 스코핑 규칙은 [[CSS 스타일시트와 스코핑]] 참조.
 - **JavaScript (migrate-javascript)** — controller/helper/renderer 로직 → **하나의 JS 클래스**(ES modules).
@@ -168,5 +184,6 @@ Aura의 마크업 표현식 문법은 LWC에서 **표현식을 JavaScript(프로
 - [[CSS 스타일시트와 스코핑]] — CSS 마이그레이션과 스코핑 규칙
 - [[@salesforce Modules 레퍼런스]] — `@AuraEnabled` Apex → `@salesforce/apex`
 - [[CustomEvent 패턴]] — Aura 이벤트 → `CustomEvent`
+- [[@api 패턴]] — `aura:method` → `@api` 퍼블릭 메서드 (호출 방식 상세)
 - [[XML Config File Elements (js-meta.xml) 레퍼런스]] — `design` → `js-meta.xml` · quick action 타깃
 - [[LWC MOC]]

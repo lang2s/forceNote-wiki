@@ -1,11 +1,13 @@
 ---
 tags: [lwc, toast, modal, ui, pattern]
-source: lwc-recipes/miscToastNotification, miscModal, myModal
+source: lwc-recipes/miscToastNotification, miscModal, myModal + developer.salesforce.com Component Reference lightning-platform-show-toast-event (Tier 2, mode 표)
 created: 2026-05-17
 aliases: [ShowToastEvent, Toast, Modal, LightningModal]
 ---
 
 # Toast & 모달 패턴
+
+> ShowToastEvent(variant 4종·mode 3종)로 비차단 피드백을, LightningModal/LightningAlert로 차단형 다이얼로그를 구현하는 LWC UI 패턴.
 
 ---
 
@@ -42,6 +44,16 @@ new ShowToastEvent({
     mode: 'sticky'  // 'dismissible'(기본) | 'pester' | 'sticky'
 })
 ```
+
+mode는 토스트의 **지속성(persistence)** 을 결정한다 (공식 Component Reference 대조, Tier 2):
+
+| mode | 자동 소멸 | 닫기(X) 버튼 | 동작 |
+|---|---|---|---|
+| `dismissible` (기본) | O — 5초 후 | 있음 | 닫기 버튼 클릭 또는 5초 경과 중 **먼저 오는 쪽**에 사라짐 |
+| `pester` | O — 5초 후 | **없음** | 5초 동안 표시 후 자동으로 사라짐. 사용자가 닫을 수 없음 |
+| `sticky` | **없음** | 있음 | 사용자가 닫기 버튼을 클릭할 때까지 계속 유지 |
+
+> 선택 기준: 일반 성공/안내 피드백 → `dismissible`(기본), 스쳐 지나가도 되는 알림 → `pester`, 반드시 읽고 넘어가야 하는 오류/경고 → `sticky`.
 
 ---
 

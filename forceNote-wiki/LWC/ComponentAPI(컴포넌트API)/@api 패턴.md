@@ -2,7 +2,7 @@
 tags: [lwc, api, property, method, getter-setter, pattern]
 source: lwc-recipes/apiProperty, apiMethod, apiSetterGetter, apiSpread, lwc-recipes-main/force-app/main/default/lwc/dispatchEventHeadlessAction, navigateToRecordHeadlessAction, editRecordScreenAction
 created: 2026-05-17
-aliases: [@api, api property, api method, lwc:spread, invoke, headless action, screen action, 헤드리스액션, 퀵액션]
+aliases: [@api, api property, api method, lwc:spread, invoke, headless action, screen action, 헤드리스액션, 퀵액션, 단방향 데이터 흐름, props down events up, @api 재할당]
 ---
 
 # @api 패턴
@@ -275,9 +275,58 @@ export default class EditRecordScreenAction extends LightningElement {
 | 규칙 | 이유 |
 |---|---|
 | @api는 public 인터페이스 | 외부 변경 가능 — 내부 상태는 private |
+| **자식에서 @api 값 재할당 금지** | @api 프로퍼티는 **부모 소유(단방향 데이터 흐름)**. 자식이 `this.apiProp = ...`로 바꿔도 부모가 재렌더링되면 부모 값으로 **덮어써짐** → 변경이 유실되고 부모↔자식 상태가 어긋남 |
 | Mutation 금지 | `this.apiProp.push(...)` ❌ → 새 객체/배열 생성 |
 | Primitive + Object 모두 가능 | 단, 객체 전달 시 deep clone 고려 |
 | @api method는 동기/async 모두 가능 | `@api async invoke() { ... }` |
+
+---
+
+## 자식에서 @api 값 변경이 필요하면 (props down, events up)
+
+@api 값은 부모가 소유하므로 자식은 **직접 재할당하지 않는다.** 표준 처리법은 두 가지:
+
+1. **로컬 private 복사본 사용** — @api getter/setter로 받아서 `_prop` 같은 private(reactive) 프로퍼티에 복사하고, 자식은 그 복사본만 수정 (패턴 3의 `_todos`가 바로 이 구조)
+2. **CustomEvent로 부모에 변경 요청** — 자식은 이벤트만 올리고, 실제 값 변경은 소유자인 부모가 수행 → 부모가 새 값을 @api로 다시 내려보냄 (단방향 흐름 유지)
+
+```javascript
+// 구조 예시 — 실제 동작 코드 아님
+// counter.js (자식)
+import { LightningElement, api } from 'lwc';
+
+export default class Counter extends LightningElement {
+    _count; // ① 로컬 private 복사본 — 자식은 이것만 수정
+
+    @api
+    get count() {
+        return this._count;
+    }
+    set count(value) {
+        this._count = value; // 부모가 내려준 값을 복사
+    }
+
+    handleIncrement() {
+        this._count += 1;              // ✅ 로컬 복사본 수정
+        // this.count = this.count + 1; ❌ @api 재할당 — 부모 재렌더 시 덮어써짐
+
+        // ② 소유자(부모)에게 변경 요청 — 부모가 값을 갱신해 다시 내려보냄
+        this.dispatchEvent(
+            new CustomEvent('countchange', { detail: this._count })
+        );
+    }
+}
+```
+
+```javascript
+// 구조 예시 — 실제 동작 코드 아님
+// parent.js — 소유자가 값을 갱신 → @api로 다시 전달
+handleCountChange(event) {
+    this.count = event.detail; // 부모가 소유한 값을 변경
+}
+```
+
+> [!tip] 원칙: **props down, events up**
+> 데이터는 @api로 아래로(부모→자식), 변경 요청은 CustomEvent로 위로(자식→부모). 이벤트 발행 상세는 [[CustomEvent 패턴]] 참조.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 tags: [admin, customization, picklist, global-value-set, dependent-picklist]
-source: help.salesforce.com (Salesforce Help — Global Picklist Value Set / Dependent Picklists; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Global Picklist Value Set / Dependent Picklists / Dependent Picklist Considerations; 라이브 공식 문서, Tier 2, 접속 2026-07-03·보강 2026-07-05)
 official_doc: https://help.salesforce.com/s/articleView?id=sf.fields_about_dependent_fields.htm&type=5
 created: 2026-07-03
 aliases: [Picklists, 피클리스트, Global Value Set, 전역 값 집합, Dependent Picklist, 종속 피클리스트, Controlling Field, Field Dependency]
@@ -47,6 +47,27 @@ controlling field는 **같은 레코드**의 다음 필드 중 하나여야 한�
 |---|---|
 | Picklist | 값이 **1개 이상이고 300개 미만** |
 | Checkbox | (조건 없음) |
+
+**추가 제약 — 필드 종류별 역할 가능 여부** (help.salesforce.com Dependent Picklist Considerations, Tier 2)
+
+| 필드 종류 | Controlling | Dependent |
+|---|---|---|
+| 표준(standard) picklist | ✅ 가능 | ❌ 불가 |
+| 커스텀 picklist | ✅ 가능 (<300값) | ✅ 가능 |
+| 커스텀 multi-select picklist | ❌ 불가 | ✅ 가능 (dependent로만) |
+| Checkbox | ✅ 가능 | ❌ 불가 |
+
+### 설정 경로 (Field Dependency 생성)
+
+```
+// 절차 — Setup UI 경로
+1. Setup → Object Manager → (대상 오브젝트)
+2. Fields & Relationships → Field Dependencies → New
+3. Controlling Field / Dependent Field 선택 → Continue
+4. field dependency matrix에서 controlling 값별로
+   dependent 값 선택 → Include Values / Exclude Values
+5. Preview로 확인 → Save
+```
 
 ### Field dependency matrix
 

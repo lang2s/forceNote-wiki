@@ -2,7 +2,7 @@
 tags: [LWC, UIPatterns, drag-and-drop, HTML5, dataTransfer, dragstart, drop, dragover, SObject]
 source: ebikes-lwc-main/force-app/main/default/lwc/productTile + orderBuilder (실전 예시) + developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API (레퍼런스)
 created: 2026-07-04
-aliases: [LWC drag and drop, HTML5 drag drop, dataTransfer, draggable, ondragstart, ondrop, ondragover, effectAllowed, dropEffect, setData, getData, 드래그앤드롭, 드래그 앤 드롭, 레코드 드래그, SObject 전달]
+aliases: [LWC drag and drop, HTML5 drag drop, dataTransfer, draggable, ondragstart, ondrop, ondragover, effectAllowed, dropEffect, setData, getData, 드래그앤드롭, 드래그 앤 드롭, 레코드 드래그, SObject 전달, datatable 행 재정렬, datatable 행 드래그, 행 순서 변경]
 ---
 
 # LWC 드래그앤드롭 패턴 (HTML5 dataTransfer)
@@ -255,11 +255,38 @@ export default class OrderBuilder extends LightningElement {
 | 방식 | 데이터 전달 | 적합한 경우 | 한계 |
 |---|---|---|---|
 | **HTML5 Drag & Drop (이 노트)** | `dataTransfer` 문자열 직렬화 | 컴포넌트 간(부모-자식 아닌) 시각적 드래그 이동, 목록↔목록 | 문자열만, 터치 기기 지원 제한적, 접근성 별도 처리 필요 |
-| **`lightning-datatable` 행 재정렬** | 컴포넌트 내부 상태 | 테이블 내 정렬/선택 | 컴포넌트 경계를 넘는 드래그 불가 |
+| **`lightning-datatable`** | 컴포넌트 내부 상태 | 테이블 내 **정렬(`onsort`)·행 선택** — 드래그 재정렬 아님 | 행 드래그 재정렬 네이티브 미지원(아래 5-1), 컴포넌트 경계를 넘는 드래그 불가 |
 | CustomEvent / LMS | 이벤트 detail 객체 | 클릭·선택 기반 상호작용 | 드래그 제스처 아님(끌어놓기 UX 없음) |
 | `pubsub` / wire | 상태 공유 | 데이터 동기화 | UI 드래그와 무관 |
 
 드래그앤드롭이 **꼭 필요한** 경우(끌어놓는 물리적 UX)에만 HTML5 API를 쓰고, 단순 "선택→전달"이면 CustomEvent가 더 단순하다.
+
+### 5-1. `lightning-datatable`은 행 드래그 재정렬이 되나? — **안 된다**
+
+**`lightning-datatable`은 행 드래그앤드롭 재정렬을 네이티브로 지원하지 않는다.** 렌더링되는 행(`<tr>`) 마크업은 베이스 컴포넌트 내부(shadow DOM)에 있어 개발자가 `draggable` 속성이나 `ondragstart` 핸들러를 행에 붙일 방법이 없다. 컴포넌트가 제공하는 행 상호작용은 열 헤더 클릭 정렬(`sortable` 컬럼 + `onsort`)·행 선택(`onrowselection`)·행 액션(`onrowaction`)까지다.
+
+행 순서를 사용자가 바꾸게 하려면 대안은:
+
+| 대안 | 방법 | 적합한 경우 |
+|---|---|---|
+| ① **커스텀 리스트 + HTML5 DnD** | `lightning-datatable` 대신 `for:each`로 행을 직접 렌더링하고, 각 행에 `draggable="true"` + 이 노트의 `dragstart`/`dragover`/`drop` 패턴을 적용. `dataTransfer`에 소스 행 index를 싣고 drop 시 배열에서 두 index를 교환(splice) 후 재할당 | 진짜 "끌어서 순서 바꾸기" UX가 필수일 때 |
+| ② **행 액션/버튼으로 위·아래 이동** | datatable을 유지하고 row action(`onrowaction`) 또는 버튼 컬럼으로 "위로/아래로" 이동을 제공 — 배열 index 교환 후 `data` 재할당 | datatable 기능(정렬·타입·인라인 편집)을 포기할 수 없을 때. 키보드 접근성도 자동 확보 |
+| ③ **정렬로 충분한 경우 `onsort`** | 사용자 임의 순서가 아니라 특정 필드 기준 정렬이면 `sortable` 컬럼 + `onsort` 핸들러로 해결 | "순서 변경" 요구가 실은 정렬 요구일 때 |
+
+```javascript
+// 구조 예시 — 실제 동작 코드 아님 (① 커스텀 리스트 index 교환의 골격)
+handleDragStart(event) {
+    event.dataTransfer.setData('text/plain', event.currentTarget.dataset.index);
+}
+handleDrop(event) {
+    event.preventDefault();
+    const from = parseInt(event.dataTransfer.getData('text/plain'), 10);
+    const to = parseInt(event.currentTarget.dataset.index, 10);
+    const rows = [...this.rows];
+    rows.splice(to, 0, rows.splice(from, 1)[0]); // from 위치 행을 to 위치로 이동
+    this.rows = rows; // 재할당으로 리렌더
+}
+```
 
 ---
 

@@ -705,3 +705,4 @@ SEE ALSO: Put Visualforce Pages on External Domains · Referencing Untrusted Thi
 - [[동적 Visualforce — 바인딩·동적 컴포넌트]] (apex:dynamicComponent의 Apex 측 Component.Apex.* 동적 생성)
 - [[페이지 출력 제어 — HTML·PDF·SLDS]] (apex:slds · renderAs="pdf" 제약)
 - [[JavaScript·Remoting·LMS across DOM]] (Remote Objects vs JavaScript Remoting)
+- [[VF AJAX 패턴 → LWC 대응]] — actionPoller·actionFunction·actionSupport·reRender를 LWC로 옮길 때의 대응 패턴

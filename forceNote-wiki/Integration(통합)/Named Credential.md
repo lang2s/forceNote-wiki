@@ -1,8 +1,8 @@
 ---
 tags: [salesforce, integration, named-credential, security, pattern]
-source: apex-recipes/RestClient.cls, NamedCredentialRecipes.cls; help.salesforce.com — Enable External Credential Principals (nc_enable_ext_cred_principal, Tier 2)
+source: apex-recipes/RestClient.cls, NamedCredentialRecipes.cls; help.salesforce.com — Enable External Credential Principals (nc_enable_ext_cred_principal, Tier 2); salesforce_apex_developer_guide.pdf — Merge Fields for Apex Callouts That Use Named Credentials (Tier 2); api_meta.pdf v67.0 — ExternalCredential·ExternalAuthIdentityProvider + salesforce_apex_reference_guide.pdf — ConnectApi NamedCredentials (Tier 2)
 created: 2026-05-17
-aliases: [Named Credential, 네임드 크레덴셜, callout:]
+aliases: [Named Credential, 네임드 크레덴셜, callout:, External Credential, OAuth Client Credentials 설정, Credential merge field]
 ---
 
 # Named Credential
@@ -34,6 +34,37 @@ req.setEndpoint('callout:GoogleBooksAPI/volumes?q=' + keyword);
 req.setEndpoint('callout:MyRestApi/api/v1/accounts/');
 req.setEndpoint('callout:Stripe/v1/charges?limit=10');
 ```
+
+### Merge Field로 커스텀 헤더/바디에 자격증명 주입 — `{!$Credential.…}`
+
+기본적으로 Salesforce가 표준 **Authorization 헤더를 자동 생성**해 callout에 붙인다(`Generate Authorization Header` 옵션, 기본 켜짐). 원격 엔드포인트가 표준 Authorization 헤더를 지원하지 않거나(보안 토큰을 커스텀 헤더로 요구, username/password를 XML·JSON 바디로 요구 등) 코드에서 직접 헤더를 구성해야 할 때는, merge field로 저장된 자격증명을 헤더/바디에 주입한다.
+
+**전제 조건 (필수):** 관리자가 Named Credential의 콜아웃 옵션에서 **Allow Merge Fields in HTTP Header** / **Allow Merge Fields in HTTP Body** 를 체크해야 코드의 merge field가 실행 시점에 치환된다 (신형 Named Credential UI에서는 Callout Options의 *Allow Formulas in HTTP Header/Body* 체크박스). 이 옵션들은 External Data Source에서 Named Credential을 참조할 때는 사용할 수 없다.
+
+| Merge Field | 값 | 사용 가능 조건 |
+|---|---|---|
+| `{!$Credential.Username}` | 실행 사용자의 username | Password 인증일 때만 |
+| `{!$Credential.Password}` | 실행 사용자의 password | Password 인증일 때만 |
+| `{!$Credential.OAuthToken}` | 실행 사용자의 OAuth 토큰 | OAuth 인증일 때만 |
+| `{!$Credential.AuthorizationMethod}` | `Basic`(password) / `Bearer`(OAuth 2.0) / `null`(no auth) | 프로토콜에 따라 결정 |
+| `{!$Credential.AuthorizationHeaderValue}` | Base-64 인코딩된 username:password(password) / OAuth 토큰(OAuth 2.0) / `null`(no auth) | 프로토콜에 따라 결정 |
+| `{!$Credential.OAuthConsumerKey}` | Consumer key | OAuth 인증일 때만 |
+
+```apex
+// 커스텀 헤더 주입 — Allow Merge Fields in HTTP Header 필요
+req.setHeader('X-Username', '{!$Credential.Username}');
+req.setHeader('X-Password', '{!$Credential.Password}');
+req.setHeader('Authorization', '{!$Credential.OAuthToken}');
+req.setHeader('X-API-Key', '{!$Credential.Password}'); // API Key를 Password 필드에 저장하는 패턴
+
+// 바디 주입 — Allow Merge Fields in HTTP Body 필요.
+// HTMLENCODE 수식으로 특수문자 이스케이프 가능 (바디 전용 — 헤더의 merge field에는 사용 불가)
+req.setBody('Username:{!HTMLENCODE($Credential.Username)}');
+req.setBody('Password:{!HTMLENCODE($Credential.Password)}');
+```
+
+- 바디의 merge field에 적용 가능한 수식 함수는 `HTMLENCODE` **하나뿐**이며, 수식은 반드시 `HTMLENCODE`로 시작해야 한다.
+- 이 merge field들을 **SOAP API 호출**에 사용하면 OAuth access token이 자동 갱신되지 않는다.
 
 ---
 
@@ -126,9 +157,48 @@ ConnectApi.ExternalCredential cred =
 |---|---|
 | No Authentication | API Key를 헤더로 직접 전달 (코드에서) |
 | Password | 기본 인증 (Basic Auth) |
-| OAuth 2.0 | OAuth flow (Salesforce가 토큰 관리) |
+| OAuth 2.0 | OAuth flow (Salesforce가 토큰 관리) — 설정 절차는 아래 [[#OAuth 2.0 설정 절차 (Client Credentials · Browser Flow)|OAuth 2.0 설정 절차]] 참조 |
 | JWT Token Bearer | JWT 기반 M2M |
 | AWS Signature V4 | AWS 서비스 |
+
+---
+
+## OAuth 2.0 설정 절차 (Client Credentials · Browser Flow)
+
+신형 모델에서 OAuth 2.0 인증은 **External Credential 쪽에서 설정**한다. Named Credential은 엔드포인트 URL만 들고 External Credential을 참조할 뿐이다.
+
+### Client Credentials 플로우 — 서버-투-서버 (사용자 컨텍스트 없음)
+
+```
+1. Setup → Security → Named Credentials → External Credentials 탭 → New
+2. Authentication Protocol = OAuth 2.0
+3. Authentication Flow Type = Client Credentials with Client Secret
+4. Identity Provider URL = 외부 시스템의 토큰 엔드포인트 URL
+   (token endpoint — 모든 OAuth 2.0 플로우에서 필수 입력)
+5. Scope = 필요한 최소 OAuth scope
+6. 저장 → Principals 섹션 → New: Named Principal 생성,
+   Authentication Parameters에 Client ID · Client Secret 입력 (플랫폼 암호화 저장)
+7. Permission Set → External Credential Principal Access에 이 Principal을 Enabled로 매핑
+   → callout 실행 사용자에게 할당 (위 "신형 모델 필수 셋업" 절차와 동일)
+8. Named Credential(신형) 생성 — URL 입력 + 이 External Credential 연결
+   → Apex는 callout:{NC_DeveloperName}만 쓰면 토큰 발급·만료 갱신을 Salesforce가 자동 처리
+```
+
+**Client Secret 전달 방식 variant** (`ConnectApi.CredentialAuthenticationProtocolVariant` — Apex Reference 검증):
+
+| Variant | Client Secret 전달 위치 |
+|---|---|
+| `ClientCredentialsClientSecret` | 토큰 요청의 **request body** |
+| `ClientCredentialsClientSecretBasic` | Basic 인증처럼 **Authorization 헤더** |
+| `ClientCredentialsJwtAssertion` | client secret 대신 **JWT assertion** |
+
+### Browser Flow — Authorization Code (사용자 대화형)
+
+- Authentication Flow Type = **Browser Flow** (OAuth 2.0 Authorization Code). 토큰 엔드포인트에 더해 **Authorization URL**(authorize endpoint)이 필수다 — Metadata API `ExternalAuthIdentityProvider`에서 `authenticationFlow=AuthorizationCode`일 때 `AuthorizeUrl` 파라미터 필수, `ClientCredentials`일 때는 `TokenUrl`만으로 충분.
+- 외부 IdP(인증 서버)에 Salesforce 콜백 URL을 등록해야 한다: `https://[인스턴스].salesforce.com/services/authcallback/[NC_Name]` (아래 주의사항 참조).
+- **Per-User Principal**과 결합하면 각 사용자가 개별적으로 OAuth 인증을 수행하고, 각자의 토큰으로 callout이 나간다. Named Principal이면 공유 서비스 계정 하나로 최초 1회 관리자가 인증한다.
+
+> 배포 관점: OAuth 엔드포인트 구성은 Metadata API v62.0+에서 `ExternalAuthIdentityProvider` 타입(`authenticationFlow` = `AuthorizationCode` | `ClientCredentials`, `TokenUrl`·`AuthorizeUrl` 파라미터)으로 분리 관리할 수 있고, External Credential(v56.0+, `.externalCredential`)이 이를 참조한다.
 
 ---
 

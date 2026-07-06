@@ -646,6 +646,7 @@ Aura 컴포넌트에 이 인터페이스를 추가하면 템플릿의 커스텀 
 > [!warning] `ui` 네임스페이스 컴포넌트는 deprecated (비권장)
 > 위 샘플이 쓰는 **`ui:menu` · `ui:menuTriggerLink` · `ui:menuList` · `ui:actionMenuItem`**(전체 `ui` 네임스페이스)는 공식적으로 **deprecated**다. Spring '20 릴리즈 노트 *"Aura Components in the ui Namespace Are Deprecated"*에서 전체 `ui` 네임스페이스가 deprecated 선언됐고(`ui:menu`는 **API v47.0부터 deprecated**), 공식 Component Reference는 이들을 *Legacy Components / (Deprecated)*로 분류한다. 기존 코드는 계속 동작하지만 신규 커스텀 profile menu를 이 컴포넌트로 작성하지 않는다.
 > - **후속 권장:** `lightning:buttonMenu` + `lightning:menuItem` (LWC는 `lightning-button-menu` + `lightning-menu-item`).
+> - 메뉴 계열 외 **`ui:*` 39종 전체의 대체 매핑**(`ui:inputText`→`lightning:input` 등)은 [[ui 네임스페이스 Deprecated — lightning 대체 매핑]] 참조.
 > - 위 코드는 PDF 원문 샘플 보존을 위해 그대로 둔다 — 실제 작성 시 후속 컴포넌트로 대체.
 > - 근거: Salesforce Component Reference — *`ui` namespace (Legacy)* · *Action Menu Item (Deprecated)* · Spring '20 Release Notes — *Aura Components in the ui Namespace Are Deprecated* [Tier 2]
 

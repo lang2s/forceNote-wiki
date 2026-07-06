@@ -1,9 +1,9 @@
 ---
-tags: [apex, schema, namespace, describe, describesobject, describefield, recordtype, picklist, child-relationship, sobjecttype, sobjectfield, displaytype, soaptype, describetab, datacategory]
-source: salesforce_apex_reference_guide (Version 67.0, Summer '26)
+tags: [apex, schema, namespace, describe, describesobject, describesobjects, describefield, recordtype, picklist, child-relationship, sobjecttype, sobjectfield, displaytype, soaptype, describetab, datacategory]
+source: salesforce_apex_reference_guide (Version 67.0, Summer '26) + salesforce_apex_developer_guide (describeSObjects 예제) + salesforce_app_limits_cheatsheet.pdf (describeSObjects 100 한도)
 created: 2026-05-17
-updated: 2026-05-22
-aliases: [Schema Namespace, DescribeSObjectResult, DescribeFieldResult, RecordTypeInfo, PicklistEntry, ChildRelationship, Schema.getGlobalDescribe, 오브젝트 메타데이터, 필드 메타데이터, SObjectType, SObjectField, DisplayType, SOAPType, FieldDescribeOptions, SObjectDescribeOptions, DescribeTabResult, DescribeTabSetResult, DataCategory, DescribeColorResult, DescribeIconResult]
+updated: 2026-07-05
+aliases: [Schema Namespace, DescribeSObjectResult, DescribeFieldResult, RecordTypeInfo, PicklistEntry, ChildRelationship, Schema.getGlobalDescribe, Schema.describeSObjects, describeSObjects, getGlobalDescribe vs describeSObjects, 오브젝트 메타데이터, 필드 메타데이터, SObjectType, SObjectField, DisplayType, SOAPType, FieldDescribeOptions, SObjectDescribeOptions, DescribeTabResult, DescribeTabSetResult, DataCategory, DescribeColorResult, DescribeIconResult]
 ---
 
 # Schema Namespace 상세 레퍼런스
@@ -298,6 +298,52 @@ if (sObjType != null) {
     newRecord.put('Name', 'Dynamic Account');
 }
 ```
+
+---
+
+## Schema.describeSObjects — 지정 오브젝트만 일괄 Describe
+
+`Schema` 클래스의 정적 메서드. `getGlobalDescribe()`가 조직 **전체** 오브젝트 맵을 만드는 것과 달리, **이름으로 지정한 오브젝트들만** describe한다. `SObjectType` 토큰의 `getDescribe()`와 유사하지만, 오브젝트 타입을 문자열로 **동적으로** 지정할 수 있고 **한 번에 둘 이상**을 describe할 수 있다.
+
+| 시그니처 | 설명 |
+|---|---|
+| `public static List<Schema.DescribeSObjectResult> describeSObjects(List<String> sObjectTypes)` | describe할 sObject 타입 이름 리스트 → DescribeSObjectResult 리스트 반환 |
+| `public static List<Schema.DescribeSObjectResult> describeSObjects(List<String> SObjectTypes, Object SObjectDescribeOptions)` | describe 옵션 지정 버전. 이 메서드의 기본 옵션은 `SObjectDescribeOptions.DEFERRED`(describe 속성을 첫 사용 시 lazy 초기화) |
+
+```apex
+// 두 오브젝트를 한 번에 describe
+Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(
+    new String[]{'Account','Contact'});
+
+// 결과 순회 — 레이블·필드 수·커스텀 여부·자식 관계
+String[] types = new String[]{'Account','Merchandise__c'};
+Schema.DescribeSobjectResult[] results = Schema.describeSObjects(types);
+for (Schema.DescribeSobjectResult res : results) {
+    System.debug('sObject Label: ' + res.getLabel());
+    System.debug('Number of fields: ' + res.fields.getMap().size());
+    System.debug(res.isCustom() ? 'This is a custom object.' : 'This is a standard object.');
+    Schema.ChildRelationship[] rels = res.getChildRelationships();
+    if (rels.size() > 0) {
+        System.debug(res.getName() + ' has ' + rels.size() + ' child relationships.');
+    }
+}
+```
+
+**한도:** `describeSObjects()` 콜은 **호출당 최대 100 objects**로 제한된다 (Developer Limits Quick Reference의 describeSObjects 한도 — [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]]의 "SOAP API Call 한도" 표 참조). 100개 넘게 필요하면 리스트를 나눠 여러 번 호출한다.
+
+### getGlobalDescribe() vs describeSObjects() 선택 기준
+
+| 기준 | `Schema.getGlobalDescribe()` | `Schema.describeSObjects(List<String>)` |
+|---|---|---|
+| 범위 | 조직의 **모든** 표준·커스텀 오브젝트 | **지정한 오브젝트만** |
+| 반환 | `Map<String, Schema.SObjectType>` — 토큰 맵. describe 결과는 토큰마다 별도 `getDescribe()` 호출 필요 | `List<Schema.DescribeSObjectResult>` — describe 결과를 직접 반환 |
+| 비용 | 전체 org 스캔 — 오브젝트 수에 비례해 무거움 (힙·시간) | 지정한 개수만큼만 — 대상이 정해져 있으면 훨씬 가벼움 |
+| 한도 | — | 호출당 최대 100 objects |
+| 적합한 경우 | 오브젝트 존재 여부 확인(`containsKey`), 전체 오브젝트 목록 탐색·나열 | 대상 오브젝트 이름(문자열)을 이미 아는 동적 describe — 필드 목록·오브젝트 속성 일괄 조회 |
+
+- 컴파일 타임에 오브젝트를 알면 둘 다 불필요 — `Account.SObjectType.getDescribe()` 토큰 방식이 가장 가볍다 (토큰은 lightweight·직렬화 가능·컴파일 타임 검증).
+- **조합 패턴 (소스 Usage):** 먼저 `getGlobalDescribe()`로 조직의 전체 오브젝트 목록을 얻고, 그 목록을 순회하며 `describeSObjects()`로 개별 오브젝트의 메타데이터를 얻을 수 있다.
+- "특정 sObject의 모든 필드 API명·타입"이 목적이고 오브젝트 이름이 문자열로 주어지면, `Schema.describeSObjects(new List<String>{objName})[0].fields.getMap()`이 전체 org 스캔 없이 바로 필드 맵에 도달한다. 이후 필드 순회는 아래 **자주 쓰는 조합 패턴**의 `getDescribe() → getName()/getType()`과 동일.
 
 ---
 
@@ -692,3 +738,4 @@ for (Schema.DescribeTabSetResult app : appDescs) {
 - [[Safely]] — StripInaccessible, CanTheUser — FLS 필드 필터링
 - [[System Namespace]] — 코어 시스템 API — getGlobalDescribe와 함께 쓰는 런타임 클래스 레퍼런스
 - [[메타데이터 카탈로그 SOQL (EntityDefinition·FieldDefinition)]] — describe 대신 SOQL로 스키마 조회(대형 조직 대안). 명령형 describe의 선언형 짝
+- [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]] — describeSObjects 호출당 100 objects 등 API 콜 한도 원문

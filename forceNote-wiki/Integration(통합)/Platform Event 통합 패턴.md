@@ -1,6 +1,6 @@
 ---
 tags: [integration, platform-event, event-bus, lwc, apex, pattern]
-source: apex-recipes/PlatformEventRecipes.cls, lwc-recipes/lmsSubscriber, ebikes-lwc-main/force-app/main/default/lwc/orderStatusPath, ebikes-lwc-main/force-app/main/default/objects/Manufacturing_Event__e
+source: apex-recipes/PlatformEventRecipes.cls, lwc-recipes/lmsSubscriber, ebikes-lwc-main/force-app/main/default/lwc/orderStatusPath, ebikes-lwc-main/force-app/main/default/objects/Manufacturing_Event__e, platform_events.pdf
 created: 2026-05-17
 aliases: [Platform Event 통합, EventBus, 이벤트 기반 통합, empApi, isEmpEnabled, setDebugFlag]
 ---
@@ -105,7 +105,8 @@ export default class OrderStatusMonitor extends LightningElement {
         onError((error) => console.error('EMP API error:', error));
 
         // -1: 이 시점부터 새 이벤트만 수신
-        // -2: 24시간 이내 보관된 이벤트부터 수신
+        // -2: 보존 기간(고볼륨 이벤트 72시간) 내 저장된 이벤트부터 수신
+        //     (레거시 표준 볼륨 이벤트는 24시간 보존)
         subscribe(CHANNEL, -1, (event) => {
             this.handleEvent(event.data.payload);
         }).then((sub) => {

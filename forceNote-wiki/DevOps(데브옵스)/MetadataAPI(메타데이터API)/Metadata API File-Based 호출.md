@@ -38,7 +38,7 @@ deploy와 retrieve 모두 `package.xml`을 사용해 대상 컴포넌트를 선�
 
 ## destructiveChanges.xml (삭제 매니페스트)
 
-컴포넌트를 삭제할 때 사용. `package.xml`과 함께 .zip에 포함.
+컴포넌트를 삭제할 때 사용. 형식은 `package.xml`과 동일하나 **와일드카드(`*`) 미지원**. 삭제 전용 배포라도 **컴포넌트 없이 API 버전만 명시한 `package.xml`을 같은 디렉터리에 반드시 함께 포함**해야 한다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -50,9 +50,42 @@ deploy와 retrieve 모두 `package.xml`을 사용해 대상 컴포넌트를 선�
 </Package>
 ```
 
-배포 순서:
-- `destructiveChanges.xml` — 배포 **이후** 삭제
-- `destructiveChangesPre.xml` — 배포 **이전** 삭제
+삭제 전용 배포에 동봉하는 빈 `package.xml`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <version>67.0</version>
+</Package>
+```
+
+### 삭제 매니페스트 3종 — 처리 시점
+
+추가/업데이트(`package.xml`)와 삭제를 **한 번의 배포**에 섞을 수 있다.
+
+| 매니페스트 | 처리 시점 | 비고 |
+|---|---|---|
+| `destructiveChanges.xml` | **기본값: 추가/업데이트 이전** 처리 ("By default, deletions are processed before component additions") | 삭제 전용 또는 혼합 배포 |
+| `destructiveChangesPre.xml` | 추가/업데이트 **이전** 삭제 | v33.0+ |
+| `destructiveChangesPost.xml` | 추가/업데이트 **이후** 삭제 | v33.0+. Post 삭제는 테스트 실행 **전**에 처리됨 |
+
+**의존성 예시 (Post 사용):** Apex 클래스가 커스텀 오브젝트를 참조 중이면 그 오브젝트를 바로 삭제할 수 없다 → 한 번의 배포에서 `package.xml`로 클래스를 수정해 참조를 제거한 뒤, `destructiveChangesPost.xml`로 커스텀 오브젝트를 삭제한다.
+
+**제약·주의:**
+- **active Lightning page에 연관된 항목**(페이지가 참조하는 커스텀 오브젝트·페이지 위 컴포넌트·페이지 자체)은 `destructiveChanges.xml`로 삭제 불가 — 먼저 Lightning App Builder에서 페이지를 비활성화해 action override를 제거해야 한다.
+- Recycle Bin을 우회하려면 `purgeOnDelete=true`. 단 roll-up summary 필드는 이 옵션과 무관하게 Recycle Bin에 저장되지 않고 영구 삭제된다.
+- org에 존재하지 않는 컴포넌트가 삭제 목록에 있어도 나머지 삭제는 계속 시도된다.
+- Apex 클래스/트리거 삭제 시, 남은 참조를 탐지하도록 해당 네임스페이스의 **로컬 테스트 전체 실행**을 권장.
+
+**sf CLI 플래그:**
+
+```bash
+# 추가 이전 삭제 (Pre)
+sf project deploy start --manifest package.xml --pre-destructive-changes destructiveChangesPre.xml
+
+# 추가 이후 삭제 (Post)
+sf project deploy start --manifest package.xml --post-destructive-changes destructiveChangesPost.xml
+```
 
 ---
 
@@ -75,7 +108,7 @@ AsyncResult deploy(base64Binary ZipFile, DeployOptions DeployOptions)
 | `ignoreWarnings` | boolean | 경고 시 배포 중단 여부 (`true` = 경고 무시하고 계속) |
 | `performRetrieve` | boolean | 배포 후 자동 retrieve 수행 여부 |
 | `purgeOnDelete` | boolean | 삭제된 컴포넌트를 휴지통으로 보내지 않고 영구 삭제 |
-| `rollbackOnError` | boolean | 하나라도 오류 시 전체 롤백 (기본 false) |
+| `rollbackOnError` | boolean | 하나라도 오류 시 전체 롤백 (기본 false). `false`면 오류 없는 액션만 수행하고 나머지는 오류 반환(부분 성공). **프로덕션 org 배포 시 반드시 `true`여야 함 — 프로덕션은 부분 배포 불허** ("This parameter must be set to true if you're deploying to a production org") |
 | `runTests` | string[] | `testLevel = RunSpecifiedTests`일 때 실행할 테스트 클래스명 목록 |
 | `singlePackage` | boolean | zip이 단일 패키지인지 여부 |
 | `testLevel` | TestLevel | 테스트 실행 수준 (아래 참조) |
@@ -201,7 +234,7 @@ System.out.println("취소 상태: " + result.getStatus());
 
 ## deployRecentValidation()
 
-`checkOnly=true`로 성공한 최근 검증 결과를 실제 배포한다. 테스트 재실행 없이 빠른 배포 가능 (4일 이내).
+`checkOnly=true`로 성공한 최근 검증 결과를 실제 배포한다. 테스트 재실행 없이 빠른 배포 가능 — 검증 성공 후 **10일 이내** ("validated successfully for the target environment within the last 10 days").
 
 ### 시그니처
 ```java
@@ -288,13 +321,19 @@ sf project deploy start --source-dir force-app --target-org myOrg
 # 검색
 sf project retrieve start --metadata ApexClass --target-org myOrg
 
-# 검증만 (checkOnly=true)
+# 검증만 (checkOnly=true) — 일회성 확인용
 sf project deploy start --source-dir force-app --dry-run --target-org myOrg
+
+# 검증만 (checkOnly=true) — Quick Deploy용 Job ID 발급
+sf project deploy validate --source-dir force-app --target-org myOrg
+sf project deploy quick --job-id <검증 Job ID> --target-org myOrg
 
 # REST 방식으로 배포 (sf CLI)
 sf config set org-metadata-rest-deploy true
 sf project deploy start --source-dir force-app --target-org myOrg
 ```
+
+> **`--dry-run` vs `deploy validate`:** 둘 다 `checkOnly=true` 검증이지만, `--dry-run`의 Job ID는 **Quick Deploy(`deployRecentValidation()`)에 사용할 수 없다.** 나중에 `sf project deploy quick`으로 배포할 검증은 반드시 `sf project deploy validate`로 만든다 (검증 성공 후 10일 이내 — [[Metadata API 빌드·릴리스 워크플로]] 참조).
 
 ---
 

@@ -859,3 +859,4 @@ userId = '0035Y00003pPJiNQAW\' OR AnnualRevenue>100000.00 OR Name=\'a'
 - [[SOQL Injection 위협]] — SOQL injection 일반 메커니즘과 방어
 - [[Experience Cloud 사이트 — CSP·Locker·LWS]] — 같은 가이드의 CSP·Lightning Locker·LWS 사이트 보안
 - [[Experience Builder Aura 사이트 개발]] — Secure Custom Components, Experience Builder 컴포넌트 개발 (형제 노트, PII 가시성 설정과 연관)
+- [[조직 전체 공유 기본값(OWD)과 공유 규칙]] — 이 노트가 소비하는 guest read 접근을 여는 설정 측: Guest User Sharing Rule 생성 절차(§8-1)·게스트 OWD Private 고정·Manual Sharing

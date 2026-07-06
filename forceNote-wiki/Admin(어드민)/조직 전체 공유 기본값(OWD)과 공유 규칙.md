@@ -1,9 +1,9 @@
 ---
 tags: [admin, security, sharing, owd, organization-wide-defaults, sharing-rules, record-access]
-source: help.salesforce.com (Salesforce Help — Set Up and Maintain Your Salesforce Organization; Organization-Wide Sharing Defaults & Sharing Rules; 라이브 공식 문서, Tier 2, 접속 2026-07-02)
+source: help.salesforce.com (Salesforce Help — Set Up and Maintain Your Salesforce Organization; Organization-Wide Sharing Defaults & Sharing Rules; 라이브 공식 문서, Tier 2, 접속 2026-07-02) + Salesforce Security Guide PDF v260 (salesforce_security_impl_guide.pdf, resources.docs.salesforce.com — Manual Sharing pp.72–75 · Create Guest User Sharing Rules p.60, Tier 2, 확인 2026-07-06)
 official_doc: https://help.salesforce.com/s/articleView?id=platform.security_sharing_owd_about.htm&type=5
 created: 2026-07-02
-aliases: [OWD, Organization-Wide Defaults, 조직 전체 기본값, Sharing Rules, 공유 규칙, Owner-Based Sharing Rule, 소유 기반 공유 규칙, Criteria-Based Sharing Rule, 기준 기반 공유 규칙, Grant Access Using Hierarchies, External Sharing Model, Sharing Settings]
+aliases: [OWD, Organization-Wide Defaults, 조직 전체 기본값, Sharing Rules, 공유 규칙, Owner-Based Sharing Rule, 소유 기반 공유 규칙, Criteria-Based Sharing Rule, 기준 기반 공유 규칙, Grant Access Using Hierarchies, External Sharing Model, Sharing Settings, Manual Sharing, 수동 공유, 레코드 Share 버튼, Guest User Sharing Rule, 게스트 사용자 공유 규칙]
 ---
 
 # 조직 전체 공유 기본값(OWD)과 공유 규칙
@@ -183,6 +183,28 @@ Auto Number, Checkbox, Date, Date/Time, Email, **Lookup Relationship**(사용자
 
 > 생성 후 편집 가능: **label, rule name, criteria filters, sharing access level**. 업데이트 시 **재계산이 자동**으로 일어난다. 대규모 업데이트는 **sharing 계산 지연(defer)** 을 고려한다. contacts OWD가 **"Controlled by Parent"** 이면 **Contact Access 를 사용할 수 없다**.
 
+### 8-1. Guest User Sharing Rule 생성 절차 (criteria-based의 특수형)
+
+**전제 조건** — 게스트(미인증) 사용자의 OWD는 **Private 고정**(5절)이므로, guest user sharing rule이 게스트에게 레코드 접근을 부여하는 **유일한 방법**이다(6절). **Read Only 접근만** 부여할 수 있다(Read/Write·Full Access 선택 불가). Share With의 **Guest User** 카테고리는 *"사이트의 모든 미인증 사용자(All unauthenticated users in a site)"* 이므로, 대상 **Experience Cloud/사이트가 존재**해야 사이트별 guest user를 선택할 수 있다. 게스트 update가 왜 불가능한지(**Secure guest user record access** 강제)와 우회 패턴(without sharing 컨트롤러)은 [[Experience Cloud 사이트 보안 — 인증·게스트 사용자]] 참조.
+
+**절차** (Security Guide v260, "Create Guest User Sharing Rules" — 필요 권한 **Manage Sharing**)
+
+1. Setup → Quick Find **"Sharing Settings"** → **Sharing Settings**.
+2. 해당 오브젝트의 **Sharing Rules** 관련 목록 → **New**.
+3. **Label**(UI 표시명) + **Rule Name**(API·managed package용 고유 식별자).
+4. 선택적 **설명(≤1,000자)**.
+5. 규칙 유형에서 **"Guest user, based on criteria"** 를 선택한다.
+6. 레코드가 만족해야 할 **field, operator, value** criteria를 지정한다 — value는 항상 **리터럴 숫자/문자열**, **240자 제한**(초과 시 잘림), AND/OR 변경은 **Add Filter Logic**.
+   - criteria-based가 지원하지 않는 필드를 쓰려면 workflow rule/Apex trigger로 값을 text·numeric 필드에 복사한 뒤 그 필드를 criteria로 사용한다.
+7. (제공되는 경우) **high-volume community/site 사용자** 소유 레코드의 포함 여부를 선택한다 — 기본적으로 규칙은 인증 사용자·게스트 사용자·큐 소유 레코드만 포함한다.
+8. **Share With에서 접근을 받을 guest user(사이트별)** 를 지정한다.
+9. **Save**.
+
+**한도** — 오브젝트당 공유 규칙 총 **300개**, 그중 **criteria-based + guest user sharing rule 합계 50개**까지.
+
+> ⚠️ **원문 경고 재확인:** 이 규칙은 로그인 자격 없는 누구에게나 criteria에 맞는 **모든 레코드에 즉시·무제한(immediate and unlimited) 접근**을 준다. 데이터 민감도에 맞는 보안 통제를 함께 구현할 것 — 기본 설정 변경으로 인한 노출은 Salesforce가 책임지지 않는다.
+> ⚠️ **적용 타이밍 함정:** 게스트 sharing rule은 **트랜잭션 완료 후에** 적용된다 — 같은 Apex 메서드에서 생성 직후 읽기는 실패한다. 상세 패턴은 [[Experience Cloud 사이트 보안 — 인증·게스트 사용자]] 참조.
+
 ---
 
 ## 9. Owner vs Criteria 공유 규칙 — 선택 기준
@@ -198,8 +220,72 @@ Auto Number, Checkbox, Date, Date/Time, Email, **Lookup Relationship**(사용자
 
 ---
 
+## 10. Manual Sharing (수동 공유)
+
+공유 규칙(자동·집합 단위)으로 커버할 수 없는 **일회성 예외(one-off access exception)** 를 위해, **개별 레코드 하나**를 다른 사용자·public group·역할과 공유하는 기능. 예: 특정 opportunity 하나만 협업할 동료에게 열기, 휴가 커버·특별 프로젝트 공유. (OWD 원칙과 동일하게 접근을 **확대만** 하며, OWD가 Public Read/Write처럼 이미 넓으면 수동 공유가 의미를 갖지 않는다.)
+
+**공유 모델에서의 층(layer) 위치** — 질문 "Private에서 특정 팀에게만 열기"의 각 층:
+
+| 층 | 범위 | 담당 |
+|---|---|---|
+| **OWD** | 전 조직 baseline (바닥) | 본 노트 1~5절 |
+| **Role Hierarchy** | 수직 — 상위 역할이 하위 소유 레코드에 자동 접근 (Grant Access Using Hierarchies) | [[Roles & Role Hierarchy (역할·역할 계층)]] |
+| **Sharing Rules** | 수평·자동 — 그룹/역할/criteria 집합 단위 예외 | 본 노트 6~9절 |
+| **Manual Sharing** | 개별 레코드 단위 일회성 예외 | 본 절 |
+
+> Account 접근을 부여하면 그 account에 연결된 **opportunity·case 전부에 자동 접근**이 따라올 수 있다(연관 레코드 접근).
+
+### 10-1. 누가 수동 공유할 수 있나 (Creation of Manual Shares)
+
+다음 중 하나여야 한다.
+
+- **레코드 소유자(record owner)**
+- 계층상 **소유자보다 상위 역할**의 사용자 (org의 sharing settings가 계층을 통한 접근을 허용할 때 — Grant Access Using Hierarchies)
+- 해당 오브젝트에 **Modify All** 권한이 있는 사용자
+- **Salesforce 관리자**
+
+> ⚠️ opportunity·contact·case를 수동 공유하려면, 공유받는 사용자가 **부모 account에 최소 Read 접근**을 이미 갖고 있거나 공유하는 본인이 account도 공유할 수 있어야 한다(account 소유자·관리자·account 소유자 상위 역할·Modify All). account를 공유할 수 있는 경우, 공유받는 사용자에게 **부모 account Read가 자동 부여**된다.
+> ⚠️ account를 공유할 때 자식 opportunity·case·contact의 접근 수준은 **account 소유자의 기본 접근(OWD+역할)을 초과할 수 없다** — 관리자·Account Modify All·Modify All Data만 초과 부여 가능.
+
+### 10-2. Lightning Experience에서 수동 공유 절차 (레코드 Share/Sharing 버튼)
+
+```
+// 구조 예시 — 경로 표기(실제 동작 코드 아님)
+레코드 페이지 → Sharing 버튼 → Search 상자에 대상 입력(드롭다운으로 유형 필터)
+  → 접근 수준 선택 → Save
+  → Sharing 페이지에서 Edit(공유 대상 요약) · View Sharing Hierarchy(접근자 전체 상세)
+```
+
+1. 공유할 레코드에서 **Sharing** 을 클릭한다.
+2. **Search 상자**에 추가할 groups, users, roles, territories를 입력한다. 검색 드롭다운으로 유형을 필터링할 수 있다 — org 데이터에 따라 **Managers Groups · Manager Subordinates Groups · Public Groups · Users**(포털 사용자 제외) **· Roles · Roles and Subordinates · Roles and Internal Subordinates · Roles, Internal and Portal Subordinates · Territories · Territories and Subordinates**.
+3. 공유하는 레코드(및 본인 소유의 연관 레코드)에 대한 **접근 수준**을 선택한다.
+4. **Save** 한다.
+
+| 접근 수준 | 부여 범위 (원문 정의) |
+|---|---|
+| **Full Access** | view · edit · delete · transfer + **다른 사용자에게 공유 확장 가능**. 단 다른 사용자에게 **Full Access를 부여할 수는 없다** |
+| **Read/Write** | view + edit, 연관 레코드·note·attachment 추가 가능 |
+| **Read Only** | view + 연관 레코드 추가만. edit·note·attachment 추가 불가 |
+| **Private** | 어떤 방식으로도 레코드에 접근 불가 |
+
+> contacts OWD가 **Controlled by Parent** 이면 **Contact Access 를 사용할 수 없다** (공유 규칙과 동일).
+
+### 10-3. 수동 공유 삭제 동작 (Deletion of Manual Shares)
+
+**레코드 소유권을 이전하면, 원래 소유자가 만든 수동 공유는 삭제된다** — 사용자들이 접근을 잃을 수 있다. 추가 고려 사항:
+
+- **account 소유권 이전** 시 원래 account 소유자가 자식 **opportunity·case·contact** 레코드에 만든 수동 공유도 함께 삭제된다.
+- opportunity/case의 **부모 account가 바뀔 때**, 변경한 사용자가 새 부모 account를 공유할 수 없으면 해당 수동 공유가 삭제된다. 단 **새 부모 account 소유자·그 상위 역할·관리자**가 변경했거나 **수신자가 이미 부모 account 접근을 갖고 있으면** 삭제되지 않는다.
+- 포털/커뮤니티 사용자와 연결된 contact의 부모 account가 바뀌면, 그 사용자와 공유했던 **커스텀 오브젝트 레코드의 수동 공유**가 삭제된다.
+- opportunity가 **closed** 상태에서 부모 account 소유자가 바뀌면, **opportunity splits가 켜져 있어도** 해당 opportunity의 수동 공유가 삭제된다.
+
+**Available in:** Professional, Enterprise, Performance, Unlimited, Developer Editions. Salesforce Classic + Lightning Experience (위 절차는 Lightning Experience 기준).
+
+---
+
 ## 관련 노트
 - [[Roles & Role Hierarchy (역할·역할 계층)]] — Grant Access Using Hierarchies로 역할 계층의 자동 접근 상속을 제어(공유 모델의 수직 축)
+- [[Experience Cloud 사이트 보안 — 인증·게스트 사용자]] — guest user sharing rule로 연 read 접근의 소비 측: Secure guest user record access·update 불가 우회(without sharing)·트랜잭션 완료 후 적용 함정
 - [[레코드 액세스 설계 (Enterprise Scale)]] — OWD·공유 규칙 변경이 유발하는 **공유 재계산 성능**과 skew 함정(본 노트의 성능 짝)
 - [[Permission Set 설계]] — 오브젝트/필드 수준 명시적 접근 권한 부여(공유 모델과 상호 보완)
 - [[Scoping Rules]] — 접근은 그대로 두고 사용자가 기본으로 보는 레코드만 좁힘(공유가 접근을 확대/제한하는 것과 직교)

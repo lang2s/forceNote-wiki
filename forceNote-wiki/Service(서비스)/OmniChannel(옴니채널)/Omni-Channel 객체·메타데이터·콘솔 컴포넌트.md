@@ -1,9 +1,9 @@
 ---
-tags: [service, service-cloud, omni-channel, console, lightning-console-js-api, console-integration-toolkit, metadata-api, EOL]
-source: service_presence_developer_guide.pdf (Omni-Channel Developer Guide, v67.0 Summer '26, Tier 2)
+tags: [service, service-cloud, omni-channel, console, lightning-console-js-api, console-integration-toolkit, metadata-api, capacity, EOL]
+source: service_presence_developer_guide.pdf (Omni-Channel Developer Guide, v67.0 Summer '26, Tier 2) + service_presence_administrators.pdf (Omni-Channel for Administrators, Spring '26, Tier 2 — Capacity 모델 섹션)
 official_doc: https://developer.salesforce.com/docs/atlas.en-us.service_presence_developer_guide.meta/service_presence_developer_guide/
 created: 2026-06-20
-aliases: [Omni-Channel, Omni-Channel Objects, AgentWork, ServiceChannel, UserServicePresence, PendingServiceRouting, PresenceUserConfig, Omni-Channel Metadata API, Lightning Console JS API Omni, Console Integration Toolkit Omni, 옴니채널, 옴니채널 객체, 콘솔 메서드, 콘솔 이벤트]
+aliases: [Omni-Channel, Omni-Channel Objects, AgentWork, ServiceChannel, UserServicePresence, PendingServiceRouting, PresenceUserConfig, Omni-Channel Metadata API, Lightning Console JS API Omni, Console Integration Toolkit Omni, Capacity Weight, Capacity Percentage, Interruptible Capacity, Capacity Model, 옴니채널, 옴니채널 객체, 콘솔 메서드, 콘솔 이벤트, 에이전트 용량, 동시 작업 수]
 ---
 
 # Omni-Channel 객체·메타데이터·콘솔 컴포넌트
@@ -29,6 +29,89 @@ Omni-Channel은 정의된 라우팅 로직에 따라 work item을 큐·에이전
 - **콘솔 통합 컴포넌트** — Lightning Experience(Lightning Console JS API)와 Salesforce Classic(Console Integration Toolkit)에서 Omni-Channel을 제어하는 메서드·이벤트
 
 > 외부 라우팅(서드파티 라우팅 통합, External Routing)은 [[Omni-Channel External Routing]] 노트에서 다룬다.
+
+이에 더해 아래 **Capacity 모델** 섹션은 별도 소스인 *Omni-Channel for Administrators*(`service_presence_administrators.pdf`, Spring '26)에서 발췌해, capacity 계산·설정 방법을 다룬다.
+
+---
+
+## Capacity 모델 — 에이전트 용량 계산과 설정
+
+> 출처: `service_presence_administrators.pdf` (Omni-Channel for Administrators, Spring '26, Tier 2)
+
+### 계산 구조 한눈에
+
+capacity 계산은 두 값의 조합이다. **에이전트의 총 capacity**(Presence Configuration에서 설정) − **work item별 크기**(Routing Configuration의 Capacity Weight 또는 Capacity Percentage) = 남은 capacity. 에이전트에게 큐의 work item이 할당될 때마다 그 크기만큼 총 capacity에서 차감되고, 남은 capacity가 work item 크기 이상인 에이전트에게만 새 작업이 라우팅된다.
+
+> PDF 원문: *"The Capacity setting in the presence configuration that the agent is assigned to determines the agent's overall capacity. As agents are assigned work items from the queue, the capacity weight or percentage is deducted from the agent's overall capacity as long as they have enough capacity to cover the assigned work items."*
+
+에이전트의 **현재** capacity는 `UserServicePresence` 객체가 추적한다.
+
+### 1) 에이전트 총 capacity — Presence Configuration (객체: `PresenceUserConfig`)
+
+**Setup → Quick Find에 "Presence" 입력 → Presence Configurations**에서 설정한다. Omni-Channel을 활성화하면 **Default Presence Configuration**이 자동 생성되어 모든 에이전트가 자동 할당되며, 커스텀 configuration을 만들어 일부 에이전트를 재할당하면 Default에서 제외된다.
+
+| 설정 | 역할 (PDF Presence Configuration Settings 표) |
+|---|---|
+| **Capacity** | 에이전트의 최대 work capacity. Routing Configuration에서 지정한 work item 크기가 이 capacity를 소비한다. |
+| **Interruptible Capacity** | 에이전트가 동시에 처리할 수 있는 interruptible work의 최대량. **비워두면 Primary Capacity(= Capacity) 값과 동일하게 기본 설정**된다. |
+
+### 2) work item 크기 — Routing Configuration의 Capacity Weight vs Capacity Percentage (객체: `QueueRoutingConfig`)
+
+**Setup → Omni-Channel Routing Configurations**에서 work item 크기를 지정한다. **work unit 수(Capacity Weight) 또는 에이전트 capacity의 percentage(Capacity Percentage) 중 하나만** 쓴다(둘 다 지정 불가).
+
+| 설정 | 의미 |
+|---|---|
+| Units of Capacity for In-Progress Work Items | in-progress work item 1건이 소비하는 에이전트 총 capacity의 **unit 수** |
+| Percentage of Capacity for In-Progress Work Items | in-progress work item 1건이 소비하는 에이전트 총 capacity의 **percentage** |
+| Units / Percentage of Capacity for **Paused** Work Items | paused work item의 크기. **기본 소비 0**(pause하면 새 작업을 받을 수 있음). Paused status는 Enhanced Omni-Channel 활성화 시에만 제공 |
+
+- **계산 예시 (PDF 원문 예)**: 에이전트 capacity가 **6 work units**이고 모든 case의 capacity weight가 **2**이면 → 에이전트는 **최대 3개 case**를 동시에 처리할 수 있다. percentage 방식 예: voice call은 에이전트 capacity의 **100%**를 소비.
+- 라우팅 결정 시 Omni-Channel은 available primary/interruptible capacity를 **percentage로 검사**한다 — work unit으로 지정했으면 내부적으로 percentage로 변환해 판단한다.
+- ⚠️ **Important (PDF)**: work item 크기는 primary·interruptible capacity 값보다 **작게** 설정해야 한다. 그렇지 않으면 그 work item은 **영원히 라우팅되지 않는다**.
+- **Apex로도 설정 가능**: `CapacityWeight` 또는 `CapacityPercentage` 필드를 **PendingServiceRouting · AgentWork · ServiceChannel · QueueRoutingConfig** 레코드에 명시적으로 설정한다. (External Routing 흐름에서의 실사용 코드는 [[Omni-Channel External Routing]] 참조)
+
+```apex
+// 구조 예시 — 실제 동작 코드 아님 (PDF는 필드명만 제시: CapacityWeight·CapacityPercentage·IsInterruptible)
+PendingServiceRouting psr = new PendingServiceRouting();
+psr.CapacityWeight = 2;        // work unit 방식 — CapacityPercentage와 동시 사용 불가
+psr.IsInterruptible = true;    // 이 work item을 interruptible로 지정
+```
+
+### 3) Primary vs Interruptible capacity
+
+- **Primary(= uninterruptible) work**: 중단하면 안 되는 작업 — voice call·chat이 대표 예. `LiveChatTranscript` 레코드는 **항상 uninterruptible이며 primary capacity를 사용**한다.
+- **Interruptible work**: 더 급한 작업을 위해 잠시 미뤄둘 수 있는 작업 — 해결에 오래 걸리는 case가 예.
+- work item의 interruptible 여부는 **PendingServiceRouting 또는 AgentWork 레코드의 `IsInterruptible` 필드**가 결정하며, 3곳에서 설정할 수 있다:
+  1. **Service Channel** 설정의 Is Interruptible 체크박스
+  2. **Routing Configuration**의 **Capacity Type** — `interruptible` / `primary` / 서비스 채널에서 상속(inherited) 중 선택
+  3. **Apex** — PendingServiceRouting/AgentWork 레코드에 `IsInterruptible` 명시 설정
+
+**라우팅 규칙 (PDF 표 그대로):**
+
+| work이 … 이면 | Omni-Channel 규칙 |
+|---|---|
+| **Primary (Uninterruptible)** | 에이전트에게 **available primary capacity가 있을 때만** 할당. 이때 에이전트에게 할당된 interruptible work은 **고려하지 않는다**. |
+| **Interruptible** | **primary와 interruptible capacity가 둘 다 충분한** 에이전트만 고려. (전화 등 primary work으로 바쁜 에이전트에게 손대지 못할 interruptible work을 쌓지 않기 위해) |
+
+**PDF 예시**: 에이전트가 voice call 1건 + case 4건을 동시 처리할 수 있다면(각 work item = 1 unit 가정) → primary capacity = 1, interruptible capacity = 4로 설정하고, 서비스 채널에서 voice = uninterruptible, case = interruptible로 지정한다. case 4건이 할당돼 interruptible이 가득 차도, primary capacity가 남아 있으므로 voice call은 즉시 할당된다.
+
+**PDF 예시 2** (primary 5·interruptible 5, lead = uninterruptible·case = interruptible): case 5건 작업 중인 에이전트(interruptible 소진)에게도 lead는 할당된다(primary 여유). 반대로 lead 5건 작업 중인 에이전트(primary 소진)에게는 case가 할당되지 않는다 — interruptible work은 **양쪽** capacity가 모두 필요하기 때문.
+
+에이전트별 primary·interruptible capacity 현황은 Omni Supervisor의 **Agents 탭**에서 확인한다.
+
+### 4) capacity 판정 방식 2종 — Tab-Based vs Status-Based
+
+| 모델 | capacity 판정 기준 | 해제 시점 |
+|---|---|---|
+| **Tab-Based** | 에이전트 Omni-Channel 세션에 열려 있는 **콘솔 tab 수** | tab을 닫으면 close로 간주. 로그아웃하면 할당된 모든 work이 closed 처리되어 capacity 리셋. standard navigation 앱 미지원 |
+| **Status-Based** | 할당된 work item의 **status** | tab을 닫거나 로그아웃해도 work이 completed status가 될 때까지 capacity 유지. pause 가능(Enhanced Omni-Channel). **Voice 미지원** |
+
+- Status-Based 활성화: **Setup → Omni-Channel Settings → Enable Status-Based Capacity Model** 체크 → 각 **Service Channel**에서 Status-Based 모델 선택 + status 추적용 picklist 필드와 completed/paused/in-progress 값 매핑.
+- 상한: 에이전트는 동시에 **최대 100개 work item**을 가질 수 있다(tab-based는 tab 100개, status-based는 paused+in-progress 포함). Omni-Channel 컴포넌트에는 처음 20개만 표시된다.
+
+### 5) capacity 기반 라우팅 모델 (Least Active vs Most Available)
+
+Routing Configuration의 라우팅 모델 옵션 중 **Least Active**는 사용 중(used) capacity가 가장 적은 에이전트에게, **Most Available**은 남은(available) capacity가 가장 큰 에이전트에게 라우팅한다(동률이면 가장 오래 작업을 못 받은 에이전트). PDF 예: A(총 5, 사용 3)·B(총 10, 사용 5)일 때 — Least Active는 사용량이 적은 **A**(3<5), Most Available은 여유가 큰 **B**(10−5=5 > 5−3=2)를 선택한다.
 
 ---
 
@@ -211,6 +294,8 @@ sforce.console.addEventListener(
 
 ## 관련 노트
 - [[Omni-Channel External Routing]]
+- [[Omni-Channel 라우팅 유형 — Queue 기반 vs Skills 기반]] — QueueRoutingConfig·SkillRequirement 등 객체의 라우팅 개념·설정·선택 기준
 - [[Lightning Console JS API]]
 - [[Service Cloud Objects]]
 - [[Tooling API 객체 — Service·OmniChannel (라우팅·대화채널·서비스카탈로그·스케줄링)]] — Omni-Channel 설정 sObject의 Tooling API facet (ServiceChannel·QueueRoutingConfig·ServicePresenceStatus 등)
+- [[Case Assignment & Escalation Rules (케이스 배정·에스컬레이션 규칙)]] — Assignment Rule → Omni 큐 실행 순서·조합 패턴

@@ -36,7 +36,7 @@ created: 2026-05-21
 | 키워드 | 파일 |
 |---|---|
 | @wire, wire 어댑터, cacheable, 자동 데이터 로드, reactive property, $변수 | `LWC/ApexIntegration(Apex통합)/Wire 패턴.md` |
-| wire vs imperative, 언제 wire, 언제 직접 호출 | `LWC/ApexIntegration(Apex통합)/Wire vs Imperative 선택.md` |
+| wire vs imperative, 언제 wire, 언제 직접 호출, wire 파라미터 undefined, wire 호출 보류, $변수 undefined, wire가 실행 안 됨 | `LWC/ApexIntegration(Apex통합)/Wire vs Imperative 선택.md` |
 | imperative, async await, 버튼 클릭 호출, 직접 Apex 호출, isLoading | `LWC/ApexIntegration(Apex통합)/Imperative 호출 패턴.md` |
 
 ## LWC — 컴포넌트 통신 / 이벤트
@@ -59,7 +59,7 @@ created: 2026-05-21
 | UI API, User Interface API, ui-api, REST 엔드포인트, wire 어댑터 목록, uiRecordApi 모듈, uiObjectInfoApi, uiListsApi, uiRelatedListApi, RecordUI, ObjectInfo, getRelatedListInfo, getRelatedListRecords, getObjectInfo, getObjectInfos, getListUi, getListRecords, LDS REST API 전체 | `LWC/LDS/UI API 개요.md` |
 | UI API reference, record-input, object-info fields, request body, response body, layoutTypes, optionalFields, childRelationships, picklist values 스키마, UI API 응답 바디, UI API 요청 파라미터, 레코드 인풋 | `LWC/LDS/UI API 리소스 레퍼런스.md` |
 | lightning-record-form, record-edit-form, record-view-form, 레코드 폼 선택 | `LWC/LDS/Record Form 선택.md` |
-| getRecord, getFieldValue, static schema, @salesforce/schema | `LWC/LDS/getRecord 패턴.md` |
+| getRecord, getFieldValue, static schema, @salesforce/schema, layoutTypes, modes, 레이아웃 필드, 레이아웃 기반 레코드 조회 | `LWC/LDS/getRecord 패턴.md` |
 | createRecord, updateRecord, deleteRecord, uiRecordApi, notifyRecordUpdateAvailable, 레코드 생성 수정 삭제, LWC에서 DML | `LWC/LDS/uiRecordApi.md` |
 | reduceErrors, 에러 정규화, ldsUtils | `LWC/LDS/ldsUtils reduceErrors.md` |
 | getPicklistValues, Picklist 옵션 로드, 동적 Picklist, 종속 Picklist, validFor, controllerValues, LWC에서 콤보박스 옵션 | `LWC/LDS/getPicklistValues 패턴.md` |
@@ -129,9 +129,10 @@ created: 2026-05-21
 | 키워드 | 파일 |
 |---|---|
 | Aura 컴포넌트, aura:component, .cmp, Controller.js, Helper.js, aura:attribute, aura:handler, aura:registerEvent, Aura 번들 구조, aura:iteration, aura:if | `Aura(오라)/Aura 컴포넌트 구조.md` |
-| Aura 이벤트, Component Event, Application Event, aura:registerEvent, aura:handler, $A.get, force:navigateToSObject, force:showToast, 시스템 이벤트 init change render | `Aura(오라)/Aura 이벤트.md` |
+| Aura 이벤트, Component Event, Application Event, aura:registerEvent, aura:handler, $A.get, force:navigateToSObject, force:showToast, 시스템 이벤트 init change render, getParam undefined, 이벤트 전파 단계, capture bubble, stopPropagation, preventDefault, includeFacets | `Aura(오라)/Aura 이벤트.md` |
 | Aura vs LWC, Aura 마이그레이션, Aura 비교, 언제 LWC 언제 Aura, Aura 레거시, LWC 우선 정책 | `Aura(오라)/Aura vs LWC.md` |
 | Aura to LWC, Aura LWC 마이그레이션, migrate aura, 번들 파일 매핑, cmp html, aura:attribute @api, controller helper renderer 하나의 js, Aura가 LWC 포함, 상호운용, Aura 컴포넌트를 LWC로 전환, 마이그레이션 치트시트 | `Aura(오라)/Aura → LWC 마이그레이션.md` |
+| ui namespace deprecated, ui 네임스페이스 deprecated, ui:inputText 대체, ui:button 대체, ui:outputText 대체, ui:menu 대체, ui 컴포넌트 대체, Aura ui deprecated, ui to lightning migration, ui 컴포넌트 lightning 매핑, ui 컴포넌트 뭘로 바꿔, ui 컴포넌트 지원 종료 | `Aura(오라)/ui 네임스페이스 Deprecated — lightning 대체 매핑.md` |
 | lightning:quickActionAPI, Sfdc.canvas.publisher, getAvailableActions, setActionFieldValues, publisher.selectAction, Quick Action JS API, Publisher JS API, 퀵액션 자바스크립트 API, Aura에서 퀵액션 제어, 케이스피드 액션 호출 | `Aura(오라)/Quick Action·Publisher JS API 레퍼런스.md` |
 | apex:emailPublisher, apex:logCallPublisher, support:portalPublisher, support:caseArticles, support:CaseFeed, chatter:feed, Case Feed Visualforce, 케이스피드 커스터마이즈, VF 이메일 액션, 표준 케이스피드 복제, verticalResize, categoryMappingEnabled, insertLinkToEmail, VF 컴포넌트 속성표 | `Aura(오라)/Case Feed Visualforce 커스터마이즈.md` |
 | forceCommunity:availableForAllPageTypes, forceCommunity:availableForRecordHome, forceCommunity:layout, forceCommunity:themeLayout, themeLayout, Experience Builder Aura 컴포넌트, Experience Builder Aura 사이트 개발, 커스텀 테마 레이아웃, swappable 검색/프로필 메뉴, Aura 사이트 expression, {!CurrentUser} {!Route}, design resource Experience Builder, Personalization Target, 개인정보 표시 설정, PII 숨기기 Experience, UserPreferencesShowEmailToGuestUsers, Aura 컴포넌트를 Experience Builder용으로 만들려면, Experience Cloud Aura 사이트 어떻게 개발 | `Aura(오라)/Experience Builder Aura 사이트 개발.md` |
@@ -152,11 +153,12 @@ created: 2026-05-21
 | 멀티 패키지, sfdx-project.json, 도메인별 패키지 | `Flow/멀티 패키지 구조.md` |
 | AggregateRecordList, FilterRecords, DedupeRecordList, Flow 컬렉션 조작, Flow 리스트 필터 집계 정렬 | `Flow/Flow 레코드 컬렉션 조작.md` |
 | ExecuteSOQLQuery, SaveRecordsAsync, Flow 동적 SOQL, Flow 비동기 저장, IsRecordLocked, SetRecordLock, 레코드 잠금 | `Flow/Flow 데이터 & 보안 액션.md` |
-| quickChoice, Flow Screen 선택기, render() 멀티 템플릿, Custom Property Editor, 카드 라디오 드롭다운 Flow | `Flow/quickChoice Screen Component.md` |
+| quickChoice, Flow Screen 선택기, render() 멀티 템플릿, Custom Property Editor, 카드 라디오 드롭다운 Flow, CPE, builderContext, inputVariables, configuration_editor_input_value_changed, 커스텀 프로퍼티 에디터, Flow Builder 커스텀 설정 UI | `Flow/quickChoice Screen Component.md` |
 | CalculateBusinessHours, 영업시간 계산, GetRandomValue, FormatStringListAsCsv, PostRichChatter, GenerateFlowLink, LaunchAutolaunchedFlow | `Flow/Flow 유틸리티 액션 모음.md` |
 | Flow 이름 규칙, Flow 네이밍, API 이름 접두어, Get_ Update_ Insert_ APEX_ SUB_ SC01_, Flow 요소 이름, 이벤트 약어 BI BU AI AU BD | `Flow/Flow 네이밍 컨벤션.md` |
 | Flow 에러 처리, faultConnector, FaultMessage, Flow fault, Flow 오류 화면, Flow 에러 이메일, 에러 로그 레코드 | `Flow/Flow 에러 처리.md` |
 | Flow 베스트 프랙티스, Fast Field Update, Flow 바이패스, 하드코딩 ID 금지, Flow 거버너, Mixed DML, Asynchronous Path, Flow 서킷 브레이커, Entry Criteria, Flow Trigger Explorer | `Flow/Flow 설계 베스트 프랙티스.md` |
+| Flow vs Apex Trigger, Record-Triggered Flow vs Apex, Apex vs Flow, 트리거 자동화 선택, 자동화 밀도, automation density, record-triggered automation decision, 트리거 선택 기준, Flow로 할까 Apex로 할까, 하이브리드 패턴, Flow Apex 혼용, Invocable Apex 오프로딩, 자동화 결정 가이드 | `Flow/Record-Triggered Flow vs Apex Trigger 선택.md` |
 | availableForFlowActions, Flow local action, Aura local action, invoke method, lightning:navigation, navService.navigate, PageReference types, standard__recordPage, standard__objectPage, standard__navItemPage, force:utilityBarAPI, lightning:utilityBarAPI, minimizeUtility, getUtilityInfo, Flow 로컬 액션, 플로우 클라이언트 액션, Flow에서 페이지 이동, 유틸리티바 최소화, Screen Flow 네비게이션, Flow에서 레코드로 이동하려면, Flow에서 유틸리티바 닫는 법, 로컬 액션 vs 인보커블 | `Flow/Aura Flow 로컬 액션 (availableForFlowActions).md` |
 
 ---

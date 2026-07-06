@@ -22,6 +22,7 @@ aliases: [Flow MOC, Flow Index]
 
 - [[Screen Flow 설계]] — 다단계 마법사 UI, 내장 컴포넌트(flowruntime:address/lookup), LWC 삽입, 오류 화면
 - [[Autolaunched Flow 패턴]] — 헤드리스 로직, 레코드 CRUD, Apex/Agent에서 호출
+- [[Record-Triggered Flow vs Apex Trigger 선택]] — 레코드 자동화를 Flow로 할지 Apex로 할지, 자동화 밀도(automation density) 휴리스틱·역량 비교 매트릭스·하이브리드 패턴(Flow + Invocable Apex)·비동기 오프로딩
 
 ## Apex & LWC 연동
 

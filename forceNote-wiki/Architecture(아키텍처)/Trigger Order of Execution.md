@@ -99,4 +99,5 @@ trigger TriggerName on ObjectName (trigger_events) {
 - [[Validation Rules 예제]] — 2·5·11b 단계에서 실행되는 custom validation rules 작성 예제
 - [[Trigger 벌크 관용구·미발생 작업·예외]] — 트리거 미발생 시스템 작업·벌크 관용구·`addError()` 예외 마킹
 - [[Apex 버전별 동작 변경 레퍼런스]] — API v53.0 이하 after-save flow·entitlement 실행 순서 등 버전 게이트 동작 카탈로그
+- [[Record-Triggered Flow vs Apex Trigger 선택]] — 이 저장 순서에 올라탈 자동화를 Flow로 만들지 Apex로 만들지 결정 기준 (자동화 밀도)
 - (외부) Salesforce Help: Triggers for Autolaunched Flows

@@ -2,7 +2,7 @@
 tags: [Agentforce, AgentScript, actions, 액션, reference]
 source: AgentScriptDocs (Salesforce Agent Script Developer Guide, 2026-06-17판) — agent-script/reference/ascript-ref-actions.md + agent-script-recipes-main/force-app/main/02_actionConfiguration/{promptTemplateActions,customLightningTypes}/aiAuthoringBundles/*/*.agent (실전 예시)
 created: 2026-06-30
-aliases: [AgentScript actions, 액션, action target, apex://, flow://, prompt://, parameter types, 파라미터 타입, Action Properties, inputs, outputs, filter_from_agent, is_displayable, is_used_by_planner, is_user_input, progress_indicator_message, "AgentScript에서 액션을 어떻게 정의하나", "action target URI는 뭐가 있나", "apex flow prompt 호출", "액션 출력을 사용자에게 표시", "플래너가 액션 생성물을 직접 사용"]
+aliases: [AgentScript actions, 액션, action target, apex://, flow://, prompt://, parameter types, 파라미터 타입, Action Properties, inputs, outputs, filter_from_agent, is_displayable, is_used_by_planner, is_user_input, progress_indicator_message, "AgentScript에서 액션을 어떻게 정의하나", "action target URI는 뭐가 있나", "apex flow prompt 호출", "액션 출력을 사용자에게 표시", "플래너가 액션 생성물을 직접 사용", "액션이 호출되지 않을 때", "액션 인식 안 될 때", 액션 트러블슈팅]
 ---
 
 # Agent Script 레퍼런스 — 액션 (apex·flow·prompt)
@@ -367,6 +367,35 @@ Agent Script에는 두 개의 `actions` 블록이 있다. 혼동을 피하기 �
 | Reasoning actions (= Tools) | `subagent.reasoning.actions` | LLM이 주관적으로 선택, prompt에서 `{!@actions.<name>}` 참조 가능 | LLM이 resolved prompt 받을 때(파싱 시 아님) |
 
 > tool(reasoning.actions)의 상세 문법과 `@utils` 함수는 [[Agent Script 레퍼런스 — 툴과 유틸 (@utils·tool 문법)]]에서 다룬다.
+
+---
+
+## 트러블슈팅 — 액션이 호출되지 않을 때
+
+배포까지 했는데 에이전트가 액션을 인식/호출하지 않으면 아래를 순서대로 점검한다.
+
+```
+□ ① 액션이 LLM에게 노출됐는가 — subagent.actions에 정의만 하면 LLM은 쓸 수 없다.
+     reasoning.actions에 tool로 노출했거나(LLM 선택 호출),
+     reasoning instructions에서 run @actions.<name>으로 결정적 호출을 걸었는지 확인.
+     (위 "액션 사용하기" / "Subagent actions vs Reasoning actions" 절)
+□ ② available when 조건 미충족으로 툴이 숨겨진 건 아닌가 —
+     available when 뒤 conditional expression이 False면 LLM에게 툴이 가용하지 않다.
+     조건에 쓰인 @variables 값이 실제 세션에서 채워지는지 확인.
+     → 문법·조건 정의는 [[Agent Script 레퍼런스 — 툴과 유틸 (@utils·tool 문법)]]
+□ ③ 이름·description이 모호하지 않은가 — LLM은 툴 호출을 결정할 때 모든 툴의
+     이름과 description을 본다. 의미 있는 이름·description을 부여하고, 필요하면
+     reasoning instructions에서 {!@actions.<name>}로 명시 참조해 context를 더 준다.
+□ ④ 배포 시 GenAiFunction + invocationTarget 대상이 동반 배포됐는가 —
+     GenAiFunction의 invocationTarget이 가리키는 ApexClass/Flow가 같은
+     package.xml에 없으면 배선이 끊긴다.
+     → 매니페스트 구성·번들 구조는 [[Agent Script 메타데이터 배포 (DX·패키징)]]
+□ ⑤ agent user 권한 — agent user가 액션이 접근하는 대상 객체/필드에 충분한
+     권한(예: custom 필드 view 권한)을 갖는지 확인.
+     → [[Agent Script 메타데이터 배포 (DX·패키징)]]
+```
+
+①은 이 노트 소관(정의 ≠ 노출), ②·③은 툴 노트, ④·⑤는 배포 노트가 상세 소관이다.
 
 ---
 

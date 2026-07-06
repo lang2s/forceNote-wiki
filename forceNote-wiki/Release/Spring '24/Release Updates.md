@@ -137,3 +137,4 @@ aliases: [Spring '24 Release Updates, 스프링 24 강제 적용, Release Update
 - [[Spring '24]] — 상위 릴리즈 허브
 - [[Spring '24/Development]] — 개발자 대상 변경(Apex·Flow·API 등). 다수 Release Update의 영향 영역
 - [[Spring '24/Einstein]] — AI/Einstein 관련 변경. Conversation Intelligence·EmailSimple 등과 연계
+- [[Email-to-Case & Web-to-Case (이메일·웹 투 케이스)]] — Disable Ref ID 스레딩 전환 RU의 대상 기능 (스레딩 동작 원리·원인 체크리스트)

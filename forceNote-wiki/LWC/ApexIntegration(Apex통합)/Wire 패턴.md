@@ -1,8 +1,8 @@
 ---
 tags: [lwc, apex, wire, reactive, pattern]
-source: lwc-recipes/apexWireMethodToProperty, apexWireMethodToFunction, apexWireMethodWithParams
+source: lwc-recipes/apexWireMethodToProperty, apexWireMethodToFunction, apexWireMethodWithParams + developer.salesforce.com (LWC Developer Guide — refreshApex, Tier 2)
 created: 2026-05-17
-aliases: [@wire, Wire 어댑터, Reactive Property]
+aliases: [@wire, Wire 어댑터, Reactive Property, refreshApex function 바인딩, wire 새로고침 안 됨]
 ---
 
 # Wire 패턴
@@ -69,6 +69,47 @@ wiredContacts({ error, data }) {
 | 데이터 변환 | ❌ | ✅ |
 | 템플릿 접근 | `{contacts.data}` | `{contacts}` |
 | 선택 기준 | 단순 표시 | 가공 필요 시 |
+
+### Function 바인딩 + refreshApex — provisioned 결과 전체를 보관해야 함
+
+`refreshApex()`의 인자는 **wire 서비스가 provision한 결과 전체**(`{valueProvisionedByApexWireService}`)다.
+
+- **Property 바인딩**은 프로퍼티 자체가 그 결과이므로 `refreshApex(this.contacts)`처럼 그대로 넘기면 된다.
+- **Function 바인딩**은 함수가 결과를 받고 사라지므로, `{ error, data }`로 구조 분해해 `data`만 저장하면 **refreshApex에 넘길 provisioned 결과가 남지 않는다** — 실무 최다 실패 케이스.
+
+Function 바인딩에서는 함수 인자를 구조 분해하지 말고 **result 전체를 별도 프로퍼티에 저장**한 뒤 그 프로퍼티를 넘긴다.
+
+```javascript
+// 구조 예시 — 실제 동작 코드 아님
+import { refreshApex } from '@salesforce/apex';
+
+export default class ContactList extends LightningElement {
+    contacts;
+    error;
+    wiredResult; // provisioned 결과 전체 보관용
+
+    @wire(getContactList)
+    wiredContacts(result) {
+        this.wiredResult = result; // ✅ result 전체를 먼저 저장
+        const { error, data } = result;
+        if (data) {
+            this.contacts = data;
+            this.error = undefined;
+        } else if (error) {
+            this.error = error;
+            this.contacts = undefined;
+        }
+    }
+
+    async handleRefresh() {
+        await refreshApex(this.wiredResult); // ✅ 저장해 둔 결과 전체를 전달
+    }
+}
+```
+
+> [!warning] `.data`를 넘기면 동작하지 않음
+> `refreshApex(this.contacts)`(data만 저장한 프로퍼티)나 `refreshApex(result.data)`처럼 **데이터 페이로드만 넘기면 refresh가 일어나지 않는다.** wire 서비스가 캐시를 식별하는 메타데이터는 provisioned 결과 객체 전체에 들어 있기 때문. 반드시 `@wire` 프로퍼티 자체(property 바인딩) 또는 함수가 받은 인자 전체(function 바인딩)를 넘긴다.
+> 또한 **비-Apex wire 어댑터**(예: `getRecord`)의 refresh에 `refreshApex`를 쓰는 것은 deprecated — record 데이터는 `notifyRecordUpdateAvailable(recordIds)`를 사용한다. import 문법·인자 상세는 [[@salesforce Modules 레퍼런스]] 참조.
 
 ---
 

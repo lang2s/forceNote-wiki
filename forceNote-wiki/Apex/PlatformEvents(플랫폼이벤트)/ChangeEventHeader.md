@@ -1,6 +1,6 @@
 ---
 tags: [apex, platform-events, cdc, change-data-capture, change-event-header, eventbus]
-source: salesforce_apex_reference_guide (Version 67.0, Summer '26) · Change Data Capture Developer Guide (developer.salesforce.com/docs/atlas.en-us.change_data_capture.meta — cdc_trigger_intro, Tier 2)
+source: salesforce_apex_reference_guide (Version 67.0, Summer '26) · Change Data Capture Developer Guide (developer.salesforce.com/docs/atlas.en-us.change_data_capture.meta — cdc_trigger_intro·cdc_subscribe_channels, Tier 2)
 created: 2026-05-17
 aliases: [ChangeEventHeader, CDC, Change Data Capture, 변경 데이터 캡처, changetype, recordids]
 ---
@@ -27,6 +27,18 @@ Setup → Change Data Capture → Edit
 ```
 
 **하드 한도:** 이 화면에서 선택할 수 있는 엔티티는 **표준 + 커스텀 합쳐 최대 5개**다. 더 많은 엔티티에 CDC가 필요하면 추가 Change Data Capture 라이선스가 필요하다.
+
+### 구독 채널명 형식 (CometD / Pub/Sub API)
+
+외부 클라이언트가 CDC 이벤트를 구독할 때 쓰는 채널명 형식 (CDC Developer Guide — Subscription Channels, Tier 2):
+
+| 대상 | 채널명 형식 | 예시 |
+|---|---|---|
+| 표준 오브젝트 | `/data/{Object}ChangeEvent` | `/data/AccountChangeEvent` |
+| 커스텀 오브젝트 (`__c` → `__ChangeEvent`) | `/data/{Object}__ChangeEvent` | `Employee__c` → `/data/Employee__ChangeEvent` |
+| 전체 (선택된 모든 엔티티) | `/data/ChangeEvents` | 표준 채널 하나로 선택된 엔티티 전부 수신 |
+
+**지원 객체 확인 방법:** 모든 객체가 CDC를 지원하는 것은 아니다 — Setup의 Change Data Capture 화면에 뜨는 **Available Entities 목록에 있는 객체가 곧 그 org에서 CDC를 지원하는 객체**다(목록에 없으면 선택 불가 = 미지원). 지원 오브젝트 전수 목록은 [[ChangeEvent Objects]] 참조.
 
 > 커스텀 채널로 엔티티를 구성하는 메타데이터 방식(PlatformEventChannel·PlatformEventChannelMember)은 [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] 참조.
 
@@ -182,6 +194,7 @@ static void testCDCTrigger() {
 ## 관련 노트
 
 - [[Platform Event 발행]] — Platform Event 발행·수신 기본 패턴
+- [[Platform Event 한도와 고려사항]] — PE vs CDC 선택 기준 상세표 + 에디션별 발행·전달 할당량(둘이 전달 할당량 공유)
 - [[Batch Apex]] — CDC 이벤트를 Batch에서 처리하는 패턴
 - [[Queueable]] — CDC 트리거에서 비동기 처리 위임
 - [[EventBus Namespace]] — EventBus.publish 메서드 서명, TriggerContext, RetryableException 상세

@@ -119,6 +119,18 @@ Visualforce **page definition**은 두 가지 주요 요소로 구성된다.
 | `apex:message` | Use `lightning-messages` in `lightning-record-view-form` or `lightning-record-edit-form` |
 | `apex:pageMessages` | Automatic for `lightning-record-form` |
 
+### AJAX·rerender 패턴 대응 (컴포넌트 매핑 표 밖의 동작 패턴)
+
+위 표는 **컴포넌트** 단위 매핑이다. VF의 AJAX/부분 새로고침 **패턴**(예: `apex:inputField` + `reRender` 조합)은 컴포넌트 치환이 아니라 모델 전환으로 대응한다.
+
+| VF 패턴 | LWC 대응 |
+|---|---|
+| `reRender` (부분 새로고침) | **반응형 프로퍼티 자동 리렌더** — 템플릿이 참조하는 프로퍼티가 바뀌면 프레임워크가 해당 부분만 다시 그림. rerender 대상 지정 코드 자체가 불필요 |
+| `apex:actionFunction` / `apex:actionSupport` | 템플릿 **이벤트 핸들러**(`onchange` 등) + **imperative Apex 호출** |
+| 서버 데이터 재조회 후 반영 | `refreshApex()` (Apex `@wire` 재조회) · `RefreshViewEvent` (뷰 계층 갱신) — [[RefreshView API]] |
+
+> 각 패턴의 전체 코드·폴링(`apex:actionPoller`→`setInterval`/`empApi`)·`actionStatus`·`actionRegion` 대응 상세는 [[VF AJAX 패턴 → LWC 대응]] 참조.
+
 ---
 
 ## 3. 권한·아키텍처·버전 관리
@@ -1095,3 +1107,4 @@ external domain에 VF 페이지를 framing하는 HTML:
 - [[표준 컨트롤러·표준 리스트 컨트롤러]]
 - [[커스텀 컨트롤러·컨트롤러 확장]]
 - [[apex 컴포넌트 — 페이지·레이아웃 구조]] — `apex:page`·`apex:pageBlock` 등 마크업 컴포넌트 레퍼런스
+- [[VF AJAX 패턴 → LWC 대응]] — 위 매핑 표에 없는 AJAX/액션 계열(actionPoller·actionFunction·actionSupport·reRender)의 LWC 대응

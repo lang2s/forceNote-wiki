@@ -493,6 +493,7 @@ cometd.registerExtension('myReplayExtensionName', replayExtension);
 
 ## 관련 노트
 - [[Omni-Channel 객체·메타데이터·콘솔 컴포넌트]]
+- [[Omni-Channel 라우팅 유형 — Queue 기반 vs Skills 기반]] — 라우팅 4유형 비교·선택 기준 (External Routing의 위치 짚기)
 - [[ChangeEventHeader]]
 - [[ChangeEvent Objects]]
 - [[Platform Event 통합 패턴]]

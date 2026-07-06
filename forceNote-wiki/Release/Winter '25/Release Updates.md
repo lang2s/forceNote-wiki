@@ -195,3 +195,4 @@ import { NavigationMixin } from 'lightning/navigation';
 - [[Winter '25]] — Winter '25 허브
 - [[Winter '25/Development]] — Apex·LWC·API 개발자 항목 형제 spoke
 - [[Winter '25/Platform]] — Platform 형제 spoke (Flow and Process Release Updates 클러스터 상세 포함)
+- [[Email-to-Case & Web-to-Case (이메일·웹 투 케이스)]] — Disable Ref ID 스레딩 전환 RU의 대상 기능 (secure token 매칭 순서 상세)

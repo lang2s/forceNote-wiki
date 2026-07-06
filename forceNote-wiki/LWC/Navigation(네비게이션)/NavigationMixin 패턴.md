@@ -32,6 +32,59 @@ export default class NavComponent extends NavigationMixin(LightningElement) {
 
 ---
 
+## GenerateUrl 활용 — 앵커 href 바인딩 & 새 탭 열기
+
+> **왜 Promise인가:** `GenerateUrl`은 pageReference를 클라이언트 라우터가 **비동기로 URL 해석(resolve)** 하기 때문에 문자열이 아니라 Promise를 반환한다 → `await` 또는 `.then()`으로 받아야 한다.
+
+### ① 앵커 태그 href 바인딩 (lwc-recipes navToRecord 원형)
+
+`connectedCallback`에서 미리 URL을 생성해 프로퍼티에 저장 → 템플릿 `<a href={url}>`에 바인딩. 사용자가 우클릭 "새 탭에서 열기"·URL 복사를 할 수 있고, 일반 클릭은 `Navigate`로 SPA 내 이동 처리한다.
+
+```html
+<!-- 구조 예시 — 실제 동작 코드 아님 -->
+<a href={url} onclick={handleClick}>레코드 열기</a>
+```
+
+```javascript
+// 구조 예시 — 실제 동작 코드 아님
+url;
+recordPageRef;
+
+connectedCallback() {
+    this.recordPageRef = {
+        type: 'standard__recordPage',
+        attributes: { recordId: this.recordId, actionName: 'view' }
+    };
+    this[NavigationMixin.GenerateUrl](this.recordPageRef)
+        .then((url) => { this.url = url; });   // Promise — 비동기 URL 해석
+}
+
+handleClick(event) {
+    event.preventDefault();   // 브라우저 기본 이동 차단
+    event.stopPropagation();
+    this[NavigationMixin.Navigate](this.recordPageRef); // SPA 내 이동
+}
+```
+
+### ② 새 탭으로 열기 (window.open)
+
+이벤트 핸들러에서 URL을 `await`로 받은 뒤 `window.open(url, '_blank')`.
+
+```javascript
+// 구조 예시 — 실제 동작 코드 아님
+async openInNewTab() {
+    const url = await this[NavigationMixin.GenerateUrl]({
+        type: 'standard__recordPage',
+        attributes: { recordId: this.recordId, actionName: 'view' }
+    });
+    window.open(url, '_blank');   // 새 탭
+}
+```
+
+> 콘솔 앱에서 "새 탭"은 브라우저 탭이 아니라 워크스페이스 탭이 자연스러울 수 있다 — 그 경우 아래 [[#Workspace API (콘솔 환경)]]의 `openTab`을 사용.
+
+---
+
 ## pageReference 타입별 사용법
 
 ### 기존 레코드 보기

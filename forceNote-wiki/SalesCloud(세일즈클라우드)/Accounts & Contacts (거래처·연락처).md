@@ -25,9 +25,13 @@ Business account는 회사 단위로 거래하는 B2B 시나리오에, person ac
 
 ### ⚠️ 전제조건 — Person Accounts 활성화 (비가역)
 
-Person account는 조직에 **기본 제공되지 않는다.** 사용하려면 먼저 Salesforce가 기능을 **명시적으로 활성화(enable)** 해야 하며, 활성화 전에 아래 전제조건을 충족해야 한다.
+Person account는 조직에 **기본 제공되지 않는다.** 사용하려면 먼저 Salesforce가 기능을 **명시적으로 활성화(enable)** 해야 하며, 활성화 전에 아래 전제조건 3가지를 모두 충족해야 한다. (근거: help.salesforce.com — Enable Person Accounts, Tier 2)
 
-- **계정 record type이 1개 이상** 존재해야 한다 (Person account를 위한 record type 구성이 필요).
+1. **계정 record type이 1개 이상** 존재해야 한다 (Person account를 위한 record type 구성이 필요).
+2. **Contact OWD(조직 전체 공유 기본값)가 "Controlled by Parent"** 이거나, **Account와 Contact의 OWD가 모두 "Private"** 이어야 한다. (Person account는 account+contact가 한 레코드로 합쳐지므로 두 오브젝트의 공유 모델이 충돌하면 안 된다.)
+3. **Account에 대한 Read 권한을 가진 모든 프로파일이 Contact에 대한 Read 권한도 보유**해야 한다.
+
+**활성화 요청 경로:** 전제조건을 갖춘 뒤 **Salesforce Support에 케이스를 제출**해 활성화를 요청하거나, 지원되는 경우 **Setup의 Person Accounts 설정** 페이지에서 직접 활성화한다.
 
 > [!warning] 한 번 활성화하면 되돌릴 수 없다 — 영구적
 > Person Accounts는 **한 번 활성화하면 비활성화(disable)할 수 없다.** 이 변경은 영구적이므로, 프로덕션 조직에서 활성화하기 전 반드시 데이터 모델·보안·통합 영향을 검토하고 sandbox에서 먼저 테스트한다. (근거: Salesforce Help — Enable Person Accounts / Cannot disable Person Accounts)

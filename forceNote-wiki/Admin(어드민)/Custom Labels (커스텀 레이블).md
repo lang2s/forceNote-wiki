@@ -33,6 +33,25 @@ Custom label을 여러 언어로 번역하려면 아래 3단계 절차의 **3단
 2. **New**를 눌러 새 레이블 생성 — name, value, categories 지정
 3. **Translation Workbench**로 각 언어별 번역을 추가 (위 "전제조건" — Translation Workbench 활성화 + 언어 활성이 선행돼야 함)
 
+### 번역 값 입력 — 구체 클릭 경로 (3단계 상세)
+
+Translation Workbench 활성화 + 언어 활성이 끝난 뒤, 실제 번역 값은 아래 두 경로 중 하나로 입력한다.
+
+**(a) Translate 화면에서 일괄 입력 (기본 경로)**
+
+1. Setup → Quick Find에 **"Translate"** 입력 → **Translation Workbench > Translate** 선택
+2. **Language**에서 번역할 언어(예: 한국어) 선택
+3. **Setup Component**에서 **"Custom Label"** 선택
+4. 아래 표에 custom label 목록이 나오면 각 행의 **Translation 열**을 더블클릭해 번역 값 입력 → **Save**
+
+**(b) 레이블 상세 페이지에서 개별 입력 (대안 경로)**
+
+1. Setup → **Custom Labels** → 번역할 레이블 이름 클릭 (상세 페이지)
+2. **Translations** 관련 목록에서 **New** 클릭
+3. Language(활성 언어 중 선택)와 Translation Text 입력 → **Save**
+
+> 어느 경로든 Translation Workbench가 활성화돼 있고 해당 언어가 Active여야 입력 가능하다.
+
 ## 한도
 
 | 항목 | 한도 |

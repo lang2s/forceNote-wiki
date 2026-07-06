@@ -61,6 +61,8 @@ created: 2026-05-17
 - [[Datacloud Namespace]] — Duplicate Management Apex — FindDuplicates/FindDuplicatesByIds, DuplicateResult, MatchRecord (이름 주의: Salesforce Data Cloud 제품과 무관)
 - [[Wave Namespace]] — CRM Analytics SDK — QueryBuilder/QueryNode/ProjectionNode로 SAQL 쿼리 빌드·실행, Templates 조회
 - [[Apex에서 Salesforce Files 다루기 (ContentVersion·ContentDistribution)]] — ContentVersion 파일 생성·ContentDocumentLink 레코드 첨부·ContentDistribution 인증 없는 공개 URL 배포(VersionData/PathOnClient/ShareType/Visibility)
+- [[Mixed DML 제약과 우회]] — setup 오브젝트(User·PermissionSet)와 일반 오브젝트를 한 트랜잭션에서 DML 시 MIXED_DML_OPERATION, System.runAs(테스트)·@future/Queueable(런타임) 분리 우회
+- [[JSON 직렬화 심화 — JSONParser·JSONGenerator·예약어 충돌]] — JSON 필드명이 Apex 예약어(from/case/currency)일 때 우회 4패턴(deserializeUntyped·JSONParser·문자열 치환·JSONGenerator) + System.JSON/JSONParser/JSONGenerator/JSONToken 전수 레퍼런스
 
 ## ⚡ 비동기
 
@@ -74,6 +76,7 @@ created: 2026-05-17
 ## 🌐 통합
 
 - [[RestClient 패턴]] — virtual class, PATCH 우회, callout: 접두어
+- [[Http·HttpRequest·HttpResponse 레퍼런스]] — Apex HTTP 콜아웃 3종 표준 클래스(System) 전수 레퍼런스, setTimeout(밀리초, 기본 10초·요청당 1~120,000ms·트랜잭션 누적 최대 120초), CalloutException
 - [[Custom REST Endpoint]] — @RestResource, global inherited sharing, RestContext
 - [[SOAP Web Services 노출 (webservice 키워드)]] — webservice 키워드로 Apex 메서드를 SOAP 웹서비스로 노출, WSDL 생성, system context 보안, AJAX Toolkit(sforce.apex.execute), 오버로딩 불가
 - [[Named Credential]] — External Credential → Principal → NC 순서

@@ -305,3 +305,4 @@ Queueable / future 잡이 라이선스 일일 한도의 **최대 2배**까지 �
 - [[Release/Summer '24]]
 - [[Release/Summer '26]]
 - [[Release/Summer '26/Development]] — Elastic Limits for Async Jobs (Beta), 비동기 일일 한도 2배
+- [[Mixed DML 제약과 우회]] — setup 오브젝트 목록·MIXED_DML_OPERATION 원리·테스트 runAs 우회 상세

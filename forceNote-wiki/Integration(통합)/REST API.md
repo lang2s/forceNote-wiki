@@ -1,10 +1,10 @@
 ---
 tags: [integration, rest-api, sobjects, composite, soql-rest]
-source: api_rest.pdf (REST API Developer Guide v67.0, Summer '26, Tier 2)
+source: api_rest.pdf (REST API Developer Guide v67.0, Summer '26, Tier 2) + SOAP API Developer Guide (developer.salesforce.com, v64.0/258.0 라이브 문서, Tier 2)
 official_doc: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/
 created: 2026-06-14
-updated: 2026-06-14
-aliases: [REST API, 표준 REST API, sObjects REST, Composite, Composite Graph, sObject Tree, sObject Collections, queryAll, REST 헤더, REST status codes]
+updated: 2026-07-06
+aliases: [REST API, 표준 REST API, sObjects REST, Composite, Composite Graph, sObject Tree, sObject Collections, queryAll, REST 헤더, REST status codes, REST vs SOAP, SOAP API 선택, enterprise WSDL, partner WSDL, SOAP login]
 ---
 
 # REST API
@@ -153,6 +153,52 @@ curl https://MyDomain.my.salesforce.com/services/data/v67.0/composite/sobjects/ 
 
 ---
 
+## REST vs SOAP API — 언제 뭘 고르나
+
+> 둘 다 **코어 데이터 API**(레코드 CRUD·SOQL/SOSL·describe)로 기능이 크게 겹친다. 선택 기준은 기능이 아니라 **프로토콜·타입 계약·인증·클라이언트 자산**이다. REST 가이드 원문: *"It's simpler to use than SOAP API but still provides plenty of functionality."*
+
+| 기준 | **REST API** (본 노트) | **표준 SOAP API** (enterprise/partner WSDL) |
+|---|---|---|
+| 프로토콜·포맷 | HTTP verbs(GET/POST/PATCH/DELETE) + JSON(기본)/XML | SOAP/XML 웹서비스 — WSDL이 호출·오브젝트·필드를 정의 |
+| 계약·타입 | 스키마 계약 없음 — `describe`로 런타임 조회 | **WSDL 계약** — enterprise WSDL은 강타입(int·string 등 구체 타입), partner WSDL은 name-value 쌍의 느슨한 타입 |
+| 툴링 | 별도 툴링 거의 불필요 (cURL/모든 HTTP 클라이언트) | WSDL을 개발 플랫폼(Java·.NET)에 임포트해 **클라이언트 스텁 생성** 필요 |
+| 인증 | External Client App/Connected App + **OAuth 2.0** (`Authorization: Bearer`) | `SessionHeader`의 sessionId. 전통 방식은 `login()` 세션이지만 아래 제약 참고 — SOAP도 External Client App/Connected App + OAuth 2.0 인가를 지원 |
+| org 스키마 변경 시 | 영향 없음 (URI·JSON 동일) | **enterprise WSDL은 재다운로드·재소비 필요**, partner WSDL은 API 버전당 1회면 됨 |
+| 신규 통합 | ✅ 권장 (간단·경량·OAuth 표준) | 신규 도입 비권장 — 아래 유지 케이스일 때만 |
+
+### enterprise vs partner WSDL (SOAP 선택 시)
+
+| | **Enterprise WSDL** | **Partner WSDL** |
+|---|---|---|
+| 대상 | 단일 org용 사내(enterprise) 클라이언트 | 여러 org를 다루는 메타데이터 주도·동적 클라이언트(파트너/ISV) |
+| 타입 | 강타입 — org의 표준·커스텀 오브젝트/필드가 구체 타입으로 포함 | 느슨한 타입 — 필드명·값의 name-value 쌍, 어떤 org에도 사용 가능 |
+| 유지보수 | org의 커스텀 오브젝트/필드 변경 또는 API 버전 변경 시 재다운로드·재소비 | API 버전당 1회 다운로드 |
+| 다운로드 | Setup → Quick Find "API" → Generate Enterprise WSDL (Modify All Data 권한 필요) | 같은 페이지 → Generate Partner WSDL |
+
+### SOAP `login()` 세션 인증 — 현재 제약
+
+```java
+// SOAP API Developer Guide의 공식 시그니처
+LoginResult = connection.login(string username, string password);
+// → LoginResult: sessionId + serverUrl(이후 호출 대상) + userId
+```
+
+- **`login()`은 API v64.0 이하에서만 제공**되며, **신규 org에서는 기본 비활성**. 활성화: Setup → User Interface → *Enable SOAP API login()* (UI에서 한 번 켜면 UI로는 되돌릴 수 없음 — 이후 관련 release update의 test run으로만 토글).
+- 비밀번호 뒤에 **security token**을 이어 붙여 전달 (`mypasswordXXXXXXXXXX`). 신뢰 IP 목록에 등록된 IP면 토큰 생략 가능.
+- 획득한 `sessionId`를 이후 모든 호출의 SOAP `SessionHeader`에, `serverUrl`을 엔드포인트로 지정.
+- 한도: **사용자당 시간당 3,600회** login() 호출 (초과 시 "Login Rate Exceeded", 1시간 차단). login() 호출은 로그인 rate limit에 계상.
+- 결론: **신규 통합은 REST + OAuth 2.0**. SOAP를 쓰더라도 username-password login()이 아니라 OAuth 인가를 사용.
+
+### SOAP를 유지/선택하는 케이스
+
+- **기존 SOAP 클라이언트 자산** — enterprise/partner WSDL 스텁 기반으로 이미 구축된 엔터프라이즈 미들웨어·ETL은 재작성 비용 대비 유지가 합리적
+- WSDL **강타입 계약**(컴파일 타임 타입 체크)이 조직 표준인 Java/.NET SOA 환경
+- 그 외 신규 요구는 REST(본 노트) 또는 대량이면 [[Bulk API 2.0]]
+
+> 표준 SOAP API 전용 노트는 아직 없다 — SOAP 호출 전수(describeSObjects·merge·convertLead 등)가 필요하면 공식 [SOAP API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/) 참조.
+
+---
+
 ## 비교 — 어떤 API를 쓰나
 
 | 상황 | API |
@@ -163,6 +209,7 @@ curl https://MyDomain.my.salesforce.com/services/data/v67.0/composite/sobjects/ 
 | 액션 호출(표준/Apex) | [[Actions API]] |
 | 외부 → SF 커스텀 엔드포인트 | [[Custom REST Endpoint]] |
 | UI 메타데이터·레이아웃 인지 | [[UI API 개요]] |
+| 기존 WSDL 스텁 기반 클라이언트 유지 | 표준 SOAP API (위 "REST vs SOAP" 섹션) |
 
 ---
 

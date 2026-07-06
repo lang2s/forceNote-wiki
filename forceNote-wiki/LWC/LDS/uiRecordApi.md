@@ -1,8 +1,8 @@
 ---
 tags: [lwc, lds, uiRecordApi, createRecord, updateRecord, pattern]
-source: lwc-recipes/ldsCreateRecord, ldsDeleteRecord, datatableInlineEditWithUiApi; ebikes-lwc-main/force-app/main/default/lwc/orderBuilder/orderBuilder.js
+source: lwc-recipes/ldsCreateRecord, ldsDeleteRecord, datatableInlineEditWithUiApi; ebikes-lwc-main/force-app/main/default/lwc/orderBuilder/orderBuilder.js; LWC Dev Guide — Data Guidelines (LDS 캐시 전파·getRecordNotifyChange deprecation)
 created: 2026-05-17
-aliases: [uiRecordApi, createRecord, updateRecord, deleteRecord, 낙관적 업데이트, optimistic update, 롤백]
+aliases: [uiRecordApi, createRecord, updateRecord, deleteRecord, 낙관적 업데이트, optimistic update, 롤백, getRecordNotifyChange, notifyRecordUpdateAvailable, LDS 캐시, 캐시 전파]
 ---
 
 # uiRecordApi — 프로그래밍 방식 레코드 CRUD
@@ -239,7 +239,31 @@ handleDrop(event) {
 
 ---
 
+## LDS 캐시 전파 — 어떤 변경이 다른 컴포넌트를 자동 갱신하는가
+
+같은 레코드를 보는 컴포넌트들(다른 컴포넌트의 `getRecord` wire, `lightning-record-*form`, 표준 레코드 상세 등)은 **하나의 클라이언트측 LDS 캐시**를 공유한다. 변경이 이 캐시를 **통과하느냐 우회하느냐**에 따라 자동 갱신 여부가 갈린다.
+
+| 변경 경로 | LDS 캐시 | 같은 레코드를 wire한 다른 컴포넌트 |
+|---|---|---|
+| `createRecord` / `updateRecord` / `deleteRecord` (uiRecordApi) | **직접 갱신** | ✅ 자동 리렌더 — 추가 코드 불필요 |
+| `lightning-record-form` / `record-edit-form` 저장 | LDS 경유 → 캐시 갱신 | ✅ 자동 리렌더 |
+| **Apex DML** (imperative 호출·`@AuraEnabled` 저장) | **우회** — 캐시는 변경을 모름 | ❌ 갱신 안 됨 → DML 후 `notifyRecordUpdateAvailable([{recordId}])` 호출 필요 |
+| 외부 변경 (다른 사용자·자동화·통합) | 우회 — 클라이언트가 알 수 없음 | ❌ 갱신 안 됨 → 알게 된 시점에 `notifyRecordUpdateAvailable` 등으로 무효화 |
+
+```javascript
+// 컴포넌트 A — updateRecord로 저장 (LDS 캐시 직접 갱신)
+await updateRecord({ fields: { Id: this.recordId, Name: this.newName } });
+// → 별도 코드 없이, 같은 레코드를 @wire(getRecord)로 보는 컴포넌트 B가 자동 리렌더
+```
+
+> [!tip] 판단 기준 한 줄
+> **uiRecordApi/record-form으로 저장했으면 아무것도 안 해도 전파된다.** Apex DML·서버측 변경이면 LDS가 모르므로 `notifyRecordUpdateAvailable`로 직접 알려야 한다.
+
+---
+
 ## notifyRecordUpdateAvailable — Apex 업데이트 후 캐시 무효화
+
+> ⚠️ **구 API명 매핑:** `getRecordNotifyChange`(구명)는 **deprecated** — 동일 모듈(`lightning/uiRecordApi`)·동일 시그니처(`[{recordId}]` 배열)의 `notifyRecordUpdateAvailable`로 대체됐다. 옛 문서·코드의 `getRecordNotifyChange`는 이 함수로 읽으면 된다.
 
 ```javascript
 import { notifyRecordUpdateAvailable } from 'lightning/uiRecordApi';

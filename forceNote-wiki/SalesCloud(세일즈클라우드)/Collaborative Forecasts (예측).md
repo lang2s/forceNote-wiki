@@ -1,6 +1,6 @@
 ---
 tags: [sales-cloud, forecasting, collaborative-forecasts, quotas, forecast-types]
-source: help.salesforce.com (Salesforce Help — Collaborative Forecasts / Elements / Quotas / Forecast Types / Adjustments; 라이브 공식 문서, Tier 2, 접속 2026-07-03) + help.salesforce.com (Turn On Salesforce Forecasting and Define Forecast Settings; Show Quota Information in Collaborative Forecasts; Tier 2, 접속 2026-07-04)
+source: help.salesforce.com (Salesforce Help — Collaborative Forecasts / Elements / Quotas / Forecast Types / Adjustments; 라이브 공식 문서, Tier 2, 접속 2026-07-03) + help.salesforce.com (Turn On Salesforce Forecasting and Define Forecast Settings; Show Quota Information in Collaborative Forecasts; Tier 2, 접속 2026-07-04) + help.salesforce.com (Enable Users in Collaborative Forecasts; Set Up Your Forecast Hierarchy in Collaborative Forecasts; Tier 2, 2026-07-06)
 official_doc: https://help.salesforce.com/s/articleView?id=sf.forecasts3_overview.htm&type=5
 created: 2026-07-03
 aliases: [Collaborative Forecasts, 예측, 매출 예측, Forecast Types, Forecast Category, Quota, 할당량, Forecast Adjustment, Territory Forecast]
@@ -18,8 +18,11 @@ Collaborative Forecasts는 **기본으로 비활성**이다. 아래를 켜기 �
 
 1. **Setup → Quick Find에 `Forecast Settings` 입력 → Enable Forecasts**를 켠다.
 2. 예측할 **forecast type을 추가·활성화**한다 — 각 유형에 예측할 **measure와 hierarchy(집계 기준)를 지정**해야 한다. forecast type을 하나 이상 활성화해야 예측 탭이 표시된다.
+3. **예측에 참여할 사용자마다 User 레코드의 `Allow Forecasting`(예측 허용) 체크를 활성화**한다. org 레벨(1·2번)을 켜도 **이 체크가 꺼진 사용자는 forecast hierarchy에 나타나지 않는다** — "설정은 다 켰는데 특정 사용자가 예측 계층에 안 보인다"의 대표 함정이므로 가장 먼저 확인할 항목이다.
 
-> 근거: [Turn On Salesforce Forecasting and Define Forecast Settings](https://help.salesforce.com/s/articleView?id=sales.forecasts3_defining_forecasts_settings.htm&type=5) (Tier 2)
+**Forecast hierarchy 구성** — Setup → Quick Find에 `Forecasts Hierarchy` 입력 → **Forecasts Hierarchy 페이지**에서 예측 계층을 구성한다. 예측 계층은 **user role hierarchy를 바탕으로** 만들어지며, 이 페이지에서 role별 **Enable Users**로 참여 사용자를 활성화(= 3번의 Allow Forecasting을 일괄 처리)하고, 하위 예측이 롤업되는 매니저 role에는 **forecast manager를 지정**한다. forecast manager로 지정된 사용자만 자기 아래 계층의 예측을 보고 조정(adjust)할 수 있다. `Allow Forecasting`이 켜진 사용자만 이 계층에서 선택 대상이 된다.
+
+> 근거: [Turn On Salesforce Forecasting and Define Forecast Settings](https://help.salesforce.com/s/articleView?id=sales.forecasts3_defining_forecasts_settings.htm&type=5) · "Enable Users in Collaborative Forecasts" · "Set Up Your Forecast Hierarchy in Collaborative Forecasts" (help.salesforce.com, Tier 2)
 
 ---
 

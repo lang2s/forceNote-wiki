@@ -799,3 +799,4 @@ String strVal = val != null ? String.valueOf(val) : '';
 - [[Winter '24]] — DataWeave, Comparator, Collator
 - [[Apex 언어 기초 — 데이터타입과 변수]] — 프리미티브/sObject/컬렉션 타입·리터럴 등 언어 기초 개념
 - [[Apex 언어 기초 — 예외 처리와 예약어]] — try/catch·표준 예외 계층·예약어 등 언어 기초 개념
+- [[JSON 직렬화 심화 — JSONParser·JSONGenerator·예약어 충돌]] — §8 JSON의 심화 (JSONParser/JSONGenerator 전수 + 예약어 필드명 우회)

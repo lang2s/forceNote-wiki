@@ -161,6 +161,7 @@ static void verifyRequestFormat() {
 ## 관련 노트
 
 - [[RestClient 패턴]]
+- [[Http·HttpRequest·HttpResponse 레퍼런스]] — 목이 다루는 HttpRequest·HttpResponse 메서드 전수 레퍼런스
 - [[StubProvider]]
 - [[테스트 전략]]
 - [[platform-apex-test-generate]] (sf-skill — 실행형) — 콜아웃 목 포함 Apex 테스트 생성 실행형 스킬

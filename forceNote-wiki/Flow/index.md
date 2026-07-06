@@ -31,6 +31,7 @@ created: 2026-05-17
 | [[Flow 유틸리티 액션 모음]] | 영업시간 계산, CSV 처리, Chatter 게시, Flow 링크·기동 | #pattern |
 | [[Flow Interview API]] | Flow.Interview — Apex에서 Autolaunched Flow 실행, createInterview, getVariableValue | #reference |
 | [[Aura Flow 로컬 액션 (availableForFlowActions)]] | availableForFlowActions Aura 로컬 액션 — Screen Flow에서 클라이언트 JS 실행(페이지 이동·유틸리티바 최소화), lightning:navigation·force:utilityBarAPI, 로컬 액션 vs @InvocableMethod | #pattern |
+| [[Record-Triggered Flow vs Apex Trigger 선택]] | 레코드 자동화를 Flow로 할지 Apex로 할지 — 자동화 밀도(automation density) 휴리스틱, 역량 비교 매트릭스, 하이브리드 패턴(Flow + Invocable Apex), 비동기 오프로딩 | #decision |
 
 ---
 
@@ -52,6 +53,7 @@ created: 2026-05-17
 - 멀티 패키지 프로젝트 구성? → [[멀티 패키지 구조]]
 - Apex 코드에서 Flow를 직접 실행? → [[Flow Interview API]]
 - Flow에서 클라이언트 액션(페이지 이동·유틸리티바 제어)? → [[Aura Flow 로컬 액션 (availableForFlowActions)]]
+- 레코드 자동화를 Flow로 만들지 Apex Trigger로 만들지? → [[Record-Triggered Flow vs Apex Trigger 선택]]
 
 ---
 

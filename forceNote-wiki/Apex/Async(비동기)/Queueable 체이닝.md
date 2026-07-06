@@ -102,9 +102,18 @@ public class StepWithFinalizer implements Queueable {
 ## 체이닝 깊이 제한
 
 > [!warning] 체이닝 깊이 제한
-> - 동기 컨텍스트에서: 최대 5 depth
-> - 비동기 컨텍스트에서: 무제한 (단, 각 단계는 개별 AsyncApexJob)
+> - **체인 깊이 자체는 제한 없음** — 단, **Developer·Trial Edition org만 기본 최대 스택 깊이 5** 제한 (그 외 Edition은 무제한, 각 단계는 개별 AsyncApexJob)
+> - Winter '24(v59.0) GA: `AsyncOptions.MaximumQueueableStackDepth`로 자체 상한 설정 가능 — `System.enqueueJob(queueable, asyncOptions)` overload로 전달하고, 런타임에 `System.AsyncInfo.getCurrentQueueableStackDepth()`로 현재 깊이 확인 ([[Queueable]] · [[Release/Winter '24/Development]] 참조)
 > - 테스트에서 체이닝 금지: `if (!Test.isRunningTest())` 조건 필수
+
+### enqueueJob 호출 한도
+
+| 컨텍스트 | `System.enqueueJob` 한도 |
+|---|---|
+| 동기 트랜잭션 | 트랜잭션당 **50회** |
+| 실행 중인 Queueable의 `execute()` 안 (비동기) | **1회**만 |
+
+> 즉 체이닝 시 한 단계에서 다음 잡은 하나만 enqueue할 수 있다. 전체 Governor Limit 표는 [[Governor Limits]] 참조.
 
 ---
 
@@ -147,6 +156,7 @@ static void testQueueableChain() {
 ## 관련 노트
 
 - [[Queueable]]
+- [[Governor Limits]] — enqueueJob 50회(동기)/1회(비동기) 등 트랜잭션 한도 전체 표
 - [[비동기 컨텍스트 선택]]
 - [[RestClient 패턴]] — AllowsCallouts 패턴
 - [[Queueable + Callout 패턴]] — HTTP Callout과 체이닝 결합

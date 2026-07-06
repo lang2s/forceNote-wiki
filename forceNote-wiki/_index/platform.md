@@ -91,7 +91,7 @@ created: 2026-05-21
 | REST API, 표준 REST API, services/data, sObjects CRUD, query queryAll SOQL REST, Composite Graph Batch, sObject Tree, sObject Collections 200건 allOrNone, Named Query API, OAuth Bearer, 동기 통합 | `Integration(통합)/REST API.md` |
 | Actions API, Invocable Action, 인보커블 액션, actions/standard, actions/custom/apex, inputs JSON, describe 액션, QuickAction StandardButton, Apex 액션 REST 호출, 표준 액션 카탈로그, chatterPost | `Integration(통합)/Actions API.md` |
 | CSP Trusted Site, Remote Site, 외부 이미지 로드, 외부 API 브라우저 | `Integration(통합)/CSP와 RemoteSite.md` |
-| Queueable Callout, 비동기 외부 호출, DML+Callout 조합 | `Integration(통합)/Queueable + Callout 패턴.md` |
+| Queueable Callout, 비동기 외부 호출, DML+Callout 조합, uncommitted work pending, You have uncommitted work pending, CalloutException, DML 후 콜아웃 에러, 콜아웃 전 DML 금지, 콜아웃 안 될 때, 콜아웃 순서 | `Integration(통합)/Queueable + Callout 패턴.md` |
 | Platform Event 통합, 이벤트 기반 통합, 시스템 간 느슨한 결합, LWC empApi | `Integration(통합)/Platform Event 통합 패턴.md` |
 | External Services, 외부 서비스, OpenAPI Apex 통합, External Service Registration, 외부 서비스 등록, OpenAPI 2.0 스펙, 타입 안전 외부 호출, Binary File 지원, 3000 오브젝트, 700 등록 한도, Winter 26 한도 증가, Flow External Service Action | `Integration(통합)/External Services.md` |
 

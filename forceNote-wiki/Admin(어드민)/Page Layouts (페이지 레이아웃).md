@@ -71,6 +71,21 @@ Page layout을 정의한 뒤에는 **사용자에게 어떤 레이아웃을 보�
 - **사용자의 프로파일(profile)**이 그 사용자가 어떤 page layout을 보는지 결정한다.
 - **레코드 타입을 사용하는 경우**, 표시되는 레이아웃은 **프로파일 + 레코드 타입의 조합(Profile × Record Type)**이 결정한다.
 
+### 설정 경로 — 어디서 어떻게 할당하는가
+
+Record Type별로 다른 page layout을 할당하는 실제 설정 화면 경로:
+
+```
+Setup → Object Manager → (대상 오브젝트) → Page Layouts
+  → [Page Layout Assignment] 버튼
+  → [Edit Assignment]
+  → 매트릭스: Profile(행) × Record Type(열)
+  → 셀(들)을 클릭해 선택 → 상단 드롭다운에서 적용할 Page Layout 지정
+  → Save
+```
+
+- 매트릭스에서 **행은 Profile, 열은 Record Type**이다. 셀 하나가 "이 프로파일의 이 레코드 타입 사용자에게 보여줄 레이아웃"을 뜻한다.
+
 ```
 // 구조 예시 — Page Layout 할당(실제 원본 다이어그램 아님)
 사용자 → Profile ─┐

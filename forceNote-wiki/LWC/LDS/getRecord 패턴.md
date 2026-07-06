@@ -1,8 +1,8 @@
 ---
-tags: [lwc, lds, getRecord, wire, schema, pattern]
-source: lwc-recipes/wireGetRecord, wireGetRecordDynamicContact, wireGetRecords, wireGetObjectInfo
+tags: [lwc, lds, getRecord, wire, schema, pattern, layoutTypes]
+source: lwc-recipes/wireGetRecord, wireGetRecordDynamicContact, wireGetRecords, wireGetObjectInfo + api_ui.pdf (v67.0, Summer '26) Ch3 Request Parameters — layoutTypes·modes
 created: 2026-05-17
-aliases: [getRecord, getFieldValue, wireGetRecord]
+aliases: [getRecord, getFieldValue, wireGetRecord, getRecord layoutTypes, 레이아웃 기반 조회]
 ---
 
 # getRecord 패턴
@@ -87,6 +87,51 @@ record;
 
 ---
 
+## layoutTypes·modes — 레이아웃 기반 조회
+
+`fields`로 필드를 직접 나열하는 대신, **레이아웃에 배치된 필드를 그대로** 가져올 수 있다.
+
+```javascript
+// 구조 예시 — 실제 동작 코드 아님 (문법은 api_ui.pdf 요청 파라미터 기준)
+import { getRecord } from 'lightning/uiRecordApi';
+
+export default class RecordByLayout extends LightningElement {
+    @api recordId;
+
+    @wire(getRecord, {
+        recordId: '$recordId',
+        layoutTypes: ['Full'],   // 'Compact' | 'Full'(기본)
+        modes: ['View']          // 'Create' | 'Edit' | 'View'(기본)
+    })
+    record;
+}
+```
+
+**either-or 요건** — `getRecord`가 래핑하는 REST `GET /ui-api/records/{recordId}` 기준:
+
+| API 버전 | 요건 |
+|---|---|
+| **45.0+** | `fields` · `optionalFields` · `layoutTypes` **셋 중 하나 필수** |
+| 44.0 이하 | `fields` 또는 `layoutTypes` 중 하나 필수 |
+
+- `layoutTypes` 값: **Compact**(레코드 핵심 필드만) / **Full**(기본, 전체 레이아웃).
+- `modes` 값: **Create / Edit / View**(기본). 레이아웃은 모드별로 필드가 다르다 — 예: formula 필드는 View 모드엔 렌더되지만 Create 모드엔 없음. `modes`는 **layoutTypes를 지정했을 때만 유효**하고, layoutTypes 없이 단독 지정하면 무시된다.
+- `layoutTypes` 지정 시 응답 필드는 `layoutTypes` + `modes` + `optionalFields`의 **합집합**.
+- `fields`와 `layoutTypes`를 **동시에** 지정하려면 (REST 레벨에서) `childRelationships`도 함께 지정해야 한다.
+
+**fields vs layoutTypes 선택 기준:**
+
+| | `fields` 지정 | `layoutTypes` 지정 |
+|---|---|---|
+| 필드 결정 주체 | 코드 (개발자) | 페이지 레이아웃 (어드민) |
+| 반환 데이터 | 나열한 필드만 — 최소·예측 가능 | 레이아웃의 모든 필드 — 목록을 코드가 통제 못함 |
+| 레이아웃 변경 시 | 영향 없음 | 자동 반영 (재배포 불필요) |
+| 적합한 경우 | 컴포넌트가 쓸 필드가 명확할 때 (일반적 권장) | 레이아웃을 미러링하는 범용/디테일 UI, 필드 하드코딩을 피하고 싶을 때 |
+
+> REST 파라미터 스키마 전체(childRelationships, pageSize 등)는 [[UI API 리소스 레퍼런스]] 참조.
+
+---
+
 ## getRecords — 여러 레코드 동시 조회
 
 ```javascript
@@ -154,4 +199,5 @@ get typeOptions() {
 - [[ldsUtils reduceErrors]]
 
 - [[UI API 개요]] — LDS 전체 구조, 캐시·ETag·HTTP 상태코드
+- [[UI API 리소스 레퍼런스]] — layoutTypes·modes·optionalFields 등 REST 요청 파라미터 스키마 전체
 - [[RefreshView API]] — `@wire(getRecord)` + `notifyRecordUpdateAvailable`로 record 데이터 refresh 개시(refresh 짝)

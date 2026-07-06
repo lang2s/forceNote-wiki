@@ -46,6 +46,8 @@ aliases: [Record Types, 레코드 타입, Business Process, 비즈니스 프로�
 - Record type은 **프로파일(profile)** 또는 **permission set** 을 통해 사용자에게 할당된다 (profile/permission set 의 record type assignments).
 - 조직이 record type을 사용하는 경우, **사용자의 프로파일 + record type 조합**이 실제로 표시되는 **page layout** 을 결정한다.
 
+> Record Type별 레이아웃을 실제로 할당하는 설정 화면 경로(Setup → Object Manager → Page Layouts → Page Layout Assignment → Edit Assignment의 Profile×Record Type 매트릭스)는 [[Page Layouts (페이지 레이아웃)]]의 "레이아웃 할당" 섹션 참조.
+
 ```
 // 구조 예시 — Record Type 개념(실제 원본 다이어그램 아님)
 Object(Opportunity)

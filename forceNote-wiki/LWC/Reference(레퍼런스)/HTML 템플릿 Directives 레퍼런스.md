@@ -1,6 +1,6 @@
 ---
 tags: [lwc, reference, html-template, directives, lwc-if, for-each, iterator, slots, lwc-ref]
-source: developer.salesforce.com (Lightning Web Components Developer Guide — Reference > HTML Template Directives + Dynamic Event Listeners Considerations; 라이브 공식 문서, Tier 2, 접속 2026-07-04)
+source: developer.salesforce.com (Lightning Web Components Developer Guide — Reference > HTML Template Directives + Dynamic Event Listeners Considerations + Create Components > Render Lists(key 필수·index-as-key 금지); 라이브 공식 문서, Tier 2, 접속 2026-07-04/2026-07-05)
 official_doc: https://developer.salesforce.com/docs/platform/lwc/guide/reference-directives.html
 created: 2026-07-04
 aliases: [LWC directives, HTML template directives, lwc:if, lwc:elseif, lwc:else, if:true, for:each, for:item, for:index, iterator, key, lwc:ref, lwc:dom, lwc:spread, lwc:on, lwc:slot-data, lwc:slot-bind, lwc:is, lwc:component, 조건 렌더링, 리스트 렌더링, 슬롯, dynamic event listeners, 동적 이벤트 리스너, lwc:on 고려사항]
@@ -77,7 +77,7 @@ aliases: [LWC directives, HTML template directives, lwc:if, lwc:elseif, lwc:else
 </template>
 ```
 
-> `key`는 각 항목에 고유 식별자를 부여하는 HTML 요소 directive다 — 상세는 [HTML 요소 구획](#4-html-요소p·base-component·커스텀-컴포넌트-지원-directive)의 `key` 참조.
+> `key`는 각 항목에 고유 식별자를 부여하는 HTML 요소 directive다. `for:each`/`iterator` 반복 내 각 항목에 **필수**이며, 누락하면 **컴파일이 실패**한다. `for:index`의 index를 key로 쓰면 안 된다 — 상세 규칙은 [HTML 요소 구획](#4-html-요소p·base-component·커스텀-컴포넌트-지원-directive)의 `key` 참조.
 
 ### 2-2. 조건 렌더링
 
@@ -146,7 +146,7 @@ scoped slot에서 부모↔자식 간 데이터를 바인딩하는 directive.
 | **`lwc:if` / `lwc:elseif` / `lwc:else`** | HTML 태그에도 조건 렌더 지원(위 [2-2 규칙](#lwcif--lwcelseif--lwcelse--권장-조건-directive) 동일). |
 | **`for:item={currentItem}` / `for:index={index}`** | 반복 항목·인덱스 접근. |
 | **`iterator`** | 첫/마지막 항목 특수 동작. |
-| **`key={id}`** | 리스트 각 항목에 고유 식별자 부여(렌더 성능↑). ⚠️ `key`는 **문자열 또는 숫자**여야 한다(객체 불가). 엔진이 key로 변경 항목을 판별한다. |
+| **`key={id}`** | 리스트 각 항목에 고유 식별자 부여(렌더 성능↑). **`for:each`/`iterator` 내 각 항목(첫 번째 요소)에 필수 — 누락 시 컴파일 실패.** ⚠️ `key`는 **문자열 또는 숫자**여야 한다(객체 불가). 엔진이 key로 변경 항목을 판별한다. ⚠️ **`for:index`의 index를 key 값으로 쓰지 말 것** — index는 항목 고유값이 아니라 위치값이라, 리스트 재정렬·중간 삽입/삭제 시 엔진이 항목을 잘못 재사용해 상태 꼬임·성능 저하가 생긴다(공식 가이드 Render Lists). |
 | **`lwc:dom="manual"`** | 네이티브 HTML 요소에 추가해 owner JS에서 `appendChild()`를 호출할 수 있게 한다. ⚠️ `appendChild()`로 DOM 조작 시 append된 요소에는 **스타일이 미적용**된다. |
 | **`lwc:external`** | 서드파티 web component/커스텀 요소를 네이티브 web component로 렌더한다(Third-Party Web Components Beta). |
 | **`lwc:on={eventHandlers}`** | 요소에 이벤트 리스너를 동적 추가한다. `eventHandlers` 객체의 각 프로퍼티로 리스너를 설정한다. |

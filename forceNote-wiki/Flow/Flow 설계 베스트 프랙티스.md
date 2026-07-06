@@ -1,8 +1,8 @@
 ---
 tags: [flow, best-practice, design, pattern, performance]
-source: Salesforce-Flow-Best-Practices-White-Paper-June-2025; §9 버전 정정 근거(Tier 2)=admin.salesforce.com/blog/2023 Flow HTTP Callouts(Summer '23 GA) · help.salesforce.com platform.flow_http_callout_configure.htm
+source: Salesforce-Flow-Best-Practices-White-Paper-June-2025; §9 버전 정정 근거(Tier 2)=admin.salesforce.com/blog/2023 Flow HTTP Callouts(Summer '23 GA) · help.salesforce.com platform.flow_http_callout_configure.htm; §6 한도 수치 근거(Tier 2)=help.salesforce.com flow_considerations_limit
 created: 2026-05-17
-aliases: [Flow 베스트 프랙티스, Flow 설계 원칙, Flow 성능, Flow 바이패스, Fast Field Update, Flow 거버너]
+aliases: [Flow 베스트 프랙티스, Flow 설계 원칙, Flow 성능, Flow 바이패스, Fast Field Update, Flow 거버너, before-save vs after-save, Flow 한도, executed elements]
 ---
 
 # Flow 설계 베스트 프랙티스
@@ -29,6 +29,21 @@ After-Save Flow:
 
 > [!warning] Fast Field Update에서는 Update가 아닌 Assignment 사용
 > Fast Field Update Flow에서 `Update Records` 요소를 쓰면 추가 DML이 발생한다. 반드시 `Assignment` 요소로 필드 값을 수정한다.
+
+### Before-Save vs After-Save 선택 비교
+
+**Before-save에서는 트리거된 레코드(`$Record`) 자신 외의 관련 레코드를 생성·업데이트·삭제할 수 없다.** 관련 레코드를 건드려야 하면 무조건 after-save다.
+
+| 기준 | Before-Save (Fast Field Update) | After-Save (Actions and Related Records) |
+|---|---|---|
+| 트리거된 레코드(`$Record`) 필드 업데이트 | ✅ Assignment로 수정 → 저장에 자동 포함 (**추가 DML 없음 → 고성능**) | 가능하지만 별도 `Update Records` DML 발생 — 비권장 |
+| 관련(다른) 레코드 Create / Update / Delete | ❌ 불가 | ✅ |
+| Action (이메일 얼럿, Apex 액션 등) | ❌ 불가 | ✅ |
+| Subflow 호출 | ❌ 불가 | ✅ |
+| 비동기 경로(Asynchronous Path) | ❌ 불가 | ✅ |
+| 사용 가능 요소 | Assignment · Decision · Get Records · Loop 만 | 모든 요소 |
+
+**선택 기준:** 트리거된 레코드 자신의 필드만 바꾸면 → **before-save** (DML 없이 저장 전 값 수정, 가장 빠름). 관련 레코드 CUD·액션·이메일·Subflow·비동기 처리 중 하나라도 필요하면 → **after-save**.
 
 ---
 
@@ -109,16 +124,33 @@ Flow 진입 조건에 추가:
 
 ---
 
-## 6. 거버너 한도 — Loop 안에서 DML 금지
+## 6. 거버너 한도 — Loop 안에서 DML·Get Records 금지
+
+Flow도 Apex와 **같은 트랜잭션 거버너 한도**를 공유한다. 핵심 수치:
+
+| 한도 | 값 | Flow에서 소진하는 요소 |
+|---|---|---|
+| 트랜잭션당 SOQL 쿼리 | **100** | `Get Records` 1회 = 쿼리 1회 |
+| 트랜잭션당 DML 문 | **150** | `Create / Update / Delete Records` 1회 = DML 1회 |
+| Flow당 런타임 실행 요소(executed elements) | **2,000** | 실행된 모든 요소 — Loop 반복마다 내부 요소 수만큼 누적 |
+
+> 출처: help.salesforce.com — Flow Limits (flow_considerations_limit), Tier 2.
+
+Loop 안에서 DML뿐 아니라 **Get Records도 금지** — 반복마다 SOQL 1회씩 소진해 100 한도에 빠르게 도달하고, 반복 × 내부 요소 수가 executed elements 2,000 한도도 갉아먹는다.
 
 ```
-❌ 금지 패턴:
+❌ 금지 패턴 1 — Loop 안 DML:
   [LOOP_Contacts]
-    → [Update Records: Contact]   ← Loop 안에서 DML
+    → [Update Records: Contact]   ← 반복마다 DML 1회 (150 한도 소진)
+
+❌ 금지 패턴 2 — Loop 안 Get Records:
+  [LOOP_Accounts]
+    → [Get Records: Contacts (AccountId = 현재 항목)]   ← 반복마다 SOQL 1회 (100 한도 소진)
 
 ✅ 올바른 패턴:
+  [Get Records: AllContacts]               (Loop 전에 1회로 전부 조회)
   [LOOP_Contacts]
-    → [Assignment: ADD_ContactsToUpdate]   (컬렉션에 추가)
+    → [Assignment: ADD_ContactsToUpdate]   (컬렉션에 추가 — 관련 항목은 Collection Filter/Decision으로 골라냄)
   [Update Records: ContactsToUpdate]       (Loop 밖에서 한번에 DML)
 ```
 
@@ -250,7 +282,7 @@ Record-Triggered Flow: **Test Records** 생성 및 어서션으로 케이스 커
 □ 모든 ID를 Get Records로 동적 조회
 □ 진입 조건(Entry Criteria) 최적화
 □ Record-Triggered Flow에 바이패스 추가
-□ Loop 안에 DML 없음
+□ Loop 안에 DML·Get Records 없음
 □ Mixed DML 있다면 Asynchronous Path 분리
 □ 모든 DML·Action에 Fault 연결
 □ 실행 사용자로 테스트 완료
@@ -265,3 +297,4 @@ Record-Triggered Flow: **Test Records** 생성 및 어서션으로 케이스 커
 - [[Flow 에러 처리]] — Fault 경로 설계
 - [[Flow 종류와 변수]] — processType 및 컨텍스트
 - [[Autolaunched Flow 패턴]] — 헤드리스 Flow 설계
+- [[Record-Triggered Flow vs Apex Trigger 선택]] — 자동화를 Flow로 할지 Apex Trigger로 할지 결정하는 공식 기준 (자동화 밀도·하이브리드 패턴)

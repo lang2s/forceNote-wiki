@@ -26,6 +26,8 @@ updated: 2026-05-22
 | [[Datacloud Namespace]] | Duplicate Management API — FindDuplicates/FindDuplicatesByIds, DuplicateResult, MatchRecord (Salesforce Data Cloud 제품과 무관) | #reference |
 | [[Wave Namespace]] | CRM Analytics Analytics SDK — QueryBuilder/QueryNode/ProjectionNode로 SAQL 쿼리 빌드·실행, Templates 조회 | #reference |
 | [[Apex에서 Salesforce Files 다루기 (ContentVersion·ContentDistribution)]] | ContentVersion으로 파일 생성·ContentDocumentLink로 레코드 첨부·ContentDistribution으로 인증 없는 공개 URL 배포 — VersionData/PathOnClient/ShareType/Visibility | #pattern |
+| [[Mixed DML 제약과 우회]] | setup 오브젝트(User·PermissionSet)와 일반 오브젝트를 한 트랜잭션에서 DML 시 MIXED_DML_OPERATION — System.runAs(테스트)·@future/Queueable(런타임) 분리 우회 | #pattern |
+| [[JSON 직렬화 심화 — JSONParser·JSONGenerator·예약어 충돌]] | JSON 필드명이 Apex 예약어(from·case·currency)일 때 우회 4패턴 + System.JSON/JSONParser/JSONGenerator/JSONToken 전수 레퍼런스 | #reference |
 
 ---
 
@@ -45,6 +47,8 @@ updated: 2026-05-22
 - CRM Analytics 집계(sum/avg/count)를 Apex로? → [[Wave Namespace]] → ProjectionNode
 - CRM Analytics 템플릿 목록 Apex로 가져오기? → [[Wave Namespace]] → Templates.getTemplates
 - Apex로 레코드에 파일 첨부·공개 링크 생성? → [[Apex에서 Salesforce Files 다루기 (ContentVersion·ContentDistribution)]]
+- MIXED_DML_OPERATION 에러가 날 때 / User·Account를 같이 insert? → [[Mixed DML 제약과 우회]]
+- JSON 필드명이 예약어(from·case·currency)라 래퍼로 못 받을 때? → [[JSON 직렬화 심화 — JSONParser·JSONGenerator·예약어 충돌]]
 
 ## 보안 연동
 

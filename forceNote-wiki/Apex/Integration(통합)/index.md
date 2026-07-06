@@ -16,6 +16,7 @@ created: 2026-05-17
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
 | [[RestClient 패턴]] | virtual class, Named Credential callout:, PATCH 우회 | #pattern |
+| [[Http·HttpRequest·HttpResponse 레퍼런스]] | Apex HTTP 콜아웃 3종 표준 클래스(System) 전수 — setTimeout(밀리초, 기본 10초·최대 120초), setEndpoint/setMethod/setHeader/setBody, getStatusCode/getBody, CalloutException | #reference |
 | [[Custom REST Endpoint]] | @RestResource, global inherited sharing, RestContext | #pattern |
 | [[SOAP Web Services 노출 (webservice 키워드)]] | webservice 키워드로 Apex 메서드를 SOAP 웹서비스로 노출, WSDL 생성, system context 보안, AJAX Toolkit(sforce.apex.execute), 오버로딩 불가 | #pattern |
 | [[ConnectApi Chatter 패턴]] | postFeedItemWithRichText, @멘션, Flow 리치 텍스트 변환 | #pattern |
@@ -72,6 +73,7 @@ created: 2026-05-17
 ## 빠른 선택
 
 - Apex에서 외부 API 호출? → [[RestClient 패턴]]
+- HTTP 콜아웃 타임아웃 설정·Http/HttpRequest/HttpResponse 메서드 레퍼런스? → [[Http·HttpRequest·HttpResponse 레퍼런스]]
 - 외부 시스템이 Salesforce를 REST로 호출? → [[Custom REST Endpoint]]
 - 외부 시스템이 Salesforce를 SOAP(WSDL)로 호출 / Apex 메서드를 SOAP로 노출? → [[SOAP Web Services 노출 (webservice 키워드)]]
 - Chatter 피드에 게시(리치 텍스트, @멘션)? → [[ConnectApi Chatter 패턴]]

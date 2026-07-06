@@ -125,6 +125,19 @@ export default class CustomDataTypes extends LightningDatatable {
 }
 ```
 
+```html
+<!-- customPicture.html — 셀 템플릿 (lwc-recipes 실제 소스, Tier 1) -->
+<template>
+    <img
+        src={typeAttributes.pictureUrl}
+        class="slds-avatar slds-avatar_circle slds-avatar_large"
+        alt="Profile photo"
+    />
+</template>
+```
+
+셀 템플릿 안에서는 `value`(해당 셀의 `fieldName` 값)와 `typeAttributes`(columns 정의에서 넘긴 속성 — 위에서 `{typeAttributes.pictureUrl}`)를 바인딩 컨텍스트로 사용할 수 있다. 래퍼 컴포넌트의 자체 템플릿(`customDataTypes.html`)은 `<template> </template>` 빈 파일로 두어 `LightningDatatable`의 렌더링을 그대로 상속한다.
+
 ```javascript
 // 사용하는 컴포넌트 — columns에 커스텀 타입 지정
 const COLS = [

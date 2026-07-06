@@ -334,3 +334,4 @@ after, before, count, excludes, first, includes, last, order, sharing, with
 - [[Apex Best Practices]]
 - [[ApexDoc 주석 작성 가이드]] — `@throws` 등 예외 문서화 주석 작성
 - [[Apex Debug Log]] — 예외·스택트레이스를 디버그 로그로 추적
+- [[JSON 직렬화 심화 — JSONParser·JSONGenerator·예약어 충돌]] — JSON 키가 예약어라 래퍼 선언이 안 될 때의 우회 패턴

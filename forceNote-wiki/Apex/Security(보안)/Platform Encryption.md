@@ -1,8 +1,8 @@
 ---
 tags: [Security, Platform-Encryption, Shield, Encryption, Field-Encryption, Database-Encryption, Data-Cloud]
-source: external-knowledge; apex-recipes-main/force-app/main/default/classes/Encryption Recipes/EncryptionRecipes.cls; help.salesforce.com security_pe_permissions (Tier 2)
+source: external-knowledge; apex-recipes-main/force-app/main/default/classes/Encryption Recipes/EncryptionRecipes.cls; help.salesforce.com security_pe_permissions (Tier 2); Salesforce Shield Platform Encryption Implementation Guide 2025-03-28판 — Differences Between Classic Encryption and Shield Platform Encryption (Tier 2)
 created: 2026-05-23
-aliases: [Platform Encryption, 플랫폼 암호화, Shield Platform Encryption, 필드 암호화, 데이터베이스 암호화, constant-time comparison, 타이밍 공격, areEqualConstantTime, 초기화 벡터, developer-managed IV]
+aliases: [Platform Encryption, 플랫폼 암호화, Shield Platform Encryption, 필드 암호화, 데이터베이스 암호화, constant-time comparison, 타이밍 공격, areEqualConstantTime, 초기화 벡터, developer-managed IV, Classic Encryption, 클래식 암호화, Encrypted Text 필드]
 ---
 
 # Platform Encryption
@@ -11,6 +11,7 @@ aliases: [Platform Encryption, 플랫폼 암호화, Shield Platform Encryption, 
 
 > [!warning] 이 노트는 외부 지식 기반으로 작성되었으며 공식 소스와 대조되지 않았습니다.
 > 공식 문서: https://help.salesforce.com/s/articleView?id=sf.security_pe_overview.htm
+> 단, **[Shield Platform Encryption vs Classic Encryption](#shield-platform-encryption-vs-classic-encryption) 섹션**과 **설정 전제조건(권한)** 은 공식 소스(Tier 2)와 셀 단위 대조 완료.
 
 ---
 
@@ -289,15 +290,59 @@ Setup > Data Cloud > Security > Encryption
 
 ## Shield Platform Encryption vs Classic Encryption
 
-| 항목 | Shield Platform Encryption | Classic Encryption |
-|---|---|---|
-| 암호화 방식 | AES-256 | AES-128 |
-| 키 관리 | 고객 제어 가능 | Salesforce 관리 |
-| 파일 암호화 | ✅ | ❌ |
-| BYOK | ✅ | ❌ |
-| Field Audit Trail | ✅ | ❌ |
-| 라이선스 | Shield (별도 구매) | 기본 포함 |
-| SOQL 제한 | Probabilistic에서 있음 | 없음 |
+> ✅ **Tier 2 검증 완료** — 아래 표는 Salesforce Shield Platform Encryption Implementation Guide(2025-03-28판)의 "Differences Between Classic Encryption and Shield Platform Encryption" 공식 비교표와 **셀 단위 대조**를 마쳤다(원본 3열 방향 그대로 유지). Shield는 **Field-Level Encryption**과 **Database Encryption** 두 갈래이므로 공식 표도 3열이다.
+>
+> ⚠️ 이전 버전 표의 **"SOQL 제한: Classic = 없음"은 오류**였다. 공식 표에서 Classic Encryption의 *Search, Filters, and Queries* 는 **불가(❌)** — Classic 암호화 필드는 필터·쿼리·정렬 모두 안 된다.
+
+| 기능 | Classic Encryption | Shield — Field-Level Encryption | Shield — Database Encryption |
+|---|---|---|---|
+| 가격 | 기본 사용자 라이선스 포함 | 추가 비용 (add-on) | 추가 비용 (add-on) |
+| 저장 시 암호화 (at rest) | ✅ | ✅ | ✅ |
+| 네이티브 솔루션 (별도 HW/SW 불필요) | ✅ | ✅ | ✅ |
+| 암호화 알고리즘 | 128-bit AES | 256-bit AES (CBC) | 256-bit AES (GCM) |
+| HSM 기반 키 유도 | ❌ | ✅ | ✅ |
+| Manage Encryption Keys 권한 | ❌ | ✅ | ✅ |
+| 키 생성 | ✅ | ✅ | ✅ |
+| 키 내보내기·가져오기·파기 | ✅ | ✅ | ❌ |
+| 고급 키 옵션 | ❌ | BYOK · Cache-Only Keys · External Key Management | BYOK |
+| PCI-DSS L1 준수 | ✅ | ✅ | ✅ |
+| 마스킹 (저장값 마스크 표시) | ✅ | ❌ | ❌ |
+| 마스크 타입·마스크 문자 지정 | ✅ | ❌ | ❌ |
+| 평문 조회에 View Encrypted Data 권한 필요 | ✅ | ❌ | ❌ |
+| 표준 필드 암호화 | ❌ | ✅ (지원 표준 필드 한정) | ✅ (모든 표준 필드) |
+| 첨부·파일·콘텐츠 암호화 | ❌ | ✅ | ✅ |
+| 커스텀 필드 암호화 | 전용 커스텀 필드 타입(Encrypted Text), **175자 제한** | ✅ (지원 커스텀 필드 타입 한정) | ✅ (모든 커스텀 필드) |
+| 기존 커스텀 필드를 암호화로 전환 | ❌ | ✅ | ✅ |
+| 커스텀 메타데이터·Apex 암호화 | ✅ | ✅ | ✅ |
+| 검색·필터·쿼리 | ❌ | ✅ deterministic 스킴 필드에서 UI·부분 검색·룩업·일부 SOSL | ✅ 모든 SOSL·SOQL (field-level로 중복 암호화된 필드 제외) |
+| 정렬 (Sorting) | ❌ | ❌ | ✅ (field-level로 중복 암호화된 필드 제외) |
+| 전체 DB(표준+커스텀 필드·메타데이터·Apex) 암호화 | ❌ | ❌ | ✅ |
+| API 액세스 | ✅ | ✅ | ✅ |
+| 워크플로 규칙·워크플로 필드 업데이트 사용 | ❌ | ✅ | ✅ |
+| 승인 프로세스 진입 조건·단계 조건 사용 | ❌ | ✅ | ✅ |
+
+### Classic Encryption 실무 특성 (선택 전 반드시 알 것)
+
+Classic Encryption은 "무료 Shield"가 아니라 **범위가 완전히 다른 별개 기능**이다.
+
+- **전용 필드 타입으로만 제공** — 커스텀 필드 생성 시 **Encrypted Text** 타입을 선택해야 한다. 기존 필드를 암호화로 전환할 수 없고(위 표 "기존 커스텀 필드를 암호화로 전환 ❌"), 표준 필드·파일·첨부는 아예 암호화 대상이 아니다.
+- **최대 175자** — Encrypted Text 필드 길이 상한.
+- **마스킹 내장** — 마스크 타입(예: 마지막 4자만 표시)과 마스크 문자를 지정해 화면에 마스크된 값을 보여준다. 반대로 Shield는 마스킹 기능이 없다(암호화는 저장 계층에서만, 화면 표시는 FLS로 제어).
+- **평문 조회 = View Encrypted Data 권한** — 이 권한이 없는 사용자는 마스크된 값만 본다. Shield는 이 권한이 아니라 일반 **필드 레벨 보안(FLS)** 으로 접근을 제어한다.
+- **필터·쿼리·정렬 전부 불가** — Classic 암호화 필드는 SOQL WHERE·SOSL·리포트 필터·정렬에 쓸 수 없고, 워크플로 규칙·승인 프로세스 조건에서도 못 쓴다. (Shield Field-Level은 deterministic 스킴이면 exact-match 필터 가능, Database Encryption은 대부분의 쿼리 가능.)
+
+### 언제 Shield를 사야 하나 — 결정 기준
+
+| 요구사항 | 선택 |
+|---|---|
+| **표준 필드**(이메일·전화·이름 등)나 **파일/첨부**를 암호화해야 함 | Shield (Classic은 불가) |
+| 175자 초과 텍스트, 다양한 커스텀 필드 타입, **기존 필드** 암호화 | Shield |
+| **키 통제** 요구 — BYOK·Cache-Only Keys·External Key Management·HSM 기반 키 유도 | Shield |
+| 암호화 필드를 **필터·검색**에 써야 함 (deterministic) 또는 쿼리·정렬까지 (Database Encryption) | Shield |
+| HIPAA·GDPR 등 규정으로 **256-bit AES + 감사 가능한 키 수명주기** 필요 | Shield |
+| 소수의 커스텀 텍스트 필드(≤175자)만 가리면 되고, **마스크 표시**가 필요하며, 추가 예산이 없음 | Classic으로 충분 |
+
+> 비용 관점: Classic은 기본 라이선스 포함, Shield는 Enterprise·Performance·Unlimited에서 add-on 구매(Developer Edition은 무료 제공).
 
 ---
 

@@ -123,6 +123,7 @@ static void searchBooks_returnsResults() {
 
 ## 관련 노트
 
+- [[Http·HttpRequest·HttpResponse 레퍼런스]] — 래핑 대상 표준 클래스 메서드 전수·타임아웃 규칙
 - [[Named Credential]]
 - [[HttpCalloutMock]]
 - [[Custom REST Endpoint]]

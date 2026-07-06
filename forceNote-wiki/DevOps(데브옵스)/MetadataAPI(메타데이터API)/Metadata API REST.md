@@ -137,7 +137,7 @@ Content-Type: application/json
 {}
 ```
 
-- `validationId` — `checkOnly=true` 배포의 ID (4일 이내)
+- `validationId` — `checkOnly=true` 배포의 ID (검증 성공 후 **10일 이내** — "validated successfully for the target environment within the last 10 days")
 
 ---
 
