@@ -65,7 +65,7 @@ trigger LowInkTrigger on Low_Ink__e (after insert) {
 > 트리거 실행 사용자는 기본 **Automated Process**. 생성 레코드 소유자를 명시하거나 실행 사용자를 오버라이드한다.
 
 ### 다른 구독 방식
-- **Pub/Sub API** — gRPC / HTTP2 기반, 이벤트를 **Apache Avro 바이너리**로 효율 전송. 발행 RPC: `Publish`(unary) / `PublishStream`(양방향 스트리밍, 높은 발행률). 구독·발행·스키마 조회를 1 API로. **11개 언어**(Python·Java·Go·Node 등) 클라이언트 지원. ReplayId로 스트림 재생(replay).
+- **Pub/Sub API** — gRPC / HTTP2 기반, 이벤트를 **Apache Avro 바이너리**로 효율 전송. 발행 RPC: `Publish`(unary) / `PublishStream`(양방향 스트리밍, 높은 발행률). 구독·발행·스키마 조회를 1 API로. **11개 언어**(Python·Java·Go·Node 등) 클라이언트 지원. ReplayId로 스트림 재생(replay). → 구독 플로우·ManagedSubscribe·ReplayPreset 상세는 [[Pub-Sub API (gRPC) — Platform Event·CDC 구독]] 참조.
 - **CometD** — Streaming API 구독(롱폴링)
 - **Flow / Process** — 선언적 구독 (플랫폼 이벤트 트리거 플로우)
 - **Lightning Components** — `lightning/empApi`로 구독
