@@ -281,7 +281,7 @@ LoginResult = connection.login(string username, string password);
 - WSDL **강타입 계약**(컴파일 타임 타입 체크)이 조직 표준인 Java/.NET SOA 환경
 - 그 외 신규 요구는 REST(본 노트) 또는 대량이면 [[Bulk API 2.0]]
 
-> 표준 SOAP API 전용 노트는 아직 없다 — SOAP 호출 전수(describeSObjects·merge·convertLead 등)가 필요하면 공식 [SOAP API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/) 참조.
+> SOAP 호출 전수(describeSObjects·merge·convertLead·SessionHeader·Enterprise/Partner WSDL 등)는 [[SOAP API (표준 오퍼레이션·enterprise·partner WSDL)]] 참조.
 
 ---
 
@@ -305,6 +305,7 @@ LoginResult = connection.login(string username, string password);
 - [[Bulk API 2.0]] — 대량 비동기 데이터 API
 - [[Actions API]] — Invocable Action REST 호출
 - [[Custom REST Endpoint]] — Apex `@RestResource` 인바운드
+- [[SOAP API (표준 오퍼레이션·enterprise·partner WSDL)]] — 강타입 표준 SOAP API(core calls·SessionHeader·WSDL)
 - [[Named Credential]] — 외부 호출 인증·URL 관리
 - [[UI API 개요]] — UI 인지 REST(LWC/모바일)
 - [[Connect REST API 개요]] — 프레젠테이션 지향 REST(Chatter·Experience·CMS·파일). sObject CRUD·데이터 추출은 이 표준 REST API, 지역화·렌더링용 피드는 Connect REST

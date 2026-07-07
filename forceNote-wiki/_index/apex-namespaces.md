@@ -23,7 +23,7 @@ created: 2026-05-21
 |---|---|
 | RestClient, HTTP 호출 추상화, makeApiCall, HttpVerb, PATCH 우회 | `Apex/Integration(통합)/RestClient 패턴.md` |
 | Http, HttpRequest, HttpResponse, Http.send, setTimeout, setEndpoint, setMethod, setHeader, setBody, getStatusCode, getBody, 콜아웃 타임아웃, 타임아웃 밀리초, 기본 10초, CalloutException, HTTP 콜아웃 레퍼런스, 콜아웃 타임아웃 몇 초, Apex HTTP 표준 클래스 | `Apex/Integration(통합)/Http·HttpRequest·HttpResponse 레퍼런스.md` |
-| @RestResource, Inbound REST, HttpGet HttpPost, urlmapping, 외부→SF | `Apex/Integration(통합)/Custom REST Endpoint.md` |
+| @RestResource, Inbound REST, HttpGet HttpPost, urlmapping, 외부→SF, RestContext, RestRequest, RestResponse, requestBody, statusCode, URL 파라미터 바인딩, 와일드카드 매핑, @ReadOnly | `Apex/Integration(통합)/Custom REST Endpoint.md` |
 | webservice 키워드, @WebService, SOAP Web Services 노출, Apex를 SOAP로 노출, Apex SOAP 웹서비스, WSDL 생성, Apex 메서드 SOAP 노출, system context 보안, AJAX Toolkit, sforce.apex.execute, webservice 오버로딩 불가, SOAP API Apex, custom SOAP endpoint, webservice 키워드 사용법, Apex를 SOAP로 외부 노출 | `Apex/Integration(통합)/SOAP Web Services 노출 (webservice 키워드).md` |
 | WSDL2Apex, Generate from WSDL, WSDL to Apex, 외부 SOAP 소비, SOAP 콜아웃 스텁, endpoint_x, timeout_x, clientCertName_x, document literal wrapped, RPC encoded 미지원, Unable to find complexType, WSDL 100만자 한도, ERP WSDL 가져오기 | `Apex/Integration(통합)/WSDL2Apex — 외부 SOAP 소비 (스텁 생성·구조·한도).md` |
 | ConnectApi, Chatter 게시, postFeedItemWithRichText, Chatter 멘션, ConnectApiHelper, 리치 텍스트 피드, getCommunities, getCommunity, ConnectApi.Communities, ConnectApi.UserProfiles, getUserProfile, getPhoto, getBannerPhoto, Experience Cloud 사이트 조회, 사용자 프로필 사진 | `Apex/Integration(통합)/ConnectApi Chatter 패턴.md` |

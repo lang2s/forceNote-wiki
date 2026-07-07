@@ -103,5 +103,12 @@ created: 2026-05-21
 | 통합 아키텍처 결정, middleware vs point-to-point, ESB, MuleSoft 언제, hub-spoke, N×M 연결 폭발, retry 재시도, idempotency 멱등성, at-least-once, External Id upsert 중복 방지, Outbound Message, 아웃바운드 통지 비교, 실시간 vs 배치, API 한도 관리 전략, /limits 모니터링 | `Integration(통합)/통합 아키텍처 결정 - 미들웨어·재시도·멱등성.md` |
 | outbound IP allowlist, ip-ranges.json, Private Connect, OutboundNetworkConnection, InboundNetworkConnection, AWS PrivateLink, Hyperforce 사설연결, 콜아웃 방화벽 허용, 아웃바운드 IP 범위 | `Integration(통합)/아웃바운드 연결 - IP allowlist·Private Connect.md` |
 | ERP 연동, SAP Salesforce, Oracle ERP, NetSuite, Informatica IICS, MuleSoft API-led connectivity, System Process Experience API 3계층, 서드파티 제품 연동, 실시간 vs 배치 통합, 데이터 가상화 vs 복제 | `Integration(통합)/ERP·서드파티 제품 연동 지도.md` |
+| OAuth web server flow, authorization code, PKCE, code_verifier, code_challenge, S256, refresh_token, redirect_uri, 사용자 위임 OAuth, 브라우저 로그인 OAuth | `Integration(통합)/OAuth Web Server + PKCE 플로우 구축 가이드.md` |
+| Connected App 생성 필드, External Client App 필드, Enable OAuth Settings, Selected OAuth Scopes, Callback URL, Require PKCE, Permitted Users, IP Relaxation, Refresh Token Policy, ExtlClntAppOauthSettings, OAuth 클라이언트 필드 카탈로그 | `Integration(통합)/OAuth 클라이언트(Connected App·External Client App) 생성 필드 전수 레퍼런스.md` |
+| Auth Provider social login, 소셜 로그인 구축, SSO 설정 절차, Registration Handler 작성, JIT 프로비저닝, Google 로그인, Experience Cloud 소셜 로그인 버튼 | `Integration(통합)/Auth Provider 소셜 로그인·SSO 구축 가이드.md` |
+| SOAP API, login, upsert, convertLead, getUpdated, getDeleted, describeSObjects, Enterprise WSDL, Partner WSDL, SessionHeader, SOAP 표준 오퍼레이션, 강타입 API | `Integration(통합)/SOAP API (표준 오퍼레이션·enterprise·partner WSDL).md` |
+| Streaming API, CometD, Bayeux, PushTopic, Generic Streaming, StreamingChannel, Durable Streaming, replayId, long polling, 코멧D, 푸시토픽 | `Integration(통합)/Streaming API (CometD·PushTopic·Generic Streaming).md` |
+| pub-sub client, grpcio-tools, proto stub, FetchRequest, num_requested credit, Avro decode, Publish, gRPC 클라이언트 구축, 구독 루프, Pub/Sub 클라이언트 세우기 | `Integration(통합)/Pub-Sub API 클라이언트 구축 가이드 (gRPC 구독·발행).md` |
+| Platform Event end-to-end, 이벤트 기반 통합 구축, event-driven integration how-to, Platform Event 정의 발행 구독 멱등 재시도, 이벤트 통합 처음부터 끝까지 | `Integration(통합)/이벤트 기반 통합 구축 가이드 (Platform Event end-to-end).md` |
 
 ---

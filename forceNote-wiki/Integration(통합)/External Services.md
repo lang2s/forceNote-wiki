@@ -1,6 +1,6 @@
 ---
 tags: [External-Services, OpenAPI, REST, Integration, Named-Credential, Flow, Apex]
-source: external-knowledge; Salesforce 공식 문서 (Tier 2) — enhanced_external_services_considerations.htm, external_services_schema_def_limits.htm, external_services_intro_openapi_2_3_support.htm (OpenAPI 2.0 and 3.0 Support)
+source: Salesforce Help — External Services System Limits (external_services_schema_def_limits.htm), External Services Considerations (enhanced_external_services_considerations.htm), OpenAPI 2.0 and 3.0 Support (external_services_intro_openapi_2_3_support.htm); Apex Reference Guide — ExternalService Namespace (apex_namespace_ExternalService.htm); Winter '26 Release Notes (Upload and Download Files with External Services Binary File Support)
 created: 2026-05-23
 aliases: [External Services, 외부 서비스, OpenAPI Apex 통합, External Service Registration, 외부 서비스 등록]
 ---
@@ -9,8 +9,7 @@ aliases: [External Services, 외부 서비스, OpenAPI Apex 통합, External Ser
 
 > Salesforce Admin이 OpenAPI 스펙을 등록하면 Apex 클래스와 Flow 액션이 자동 생성되는 선언적 외부 연동 도구
 
-> [!warning] 이 노트는 외부 지식 기반으로 작성되었으며 공식 소스와 대조되지 않았습니다.
-> 공식 문서: https://help.salesforce.com/s/articleView?id=sf.external_services.htm
+> 공식 문서: https://help.salesforce.com/s/articleView?id=platform.external_services.htm
 
 ---
 
@@ -20,7 +19,7 @@ External Services는 외부 REST API의 **OpenAPI 스키마**를 Salesforce에 �
 
 > [!tip] 등록 포맷 — OpenAPI 3.0 권장 (Spring '22 GA)
 > External Services는 **OpenAPI 2.0(Swagger 2.0)** 과 **OpenAPI 3.0** 두 포맷을 모두 지원한다. **Spring '22부터 OpenAPI 3.0 JSON 포맷 직접 등록이 GA** — 스키마를 수정·변환하지 않고 그대로 업로드할 수 있다. 3.0이 현재 업계 표준이므로 **신규 통합은 OpenAPI 3.0 사용을 권장**한다. 아래 예시는 하위 호환용 Swagger 2.0 형식이며, 신규 등록 시 3.0(`"openapi": "3.0.0"`, `servers`/`components` 구조) 사용을 우선 고려한다.
-> 근거: [Learn MOAR in Spring '22 — OpenAPI 3.0 Support for External Services](https://developer.salesforce.com/blogs/2022/02/learn-moar-in-spring-22-with-openapi-3-0-support-for-external-services) · [OpenAPI 2.0 and 3.0 Support](https://help.salesforce.com/s/articleView?id=sf.external_services_intro_openapi_2_3_support.htm)
+> 근거: [Learn MOAR in Spring '22 — OpenAPI 3.0 Support for External Services](https://developer.salesforce.com/blogs/2022/02/learn-moar-in-spring-22-with-openapi-3-0-support-for-external-services) · [OpenAPI 2.0 and 3.0 Support](https://help.salesforce.com/s/articleView?id=platform.external_services_intro_openapi_2_3_support.htm)
 
 ### 동작 원리
 
@@ -57,16 +56,17 @@ OpenAPI 스펙 업로드
 
 ### ⚠️ 스키마 구조 제약 (등록 실패 블로커)
 
-한도 표의 등록 개수·오퍼레이션 수만 충족해도, 아래 **스키마 구조 제약**을 위반하면 등록 시 `unsupported schema` 오류로 막힌다. 스펙을 올리기 전에 반드시 확인한다.
+한도 표의 등록 개수·스키마 크기만 충족해도, 아래 **스키마 구조 제약**을 위반하면 등록·매핑 시 오류로 막힌다. 스펙을 올리기 전에 반드시 확인한다.
 
 | 제약 | 내용 |
 |---|---|
-| 모든 parameter는 named여야 함 | 이름 없는(unnamed) 파라미터는 지원 안 됨 |
-| 모든 property는 값이 할당돼야 함 | 값이 없는(빈) property가 있으면 등록 실패 |
-| nested/complex object 입력·출력 | **표준 External Services에서는 미지원.** nested/complex object를 입력·출력으로 쓰려면 **Enhanced External Services**여야 함 |
-| 스키마 정의 최대 크기 | **100,000자** (스키마 정의 문자 수 상한) |
+| OpenAPI 버전 | **OpenAPI 2.0(Swagger)·3.0 모두 지원.** 3.0은 변환 없이 JSON 직접 등록(Spring '22 GA) |
+| 타입 이름 길이 | 정의되거나 파생된 **parameter object type 이름**, 또는 object 타입을 갖는 **property**는 **255자 미만**이어야 Apex·Flow Builder에서 사용 가능 |
+| nested/complex object | **지원됨.** 현재 External Services(구 Enhanced External Services)는 복합·중첩 object를 입력·출력으로 생성한다 — `ExternalService` 네임스페이스가 complex object data type용 Apex 클래스를 자동 생성 |
+| 스키마 조합(composition) | OpenAPI 3.0의 `allOf`·`anyOf`·`oneOf` 및 `discriminator`(다형성) 지원 |
+| 스키마 크기 | JSON **10,000,000자(10 MB)** · YAML **3,000,000자(3 MB)** 이내 (아래 한도 표 참조) |
 
-> 표준 External Services에서 중첩 객체를 입력·출력으로 사용하려면 Enhanced External Services로 등록해야 한다. 자세한 고려사항은 공식 문서 `enhanced_external_services_considerations.htm` 참조.
+> 과거 "표준 External Services"(중첩 객체 미지원)와 "Enhanced External Services"의 구분은 Enhanced가 표준으로 통합되면서 사실상 사라졌다 — 현재 External Services는 복합/중첩 스키마를 기본 지원한다. 스키마 업데이트 시 지원되는 변경/미지원 변경 상세는 공식 문서 `enhanced_external_services_considerations.htm`(External Services Considerations) 참조.
 
 ### OpenAPI 스펙 예시 (등록용)
 
@@ -123,25 +123,27 @@ OpenAPI 스펙 업로드
 
 자동 생성된 Apex 클래스는 `ExternalService` 네임스페이스 하위에 위치한다.
 
+Request·Response 타입은 **서비스 클라이언트 클래스의 내부(nested) 클래스**로 생성된다 — `ExternalService.<Service>.<operationId>_Request` 형태(서비스명과 오퍼레이션 사이는 점 `.`, 밑줄 아님). 응답 클래스는 각 HTTP 상태코드마다 `Code<코드>` 프로퍼티를 가진다.
+
 ```apex
-// External Service: "AcmeAPI" 로 등록한 경우
-// 자동 생성 클래스: ExternalService.AcmeAPI
+// 공식 Apex Reference Guide 예시 형태
+// External Service "OpenLibrary" 로 등록한 경우
+ExternalService.OpenLibrary api = new ExternalService.OpenLibrary();
 
-// 입력 파라미터 객체 생성
-ExternalService.AcmeAPI_getAccount_Request req = 
-    new ExternalService.AcmeAPI_getAccount_Request();
-req.id = '12345';
+// 요청 객체 (nested: 서비스.오퍼레이션_Request)
+ExternalService.OpenLibrary.getBooks_Request request =
+    new ExternalService.OpenLibrary.getBooks_Request();
+request.q = 'salesforce';
 
-// API 호출 실행
-ExternalService.AcmeAPI client = new ExternalService.AcmeAPI();
-ExternalService.AcmeAPI_getAccount_Response resp = client.getAccount(req);
+// 호출 → 응답 (nested: 서비스.오퍼레이션_Response)
+ExternalService.OpenLibrary.getBooks_Response response = api.getBooks(request);
 
-// 응답 처리
-if (resp.Code == 200) {
-    ExternalService.AcmeAPI_Account account = resp.Body;
-    System.debug('Account Name: ' + account.name);
-}
+// 응답 처리 — 상태코드별 프로퍼티(Code200, Code404 …)로 타입-안전 body 접근
+// (response.Code200의 내부 필드는 스펙의 응답 스키마에 따라 생성됨)
+System.debug(response.Code200);
 ```
+
+> ⚠️ 응답 body는 `resp.Body`나 `resp.Code == 200` 형태가 아니라, 스펙에 정의된 각 응답 코드에 대응하는 **`Code<상태코드>` 프로퍼티**(예: `response.Code200`)로 접근한다. 오류 응답은 `<operationId>_ResponseException`(예: `exc.Code404`)으로 처리한다.
 
 ---
 
@@ -161,34 +163,34 @@ Flow Builder > Action 요소 추가
 
 ## Binary File 지원 (Winter '26 신규)
 
-Winter '26부터 **Binary File 유형 응답** 지원:
+Winter '26부터 **바이너리 파일 업로드·다운로드**를 지원한다. OpenAPI 3.0 스펙에서 `application/octet-stream` 콘텐츠 타입으로 정의한 PUT(업로드)/GET(다운로드) 오퍼레이션이 Flow·Apex용 invocable action으로 자동 생성된다.
 
-```apex
-// Binary 응답 처리 (예: PDF 다운로드)
-ExternalService.DocAPI_getDocument_Response resp = client.getDocument(req);
-if (resp.Code == 200) {
-    Blob fileContent = resp.Body_Blob; // Binary 응답
-    ContentVersion cv = new ContentVersion();
-    cv.Title = 'Document.pdf';
-    cv.PathOnClient = 'Document.pdf';
-    cv.VersionData = fileContent;
-    insert cv;
-}
-```
+- 이미지·PDF 등 바이너리를 **`ContentDocument`와 주고받을 수 있다** — 업로드 시 전체 blob 대신 `contentDocumentId`를 body 파라미터로 넘겨 힙 메모리를 절약할 수 있다.
+- 파일 크기 상한은 아래 한도 표의 "업로드/다운로드 파일 최대 크기" 참조.
+
+> 근거: [The Salesforce Developer's Guide to the Winter '26 Release — Upload and Download Files with External Services Binary File Support](https://developer.salesforce.com/blogs/2025/09/winter26-developers)
 
 ---
 
-## 한도 (Winter '26 기준)
+## 한도 (Winter '26 기준 — 공식 System Limits)
+
+공식 문서 `External Services System Limits`(platform.external_services_schema_def_limits.htm) 기준. 한도는 **org 단위**(스키마 단위 아님)다.
 
 | 항목 | 한도 |
 |---|---|
-| 등록 가능 External Service | **700개** (기존 200개에서 증가) |
-| 스키마 당 오브젝트/오퍼레이션 수 | **3,000개** (기존 100개에서 증가) |
-| 단일 스키마 파일 크기 | 1MB |
-| 스키마 정의 최대 크기 | **100,000자** (이 상한을 넘으면 등록 불가) |
-| 동시 Callout 제한 | Apex 거버너 한도 동일 (트랜잭션 당 100회) |
+| 등록 가능 External Service | **700개 / org** (Winter '26에 150 → 700 증가) |
+| 활성 오퍼레이션 수 | **3,000개 / org** (Winter '26에 1,250 → 3,000 증가) |
+| 활성+비활성 오퍼레이션 | **10,000개 / org** |
+| 활성 오브젝트 수 | **3,000개 / org** |
+| 활성+비활성 오브젝트 | **10,000개 / org** |
+| 오브젝트 프로퍼티 수 | **400,000개 / org** |
+| 스키마 최대 크기 (JSON) | **10,000,000자 (10.0 MB)** |
+| 스키마 최대 크기 (YAML) | **3,000,000자 (3.0 MB)** |
+| 업로드/다운로드 파일 최대 크기 | **100 MB** |
+| 타입 이름 길이 | parameter object type 이름·object property 이름 **255자 미만** (Apex·Flow 사용 조건) |
+| 트랜잭션당 External Service callout | **100회** (Apex 거버너 한도. Developer Edition은 외부 도메인 동시 callout 20회 제한) |
 
-> 구조 제약(parameter named·property 값 할당·nested object 미지원)은 위 [스키마 구조 제약](#️-스키마-구조-제약-등록-실패-블로커) 소절 참조.
+> 구조 제약(타입 이름 255자·OpenAPI 버전·nested object 지원·composition)은 위 [스키마 구조 제약](#️-스키마-구조-제약-등록-실패-블로커) 소절 참조.
 
 ---
 
@@ -209,14 +211,17 @@ External Service에서 Named Credential 선택
 
 ## ExternalService Namespace (Apex)
 
-External Services 등록 시 자동 생성되는 Apex 클래스 구조:
+External Services 등록 시 자동 생성되는 Apex 클래스 구조. Request·Response·스키마 타입은 서비스 클라이언트 클래스 **안의 nested 클래스**로, 서비스명과 이름 사이를 점(`.`)으로 잇는다(밑줄 아님).
 
 | 클래스/타입 | 설명 |
 |---|---|
-| `ExternalService.<ServiceName>` | 서비스 클라이언트 클래스 |
-| `ExternalService.<ServiceName>_<OperationId>_Request` | 요청 파라미터 클래스 |
-| `ExternalService.<ServiceName>_<OperationId>_Response` | 응답 클래스 (Code, Body 포함) |
-| `ExternalService.<ServiceName>_<SchemaName>` | 스키마 정의 타입 클래스 |
+| `ExternalService.<ServiceName>` | 서비스 클라이언트 클래스 (`new`로 인스턴스화) |
+| `ExternalService.<ServiceName>.<operationId>_Request` | 요청 파라미터 클래스 (nested) |
+| `ExternalService.<ServiceName>.<operationId>_Response` | 응답 클래스 (nested). 각 HTTP 상태코드마다 `Code<코드>` 프로퍼티 보유 |
+| `ExternalService.<ServiceName>.<operationId>_ResponseException` | 오류 응답 예외 클래스 (nested) |
+| `ExternalService.<ServiceName>.<SchemaTypeName>` | 스키마 object 타입 클래스 (nested) |
+
+> 오브젝트·오퍼레이션은 등록된 API 스펙에서 `ExternalService` 네임스페이스의 Apex 클래스·메서드로 매핑된다. 스펙의 object schema는 Apex 타입으로 매핑되며, complex object data type도 클래스로 생성된다.
 
 ---
 

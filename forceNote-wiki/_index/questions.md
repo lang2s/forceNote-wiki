@@ -158,3 +158,10 @@ created: 2026-05-21
 | 외부 방화벽이 Salesforce 콜아웃 허용하려면 / 아웃바운드 IP 범위·ip-ranges.json / Private Connect | `Integration(통합)/아웃바운드 연결 - IP allowlist·Private Connect.md` |
 | SAP/Oracle/NetSuite/Informatica를 Salesforce와 어떻게 연동 / 실시간 vs 배치 통합 / 제품별 연동 지도 | `Integration(통합)/ERP·서드파티 제품 연동 지도.md` |
 | Named Credential 커스텀 파라미터 헤더 / Custom 인증 프로토콜 / {!$Credential} 파라미터 | `Integration(통합)/Named Credential.md` |
+| 사용자가 브라우저로 로그인하는 OAuth 어떻게 세워 / 웹 서버 플로우 구축 / authorization code + PKCE 절차 / code_verifier code_challenge 만드는 법 | `Integration(통합)/OAuth Web Server + PKCE 플로우 구축 가이드.md` |
+| Connected App 만들 때 무슨 칸을 채우나 / External Client App OAuth 필드 전부 / Selected OAuth Scopes 목록 / Callback URL·Require PKCE·Permitted Users 뭐 고르나 | `Integration(통합)/OAuth 클라이언트(Connected App·External Client App) 생성 필드 전수 레퍼런스.md` |
+| 소셜 로그인 어떻게 붙이나 / Google 로그인 버튼 만드는 법 / Auth Provider SSO 설정 절차 / Registration Handler로 JIT 사용자 자동 생성 | `Integration(통합)/Auth Provider 소셜 로그인·SSO 구축 가이드.md` |
+| SOAP API 표준 오퍼레이션 뭐가 있나 / Enterprise vs Partner WSDL 차이 / login upsert convertLead getUpdated / 강타입 API 언제 REST 대신 쓰나 | `Integration(통합)/SOAP API (표준 오퍼레이션·enterprise·partner WSDL).md` |
+| CometD로 이벤트 구독하는 법 / PushTopic Generic Streaming 차이 / replayId로 놓친 이벤트 재생 / 브라우저 Visualforce에서 push 구독 | `Integration(통합)/Streaming API (CometD·PushTopic·Generic Streaming).md` |
+| gRPC로 Platform Event 구독 클라이언트 세우는 법 / Pub/Sub API 파이썬 예제 / proto stub 생성·credit flow control·Avro 디코드 / 외부에서 이벤트 발행 | `Integration(통합)/Pub-Sub API 클라이언트 구축 가이드 (gRPC 구독·발행).md` |
+| 이벤트 기반 통합 처음부터 끝까지 어떻게 / Platform Event 정의→발행→구독→멱등→재시도 / event-driven integration 전체 흐름 | `Integration(통합)/이벤트 기반 통합 구축 가이드 (Platform Event end-to-end).md` |

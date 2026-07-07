@@ -178,6 +178,8 @@ CometD의 push와 달리 Pub/Sub API 구독은 **클라이언트가 처리 능�
 ---
 
 ## 관련 노트
+- [[Pub-Sub API 클라이언트 구축 가이드 (gRPC 구독·발행)]] — 이 개념·레퍼런스의 실행 짝(stub 생성·인증·subscribe 루프·Avro)
+- [[Streaming API (CometD·PushTopic·Generic Streaming)]] — Pub/Sub가 대체한 레거시 구독(CometD·PushTopic)
 - [[Platform Event 정의와 구독]]
 - [[Platform Event 발행]]
 - [[Platform Event 통합 패턴]]

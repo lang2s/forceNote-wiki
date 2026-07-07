@@ -207,4 +207,5 @@ Auth Provider는 **Salesforce가 OAuth 클라이언트일 때**(외부 IdP에 �
 - [[Queueable + Callout 패턴]] — Named Credential(→ Auth Provider) 기반 비동기 외부 호출
 - [[Secure Communications (TLS)]] — OAuth 콜아웃의 TLS/HTTPS 강제
 - [[민감 데이터 저장]] — Consumer Secret·토큰 등 자격증명 보관 위협
+- [[Auth Provider 소셜 로그인·SSO 구축 가이드]] — 이 개념을 실제로 세우는 절차(IdP 등록→Registration Handler→로그인 버튼)
 - [[Connected App (연결된 앱) — OAuth 클라이언트]] — 방향이 반대인 OAuth 서버 측 개념

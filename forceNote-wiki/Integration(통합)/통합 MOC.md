@@ -32,6 +32,9 @@ aliases: [통합 MOC, Integration Index]
 - [[Connected App (연결된 앱) — OAuth 클라이언트]] — OAuth 클라이언트 정의 (Consumer Key/Secret·scope·flow)
 - [[External Client App (외부 클라이언트 앱)]] — Connected App 차세대 후속(Spring '26 신규생성 대체)
 - [[서버간 통합 구축 가이드 - External Client App·JWT Bearer·Client Credentials]] — 서버간 인증 구축 절차(인증서→ECA→토큰→NC)
+- [[OAuth Web Server + PKCE 플로우 구축 가이드]] — 사용자가 브라우저로 직접 로그인·승인하는 웹앱 OAuth 구축 절차(인가 코드+PKCE 5단계)
+- [[OAuth 클라이언트(Connected App·External Client App) 생성 필드 전수 레퍼런스]] — Connected App/ECA OAuth 생성 화면 모든 필드·scope·정책 카탈로그
+- [[Auth Provider 소셜 로그인·SSO 구축 가이드]] — 외부 IdP(Google 등) 소셜 로그인·JIT 프로비저닝 처음부터 끝까지 절차
 - [[Integration User & API-Only User (통합 사용자)]] — 통합 실행 주체(무료 5 라이선스·API-Only·최소권한)
 - [[Auth Provider (인증 공급자)]] — 외부 IdP 인증 게이트웨이 (소셜 로그인·외부 OAuth 토큰 공급)
 - [[Pub-Sub API (gRPC) — Platform Event·CDC 구독]] — 외부 시스템이 Platform Event·CDC를 gRPC로 구독/발행 (CometD 대체·flow control·replay)
@@ -45,6 +48,7 @@ aliases: [통합 MOC, Integration Index]
 ## Inbound (외부 → Salesforce)
 
 - [[REST API]] — 표준 REST(sObjects CRUD·SOQL·Composite·sObject Tree/Collections), OAuth 2.0
+- [[SOAP API (표준 오퍼레이션·enterprise·partner WSDL)]] — 강타입 XML/SOAP API(Enterprise/Partner WSDL·login·upsert·convertLead·getUpdated/getDeleted·SessionHeader)
 - [[Actions API]] — Invocable Action REST 호출(`/actions/standard`·`/actions/custom/apex`), inputs JSON, describe
 - [[Custom REST Endpoint]] — `@RestResource`, `@HttpGet/@HttpPost` 글로벌 클래스
 
@@ -56,6 +60,9 @@ aliases: [통합 MOC, Integration Index]
 ## 이벤트 기반
 
 - [[Platform Event 통합 패턴]] — `EventBus.publish()`, 트리거 수신, LWC 구독
+- [[이벤트 기반 통합 구축 가이드 (Platform Event end-to-end)]] — 정의→발행→구독→멱등 소비→재시도까지 한 흐름으로 엮는 절차 허브
+- [[Pub-Sub API 클라이언트 구축 가이드 (gRPC 구독·발행)]] — 외부(Python·Java 등)에서 gRPC로 Platform Event·CDC를 구독/발행하는 클라이언트 구축 how-to(proto stub·credit·Avro)
+- [[Streaming API (CometD·PushTopic·Generic Streaming)]] — CometD/Bayeux long-polling 레거시 push 구독(PushTopic·Generic Streaming·Durable·replayId)
 
 ## 선언적 외부 연동
 
