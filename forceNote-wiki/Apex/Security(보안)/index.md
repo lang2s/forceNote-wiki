@@ -23,6 +23,9 @@ created: 2026-05-17
 | [[TxnSecurity Namespace]] | Transaction Security Policy Apex — EventCondition, AsyncCondition, 실시간 이벤트 기반 차단·알림 정책 | #reference |
 | [[UserProvisioning Namespace]] | 커넥티드 앱 아웃바운드 사용자 프로비저닝 — ConnectorTestUtil, UserProvisioningLog, UserProvisioningPlugin(reconOffset 청크 패턴) | #reference |
 | [[Platform Encryption]] | Shield 플랫폼 암호화 — 필드·파일·DB 암호화, AES-256, BYOK, Deterministic·Probabilistic, Winter '26 Database Encryption GA | #reference |
+| [[Apex Managed Sharing (프로그래매틱 공유)]] | `__Share` 오브젝트에 DML로 동적 접근 부여 — RowCause/Sharing Reason, OWD Private 재계산 배치 | #pattern |
+| [[Sharing 키워드 (with·without·inherited sharing)]] | 클래스 sharing 키워드 = 레코드 가시성(행 수준)만 — 선언 없을 때 기본값·escalation 방지 | #reference |
+| [[Crypto 클래스 레퍼런스]] | System.Crypto 전 메서드 — encrypt/decrypt, generateDigest/generateMac, sign/verify, generateAesKey | #reference |
 
 ---
 
@@ -39,6 +42,9 @@ created: 2026-05-17
 - 커넥티드 앱 사용자 프로비저닝 로그 기록? → [[UserProvisioning Namespace]] → UserProvisioningLog.log
 - 프로비저닝 플러그인 커스터마이즈? → [[UserProvisioning Namespace]] → UserProvisioningPlugin
 - 프로비저닝 테스트(@isTest 전용 시뮬레이션)? → [[UserProvisioning Namespace]] → ConnectorTestUtil
+- OWD Private에서 특정 레코드만 Apex로 공유? → [[Apex Managed Sharing (프로그래매틱 공유)]] → `__Share` DML
+- with/without/inherited sharing 차이·기본값? → [[Sharing 키워드 (with·without·inherited sharing)]]
+- Apex로 암복호화·다이제스트·디지털 서명? → [[Crypto 클래스 레퍼런스]]
 
 ## 보안 계층 관계
 

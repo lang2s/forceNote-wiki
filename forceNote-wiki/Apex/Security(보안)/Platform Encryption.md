@@ -9,9 +9,11 @@ aliases: [Platform Encryption, 플랫폼 암호화, Shield Platform Encryption, 
 
 > Salesforce Shield의 핵심 기능 — 데이터를 저장(at rest) 시 암호화하여 규정 준수 요건을 충족한다
 
-> [!warning] 이 노트는 외부 지식 기반으로 작성되었으며 공식 소스와 대조되지 않았습니다.
+> [!warning] 이 노트의 **선언적 암호화 개념부**(개념 설명·키 관리 개요·설정 방법·Deterministic vs Probabilistic·SOQL 제한·Data Cloud·Field Audit Trail)는 외부 지식 기반으로 작성되었으며 공식 소스와 아직 대조되지 않았습니다.
 > 공식 문서: https://help.salesforce.com/s/articleView?id=sf.security_pe_overview.htm
-> 단, **[Shield Platform Encryption vs Classic Encryption](#shield-platform-encryption-vs-classic-encryption) 섹션**과 **설정 전제조건(권한)** 은 공식 소스(Tier 2)와 셀 단위 대조 완료.
+> 단, 아래는 검증된 부분입니다:
+> - **[Shield Platform Encryption vs Classic Encryption](#shield-platform-encryption-vs-classic-encryption) 섹션**과 **설정 전제조건(권한)** — 공식 소스(Tier 2)와 셀 단위 대조 완료.
+> - **Crypto 클래스 관련 내용** — [[Crypto 클래스 레퍼런스]](Apex Reference Guide 원문 대조, Tier 1/2)로 위임. 이 노트의 개발자 관리 IV 패턴은 `apex-recipes` 로컬 소스(Tier 1) 발췌.
 
 ---
 
@@ -55,28 +57,16 @@ Data Encryption Key (DEK)
 
 ### 키 관련 Apex — Crypto 클래스 활용
 
+플랫폼 암호화는 선언적(Setup)이라 Apex로 직접 제어하지 않는다. 다만 **추가 커스텀 암호화**가 필요하면 `System.Crypto` 클래스를 쓴다(키 생성·AES 암복호화·MAC·서명 등).
+
 ```apex
-// 플랫폼 암호화는 선언적(Setup)이므로 Apex 직접 제어 불가
-// 단, 추가 커스텀 암호화는 Crypto 클래스 사용
-
-// AES-256 키 생성
+// AES-256 키 생성 → managed IV 암복호화 (org 내부 저장용)
 Blob key = Crypto.generateAesKey(256);
-
-// 암호화
-String plainText = 'Sensitive Data';
-Blob encrypted = Crypto.encryptWithManagedIV('AES256', key, Blob.valueOf(plainText));
-String encryptedBase64 = EncodingUtil.base64Encode(encrypted);
-
-// 복호화
-Blob decrypted = Crypto.decryptWithManagedIV('AES256', key, 
-    EncodingUtil.base64Decode(encryptedBase64));
-String decryptedText = decrypted.toString();
-System.assertEquals(plainText, decryptedText);
-
-// HMAC 서명 (데이터 무결성 검증)
-Blob hmacKey = Crypto.generateAesKey(256);
-Blob mac = Crypto.generateMac('HmacSHA256', Blob.valueOf(plainText), hmacKey);
+Blob encrypted = Crypto.encryptWithManagedIV('AES256', key, Blob.valueOf('Sensitive Data'));
+Blob decrypted = Crypto.decryptWithManagedIV('AES256', key, encrypted);
 ```
+
+> `System.Crypto`의 전 메서드 시그니처·파라미터·예외·알고리즘 목록은 **[[Crypto 클래스 레퍼런스]]** 참조(Tier 1/2, Apex Reference Guide 원문 대조). 아래는 그중 외부 수신자와 암호문을 교환할 때 필요한 실전 패턴만 발췌한다.
 
 ---
 
@@ -347,6 +337,7 @@ Classic Encryption은 "무료 Shield"가 아니라 **범위가 완전히 다른 
 ---
 
 ## 관련 노트
+- [[Crypto 클래스 레퍼런스]] — System.Crypto 전 메서드 시그니처·알고리즘·예외 (Apex Reference Guide)
 - [[TxnSecurity Namespace]]
 - [[Auth Namespace]]
 - [[WITH USER_MODE]]

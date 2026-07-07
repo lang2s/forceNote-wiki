@@ -60,6 +60,15 @@ created: 2026-05-21
 | 익명 Apex 실행 방법 / execute anonymous / 코드 한 번만 실행 / sf apex run | `Apex/ExecutionContext(실행컨텍스트)/Anonymous Apex 실행.md` |
 | webservice 키워드 사용법 / Apex를 SOAP 웹서비스로 노출 / WSDL 생성 | `Apex/Integration(통합)/SOAP Web Services 노출 (webservice 키워드).md` |
 | ApexDoc 작성법 / Apex 주석 문서화 / @param @return 태그 사용법 | `Apex/ApexDoc 주석 작성 가이드.md` |
+| 레코드를 필드 값 기준으로 동적 공유 / Apex로 특정 레코드 공유 부여 / OWD Private에서 프로그래매틱 공유 | `Apex/Security(보안)/Apex Managed Sharing (프로그래매틱 공유).md` |
+| with sharing과 without sharing 차이 / inherited sharing / sharing 선언 안 하면 기본값 뭐야 | `Apex/Security(보안)/Sharing 키워드 (with·without·inherited sharing).md` |
+| 실행 컨텍스트란 뭐야 / static 변수 언제 리셋되나 / 무엇이 한 트랜잭션인가 / 트랜잭션 경계 | `Apex/ExecutionContext(실행컨텍스트)/실행 컨텍스트와 트랜잭션.md` |
+| 테스트 데이터 어떻게 만드나 / 테스트 데이터 팩토리 패턴 / @TestSetup·Test.loadData | `Apex/Testing(테스트)/Test Data Factory 패턴.md` |
+| 다른 사용자로 테스트 실행 / runAs로 권한·공유 검증 / 테스트 사용자 컨텍스트 | `Apex/Testing(테스트)/System.runAs (테스트 실행 컨텍스트).md` |
+| 배포 커버리지 75% 규칙 / 코드 커버리지 확인 / 트리거 커버리지 요건 | `Apex/Testing(테스트)/코드 커버리지 규칙.md` |
+| Queueable가 실패해도 실행되는 훅 / Transaction Finalizer / 비동기 잡 사후 복구·재시도 | `Apex/Async(비동기)/Transaction Finalizer.md` |
+| String 메서드 뭐 있나 / isBlank·escapeSingleQuotes·format·join 사용법 | `Apex/Collections(컬렉션)/String 메서드 전수 레퍼런스.md` |
+| Date·Datetime·Math 메서드 뭐 있나 / addDays·daysBetween·formatGmt / GMT vs 로컬 시간 | `Apex/Collections(컬렉션)/Date·Datetime·Math 메서드 전수 레퍼런스.md` |
 | 캐시 사용하는 방법 | `Apex/PlatformCache(플랫폼캐시)/Platform Cache.md` |
 | 공유 규칙 보안 적용 | `Apex/Security(보안)/Safely.md` |
 | 데이터 조회 쿼리 | `Apex/SOQL(SOQL)/SOQL 패턴.md` |

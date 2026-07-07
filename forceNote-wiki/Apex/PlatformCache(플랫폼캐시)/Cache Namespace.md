@@ -182,6 +182,76 @@ public static void put(String key, Object value, Integer ttlSecs,
 
 ---
 
+## 진단·용량 메서드
+
+`Cache.Org`·`Cache.Session`(정적)과 `Cache.OrgPartition`·`Cache.SessionPartition`(인스턴스)은 캐시 히트율·용량·응답시간을 조회하는 진단 메서드를 제공한다. 캐시 튜닝(파티션 용량 배분, TTL 조정)과 모니터링에 쓴다.
+
+| 메서드 | 반환 | 단위/의미 | 용도 |
+|---|---|---|---|
+| `getCapacity()` | `Double` | 사용된 캐시 용량의 **퍼센트** | 파티션이 가득 차 LRU 축출이 임박했는지 확인 |
+| `getMissRate()` | `Double` | 캐시 **미스율** | 히트율(= 1 − 미스율) 산출, 캐시 효과 검증 |
+| `getAvgGetTime()` | `Long` | 키 조회 평균 시간, **나노초** | 캐시 응답 성능 측정 |
+| `getMaxGetTime()` | `Long` | 키 조회 최대 시간, **나노초** | 최악 지연 파악 |
+| `getName()` | `String` | 파티션 이름 (정적 클래스는 기본 파티션 이름) | 현재 대상 파티션 확인 |
+| `getNumKeys()` | `Long` | 캐시에 저장된 전체 키 개수 | 저장 규모 모니터링 |
+| `isAvailable()` | `Boolean` | 세션 캐시 사용 가능 여부 | **Session 캐시 전용** — 아래 주의 참조 |
+
+### 시그니처
+
+```apex
+// Cache.Org / Cache.Session — 정적(static)
+public static Double getCapacity()
+public static Double getMissRate()
+public static Long   getAvgGetTime()   // 나노초
+public static Long   getMaxGetTime()   // 나노초
+public static Long   getNumKeys()
+public String        getName()         // 기본 파티션 이름
+
+// Cache.OrgPartition / Cache.SessionPartition — 인스턴스
+public Double getCapacity()
+public Double getMissRate()
+public Long   getAvgGetTime()
+public Long   getMaxGetTime()
+public Long   getNumKeys()
+public String getName()
+
+// isAvailable() — Session 계열에서만 유효
+public static Boolean isAvailable()    // Cache.Session
+public Boolean        isAvailable()    // Cache.SessionPartition
+```
+
+### 활용 예제 — 캐시 건강 상태 점검
+
+```apex
+// 파티션 용량·히트율 모니터링
+Cache.OrgPartition part = Cache.Org.getPartition('local.myPartition');
+
+Double usedPct  = part.getCapacity();          // 예: 87.5 (%)
+Double missRate = part.getMissRate();           // 예: 0.12
+Double hitRate  = 1 - missRate;                 // 히트율 산출
+Long   avgNs    = part.getAvgGetTime();          // 평균 조회 시간(ns)
+
+System.debug('용량 사용률: ' + usedPct + '%');
+System.debug('히트율: ' + (hitRate * 100) + '%');
+System.debug('평균 조회: ' + avgNs + ' ns');
+
+if (usedPct > 90) {
+    // 용량 임박 — TTL 단축 또는 파티션 증설 검토
+    System.debug('경고: 캐시 용량 90% 초과, LRU 축출 위험');
+}
+```
+
+> [!note] `isAvailable()`는 Session 캐시 전용
+> `isAvailable()`는 세션 캐시가 사용 가능한지(활성 세션 존재 여부) 반환한다. 비동기 Apex나 그 하위에서 실행되는 코드에는 활성 세션이 없어 `false`다 — 예: Batch Apex가 트리거를 유발하면 그 트리거는 비동기 컨텍스트라 세션 캐시를 못 쓴다. Org 캐시에는 세션 개념이 없으므로 `Cache.Org`/`Cache.OrgPartition`에서는 의미가 없다. **Session 캐시 접근 전 `Cache.Session.isAvailable()`로 가드**하면 예외를 피할 수 있다.
+>
+> ```apex
+> if (Cache.Session.isAvailable()) {
+>     String pref = (String) Cache.Session.get('userPref');
+> }
+> ```
+
+---
+
 ## Org Cache vs Session Cache 비교
 
 | | Org Cache | Session Cache |

@@ -11,6 +11,12 @@ aliases: [트리거 핸들러, TriggerHandler]
 
 ---
 
+## one-trigger-per-object 원칙
+
+이 패턴의 대전제는 **객체당 트리거를 단 1개만** 두는 것이다. 한 객체에 같은 이벤트를 처리하는 트리거가 여러 개 있으면 Salesforce는 그 실행 순서를 보장하지 않는다(**실행 순서 비결정성**). 순서에 의존하는 로직이 비정상 동작하거나 재현하기 어려운 버그를 낳으므로, 객체마다 트리거 1개를 두고 모든 이벤트 분기를 그 트리거가 위임하는 단일 핸들러 클래스로 몰아 실행 순서를 코드로 통제한다.
+
+---
+
 ## 구조 개요
 
 ```
@@ -60,8 +66,49 @@ public virtual class TriggerHandler {
     }
     public static void clearAllBypasses() { bypassedHandlers.clear(); }
 
-    // 루프 방지 설정
-    public void setMaxLoopCount(Integer max) { ... }
+    // 루프 방지 설정 — 핸들러별 최대 실행 횟수 등록/갱신
+    public void setMaxLoopCount(Integer max) {
+        String handlerName = getHandlerName();
+        if (!TriggerHandler.loopCountMap.containsKey(handlerName)) {
+            TriggerHandler.loopCountMap.put(handlerName, new LoopCount(max));
+        } else {
+            TriggerHandler.loopCountMap.get(handlerName).setMax(max);
+        }
+    }
+
+    // 루프 한도 해제 (max = -1 → LoopCount.exceeded()가 항상 false)
+    public void clearMaxLoopCount() { this.setMaxLoopCount(-1); }
+
+    // run()이 매 호출마다 카운트를 올리고, 한도 초과 시 예외
+    protected void addToLoopCount() {
+        String handlerName = getHandlerName();
+        if (TriggerHandler.loopCountMap.containsKey(handlerName)) {
+            Boolean exceeded = TriggerHandler.loopCountMap.get(handlerName).increment();
+            if (exceeded) {
+                Integer max = TriggerHandler.loopCountMap.get(handlerName).max;
+                throw new TriggerHandlerException(
+                    'Maximum loop count of ' + String.valueOf(max) +
+                    ' reached in ' + handlerName
+                );
+            }
+        }
+    }
+
+    // 핸들러별 실행 횟수 추적용 inner class
+    private class LoopCount {
+        private Integer max;
+        private Integer count;
+        public LoopCount()            { this.max = 5;   this.count = 0; }  // 기본 한도 5
+        public LoopCount(Integer max) { this.max = max; this.count = 0; }
+        public Boolean increment() { this.count++; return this.exceeded(); }
+        public Boolean exceeded()  {
+            if (this.max < 0) return false;        // 음수 = 한도 없음
+            return this.count > this.max;
+        }
+        public void setMax(Integer max) { this.max = max; }
+    }
+
+    public class TriggerHandlerException extends Exception {}
 
     // 컨텍스트 메서드 — 구현 클래스에서 override
     protected virtual void beforeInsert()  {}

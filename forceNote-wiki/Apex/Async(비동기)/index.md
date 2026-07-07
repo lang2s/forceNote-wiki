@@ -21,6 +21,7 @@ created: 2026-05-17
 | [[Queueable 체이닝]] | execute당 1개 enqueue 규칙 | #pattern |
 | [[Batch Apex]] | 대용량 처리, Database.Stateful, start/execute/finish | #pattern |
 | [[Scheduled Apex]] | thin execute, System.scheduleBatch, cron 표현식 | #pattern |
+| [[Transaction Finalizer]] | System.Finalizer — Queueable 롤백돼도 실행되는 유일한 사후 훅, FinalizerContext/ParentJobResult 재시도·알림 | #pattern |
 
 ---
 
@@ -32,3 +33,4 @@ created: 2026-05-17
 - 완료 후 다음 잡 연속 실행? → [[Queueable 체이닝]]
 - 수만 건 이상 대용량 처리? → [[Batch Apex]]
 - 매일/매주 정기 자동 실행? → [[Scheduled Apex]]
+- Queueable 실패해도 실행되는 복구 훅? → [[Transaction Finalizer]]

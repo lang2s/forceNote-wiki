@@ -2,7 +2,7 @@
 tags: [apex, soql, security, pattern]
 source: apex-recipes/SOQLRecipes.cls
 created: 2026-05-17
-aliases: [SOQL 보안, USER_MODE SOQL, SOQL for loop]
+aliases: [SOQL 보안, USER_MODE SOQL, SOQL for loop, 벌크화, bulkify, 루프 내 SOQL 금지]
 ---
 
 # SOQL 패턴
@@ -67,6 +67,100 @@ for (List<Account> chunk : [SELECT Id FROM Account WITH USER_MODE]) {
 > [!warning] 단순 List 쿼리의 힙 위험
 > `List<Account> all = [SELECT ... FROM Account]`는 수천 건이면 힙 한도(6MB) 초과.
 > 대용량 처리는 반드시 SOQL for loop 또는 Batch Apex 사용.
+
+---
+
+## 벌크화 원칙 — 루프 안에서 SOQL/DML 금지
+
+거버너 한도는 **트랜잭션당** 적용된다 (SOQL 100회, DML 150 statement). 루프 안에 SOQL·DML을 두면 반복 횟수만큼 호출이 누적돼 대량 레코드에서 한도가 폭발한다. 핵심은 **컬렉션으로 수집 → 루프 밖에서 1회 SOQL/DML**.
+
+### DML 벌크화 — 리스트로 모아 1회 update
+
+```apex
+// ❌ 루프마다 update — 151번째에서 DML statement 한도(150) 초과 런타임 예외
+for (Line_Item__c li : liList) {
+    if (li.Units_Sold__c > 10) {
+        li.Description__c = 'New description';
+    }
+    update li;   // Not a good practice — governor limit
+}
+
+// ✅ 리스트에 수집 후 루프 밖에서 1회 벌크 update
+List<Line_Item__c> updatedList = new List<Line_Item__c>();
+for (Line_Item__c li : liList) {
+    if (li.Units_Sold__c > 10) {
+        li.Description__c = 'New description';
+        updatedList.add(li);
+    }
+}
+update updatedList;   // 전체 리스트를 한 번에 처리
+```
+
+### SOQL 벌크화 — Trigger.new 전체를 1회 쿼리
+
+`Trigger.new`의 각 레코드마다 자식 SOQL을 날리면 레코드 200건 = SOQL 200회 → 100회 한도 초과. **관계 서브쿼리** 또는 `IN :Trigger.newMap.keySet()`로 한 번에 조회한다.
+
+```apex
+// ❌ Trigger.new 항목마다 SOQL — 100건 넘으면 SOQL 한도 초과
+trigger LimitExample on Invoice_Statement__c (before insert, before update) {
+    for (Invoice_Statement__c inv : Trigger.new) {
+        List<Line_Item__c> liList = [SELECT Id, Units_Sold__c, Merchandise__c
+                                     FROM Line_Item__c
+                                     WHERE Invoice_Statement__c = :inv.Id];   // 루프마다 실행
+        for (Line_Item__c li : liList) { /* Do something */ }
+    }
+}
+
+// ✅ 서브쿼리로 루프 밖 1회 SOQL — Trigger.new 전체를 한 번에
+trigger EnhancedLimitExample on Invoice_Statement__c (before insert, before update) {
+    List<Invoice_Statement__c> invoicesWithLineItems =
+        [SELECT Id, Description__c, (SELECT Id, Units_Sold__c, Merchandise__c FROM Line_Items__r)
+         FROM Invoice_Statement__c
+         WHERE Id IN :Trigger.newMap.keySet()];
+    for (Invoice_Statement__c inv : invoicesWithLineItems) {
+        for (Line_Item__c li : inv.Line_Items__r) { /* Do something */ }
+    }
+}
+```
+
+### Map/Set 관용구 — 벌크 조회 결과를 O(1)로 매칭
+
+루프 밖에서 부모/참조 레코드를 한 번에 쿼리한 뒤 `Map<Id, SObject>`로 담아, 처리 루프에서 키로 즉시 찾는다. 중첩 루프 없이 벌크 매칭이 가능하다.
+
+```apex
+// ✅ Set으로 부모 Id 수집 → 1회 SOQL → Map으로 O(1) 조회
+Set<Id> acctIds = new Set<Id>();
+for (Contact c : Trigger.new) {
+    acctIds.add(c.AccountId);
+}
+Map<Id, Account> acctById = new Map<Id, Account>(
+    [SELECT Id, Name FROM Account WHERE Id IN :acctIds WITH USER_MODE]);
+
+for (Contact c : Trigger.new) {
+    Account parent = acctById.get(c.AccountId);   // 루프 내 SOQL 없이 매칭
+    // parent 사용
+}
+```
+
+### SOQL for-loop로 힙 절감 (벌크화와 함께)
+
+SOQL for loop는 결과를 **200개 배치**로 청킹해 힙(6MB)을 절약한다. 단, DML을 루프 안에서 써야 한다면 **단일 sObject** 형식이 아니라 **sObject 리스트** 형식(`for (Account[] batch : ...)`)을 써서 배치당 1회 DML로 벌크 처리한다.
+
+```apex
+// ✅ 리스트 형식 — 배치(최대 200)마다 1회 DML로 벌크 처리
+for (Account[] batch : [SELECT Id, Name FROM Account WITH USER_MODE]) {
+    for (Account a : batch) {
+        a.Name = a.Name + ' (updated)';
+    }
+    update batch;   // 배치당 1회 — 단일 sObject 형식이면 레코드마다 1회가 되어 비효율
+}
+```
+
+> [!note] sObject 리스트 for loop의 DML 한도
+> DML은 한 번에 최대 10,000건 처리하고 리스트 for loop는 200건 배치로 순회한다. 반환 레코드당 2건 이상을 insert/update/delete하면 런타임 한도에 걸릴 수 있다. `break`/`continue` 사용 시 리스트 형식의 `continue`는 다음 **배치**로 건너뛴다.
+
+> [!tip] selectivity·인덱싱은 별도 주제
+> 벌크화가 "호출 횟수"를 줄이는 원칙이라면, 각 SOQL이 **얼마나 빨리 도는가**(selectivity·인덱스)는 LDV 튜닝 영역이다. → [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]] · [[대용량 데이터 (LDV) — 대량 로드·삭제]]
 
 ---
 
@@ -270,4 +364,5 @@ List<AggregateResult> byHour = [
 - [[6 Standard Objects]] — 표준 Object API 이름·도메인별 카탈로그
 - [[Apex Best Practices]] — SOQL for loop 힙 메모리 절약, 루프 내 SOQL 금지 원칙
 - [[대용량 데이터 (LDV) — 쿼리 옵티마이저·인덱싱]] — LDV에서 selectivity·인덱스로 효율적 SOQL 작성
+- [[대용량 데이터 (LDV) — 대량 로드·삭제]] — 벌크 로드/삭제 시 청킹·PK Chunking·거버너 고려
 - [[platform-soql-query]] (sf-skill — 실행형) — 벌크·selectivity SOQL 패턴 작성 실행형 스킬

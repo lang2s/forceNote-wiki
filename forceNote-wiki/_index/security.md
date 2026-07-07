@@ -25,7 +25,7 @@ created: 2026-06-18
 
 | 키워드 | 파일 |
 |---|---|
-| SOQL Injection, SOQL 인젝션, SQL Injection 방어, escapeSingleQuotes, bind variable 보안, 동적 SOQL에 입력값 넣어도 되나, isSafeObject, isSafeField, SOSL injection | `Security(보안)/SOQL Injection 위협.md` |
+| SOQL Injection, SOQL 인젝션, SQL Injection 방어, escapeSingleQuotes, bind variable 보안, 동적 SOQL에 입력값 넣어도 되나, isSafeObject, isSafeField, SOSL injection, queryWithBinds 방어, 화이트리스트 쿼리 | `Security(보안)/SOQL Injection 위협.md` |
 
 ## CSRF
 

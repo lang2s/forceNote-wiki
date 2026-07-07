@@ -300,6 +300,7 @@ Queueable / future 잡이 라이선스 일일 한도의 **최대 2배**까지 �
 - [[RestClient 패턴]]
 - [[Batch Apex]]
 - [[Queueable + Callout 패턴]] — Database.AllowsCallouts를 함께 구현하는 패턴
+- [[Transaction Finalizer]] — Queueable이 unhandled exception으로 롤백돼도 실행되는 사후 훅(재시도·로깅·알림). `System.attachFinalizer`로 부착
 - [[Release/Winter '24]]
 - [[Release/Winter '24/Development]] — 체이닝 최대 깊이 GA의 정확한 API(`AsyncOptions.MaximumQueueableStackDepth` · `AsyncInfo.getMaximumQueueableStackDepth()`)
 - [[Release/Summer '24]]

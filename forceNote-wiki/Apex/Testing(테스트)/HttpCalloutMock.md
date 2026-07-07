@@ -147,6 +147,110 @@ static void verifyRequestFormat() {
 
 ---
 
+## 정적 리소스 기반 목 (구현 없이)
+
+`HttpCalloutMock`을 직접 구현하는 대신, 응답 본문을 **정적 리소스(Static Resource)** 에 저장해두고 Apex 내장 목 클래스로 재생하는 방법. 코드로 응답 본문을 하드코딩하지 않으므로, 응답 페이로드가 크거나 자주 바뀔 때 Setup에서 리소스만 교체하면 된다.
+
+준비: 응답 본문을 담은 텍스트 파일 → Setup ▸ Static Resources ▸ New 로 정적 리소스 등록. `Content-Type`을 지정하면 파일 내용이 그 타입과 일치해야 한다(예: `application/json`이면 파일이 JSON 문자열이어야 함).
+
+### StaticResourceCalloutMock — 단일 응답
+
+내장 클래스. 하나의 정적 리소스를 응답 본문으로 사용한다. 인터페이스 구현 불필요.
+
+| 메서드 | 설명 |
+|---|---|
+| `setStaticResource(String resourceName)` | 응답 본문으로 사용할 정적 리소스 이름 지정 |
+| `setStatusCode(Integer code)` | 응답 상태 코드 설정 |
+| `setHeader(String key, String value)` | 응답 헤더 설정 |
+
+```apex
+public class CalloutStaticClass {
+    public static HttpResponse getInfoFromExternalService(String endpoint) {
+        HttpRequest req = new HttpRequest();
+        req.setEndpoint(endpoint);
+        req.setMethod('GET');
+        Http h = new Http();
+        return h.send(req);
+    }
+}
+
+@isTest
+private class CalloutStaticClassTest {
+    @isTest static void testCalloutWithStaticResources() {
+        // 정적 리소스 'mockResponse' 내용: {"hah":"fooled you"}
+        StaticResourceCalloutMock mock = new StaticResourceCalloutMock();
+        mock.setStaticResource('mockResponse');
+        mock.setStatusCode(200);
+        mock.setHeader('Content-Type', 'application/json');
+
+        // 목 콜아웃 모드 설정
+        Test.setMock(HttpCalloutMock.class, mock);
+
+        HttpResponse res = CalloutStaticClass.getInfoFromExternalService(
+            'https://example.com/example/test');
+
+        // 정적 리소스의 내용이 응답 본문으로 반환됨
+        System.assertEquals('{"hah":"fooled you"}', res.getBody());
+        System.assertEquals(200, res.getStatusCode());
+        System.assertEquals('application/json', res.getHeader('Content-Type'));
+    }
+}
+```
+
+### MultiStaticResourceCalloutMock — 엔드포인트별 응답
+
+`StaticResourceCalloutMock`과 유사하나 **엔드포인트마다 다른 응답 본문**을 지정할 수 있다. `setStaticResource`가 `(endpoint, resourceName)` 두 인자를 받는다.
+
+| 메서드 | 설명 |
+|---|---|
+| `setStaticResource(String endpoint, String resourceName)` | 특정 엔드포인트에 매핑할 정적 리소스 지정 (반복 호출로 여러 엔드포인트 등록) |
+| `setStatusCode(Integer code)` | 응답 상태 코드 설정 |
+| `setHeader(String key, String value)` | 응답 헤더 설정 |
+
+```apex
+@isTest
+private class CalloutMultiStaticClassTest {
+    @isTest static void testCalloutWithMultipleStaticResources() {
+        // mockResponse : {"hah":"fooled you"}
+        // mockResponse2: {"hah":"fooled you twice"}
+        MultiStaticResourceCalloutMock multimock = new MultiStaticResourceCalloutMock();
+        multimock.setStaticResource(
+            'https://example.com/example/test', 'mockResponse');
+        multimock.setStaticResource(
+            'https://example.com/example/sfdc', 'mockResponse2');
+        multimock.setStatusCode(200);
+        multimock.setHeader('Content-Type', 'application/json');
+
+        Test.setMock(HttpCalloutMock.class, multimock);
+
+        // 첫 번째 엔드포인트
+        HttpResponse res = CalloutMultiStaticClass.getInfoFromExternalService(
+            'https://example.com/example/test');
+        System.assertEquals('{"hah":"fooled you"}', res.getBody());
+
+        // 두 번째 엔드포인트 — 다른 응답
+        HttpResponse res2 = CalloutMultiStaticClass.getInfoFromExternalService(
+            'https://example.com/example/sfdc');
+        System.assertEquals('{"hah":"fooled you twice"}', res2.getBody());
+    }
+}
+```
+
+> `Test.setMock(HttpCalloutMock.class, mock)` 등록 방식은 직접 구현한 목과 동일하다 — 두 내장 클래스 모두 첫 인자로 `HttpCalloutMock.class`를 넘긴다. 관리형 패키지 코드의 콜아웃을 목킹하려면 같은 네임스페이스의 테스트 메서드에서 `Test.setMock`을 호출한다.
+
+### 직접 구현 vs 정적 리소스 목
+
+| 기준 | HttpCalloutMock 직접 구현 | Static Resource 목 |
+|---|---|---|
+| 응답 본문 위치 | Apex 코드 내 문자열 | Setup의 정적 리소스 파일 |
+| 인터페이스 구현 | `respond()` 필요 | 불필요 (내장 클래스) |
+| 요청 분기 로직 | `respond()`에서 자유롭게 (헤더·바디 조건 등) | 엔드포인트 단위만 (Multi) |
+| 요청 캡처·검증 | 가능 (목 내부에서 `req` 캡처) | 불가 |
+| 응답 교체 | 코드 수정·재배포 | 리소스 파일만 교체 |
+| 적합 상황 | 동적 응답, 요청 검증, 에러 시나리오 | 크거나 자주 바뀌는 고정 페이로드 |
+
+---
+
 ## StubProvider vs HttpCalloutMock
 
 | 기준 | StubProvider | HttpCalloutMock |

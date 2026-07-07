@@ -2,7 +2,7 @@
 tags: [apex, dml, security, pattern]
 source: apex-recipes/DMLRecipes.cls, AccountServiceLayer.cls
 created: 2026-05-17
-aliases: [DML 보안, insert as user]
+aliases: [DML 보안, insert as user, upsert 의미론, isCreated, External Id 매칭, merge 재부모, getUpdatedRelatedIds, DML 거버너 한도]
 ---
 
 # DML 패턴
@@ -28,6 +28,90 @@ API 57.0(Summer '23)에서 `insert as user` 키워드와 `Database.*(AccessLevel
 - **부분 성공(Partial Success) 처리**: `Database.insert(recs, false, AccessLevel.USER_MODE)` — 배치처럼 일부 레코드 실패를 허용하고 성공 레코드만 처리해야 할 때
 - **FLS 위반 필드 감지 필요**: `Safely().throwIfRemovedFields().doInsert()` — 어떤 필드가 제거되었는지 알아야 할 때
 - **외부 입력(JSON) 처리**: `Security.stripInaccessible()` → DML — 사용자가 보낸 데이터를 그대로 DML하기 전 접근 불가 필드를 반드시 제거
+
+---
+
+## DML 기본 연산 의미론
+
+접근 모드(as user/system)와 별개로, 각 DML 연산이 **레코드를 어떻게 매칭·연결·병합하는지**의 규칙이다. 접근 모드를 정확히 걸어도 아래 의미론을 모르면 잘못된 레코드가 생성·병합된다.
+
+### insert — 관계/외래키 채우기와 순서
+
+insert는 새 레코드를 커밋하고 각 sObject 변수에 ID를 채운다. 자식이 부모를 참조하려면 부모 ID 또는 **External Id 외래키**를 지정한다. 부모 ID를 미리 모를 때는 관계 필드에 부모 sObject 참조를 직접 꽂거나, 부모의 External Id만 담은 참조용 sObject를 외래키로 쓴다.
+
+```apex
+// 기존 부모를 External Id 외래키로 참조 — 조회 없이 관계 연결
+// (Account에 MyExtID__c External Id 필드가 있고, MyExtID__c='SAP111111' 레코드가 존재)
+Opportunity newOpp = new Opportunity(
+    Name='OpportunityWithAccountInsert',
+    StageName='Prospecting',
+    CloseDate=Date.today().addDays(7));
+// 외래키 참조 전용 sObject — External Id 외엔 아무 필드도 세팅하지 않는다
+Account accountReference = new Account(MyExtID__c='SAP111111');
+newOpp.Account = accountReference;      // 관계 필드에 참조 sObject를 꽂는다
+insert as user newOpp;
+```
+
+- **부모·자식을 한 문장에 생성** (외래키 single-statement): 배열의 **부모 인덱스가 자식보다 앞서야** 한다(부모 index < 자식 index). 최대 **10 레벨** 깊이까지, 단일 호출 내 관련 레코드는 서로 **다른 sObject 타입**이어야 한다.
+- 부분 롤백 후 sObject 변수에 ID가 남아 있으면(insert 성공 후 후속 오류로 롤백) 같은 변수로 재-insert 시 오류가 난다 — ID가 이미 채워졌기 때문. 이땐 update/upsert로 전환한다.
+
+### upsert — External Id 매칭과 `isCreated()`
+
+upsert는 하나의 호출로 insert 또는 update를 결정한다. 매칭 키는 **레코드 ID**, 또는 **커스텀 External Id 필드**, 또는 `idLookup` 속성이 true인 표준 필드다. `upsert assets Line_Item_ID__c;` 처럼 매칭 필드를 명시할 수 있다.
+
+| 키 매칭 결과 | 동작 |
+|---|---|
+| 매칭 **0건** (키 불일치) | 새 레코드 **insert** |
+| 매칭 **1건** | 기존 레코드 **update** |
+| 매칭 **다수** | 오류 발생 — 해당 레코드는 insert도 update도 되지 않음 |
+
+```apex
+// Database.upsert(부분성공) 결과에서 isCreated()로 신규 레코드만 골라 후속 처리
+List<Database.UpsertResult> uResults = Database.upsert(leads, false, AccessLevel.USER_MODE);
+List<Task> tasks = new List<Task>();
+for (Database.UpsertResult r : uResults) {
+    if (r.isSuccess() && r.isCreated())   // isCreated()=true → insert됨 (update가 아님)
+        tasks.add(new Task(Subject='Follow-up', WhoId=r.getId()));
+}
+insert as user tasks;
+```
+
+- `UpsertResult.isCreated()` — 이 레코드가 **새로 생성**됐으면 true, 기존 레코드 **update**면 false. insert된 레코드에만 후속 작업(예: Task 생성)을 걸 때 쓴다.
+- **External Id 매칭 주의**: upsert에 쓰는 External Id 필드는 **Unique**여야 하거나, 사용자가 **View All Data** 권한을 가져야 한다. 커스텀 필드 매칭은 필드 정의에서 "Unique + 대소문자 무시(Treat ABC and abc as duplicates)"를 켠 경우에만 대소문자 무시("ABC123"과 "abc123" 매칭)다.
+- 각 upsert는 내부적으로 insert + update **두 연산**으로 나뉘어 거버너 한도에 각각 계산된다(아래 거버너 한도 참조).
+
+### merge — 마스터 유지·자식 재부모·`getUpdatedRelatedIds()`
+
+중복 정리용. **lead·contact·case·account** 4종만 병합 가능하며, 한 호출에 **메인(마스터) 레코드 1건 + 추가 최대 2건 = 총 3건**까지. 병합은 중복 레코드를 메인에 합치고, 중복 레코드를 삭제하며, 관련 자식 레코드를 메인으로 **재부모(reparent)** 한다.
+
+```apex
+// merge 문 — 중복 계정을 메인 계정으로 병합 (자식 Contact이 메인으로 이동)
+merge as user mainAcct dupAcct;
+
+// Database.merge(부분성공) — 재부모된 자식 ID를 getUpdatedRelatedIds()로 확인
+Database.MergeResult[] results = Database.merge(main, duplicates, false);
+for (Database.MergeResult res : results) {
+    if (res.isSuccess())
+        System.debug('재부모된 자식 ID: ' + res.getUpdatedRelatedIds());
+}
+```
+
+- **마스터 필드가 항상 우선**: 메인 레코드의 필드값(null·빈 값 포함)이 항상 중복 레코드 값을 덮어쓴다. 메인의 필드가 비어 있으면 병합 후에도 비어 있다 — 중복 쪽 값을 살리려면 **병합 전에 메인 레코드에 그 값을 직접 세팅**한다.
+- `MergeResult.getUpdatedRelatedIds()` — 이번 병합으로 **재부모된 자식 레코드 ID 목록**을 반환.
+- **External Id 필드는 merge에 쓸 수 없다.**
+- 트리거 관점: merge는 자체 트리거 이벤트가 없다 — 패자(중복) 레코드에 대해 **단일 delete 이벤트**, 승자(메인)에 대해 **단일 update 이벤트**를 발생시킨다. 재부모된 자식은 트리거를 발생시키지 않는다. 패자의 `MasterRecordId`(Trigger.old)로 승자 ID를 식별한다.
+- undelete로 병합 시 삭제된 레코드를 복원할 수 있으나, **재부모(자식 이동)는 되돌릴 수 없다.**
+
+### 거버너 한도 요약
+
+DML은 트랜잭션당 두 축의 한도를 가진다. 컬렉션(List)을 한 번에 DML해서 문(statement) 수를 아낀다.
+
+| 한도 | 값 | 계산 방식 |
+|---|---|---|
+| DML **문(statement) 수** | 트랜잭션당 **150** | `insert list;` 1회 = 문 1개 (리스트 크기 무관) |
+| DML **처리 행(row) 수** | 트랜잭션당 **10,000** | 모든 DML 호출의 처리 행 누적. 예) 100건 insert + 50건 update = 150행, 남은 9,850행 |
+
+upsert는 insert·update 두 연산으로 각각 행 한도에 계산되므로, 10,000행 초과 시 상황에 따라 insert 또는 update 쪽에서 한도 예외가 난다. External Id upsert로 조회+DML을 한 문장에 합치면 문 수를 아낀다. 상세·전체 한도표는 [[Governor Limits]].
 
 ---
 
@@ -134,6 +218,8 @@ update as user decision.getRecords();
 - [[StripInaccessible]]
 - [[CanTheUser]]
 - [[WITH USER_MODE]] — AccessLevel 열거형 상세
+- [[Database Namespace 상세]] — UpsertResult·MergeResult·SaveResult 등 Database 메서드 결과 클래스 전수
+- [[Governor Limits]] — DML 문 수(150)·행 수(10,000) 등 전체 거버너 한도표
 - [[4 Custom Objects]] — __c 표준 필드 목록 (DML 대상 필드 참조)
 - [[Batch Apex]] — Database.SaveResult 처리
 - [[Summer '26]] — API v67.0 DML 기본 모드 USER_MODE 변경

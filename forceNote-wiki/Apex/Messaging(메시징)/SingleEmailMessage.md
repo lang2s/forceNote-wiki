@@ -124,6 +124,80 @@ Messaging.sendEmail(new List<Messaging.SingleEmailMessage>{ mail });
 
 ---
 
+## 레퍼런스 보강 — 발송 API·결과·용량 예약
+
+### `Messaging.sendEmail(emails, allOrNothing)` 오버로드
+
+```apex
+// 시그니처
+public Messaging.SendEmailResult[] sendEmail(Messaging.Email[] emails, Boolean allOrNothing)
+```
+
+- `allOrNothing`(선택): 하나라도 오류로 실패하면 **나머지 전부의 발송을 막을지**(`true`) 오류 없는 메시지만 발송할지(`false`). **기본값 `true`.**
+- `sendEmail`은 **Apex 트랜잭션당 최대 10회** 호출 가능하며, **호출 1회당 최대 To 100 · Cc 25 · Bcc 25** 수신자.
+- 조직 설정이 EmailMessage 저장이고 EmailMessage 트리거가 정의돼 있으면, 트리거는 각 SingleEmailMessage마다 개별 발동한다.
+
+```apex
+// allOrNothing = false → 오류 없는 메시지만 발송
+Messaging.SendEmailResult[] results =
+    Messaging.sendEmail(new List<Messaging.SingleEmailMessage>{ mailA, mailB }, false);
+```
+
+### `Messaging.SendEmailResult` — 발송 결과
+
+| 메서드 | 반환 타입 | 설명 |
+|---|---|---|
+| `isSuccess()` | `Boolean` | 배달용으로 성공 제출됐는지(`true`)/아닌지(`false`). **`true`라도 수신자가 실제로 받았음을 보장하지 않는다** — 잘못된 주소·바운스·스팸 차단 가능 |
+| `getErrors()` | `Messaging.SendEmailError[]` | 오류 발생 시 SendEmailError 배열 반환 |
+
+### `Messaging.SendEmailError` — 개별 오류
+
+| 메서드 | 반환 타입 | 설명 |
+|---|---|---|
+| `getStatusCode()` | `System.StatusCode` | 오류를 특성화하는 코드. 전체 코드 목록은 조직 WSDL 파일에 있음 |
+| `getMessage()` | `String` | 오류 메시지 텍스트 |
+| `getTargetObjectId()` | `String` | 오류가 발생한 대상 레코드 ID |
+| `getFields()` | `String[]` | 오류 조건에 영향을 준 필드명 목록(있는 경우) |
+
+### `Messaging.reserveSingleEmailCapacity` / `reserveMassEmailCapacity` — 용량 예약
+
+```apex
+// 시그니처
+public Void reserveSingleEmailCapacity(Integer amountReserved)
+public Void reserveMassEmailCapacity(Integer amountReserved)
+```
+
+- **현재 트랜잭션이 커밋된 후** 지정한 개수만큼의 이메일 발송 용량을 예약한다. 트랜잭션 결과로 몇 개 주소에 발송할지 **미리 알 때** 호출.
+- 예약으로 조직 **일일 이메일 한도를 초과**하게 되면:
+  `System.HandledException: The daily limit for the org would be exceeded by this request.`
+- 조직에 API/mass 이메일 발송 권한이 없으면:
+  `System.NoAccessException: The organization is not permitted to send email.`
+
+```apex
+// 커밋 후 500건 발송 예정임을 미리 예약 (한도 초과 시 즉시 예외)
+Messaging.reserveSingleEmailCapacity(500);
+```
+
+### `Messaging.EmailFileAttachment` — 첨부 메서드 전수
+
+| 메서드 | 대응 프로퍼티 | 설명 |
+|---|---|---|
+| `setFileName(String)` | `filename` | 첨부할 파일명 설정 |
+| `setBody(Blob)` | `body` | 첨부 내용(파일 자체) 설정 |
+| `setContentType(String)` | `contenttype` | 첨부의 Content-Type 설정 |
+| `setInline(Boolean)` | `inline` | Content-Disposition을 inline(`true`) 또는 attachment(`false`)로 지정 |
+| `getId()` (Read-Only) | `id` | 첨부 ID 조회(읽기 전용) |
+
+- 생성자: `public EmailFileAttachment()` — `new Messaging.EmailFileAttachment()`.
+- EmailFileAttachment은 Salesforce에 이미 존재하는 문서가 아니라 **요청에 담아 전달하는 첨부**를 지정할 때 쓴다(기존 문서 첨부는 `setEntityAttachments`).
+
+### 롤백 시 이메일 처리
+
+- **`Database.rollback(savepoint)`으로 세이브포인트로 되돌리면, 그 세이브포인트 이후 제출된 이메일도 함께 롤백되어 발송되지 않는다.**
+- 따라서 `sendEmail()` 이후 같은 트랜잭션에서 롤백이 일어나면 해당 이메일은 나가지 않는다. 발송 확정 여부는 트랜잭션 커밋에 종속된다.
+
+---
+
 ## 한도 및 주의사항
 
 | 항목 | 한도 |

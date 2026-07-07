@@ -1,21 +1,22 @@
 ---
 tags: [apex, best-practices, bulkify, governor-limits, trigger, testing, sharing, naming-convention]
-source: external-knowledge (https://www.salesforceben.com/12-salesforce-apex-best-practices/)
+source: salesforce_apex_developer_guide.pdf (Trigger and Bulk Request Best Practices · Apex Transactions and Governor Limits · with/without/inherited sharing Keywords · What to Test in Apex)
 created: 2026-05-19
 aliases: [Apex 베스트 프랙티스, Apex Best Practices, Apex 모범 사례, apex 규칙, apex 코딩 표준, apex 성능]
 ---
 
 # Apex Best Practices
 
-> [!warning] 이 노트는 외부 지식 기반으로 작성되었으며 공식 소스와 대조되지 않았습니다.
-
 > Salesforce Apex 개발 시 반드시 지켜야 할 12가지 핵심 모범 사례 — 거버너 한도 회피, 보안, 유지보수성 중심.
+> 규칙 1·2·4·6·8·11은 공식 **Apex Developer Guide**로 검증됨(각 규칙에 근거 병기). 규칙 3·5·7·9·10·12는 공식 가이드가 권장하는 방향과 일치하는 널리 통용되는 커뮤니티 컨벤션이다(가이드에 축자적 규칙으로 등재된 항목은 아님 — 규칙 하단에 표기).
 
 ---
 
 ## 1. Bulkify Your Code (벌크화)
 
-트리거는 한 번 실행될 때 최대 **200개 레코드**를 처리한다. 단건을 가정하고 코드를 작성하면 대량 처리 시 거버너 한도에 걸린다. List와 Map을 활용해 항상 컬렉션 단위로 처리한다.
+Apex 트리거·클래스·확장은 한 번 호출될 때 **1~200개 레코드**로 실행될 수 있다(SOAP/Bulk API·Visualforce 표준 세트 컨트롤러는 배치당 최대 200건, Apex DML로 200건 초과 처리 시 트리거가 200건 단위 청크로 여러 번 실행). 단건을 가정하고 코드를 작성하면 대량 처리 시 거버너 한도에 걸린다. List와 Map을 활용해 항상 컬렉션 단위로 처리한다.
+
+> 근거: Apex Developer Guide — "Trigger and Bulk Request Best Practices"(트리거는 벌크 동작에 최적화됨), "What to Test in Apex"("Any Apex code … may be invoked for 1 to 200 records").
 
 ```apex
 // 나쁜 예 — 단건 가정
@@ -36,7 +37,9 @@ trigger AccountTrigger on Account (before insert) {
 
 ## 2. Avoid DML / SOQL in Loops (루프 내 DML·SOQL 금지)
 
-루프 안에서 SOQL 또는 DML을 실행하면 레코드 수에 비례해 한도를 소진한다 (SOQL 100회, DML 150회 제한).
+루프 안에서 SOQL 또는 DML을 실행하면 레코드 수에 비례해 한도를 소진한다 (트랜잭션당 SOQL 100회, DML 150회 제한).
+
+> 근거: Apex Developer Guide — "Apex Transactions and Governor Limits"("one transaction can issue up to 100 SOQL queries and up to 150 DML statements"), 하위 절 "Bulkifying DML Calls" · "More Efficient SOQL Queries".
 
 **전략:**
 - SOQL → 루프 밖에서 실행, ID를 Set에 수집한 뒤 `IN` 조건으로 한 번에 조회
@@ -85,11 +88,17 @@ Id recordTypeId = Schema.SObjectType.Account
 // MySettings__mdt.getInstance('Default').TargetAccountId__c
 ```
 
+> 출처: 커뮤니티 컨벤션(공식 Apex Developer Guide에 축자 규칙으로 등재된 항목은 아님). `Schema.SObjectType.<Object>.getRecordTypeInfosByDeveloperName()`은 실재하는 Schema describe 메서드로, RecordType을 DeveloperName으로 조회하는 표준 방식이다.
+
 ---
 
 ## 4. Explicitly Declare Sharing Model (공유 모델 명시)
 
-공유 선언이 없는 클래스는 **기본 동작이 버전마다 달라질 수 있다** (Summer '26부터 `with sharing` 기본값으로 변경 예정). 항상 명시한다.
+공유 선언이 없는 클래스는 **`with sharing`이 기본값**이다 — Apex Developer Guide "Omitted Sharing": *"Apex without an explicit sharing declaration runs as with sharing by default."* 다만 **API 버전 66.0 이하로 컴파일된 클래스**는 상속 트리·호출 경로에 따라 공유 모드 판정이 모호하므로("Versioned Behavior Changes"), 의도를 명확히 하고 유지보수성을 높이기 위해 **DML·SOQL을 포함하는 클래스에는 항상 명시**한다.
+
+> ⚠️ 정정: 이전 버전 노트의 "Summer '26부터 `with sharing` 기본값으로 변경 예정"은 부정확하다. 공식 가이드 기준 `with sharing`은 **이미 생략 시 기본값**이며, 부모 클래스를 상속하면 부모의 공유 모드를 따른다.
+
+> 참고: 트리거는 공유 선언을 가질 수 없고 **항상 시스템 모드(`without sharing`)**로 실행되어 공유 규칙·FLS·오브젝트 권한을 우회한다. 데이터 접근 제어가 필요하면 핸들러 클래스에 로직을 위임한다(→ 규칙 11).
 
 | 키워드 | 동작 |
 |---|---|
@@ -118,6 +127,8 @@ public inherited sharing class StringUtils {
 
 여러 트리거가 같은 SObject에 붙어있으면 **실행 순서가 보장되지 않는다**. 로직이 순서에 의존할 경우 예측 불가능한 버그가 발생한다. 모든 로직을 하나의 TriggerHandler로 위임한다.
 
+> 출처: 커뮤니티 컨벤션. 동일 오브젝트에 다중 트리거가 있을 때 실행 순서가 정의되지 않는 것은 문서화된 플랫폼 동작이며(공식 "Order of Execution" 문서), 이를 회피하기 위한 "객체당 단일 트리거" 패턴은 커뮤니티 표준이다(Apex Developer Guide의 명시적 규칙은 아님).
+
 ```apex
 // AccountTrigger.trigger — 단 하나의 트리거
 trigger AccountTrigger on Account (before insert, before update, after insert, after update) {
@@ -131,7 +142,9 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
 
 ## 6. Use SOQL for Loops (SOQL for 루프로 힙 메모리 절약)
 
-대용량 결과 Set을 `List`로 받으면 힙 메모리(6MB / 비동기 12MB)를 한꺼번에 차지한다. `for` 루프에 직접 쿼리를 넣으면 Salesforce가 내부적으로 청크 단위로 처리한다.
+대용량 결과 Set을 `List`로 받으면 힙 메모리(동기 **6 MB** / 비동기 **12 MB**)를 한꺼번에 차지한다. `for` 루프에 직접 쿼리를 넣으면 Salesforce가 내부적으로 **200건 단위 배치**로 처리한다.
+
+> 근거: Apex Developer Guide — "SOQL For Loops"("SOQL for loops … in batches of 200 sObjects at a time"), "More Efficient SOQL Queries"("Use SOQL for loops to operate on records in batches of 200. This helps avoid the heap size limit of 6 MB"). 힙 한도 6 MB(동기)/12 MB(비동기)는 "Execution Governors and Limits — Total heap size" 표에서 확인.
 
 ```apex
 // 일반 SOQL — 전체 결과를 힙에 로드
@@ -149,6 +162,8 @@ for (Account a : [SELECT Id, Name FROM Account WHERE CreatedDate = THIS_YEAR]) {
 ## 7. Modularize Your Code (모듈화)
 
 재사용 가능한 코드를 별도 클래스로 분리하고 **단일 책임 원칙(SRP)**을 적용한다. 하나의 클래스가 너무 많은 책임을 지면 유지보수와 테스트가 어려워진다.
+
+> 출처: 일반 소프트웨어 엔지니어링 원칙(SRP) — Apex Developer Guide의 축자 규칙은 아니나, 가이드가 권장하는 "핸들러에 로직 위임"·모듈화 방향과 일치.
 
 ```apex
 // 나쁜 예 — AccountTriggerHandler가 이메일 발송까지 담당
@@ -179,7 +194,9 @@ public class AccountTriggerHandler {
 | Positive | 정상 입력으로 기대 결과 확인 |
 | Negative | 잘못된 입력, null, 빈 리스트 처리 |
 | Bulk | 200개 레코드로 거버너 한도 검증 |
-| Admin vs Standard User | 권한에 따른 동작 차이 확인 |
+| Restricted User (제한 사용자) | 접근 권한이 제한된 사용자가 기대대로 동작/오류를 보는지 |
+
+> 근거: Apex Developer Guide — "What to Test in Apex"(Single action · Bulk actions[1~200] · Positive behavior · Negative behavior · Restricted user), 배포 최소 조건 "at least 75% of your Apex code … don't focus on the percentage … cover every use case". 참고로 관리형 패키지는 트리거마다 별도 커버리지도 필요.
 
 ```apex
 @isTest
@@ -200,6 +217,8 @@ static void testBulkInsert() {
 ## 9. Avoid Nested Loops (중첩 루프 금지)
 
 중첩 루프는 시간 복잡도를 O(n²)으로 만들고 코드 이해를 어렵게 한다. Map을 활용하거나 내부 루프 로직을 별도 메서드로 추상화한다.
+
+> 출처: 일반 성능 원칙(Map 조인으로 O(n) 처리) — Apex Developer Guide의 벌크화·거버너 회피 방향과 일치하는 커뮤니티 컨벤션.
 
 ```apex
 // 나쁜 예 — O(n²) 중첩 루프
@@ -228,6 +247,8 @@ for (Account acc : accounts) {
 
 팀 전체가 따를 수 있는 일관된 네이밍 규칙을 수립한다. 규칙 자체보다 **일관성**이 중요하다.
 
+> 출처: 커뮤니티 컨벤션. 아래 표의 패턴(PascalCase 클래스, `[SObject]Trigger` 등)은 공식 가이드가 강제하는 규칙이 아니라 널리 통용되는 관례다.
+
 | 항목 | 권장 패턴 | 예시 |
 |---|---|---|
 | 클래스 | PascalCase | `AccountService`, `ContactTriggerHandler` |
@@ -243,6 +264,8 @@ for (Account acc : accounts) {
 ## 11. Avoid Business Logic in Triggers (트리거에 비즈니스 로직 금지)
 
 트리거는 **라우터** 역할만 해야 한다. 비즈니스 로직이 트리거에 있으면 테스트·재사용·유지보수가 모두 어려워진다.
+
+> 근거: Apex Developer Guide — "Implementation in Apex Triggers": 트리거는 항상 시스템 모드로 실행되므로, 데이터 접근 설정을 강제하려면 *"delegate business logic to separate trigger handlers, where you can define sharing and access modes."* (핸들러 위임 자체는 공식 권장, 구체적 클래스 계층 설계는 커뮤니티 컨벤션).
 
 ```
 AccountTrigger.trigger
@@ -270,6 +293,8 @@ public class AccountTriggerHandler {
 ## 12. Avoid Returning JSON to Lightning Components (@AuraEnabled 직접 객체 반환)
 
 `@AuraEnabled` 메서드에서 JSON을 직렬화해 String으로 반환하면 **힙 메모리와 CPU를 이중 낭비**한다. LWC/Aura는 Apex 객체를 직접 역직렬화할 수 있으므로, Apex 클래스나 SObject를 바로 반환한다.
+
+> 출처: 커뮤니티 성능 컨벤션. `@AuraEnabled`가 SObject·Apex 타입을 직접 반환할 수 있고 `cacheable=true`가 캐싱을 활성화하는 것은 공식 동작이나, "JSON String 반환 회피" 자체가 Apex Developer Guide의 축자 규칙은 아니다.
 
 ```apex
 // 나쁜 예 — JSON 직렬화 후 String 반환

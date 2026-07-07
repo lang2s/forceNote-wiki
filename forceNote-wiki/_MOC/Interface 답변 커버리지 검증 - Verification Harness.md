@@ -1,13 +1,13 @@
 ---
-tags: [meta, qa, verification, integration, interface, harness]
+tags: [meta, qa, verification, integration, interface, harness, diataxis, three-layer]
 source: 위키 자가검증 (2026-07-07 세션, 라우터→샤드→파일 네비게이션 대조)
 created: 2026-07-07
-aliases: [인터페이스 검증, Interface Coverage Verification, 통합 답변 검증, verification harness, 위키 검증 하네스]
+aliases: [인터페이스 검증, Interface Coverage Verification, 통합 답변 검증, verification harness, 위키 검증 하네스, 3층 감사, Diátaxis 커버리지, three-layer coverage audit, 레이어 커버리지]
 ---
 
 # Interface(통합/연결) 답변 커버리지 검증 — Verification Harness
 
-> Salesforce 통합/인터페이스 도메인에 대해 **위키가 실무 질문의 정답을 실제로 추출해 주는가**를 반복 검증하는 QA 하네스. 질문을 바꿔가며 재실행할 수 있다.
+> 위키 품질을 두 축으로 반복 점검하는 QA 하네스: **① 답변 커버리지 검증**(위키가 실무 질문의 정답을 실제로 추출해 주는가) + **② 3층(Diátaxis) 커버리지 감사**(핵심 토픽이 개념·레퍼런스·절차 3층을 갖췄는가). 도메인·질문을 바꿔가며 재실행한다.
 
 ---
 
@@ -15,13 +15,14 @@ aliases: [인터페이스 검증, Interface Coverage Verification, 통합 답변
 
 이 문서는 위키 지식 노트가 아니라 **메타/검증 도구**다(`_MOC/WIKI_RULES.md`와 같은 시스템 파일). 목적:
 
-1. 통합/인터페이스 도메인의 "답변 커버리지"를 주기적으로 재측정한다.
-2. 질문 세트를 교체하며 새 사각지대를 찾는다.
-3. 발견된 갭 → 보충 이력을 남겨 회귀(regression)를 방지한다.
+1. 도메인의 "답변 커버리지"를 주기적으로 재측정한다(**방법론 1**).
+2. 핵심 토픽의 "3층(개념·레퍼런스·절차) 커버리지"를 감사한다(**방법론 2**).
+3. 질문 세트·대상 도메인을 교체하며 새 사각지대를 찾는다.
+4. 발견된 갭 → 보충 이력을 남겨 회귀(regression)를 방지한다.
 
 ---
 
-## 검증 방법론 (핵심 규율)
+## 방법론 1 — 답변 커버리지 검증 (핵심 규율)
 
 ```text
 // 절차 — 재실행 시 그대로 따른다
@@ -39,6 +40,40 @@ aliases: [인터페이스 검증, Interface Coverage Verification, 통합 답변
 
 - 범위(이번 라운드): REST/SOAP API · Connected App · Auth Provider · Named Credential · OAuth 플로우 · Apex Callout/REST · External Services · CORS · External Objects · Apex 시스템 인터페이스(Batchable·Schedulable·Queueable·Comparable·Callable·Mock).
 - **제외**: Bulk API · Pub/Sub API(gRPC) — 별도 노트로 최근 검증됨.
+
+---
+
+## 방법론 2 — 3층(Diátaxis) 커버리지 감사
+
+> "위키가 답을 주는가"(방법론 1)와 별개로, **"핵심 토픽이 세 종류의 문서를 갖췄는가"**를 본다. 없는 문서 유형이 있으면 실무가 특정 상황에서 막힌다.
+
+### 3층 정의
+| 층 | 답하는 질문 | 목적 |
+|---|---|---|
+| 개념(Concept) | "이게 뭐고 왜?" | 이해 |
+| 레퍼런스(Reference) | "뭐가 있지?"(메서드·필드·enum·한도 전수) | 찾아보기 |
+| 절차(How-to) | "어떻게 처음부터?" | 따라하기 |
+
+한 노트가 여러 층을 겸할 수 있다(대개 개념+레퍼런스 혼합).
+
+### 감사 절차
+
+```text
+1. 도메인을 토픽 단위 클러스터로 나눠 병렬 진단(각 에이전트가 한 클러스터의 노트를 Read).
+2. 토픽 × 3층 매트릭스로 판정: ✅충분 / 🟡부분·얕음·타 노트에 파묻힘 / ❌없음 + 근거 파일.
+3. ⚠️ 모든 토픽을 3개 노트로 쪼개지 않는다 — 빈 껍데기 양산은 안티패턴.
+   빠져서 실무가 막히는 층만 선별 보충. 이미 3층이면 건드리지 않는다.
+4. 신규 노트는 단일 목적(개념 OR 레퍼런스 OR 절차)으로 쓰고 서로 링크한다.
+5. 보충 → writer(콘텐츠) → index-manager(탐색) → QA. 부수로 낡은 사실·오류도 정정한다.
+```
+
+### 적용 이력
+| 도메인 | 진단 클러스터 | 결과 | 커밋 |
+|---|---|---|---|
+| Integration | 3 (인증/API/이벤트) | "서버간은 3층 완성, 대화형(Web Server+PKCE)·인바운드 SSO(Auth Provider)·Streaming(CometD)은 절차/개념 결손" → 신규 7 + 보강 3 | `7c9627e` |
+| Apex (언어/코어) | 8 (언어·데이터·비동기·컬렉션·트리거·테스트·보안·플랫폼) | 진행 중 | — |
+
+- **재사용**: 새 도메인마다 "클러스터 분할 → 토픽×3층 매트릭스 → 선별 보충"을 반복. 부수 효과로 Tier 3 노트의 오류·낡은 사실이 함께 잡힌다(예: External Services Tier 3→2 오류 정정).
 
 ---
 

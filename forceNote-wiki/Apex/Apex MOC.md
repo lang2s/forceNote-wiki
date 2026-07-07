@@ -37,6 +37,9 @@ created: 2026-05-17
 - [[TxnSecurity Namespace]] — EventCondition/AsyncCondition으로 Transaction Security Policy Apex 구현, Real-Time Event Monitoring 기반 차단·알림 정책
 - [[UserProvisioning Namespace]] — 커넥티드 앱 아웃바운드 사용자 프로비저닝: ConnectorTestUtil/UserProvisioningLog/UserProvisioningPlugin(reconOffset 청크)
 - [[Platform Encryption]] — Shield Platform Encryption: 저장 시 암호화(at-rest), Deterministic/Probabilistic, Database Encryption GA, Field Audit Trail 보존 정책
+- [[Apex Managed Sharing (프로그래매틱 공유)]] — `__Share` 오브젝트에 DML로 동적 접근 부여, 커스텀 Sharing Reason(RowCause), OWD Private 재계산 배치
+- [[Sharing 키워드 (with·without·inherited sharing)]] — 클래스 sharing 키워드가 좌우하는 것은 레코드 가시성(행 수준)뿐, 선언 없을 때 기본값·escalation 방지
+- [[Crypto 클래스 레퍼런스]] — System.Crypto 전 메서드: encrypt/decrypt/encryptWithManagedIV, generateDigest/generateMac, sign/verify, generateAesKey
 
 ## 🔍 SOQL / SOSL
 
@@ -72,6 +75,7 @@ created: 2026-05-17
 - [[Queueable 체이닝]] — execute당 1개 enqueue 규칙
 - [[Batch Apex]] — Database.Stateful, start/execute/finish
 - [[Scheduled Apex]] — thin execute, System.scheduleBatch
+- [[Transaction Finalizer]] — System.Finalizer, Queueable 롤백돼도 실행되는 유일한 사후 훅, FinalizerContext/ParentJobResult 재시도·알림
 
 ## 🌐 통합
 
@@ -136,6 +140,8 @@ created: 2026-05-17
 - [[Comparator 인터페이스]] — null 3단계 처리, ASCENDING/DESCENDING enum
 - [[Iterable Iterator]] — 페이지네이션 REST for-each 추상화
 - [[CollectionUtils]] — Type.forName 동적 Map, idMapFromCollectionByKey
+- [[String 메서드 전수 레퍼런스]] — System.String 인스턴스·정적 메서드 전수(검사·변환·추출·포맷·이스케이프), isBlank/escapeSingleQuotes/format/join
+- [[Date·Datetime·Math 메서드 전수 레퍼런스]] — System.Date/Datetime/Time/Math 전 메서드 전수, addDays/daysBetween/formatGmt/roundToLong, GMT vs 로컬
 
 ## 🧪 테스트
 
@@ -146,6 +152,9 @@ created: 2026-05-17
 - [[testVisible 회로차단기]] — Boolean/Exception 회로 차단기
 - [[SOSL 테스트 패턴]] — Test.setFixedSearchResults
 - [[Flowtesting Namespace]] — Flow Builder 생성 flow test, flowtesting 동적 namespace, sf flow run test
+- [[Test Data Factory 패턴]] — 재사용 팩토리 클래스·@TestSetup·Test.loadData(정적 리소스 CSV)로 결정적 테스트 데이터 생성
+- [[System.runAs (테스트 실행 컨텍스트)]] — 테스트에서 다른 사용자 컨텍스트로 실행(공유·FLS·권한 검증), Mixed DML 우회, 패키지 버전 컨텍스트
+- [[코드 커버리지 규칙]] — 배포·패키지 업로드 커버리지 요건(조직 75%·트리거 최소), 커버리지 계산·확인, 커버리지 ≠ 품질
 
 ## 🔭 실행 컨텍스트
 
@@ -153,6 +162,7 @@ created: 2026-05-17
 - [[OrgShape]] — isSandbox, isMultiCurrencyEnabled, isPersonAccountEnabled
 - [[Governor Limits]] — Per-Transaction/Platform/Static 한도 전체 표, Limits 클래스, Bulkify/SOQL 방어 패턴
 - [[Anonymous Apex 실행]] — execute anonymous 블록, executeAnonymous SOAP API/ExecuteAnonymousResult, Author Apex 권한, 익명 블록 제약·Forward Reference, 실행 도구(Web Console/VS Code/Developer Console/sf apex run)
+- [[실행 컨텍스트와 트랜잭션]] — 실행 컨텍스트=Apex 트랜잭션 개념 허브: 트랜잭션 경계·커밋/롤백 단위, static 변수 수명, 재귀 가드, 비동기 새 컨텍스트
 
 ## 📋 로깅
 

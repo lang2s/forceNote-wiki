@@ -2,7 +2,7 @@
 tags: [Apex, version, behavior-change, api-version, reference, lookup-index]
 source: salesforce_apex_developer_guide.pdf
 created: 2026-06-19
-aliases: [Apex Versioned Behavior Changes, 버전별 동작 변경, API version behavior, versioned behavior]
+aliases: [Apex Versioned Behavior Changes, 버전별 동작 변경, API version behavior, versioned behavior, API 버전 설정, Version Settings, 버전 업그레이드, Setting the Salesforce API Version]
 ---
 
 # Apex 버전별 동작 변경 레퍼런스
@@ -28,6 +28,74 @@ aliases: [Apex Versioned Behavior Changes, 버전별 동작 변경, API version 
 1. **최신 버전 사용을 강력 권장**.
 2. 최신으로 못 올리면, **최근 3년 내 출시된 API 버전**을 쓴다(성능·보안·호환성).
 3. 복잡도를 줄이기 위해 코드베이스를 **최소한의 API 버전(이상적으로는 단일 버전)으로 통합**한다.
+
+> **Apex 클래스·메서드 자체의 가용성은 저장 버전에 무관.** 언어에 추가된 클래스/메서드는 도입된 릴리스와 상관없이 모든 API 버전의 Apex에서 쓸 수 있다(예: v33.0에서 추가된 메서드도 v25.0으로 저장된 클래스에서 호출 가능). **유일한 예외는 `ConnectApi` 네임스페이스** — 문서에 명시된 API 버전에서만 지원된다(v33.0에 도입되면 그 이전 버전에서는 사용 불가). 즉 이 레퍼런스가 다루는 "version-gated 동작"은 *같은 메서드의 런타임 동작 차이*이지, 메서드 존재 여부가 아니다.
+
+---
+
+## API 버전 설정·업그레이드 절차
+
+위의 version-gated 동작은 **코드가 저장(save)된 Salesforce API 버전**으로 결정된다. 그 버전을 어디서·어떻게 정하고 바꾸는지가 이 절차층이다.
+
+### 조직 기본 버전 vs 클래스별 버전
+
+조직 전체를 지배하는 단일 "Apex 버전"은 없다. **버전은 클래스·트리거마다 개별로 저장**된다(각 `ApexClass`/`ApexTrigger` 메타데이터의 `apiVersion` 필드). 새 클래스/트리거를 만들면서 API 버전을 명시하지 않으면 **조직에 설치된 최신 버전으로 기본 연결**된다("If you save an Apex class or trigger without specifying the Salesforce API version, the class or trigger is associated with the latest installed version by default"). 마찬가지로 관리형 패키지를 참조하는데 패키지 버전을 명시하지 않으면 최신 설치 버전으로 기본 연결된다.
+
+- 하위 호환을 위해 클래스·트리거는 특정 Salesforce API 버전의 version settings와 함께 저장된다("classes and triggers are stored with the version settings for a specific Salesforce API version"). Apex·API·패키지 컴포넌트가 이후 릴리스에서 진화해도, 그 클래스/트리거는 알려진 동작을 갖는 버전에 계속 바인딩된다.
+
+### 클래스/트리거의 API 버전 설정 위치
+
+| 경로 | 절차 (PDF 원문 절차 옮김) |
+|---|---|
+| **Setup — Apex Class** | Setup → Quick Find `Apex Classes` → **New** (또는 기존 클래스 Edit) → **Version Settings** 클릭 → **Version of the Salesforce API** 선택(이 버전이 곧 연결되는 Apex 버전) → **Save**. 조직에 관리형 패키지가 설치돼 있으면 각 패키지의 사용 버전도 함께 지정 가능(기본값 = 최신). |
+| **Setup — Trigger** | 해당 오브젝트 관리 설정 → **Triggers** → New/Edit → **Version Settings** 클릭 → API·Apex 버전 선택 → Save. (Attachment·ContentDocument·Note 표준 오브젝트는 UI로 트리거 생성 불가 → Developer Console·VS Code 확장·Metadata API 사용) |
+| **Developer Console** | 클래스/트리거 편집기의 우측 속성 패널에서 API Version 지정. |
+| **Metadata (`apiVersion`)** | `.cls-meta.xml` / `.trigger-meta.xml`의 `<apiVersion>` 요소로 소스 컨트롤·배포 시 버전 고정(아래 예시 참조). |
+
+**Version Settings 공식 절차(클래스/트리거 공통):**
+1. 클래스 또는 트리거를 Edit하고 **Version Settings** 클릭.
+2. **Version of the Salesforce API** 선택 — 이 버전이 클래스/트리거에 연결되는 Apex 버전이기도 하다.
+3. **Save**.
+
+```xml
+<!-- MyClass.cls-meta.xml — apiVersion 요소가 곧 저장 버전(version-gated 동작 결정) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <status>Active</status>
+</ApexClass>
+```
+
+### 버전 변경 방법과 그 영향
+
+버전을 올리거나 내리는 것은 위 Version Settings에서 값을 바꿔 다시 Save/deploy하는 것이다. 바뀐 버전이 **version-gated 동작 전체를 재결정**한다 — 위 [버전별 동작 변경 전수표](#버전별-동작-변경-내림차순-전수)의 해당 임계 버전을 넘거나 밑돌면 동작이 달라진다(예: v67.0로 올리면 DB 작업이 user mode 기본으로, sharing이 현재 사용자 컨텍스트로 전환).
+
+**클래스 간 버전 경계 — 호출된 클래스의 버전이 지배.** 클래스 C1이 객체를 파라미터로 C2에 넘기고 C2가 다른 API 버전으로 저장돼 노출 필드가 다르면, **그 객체의 필드는 C2의 version settings로 통제된다**("the fields in the objects are controlled by the version settings of C2"). PDF 예시: `Idea.Categories` 필드는 API v13.0에 없으므로, v16.0 테스트 클래스 C1이 v13.0 클래스 C2의 `insertIdea`를 호출하면 insert 후 Categories가 `null`이 된다.
+
+### 관리형 패키지 컴포넌트 version settings (참조 버전 고정)
+
+관리형 패키지를 참조하는 클래스/트리거는 **참조하는 패키지 버전을 개별로 고정**할 수 있다. 이렇게 하면 최신 버전에서 deprecated된 컴포넌트를 계속 참조하거나, 옛 shape에 의존하는 코드의 하위 호환을 유지할 수 있다.
+
+- **기본값:** 클래스/트리거가 **마지막으로 저장·배포된 시점에 설치돼 있던 패키지 버전**과 연결된다. 이후 패키지를 상위 버전으로 업그레이드해도, 클래스를 재배포하지 않는 한 옛 버전에 계속 묶여 있다(재배포하면 그때 최신으로 갱신).
+- **Setup 절차:** Setup → `Apex Classes` 또는 `Apex Triggers` → 대상의 **Edit** → **Version Settings 탭** → 관리형 패키지의 **Version 드롭다운**에서 원하는 버전 선택 → **Save**. 이후 더 최신 패키지를 설치해도 수동으로 바꾸기 전까지 이 버전을 계속 사용한다.
+- **제거 불가:** 패키지를 참조 중이면 그 version setting을 제거할 수 없다. 참조 위치는 클래스/트리거 Detail 페이지의 **Show Dependencies**로 확인.
+- **Metadata API:** 클래스/트리거 메타데이터에 `<packageVersions>` 요소로 지정 — `majorNumber`·`minorNumber` + **2GP는 `packageId`**, **1GP는 `namespace`**. (retrieve 시 API v62.0 이상은 `<packageId>`, v61.0 이하는 `<namespace>`로 표기.)
+- **API 요청 헤더:** REST는 `x-sfdc-packageversion-[packageId/namespace]`, SOAP는 `PackageVersionHeader`. 헤더에 버전을 안 주면 Setup의 값(Setup → `API` → Configure Enterprise Package Version Settings)이 쓰인다.
+- **Summer '25 이후:** 1GP에서 마이그레이션된 2GP 패키지도 subscriber가 version settings로 참조 버전을 지정할 수 있다(1GP는 종전부터 지원, 1GP 변환이 아닌 순수 2GP는 아직 미지원).
+
+```xml
+<!-- 구조 예시 — 관리형 패키지 참조 버전 고정 (PDF 발췌: 2GP는 packageId) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <packageVersions>
+        <majorNumber>3</majorNumber>
+        <minorNumber>0</minorNumber>
+        <packageId>033xx0000000001</packageId>   <!-- 1GP면 <namespace>pkg1</namespace> -->
+    </packageVersions>
+    <status>Active</status>
+</ApexClass>
+```
 
 ---
 

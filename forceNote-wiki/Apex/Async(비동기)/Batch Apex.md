@@ -2,12 +2,23 @@
 tags: [apex, async, batch, pattern, release-notes]
 source: apex-recipes/BatchApexRecipes.cls; salesforce_app_limits_cheatsheet.pdf (Apex Flex Queue 동시성 한도, Tier 2); help.salesforce.com/s/articleView?id=000386672
 created: 2026-05-17
-aliases: [batch apex, 배치, 대용량 처리, apex cursor, batch vs cursor, test discovery api]
+aliases: [batch apex, 배치, 대용량 처리, apex cursor, batch vs cursor, test discovery api, Batchable 인터페이스, start execute finish]
 ---
 
 # Batch Apex
 
 > 수만 건 이상의 대용량 데이터 처리. QueryLocator로 힙 한도 우회.
+
+---
+
+## 왜 / 언제 Batch Apex
+
+동기 트랜잭션이나 다른 async(Queueable·Future) 하나로는 감당 못 하는 **초대용량 데이터**를 청크 단위로 나눠 처리할 때 쓴다.
+
+- **QueryLocator로 SOQL 행 한도 우회**: `start`가 `Database.QueryLocator`를 반환하면 "SOQL로 조회한 총 레코드 수" 거버너 한도가 **무시**되어 한 잡에서 **최대 5천만(50,000,000) 레코드**까지 조회·처리할 수 있다. (`Iterable`을 반환하면 이 우회가 적용되지 않고 SOQL 행 한도가 그대로 걸린다.)
+- **execute별 새 거버너 컨텍스트**: 배치 잡은 `start`가 모은 레코드를 scope 크기(기본 200)로 쪼개고, 각 청크를 **별도 트랜잭션**으로 실행한다. → SOQL·DML·힙 등 **거버너 한도가 청크마다 리셋**되므로, 힙(6MB/12MB)에 다 못 올리는 데이터도 청크 단위로 나눠 힙을 우회한다.
+- **트랜잭션 분리(부분 실패 격리)**: "각 execute = discrete transaction"이라 1번째 청크가 성공하고 2번째가 실패해도 **1번째의 DB 변경은 롤백되지 않는다**. 대량 작업을 한 트랜잭션에 몰지 않고 격리한다.
+- **언제 쓰나**: 수만~수천만 건 재계산·정리·마이그레이션, 힙에 다 못 올리는 필드 가공, 밤사이 정기 대량 처리(`System.scheduleBatch`). 반대로 소량·경량이면 [[Queueable]], 단일 트랜잭션 대용량 읽기면 아래 Apex Cursor가 더 간결하다.
 
 ---
 
@@ -52,6 +63,21 @@ public with sharing class MyBatch
     }
 }
 ```
+
+---
+
+## Database.Batchable 인터페이스 — 3개 필수 메서드
+
+`Database.Batchable` 인터페이스는 반드시 구현해야 하는 메서드 3개를 갖는다. 위 코드에 등장하지만 시그니처·반환·호출 시점을 표로 명시한다.
+
+| 메서드 | 시그니처 | 반환 | 호출 시점·역할 |
+|---|---|---|---|
+| **start** | `public (Database.QueryLocator \| Iterable<sObject>) start(Database.BatchableContext bc)` | `Database.QueryLocator` **또는** `Iterable<sObject>` | 잡 시작 시 **1회**. `execute`에 넘길 레코드·객체를 수집. `QueryLocator` 반환 시 SOQL 행 한도 우회(최대 5천만); `Iterable` 반환 시 SOQL 행 한도 그대로 적용 |
+| **execute** | `public void execute(Database.BatchableContext bc, List<P>)` | `void` | scope(기본 200)로 쪼갠 **각 청크마다 1회**(별도 트랜잭션). 인자 = `BatchableContext` + sObject/파라미터 타입 리스트. 청크 실행 순서는 보장되지 않음 |
+| **finish** | `public void finish(Database.BatchableContext bc)` | `void` | 모든 청크 처리 **후 1회**. 확인 이메일 전송·후속 배치 체이닝 등 후처리 |
+
+> [!note] Database.BatchableContext
+> 세 메서드 모두 `Database.BatchableContext` 참조를 인자로 받아 잡 진행을 추적한다. 인스턴스 메서드 `getJobID()`는 이 배치 잡에 연결된 **`AsyncApexJob`의 ID(String)** 를 반환한다 — 진행 상황 조회나 `System.abortJob(id)`로 중단에 사용한다.
 
 ---
 

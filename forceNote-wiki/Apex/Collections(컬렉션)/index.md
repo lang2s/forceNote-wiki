@@ -18,6 +18,8 @@ created: 2026-05-17
 | [[CollectionUtils]] | idMapFromCollectionByKey, Type.forName 동적 Map/Set 생성 | #pattern |
 | [[Comparator 인터페이스]] | null 3단계 처리, ASCENDING/DESCENDING enum | #pattern |
 | [[Iterable Iterator]] | 페이지네이션 REST for-each 추상화 | #pattern |
+| [[String 메서드 전수 레퍼런스]] | System.String 인스턴스·정적 메서드 전수 — isBlank/escapeSingleQuotes/substring/format/join, 템플릿 보간 | #reference |
+| [[Date·Datetime·Math 메서드 전수 레퍼런스]] | System.Date/Datetime/Time/Math 전 메서드 — addDays/daysBetween/formatGmt/roundToLong, GMT vs 로컬 | #reference |
 
 ---
 
@@ -26,3 +28,5 @@ created: 2026-05-17
 - SObject 리스트를 Id로 Map 변환? → [[CollectionUtils]]
 - 커스텀 기준으로 List.sort()? → [[Comparator 인터페이스]]
 - for-each로 REST 페이지 순회? → [[Iterable Iterator]]
+- String 메서드(isBlank/escapeSingleQuotes/format/join) 뭐 있나? → [[String 메서드 전수 레퍼런스]]
+- Date/Datetime/Math 메서드·GMT 포맷 뭐 있나? → [[Date·Datetime·Math 메서드 전수 레퍼런스]]

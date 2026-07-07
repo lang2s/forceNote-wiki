@@ -1,8 +1,8 @@
 ---
-tags: [Security, SecureCoding, SOQLInjection, SOQL, 보안가이드, 위협모델, 인젝션]
-source: secure_coding (Secure Coding Guide, v67.0 Summer '26)
+tags: [Security, SecureCoding, SOQLInjection, SOQL, SOSL, 보안가이드, 위협모델, 인젝션]
+source: secure_coding (Secure Coding Guide, v67.0 Summer '26), salesforce_apex_developer_guide (SOQL Injection / SOSL Injection / SOQL Injection Defenses), salesforce_apex_reference_guide (String.escapeSingleQuotes)
 created: 2026-06-18
-aliases: [SOQL Injection, SOQL 인젝션, escapeSingleQuotes 보안, bind variable 보안, SQL Injection 방어, isSafeObject isSafeField, 동적 SOQL에 사용자 입력 넣어도 되나, 쿼리에 변수 안전하게 넣는 법, 인젝션 막으려면 바인드 변수, 동적 쿼리 보안]
+aliases: [SOQL Injection, SOSL Injection, SOQL 인젝션, SOSL 인젝션, escapeSingleQuotes 보안, bind variable 보안, SQL Injection 방어, isSafeObject isSafeField, 동적 SOQL에 사용자 입력 넣어도 되나, 쿼리에 변수 안전하게 넣는 법, 인젝션 막으려면 바인드 변수, 동적 쿼리 보안, queryWithBinds 방어, 화이트리스트 쿼리]
 ---
 
 # SOQL Injection 위협
@@ -81,6 +81,100 @@ public Boolean isSafeField(String fieldName, String objName) {
 
 ---
 
+## 방어 기법 카탈로그 (Apex Developer Guide)
+
+Secure Coding Guide의 위 원칙을 Apex 개발자 관점의 6개 방어 기법으로 정리한다(출처: Apex Developer Guide — SOQL Injection / SOSL Injection / SOQL Injection Defenses). 값 injection은 바인딩으로, 식별자(필드/오브젝트명) injection은 화이트리스트로 막는다는 것이 핵심이다.
+
+| # | 기법 | 무엇을 막나 | 한계 / 적용 범위 |
+|---|---|---|---|
+| 1 | 정적 SOQL + `:var` 바인딩 | 값 위치 injection 전부 | **1순위.** 쿼리 구조가 컴파일 타임 고정일 때만. 필드/오브젝트명은 바인딩 불가 |
+| 2 | `Database.queryWithBinds` (bindMap) | 동적 문자열이 필요할 때의 값 injection | 값만 바인딩. 스코프 밖 변수도 Map으로 전달 가능 (API 57.0+) |
+| 3 | `String.escapeSingleQuotes()` | 문자열 리터럴 내 따옴표 탈출 | 문자열 리터럴 값에만. 숫자·필드명·오브젝트명·연산자엔 무의미 |
+| 4 | 타입 캐스팅 (`Integer.valueOf` 등) | 숫자 컨텍스트 injection | 입력이 숫자/불리언일 때. 값을 문자열 아닌 타입으로 강제 |
+| 5 | 화이트리스트 (허용목록) | 필드명·오브젝트명·정렬 방향 injection | escape로 못 막는 식별자 위치. 허용된 값만 통과 |
+| 6 | SOSL: `escapeSingleQuotes` + 위 원칙 | SOSL injection | `Search.query` 동적 SOSL에 동일 적용 |
+
+### `Database.queryWithBinds` / `getQueryLocatorWithBinds` (bindMap)
+
+쿼리 문자열을 런타임에 조립해야 하지만 **값은 안전하게 바인딩**하고 싶을 때. 바인드 변수를 Apex 변수 스코프가 아니라 **Map 파라미터**에서 key로 해석한다(API 57.0+). 값 위치 injection을 막는다.
+
+```apex
+// 방어 — 동적 문자열이되 값은 bindMap으로 바인딩 (API 57.0+)
+Map<String, Object> acctBinds = new Map<String, Object>{ 'acctName' => 'Acme Corporation' };
+List<Account> accts = Database.queryWithBinds(
+    'SELECT Id FROM Account WHERE Name = :acctName',
+    acctBinds,
+    AccessLevel.USER_MODE);
+```
+
+bindMap 사용 시 고려사항:
+- Map key는 **대소문자 구분 안 함** — 대소문자만 다른 중복 key가 있으면 런타임 `System.QueryException`(`The bindMap consists of duplicate case-insensitive keys`)이 발생한다.
+- key는 변수 명명 규칙을 따라야 한다: ASCII 문자로 시작, 숫자로 시작 불가, 예약어 불가.
+- Map key에 dot notation은 현재 지원되나 Salesforce가 **권장하지 않는다**.
+
+같은 계열의 WithBinds 메서드가 동적 쿼리 전반을 커버한다:
+- `Database.queryWithBinds` — sObject 리스트 반환
+- `Database.getQueryLocatorWithBinds` — Batch Apex·Visualforce용 `QueryLocator` 생성
+- `Database.countQueryWithBinds` — 반환 레코드 수 계산
+
+> `accessLevel`(`AccessLevel.USER_MODE`/`SYSTEM_MODE`)로 오브젝트·필드 권한과 공유 규칙 강제 여부를 함께 지정한다 — injection 방지와 별개의 접근제어 축이다. [[WITH USER_MODE]] 참조.
+
+### 타입 캐스팅 — 숫자/불리언 강제
+
+입력이 숫자여야 하면 문자열로 결합하지 말고 타입으로 파싱해 강제한다. 파싱 실패 시 예외로 걸러지고, 성공하면 SOQL 명령 문자가 끼어들 수 없다. `escapeSingleQuotes`는 따옴표로 감싸지 않는 숫자 컨텍스트(`WHERE Age > {입력}`)엔 무의미하므로 이 기법으로 처리한다.
+
+```apex
+// 구조 예시 — 실제 동작 코드 아님 (숫자 입력 방어 패턴)
+Integer age = Integer.valueOf(userInput);   // 숫자 아니면 여기서 예외
+String qry = 'SELECT Id FROM Contact WHERE Age__c > ' + age;  // 따옴표 없이 안전
+List<Contact> rows = Database.query(qry);
+```
+
+### 식별자 화이트리스트 — 필드명·오브젝트명엔 escape가 안 통한다
+
+`escapeSingleQuotes`는 식별자(필드/오브젝트/정렬 컬럼)를 보호하지 못한다 — 따옴표로 감싸지 않는 위치이기 때문이다. 사용자가 필드명·오브젝트명·정렬 방향을 고를 수 있어야 하면 **허용된 값의 목록(allowlist)에 있는 것만** 통과시킨다.
+
+```apex
+// 구조 예시 — 실제 동작 코드 아님 (식별자 화이트리스트 패턴)
+Set<String> allowedFields = new Set<String>{ 'Name', 'Email', 'Phone' };
+if (!allowedFields.contains(userField)) {
+    throw new AuraHandledException('허용되지 않은 필드');
+}
+// Schema describe로 실재 확인하면 더 견고
+String qry = 'SELECT Id, ' + userField + ' FROM Contact';
+List<Contact> rows = Database.query(qry);
+```
+
+정렬 방향도 마찬가지로 `{'ASC','DESC'}` 화이트리스트로 좁힌다. 식별자는 위 `isSafeObject`/`isSafeField`(Schema describe)로 실재 여부를 재검증하면 CRUD/FLS까지 함께 확인돼 더 견고하다.
+
+### SOSL Injection — `Search.query`
+
+SOSL injection도 동적 SOSL(`Search.query`)에서 검증 없는 입력을 결합할 때 발생하며, 방어는 SOQL과 동일하게 `escapeSingleQuotes`로 사용자 입력의 따옴표를 탈출시키는 것이다.
+
+```apex
+// 방어 — 동적 SOSL의 사용자 입력 sanitize
+String term = String.escapeSingleQuotes(userTerm);
+String sosl = 'FIND \'' + term + '\' IN ALL FIELDS RETURNING Account(Id, Name), Contact, Lead';
+List<List<SObject>> results = Search.query(sosl);
+```
+
+문자열 리터럴 한정이라는 한계도 SOQL과 동일하다 — `RETURNING` 절의 오브젝트/필드명은 화이트리스트로 통제한다.
+
+### 선택 기준 — 언제 무엇을
+
+| 상황 | 권장 |
+|---|---|
+| 쿼리 구조가 고정, 값만 사용자 입력 | **정적 SOQL + `:var`** (1순위) |
+| 쿼리 문자열을 런타임 조립, 값은 안전하게 | `Database.queryWithBinds` / `getQueryLocatorWithBinds` |
+| 문자열 리터럴 값만 동적 결합이 불가피 | `String.escapeSingleQuotes()` (한계 인지) |
+| 입력이 숫자/불리언 | 타입 캐스팅 (`Integer.valueOf` 등) |
+| 사용자가 필드/오브젝트/정렬을 선택 | 화이트리스트 (escape 무효 구간) |
+| 동적 SOSL 검색어 | `escapeSingleQuotes` + RETURNING 절 화이트리스트 |
+
+> injection 방지(값을 문법에서 분리)와 접근제어([[WITH USER_MODE]]·[[CanTheUser]]·[[StripInaccessible]] = 누가 무엇을 볼 수 있나)는 **별개의 축**이다. 둘 다 적용해야 완전하다.
+
+---
+
 ## Alternate Methods to Secure SOQL Queries
 
 | Method | Description |
@@ -145,5 +239,6 @@ PreparedStatement query =
 - [[권한과 접근 제어 위협]]
 - [[CanTheUser]]
 - [[WITH USER_MODE]]
+- [[StripInaccessible]]
 - [[Secure Coding 개요]]
 - [[Platform Security FAQ]]

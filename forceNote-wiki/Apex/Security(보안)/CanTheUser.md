@@ -2,7 +2,7 @@
 tags: [apex, security, crud, fls, pattern]
 source: apex-recipes/CanTheUser.cls
 created: 2026-05-17
-aliases: [CanTheUser, CRUD 체크, FLS 체크]
+aliases: [CanTheUser, CRUD 체크, FLS 체크, isAccessible, isCreateable, DescribeSObjectResult, DescribeFieldResult]
 ---
 
 # CanTheUser — CRUD/FLS 권한 확인
@@ -115,6 +115,109 @@ public static Boolean flsEnabled(SObject obj, String field) {
               .isAccessible();
 }
 ```
+
+---
+
+## 원시 Describe API — CRUD/FLS 직접 검사
+
+`CanTheUser`는 결국 Apex의 **Schema Describe API** 위에 얹은 래퍼다. 커스텀 유틸리티 없이 CRUD/FLS를 직접 확인해야 할 때(또는 `CanTheUser`가 없는 org에서) 아래 원시 메서드를 쓴다. 모든 메서드는 `Schema.DescribeSObjectResult`·`Schema.DescribeFieldResult`의 인스턴스 메서드이며, 이름 그대로 현재 사용자 권한을 Boolean으로 돌려준다.
+
+### Object 수준 — `Schema.DescribeSObjectResult`
+
+`Account.SObjectType.getDescribe()` 또는 `describeSObjects()`가 반환하는 객체의 메서드다.
+
+| 메서드 | 반환 의미 (현재 사용자 기준) |
+|---|---|
+| `isAccessible()` | 이 오브젝트를 **볼 수** 있으면 `true` |
+| `isCreateable()` | 이 오브젝트를 **생성**할 수 있으면 `true` |
+| `isUpdateable()` | 이 오브젝트를 **수정**할 수 있으면 `true` |
+| `isDeletable()` | 이 오브젝트를 **삭제**할 수 있으면 `true` |
+| `isUndeletable()` | 이 오브젝트를 **복원(undelete)**할 수 있으면 `true` |
+| `isMergeable()` | 이 타입의 다른 레코드와 **병합(merge)**할 수 있으면 `true` (lead·contact·account에서 `true`) |
+| `isQueryable()` | 이 오브젝트를 **SOQL 쿼리**할 수 있으면 `true` |
+| `isSearchable()` | 이 오브젝트를 **SOSL 검색**할 수 있으면 `true` |
+
+```apex
+Schema.DescribeSObjectResult dsr = Account.SObjectType.getDescribe();
+if (dsr.isCreateable() && dsr.isUpdateable()) {
+    // Account에 대한 생성·수정 권한 보유
+}
+
+// 삭제 전 가드
+if (!Contact.SObjectType.getDescribe().isDeletable()) {
+    throw new AuraHandledException('삭제 권한이 없습니다.');
+}
+```
+
+> [!note] `isAccessible()` 버전별 동작 변화
+> API 54.0 이상에서는 **Custom Setting·Custom Metadata Type** 오브젝트에 대해, 사용자가 접근 권한이 없으면 `isAccessible()`이 `false`를 반환한다. API 53.0 이하에서는 권한이 없어도 `true`를 반환했다. (출처: Apex Reference Guide — DescribeSObjectResult Class)
+
+### Field 수준 (FLS) — `Schema.DescribeFieldResult`
+
+필드 토큰의 `getDescribe()`가 반환한다. FLS 검사의 핵심은 `isAccessible()`(읽기)·`isCreateable()`(입력)·`isUpdateable()`(수정) 세 가지다.
+
+| 메서드 | 반환 의미 |
+|---|---|
+| `isAccessible()` | 이 필드를 **볼 수(read)** 있으면 `true` — FLS read |
+| `isCreateable()` | 이 필드를 **생성 시 입력**할 수 있으면 `true` |
+| `isUpdateable()` | 이 필드를 **수정**할 수 있으면 `true` (master-detail 재부모화 가능도 포함) |
+| `isNillable()` | 필드가 **nillable**(빈 값 허용)이면 `true`. non-nillable이면 저장 시 값 필수 |
+| `isPermissionable()` | 이 필드에 대해 **필드 권한을 지정할 수 있으면** `true` |
+| `isCalculated()` | **커스텀 수식(formula) 필드**면 `true` (수식 필드는 항상 read-only) |
+| `isEncrypted()` | **Shield Platform Encryption**으로 암호화된 필드면 `true` |
+| `getType()` | 필드 타입에 해당하는 **`Schema.DisplayType`** enum 값 반환 |
+
+```apex
+Schema.DescribeFieldResult dfr =
+    Account.SObjectType.getDescribe().fields.getMap()
+           .get('AnnualRevenue').getDescribe();
+
+if (dfr.isUpdateable()) {
+    acct.AnnualRevenue = newValue;   // 쓰기 FLS 통과 시에만 대입
+}
+
+// 필드 토큰에서 직접 (더 짧은 관용구)
+if (Schema.SObjectType.Account.fields.AnnualRevenue.isAccessible()) {
+    // 읽기 FLS OK
+}
+```
+
+### 획득 경로 — describe 토큰 얻는 3가지 관용구
+
+```apex
+// (1) 오브젝트 이름을 정적으로 아는 경우 — SObjectType 토큰에서
+Schema.DescribeSObjectResult d1 = Account.SObjectType.getDescribe();
+Schema.DescribeSObjectResult d2 = Schema.SObjectType.Account;   // 프로퍼티 접근도 가능
+
+// (2) SObject 인스턴스에서 (CanTheUser 래퍼가 쓰는 방식)
+SObject rec = new Account();
+Schema.DescribeSObjectResult d3 = rec.getSObjectType().getDescribe();
+
+// (3) 오브젝트 이름이 런타임 문자열일 때 — Schema.getGlobalDescribe()
+Map<String, Schema.SObjectType> gd = Schema.getGlobalDescribe();
+Schema.DescribeSObjectResult d4 = gd.get('Account').getDescribe();
+```
+
+- `getSObjectType()`는 `SObject`·`DescribeSObjectResult` 양쪽에 있어, 인스턴스 → 토큰 → describe로 이어지는 관용구(`obj.getSObjectType().getDescribe()`)가 `CanTheUser.create()` 내부와 정확히 같다.
+- 필드 맵은 `describe.fields.getMap()` → `Map<String, Schema.SObjectField>`. 각 `SObjectField` 토큰의 `getDescribe()`가 `DescribeFieldResult`를 준다.
+- **로드 옵션:** `getDescribe(SObjectDescribeOptions.FULL)`은 child relationship까지 eager-load, `DEFERRED`는 lazy-load(첫 사용 시 로드). CRUD/FLS 플래그만 필요하면 기본값으로 충분하다.
+
+> [!tip] describe 호출 비용과 캐싱
+> `getDescribe()` 결과는 트랜잭션 내에서 캐시되므로 같은 오브젝트를 반복 describe해도 부담이 크지 않다. (예전에는 트랜잭션당 누적 describe 호출 한도가 있었으나 현재는 실질적으로 완화됨.) 그럼에도 루프 안에서 반복 호출하지 말고 **한 번 describe해 변수/맵에 담아** 재사용하는 것이 관용이다. `CanTheUser`가 정적 캐시를 두는 이유가 이것이다.
+
+### CanTheUser 래퍼와의 관계
+
+`CanTheUser`의 각 메서드는 위 원시 API를 1:1로 감싼 것이다.
+
+| CanTheUser | 감싸는 원시 호출 |
+|---|---|
+| `CanTheUser.create(obj)` | `obj.getSObjectType().getDescribe().isCreateable()` |
+| `CanTheUser.read(obj)` | `...getDescribe().isAccessible()` |
+| `CanTheUser.edit(obj)` | `...getDescribe().isUpdateable()` |
+| `CanTheUser.destroy(obj)` | `...getDescribe().isDeletable()` |
+| `CanTheUser.flsEnabled(obj, field)` | `...fields.getMap().get(field).getDescribe().isAccessible()` |
+
+래퍼는 여기에 **읽기 쉬운 이름 + describe 결과 캐시**를 더한다. 원시 API는 `isMergeable()`·`isUndeletable()`·`isQueryable()` 같은 래퍼에 없는 검사나, FLS의 `isCreateable()`/`isUpdateable()`(쓰기 FLS)까지 세분해 확인할 때 직접 쓴다.
 
 ---
 

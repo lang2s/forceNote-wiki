@@ -39,10 +39,13 @@ created: 2026-05-21
 | 키워드 | 파일 |
 |---|---|
 | Safely, FLS, CRUD 보안, with sharing, 안전한 DML, 필드 레벨 보안, 공유 규칙 | `Apex/Security(보안)/Safely.md` |
-| CanTheUser, 권한 확인, 삭제 가능 여부, isUpdatable | `Apex/Security(보안)/CanTheUser.md` |
+| CanTheUser, 권한 확인, 삭제 가능 여부, isUpdatable, DescribeSObjectResult, DescribeFieldResult, isAccessible, isCreateable | `Apex/Security(보안)/CanTheUser.md` |
 | StripInaccessible, 접근 불가 필드 제거, POST 바디 보안 | `Apex/Security(보안)/StripInaccessible.md` |
 | WITH USER_MODE, USER_MODE, SYSTEM_MODE, SOQL 보안 모드 | `Apex/Security(보안)/WITH USER_MODE.md` |
-| DML, insert update delete, allOrNothing, SaveResult, 부분 성공 | `Apex/Data(데이터)/DML 패턴.md` |
+| Apex Managed Sharing, 프로그래매틱 공유, __Share, RowCause, Sharing Reason, 공유 재계산 배치, OWD Private 동적 공유, AccountShare, JobShare, Apex로 레코드 공유 부여 | `Apex/Security(보안)/Apex Managed Sharing (프로그래매틱 공유).md` |
+| with sharing, without sharing, inherited sharing, 레코드 가시성, 선언 없을 때 기본값, escalation 방지, 행 수준 보안, sharing 키워드 차이 | `Apex/Security(보안)/Sharing 키워드 (with·without·inherited sharing).md` |
+| System.Crypto, Crypto 클래스, encrypt, decrypt, encryptWithManagedIV, decryptWithManagedIV, generateDigest, generateMac, sign, generateAesKey, AES 암복호화, 다이제스트, 디지털 서명, HMAC 서명 | `Apex/Security(보안)/Crypto 클래스 레퍼런스.md` |
+| DML, insert update delete, allOrNothing, SaveResult, 부분 성공, upsert 매칭, isCreated, merge 재부모, getUpdatedRelatedIds, DML 150 statements | `Apex/Data(데이터)/DML 패턴.md` |
 | Auth.JWT, Auth.JWS, Auth.JWTBearerTokenExchange, OAuth JWT bearer token, JWT 서명, JWT 클레임, JWT flow, getAccessToken, getCompactSerialization | `Apex/Security(보안)/Auth Namespace.md` |
 | Auth.SessionManagement, 세션 관리, MFA, TOTP, validateTotpTokenForUser, getQrCode, setSessionLevel, finishLoginFlow, generateVerificationUrl, inOrgNetworkRange, 커스텀 로그인 | `Apex/Security(보안)/Auth Namespace.md` |
 | Auth.RegistrationHandler, SSO 프로비저닝, Auth.UserData, createUser updateUser, 사용자 자동 생성 | `Apex/Security(보안)/Auth Namespace.md` |
@@ -58,7 +61,7 @@ created: 2026-05-21
 | 키워드 | 파일 |
 |---|---|
 | SOQL vs SOSL, 쿼리 언어 선택, SOQL 언제, SOSL 언제, CONTAINS 성능, CJKT 검색, 한국어 일본어 검색, 쿼리 성능 고려사항 | `Apex/SOQL(SOQL)/SOQL SOSL 소개.md` |
-| SOQL, 쿼리 패턴, 벌크 쿼리, 거버너 한도, Database.query, 데이터 조회, SELECT FROM WHERE | `Apex/SOQL(SOQL)/SOQL 패턴.md` |
+| SOQL, 쿼리 패턴, 벌크 쿼리, 거버너 한도, Database.query, 데이터 조회, SELECT FROM WHERE, 벌크화, bulkify, 루프 내 SOQL 금지, Map/Set 관용구 | `Apex/SOQL(SOQL)/SOQL 패턴.md` |
 | SOQL 문법 레퍼런스, SOQL SELECT 전체 문법, FIELDS ALL CUSTOM STANDARD, 날짜 리터럴, TODAY YESTERDAY LAST_N_DAYS THIS_FISCAL_YEAR, 날짜 함수, CALENDAR_YEAR DAY_ONLY HOUR_IN_DAY, GROUP BY ROLLUP CUBE, GROUPING 함수, 세미조인, 안티조인, 관계 쿼리, 자식→부모 dot, 부모→자식 서브쿼리, TYPEOF 다형성, TYPEOF 제한사항, USING SCOPE, ContentDocumentLink 제한, Big Object 쿼리, SOQL 오브젝트 제한, FORMAT() SOQL, toLabel() SOQL, convertCurrency() SOQL, DISTANCE GEOLOCATION 위치 기반 쿼리, Location-Based SOQL, 관계 쿼리 제한사항, child-to-parent 55개 제한, KnowledgeArticleVersion 바인딩변수 불가, Data 360 SOQL 제한, UserRecordAccess 쿼리, Vote 쿼리, ContentHubItem 쿼리 | `Apex/SOQL(SOQL)/SOQL 문법 레퍼런스.md` |
 | WITH DATA CATEGORY, Knowledge 카테고리 필터, KnowledgeArticleVersion 카테고리, Question 카테고리, AT ABOVE BELOW ABOVE_OR_BELOW, dataCategoryGroupName, filteringSelector, dataCategorySelection, PublishStatus online draft archived, RecordVisibilityContext, maxDescriptorPerRecord, supportsDomains supportsDelegates, VisibilityAttribute, 데이터 카테고리 SOQL | `Apex/SOQL(SOQL)/SOQL WITH DATA CATEGORY.md` |
 | Syndication Feed SOQL, 피드 SOQL, RSS Atom 피드 매핑, 공개 사이트 피드, Public Site SOQL 피드 | `Apex/SOQL(SOQL)/Syndication Feed SOQL.md` |
@@ -92,19 +95,23 @@ created: 2026-05-21
 | @future, future 메서드, fire and forget, callout=true | `Apex/Async(비동기)/Future 메서드.md` |
 | Queueable, AllowsCallouts, 큐어블, SObject 파라미터 비동기 | `Apex/Async(비동기)/Queueable.md` |
 | Queueable 체이닝, 연속 비동기, 다음 잡 실행 | `Apex/Async(비동기)/Queueable 체이닝.md` |
-| Batch Apex, Database.Batchable, 대용량 처리, QueryLocator, Stateful, 수만건 처리, 배치, Database.Stateful static 함정 | `Apex/Async(비동기)/Batch Apex.md` |
+| Batch Apex, Database.Batchable, 대용량 처리, QueryLocator, Stateful, 수만건 처리, 배치, Database.Stateful static 함정, Batchable 인터페이스, start execute finish | `Apex/Async(비동기)/Batch Apex.md` |
 | Scheduled Apex, Schedulable, 정기 실행, cron, 스케줄, 자동 실행, 매일 매주, cron day-of-month day-of-week, ? 물음표 규칙 | `Apex/Async(비동기)/Scheduled Apex.md` |
+| Transaction Finalizer, System.Finalizer, FinalizerContext, attachFinalizer, ParentJobResult, Queueable 실패 사후처리, 잡 실패해도 실행되는 훅, 비동기 복구 재시도 | `Apex/Async(비동기)/Transaction Finalizer.md` |
 
 ## Apex — 테스트
 
 | 키워드 | 파일 |
 |---|---|
-| 테스트 전략, @isTest, TestSetup, Assert, startTest stopTest, 테스트 구조 | `Apex/Testing(테스트)/테스트 전략.md` |
-| HttpCalloutMock, Callout 테스트, HTTP 모킹, Test.setMock | `Apex/Testing(테스트)/HttpCalloutMock.md` |
+| 테스트 전략, @isTest, TestSetup, Assert, startTest stopTest, 테스트 구조, System.Assert, areEqual, Test.startTest, setMock, Test 클래스 메서드 | `Apex/Testing(테스트)/테스트 전략.md` |
+| HttpCalloutMock, Callout 테스트, HTTP 모킹, Test.setMock, StaticResourceCalloutMock, MultiStaticResourceCalloutMock, 정적 리소스 목 | `Apex/Testing(테스트)/HttpCalloutMock.md` |
 | WebServiceMock, doInvoke, SOAP 콜아웃 테스트, wsdl2apex 테스트, Test.setMock WebServiceMock, SOAP 모킹, "Methods defined as testMethod do not support Web service callouts", WSDL 스텁 콜아웃 테스트 | `Apex/Testing(테스트)/WebServiceMock.md` |
-| StubProvider, 클래스 모킹, Test.createStub, 의존성 모킹 | `Apex/Testing(테스트)/StubProvider.md` |
+| StubProvider, 클래스 모킹, Test.createStub, 의존성 모킹, handleMethodCall, Apex Stub API | `Apex/Testing(테스트)/StubProvider.md` |
 | @testVisible, 회로차단기, 테스트 전용 플래그, private 접근 | `Apex/Testing(테스트)/testVisible 회로차단기.md` |
 | SOSL 테스트, Test.setFixedSearchResults | `Apex/Testing(테스트)/SOSL 테스트 패턴.md` |
+| Test Data Factory, @TestSetup, Test.loadData, 테스트 데이터 팩토리, 정적 리소스 CSV, 재사용 테스트 데이터, TestDataFactory | `Apex/Testing(테스트)/Test Data Factory 패턴.md` |
+| System.runAs, runAs, 테스트 사용자 컨텍스트, 권한 FLS 공유 테스트, Mixed DML 우회, 다른 사용자로 테스트, 패키지 버전 컨텍스트 | `Apex/Testing(테스트)/System.runAs (테스트 실행 컨텍스트).md` |
+| code coverage, 코드 커버리지, 75%, 트리거 커버리지, ApexCodeCoverageAggregate, 배포 커버리지, 커버리지 확인, 커버리지 계산 | `Apex/Testing(테스트)/코드 커버리지 규칙.md` |
 
 ## Apex — System Namespace
 
@@ -139,7 +146,7 @@ created: 2026-05-21
 | Apex 제어 흐름, if else, switch when, switch 패턴, do-while while for 루프, 클래스 정의, inner 클래스, 생성자, this chaining, 메서드 오버로딩, 접근 제어자, private protected public global, static instance 초기화, Apex Properties, getter setter, 상속 extends, virtual abstract override, 다형성, 인터페이스 구현, Custom Iterator Iterable, final instanceof super this transient, with sharing without sharing inherited sharing, 클래스 캐스팅, name shadowing, Apex 클래스 작성법, with sharing 차이가 뭔가, Apex switch 문 어떻게 쓰나, virtual abstract 차이 | `Apex/Apex 언어 기초 — 제어 흐름과 클래스.md` |
 | Apex 예외 처리, try catch finally, throw, 잡을 수 없는 예외, LimitException, DmlException ListException NullPointerException QueryException SObjectException, 예외 메서드 getMessage getCause getStackTraceString, 커스텀 예외, 커스텀 예외 만들기, 예외 클래스 extends Exception, rethrow inner exception, Apex 예약어, reserved keywords 목록, Apex 예외 어떻게 처리하나, 커스텀 예외 어떻게 만드나, Apex 예약어 목록 | `Apex/Apex 언어 기초 — 예외 처리와 예약어.md` |
 | Introducing Apex, Apex 개요, Apex란 무엇인가, What is Apex, Apex 개발 프로세스, Apex 언제 쓰나, 강타입 객체지향 멀티테넌트, Apex 동작 방식, 개발 환경 org 타입, Apex 어떻게 개발하나, Apex 개발 테스트 배포 흐름, Apex 특징 | `Apex/Introducing Apex — 개요와 개발 프로세스.md` |
-| Apex Versioned Behavior Changes, 버전별 동작 변경, API version behavior, versioned behavior, apiVersion 동작 차이, API 버전별 Apex 동작, v15 v34 v67 동작 변경, 버전 게이트 동작, 패키지 버전 동작 변경, Apex 버전 올리면 뭐가 바뀌나, API 버전에 따라 달라지는 동작 | `Apex/Apex 버전별 동작 변경 레퍼런스.md` |
+| Apex Versioned Behavior Changes, 버전별 동작 변경, API version behavior, versioned behavior, apiVersion 동작 차이, API 버전별 Apex 동작, v15 v34 v67 동작 변경, 버전 게이트 동작, 패키지 버전 동작 변경, Apex 버전 올리면 뭐가 바뀌나, API 버전에 따라 달라지는 동작, API 버전 설정, Version Settings, packageVersions | `Apex/Apex 버전별 동작 변경 레퍼런스.md` |
 
 ## Apex — 표준 클래스 레퍼런스
 
@@ -160,6 +167,8 @@ created: 2026-05-21
 | Date DateTime Time, Date.today, DateTime.now, addDays addMonths daysBetween | `Apex/Apex 표준 클래스 레퍼런스.md` |
 | UUID, UUID.randomUUID, Compression, Deflater, Inflater, DataWeave, DataWeaveScriptResource | `Apex/Apex 표준 클래스 레퍼런스.md` |
 | Comparator, Collator, 로케일 정렬, Collator.getInstance, STRENGTH_PRIMARY | `Apex/Apex 표준 클래스 레퍼런스.md` |
+| String 메서드 전수, isBlank, isEmpty, escapeSingleQuotes, substring, split, String.format, String.join, String.valueOf, template 문자열 보간, 문자열 메서드 뭐 있나 | `Apex/Collections(컬렉션)/String 메서드 전수 레퍼런스.md` |
+| Date 메서드, Datetime 메서드, Time 메서드, Math 메서드, addDays, addMonths, daysBetween, formatGmt, roundToLong, GMT vs 로컬, 날짜 수학 메서드 전수 | `Apex/Collections(컬렉션)/Date·Datetime·Math 메서드 전수 레퍼런스.md` |
 
 ## Apex — 기타
 
@@ -169,9 +178,10 @@ created: 2026-05-21
 | Apex Debug Log, 디버그 로그, 로그 카테고리, 로그 레벨, 로그 레벨 설정, 디버그 로그 안 보일 때, Apex 디버깅, NONE ERROR WARN INFO DEBUG FINE FINER FINEST, DebuggingHeader, LogCategory, LogCategoryLevel, Event Type 매트릭스, System.debug 로그, Developer Console 로그, 디버그 로그 한도, 로그 우선순위, Apex 디버깅 방법, 로그 카테고리 10종, 로그 레벨 8종, debug log limit | `Apex/Logging(로깅)/Apex Debug Log.md` |
 | TraceFlag, DebugLevel, ApexLog, HeapDump, ApexExecutionOverlayAction, ApexExecutionOverlayResult, ExecuteAnonymousResult, executeAnonymous REST, Tooling API 로그 sObject, 프로그래밍 방식 로그 활성화, API로 디버그 로그 켜기, trace flag 만들기, TraceFlag 생성, DebugLevel 카테고리, LogType, 체크포인트, overlay action, 리플레이 디버거, Replay Debugger, 힙 덤프, heap dump, executeAnonymous REST 리소스, API로 로그 레벨 설정 | `Apex/Logging(로깅)/Tooling API 디버그·로그·리플레이 sObject.md` |
 | Platform Cache, 캐시, CacheBuilder, Org Cache Session Cache | `Apex/PlatformCache(플랫폼캐시)/Platform Cache.md` |
-| Cache Namespace, Cache.Org, Cache.Session, Cache.OrgPartition, Cache.SessionPartition, Cache.Visibility, 플랫폼 캐시 네임스페이스, doLoad, CacheBuilder 인터페이스 | `Apex/PlatformCache(플랫폼캐시)/Cache Namespace.md` |
+| Cache Namespace, Cache.Org, Cache.Session, Cache.OrgPartition, Cache.SessionPartition, Cache.Visibility, 플랫폼 캐시 네임스페이스, doLoad, CacheBuilder 인터페이스, getCapacity, getMissRate, 캐시 진단 | `Apex/PlatformCache(플랫폼캐시)/Cache Namespace.md` |
 | OrgShape, Org 설정 조회, 샌드박스 여부, 네임스페이스 | `Apex/ExecutionContext(실행컨텍스트)/OrgShape.md` |
 | QuiddityGuard, Quiddity, 실행 컨텍스트, REST Trigger Batch 구분 | `Apex/ExecutionContext(실행컨텍스트)/QuiddityGuard.md` |
+| 실행 컨텍스트, execution context, Apex Transaction, 트랜잭션 경계, static 변수 트랜잭션 수명, 재귀 가드, 무엇이 한 트랜잭션인가, 비동기 새 컨텍스트, 트랜잭션 롤백 경계 | `Apex/ExecutionContext(실행컨텍스트)/실행 컨텍스트와 트랜잭션.md` |
 | Anonymous Apex, 익명 Apex, 익명 블록, execute anonymous, execute anonymous 실행, executeAnonymous, ExecuteAnonymousResult, Author Apex 권한, 익명 블록 제약, Forward Reference, 익명 Apex 실행 방법, Web Console, VS Code Apex 실행, Developer Console 익명 실행, sf apex run, anonymous block, 임시 코드 실행, Apex 한 번 실행 | `Apex/ExecutionContext(실행컨텍스트)/Anonymous Apex 실행.md` |
 | Governor Limits, 거버너 한도, 실행 한도, SOQL 한도, DML 한도, Heap size, CPU time, Callout 한도, Limits 클래스, getQueries, getDmlStatements, getLimitQueries, getLimitDmlStatements, 거버너 리밋, Apex 실행 한도, 한도 초과 예외, LimitException, Per-Transaction Limits, 비동기 동기 한도 차이, Platform Apex Limits, Static Apex Limits | `Apex/ExecutionContext(실행컨텍스트)/Governor Limits.md` |
 | Platform Event 발행, EventBus.publish, 이벤트 트리거 수신 | `Apex/PlatformEvents(플랫폼이벤트)/Platform Event 발행.md` |
@@ -183,7 +193,7 @@ created: 2026-05-21
 | EventPublishFailureCallback, EventPublishSuccessCallback, 이벤트 발행 콜백, 발행 실패 콜백, 발행 성공 콜백, onFailure, onSuccess, getEventUuids, setResumeCheckpoint, 이벤트 부분 처리 재개, Automated Process 콜백 | `Apex/PlatformEvents(플랫폼이벤트)/EventBus Publish Callbacks.md` |
 | EventBus Namespace, EventBus.publish 메서드 목록, TriggerContext, RetryableException, setResumeCheckpoint, publishWithAccessLevel, getOperationId, 이벤트버스 네임스페이스, 트리거 재시도, 이벤트 재개 | `Apex/PlatformEvents(플랫폼이벤트)/EventBus Namespace.md` |
 | Approval.process, ProcessSubmitRequest, ProcessWorkitemRequest, 승인 제출, 승인 프로세스 Apex, Approval.lock, Approval.unlock, LockResult, UnlockResult | `Architecture(아키텍처)/Approval Namespace.md` |
-| Messaging.sendEmail, SingleEmailMessage, 이메일 발송 Apex, setToAddresses, setHtmlBody, setTemplateId, setTargetObjectId, EmailFileAttachment, 첨부파일 이메일 | `Apex/Messaging(메시징)/SingleEmailMessage.md` |
+| Messaging.sendEmail, SingleEmailMessage, 이메일 발송 Apex, setToAddresses, setHtmlBody, setTemplateId, setTargetObjectId, EmailFileAttachment, 첨부파일 이메일, SendEmailResult, reserveSingleEmailCapacity | `Apex/Messaging(메시징)/SingleEmailMessage.md` |
 | CustomNotification, 커스텀 알림, 인앱 알림, Messaging.CustomNotification, setNotificationTypeId, send 알림, 알림 발송 Apex | `Apex/Messaging(메시징)/CustomNotification.md` |
 | Messaging Namespace, InboundEmail, InboundEmailHandler, InboundEmailResult, InboundEnvelope, 인바운드 이메일, 이메일 서비스, Email Service, ActionableNotification, MassEmailMessage, PushNotification, 인앱 알림 모바일 | `Apex/Messaging(메시징)/Messaging Namespace.md` |
 | Mobile Notifications, PushNotification, PushNotificationPayload, customNotificationAction, Notification Builder, 모바일 알림, 푸시 알림, 인앱 알림, 커스텀 알림 액션, APNs FCM, Apex로 푸시 알림 보내는 방법, Notification Builder vs Apex 알림, 모바일 앱에 알림 전달 | `Apex/Messaging(메시징)/Mobile Notifications.md` |
@@ -197,7 +207,7 @@ created: 2026-05-21
 | getAssociateEntityType, getAssociateParentEntity, isMruEnabled, getDataTranslationEnabled, getController 피클리스트, isDefaultedOnCreate, isHtmlFormatted, isIdLookup, isWriteRequiresMasterRead, isSearchPrefilterable | `Architecture(아키텍처)/Schema Namespace 상세.md` |
 | Collections, CollectionUtils, 컬렉션 유틸 | `Apex/Collections(컬렉션)/CollectionUtils.md` |
 | Comparator, 정렬, List.sort, 커스텀 정렬, 리스트 정렬, 오름차순 내림차순, Comparable, compareTo, 래퍼 클래스 정렬, SObject 정렬 | `Apex/Collections(컬렉션)/Comparator 인터페이스.md` |
-| Iterable, Iterator, 커스텀 이터레이터 | `Apex/Collections(컬렉션)/Iterable Iterator.md` |
+| Iterable, Iterator, 커스텀 이터레이터, Iterator 인터페이스, hasNext next, iterator() | `Apex/Collections(컬렉션)/Iterable Iterator.md` |
 | ApexDoc, Apex 주석, ApexDoc 주석 다는 법, 코드 주석 규약, JavaDoc 주석, 문서화 주석, @description @param @return @throws @see @group @example @author @deprecated @version @since, inline {@code} {@link} {@literal} {@hidden}, 공통 애노테이션, 구성요소 문서화, ApexDoc 작성법, Apex 코드 문서화, 주석 문법 가이드 | `Apex/ApexDoc 주석 작성 가이드.md` |
 
 
@@ -206,7 +216,7 @@ created: 2026-05-21
 | 키워드 | 파일 |
 |---|---|
 | Platform Encryption, 플랫폼 암호화, Shield Platform Encryption, 필드 암호화, 데이터베이스 암호화, Database Encryption GA, Field Audit Trail 보존 정책, AES-256, Tenant Secret, BYOK, Bring Your Own Key, Deterministic Encryption, Probabilistic Encryption, 암호화 필드 SOQL 제한, Tableau Next 암호화, Data Cloud 암호화, Winter 26 암호화 | `Apex/Security(보안)/Platform Encryption.md` |
-| Shield, 규정 준수 암호화, HIPAA 암호화, GDPR 암호화, Crypto 클래스, encryptWithManagedIV, decryptWithManagedIV, generateAesKey, 커스텀 암호화, HMAC 서명, 데이터 무결성 | `Apex/Security(보안)/Platform Encryption.md` |
+| Shield, 규정 준수 암호화, HIPAA 암호화, GDPR 암호화, 저장 시 암호화 at-rest, 데이터 무결성 (커스텀 암호화·Crypto API는 [[Crypto 클래스 레퍼런스]] 참조) | `Apex/Security(보안)/Platform Encryption.md` |
 
 ## Apex — Best Practices
 

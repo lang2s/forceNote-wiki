@@ -310,3 +310,4 @@ Merge 이벤트는 **자체 트리거 이벤트를 발생시키지 않는다.** 
 - [[ChangeEvent Objects]] — Change Data Capture 이벤트 객체와 트리거 연동
 - [[Trigger 벌크 관용구·미발생 작업·예외]] — 벌크 처리 관용구·트리거 미발생 작업·`addError()` 예외 마킹 (정의·문법의 실행 측면 형제)
 - [[특정 표준 객체 트리거 고려사항 — Chatter · Knowledge]] — 일반 이벤트 가용성이 특정 표준 객체(FeedItem/FeedComment·KAV)에서 어떻게 제약되는지 다루는 객체별 형제
+- [[Record-Triggered Flow vs Apex Trigger 선택]] — 같은 before/after·insert/update/delete 이벤트를 Flow로 처리할지 트리거로 처리할지(언제 Flow 대신 트리거) 선택 기준

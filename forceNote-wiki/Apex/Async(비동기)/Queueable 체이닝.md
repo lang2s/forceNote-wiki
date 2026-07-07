@@ -160,5 +160,6 @@ static void testQueueableChain() {
 - [[비동기 컨텍스트 선택]]
 - [[RestClient 패턴]] — AllowsCallouts 패턴
 - [[Queueable + Callout 패턴]] — HTTP Callout과 체이닝 결합
+- [[Transaction Finalizer]] — 체이닝 실패(unhandled exception) 시 보상·재큐잉 훅. 위 "Finalizer — 체이닝 에러 핸들링" 절의 상세 레퍼런스
 - [[Release/Winter '24/Development]] — 체이닝 최대 깊이 제어 GA(`AsyncOptions.MaximumQueueableStackDepth` · `AsyncInfo.getMaximumQueueableStackDepth()`)
 
