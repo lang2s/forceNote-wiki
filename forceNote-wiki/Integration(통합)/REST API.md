@@ -33,6 +33,33 @@ aliases: [REST API, 표준 REST API, sObjects REST, Composite, Composite Graph, 
 
 ---
 
+## 호출 전제조건 · 최소 권한
+
+REST API를 호출하려면 **org 단위 API 접근**과 **사용자 단위 권한** 두 가지가 모두 필요하다.
+
+| 층위 | 조건 |
+|---|---|
+| **org (에디션)** | API 접근이 **Enterprise·Performance·Unlimited·Developer Edition에서 기본 활성**. Professional Edition은 애드온으로 추가 가능. API 접근이 없는 org에 요청하면 `API_DISABLED_FOR_ORG` 에러 반환 |
+| **사용자 (권한)** | 모든 API 호출은 사용자에게 **`API Enabled` 시스템 권한**이 켜져 있어야 한다. 일부 프로필(Developer Edition의 다수 프로필 포함)은 기본 활성 |
+
+- **`API Enabled` 위치**: Setup → 프로필(Profile) 또는 권한 집합(Permission Set) → **System Permissions** → `API Enabled` 체크. (사용자에게 할당된 프로필/권한셋에 있어야 함)
+- 시스템-대-시스템 통합 전용 사용자는 **Salesforce Integration user license**로 org 전체 접근을 주되 **API 전용(API-only) 작업으로 제한**할 수 있다.
+- 격리 원칙: 프로덕션 대신 **Developer Edition·샌드박스·스크래치 org**에서 개발·테스트 후 이관 권장.
+
+---
+
+## API 버전 선택 · 하위호환
+
+- **URI에 버전을 항상 명시**한다 (`/services/data/v67.0/…`). 버전을 고정하면 org 스키마·플랫폼이 바뀌어도 동작이 안정적이다. **현재 최신은 v67.0 (Summer '26)**.
+- **지원 기간(End-of-Life 정책)**: Salesforce는 각 API 버전을 **최초 릴리스로부터 최소 3년** 지원한다. 3년이 넘은 버전은 지원 종료될 수 있으며, **지원 종료(deprecation) 최소 1년 전에 사용 고객에게 통지**한다.
+- **은퇴(retirement) 사례**: 버전 **21.0–30.0은 Summer '25부로 은퇴·사용 불가**, 버전 **7.0–20.0은 Summer '22부로 은퇴·사용 불가**. 은퇴 버전의 리소스/오퍼레이션을 호출하면 **`410 GONE`** 에러를 반환한다.
+- **경고 신호**: deprecated 버전 사용 시 응답 `Warning` 헤더에 **`warningCode 299`** 경고가 실린다 (예: `299 - "This API is deprecated and will be removed by …"`).
+- **버전 목록 조회**: `GET /services/data/` (인증 불필요) → 사용 가능한 각 버전의 `version`·`label`·`url` 반환. 오래된/미지원 버전에서 온 요청은 **API Total Usage** 이벤트 타입으로 식별한다.
+
+> [!tip] `409 Conflict`는 "요청한 리소스와 API 버전이 호환되지 않음"을 의미할 수 있다 — 버전과 리소스 조합을 점검한다.
+
+---
+
 ## 요청 헤더 (전수)
 
 | 헤더 | 용도 |
@@ -46,7 +73,7 @@ aliases: [REST API, 표준 REST API, sObjects REST, Composite, Composite Graph, 
 | **MRU** (`Sforce-Mru`) | 최근 사용(Most Recently Used) 목록 갱신 |
 | **Package Version** (`Sforce-Package-Version`) | 설치 패키지 버전 지정 |
 | **Query Options** (`Sforce-Query-Options`) | `batchSize`(쿼리 결과 배치 크기 200~2000) |
-| **Warning** (`Sforce-Warning`) | (응답) 사용 중단 등 경고 |
+| **Warning** (`Warning`) | (응답) 사용 중단 등 경고 — 표준 HTTP `Warning` 헤더에 `warningCode 299`로 실린다(deprecated 버전 등) |
 
 ---
 
@@ -123,6 +150,51 @@ curl https://MyDomain.my.salesforce.com/services/data/v67.0/composite/sobjects/ 
 
 > **allOrNone**: `true`면 하나라도 실패 시 전체 롤백. Composite가 sObject Collections를 포함하면 allOrNone 파라미터가 2개 이상 상호작용(외부 composite + 내부 collections). Composite Graph는 각 그래프가 암시적으로 allOrNone=true.
 
+### sObject Tree 요청 본문 — 부모·자식 중첩 생성
+
+`POST /composite/tree/{Object}`는 **단일 루트 레코드 타입을 공유하는 중첩(부모-자식) 트리**를 한 번에 생성한다. 각 레코드는 `attributes`에 `type`과 **`referenceId`**(호출자가 정하는 임시 식별자)를 두고, 자식은 부모 안의 **관계명 키**(예: `Contacts`) 아래 `records` 배열로 중첩한다. 생성 후 부모-자식은 ID로 자동 링크되며, 응답은 `referenceId → 생성된 id` 매핑을 돌려준다.
+
+```json
+// composite/tree/Account 요청 본문 — Account 1건 + 자식 Contact 2건 중첩
+{
+  "records" : [{
+    "attributes" : { "type" : "Account", "referenceId" : "ref1" },
+    "name" : "SampleAccount",
+    "phone" : "1234567890",
+    "website" : "www.salesforce.com",
+    "numberOfEmployees" : "100",
+    "industry" : "Banking",
+    "Contacts" : {
+      "records" : [{
+        "attributes" : { "type" : "Contact", "referenceId" : "ref2" },
+        "lastname" : "Smith",
+        "title" : "President",
+        "email" : "sample@salesforce.com"
+      },{
+        "attributes" : { "type" : "Contact", "referenceId" : "ref3" },
+        "lastname" : "Evans",
+        "title" : "Vice President",
+        "email" : "sample@salesforce.com"
+      }]
+    }
+  },{
+    "attributes" : { "type" : "Account", "referenceId" : "ref4" },
+    "name" : "SampleAccount2",
+    "phone" : "1234567890",
+    "industry" : "Banking"
+  }]
+}
+// 성공 응답: { "hasErrors": false, "results": [ { "referenceId":"ref1", "id":"001..." }, ... ] }
+// 실패 시: hasErrors=true + 오류를 낸 레코드의 referenceId·errorCode만 반환 (전체 요청 실패)
+```
+
+**sObject Tree 한도·규칙** (요청당):
+- **총 200 레코드** — 모든 트리에 걸쳐 합산 (트리가 단일 레코드면 동일 타입 최대 200 무관계 레코드 생성에도 사용 가능)
+- **서로 다른 타입 최대 5종**
+- **트리 깊이 최대 5레벨** (child-to-parent 관계 순회도 5레벨 초과 불가)
+- **원자성**: 한 레코드라도 생성 실패하면 **전체 요청 실패**. 레코드는 요청에 나열된 순서대로 생성되며, 전체가 **API 한도상 1회 콜**로 계상
+- 트리거·프로세스·워크플로 규칙은 레벨별 동일 타입 그룹 단위로 발화(루트 그룹, 2레벨 Contact 그룹, 3레벨 …)
+
 ---
 
 ## 상태/에러 코드
@@ -143,6 +215,20 @@ curl https://MyDomain.my.salesforce.com/services/data/v67.0/composite/sobjects/ 
 | **500** / **503** | 서버 오류 / 서비스 불가 |
 
 에러 응답 본문: HTTP 코드 + 메시지 + (해당 시) 오류 발생 필드/오브젝트, `errorCode`.
+
+### INVALID_SESSION_ID (401) — 원인·해결
+
+`401`은 "세션 ID 또는 OAuth 토큰이 만료·무효"이며 응답 본문에 `message`와 `errorCode: INVALID_SESSION_ID`가 담긴다. 세션 만료 외에 **인가 구성 문제**로도 자주 발생한다.
+
+| 원인 | 해결 |
+|---|---|
+| **세션/토큰 만료** | refresh_token으로 토큰 재발급 (OAuth 토큰 엔드포인트에 refresh token·client_id·client_secret로 POST → 새 access token). Connected App에 refresh token 스코프(`Perform requests at any time` = `refresh_token, offline_access`)가 있어야 응답에 refresh token이 실린다 |
+| **`api` 스코프 누락** (특히 client_credentials 플로우) | Connected App/External Client App의 OAuth 스코프에 **`api` (Manage user data via APIs)** 를 포함해야 REST API 호출 가능. 스코프가 없으면 토큰이 발급돼도 API 호출이 거부됨 |
+| **API Client Whitelisting / IP 제약** | org에 "API Client Whitelisting(API Access Control)"이 켜져 있으면 **승인되지 않은 Connected App의 세션이 무효화**된다 → 해당 앱을 허용 목록에 등록. Connected App의 IP Relaxation·로그인 IP 범위 밖 요청도 세션 거부 |
+| **비밀번호 변경 시 토큰 revoke** | 사용자 비밀번호 변경·리셋 시 기존 액세스/리프레시 토큰이 **revoke**될 수 있음 → 재인증으로 새 토큰 획득 |
+| **잘못된 인스턴스 URL** | 토큰 응답의 `instance_url`(My Domain)을 그대로 엔드포인트로 사용. 다른 인스턴스로 보내면 세션 무효 |
+
+> [!tip] Apex 콜아웃에서 `INVALID_SESSION_ID`가 나면 자기 org를 세션 ID로 재호출하는 안티패턴일 수 있다 — [[Named Credential]]로 인증을 위임한다.
 
 ---
 

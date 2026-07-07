@@ -7,7 +7,7 @@ aliases: [HttpCalloutMock, HTTP 모킹, Callout 테스트]
 
 # HttpCalloutMock — HTTP 호출 모킹
 
-> `@isTest` 컨텍스트에서 실제 HTTP 호출 없이 `HttpResponse`를 반환하는 Mock 구현. `Test.setMock(HttpCalloutMock.class, mockInstance)`으로 등록.
+> `@isTest` 컨텍스트에서 실제 HTTP 호출 없이 `HttpResponse`를 반환하는 Mock 구현. `Test.setMock(HttpCalloutMock.class, mockInstance)`으로 등록. SOAP(wsdl2apex) 콜아웃은 [[WebServiceMock]]으로 모킹한다.
 
 ---
 
@@ -160,6 +160,7 @@ static void verifyRequestFormat() {
 
 ## 관련 노트
 
+- [[WebServiceMock]] — SOAP(wsdl2apex) 콜아웃 모킹 (HTTP가 아닌 경우)
 - [[RestClient 패턴]]
 - [[Http·HttpRequest·HttpResponse 레퍼런스]] — 목이 다루는 HttpRequest·HttpResponse 메서드 전수 레퍼런스
 - [[StubProvider]]

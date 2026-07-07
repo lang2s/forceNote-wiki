@@ -17,6 +17,12 @@ Salesforce 외부에 호스팅되거나 타 사이트와 중요 정보를 교환
 
 > **Salesforce는 TLS 1.2 이상을 독점 사용하도록 요구한다.** null, export, 40-bit, DES cipher suite는 모두 비활성화되어 있다.
 
+### 아웃바운드 상호 TLS (Mutual TLS · Two-Way SSL)
+
+위는 주로 **인바운드/호스팅** HTTPS 관점이다. Apex **아웃바운드 callout**의 기본 TLS는 **단방향**(Salesforce가 상대 서버 인증서만 검증)이다. 외부 시스템이 상호 인증을 요구하면 Salesforce가 handshake 중 **자신의 클라이언트 인증서를 제시**해야 한다(mTLS). 인증서는 **Setup → Security → Certificate and Key Management**에서 생성하고, callout에는 [[Named Credential]]의 `Certificate` 필드 또는 Apex의 `HttpRequest.setClientCertificateName('UniqueName')`으로 붙인다.
+
+> 셋업 절차·코드 예제·Named Principal 대비 Per-User 차이는 [[Named Credential]] 노트의 "아웃바운드 상호 TLS" 소절 참조. 근거: [Using Certificates (Apex Developer Guide)](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_callouts_client_certs.htm).
+
 ---
 
 ## Sample Vulnerability
@@ -71,6 +77,7 @@ Secure flag 미설정이 가장 흔한 취약점이다. HTTPS로 cookie를 설�
 ---
 
 ## 관련 노트
+- [[Named Credential]] — 아웃바운드 콜아웃의 상호 TLS(클라이언트 인증서)·인증 프로토콜 설정
 - [[CSP와 RemoteSite]]
 - [[민감 데이터 저장]]
 - [[Marketing Cloud API 보안]]

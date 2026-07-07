@@ -74,6 +74,26 @@ System.schedule('Daily Cleanup', cronExp, new DailyBatchScheduler());
 | 요일 | 1–7 또는 SUN–SAT | `?` (일과 함께 사용) |
 | 년 | 선택 | |
 
+### `?` 상호배타 규칙 — 일과 요일 중 정확히 하나는 반드시 `?`
+
+`?`("특정 값 없음")는 **Day_of_month(일)와 Day_of_week(요일)에서만** 쓸 수 있는 특수 문자다. 그리고 이 두 필드는 **상호배타**다 — 한 필드에 구체적 값을 지정하면 나머지 필드는 반드시 `?`여야 한다. 둘 다 값을 지정하거나 둘 다 `?`로 두면 안 된다.
+
+즉, "매달 1일"처럼 **날짜**로 스케줄하면 요일 필드를 `?`로, "매주 월요일"처럼 **요일**로 스케줄하면 일 필드를 `?`로 둔다.
+
+```apex
+// ✅ 올바름 — 매달 1일 자정: 요일을 ? 로
+System.schedule('MonthlyFirst', '0 0 0 1 * ?', new DailyBatchScheduler());
+
+// ✅ 올바름 — 매주 월요일 8시: 일을 ? 로
+System.schedule('WeeklyMon', '0 0 8 ? * MON', new DailyBatchScheduler());
+
+// ❌ 잘못됨 — 일(1)과 요일(MON)에 동시에 값 지정
+//    → System.AsyncException: 표현식 파싱 에러 (일·요일 동시 지정 불가)
+System.schedule('Bad', '0 0 8 1 * MON', new DailyBatchScheduler());
+```
+
+일과 요일에 동시에 구체적 값을 넣으면 cron 표현식 파싱 단계에서 예외가 발생한다. 표 안의 예시(`0 0 2 * * ?`, `0 0 8 ? * MON`)가 모두 두 필드 중 하나를 `?`로 둔 것도 이 규칙 때문이다.
+
 ---
 
 ## CronTrigger로 스케줄 관리
@@ -130,8 +150,10 @@ public class SelfReschedulingBatch
 | 항목 | 제한 |
 |---|---|
 | 동시 Scheduled Jobs | 100개 |
-| 하루 실행 횟수 | 250,000 (단, 분당 1회까지만 Cron 가능) |
+| 하루 비동기 실행 횟수 | **250,000 또는 (200 × 조직 사용자 라이선스 수) 중 큰 값** — Batch·@future·Queueable·Scheduled Apex 합산, 24시간 단위 |
 | execute() 내 callout | 불가 (Batch를 통해 실행해야 함) |
+
+> 근거: [Execution Governors and Limits — Apex Developer Guide (developer.salesforce.com)](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm). 이 한도는 Scheduled Apex 전용이 아니라 모든 비동기 Apex 실행(Batch·future·Queueable·Scheduled)을 **합산**한 조직 전체 24시간 한도다. Cron 최소 간격은 1분이다.
 
 ---
 

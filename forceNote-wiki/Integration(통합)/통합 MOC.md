@@ -19,15 +19,23 @@ aliases: [통합 MOC, Integration Index]
 | Inbound (외부 → SF) | 동기 | [[Custom REST Endpoint]] |
 | Inbound/내부 | 이벤트 기반 | [[Platform Event 통합 패턴]] |
 
+- [[통합 아키텍처 결정 - 미들웨어·재시도·멱등성]] — point-to-point vs ESB/MuleSoft 위상 + 재시도·멱등성
+- [[ERP·서드파티 제품 연동 지도]] — SAP·Oracle·NetSuite·Informatica·MuleSoft 제품별 연동 라우팅, System/Process/Experience API 3계층, 실시간 vs 배치·데이터 가상화 vs 복제
+
 ---
 
 ## 보안 & 설정
 
 - [[Named Credential]] — URL·인증 정보를 코드 밖에서 관리 (Outbound 필수)
+- [[Named Credential·External Credential 생성 필드 전수 레퍼런스]] — 생성 화면 모든 필드·프로토콜 분기 카탈로그
 - [[CSP와 RemoteSite]] — LWC 브라우저 callout 및 Apex callout 허용 설정 (+ CORS 인바운드)
 - [[Connected App (연결된 앱) — OAuth 클라이언트]] — OAuth 클라이언트 정의 (Consumer Key/Secret·scope·flow)
+- [[External Client App (외부 클라이언트 앱)]] — Connected App 차세대 후속(Spring '26 신규생성 대체)
+- [[서버간 통합 구축 가이드 - External Client App·JWT Bearer·Client Credentials]] — 서버간 인증 구축 절차(인증서→ECA→토큰→NC)
+- [[Integration User & API-Only User (통합 사용자)]] — 통합 실행 주체(무료 5 라이선스·API-Only·최소권한)
 - [[Auth Provider (인증 공급자)]] — 외부 IdP 인증 게이트웨이 (소셜 로그인·외부 OAuth 토큰 공급)
 - [[Pub-Sub API (gRPC) — Platform Event·CDC 구독]] — 외부 시스템이 Platform Event·CDC를 gRPC로 구독/발행 (CometD 대체·flow control·replay)
+- [[아웃바운드 연결 - IP allowlist·Private Connect]] — 외부 방화벽이 Salesforce 콜아웃을 허용하도록 (ip-ranges.json 아웃바운드 IP 범위)·Hyperforce 사설 연결(Private Connect·AWS PrivateLink·OutboundNetworkConnection)
 
 ## Outbound (Salesforce → 외부)
 

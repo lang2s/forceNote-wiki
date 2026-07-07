@@ -86,16 +86,22 @@ created: 2026-05-21
 
 | 키워드 | 파일 |
 |---|---|
-| Named Credential, callout:, 네임드 크레덴셜, 외부 URL 인증 | `Integration(통합)/Named Credential.md` |
+| Named Credential, callout:, 네임드 크레덴셜, 외부 URL 인증, mutual TLS, two-way SSL, 상호 TLS, 클라이언트 인증서, setClientCertificateName, Named Principal, Per-User Principal, Custom 인증 프로토콜, named authentication parameter, {!$Credential.ExtCred.Param}, Profile principal 배포 안 됨, Permission Set 매핑 배포 | `Integration(통합)/Named Credential.md` |
 | Bulk API 2.0, Bulk API, 벌크 API, 대량 데이터 적재, ingest job, query job, 비동기 잡, job state, UploadComplete, PK chunking, lineEnding LF CRLF, CSV 대량 import, 외부 시스템 대량 동기화 | `Integration(통합)/Bulk API 2.0.md` |
-| REST API, 표준 REST API, services/data, sObjects CRUD, query queryAll SOQL REST, Composite Graph Batch, sObject Tree, sObject Collections 200건 allOrNone, Named Query API, OAuth Bearer, 동기 통합 | `Integration(통합)/REST API.md` |
+| REST API, 표준 REST API, services/data, sObjects CRUD, query queryAll SOQL REST, Composite Graph Batch, sObject Tree, sObject Collections 200건 allOrNone, Named Query API, OAuth Bearer, 동기 통합, API Enabled, API 접근 권한, API 버전, 하위호환, 버전 은퇴 retirement, 410 GONE, INVALID_SESSION_ID, sObject tree, referenceId, 중첩 레코드 | `Integration(통합)/REST API.md` |
 | Actions API, Invocable Action, 인보커블 액션, actions/standard, actions/custom/apex, inputs JSON, describe 액션, QuickAction StandardButton, Apex 액션 REST 호출, 표준 액션 카탈로그, chatterPost | `Integration(통합)/Actions API.md` |
 | CSP Trusted Site, Remote Site, 외부 이미지 로드, 외부 API 브라우저 | `Integration(통합)/CSP와 RemoteSite.md` |
 | Queueable Callout, 비동기 외부 호출, DML+Callout 조합, uncommitted work pending, You have uncommitted work pending, CalloutException, DML 후 콜아웃 에러, 콜아웃 전 DML 금지, 콜아웃 안 될 때, 콜아웃 순서 | `Integration(통합)/Queueable + Callout 패턴.md` |
 | Platform Event 통합, 이벤트 기반 통합, 시스템 간 느슨한 결합, LWC empApi | `Integration(통합)/Platform Event 통합 패턴.md` |
 | External Services, 외부 서비스, OpenAPI Apex 통합, External Service Registration, 외부 서비스 등록, OpenAPI 2.0 스펙, 타입 안전 외부 호출, Binary File 지원, 3000 오브젝트, 700 등록 한도, Winter 26 한도 증가, Flow External Service Action | `Integration(통합)/External Services.md` |
 | Auth Provider, 인증 공급자, 소셜 로그인, SSO, RegistrationHandler, AuthProviderPluginClass, Custom Auth Provider, 외부 IdP 인증 | `Integration(통합)/Auth Provider (인증 공급자).md` |
-| Connected App, 연결된 앱, Consumer Key, Consumer Secret, OAuth Scope, OAuth Flow, JWT Bearer, External Client App, OAuth 클라이언트 | `Integration(통합)/Connected App (연결된 앱) — OAuth 클라이언트.md` |
+| Connected App, 연결된 앱, Consumer Key, Consumer Secret, OAuth Scope, OAuth Flow, JWT Bearer, External Client App, OAuth 클라이언트, invalid_grant, expired refresh token, access grant 5개 한도, refresh token 폐기, Invalid JWT Signature, keytool importkeystore, JKS import | `Integration(통합)/Connected App (연결된 앱) — OAuth 클라이언트.md` |
+| External Client App, ECA, 외부 클라이언트 앱, ExternalClientApplication, ExtlClntAppOauthSettings, Connected App 후속, Spring 26 신규 앱 차단, OAuth 클라이언트 차세대 | `Integration(통합)/External Client App (외부 클라이언트 앱).md` |
+| Named Credential 생성 필드, External Credential 필드, Authentication Protocol 선택값, OAuth Authentication Flow Type, Browser Flow, Client Credentials, Enabled for Callouts, Generate Authorization Header, Principal Authentication Parameters, AWS Sig v4, JWT Issuer Subject Audience, Custom Header, 생성 화면 필드 카탈로그 | `Integration(통합)/Named Credential·External Credential 생성 필드 전수 레퍼런스.md` |
+| JWT Bearer flow, Client Credentials flow, server-to-server, 서버간 통합, 헤드리스 통합, External Client App 설정, grant_type jwt-bearer, run-as user, 사용자 개입 없는 OAuth | `Integration(통합)/서버간 통합 구축 가이드 - External Client App·JWT Bearer·Client Credentials.md` |
 | Pub/Sub API, PubSub API, gRPC subscribe, ManagedSubscribe, ReplayPreset, FetchRequest, num_requested, flow control, Avro decode, CometD replacement, custom channel filter, Platform Event 외부 구독, CDC 구독 API, gRPC 이벤트 구독, replay 재생, durable 구독, 외부에서 Platform Event 구독하려면, CometD 대신 뭘 쓰나, replayId로 이벤트 재생 | `Integration(통합)/Pub-Sub API (gRPC) — Platform Event·CDC 구독.md` |
+| 통합 아키텍처 결정, middleware vs point-to-point, ESB, MuleSoft 언제, hub-spoke, N×M 연결 폭발, retry 재시도, idempotency 멱등성, at-least-once, External Id upsert 중복 방지, Outbound Message, 아웃바운드 통지 비교, 실시간 vs 배치, API 한도 관리 전략, /limits 모니터링 | `Integration(통합)/통합 아키텍처 결정 - 미들웨어·재시도·멱등성.md` |
+| outbound IP allowlist, ip-ranges.json, Private Connect, OutboundNetworkConnection, InboundNetworkConnection, AWS PrivateLink, Hyperforce 사설연결, 콜아웃 방화벽 허용, 아웃바운드 IP 범위 | `Integration(통합)/아웃바운드 연결 - IP allowlist·Private Connect.md` |
+| ERP 연동, SAP Salesforce, Oracle ERP, NetSuite, Informatica IICS, MuleSoft API-led connectivity, System Process Experience API 3계층, 서드파티 제품 연동, 실시간 vs 배치 통합, 데이터 가상화 vs 복제 | `Integration(통합)/ERP·서드파티 제품 연동 지도.md` |
 
 ---

@@ -30,7 +30,7 @@ created: 2026-05-22
 | Custom Fields, External ID, Uniqueness, caseSensitive, DUPLICATE_VALUE, Default Values formula | `sObject/Custom Fields.md` |
 | Object Relationships, Master-Detail, Lookup, Many-to-many, Junction Object, cascadeDelete | `sObject/Object Relationships.md` |
 | View All Records, Modify All Records, OLS FLS, referential integrity, Page Layout 비적용 | `sObject/Object Relationships.md` |
-| External Objects, __x suffix, OData, 외부 Object, 외부 시스템 데이터, Salesforce Connect, Files Connect | `sObject/External Objects.md` |
+| External Objects, __x suffix, OData, 외부 Object, 외부 시스템 데이터, Salesforce Connect, Files Connect, OData 2.0 4.0, External Data Source, OData Tracer, High Data Volume, Named Principal vs Per User, 데이터 복제 vs 페더레이션, no rows returned, 2000행 한도 | `sObject/External Objects.md` |
 | External Lookup, Indirect Lookup, Cross-org adapter, OData 2.0 OData 4.0, Apex Connector Framework | `sObject/External Objects.md` |
 | Big Objects, __b suffix, FieldHistoryArchive, 빅오브젝트, 대용량 보관 데이터 저장소 | `sObject/Big Objects.md` |
 | Big Object Metadata, CustomObject CustomField Index IndexField, idempotent insert, REST API 미지원 | `sObject/Big Objects.md` |

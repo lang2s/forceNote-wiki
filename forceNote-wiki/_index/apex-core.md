@@ -82,7 +82,7 @@ created: 2026-05-21
 | 페이징, PagedResult, 오프셋, OFFSET LIMIT, 페이지네이션, 무한 스크롤, infinite scroll, enable-infinite-loading, onloadmore, loadmore, datatable 무한스크롤 | `Apex/Data(데이터)/PagedResult 패턴.md` |
 | ContentVersion, ContentDocumentLink, ContentDistribution, VersionData, PathOnClient, FirstPublishLocationId, ContentLocation, DistributionPublicUrl, ShareType, Visibility, Salesforce Files Apex, 파일 생성 Apex, 레코드에 파일 첨부, 레코드에 파일 붙이기, 공개 링크 생성, 파일 공개 URL 만들기, Apex로 파일 업로드, 파일 버전 추가, ContentDocument 자동 생성, Apex에서 파일 첨부하는 법, 인증 없는 공개 링크 배포 | `Apex/Data(데이터)/Apex에서 Salesforce Files 다루기 (ContentVersion·ContentDistribution).md` |
 | Mixed DML, MIXED_DML_OPERATION, Setup Object, 세트업 오브젝트, 믹스드 DML, User와 Account 같이 insert, User·PermissionSet 함께 DML, System.runAs 분리, future Queueable 우회, Mixed DML 에러 해결, 테스트에서 setup 오브젝트 생성 | `Apex/Data(데이터)/Mixed DML 제약과 우회.md` |
-| JSONParser, JSONGenerator, JSONToken, JSON 예약어 충돌, deserializeUntyped, deserializeStrict, JSON reserved word, from case currency 예약어 필드명, 예약어 필드명 파싱, 래퍼 클래스 컴파일 오류, JSON 토큰 순회, JSON 직렬화 심화 | `Apex/Data(데이터)/JSON 직렬화 심화 — JSONParser·JSONGenerator·예약어 충돌.md` |
+| JSONParser, JSONGenerator, JSONToken, JSON 예약어 충돌, deserializeUntyped, deserializeStrict, JSON reserved word, from case currency 예약어 필드명, 예약어 필드명 파싱, 래퍼 클래스 컴파일 오류, JSON 토큰 순회, JSON 직렬화 심화, 방어적 역직렬화, instanceof 가드, TypeException, List<T>.class, 타입드 리스트 역직렬화 | `Apex/Data(데이터)/JSON 직렬화 심화 — JSONParser·JSONGenerator·예약어 충돌.md` |
 
 ## Apex — 비동기
 
@@ -92,8 +92,8 @@ created: 2026-05-21
 | @future, future 메서드, fire and forget, callout=true | `Apex/Async(비동기)/Future 메서드.md` |
 | Queueable, AllowsCallouts, 큐어블, SObject 파라미터 비동기 | `Apex/Async(비동기)/Queueable.md` |
 | Queueable 체이닝, 연속 비동기, 다음 잡 실행 | `Apex/Async(비동기)/Queueable 체이닝.md` |
-| Batch Apex, Database.Batchable, 대용량 처리, QueryLocator, Stateful, 수만건 처리, 배치 | `Apex/Async(비동기)/Batch Apex.md` |
-| Scheduled Apex, Schedulable, 정기 실행, cron, 스케줄, 자동 실행, 매일 매주 | `Apex/Async(비동기)/Scheduled Apex.md` |
+| Batch Apex, Database.Batchable, 대용량 처리, QueryLocator, Stateful, 수만건 처리, 배치, Database.Stateful static 함정 | `Apex/Async(비동기)/Batch Apex.md` |
+| Scheduled Apex, Schedulable, 정기 실행, cron, 스케줄, 자동 실행, 매일 매주, cron day-of-month day-of-week, ? 물음표 규칙 | `Apex/Async(비동기)/Scheduled Apex.md` |
 
 ## Apex — 테스트
 
@@ -101,6 +101,7 @@ created: 2026-05-21
 |---|---|
 | 테스트 전략, @isTest, TestSetup, Assert, startTest stopTest, 테스트 구조 | `Apex/Testing(테스트)/테스트 전략.md` |
 | HttpCalloutMock, Callout 테스트, HTTP 모킹, Test.setMock | `Apex/Testing(테스트)/HttpCalloutMock.md` |
+| WebServiceMock, doInvoke, SOAP 콜아웃 테스트, wsdl2apex 테스트, Test.setMock WebServiceMock, SOAP 모킹, "Methods defined as testMethod do not support Web service callouts", WSDL 스텁 콜아웃 테스트 | `Apex/Testing(테스트)/WebServiceMock.md` |
 | StubProvider, 클래스 모킹, Test.createStub, 의존성 모킹 | `Apex/Testing(테스트)/StubProvider.md` |
 | @testVisible, 회로차단기, 테스트 전용 플래그, private 접근 | `Apex/Testing(테스트)/testVisible 회로차단기.md` |
 | SOSL 테스트, Test.setFixedSearchResults | `Apex/Testing(테스트)/SOSL 테스트 패턴.md` |
@@ -195,7 +196,7 @@ created: 2026-05-21
 | SObjectType, SObjectField, newSObject, SObjectDescribeOptions, FieldDescribeOptions, SOAPType, SOAPType Enum, DescribeTabResult, DescribeTabSetResult, describeTabs, DataCategory, DescribeDataCategoryGroupResult, describeDataCategoryGroups, DescribeColorResult, DescribeIconResult | `Architecture(아키텍처)/Schema Namespace 상세.md` |
 | getAssociateEntityType, getAssociateParentEntity, isMruEnabled, getDataTranslationEnabled, getController 피클리스트, isDefaultedOnCreate, isHtmlFormatted, isIdLookup, isWriteRequiresMasterRead, isSearchPrefilterable | `Architecture(아키텍처)/Schema Namespace 상세.md` |
 | Collections, CollectionUtils, 컬렉션 유틸 | `Apex/Collections(컬렉션)/CollectionUtils.md` |
-| Comparator, 정렬, List.sort, 커스텀 정렬, 리스트 정렬, 오름차순 내림차순 | `Apex/Collections(컬렉션)/Comparator 인터페이스.md` |
+| Comparator, 정렬, List.sort, 커스텀 정렬, 리스트 정렬, 오름차순 내림차순, Comparable, compareTo, 래퍼 클래스 정렬, SObject 정렬 | `Apex/Collections(컬렉션)/Comparator 인터페이스.md` |
 | Iterable, Iterator, 커스텀 이터레이터 | `Apex/Collections(컬렉션)/Iterable Iterator.md` |
 | ApexDoc, Apex 주석, ApexDoc 주석 다는 법, 코드 주석 규약, JavaDoc 주석, 문서화 주석, @description @param @return @throws @see @group @example @author @deprecated @version @since, inline {@code} {@link} {@literal} {@hidden}, 공통 애노테이션, 구성요소 문서화, ApexDoc 작성법, Apex 코드 문서화, 주석 문법 가이드 | `Apex/ApexDoc 주석 작성 가이드.md` |
 

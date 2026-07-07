@@ -79,10 +79,12 @@ created: 2026-05-17
 - [[Http·HttpRequest·HttpResponse 레퍼런스]] — Apex HTTP 콜아웃 3종 표준 클래스(System) 전수 레퍼런스, setTimeout(밀리초, 기본 10초·요청당 1~120,000ms·트랜잭션 누적 최대 120초), CalloutException
 - [[Custom REST Endpoint]] — @RestResource, global inherited sharing, RestContext
 - [[SOAP Web Services 노출 (webservice 키워드)]] — webservice 키워드로 Apex 메서드를 SOAP 웹서비스로 노출, WSDL 생성, system context 보안, AJAX Toolkit(sforce.apex.execute), 오버로딩 불가
+- [[WSDL2Apex — 외부 SOAP 소비 (스텁 생성·구조·한도)]] — Generate from WSDL로 외부 SOAP 서비스 소비, 생성 스텁 구조(endpoint_x/timeout_x/clientCertName_x), document literal wrapped 지원·RPC encoded 미지원, WSDL 100만자 한도, Unable to find complexType 대응
 - [[Named Credential]] — External Credential → Principal → NC 순서
 - [[ConnectApi Chatter 패턴]] — postFeedItemWithRichText, @멘션, Flow 리치 텍스트 변환
 - [[ConnectApi Namespace 개요]] — Connect in Apex 전체 클래스 목록, ChatterFeeds/EinsteinLLM/CdpQuery/CommerceCart, 테스트 setTest* 패턴
 - [[Dom Namespace]] — Dom.Document/XmlNode, XML 생성·파싱, HTTP 본문 처리
+- [[XmlStreamReader·XmlStreamWriter (스트리밍 XML)]] — StAX 스타일 스트리밍 XML 파싱(XmlStreamReader)·생성(XmlStreamWriter), getEventType/XmlTag enum, writeStartElement/getXmlString, 대용량 XML 순차 처리, 스트리밍 vs DOM 선택
 - [[DataSource Namespace]] — Salesforce Connect 커스텀 어댑터, Provider/Connection/sync/query/upsert
 - [[ExternalService Namespace]] — OpenAPI 스펙 기반 타입 안전 외부 서비스 호출
 - [[Invocable Namespace]] — Apex에서 Flow Action 동적 호출, createStandardAction/createCustomAction, invoke
@@ -140,6 +142,7 @@ created: 2026-05-17
 - [[테스트 전략]] — 시나리오 기반, Given-When-Then, 75%는 결과
 - [[StubProvider]] — System.StubProvider, Test.createStub, hasBeenCalledXTimes
 - [[HttpCalloutMock]] — HttpCalloutMock 구현, Test.setMock
+- [[WebServiceMock]] — SOAP 콜아웃(wsdl2apex) 테스트 목, WebServiceMock.doInvoke, Test.setMock
 - [[testVisible 회로차단기]] — Boolean/Exception 회로 차단기
 - [[SOSL 테스트 패턴]] — Test.setFixedSearchResults
 - [[Flowtesting Namespace]] — Flow Builder 생성 flow test, flowtesting 동적 namespace, sf flow run test

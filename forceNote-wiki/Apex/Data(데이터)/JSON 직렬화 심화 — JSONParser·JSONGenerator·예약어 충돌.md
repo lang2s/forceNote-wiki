@@ -53,6 +53,90 @@ Integer size    = (Integer) m.get('size');
 - 장점: 코드 최소, 예약어 개수와 무관하게 동작.
 - 단점: 타입 안전성 없음(모든 값이 `Object` → 수동 캐스팅), 중첩이 깊으면 캐스팅 체인이 길어짐. 숫자는 JSON 표기에 따라 `Integer`/`Long`/`Decimal`/`Double`로 들어오므로 캐스팅 주의.
 
+#### 패턴 A 심화 — 방어적 역직렬화 (instanceof 가드 + try-catch)
+
+`deserializeUntyped` 결과는 모든 값이 `Object`라 **캐스팅이 항상 성공한다는 보장이 없다.** 신뢰할 수 없는(외부 API·사용자 입력) 페이로드는 구조가 예상과 다르면 `(Map<String,Object>) ...` 같은 캐스팅에서 **`System.TypeException`**, JSON 문자열 자체가 깨졌으면 `deserializeUntyped` 호출에서 **`System.JSONException`**이 난다. 따라서 ① 캐스팅 전에 `instanceof`로 실제 타입을 확인하고, ② 파싱·캐스팅을 `try-catch`로 감싼다.
+
+```apex
+// 구조 예시 — 실제 동작 코드 아님
+Object parsed;
+try {
+    parsed = JSON.deserializeUntyped(rawBody);
+} catch (JSONException e) {
+    // 깨진 JSON 문자열 — 파싱 자체 실패
+    throw new CalloutException('Malformed JSON: ' + e.getMessage());
+}
+
+// 루트가 객체라고 가정하지 말고 instanceof로 먼저 확인
+if (!(parsed instanceof Map<String, Object>)) {
+    throw new CalloutException('Expected a JSON object at root');
+}
+Map<String, Object> m = (Map<String, Object>) parsed;
+
+try {
+    // 중첩 List — 값이 List인지 확인 후 순회
+    Object accVal = m.get('accessories');
+    if (accVal instanceof List<Object>) {
+        for (Object item : (List<Object>) accVal) {
+            if (item instanceof String) {
+                String s = (String) item;              // 문자열 원소
+            } else if (item instanceof Map<String, Object>) {
+                Map<String, Object> nested = (Map<String, Object>) item;  // 객체 원소
+                Object right = nested.get('right');
+                String rightText = (right instanceof String) ? (String) right : null;
+            }
+        }
+    }
+} catch (TypeException e) {
+    // instanceof로 좁히지 못한 예상 밖 캐스팅 — 방어적으로 흡수
+    System.debug('Unexpected shape: ' + e.getMessage());
+}
+```
+
+**숫자 분기 — `Integer`/`Long`/`Decimal`/`Double`:** `deserializeUntyped`는 JSON 숫자를 표기에 따라 정수는 `Integer`(범위 초과 시 `Long`), 소수는 `Decimal`(또는 `Double`)로 넣는다(§3 공식 예제에서 `2000`→Integer, `1023.45`→Decimal). 어떤 숫자 타입이 올지 확정할 수 없으면 `instanceof`로 분기해 하나의 `Decimal`로 정규화한다.
+
+```apex
+// 구조 예시 — 실제 동작 코드 아님
+Decimal asDecimal(Object raw) {
+    if (raw == null)                return null;
+    if (raw instanceof Integer)     return (Integer) raw;
+    if (raw instanceof Long)        return (Long) raw;
+    if (raw instanceof Decimal)     return (Decimal) raw;
+    if (raw instanceof Double)      return Decimal.valueOf((Double) raw);
+    // 숫자가 문자열로 온 경우("2048")까지 방어
+    if (raw instanceof String)      return Decimal.valueOf((String) raw);
+    throw new TypeException('Not a number: ' + raw);
+}
+// Decimal qty = asDecimal(m.get('inventory'));   // 2000 (Integer) → 2000 (Decimal)
+// Decimal price = asDecimal(m.get('price'));     // 1023.45 (Decimal) 그대로
+```
+
+- 잘못된 캐스팅을 미리 막으므로 `TypeException`이 콜아웃 전체를 중단시키지 않는다. `String.valueOf(obj)`는 어떤 타입이든 문자열로 강제 변환하므로 **문자열만 필요할 땐 캐스팅 대신 `String.valueOf(m.get('key'))`가 더 안전**하다(§4의 upsertRows 공식 예제가 이 방식).
+
+#### 타입드 리스트 역직렬화 — 배열 JSON을 제네릭 리스트로
+
+JSON 최상위가 **배열**이고 원소 구조가 고정이면, `deserializeUntyped`로 `List<Object>`를 받아 원소마다 캐스팅하는 대신 **`List<T>.class`를 타입 토큰으로 넘겨** 한 번에 타입드 리스트로 역직렬화한다. 예약어 키가 없을 때 패턴 A보다 타입 안전하다.
+
+```apex
+// Apex Developer Guide 공식 예제 발췌 — 직렬화한 리스트를 그대로 타입드 리스트로 왕복
+List<InvoiceStatement> deserializedInvoices =
+    (List<InvoiceStatement>) JSON.deserialize(JSONString, List<InvoiceStatement>.class);
+// 일반형: List<MyClass> items = (List<MyClass>) JSON.deserialize(jsonArray, List<MyClass>.class);
+```
+
+sObject 리스트도 동일하게 `List<Account>.class`를 넘길 수 있고, 신뢰 경계에서는 `deserializeStrict` + `Security.stripInaccessible`로 여분/무권한 필드를 걸러낸다(공식 예제).
+
+```apex
+// Apex Developer Guide 공식 예제 발췌 — 신뢰할 수 없는 소스의 sObject 리스트 정제
+List<Account> accounts =
+    (List<Account>) JSON.deserializeStrict(jsonInput, List<Account>.class);
+SObjectAccessDecision securityDecision =
+    Security.stripInaccessible(AccessType.UPDATABLE, accounts);
+update securityDecision.getRecords();   // 권한 없는 필드(AnnualRevenue)는 갱신 제외
+```
+
+- 타입 토큰 없이 `(List<MyClass>) JSON.deserialize(json)`처럼 두 번째 인자를 빼면 컴파일되지 않는다 — `List<T>.class`를 반드시 넘긴다.
+
 ### 패턴 B — JSONParser 토큰 순회로 수동 파싱 (타입 안전, 대형 페이로드)
 
 `JSON.createParser()`로 파서를 만들고 토큰을 순회하면서, JSON의 `from` 값을 **예약어가 아닌 멤버**(예: `fromAddr`)에 직접 담는다. 필드명은 `getText()` 문자열 비교로 판별하므로 예약어 제약이 없다. Apex Reference Guide의 TaxEngineAdapter `Addresses(JSONParser parser)` 예제와 동일한 형태의 공식 패턴이다.

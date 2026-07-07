@@ -75,6 +75,23 @@ System.scheduleBatch(new MyBatch(), 'Daily Batch', 1440); // 24시간마다
 > [!warning] Database.Stateful 필수 조건
 > execute() 간에 `successes`, `failures` 같은 집계 변수를 유지하려면 반드시 `Database.Stateful`을 함께 implements해야 한다. 없으면 각 execute() 호출마다 인스턴스가 새로 생성되어 변수가 초기화된다.
 
+> [!warning] 함정 — Stateful이어도 static 변수는 유지되지 않는다
+> `Database.Stateful`이 상태를 이어주는 것은 **인스턴스 멤버 변수(instance member variable)뿐**이다. **static 멤버 변수는 `Database.Stateful`을 구현해도 트랜잭션 간 값을 유지하지 못하고 매 트랜잭션(=각 execute 배치)마다 원래 값으로 리셋된다.** (공식: "When using `Database.Stateful`, only instance member variables retain their values between transactions. Static member variables don't retain their values and are reset between transactions.")
+>
+> 반대로 `Database.Stateful`을 **지정하지 않으면** static·instance 변수 **모두** 매 트랜잭션마다 초기값으로 되돌아간다.
+>
+> ```apex
+> // 각 배치의 처리 건수를 누적하려는 의도
+> public class CountBatch implements Database.Batchable<SObject>, Database.Stateful {
+>     private Integer instanceCount = 0;   // ✅ execute() 간 누적됨 (Stateful)
+>     private static Integer staticCount = 0; // ❌ 매 트랜잭션 0으로 리셋 — Stateful 무효
+>     // ... start / execute 에서 두 변수를 모두 ++ 해도
+>     //     finish 시점엔 instanceCount 만 총합, staticCount 는 마지막 배치분만 남음
+> }
+> ```
+>
+> 집계·카운팅에 static 변수를 쓰면 "왜 합계가 안 맞지"라는 버그가 된다. 배치 상태 누적은 **반드시 instance 변수**로 둔다.
+
 > [!tip] 부분 성공 처리
 > `Database.update(scope, false)`(allOrNothing=false)로 실패한 레코드만 건너뛰고 성공한 레코드를 처리할 수 있다. `Database.SaveResult.isSuccess()`로 각 레코드 결과를 확인한다.
 
@@ -99,9 +116,17 @@ System.scheduleBatch(new MyBatch(), 'Daily Batch', 1440); // 24시간마다
 
 ## 릴리즈별 변경사항
 
-### Summer '24 (v61.0) — Apex Cursor (Beta): Batch 대안
+### Apex Cursor — Batch 대안 (Summer '24 v61.0 도입/Beta → Spring '26 v66.0 GA)
 
-`Database.getCursor()`로 대용량 SOQL 결과를 커서 방식으로 처리한다. Batch Apex처럼 별도 클래스를 만들 필요 없이 단일 트랜잭션 내에서 페이지 단위로 레코드를 가져온다.
+`Database.getCursor()`로 대용량 SOQL 결과를 커서 방식으로 처리한다. Batch Apex처럼 별도 클래스를 만들 필요 없이 단일 트랜잭션 내에서 페이지 단위로 레코드를 가져온다. **Summer '24(v61.0)에서 Beta로 도입됐고, Spring '26(v66.0)에서 GA가 됐다.**
+
+> [!warning] fetch 거버너 한도 (근거 명시)
+> `cursor.fetch(position, count)`의 `count`는 "호출당 최대 2,000건" 같은 고정 상한이 아니라 힙·행 거버너 안에서 정한다. 실제 커서 거버너는 다음과 같다(sync·async 공통):
+> - **트랜잭션당 fetch 호출 최대 100회**
+> - **커서 1개당 최대 5천만(50,000,000) 행**
+> - **하루(24h) 최대 10,000개 커서** 생성 · 일 집계 1억 행
+>
+> 즉 한 커서로 5천만 행까지 커버하되, 한 트랜잭션에서 `fetch`는 100번까지만 호출할 수 있다. 페이지 크기는 힙 한도(6MB/12MB)에 맞춰 정한다.
 
 ```apex
 // Cursor 생성 — SOQL을 즉시 실행하지 않고 커서 핸들만 반환
@@ -109,9 +134,9 @@ Database.Cursor cursor = Database.getCursor(
     [SELECT Id, Name, Description FROM Account WITH USER_MODE]
 );
 
-// 페이지 단위로 fetch (최대 2,000건 / 호출)
+// 페이지 단위로 fetch — pageSize는 힙 한도 안에서 소규모로 (트랜잭션당 fetch 100회 상한)
 Integer offset = 0;
-Integer pageSize = 2000;
+Integer pageSize = 200;   // 힙 한도에 맞춰 조정 (고정 상한 아님)
 List<Account> page;
 
 do {
@@ -127,17 +152,19 @@ do {
 cursor.close();
 ```
 
+> 근거: [Apex Cursors — Apex Developer Guide (developer.salesforce.com)](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_cursors.htm) · Spring '26 릴리즈 노트 "Apex Cursors" GA.
+
 #### Batch Apex vs Apex Cursor 비교
 
-| 항목 | Batch Apex | Apex Cursor (Beta) |
+| 항목 | Batch Apex | Apex Cursor |
 |---|---|---|
 | 트랜잭션 분리 | ✅ execute()마다 별도 트랜잭션 | ❌ 단일 트랜잭션 |
 | 상태 유지 | `Database.Stateful`로 가능 | 변수 그대로 유지 (단일 트랜잭션) |
-| 최대 처리 건수 | 5천만 건 (QueryLocator) | 5천만 건 |
+| 최대 처리 건수 | 5천만 건 (QueryLocator) | 5천만 건 (커서당) |
 | 코드 복잡도 | 높음 (start/execute/finish) | 낮음 (단일 메서드) |
 | 힙 한도 우회 | ✅ execute()마다 초기화 | ❌ 단일 트랜잭션 힙 공유 |
 | 사용 시점 | 트랜잭션 격리가 필요한 DML | 단순 대용량 읽기·경량 처리 |
-| GA 여부 | GA | Summer '24 기준 Beta |
+| GA 여부 | GA | **GA (Spring '26 / API v66.0)** — Summer '24(v61.0) Beta 도입 |
 
 > [!tip] 선택 기준
 > - 처리 중 실패 시 부분 롤백이 필요하다 → **Batch Apex** (`allOrNothing=false`)

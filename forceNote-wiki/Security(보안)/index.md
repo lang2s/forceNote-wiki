@@ -47,6 +47,7 @@ created: 2026-06-18
 | [[Custom Permissions (커스텀 권한)]] | 커스텀 프로세스/앱 access check·수식·Apex·Flow에서 체크 | #permission |
 | [[Session-Based Permission Sets (세션 기반 권한 집합)]] | 특정 세션 동안만 권한 부여·세션마다 활성화(step-up) | #permission |
 | [[Permission Set 접근 설정 (App·System·Apex·VF 접근)]] | permission set의 App/System 범주 + Apex 클래스·VF 페이지 등 Setup Entity Access | #permission |
+| [[Integration User & API-Only User (통합 사용자)]] | 통합 실행 전용 사용자 — Salesforce Integration License(무료 5)·API-Only·Minimum Access + PSL·최소권한 설계 | #permission |
 
 ---
 
@@ -76,6 +77,7 @@ created: 2026-06-18
 - 커스텀 기능을 권한으로 게이트(수식·Apex·Flow 체크)? → [[Custom Permissions (커스텀 권한)]]
 - 세션 동안만 권한을 부여(step-up)? → [[Session-Based Permission Sets (세션 기반 권한 집합)]]
 - permission set에서 Apex 클래스·VF 페이지 접근을 열려면? → [[Permission Set 접근 설정 (App·System·Apex·VF 접근)]]
+- 외부 시스템 통합을 실행할 전용 사용자(무료 통합 라이선스·API 전용·최소권한)를 만들려면? → [[Integration User & API-Only User (통합 사용자)]]
 
 ---
 

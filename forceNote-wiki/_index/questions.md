@@ -46,6 +46,9 @@ created: 2026-05-21
 | 레코드 타입 ID 코드에서 조회 | `Architecture(아키텍처)/Schema Namespace 상세.md` |
 | 피클리스트 값 Apex에서 가져오기 | `Architecture(아키텍처)/Schema Namespace 상세.md` |
 | 시스템 간 이벤트 연동 | `Integration(통합)/Platform Event 통합 패턴.md` |
+| Connected App 대신 뭘 써야 하나 / ECA vs Connected App 차이 / Spring 26 새 Connected App 못 만든다 | `Integration(통합)/External Client App (외부 클라이언트 앱).md` |
+| Named Credential 만들 때 뭘 입력하나 / External Credential 필드 전부 / Authentication Protocol 종류 / OAuth Flow Type 뭐 고르나 | `Integration(통합)/Named Credential·External Credential 생성 필드 전수 레퍼런스.md` |
+| 서버간 통합 어떻게 세워 / JWT Bearer랑 Client Credentials 중 뭘 / 사용자 로그인 없이 API 인증 | `Integration(통합)/서버간 통합 구축 가이드 - External Client App·JWT Bearer·Client Credentials.md` |
 | 레코드 삭제 LWC에서 | `LWC/LDS/uiRecordApi.md` |
 | 정렬 Apex에서 | `Apex/Collections(컬렉션)/Comparator 인터페이스.md` |
 | 스케줄 자동 실행 Apex | `Apex/Async(비동기)/Scheduled Apex.md` |
@@ -143,3 +146,15 @@ created: 2026-05-21
 | 에이전트 스크립트 어떻게 쓰나 / Agentforce 에이전트를 코드로 정의하는 법 / Agent Script가 뭐야 / Agentforce Builder로 에이전트 만드는 법 | `Agentforce(에이전트포스)/Agent Script 개요와 언어 특성.md` |
 | Agent Script 변수 어떻게 써 / 리스트(컬렉션) 변수 다루는 법 / 멀티턴 순서 강제·슬롯 필링 / 시스템 인스트럭션 오버라이드 | `Agentforce(에이전트포스)/Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드.md` |
 | 에이전트 다른 org로 배포 / Agentforce 에이전트를 샌드박스에서 프로덕션으로 옮기는 법 / sf CLI로 Bot·GenAiPlannerBundle 메타데이터 배포 / package.xml 매니페스트로 에이전트 retrieve·deploy | `Agentforce(에이전트포스)/Agent Script 메타데이터 배포 (DX·패키징).md` |
+| 통합이 갑자기 invalid_grant로 죽어요 / refresh token이 왜 폐기되나 / access grant 5개 한도 | `Integration(통합)/Connected App (연결된 앱) — OAuth 클라이언트.md` |
+| Invalid JWT Signature 원인 / JWT용 외부 개인키 JKS 변환 / keytool importkeystore | `Integration(통합)/Connected App (연결된 앱) — OAuth 클라이언트.md` |
+| REST 호출에 401 INVALID_SESSION_ID 왜 나나 / 세션 만료 통합 오류 / 410 GONE API 버전 은퇴 | `Integration(통합)/REST API.md` |
+| 외부 오브젝트가 복제보다 나은 때 / OData 외부 소스에서 행이 안 나올 때 / 데이터 복제 vs 페더레이션 | `sObject/External Objects.md` |
+| 통합 사용자 어떻게 만드나 / API 전용 유저 라이선스 / 무료 통합 라이선스 5개 최소권한 | `Security(보안)/Integration User & API-Only User (통합 사용자).md` |
+| 미들웨어(MuleSoft) 언제 쓰나 / point-to-point vs ESB / 통합 재시도·멱등성 설계 | `Integration(통합)/통합 아키텍처 결정 - 미들웨어·재시도·멱등성.md` |
+| SOAP 콜아웃 테스트 어떻게 / Methods defined as testMethod do not support Web service callouts | `Apex/Testing(테스트)/WebServiceMock.md` |
+| 외부 SOAP 서비스(ERP WSDL)를 Apex에서 호출 / Generate from WSDL 스텁 생성 / WSDL2Apex | `Apex/Integration(통합)/WSDL2Apex — 외부 SOAP 소비 (스텁 생성·구조·한도).md` |
+| 대용량 XML 스트리밍 파싱/생성 / XmlStreamReader XmlStreamWriter / StAX Apex | `Apex/Integration(통합)/XmlStreamReader·XmlStreamWriter (스트리밍 XML).md` |
+| 외부 방화벽이 Salesforce 콜아웃 허용하려면 / 아웃바운드 IP 범위·ip-ranges.json / Private Connect | `Integration(통합)/아웃바운드 연결 - IP allowlist·Private Connect.md` |
+| SAP/Oracle/NetSuite/Informatica를 Salesforce와 어떻게 연동 / 실시간 vs 배치 통합 / 제품별 연동 지도 | `Integration(통합)/ERP·서드파티 제품 연동 지도.md` |
+| Named Credential 커스텀 파라미터 헤더 / Custom 인증 프로토콜 / {!$Credential} 파라미터 | `Integration(통합)/Named Credential.md` |

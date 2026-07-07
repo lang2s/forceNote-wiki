@@ -7,7 +7,7 @@ aliases: [Comparator, 정렬, 커스텀 소트]
 
 # Comparator 인터페이스
 
-> `Comparator<T>` 구현으로 `List.sort(comparator)`에 커스텀 정렬 로직을 주입. API 55.0 (Summer '22)부터 지원. `Comparable`을 구현할 수 없는 외부 타입 정렬에 유용.
+> `Comparator<T>` 구현으로 `List.sort(comparator)`에 커스텀 정렬 로직을 주입. API 59.0 (Winter '24)부터 지원. `Comparable`을 구현할 수 없는 외부 타입 정렬에 유용.
 
 ---
 
@@ -77,6 +77,61 @@ opps.sort(new Comparator<Opportunity>() {
 
 ---
 
+## Comparable 인터페이스 직접 구현 (래퍼 클래스 관용구)
+
+`Comparator`가 정렬 로직을 **별도 클래스**에 두는 반면, `Comparable`은 정렬 대상 클래스가 **자기 자신의 `compareTo`**를 구현해 기본 정렬 순서를 내장한다. 이때 인수 없는 `List.sort()`가 각 원소의 `compareTo`를 호출한다.
+
+`Comparable`의 유일한 메서드는 `Integer compareTo(Object compareTo)`이며, 반환값 규칙은 `compare()`와 동일하다 — 음수면 자신이 앞, `0`이면 같음, 양수면 자신이 뒤.
+
+> **SObject는 `Comparable`을 직접 구현할 수 없다** (Salesforce 표준/커스텀 오브젝트는 상속·인터페이스 구현 불가). 그래서 정렬하려는 SObject를 **필드로 감싼 래퍼 클래스**를 만들고, 그 래퍼가 `Comparable`을 구현하는 관용구를 쓴다.
+
+```apex
+// SObject(Opportunity)를 감싸 Comparable을 구현하는 래퍼 클래스
+public class OpportunityWrapper implements Comparable {
+    public Opportunity oppy;
+
+    // Constructor — null 래핑 방지
+    public OpportunityWrapper(Opportunity op) {
+        if (op == null) {
+            Exception ex = new NullPointerException();
+            ex.setMessage('Opportunity argument cannot be null');
+            throw ex;
+        }
+        oppy = op;
+    }
+
+    // Amount 기준 비교 — 반환값 0은 동등을 의미
+    public Integer compareTo(Object compareTo) {
+        // 인수를 OpportunityWrapper로 캐스팅
+        OpportunityWrapper compareToOppy = (OpportunityWrapper)compareTo;
+        Integer returnValue = 0;
+        if ((oppy.Amount == null) && (compareToOppy.oppy.Amount == null)) {
+            returnValue = 0;
+        } else if ((oppy.Amount == null) && (compareToOppy.oppy.Amount != null)) {
+            returnValue = -1;                       // nulls-first
+        } else if ((oppy.Amount != null) && (compareToOppy.oppy.Amount == null)) {
+            returnValue = 1;
+        } else if (oppy.Amount > compareToOppy.oppy.Amount) {
+            returnValue = 1;                        // 양수 → 뒤로
+        } else if (oppy.Amount < compareToOppy.oppy.Amount) {
+            returnValue = -1;                       // 음수 → 앞으로
+        }
+        return returnValue;
+    }
+}
+
+// 인수 없는 sort() 가 각 원소의 compareTo 를 사용
+List<OpportunityWrapper> oppyList = new List<OpportunityWrapper>();
+oppyList.add(new OpportunityWrapper(new Opportunity(Name='Grand Hotels SLA', Amount=25000)));
+oppyList.add(new OpportunityWrapper(new Opportunity(Name='Edge Installation', Amount=50000)));
+oppyList.sort();                                    // Comparator 인수 없음 → compareTo 사용
+// 결과: Amount 오름차순 (25000 → 50000)
+```
+
+핵심 차이: `Comparator`는 `list.sort(new XComparator())`처럼 정렬기를 **넘겨주고**, `Comparable`은 `list.sort()`를 **인수 없이** 호출하면 원소 자신의 `compareTo`가 쓰인다. SObject를 직접 정렬 대상으로 넣을 수 없으므로 위처럼 래퍼로 감싼 뒤 래퍼 리스트를 정렬하고, 정렬 후 `wrapper.oppy`로 원본 SObject를 꺼낸다.
+
+---
+
 ## Comparable vs Comparator
 
 | | Comparable | Comparator |
@@ -84,7 +139,9 @@ opps.sort(new Comparator<Opportunity>() {
 | 구현 위치 | 정렬 대상 클래스 내 | 별도 클래스 |
 | 정렬 기준 | 단일 (클래스에 내장) | 다중 (여러 Comparator 적용) |
 | 외부 타입 정렬 | ❌ | ✅ |
-| API 버전 | 오래됨 | API 55.0+ |
+| API 버전 | 오래됨 (레거시) | API 59.0+ (Winter '24) |
+
+> 근거: [Comparator Interface — Apex Reference Guide (developer.salesforce.com)](https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_interface_System_Comparator.htm) · Winter '24 Apex Enhancements. `Comparator`·`Collator`는 Winter '24(API 59.0)에서 함께 도입됐다.
 
 ---
 

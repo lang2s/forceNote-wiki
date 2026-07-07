@@ -1,6 +1,6 @@
 ---
 tags: [salesforce, integration, named-credential, security, pattern]
-source: apex-recipes/RestClient.cls, NamedCredentialRecipes.cls; help.salesforce.com — Enable External Credential Principals (nc_enable_ext_cred_principal, Tier 2); salesforce_apex_developer_guide.pdf — Merge Fields for Apex Callouts That Use Named Credentials (Tier 2); api_meta.pdf v67.0 — ExternalCredential·ExternalAuthIdentityProvider + salesforce_apex_reference_guide.pdf — ConnectApi NamedCredentials (Tier 2)
+source: apex-recipes/RestClient.cls, NamedCredentialRecipes.cls; help.salesforce.com — Enable External Credential Principals (nc_enable_ext_cred_principal, Tier 2); salesforce_apex_developer_guide.pdf — Merge Fields for Apex Callouts That Use Named Credentials (Tier 2); api_meta.pdf v67.0 — ExternalCredential·ExternalAuthIdentityProvider + salesforce_apex_reference_guide.pdf — ConnectApi NamedCredentials (Tier 2); developer.salesforce.com — Using Certificates for Apex Callouts (client certificate·two-way SSL, Tier 2); developer.salesforce.com — Populate External Credential Principals (Named vs Per-User Principal, Tier 2)
 created: 2026-05-17
 aliases: [Named Credential, 네임드 크레덴셜, callout:, External Credential, OAuth Client Credentials 설정, Credential merge field]
 ---
@@ -17,7 +17,9 @@ aliases: [Named Credential, 네임드 크레덴셜, callout:, External Credentia
 
 Named Credential은 이 두 문제를 모두 해결하는 Salesforce 표준 메커니즘이다. URL과 인증 정보를 Setup에 저장하고, Apex 코드에서는 `callout:NC_Developer_Name` 형식의 논리적 이름만 사용한다. 환경별로 Named Credential 레코드의 URL만 바꾸면 코드 변경 없이 엔드포인트를 교체할 수 있다. OAuth 2.0 프로토콜을 사용할 경우 Salesforce가 토큰 갱신을 자동으로 처리해 만료된 토큰 관련 에러를 직접 처리하지 않아도 된다.
 
-Spring '23부터 Legacy Named Credential과 신형 Named Credential + External Credential 구조로 분리되었다. 신형 구조에서는 인증 정보(External Credential)와 엔드포인트 URL(Named Credential)을 각각 독립적으로 관리할 수 있다.
+**Winter '23 (API v56.0)** 부터 Legacy Named Credential과 신형 Named Credential + External Credential 구조로 분리되었다(2022-10 발표·GA). 신형 구조에서는 인증 정보(External Credential)와 엔드포인트 URL(Named Credential)을 각각 독립적으로 관리할 수 있다.
+
+> 근거: developer.salesforce.com — [Announcing the Next Generation of Named Credentials](https://developer.salesforce.com/blogs/2022/10/announcing-the-next-generation-of-named-credentials)(2022-10). frontmatter의 `ExternalCredential v56.0`과 일치.
 
 ---
 
@@ -66,6 +68,46 @@ req.setBody('Password:{!HTMLENCODE($Credential.Password)}');
 - 바디의 merge field에 적용 가능한 수식 함수는 `HTMLENCODE` **하나뿐**이며, 수식은 반드시 `HTMLENCODE`로 시작해야 한다.
 - 이 merge field들을 **SOAP API 호출**에 사용하면 OAuth access token이 자동 갱신되지 않는다.
 
+### Custom 인증 프로토콜 + 사용자 정의(Named) 인증 파라미터 — `{!$Credential.<ExtCred>.<Param>}`
+
+위 표의 6개 merge field(`Username`·`Password`·`OAuthToken`·`AuthorizationMethod`·`AuthorizationHeaderValue`·`OAuthConsumerKey`)는 **표준 프로토콜(Password·OAuth)** 이 자동으로 채워주는 고정 값이다. 외부 시스템이 이 틀에 안 맞는 자격증명(예: 테넌트 ID, HMAC 서명 키, 커스텀 API Key 이름, 지역 코드)을 요구하면, External Credential의 **Authentication Protocol을 `Custom`으로** 두고 **임의의 Named Authentication Parameter를 직접 정의**한다. 표준 6개와 달리 파라미터 이름을 개발자가 정하고, 참조 구문도 External Credential 이름을 명시하는 확장 형식을 쓴다.
+
+```
+표준(프로토콜 자동)  : {!$Credential.Username}                        ← 이름 고정, 값 자동
+Custom(직접 정의)   : {!$Credential.<외부자격증명DeveloperName>.<파라미터명>}  ← 이름·값 모두 사용자 정의
+```
+
+**설정 순서:**
+
+```
+1. Setup → Security → Named Credentials → External Credentials 탭 → New
+2. Authentication Protocol = Custom
+3. 저장 → Principals 섹션 → New: Principal 생성
+   → Authentication Parameters에 원하는 이름·값을 행 단위로 추가
+     (예: TenantId = 12345 · SigningKey = <secret> — 값은 암호화 저장, 사용자에게 비노출)
+4. Callout Options에서 Allow Formulas in HTTP Header / Body 체크
+   (Custom 파라미터도 merge field로 치환되므로 표준 merge field와 동일 전제)
+5. Permission Set → External Credential Principal Access에 이 Principal을 Enabled로 매핑
+   → callout 실행 사용자에게 할당 (아래 "신형 모델 필수 셋업"과 동일)
+```
+
+```apex
+// Custom 파라미터를 헤더에 참조 — External Credential DeveloperName 을 반드시 명시
+// (표준 6개와 달리 <ExtCred> 세그먼트가 추가된다)
+HttpRequest req = new HttpRequest();
+req.setEndpoint('callout:MyCustomNC/api/v1/resource');
+req.setMethod('GET');
+req.setHeader('X-Tenant-Id',  '{!$Credential.MyExternalCred.TenantId}');
+req.setHeader('X-Signature',  '{!$Credential.MyExternalCred.SigningKey}');
+HttpResponse res = new Http().send(req);
+```
+
+- 참조 구문은 `{!$Credential.<외부자격증명 DeveloperName>.<파라미터명>}` — 표준 merge field(`{!$Credential.Username}`)와 달리 **External Credential DeveloperName 세그먼트가 하나 더** 들어간다. 파라미터명은 Principal의 Authentication Parameter에 정의한 이름과 **정확히 일치**해야 한다.
+- 바디에서도 동일하게 참조하며 `Allow Formulas in HTTP Body`가 필요하다. 값은 실행 시점에 치환되고, Named Principal이면 조직 공유 1개 값, Per-User이면 사용자별 값이 들어간다.
+- Custom 파라미터 값은 Principal에 암호화 저장되어 실행 사용자에게 노출되지 않는다 — Apex에서 값 자체를 문자열로 읽어오는 게 아니라 **callout 치환 시점에만** 주입된다.
+
+> 근거: [Authentication Protocols for Named Credentials](https://help.salesforce.com/s/articleView?id=xcloud.nc_auth_protocols.htm) — Custom 프로토콜은 permission set·sequence number·authentication parameter(각 name/value)로 구성. [Use Custom Headers for Basic Authentication](https://help.salesforce.com/s/articleView?id=xcloud.nc_custom_headers_basic_auth.htm) — 커스텀 헤더에서 `{!$Credential.<ExternalCredName>.<ParamName>}` 형식으로 Principal 파라미터를 참조하며 *Allow Formulas in HTTP Header* 활성화 필요.
+
 ---
 
 ## RestClient에서의 활용
@@ -97,6 +139,22 @@ public with sharing class BookApiService extends RestClient {
 | External Credential | 인증 정보만 별도 관리 |
 | Per-User Principal | 사용자별 인증 정보 |
 
+### Identity Type — Named Principal vs Per-User Principal
+
+External Credential의 Principal은 **누가 외부 시스템에 인증하는가**를 결정한다. Named Credential(또는 Legacy Named Credential)의 Identity Type과 동일한 축이다.
+
+| 구분 | Named Principal | Per-User Principal |
+|---|---|---|
+| 인증 주체 | 관리자가 조직당 **자격증명 1개**로 최초 1회 인증 | **각 사용자**가 자신의 자격증명으로 개별 인증 |
+| 토큰 저장 | 조직 단위 공유 자격증명 1개 | **사용자별 개별 토큰** (User External Credentials 레코드) |
+| 외부 시스템이 보는 신원 | 공유 서비스 계정 1개 — 모든 callout이 동일 신원으로 나감 | 실제 호출 사용자 각각의 신원 |
+| 사용 시나리오 | 시스템 통합, 전체 데이터 접근이 필요하거나 팀·조직 단위 집계를 볼 때 | 외부 시스템의 **사용자별 권한**이 중요할 때 (예: 각 사용자의 메일함·문서 접근을 그 사용자 권한으로) |
+| Permission Set 매핑 | External Credential Principal Access에 Principal 1개를 Enabled로 이동 | 위와 동일 + **각 사용자에게 User External Credentials sObject 접근 권한**이 추가로 필요(토큰이 사용자별로 저장되므로) |
+
+> Per-User Principal은 위 "[[#⚠️ 신형 모델 필수 셋업 — External Credential Principal 접근 권한 부여|신형 모델 필수 셋업]]"의 Permission Set 매핑에 더해, 사용자가 자신의 `User External Credentials` 레코드를 읽을 수 있어야 토큰이 조회된다. 비동기(Batch·Queueable) 컨텍스트에서는 사용자 컨텍스트가 없어 Per-User 토큰을 찾지 못할 수 있으므로 Named Principal을 쓴다(아래 "주의사항" 참조).
+>
+> 근거: [Populate External Credential Principals](https://developer.salesforce.com/docs/platform/named-credentials/guide/nc-populate-external-credentials.html) — Named Principal은 조직당 공유 자격증명 1개, Per-User는 사용자별 개별 자격증명. Per-User는 `User External Credentials` 오브젝트 접근이 필요.
+
 ---
 
 ## 설정 경로
@@ -127,6 +185,11 @@ Setup → Security → Named Credentials → New Named Credential
 ```
 
 이 매핑을 하지 않으면 Named Credential URL·External Credential 설정이 모두 올바르고 Apex의 `callout:NC` 이름이 맞더라도 런타임에 인증 접근 오류로 막힌다. Legacy Named Credential에는 이 단계가 없지만, External Credential을 분리한 신형 모델(Per-User Principal 포함)에서는 필수다.
+
+> [!warning] Profile이 아니라 Permission Set에 매핑하라 — 배포 안 됨
+> External Credential Principal Access는 **Profile에도** 매핑할 수 있지만, Profile로 매핑하면 그 매핑이 **Metadata API에 노출되지 않아** sandbox↔production 배포(change set·Metadata API·CI/CD)로 옮겨지지 않는다. **Permission Set에 매핑**할 때만 `externalCredentialPrincipalAccesses` 메타데이터로 노출되어 배포 가능하다. 위 절차대로 항상 Permission Set을 쓰고, 각 환경마다 Profile 매핑을 수동 재설정하는 함정을 피한다.
+>
+> 근거: [ExternalCredential (Metadata API)](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_externalcredential.htm) 및 [Map External Credential Principals to Permission Sets](https://help.salesforce.com/s/articleView?id=release-notes.rn_security_map_principals_to_permsets.htm) — Principal Access를 Permission Set에 할당하면 Metadata API로 배포되지만 Profile 할당은 대응 메타데이터가 없어 배포되지 않는다.
 
 > 근거: [Enable External Credential Principals](https://help.salesforce.com/s/articleView?id=xcloud.nc_enable_ext_cred_principal.htm) — "create a permission set granting users access to the principal… select External Credential Principal Access and move the principal to Enabled". User External Credential 오브젝트 접근이 필요하다.
 
@@ -202,6 +265,47 @@ ConnectApi.ExternalCredential cred =
 
 ---
 
+## 아웃바운드 상호 TLS (Mutual TLS · Two-Way SSL) — 클라이언트 인증서 제시
+
+일반 HTTPS callout은 **단방향 TLS**다 — Salesforce가 서버 인증서만 검증한다. 외부 시스템이 상호 인증(mTLS)을 요구하면, Salesforce가 TLS handshake 중에 **자신의 클라이언트 인증서를 제시**해 서버가 Salesforce를 검증하게 해야 한다. 이는 앞의 인증 프로토콜(OAuth·Password 등)과 **직교하는 전송 계층 인증**으로, 필요하면 함께 쓸 수 있다.
+
+**셋업 경로:**
+
+```
+1. Setup → Security → Certificate and Key Management
+   · Create Self-Signed Certificate  (자체 서명), 또는
+   · Create CA-Signed Certificate Request → CA 서명본을 다시 import
+   → 생성된 인증서의 Unique Name 기록
+2. (자체 서명인 경우) 이 Salesforce 인증서를 외부 시스템의
+   truststore/keystore에 등록해 신뢰시킨다.
+3. 콜아웃에 클라이언트 인증서를 지정 — 두 경로 중 하나:
+```
+
+| 지정 방법 | 설명 |
+|---|---|
+| **Named Credential의 `Certificate` 필드** | Legacy Named Credential(및 신형에서는 External Credential의 Custom · Mutual TLS 인증) 편집 화면의 **Certificate** 룩업에서 1번의 인증서를 선택. 이후 `callout:{NC}` 호출이 handshake에서 인증서를 자동 제시 → Apex 코드 수정 불필요 |
+| **Apex 직접 — `HttpRequest.setClientCertificateName()`** | 코드에서 인증서 Unique Name을 지정. Named Credential의 Certificate 필드를 안 쓰는 경우에 사용 |
+
+```apex
+HttpRequest req = new HttpRequest();
+req.setEndpoint('callout:MyMutualTLS/api/v1/secure');
+req.setMethod('GET');
+
+// Named Credential의 Certificate 필드로 인증서를 지정했다면 아래 줄은 불필요.
+// 코드에서 직접 클라이언트 인증서를 붙이려면:
+req.setClientCertificateName('DocSampleCert'); // ← Certificate and Key Management의 Unique Name과 정확히 일치
+
+HttpResponse res = new Http().send(req);
+```
+
+- 인수 값은 **Certificate and Key Management에서 생성한 인증서의 Unique Name과 정확히 일치**해야 한다.
+- mTLS 엔드포인트가 별도 포트(예: `8443`)를 쓰면 Named Credential URL에 포트를 명시한다.
+- 자체 서명 인증서는 외부 시스템이 명시적으로 신뢰해야 하고, CA 서명 인증서는 서버가 CA 체인으로 검증한다. mTLS로 인증하는 상대는 보통 CA 서명 인증서를 요구한다.
+
+> 근거: [Using Certificates (Apex Developer Guide)](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_callouts_client_certs.htm) — 인증서 생성 → 코드 연동 → (자체 서명 시) 외부 keystore 공유 → (Named Credential 미사용 시) Remote Site 등록. HTTP 요청은 `HttpRequest.setClientCertificateName(uniqueName)`로 클라이언트 인증서를 붙인다. 전송 계층 개념은 [[Secure Communications (TLS)]] 참조.
+
+---
+
 ## 보안 모범 사례
 
 > [!tip] Named Credential 사용 이유
@@ -222,6 +326,8 @@ ConnectApi.ExternalCredential cred =
 
 ## 관련 노트
 
+- [[Named Credential·External Credential 생성 필드 전수 레퍼런스]] — 생성 화면의 모든 필드·프로토콜별 조건부 필드 카탈로그
+- [[서버간 통합 구축 가이드 - External Client App·JWT Bearer·Client Credentials]] — Named Credential을 서버간 인증에 배선하는 전체 절차
 - [[RestClient 패턴]]
 - [[Custom REST Endpoint]]
 - [[StubProvider]] — ConnectApi 래퍼 테스트

@@ -78,6 +78,7 @@ created: 2026-06-18
 | Custom Permissions, 커스텀 권한, access check, FeatureManagement.checkPermission, $Permission, 커스텀 권한으로 기능 게이트 | `Security(보안)/Custom Permissions (커스텀 권한).md` |
 | Session-Based Permission Sets, 세션 기반 권한 집합, SessionPermSetActivation, session activation required, step-up 접근 | `Security(보안)/Session-Based Permission Sets (세션 기반 권한 집합).md` |
 | App Settings, System Settings, Apex class access, Visualforce page access, setup entity access, connected app access, 접근 설정 | `Security(보안)/Permission Set 접근 설정 (App·System·Apex·VF 접근).md` |
+| Integration User, 통합 사용자, API-Only User, Salesforce Integration License, 통합 라이선스 무료 5개, Minimum Access API Only Integrations, Salesforce API Integration PSL, 통합 사용자 최소권한 설계 | `Security(보안)/Integration User & API-Only User (통합 사용자).md` |
 
 ## Lightning 보안
 

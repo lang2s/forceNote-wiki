@@ -29,17 +29,22 @@ Get the WSDL from your external system. Common sources:
 Salesforce WSDL2Apex has limitations. Check for:
 
 **Supported:**
-- Document/literal and RPC/encoded styles
+- **Document literal wrapped style only**¹
 - Simple types (string, integer, boolean, date, etc.)
 - Complex types (objects with properties)
 - Arrays and lists
 - Basic SOAP headers
 
 **Not Supported / Problematic:**
-- Very large WSDLs (may hit Apex class size limits)
-- Certain complex inheritance patterns
-- Some advanced XSD features
+- **RPC/encoded services — NOT supported**¹ (Apex supports only document literal wrapped)
+- WSDL files with multiple portTypes, services, or bindings
+- WSDL files that import external schemas (`<xsd:include schemaLocation="...">`)
+- WSDLs that aren't document literal wrapped → `"Unable to find complexType"` error on import
+- Very large WSDLs — parse fails if generated class exceeds the 1,000,000-character limit (includes the Salesforce SOAP API WSDL)
+- Some advanced XSD features / schema types not in the supported list
 - WS-Security (requires manual implementation)
+
+> ¹ **정정 (2026-07-07):** 이전 버전은 "Document/literal and RPC/encoded styles"를 지원으로 표기했으나, 이는 오류다. Apex는 **document literal wrapped 스타일만** 지원하며 **RPC/encoded는 지원하지 않는다**. 근거: *Apex Developer Guide — Supported WSDL Features* ("Apex supports only the document literal wrapped WSDL style"; "Apex does not support ... RPC/encoded services"). 상세는 [[WSDL2Apex — 외부 SOAP 소비 (스텁 생성·구조·한도)]] 참조.
 
 ### 3. Generate Apex Classes
 
@@ -55,13 +60,19 @@ Salesforce WSDL2Apex has limitations. Check for:
 For a WSDL defining `CustomerService` with operation `getCustomer`:
 
 ```
-AsyncCustomerService.cls         - Async version of service
-CustomerService.cls              - Main stub class with methods
-GetCustomerRequest.cls           - Request wrapper
-GetCustomerResponse.cls          - Response wrapper
-Customer.cls                     - Data type from schema
-Address.cls                      - Nested data type
+// 실제 구조: WSDL 네임스페이스당 top-level 클래스 1개.
+// 각 complexType(요청·응답 래퍼·데이터 타입)은 그 클래스의 inner class로 들어간다.
+// Async 스텁만 별도 top-level 클래스로 생성된다.
+CustomerService.cls              - 네임스페이스당 top-level 클래스 1개 (스텁 포트 + 모든 타입을 inner class로 포함)
+  ├─ class CustomerServicePort   - inner: 오퍼레이션 메서드(getCustomer 등)를 가진 스텁 포트
+  ├─ class GetCustomerRequest    - inner: 요청 래퍼
+  ├─ class GetCustomerResponse   - inner: 응답 래퍼
+  ├─ class Customer              - inner: 스키마 데이터 타입
+  └─ class Address               - inner: 중첩 데이터 타입
+AsyncCustomerService.cls         - Async 버전만 별도 top-level 클래스 (접두사 Async)
 ```
+
+> **정정 (2026-07-07):** WSDL2Apex는 타입마다 별도 `.cls`를 만들지 않는다. **WSDL 네임스페이스당 top-level 클래스 1개**를 생성하고, 각 complexType(요청/응답 래퍼·데이터 타입)은 그 클래스의 **inner class**로 넣는다. 동기 스텁과 별개로 **`Async` 접두사 클래스만 별도 top-level**로 생성된다. 근거: developer.salesforce.com — *Understanding the Generated Code* (apex_callouts_wsdl2apex_gen_code): "a default class name for each namespace" + 동일 이름을 재사용해 여러 네임스페이스를 한 클래스로 합칠 수 있음.
 
 ### 5. Configure Endpoint Access
 
