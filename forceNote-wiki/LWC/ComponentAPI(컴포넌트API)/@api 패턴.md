@@ -11,6 +11,23 @@ aliases: [@api, api property, api method, lwc:spread, invoke, headless action, s
 
 ---
 
+## 세 데코레이터 대조 레퍼런스 (@api · @track · @wire)
+
+LWC의 필드 데코레이터는 세 개뿐이다. 모두 `lwc` 모듈에서 import한다 — `import { LightningElement, api, track, wire } from 'lwc';`. `@api`가 **공개 인터페이스**를 담당하고, 나머지 둘은 각각 **반응성**·**데이터 서비스 바인딩**을 담당한다.
+
+| 데코레이터 | 목적 | 문법 | 언제 쓰나 |
+|---|---|---|---|
+| `@api` | 프로퍼티/메서드를 **공개(public)** — 부모가 값을 내려주거나 메서드를 직접 호출 | `@api firstName;` · `@api refresh() { … }` | 컴포넌트의 외부 인터페이스를 노출할 때 (부모→자식 데이터·명령) |
+| `@track` | **객체/배열의 내부 변경**(속성 mutation, 요소 push 등)까지 반응성 추적 | `@track state = { … };` | 대부분 불필요 — 필드는 이미 반응형. 객체/배열을 **재할당하지 않고 내부만** 바꿔야 할 때만 |
+| `@wire` | Apex 메서드·Lightning Data Service 등 **데이터 서비스에 프로퍼티/함수를 바인딩** | `@wire(getContacts) contacts;` | 데이터를 선언적으로 읽고 반응적으로 갱신받을 때 |
+
+> [!note] @track은 이제 대부분 필요 없다
+> LWC 필드는 기본적으로 반응형이라, 필드에 **새 값을 재할당**하면(`this.obj = {…}`) 데코레이터 없이도 재렌더된다. `@track`은 재할당 없이 **기존 객체/배열의 내부를 직접 mutate**할 때만 반응성을 살린다. 상세는 [[LWC 리액티비티 (반응형 필드·재렌더 트리거)]] 참조.
+>
+> `@wire`의 함수·프로퍼티 형태, 동적 파라미터(`'$recordId'`), 에러 처리 등 상세는 [[Wire 패턴]] 참조. 이 노트는 이하 `@api`의 실전 패턴에 집중한다.
+
+---
+
 ## 패턴 1: @api Property (단순 전달)
 
 ```javascript

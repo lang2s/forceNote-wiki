@@ -32,6 +32,10 @@ created: 2026-05-17
 | [[LWR Tag Manager 데이터 관리]] | LWR 데이터 관리 — Experience/Google Tag Manager·experience_interaction·Tag Manager Event Reference·Consent·Website Engagement DMO → Data Cloud | #reference |
 | [[Lightning Out 2.0 (외부 앱 임베드)]] | 비-Salesforce 외부 앱에 LWC 임베드 — LWR 기반·frontdoor-url·app-id·closed shadow DOM iframe·lo.application.ready·window.postMessage (Lightning Out beta 대체 GA) | #reference |
 | [[LWC 드래그앤드롭 패턴 (HTML5 dataTransfer)]] | HTML5 drag & drop — draggable·ondragstart/ondragover/ondrop·dataTransfer setData/getData·effectAllowed/dropEffect·setDragImage, SObject 직렬화로 컴포넌트 간 레코드 전달 | #pattern |
+| [[LWC 폼 검증 패턴]] | `checkValidity`/`reportValidity`/`setCustomValidity` 클라이언트 검증 + `record-edit-form` onsubmit/onerror 서버 검증 연결 | #pattern |
+| [[LWC 접근성 패턴]] | 대체텍스트·`aria-*` 바인딩/reflection·포커스 관리(모달 트랩·roving tabindex)·키보드 핸들링·스크린리더 라이브 리전 | #pattern |
+| [[LWC 성능·렌더링 최적화 (작성자 관점)]] | 불필요 재렌더 회피·for:each key·lazy/dynamic import·@wire vs imperative·무거운 계산 회피 (작성자 통제 성능 레버) | #pattern |
+| [[LWC 반응형 레이아웃 패턴]] | SLDS 그리드(CSS 브레이크포인트)·`lightning-layout`(디바이스별 size)·`@salesforce/client/formFactor`(런타임 폼 팩터) 3계층 | #pattern |
 
 ---
 
@@ -55,3 +59,7 @@ created: 2026-05-17
 - LWR 사이트 인터랙션 추적·Google Tag Manager·Data Cloud 데이터 전송? → [[LWR Tag Manager 데이터 관리]]
 - 외부(비-Salesforce) 사이트/앱에 LWC를 임베드? → [[Lightning Out 2.0 (외부 앱 임베드)]]
 - 드래그앤드롭으로 레코드/아이템 옮기기? → [[LWC 드래그앤드롭 패턴 (HTML5 dataTransfer)]]
+- 폼 입력 유효성 검사(클라이언트+서버)? → [[LWC 폼 검증 패턴]]
+- 접근성(ARIA·포커스·키보드·스크린리더) 실무 패턴? → [[LWC 접근성 패턴]]
+- 컴포넌트가 느릴 때 렌더링 최적화? → [[LWC 성능·렌더링 최적화 (작성자 관점)]]
+- 데스크톱/태블릿/모바일 반응형 레이아웃? → [[LWC 반응형 레이아웃 패턴]]

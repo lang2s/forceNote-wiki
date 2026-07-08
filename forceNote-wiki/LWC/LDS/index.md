@@ -15,6 +15,7 @@ created: 2026-05-17
 
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
+| [[LDS 개념 (Lightning Data Service)]] | UI API 위 클라이언트 데이터 레이어·공유 캐시·FLS/공유/CRUD 자동 준수·LDS vs Apex (LDS 진입 개념) | #concept |
 | [[UI API 개요]] | UI API REST 엔드포인트 전체 + LWC wire 어댑터 매핑 (v67.0) | #reference |
 | [[UI API 리소스 레퍼런스]] | UI API request/response 바디 스키마 전수 레퍼런스 (api_ui.pdf Ch3-5) | #reference |
 | [[Record Form 선택]] | record-form vs edit-form vs view-form 결정 | #decision |
@@ -25,6 +26,7 @@ created: 2026-05-17
 | [[GraphQL Wire Adapter]] | lightning/graphql gql 쿼리, variables getter, errors 프로퍼티, refresh | #pattern |
 | [[RefreshView API]] | lightning/refresh RefreshViewEvent로 컴포넌트 하위 트리 데이터 갱신(페이지 리로드 없이), refreshApex·refreshGraphQL·notifyRecordUpdateAvailable 비교 | #pattern |
 | [[GraphQL 뮤테이션 (executeMutation) — Create·Update·Delete]] | lightning/graphql executeMutation으로 Apex 없이 레코드 생성/수정/삭제 — AccountCreate·ContactUpdate·RecordDelete, variables 인젝션 방지, 뮤테이션 후 wire refresh | #pattern |
+| [[getListUi·관련리스트 wire 패턴]] | `lightning/uiListsApi`(리스트 뷰)·`lightning/uiRelatedListApi`(관련 리스트) wire 어댑터로 Apex 없이 리스트/관련리스트 조회·페이지네이션 | #pattern |
 
 ---
 
@@ -36,6 +38,8 @@ created: 2026-05-17
 - LDS 에러 메시지 정규화? → [[ldsUtils reduceErrors]]
 - 페이지 리로드 없이 데이터 새로고침? → [[RefreshView API]]
 - Apex 없이 GraphQL로 레코드 생성/수정/삭제? → [[GraphQL 뮤테이션 (executeMutation) — Create·Update·Delete]]
+- LDS가 뭐야·언제 쓰나·Apex와 뭐가 다른가? → [[LDS 개념 (Lightning Data Service)]]
+- 리스트 뷰/관련 리스트를 wire로 조회? → [[getListUi·관련리스트 wire 패턴]]
 
 ## LDS vs Apex
 

@@ -27,6 +27,12 @@ created: 2026-05-21
 | 외부에서 Salesforce API 호출 | `Apex/Integration(통합)/Custom REST Endpoint.md` |
 | Trigger에서 HTTP 호출 | `Integration(통합)/Queueable + Callout 패턴.md` |
 | 레코드 저장/수정/삭제 LWC에서 | `LWC/LDS/uiRecordApi.md` |
+| LWC slot으로 부모 마크업 전달 / named slot·scoped slot 쓰는 법 | `LWC/CreateComponents(컴포넌트작성)/LWC Slots (기본·named·scoped).md` |
+| LWC 언제 재렌더되나 / @track 이제 필요없나 / 배열 push 했는데 화면 안 바뀜 | `LWC/CreateComponents(컴포넌트작성)/LWC 리액티비티 (반응형 필드·재렌더 트리거).md` |
+| LWC 단위 테스트 설정 어떻게 / @wire 목킹 어떻게 / Jest 설치 실행 | `LWC/Testing(테스트)/sfdx-lwc-jest 설정·실행.md` + `LWC/Testing(테스트)/Jest 테스트 패턴.md` |
+| 리스트뷰/관련리스트를 wire로 조회 / Apex 없이 list view 레코드 가져오기 | `LWC/LDS/getListUi·관련리스트 wire 패턴.md` |
+| LWS 켜기 / Locker에서 LWS로 마이그레이션 / 클라이언트 보안 롤백 | `LWC/Security(보안)/LWS 활성화·Locker 마이그레이션 절차.md` |
+| SLDS 스타일링 훅 토큰 값 어디서 봐 / 다크모드·밀도 대응 / --slds-g-* 스케일 | `LWC/SLDS(디자인시스템)/SLDS 글로벌 스타일링 훅 토큰 레퍼런스.md` + `LWC/SLDS(디자인시스템)/SLDS 2 테마·다크모드·밀도.md` |
 | 대용량 데이터 처리 | `Apex/Async(비동기)/Batch Apex.md` |
 | 테스트에서 HTTP 호출 모킹 | `Apex/Testing(테스트)/HttpCalloutMock.md` |
 | Flow에서 Apex 쓰는 방법 | `Flow/@InvocableMethod 패턴.md` |

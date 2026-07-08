@@ -20,6 +20,10 @@ created: 2026-05-21
 | lifecycle hooks, LWC 라이프사이클, 생명주기, constructor, connectedCallback, disconnectedCallback, renderedCallback, errorCallback, error boundary, hasRendered, isConnected, 컴포넌트 렌더 후 실행, DOM 삽입 제거 시 코드 | `LWC/CreateComponents(컴포넌트작성)/Lifecycle Hooks.md` |
 | LWC CSS, CSS 스타일시트, scoped CSS, :host selector, shadow DOM 스코핑, static stylesheets, cascade specificity inheritance, host-context ::part 미지원, LWC 스타일링, 컴포넌트 CSS | `LWC/CreateComponents(컴포넌트작성)/CSS 스타일시트와 스코핑.md` |
 | 컴포넌트 접근성, accessibility, a11y, ARIA, aria-label, ariaLabel, aria-pressed, screen reader, label, WCAG, 기본 ARIA, role 고정, ID ARIA 링크, camel-case ARIA, 접근성 속성, LWC에서 aria 속성 어떻게, 스크린리더 대응 | `LWC/CreateComponents(컴포넌트작성)/컴포넌트 접근성 (ARIA·label).md` |
+| component bundle, 컴포넌트 번들, LWC 번들 구조, LWC 파일 구조, component folder, 컴포넌트 폴더, 첫 컴포넌트 만들기, create first LWC, c-my-component, kebab-case, camelCase, sf lightning generate component, LWC 생성, LWC 배포, isExposed, targets, 첫 LWC 컴포넌트 어떻게 만드나 | `LWC/CreateComponents(컴포넌트작성)/컴포넌트 번들 구조와 첫 컴포넌트 만들기.md` |
+| LWC data binding, template binding, 데이터 바인딩, 템플릿 표현식, curly braces, 중괄호 바인딩, property binding, getter binding, event handler binding, onclick 바인딩, 템플릿 getter, LWC 템플릿에서 계산값 어떻게 표시 | `LWC/CreateComponents(컴포넌트작성)/LWC 템플릿 기초 (데이터 바인딩·표현식).md` |
+| LWC 리액티비티, LWC reactivity, 반응형 필드, reactive fields, 재렌더 트리거, rerender, @track, immutable update, 스프레드 재할당, 배열 push 재렌더 안됨, 중첩 객체 mutation, LWC 언제 재렌더, @track 이제 필요없나 | `LWC/CreateComponents(컴포넌트작성)/LWC 리액티비티 (반응형 필드·재렌더 트리거).md` |
+| slot, slots, named slot, scoped slot, lwc:slot-data, lwc:slot-bind, slotchange, 슬롯, 네임드 슬롯, 스코프드 슬롯, 마크업 전달, 부모가 자식 body에 마크업 전달 | `LWC/CreateComponents(컴포넌트작성)/LWC Slots (기본·named·scoped).md` |
 
 ## LWC — Reference (레퍼런스)
 
@@ -46,10 +50,10 @@ created: 2026-05-21
 | CustomEvent, 자식→부모, dispatchEvent, detail, bubbles, composed, 이벤트 버블링 | `LWC/Events(이벤트)/CustomEvent 패턴.md` |
 | 이벤트 전파, event propagation, bubbles, composed, Event.target, currentTarget, composedPath, event retargeting, shadow 경계 이벤트, props down events up, 네임스페이스 이벤트, 이벤트가 부모로 전파, bubble 설정 | `LWC/Events(이벤트)/이벤트 전파 (bubbles·composed).md` |
 | LMS, Lightning Message Service, 형제 컴포넌트, 크로스 컴포넌트, publish, subscribe, MessageContext, pubsub | `LWC/Events(이벤트)/Lightning Message Service.md` |
-| @api property, @api method, 부모→자식, querySelector, getter setter, lwc:spread | `LWC/ComponentAPI(컴포넌트API)/@api 패턴.md` |
+| @api property, @api method, 부모→자식, querySelector, getter setter, lwc:spread, @track, @wire, 데코레이터 | `LWC/ComponentAPI(컴포넌트API)/@api 패턴.md` |
 | LWC API 버전 관리, apiVersion, js-meta.xml, lwc:if, lwc:elseif, lwc:else, 동적 임포트, dynamic import, Lightning Web Security, LWS, if:true deprecated, createComponent, sfdx-project.json sourceApiVersion | `LWC/ComponentAPI(컴포넌트API)/LWC API 버전 관리.md` |
 | 다른 컴포넌트 함수 호출, 컴포넌트 간 함수 실행 | `LWC/ComponentAPI(컴포넌트API)/@api 패턴.md` + `LWC/Events(이벤트)/Lightning Message Service.md` |
-| 상태 관리, @lwc/state, atom, computed, 공유 상태, fromContext | `LWC/Events(이벤트)/상태 관리.md` |
+| 상태 관리, @lwc/state, atom, computed, 공유 상태, fromContext, @lwc/signals, experimental | `LWC/Events(이벤트)/상태 관리.md` |
 | 컨테이너 컴포넌트, 프레젠테이션, 컴포지션, for:each, lwc:if | `LWC/ComponentAPI(컴포넌트API)/컴포지션 패턴.md` |
 
 ## LWC — LDS / 레코드 조작
@@ -58,7 +62,7 @@ created: 2026-05-21
 |---|---|
 | UI API, User Interface API, ui-api, REST 엔드포인트, wire 어댑터 목록, uiRecordApi 모듈, uiObjectInfoApi, uiListsApi, uiRelatedListApi, RecordUI, ObjectInfo, getRelatedListInfo, getRelatedListRecords, getObjectInfo, getObjectInfos, getListUi, getListRecords, LDS REST API 전체 | `LWC/LDS/UI API 개요.md` |
 | UI API reference, record-input, object-info fields, request body, response body, layoutTypes, optionalFields, childRelationships, picklist values 스키마, UI API 응답 바디, UI API 요청 파라미터, 레코드 인풋 | `LWC/LDS/UI API 리소스 레퍼런스.md` |
-| lightning-record-form, record-edit-form, record-view-form, 레코드 폼 선택 | `LWC/LDS/Record Form 선택.md` |
+| lightning-record-form, record-edit-form, record-view-form, 레코드 폼 선택, density, layout-type, record-type-id, 폼 이벤트 onsubmit onsuccess | `LWC/LDS/Record Form 선택.md` |
 | getRecord, getFieldValue, static schema, @salesforce/schema, layoutTypes, modes, 레이아웃 필드, 레이아웃 기반 레코드 조회 | `LWC/LDS/getRecord 패턴.md` |
 | createRecord, updateRecord, deleteRecord, uiRecordApi, notifyRecordUpdateAvailable, 레코드 생성 수정 삭제, LWC에서 DML | `LWC/LDS/uiRecordApi.md` |
 | reduceErrors, 에러 정규화, ldsUtils | `LWC/LDS/ldsUtils reduceErrors.md` |
@@ -66,12 +70,14 @@ created: 2026-05-21
 | GraphQL wire, lightning/graphql, gql, graphql wire adapter, GraphQL API LWC, variables getter, errors 프로퍼티, uiGraphQLApi, LWC에서 GraphQL 쿼리, 그래프QL, refresh | `LWC/LDS/GraphQL Wire Adapter.md` |
 | RefreshView API, lightning/refresh, RefreshViewEvent, view refresh, 데이터 새로고침, refreshApex, refreshGraphQL, notifyRecordUpdateAvailable, 컴포넌트 데이터 갱신, 페이지 리로드 없이 갱신, 뷰 새로고침 어떻게, 표준 새로고침 API | `LWC/LDS/RefreshView API.md` |
 | executeMutation, lightning/graphql mutation, gql mutation, AccountCreate, ContactUpdate, ContactDelete, RecordDelete, uiapi mutation input, GraphQL 뮤테이션, GraphQL 레코드 생성 수정 삭제, Apex 없이 CRUD, LWC에서 GraphQL로 레코드 만들기, graphql wire refresh, GraphQL variables 인젝션 방지 | `LWC/LDS/GraphQL 뮤테이션 (executeMutation) — Create·Update·Delete.md` |
+| Lightning Data Service, LDS, LDS 개념, LDS란, 공유 캐시, shared cache, LDS vs Apex, Apex vs LDS, UI API 데이터 레이어, 클라이언트 데이터 레이어, LDS가 뭐야 언제 쓰나 | `LWC/LDS/LDS 개념 (Lightning Data Service).md` |
+| getListRecordsByName, getListInfoByName, getListUi, getRelatedListRecords, getRelatedListInfo, getRelatedListCount, getRelatedListsInfo, 리스트뷰 wire, 관련리스트 wire, list view records, related list records, uiListsApi, uiRelatedListApi, 리스트뷰 관련리스트 wire로 조회 | `LWC/LDS/getListUi·관련리스트 wire 패턴.md` |
 
 ## LWC — UI / 네비게이션 / 모달
 
 | 키워드 | 파일 |
 |---|---|
-| Toast, ShowToastEvent, variant, success error warning info | `LWC/UIPatterns(UI패턴)/Toast & 모달 패턴.md` |
+| Toast, ShowToastEvent, variant, success error warning info, lightning-toast, toast-container, 선언형 토스트 | `LWC/UIPatterns(UI패턴)/Toast & 모달 패턴.md` |
 | 모달, LightningModal, modal open close, 확인 다이얼로그 | `LWC/UIPatterns(UI패턴)/Toast & 모달 패턴.md` |
 | LightningAlert, alert.open, 단순 경고 다이얼로그, 차단 알림, OK 클릭 대기 | `LWC/UIPatterns(UI패턴)/Toast & 모달 패턴.md` |
 | 에러 패널, errorPanel, 에러 표시 컴포넌트 | `LWC/UIPatterns(UI패턴)/에러 패널 패턴.md` |
@@ -90,6 +96,10 @@ created: 2026-05-21
 | LWR Tag Manager, Experience Tag Manager, Google Tag Manager, GTM, LWR 데이터 관리, Manage Data, experience_interaction, Experience Data Layer, Tag Manager Event Reference, 인터랙션 이벤트 추적, Cart Catalog Consent Email Engagement Error Line Item Search Wish-List Interactions, set-consent, Consent Opt-In, Website Engagement DMO, Data Cloud, x-oasis-script, LWR 사이트 인터랙션 추적, LWR 사이트 데이터 어떻게 Data Cloud로 보내나, GTM LWR 연동 | `LWC/UIPatterns(UI패턴)/LWR Tag Manager 데이터 관리.md` |
 | Lightning Out 2.0, Lightning Out, 외부 앱 임베드, lightning-out-application, frontdoor-url, app-id, LWR 외부, iframe LWC, closed shadow DOM, lo.application.ready, window.postMessage, 외부 사이트에 LWC 임베드, 비-Salesforce 앱에 LWC 넣기 | `LWC/UIPatterns(UI패턴)/Lightning Out 2.0 (외부 앱 임베드).md` |
 | LWC drag and drop, HTML5 drag drop, dataTransfer, draggable, ondragstart, ondrop, ondragover, setData, getData, effectAllowed, dropEffect, preventDefault, setDragImage, dragenter, dragleave, dragend, SObject 직렬화, 레코드 드래그, 드래그앤드롭, 드래그 앤 드롭, 컴포넌트 간 데이터 전달, LWC에서 드래그로 레코드 옮기기, 드롭존 만들기 | `LWC/UIPatterns(UI패턴)/LWC 드래그앤드롭 패턴 (HTML5 dataTransfer).md` |
+| LWC 폼 검증, checkValidity, reportValidity, setCustomValidity, form validation, 입력 검증, message-when, lightning-input 검증, record-edit-form onsubmit onerror, LWC 폼 유효성 검사 어떻게 | `LWC/UIPatterns(UI패턴)/LWC 폼 검증 패턴.md` |
+| LWC accessibility pattern, 접근성 패턴, a11y pattern, alternative-text, aria-live, role status, slds-assistive-text, visually hidden, focus trap, 포커스 트랩, roving tabindex, keyboard handling, 키보드 처리, aria reflection, 스크린리더 라이브 리전, LWC 접근성 실무 패턴 | `LWC/UIPatterns(UI패턴)/LWC 접근성 패턴.md` |
+| LWC 성능, LWC performance, 렌더링 최적화, rendering optimization, 불필요 재렌더, unnecessary rerender, for:each key, lazy loading, 지연 로딩, 조건부 렌더, dynamic import, wire vs imperative, 병렬 로딩, debounce, 디바운스, getter 캐싱, LWC 느릴 때 최적화 | `LWC/UIPatterns(UI패턴)/LWC 성능·렌더링 최적화 (작성자 관점).md` |
+| LWC 반응형 레이아웃, responsive layout, slds-grid, slds-col, lightning-layout, form factor, formFactor, 폼 팩터, 반응형 그리드, breakpoint, 데스크톱 태블릿 모바일, LWC 화면 크기별 레이아웃 | `LWC/UIPatterns(UI패턴)/LWC 반응형 레이아웃 패턴.md` |
 
 ## LWC — 보안 / 모바일
 
@@ -97,6 +107,8 @@ created: 2026-05-21
 |---|---|
 | LWC 보안, CSP 브라우저, 권한 기반 UI, userId | `LWC/Security(보안)/LWC 보안 패턴.md` |
 | Lightning Web Security, LWS, Lightning Locker, 클라이언트 보안, client-side security, distortion, secure wrapper, JavaScript strict mode, CSP, Content Security Policy, 가상 JS 샌드박스, LWS vs Locker, 어떤 보안 아키텍처 | `LWC/Security(보안)/Lightning Web Security vs Lightning Locker.md` |
+| LWS 활성화, enable Lightning Web Security, Locker to LWS migration, Locker 마이그레이션, LWS Console, distortion 디버깅, LWS 롤백, Session Settings LWS, LWS 호환성 테스트, LWS 켜기, Locker에서 마이그레이션 | `LWC/Security(보안)/LWS 활성화·Locker 마이그레이션 절차.md` |
+| CSP, Content Security Policy, CSP Trusted Sites, Trusted URLs, connect-src, frame-src, img-src, style-src, font-src, media-src, CSP 신뢰 사이트, 콘텐츠 보안 정책, 외부 도메인 리소스 허용 | `LWC/Security(보안)/CSP·Trusted Sites 레퍼런스.md` |
 | 모바일, getBarcodeScanner, 바코드, getLocationService, GPS, isAvailable | `LWC/Mobile(모바일)/모바일 기능 패턴.md` |
 | 모바일 오프라인, LWC Offline, Offline GraphQL, Briefcase 프라이밍, draft records 충돌, mobileCapabilities 전체 서비스, getBiometrics getNfc getContacts getCalendar getPayments getDocumentScanner getGeofencing, 오프라인 캐시 | `LWC/Mobile(모바일)/모바일 & 오프라인 (LWC).md` |
 
@@ -104,9 +116,12 @@ created: 2026-05-21
 
 | 키워드 | 파일 |
 |---|---|
-| LWC Jest 테스트, jest wire mock, @wire 테스트, registerTestWireAdapter, emit, emitError | `LWC/Testing(테스트)/Jest 테스트 패턴.md` |
+| LWC Jest 테스트, jest wire mock, @wire 테스트, registerTestWireAdapter, emit, emitError, createTestWireAdapter, createApexTestWireAdapter, createLdsTestWireAdapter, wire adapter mock | `LWC/Testing(테스트)/Jest 테스트 패턴.md` |
 | LWC DOM 이벤트 테스트, querySelector, dispatchEvent, CustomEvent 검증, 버튼 클릭 테스트 | `LWC/Testing(테스트)/Jest 테스트 패턴.md` |
 | @salesforce/apex mock, jest.mock, mockResolvedValue, mockRejectedValue, virtual true, Apex 모킹 LWC | `LWC/Testing(테스트)/Jest 테스트 패턴.md` |
+| Jest 스냅샷, snapshot testing, toMatchSnapshot, __snapshots__, updateSnapshot, LWC 커버리지, jest coverage, collectCoverageFrom, coverageThreshold, LWC code coverage, LWC 테스트 커버리지 측정 | `LWC/Testing(테스트)/Jest 스냅샷·커버리지.md` |
+| sfdx-lwc-jest, sfdx lwc jest setup, jest config lwc, test:unit, lwc test setup, npm test lwc, jest moduleNameMapper, LWC 단위 테스트 설정, LWC Jest 설치 실행 | `LWC/Testing(테스트)/sfdx-lwc-jest 설정·실행.md` |
+| createElement, 컴포넌트 마운트, appendChild, shadowRoot querySelector, DOM 쿼리, teardown afterEach, flushPromises, microtask flush, dispatchEvent 테스트, LWC 테스트에서 DOM 어떻게 검증 | `LWC/Testing(테스트)/컴포넌트 마운트·DOM 쿼리 레퍼런스.md` |
 
 ## LWC — 내부 구조 (Internals, Tier 1 오픈소스 소스)
 
@@ -121,6 +136,8 @@ created: 2026-05-21
 | LWC 런타임 플래그, lwcRuntimeFlags, setFeatureFlag, setFeatureFlagForTest, DISABLE_NATIVE_CUSTOM_ELEMENT_LIFECYCLE, ENABLE_WIRE_SYNC_EMIT, DISABLE_SYNTHETIC_SHADOW, ENABLE_FROZEN_TEMPLATE, ENABLE_LEGACY_SCOPE_TOKENS, DISABLE_DETACHED_REHYDRATION, @lwc/features | `LWC/Internals(내부구조)/LWC 런타임 Feature Flags.md` |
 | LWC 템플릿 컴파일러, @lwc/template-compiler, compile() 함수, TemplateCompileResult, RENDER_APIS, api_element api_custom_element api_text api_dynamic_text api_static_fragment, static content optimization, isStaticNode, optimizeStaticExpressions, stcN 호이스팅, LWC HTML 컴파일 출력 | `LWC/Internals(내부구조)/LWC 템플릿 컴파일러 파이프라인.md` |
 | LWC Shadow DOM 모드, native shadow synthetic shadow light DOM 비교, RenderMode Light Shadow, ShadowMode Native Synthetic, shadowSupportMode any reset native, shadow migrate mode, applyShadowMigrateMode, DISABLE_SYNTHETIC_SHADOW, @lwc/synthetic-shadow 폴리필 | `LWC/Internals(내부구조)/LWC Shadow DOM 모드.md` |
+| LWC 렌더 사이클, LWC 재렌더 루프, rehydrate, rerenderVM, rehydration queue, scheduleRehydration, flushRehydrationQueue, patchShadowRoot, VDOM diff, reconcile, 재조정, microtask 배칭, LWC 렌더링 파이프라인, 값 바뀌면 언제 DOM 갱신 | `LWC/Internals(내부구조)/LWC 렌더·재조정 루프.md` |
+| LWC browser support, LWC supported browsers, LWC polyfill, synthetic-shadow polyfill, aria-reflection, native custom element lifecycle, DISABLE_NATIVE_CUSTOM_ELEMENT_LIFECYCLE, LWC locale, LWC 브라우저 지원, LWC 폴리필, LWC 어떤 브라우저 지원 | `LWC/Internals(내부구조)/LWC 브라우저 지원·폴리필.md` |
 
 ---
 
@@ -168,10 +185,13 @@ created: 2026-05-21
 
 | 키워드 | 파일 |
 |---|---|
-| SLDS, SLDS 2, Lightning Design System, LWC 디자인 시스템, CSS Styling Hook, 스타일링 훅, CSS Custom Properties, Design Token, 전역 토큰, --slds-g-*, --slds-c-*, Dark Mode, 다크 모드, Density Styling Hook, 밀도 인식, 반응형 디자인, Winter 26 GA | `LWC/UIPatterns(UI패턴)/SLDS LWC 디자인 시스템.md` |
+| SLDS, SLDS 2, Lightning Design System, LWC 디자인 시스템, CSS Styling Hook, 스타일링 훅, 글로벌 스타일링 훅, CSS Custom Properties, Design Token, 전역 토큰, --slds-g-*, --slds-c-*, Cosmos, Dark Mode, 다크 모드, Density Styling Hook, 밀도 인식, 반응형 디자인, Winter 26 GA | `LWC/UIPatterns(UI패턴)/SLDS LWC 디자인 시스템.md` |
 | SLDS 유틸리티 클래스, slds-grid, slds-col, slds-size, slds-m-*, slds-p-*, slds-text-heading, slds-button, slds-button_brand, slds-button_neutral, slds-button_destructive, slds-icon_container, Shadow DOM CSS 격리, light DOM CSS | `LWC/UIPatterns(UI패턴)/SLDS LWC 디자인 시스템.md` |
 | SLDS 유틸리티 클래스, slds-m-_, slds-p-_, slds-grid, slds-col, slds-text-heading, slds-box, slds-truncate, 마진 패딩 클래스, 유틸리티 전수, SLDS Utilities | `LWC/SLDS(디자인시스템)/SLDS 유틸리티 클래스 레퍼런스.md` |
 | SLDS 스타일링 훅, Styling Hooks, --slds-g-_, --slds-c-_, CSS Custom Properties, 테마 다크모드 훅, 색상 토큰 | `LWC/SLDS(디자인시스템)/SLDS 스타일링 훅.md` |
+| SLDS Global Styling Hooks, 글로벌 스타일링 훅, 스타일링 훅 토큰, design tokens, --slds-g-color, --slds-g-spacing, --slds-g-sizing, --slds-g-radius, --slds-g-font, --slds-g-shadow, SLDS 토큰 스케일, SLDS 토큰 값 어디서 봐 | `LWC/SLDS(디자인시스템)/SLDS 글로벌 스타일링 훅 토큰 레퍼런스.md` |
+| SLDS Icons, SLDS 아이콘, slds-icon, 아이콘 스프라이트, SVG icon sprite, utility standard action doctype custom, slds-icon_container, slds-assistive-text, xlink:href, SLDS 아이콘 마크업 어떻게 | `LWC/SLDS(디자인시스템)/SLDS 아이콘 시스템 레퍼런스.md` |
+| SLDS 2 Theme, Cosmos Theme, 코스모스 테마, Dark Mode, 다크모드, Display Density, 밀도, comfy, compact, slds-color-scheme_dark, light-dark, SLDS 다크모드 대응 어떻게 | `LWC/SLDS(디자인시스템)/SLDS 2 테마·다크모드·밀도.md` |
 | SLDS 접근성, Accessibility, a11y, 색 대비, 포커스 관리, 키보드 인터랙션, WCAG, 모바일 접근성 | `LWC/SLDS(디자인시스템)/SLDS 접근성.md` |
 | SLDS 모범 사례, Best Practices, SLDS1 vs SLDS2, 3단계 커스터마이즈 모델, 마이그레이션 | `LWC/SLDS(디자인시스템)/SLDS 모범 사례.md` |
 | SLDS 개발 도구, SLDS Tools, Figma Kit, SLDS Linter, SLDS Validator, VS Code 확장 | `LWC/SLDS(디자인시스템)/SLDS 개발 도구.md` |

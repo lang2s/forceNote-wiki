@@ -34,6 +34,10 @@ created: 2026-05-17
 - [[Lifecycle Hooks]] — 라이프사이클 훅 전수(constructor·connectedCallback·disconnectedCallback·renderedCallback·errorCallback) + hasRendered·isConnected·error boundary
 - [[CSS 스타일시트와 스코핑]] — LWC CSS 스타일시트·scoped CSS·shadow DOM 스코핑·`:host` 셀렉터·static stylesheets·cascade/specificity/inheritance·미지원(`::part`/`:host-context`)
 - [[컴포넌트 접근성 (ARIA·label)]] — LWC 접근성(a11y): ARIA 속성·camel-case 프로퍼티(ariaLabel)·기본 ARIA·role 고정·ID 기반 ARIA 링크·label·screen reader·WCAG
+- [[컴포넌트 번들 구조와 첫 컴포넌트 만들기]] — 번들 파일 구성·camelCase 폴더→`c-kebab-case` 명명 규칙·SFDX CLI로 첫 컴포넌트 생성·노출·배포·페이지 배치
+- [[LWC 템플릿 기초 (데이터 바인딩·표현식)]] — `{property}` 중괄호 데이터 바인딩·getter 바인딩·이벤트 핸들러 바인딩(표현식·함수 호출 불가, 계산값은 getter)
+- [[LWC 리액티비티 (반응형 필드·재렌더 트리거)]] — 필드 재할당→재렌더, 객체/배열 mutate 시 재렌더 안 됨, immutable 교체·`@track` 필요 시점 (개발자 멘털모델)
+- [[LWC Slots (기본·named·scoped)]] — `<slot>` 자리표시자: default·named(`name`)·scoped(`lwc:slot-data`/`lwc:slot-bind`) 세 가지 마크업 전달 방식
 
 ---
 
@@ -58,6 +62,7 @@ created: 2026-05-17
 
 ## 🗃 LDS & 레코드 폼
 
+- [[LDS 개념 (Lightning Data Service)]] — UI API 위 클라이언트 데이터 레이어·공유 캐시·FLS/공유/CRUD 자동 준수·LDS vs Apex 결정 (LDS 진입 개념)
 - [[UI API 개요]] — UI API REST 엔드포인트 전체 + wire 어댑터 매핑 (v67.0 Summer '26)
 - [[UI API 리소스 레퍼런스]] — Ch3-5 요청/응답 스키마 전수 (개요의 레퍼런스 spoke)
 - [[Record Form 선택]] — lightning-record-form vs edit-form vs view-form 결정
@@ -68,6 +73,7 @@ created: 2026-05-17
 - [[GraphQL Wire Adapter]] — lightning/graphql gql 쿼리, variables getter, errors 프로퍼티, refresh
 - [[GraphQL 뮤테이션 (executeMutation) — Create·Update·Delete]] — lightning/graphql executeMutation으로 Apex 없이 레코드 CRUD(AccountCreate·ContactUpdate·RecordDelete), variables 인젝션 방지, 뮤테이션 후 wire refresh
 - [[RefreshView API]] — lightning/refresh RefreshViewEvent로 컴포넌트 하위 트리 데이터 갱신(페이지 리로드 없이); refreshApex·refreshGraphQL·notifyRecordUpdateAvailable 비교
+- [[getListUi·관련리스트 wire 패턴]] — `lightning/uiListsApi`(리스트 뷰)·`lightning/uiRelatedListApi`(관련 리스트) wire 어댑터로 Apex 없이 리스트/관련리스트 조회·페이지네이션
 
 ## 📚 Base Components 상세 레퍼런스
 
@@ -172,6 +178,10 @@ created: 2026-05-17
 - [[LWR Tag Manager 데이터 관리]] — Experience/Google Tag Manager·experience_interaction 이벤트·Tag Manager Event Reference·Consent·Website Engagement DMO → Data Cloud
 - [[Lightning Out 2.0 (외부 앱 임베드)]] — 비-Salesforce 외부 앱에 LWC 임베드(LWR 기반·frontdoor-url·app-id·closed shadow DOM iframe·lo.application.ready·window.postMessage) — Lightning Out beta 대체 GA
 - [[LWC 드래그앤드롭 패턴 (HTML5 dataTransfer)]] — HTML5 drag & drop(draggable·ondragstart/ondragover/ondrop·dataTransfer setData/getData·effectAllowed/dropEffect·setDragImage)로 컴포넌트 간 레코드 전달
+- [[LWC 폼 검증 패턴]] — `checkValidity`/`reportValidity`/`setCustomValidity` 클라이언트 검증 + `record-edit-form` onsubmit/onerror 서버 검증 연결
+- [[LWC 접근성 패턴]] — 대체텍스트·`aria-*` 바인딩/reflection·포커스 관리(모달 트랩·roving tabindex)·키보드 핸들링·스크린리더 라이브 리전(aria-live·role=status)
+- [[LWC 성능·렌더링 최적화 (작성자 관점)]] — 작성자가 통제하는 성능 레버: 불필요 재렌더 회피·for:each key·lazy/dynamic import·@wire vs imperative·무거운 계산 회피
+- [[LWC 반응형 레이아웃 패턴]] — SLDS 그리드(CSS 브레이크포인트)·`lightning-layout`(디바이스별 size)·`@salesforce/client/formFactor`(런타임 폼 팩터) 3계층
 
 ## 🎨 SLDS 디자인 시스템
 
@@ -179,6 +189,9 @@ created: 2026-05-17
 
 - [[SLDS 유틸리티 클래스 레퍼런스]] — 마진·패딩·그리드·타이포 등 24개 카테고리 전수 + HTML 예제
 - [[SLDS 스타일링 훅]] — `--slds-g-*`/`--slds-c-*` CSS 커스텀 속성, 테마·다크모드
+- [[SLDS 글로벌 스타일링 훅 토큰 레퍼런스]] — `--slds-g-*` 전역 디자인 토큰 카탈로그(color·spacing·sizing·radius·font·shadow) + 네이밍·스케일 값
+- [[SLDS 아이콘 시스템 레퍼런스]] — 5개 스프라이트 셋(utility·standard·action·doctype·custom)·`slds-icon` 컨테이너/사이즈/색 클래스·`<use xlink:href>` 마크업·접근성 텍스트 (CSS 레벨)
+- [[SLDS 2 테마·다크모드·밀도]] — 조직 레벨 테마(Cosmos)·다크모드(slds-color-scheme_dark·light-dark)·표시 밀도(comfy/compact) + 커스텀 LWC 대응 절차
 - [[SLDS 접근성]] — 색 대비·포커스·키보드·모바일 9원칙
 - [[SLDS 모범 사례]] — SLDS 1 vs 2, 3단계 커스터마이즈 모델
 - [[SLDS 개발 도구]] — Figma Kit, SLDS Linter/Validator
@@ -202,6 +215,8 @@ created: 2026-05-17
 
 - [[LWC 보안 패턴]] — 권한 기반 UI, @api 노출 범위, userId, CSP
 - [[Lightning Web Security vs Lightning Locker]] — LWS vs Locker 클라이언트 보안 아키텍처 비교, distortion, secure wrapper, strict mode, CSP
+- [[LWS 활성화·Locker 마이그레이션 절차]] — Session Settings 토글로 org 전체 LWS 활성화·Locker→LWS 호환성 테스트·distortion 진단·롤백 실무 절차
+- [[CSP·Trusted Sites 레퍼런스]] — CSP 지시자별(connect-src·frame-src·img-src·style-src·font-src·media-src) 신뢰 사이트 등록으로 외부 도메인 리소스/API 허용
 
 ## 📱 모바일
 
@@ -228,12 +243,17 @@ created: 2026-05-17
 - [[LWC 런타임 Feature Flags]] — 13개 플래그 전체 목록, setFeatureFlag(), lwcRuntimeFlags 글로벌
 - [[LWC 템플릿 컴파일러 파이프라인]] — compile() API, parse→codegen 2단계, RENDER_APIS, static content optimization
 - [[LWC Shadow DOM 모드]] — Native/Synthetic/Light DOM 비교, shadowSupportMode, Shadow Migrate Mode
+- [[LWC 렌더·재조정 루프]] — dirty 표시→microtask 스케줄러→rehydrate→template 재실행→VDOM diff(재조정)→DOM 패치→renderedCallback 전체 사이클
+- [[LWC 브라우저 지원·폴리필]] — 지원 브라우저 매트릭스 + 자동 주입 폴리필(synthetic Shadow DOM·ARIA reflection·custom element lifecycle)·로케일
 
 ---
 
 ## 🧪 테스트
 
-- [[Jest 테스트 패턴]] — @wire 어댑터 mock, DOM 이벤트 검증, @salesforce/apex mock 3종 패턴
+- [[Jest 테스트 패턴]] — @wire 어댑터 mock(createTestWireAdapter·createApexTestWireAdapter·createLdsTestWireAdapter), DOM 이벤트 검증, @salesforce/apex mock 3종 패턴
+- [[sfdx-lwc-jest 설정·실행]] — `@salesforce/sfdx-lwc-jest` 설치·jest.config 프리셋·`__tests__` 규칙·npm 스크립트 실행
+- [[컴포넌트 마운트·DOM 쿼리 레퍼런스]] — `createElement`→`appendChild` 마운트·`shadowRoot` DOM 쿼리·microtask flush로 재렌더 대기·afterEach teardown
+- [[Jest 스냅샷·커버리지]] — `toMatchSnapshot` 렌더 회귀 검증·`__snapshots__`·`--coverage`/coverageThreshold 커버리지 측정·강제
 
 ---
 

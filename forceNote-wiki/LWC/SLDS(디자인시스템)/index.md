@@ -23,6 +23,9 @@ created: 2026-06-13
 | [[SLDS 개발 도구]] | Figma Kit, SLDS Linter/Validator 등 |
 | [[SLDS 블루프린트 카탈로그]] | CSS 전용 블루프린트 30종 인덱스 |
 | [[design-system-react — SLDS React 컴포넌트 라이브러리]] | design-system-react(DSR) — React on Salesforce UI 번들용 SLDS 컴포넌트, IconSettings/iconPath 아이콘 경로 3방식, blueprint vs shadcn+Tailwind, optimizeDeps CJS pre-bundle |
+| [[SLDS 글로벌 스타일링 훅 토큰 레퍼런스]] | `--slds-g-*` 전역 디자인 토큰 카탈로그(color·spacing·sizing·radius·font·shadow) + 네이밍·스케일 값 |
+| [[SLDS 아이콘 시스템 레퍼런스]] | 5개 스프라이트 셋(utility·standard·action·doctype·custom)·`slds-icon` 컨테이너/사이즈/색·`<use xlink:href>` 마크업·접근성 텍스트 (CSS 레벨) |
+| [[SLDS 2 테마·다크모드·밀도]] | 조직 레벨 테마(Cosmos)·다크모드(slds-color-scheme_dark·light-dark)·표시 밀도(comfy/compact) + 커스텀 LWC 대응 절차 |
 
 ## 디자인 패턴 (SLDS 2)
 

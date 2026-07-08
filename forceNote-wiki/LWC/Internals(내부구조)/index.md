@@ -23,3 +23,5 @@ created: 2026-05-22
 | [[LWC 런타임 Feature Flags]] | 13개 플래그 전체 목록, setFeatureFlag, lwcRuntimeFlags 글로벌 |
 | [[LWC 템플릿 컴파일러 파이프라인]] | compile() API, parse→generate 2단계, RENDER_APIS, static content optimization |
 | [[LWC Shadow DOM 모드]] | Native/Synthetic/Light DOM 비교, shadowSupportMode, Shadow Migrate Mode |
+| [[LWC 렌더·재조정 루프]] | dirty→microtask 스케줄러→rehydrate→template 재실행→VDOM diff→DOM 패치→renderedCallback 전체 사이클 |
+| [[LWC 브라우저 지원·폴리필]] | 지원 브라우저 매트릭스 + 자동 주입 폴리필(synthetic Shadow DOM·ARIA reflection·custom element lifecycle)·로케일 |

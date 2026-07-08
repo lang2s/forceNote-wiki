@@ -1,8 +1,8 @@
 ---
 tags: [lwc, toast, modal, ui, pattern]
-source: lwc-recipes/miscToastNotification, miscModal, myModal + developer.salesforce.com Component Reference lightning-platform-show-toast-event (Tier 2, mode 표)
+source: lwc-recipes/miscToastNotification, miscModal, myModal + developer.salesforce.com Component Reference lightning-platform-show-toast-event (Tier 2, mode 표) + component-library lightning-toast·lightning-toast-container (Tier 2, 선언형 토스트)
 created: 2026-05-17
-aliases: [ShowToastEvent, Toast, Modal, LightningModal]
+aliases: [ShowToastEvent, Toast, Modal, LightningModal, lightning-toast, toast-container]
 ---
 
 # Toast & 모달 패턴
@@ -54,6 +54,51 @@ mode는 토스트의 **지속성(persistence)** 을 결정한다 (공식 Compone
 | `sticky` | **없음** | 있음 | 사용자가 닫기 버튼을 클릭할 때까지 계속 유지 |
 
 > 선택 기준: 일반 성공/안내 피드백 → `dismissible`(기본), 스쳐 지나가도 되는 알림 → `pester`, 반드시 읽고 넘어가야 하는 오류/경고 → `sticky`.
+
+---
+
+## lightning-toast — 선언형 토스트 (Summer '26 GA)
+
+위의 `ShowToastEvent`는 이벤트를 디스패치하면 **Lightning Experience의 플랫폼이 잡아** 토스트를 그린다. 즉 LEX(및 이를 호스팅하는 컨테이너) **안에서만** 동작한다. `lightning-toast`(component-library, Summer '26 GA)는 이 의존을 없앤 **선언형** 대안으로, `Toast.show(...)` 정적 메서드를 직접 호출한다 (공식 Component Reference `lightning-toast`·`lightning-toast-container` 대조, Tier 2).
+
+```javascript
+import Toast from 'lightning/toast';
+
+showToast() {
+    Toast.show({
+        label: 'Success',                 // 필수 — 토스트 제목
+        message: 'Record saved',
+        variant: 'success',               // 'info'(기본) | 'success' | 'warning' | 'error'
+        mode: 'dismissible'               // 'dismissible'(기본) | 'pester' | 'sticky'
+    }, this);                             // 두 번째 인자 = 호출 컴포넌트 인스턴스(this)
+}
+```
+
+- `Toast.show(config, component)` — 이벤트 디스패치가 아니라 **정적 메서드 호출**이다. 두 번째 인자로 호출한 컴포넌트(`this`)를 넘겨 토스트를 어느 컨테이너에 띄울지 결정한다.
+- `variant`·`mode` 값 집합은 `ShowToastEvent`와 동일하다(위 표 참조). 제목 필드명만 `title`이 아니라 **`label`**로 다르다.
+
+### lightning-toast-container 배치
+
+`lightning-toast`가 실제로 그려지려면 앱 트리 어딘가에 **`lightning-toast-container`**가 있어야 한다. LEX에는 플랫폼이 컨테이너를 제공하므로 그냥 `Toast.show`만 호출하면 되지만, **LEX 밖(LWR Experience Cloud 사이트 등)**에서는 앱 루트 컴포넌트에 컨테이너를 직접 배치해야 토스트가 표시된다.
+
+```html
+<!-- 앱 루트 컴포넌트 template — LEX 밖에서 필수 -->
+<template>
+    <lightning-toast-container></lightning-toast-container>
+    <!-- 나머지 앱 마크업 -->
+</template>
+```
+
+### 선언형(lightning-toast) vs 이벤트형(ShowToastEvent)
+
+| 구분 | `ShowToastEvent` (이벤트형) | `lightning-toast` (선언형) |
+|---|---|---|
+| 호출 방식 | `this.dispatchEvent(new ShowToastEvent({...}))` | `Toast.show({...}, this)` 정적 호출 |
+| 제목 필드 | `title` | `label` |
+| 동작 범위 | **Lightning Experience 한정** (플랫폼이 이벤트를 포착) | **어디서나** — LEX + LWR Experience Cloud 사이트 등 |
+| 컨테이너 | 불필요 (플랫폼 내장) | LEX 밖에서는 `lightning-toast-container` 필요 |
+
+> 선택 기준: 순수 LEX(레코드 페이지·App 등) 컴포넌트라면 기존 `ShowToastEvent`로 충분하다. **LWR Experience Cloud 사이트처럼 LEX 밖**에서 동작해야 하거나, 이벤트 버블링 없이 정적 호출로 토스트를 띄우고 싶으면 `lightning-toast`를 쓰고 앱 루트에 `lightning-toast-container`를 배치한다.
 
 ---
 

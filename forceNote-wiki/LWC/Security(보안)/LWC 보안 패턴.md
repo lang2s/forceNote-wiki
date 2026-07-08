@@ -190,4 +190,5 @@ get formattedCurrency() {
 - [[Permission Set 설계]] — LWC가 호출하는 Apex 클래스 접근 권한 설계
 - [[XSS 방어]] — DOM 출력 인코딩·innerHTML 위협 등 XSS 위협 모델과 방어
 - [[Lightning Web Security vs Lightning Locker]] — LWS vs Locker 클라이언트측 보안 아키텍처 9개 항목 비교
+- [[LWS 활성화·Locker 마이그레이션 절차]] — LWS 활성화·Locker 마이그레이션 실무 절차(Session Settings·distortion 진단·롤백)
 - [[Lightning Security 모델]] — LWS(Lightning Web Security)·Locker 격리 모델

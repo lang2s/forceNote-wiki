@@ -187,6 +187,7 @@ const vm = getAssociatedVM(componentOrElement); // WeakMap에서 VM 조회
 
 ## 관련 노트
 
+- [[LWC 렌더·재조정 루프]] — 이 VM 필드들(`isDirty`·`isScheduled`·`tro`·`rerenderVM`)이 값 변경→DOM 갱신으로 엮이는 렌더 사이클
 - [[@api 데코레이터 내부 구조]] — cmpProps 저장 방식
 - [[@track 데코레이터 내부 구조]] — cmpFields + reactive proxy
 - [[@wire 어댑터 내부 구조]] — wiredConnecting/wiredDisconnecting 등록

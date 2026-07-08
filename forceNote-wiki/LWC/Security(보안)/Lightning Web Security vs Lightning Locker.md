@@ -87,6 +87,7 @@ CSP·strict mode는 두 아키텍처가 공통으로 사용하는 브라우저 �
 ---
 
 ## 관련 노트
+- [[LWS 활성화·Locker 마이그레이션 절차]] — 이 비교를 실무로: Session Settings 토글로 LWS 켜기·Locker 마이그레이션·distortion 진단·롤백
 - [[LWC 보안 패턴]] — LWC 보안 일반 패턴
 - [[Lightning Out 2.0 (외부 앱 임베드)]] — ⚠️ LWS 미지원 제약이 걸리는 외부 임베드 패턴
 - [[LWC Shadow DOM 모드]] — DOM access containment의 기반이 되는 Shadow DOM 모드
