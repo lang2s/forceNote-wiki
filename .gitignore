@@ -11,8 +11,13 @@ workspace/
 # Claude Code memory
 forceNote-wiki/memory/
 
-# Salesforce 원본 소스 문서 (PDF·노트·AgentScriptDocs 전부 — 위키 콘텐츠 아님, 커밋 제외)
-Salesforce Documents/
+# Salesforce 원본 소스 문서 (대용량 PDF·노트 — 위키 콘텐츠 아님)
+# 단 AgentScriptDocs(공식 Agent Script 개발자 문서, Markdown)는 예외로 추적
+Salesforce Documents/*
+!Salesforce Documents/AgentScriptDocs/
+
+# 개인 작업 문서 폴더 (WORKLOG·핸드오버·배포노트·dev-notes 등 — 위키 콘텐츠 아님, 커밋 제외)
+forceNote-wiki/문서/
 
 # 사용자용 참고 문서 (HTML 등 — 위키 콘텐츠 아님, 커밋 제외)
 # CLAUDE.md "⛔ 절대 규칙 — 사용자용 참고 문서 생성" 참조
