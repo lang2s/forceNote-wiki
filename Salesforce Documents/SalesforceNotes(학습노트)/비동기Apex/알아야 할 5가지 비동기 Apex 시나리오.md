@@ -1,0 +1,40 @@
+---
+tags: [apex, async, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [5 Asynchronous Apex Scenarios]
+---
+
+# 알아야 할 5가지 비동기 Apex 시나리오
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
+
+## 1. 대량 이메일 전송
+50,000명 연락처에 프로모션 이메일을 한 번에 전송. 동기 실행 시 거버너 한도 초과.
+**해결:**
+
+Batch Apex로 연락처 목록을 관리 가능한 청크로 나눠 각 청크에서 비동기 이메일 처리.
+
+## 2. 장기 실행 계산 처리
+모든 Account의 연간 매출 예측 계산이 동기 시간 한도를 초과하는 집약적 계산.
+**해결:**
+
+Future 메서드로 무거운 계산을 별도 스레드로 분리.
+
+## 3. 대량 데이터셋 처리
+커스텀 오브젝트의 100만 건 필드 값 업데이트. 동기 실행 시 한도 위반.
+**해결:**
+
+Batch Apex로 200건 이하 청크로 처리.
+
+## 4. 외부 시스템 통합
+Salesforce 조직이 API로 외부 시스템에 실시간 재고 업데이트를 보내야 하나, 시스템에 rate-limiting 제약 존재.
+**해결:**
+
+Queueable Apex로 API 콜아웃을 효율적으로 관리·체이닝.
+
+## 5. 일일 데이터 정리 예약
+DB 성능 최적화를 위해 커스텀 오브젝트의 오래된·중복 레코드를 매일 정리.
+**해결:**
+
+Scheduled Apex로 정리 프로세스 자동화.

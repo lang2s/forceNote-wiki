@@ -1,0 +1,25 @@
+---
+tags: [lwc, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Dynamic Lightning Record Picker in LWC]
+---
+
+# LWC의 동적 Lightning Record Picker
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
+
+## 소개
+Lightning Record Picker는 lookup 필드처럼 오브젝트에서 레코드를 검색·선택. 사용자가 오브젝트를 선택하고 그 안에서 동적으로 레코드를 검색하는 컴포넌트를 만든다.
+
+## 검색 필드 커스터마이즈
+**matching-info 속성**으로 검색에 사용할 필드를 커스터마이즈(기본 name 필드 외 email·전화·계정 번호 등). 기본은 name이나 Type 필드로도 검색 가능.
+
+## 표시 정보 커스터마이즈
+**display-info 속성**으로 레코드 제안 표시 방식 커스터마이즈. 기본 레코드명 외 추가 필드 표시(예: Type + Name)로 맥락 제공.
+
+## 이벤트 처리
+레코드 선택·사용자 상호작용을 쉽게 관리하는 이벤트 생성. 데이터 동적 처리·액션 트리거·커스텀 기능 정의.
+
+## 결론
+기본 Name 필드 검색을 지원하며 다른 필드 검색도 지원해 사용자 경험 향상. Type 등 관련 기준으로 빠른 선택.

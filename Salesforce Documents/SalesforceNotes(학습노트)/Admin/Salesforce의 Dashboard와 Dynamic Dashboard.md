@@ -1,0 +1,67 @@
+---
+tags: [admin, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [Dashboards & Dynamic Dashboards in Salesforce]
+---
+
+# Salesforce의 Dashboard와 Dynamic Dashboard
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
+
+## 1. Dashboard란?
+
+차트, 그래프, 표를 사용해 비즈니스 데이터에 대한 인사이트를 제공하는 리포트의 시각적 표현입니다.
+
+**특징:**
+- 여러 리포트를 하나의 뷰에 표시
+- 시각적 컴포넌트 사용(차트, 게이지, 표, 메트릭 등)
+- 자동 새로 고침(예약 가능)
+- 사용자 권한 기반 접근 제어
+
+**사용 예:**
+
+매출·파이프라인·성사율을 보여주는 영업 대시보드, Case 해결 시간을 추적하는 지원 대시보드, 캠페인 성과를 분석하는 마케팅 대시보드.
+
+## 2. Dynamic Dashboard란?
+
+각 사용자가 자신의 보안 설정에 따라 개인화된 데이터를 볼 수 있게 합니다. 생성자의 권한 기반으로 데이터를 보여주는 표준 대시보드와 달리, 보는 사람의 접근 권한에 따라 데이터를 표시합니다.
+
+**특징:**
+- 사용자별 데이터 — 보는 사람이 접근 권한이 있는 데이터만 표시
+- 여러 대시보드 불필요 — 하나가 여러 사용자에게 서비스
+- 필터·개인화 — 사용자가 관련 데이터를 동적으로 봄
+- 예약 불가 — 수동 새로 고침 필요
+
+**사용 예:**
+
+영업 관리자는 팀 리포트를, 영업 담당자는 자기 성과만; 지원 팀장은 모든 Case를, 지원 담당자는 할당된 Case만.
+
+## Dashboard 생성
+
+1단계 - 리포트 생성: Reports → New Report → 오브젝트·필터 선택(예: 이번 달 마감 Opportunity) → Run Report → Save & 이름 지정.
+
+2단계 - 대시보드 생성: Dashboards → New Dashboard → 이름·폴더 입력 → Create.
+
+3단계 - 컴포넌트 추가: + Component → 생성한 리포트 선택 → 차트 타입 선택(파이, 막대, 선, 게이지 등) → Add.
+
+4단계 - 커스터마이징 & 저장: 컴포넌트 드래그·크기 조정, 필터 설정(선택), Save & Done.
+
+## Dynamic Dashboard 생성
+
+1. Dashboards → New Dashboard
+2. 이름 입력 & 폴더 선택
+3. + Component → 리포트 선택
+4. "View Dashboard As"에서 선택:
+   - "Me"(고정 사용자) — 항상 생성자의 데이터 표시
+   - "Another Person" — 다른 사용자로 실행
+   - "The Dashboard Viewer"(동적) — 보는 사람의 권한에 따라 조정
+5. Save & Done
+
+## 모범 사례
+
+- 필터 사용(여러 버전을 만들지 않고 사용자가 조정)
+- Dynamic Dashboard 제한(에디션별 한도, 예: Enterprise는 5개)
+- Dashboard 폴더로 팀·기능별 정리
+- 성능 최적화(레코드가 너무 많은 리포트 피하기)
+- 다양한 차트 타입으로 명확한 시각화

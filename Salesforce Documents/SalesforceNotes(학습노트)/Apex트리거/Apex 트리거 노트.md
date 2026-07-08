@@ -1,0 +1,44 @@
+---
+tags: [apex, trigger, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [APEX TRIGGER NOTES]
+---
+
+# Apex 트리거 노트
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
+
+## 트리거란?
+
+DML 작업 시 자동 실행되는 함수/코드 블록입니다.
+
+## 언제 트리거를 사용하나?
+
+복잡한 로직, DML 작업 관여, 비관련 오브젝트 업데이트, 외부 시스템 호출, 벌크화가 필요할 때.
+
+## Before Trigger
+
+DML 사용: before 트리거에서 DML 작업 회피. 이유: trigger.new 레코드는 before 실행 후 자동으로 DB에 저장되므로 명시적 DML이 중복.
+
+## After Trigger
+
+관련 레코드 업데이트, 관련 오브젝트로 새 레코드 생성, before에서 허용되지 않는 필드(롤업 요약) 업데이트 시 사용.
+1. 관련 레코드 생성
+2. 자식 레코드 생성(부모 ID 참조 필요 시)
+3. 연쇄 업데이트
+
+이점: 데이터 일관성 유지, 자식 업데이트 자동화, 동기화된 정보로 더 나은 UX.
+
+## DML을 피해야 할 때
+
+- Before 트리거: 같은 레코드를 DML로 업데이트하지 말고 trigger.new 수정.
+- 재귀 트리거: 재귀를 유발하는 DML 회피. static 변수로 무한 루프 방지.
+
+## 실행 한도
+
+트랜잭션당 150 DML 문 한도. 대량 레코드를 효율적으로 처리.
+
+## 모범 사례
+
+오브젝트당 트리거 하나, 코드 벌크화, for 루프 안 DML·SOQL 회피, 컬렉션·효율적 for 루프, 대용량 쿼리, 명명 규칙.

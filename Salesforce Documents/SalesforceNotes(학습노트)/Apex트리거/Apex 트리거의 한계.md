@@ -1,0 +1,25 @@
+---
+tags: [apex, trigger, interview-notes, korean, tier3]
+source: Complete Salesforce Notes & Interview Questions and Answers (제3자 학습노트 한글 변환, Tier 3)
+created: 2026-06-14
+aliases: [What are the Limitations of Apex Trigger]
+---
+
+# Apex 트리거의 한계
+
+> [!warning] 제3자 학습노트(면접 Q&A)를 한글로 변환한 **Tier 3** 자료입니다. 공식 소스와 대조되지 않았으니 정확도는 공식 문서로 검증하세요.
+
+1. **거버너 한도:** SOQL(트랜잭션당 100), DML(150), heap 크기, CPU 시간 제약 준수 필요.
+2. **직접 사용자 상호작용 없음:** 백그라운드 실행, 사용자에게 직접 오류·UI 표시 불가.
+3. **실행 순서 예측 불가:** 같은 오브젝트에 여러 트리거가 있으면 순서 보장 안 됨.
+4. **재귀 문제:** 적절한 처리 없으면 DML이 같은 로직을 다시 트리거해 무한 루프.
+5. **디버깅 어려움:** 자동 실행되어 디버깅이 어려움(디버그 로그 필요).
+6. **직접 콜아웃 불가:** @future나 Queueable Apex를 호출하지 않으면 HTTP 콜아웃 불가.
+7. **제한적 벌크 처리:** 벌크화하지 않으면 대용량 데이터 처리 시 실패.
+8. **실행 타이밍 제어 불가:** DML 시 즉시 실행되어 타이밍 제어 어려움.
+9. **읽기 전용 필드 수정 불가:** CreatedDate, LastModifiedDate, Auto-Number 등 업데이트 불가.
+10. **배포 복잡성:** 변경에 change set·Metadata API 배포 필요.
+11. **실행 깊이 한도:** 재귀 실행 깊이 제한(최대 16단계).
+12. **테스트·커버리지 요구:** 배포 전 최소 75% 코드 커버리지.
+13. **워크플로우·Flow와 충돌:** 트리거와 Flow/워크플로우가 같은 필드를 수정하면 예기치 못한 결과.
+14. **필드 수준 보안(FLS) 미적용:** 트리거는 FLS·CRUD 권한을 우회하므로 개발자가 수동으로 보안 강제 필요.
