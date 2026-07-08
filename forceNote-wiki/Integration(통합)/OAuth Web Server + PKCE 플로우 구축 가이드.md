@@ -181,6 +181,7 @@ grant_type=refresh_token
 
 - [[Connected App (연결된 앱) — OAuth 클라이언트]] — OAuth 클라이언트 개념·정책·scope·에러 레퍼런스
 - [[External Client App (외부 클라이언트 앱)]] — Connected App 후속, 신규 통합 권장 클라이언트
+- [[OAuth 클라이언트(Connected App·External Client App) 생성 필드 전수 레퍼런스]] — 이 플로우용 클라이언트 생성 시 채우는 필드(Callback URL·Scopes·Require PKCE) 전수
 - [[서버간 통합 구축 가이드 - External Client App·JWT Bearer·Client Credentials]] — 사용자 개입 없는 서버간 대비 플로우
 - [[Named Credential·External Credential 생성 필드 전수 레퍼런스]] — 발급 토큰을 Named Credential로 관리할 때
 - [[통합 MOC]] — 통합 패턴 인덱스
