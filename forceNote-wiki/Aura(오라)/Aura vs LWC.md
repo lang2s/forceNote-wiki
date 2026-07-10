@@ -142,6 +142,16 @@ export default class MyComponent extends LightningElement {
 4. Aura ↔ LWC 통신: LightningMessageChannel (LMS) 사용
 ```
 
+### 무엇부터 옮기나 — leaf-first + Aura 래퍼
+
+"어떤 컴포넌트를 먼저 고르나(Pick a Component to Migrate)"는 **포함방향 비대칭(Aura ⊃ LWC, 역불가)**이 결정한다. LWC는 Aura 자식을 담을 수 없으므로, 아직 Aura로 남은 자식을 품어야 하는 부모는 LWC로 바꿀 수 없다.
+
+- **leaf-first (자식 컴포넌트부터).** Aura 자식 의존이 **없는 말단(leaf) 컴포넌트**부터 LWC로 교체한다. 그래야 새로 만든 LWC가 남아있는 Aura 자식을 감싸야 하는 (불가능한) 상황이 생기지 않는다. 계층을 아래(잎)에서 위(뿌리)로 올라가며 옮긴다.
+- **경계는 Aura 래퍼로 유지.** 아직 내부에 Aura 자식이 남은 구간에서는 **바깥 경계를 Aura 컴포넌트(래퍼)로 두고 내부만 LWC로 교체**한다 (위 접근법 3). 이 래퍼가 LWC 자식에 데이터를 주입하고 이벤트를 받는 방식은 [[Aura → LWC 마이그레이션]]의 "경계에서의 상호운용" 절 참조.
+- **뿌리(앱 컨테이너)는 마지막.** 최상위 Aura 앱/컨테이너는 그 아래 계층이 전부 LWC로 바뀐 뒤에야 제거·교체 대상이 된다.
+
+> 즉 마이그레이션 순서는 임의가 아니라 containment 비대칭이 강제하는 **잎→뿌리 방향**이다. 한 번에 하나씩(공존 상태에서) 옮기는 원칙과 결합해 실패 없이 점진 전환한다.
+
 ---
 
 ## 주의사항

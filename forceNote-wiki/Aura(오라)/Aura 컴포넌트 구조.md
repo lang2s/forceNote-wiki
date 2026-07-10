@@ -181,6 +181,7 @@ Salesforce 제공 base components: `lightning:button`, `lightning:card`, `lightn
 
 ## 관련 노트
 
+- [[Aura 데이터 연동 — 서버 Apex 액션 · Lightning Data Service]] — 위 `saveRecord`/`getContacts` 인라인 서버 액션 조각의 심화판(action state·storable·`force:recordData` CRUD 전수)
 - [[Aura 이벤트]] — Component/Application Event 패턴
 - [[Aura vs LWC]] — 신규 개발 방향 결정
 - [[LWC/LWC MOC]] — Lightning Web Components

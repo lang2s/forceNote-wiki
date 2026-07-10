@@ -74,25 +74,27 @@ aliases: [인터페이스 검증, Interface Coverage Verification, 통합 답변
 | Apex (언어/코어) | 8 (언어·데이터·비동기·컬렉션·트리거·테스트·보안·플랫폼) | "보안 최대 공백, 데이터·트리거·이벤트 완결" → 신규 10 + 보강 13 | `7c787c4` |
 | LWC | 7 (기초·데이터·이벤트·UI/모바일·내부구조·테스트·SLDS) | "이벤트·데이터는 완결, 테스트·절차·SLDS 층 결손" → 신규 20 + 보강 8 | `67278f7` |
 | Flow | 4 (타입·개념 / 설계·운영 / UI·절차 / 연동·액션) | "레퍼런스·설계는 성숙, **운영·수명주기 층이 최대 공백**(배포·버전·테스트·디버깅·한도)·Record-Triggered/Orchestration 전용 노트 부재·표준 Screen 컴포넌트 카탈로그 결손" → 신규 13 + 보강 7 | `c5ff5d2` |
+| Aura (레거시) | 2 (코어·실전 / 마이그레이션) | "**레거시 기준 적용**(신규 앱 아닌 유지보수·이관 관점). 정적 매핑(번들·ui컴포넌트)은 탄탄, **서버 액션 데이터층**(action state·setStorable 캐시)과 **동적 이관축**(이벤트 모델·force:* → LWC 등가·역방향 상호운용)이 공백" → 신규 1 + 보강 4 | (이번 커밋) |
 
 - **재사용**: 새 도메인마다 "클러스터 분할 → 토픽×3층 매트릭스 → 선별 보충"을 반복. 부수 효과로 Tier 3 노트의 오류·낡은 사실이 함께 잡힌다(예: External Services Tier 3→2 오류 정정).
 - **Flow 파일럿 부수 성과**: source-verifier가 pdftotext 붕괴 구간(Orchestration Resume 매트릭스·Entitlements 이례 수치)을 이미지 대조로 확정 / writer가 오케스트레이터 페이지 지시 3건을 소스 우선으로 정정(Actions API의 flow-invoke body는 ECA가 아니라 api_action.pdf 소관 등) / `extend_click_automate.pdf`(Spring '26, 1,027p Flow 종합 가이드)가 위키 콘텐츠 첫 인용 — 그간 미채굴 소스였음.
+- **Aura 파일럿 교훈(레거시 도메인 규율)**: 레거시는 "기능 미문서화"가 아니라 "**유지보수·이관에서 실제로 막히는 층**"만 갭으로 잡는다 — 진단이 런타임 에러 사전·LTS·SLDS를 명시적 "건드리지 않음"으로 처리하고 신규 노트를 1개로 억제(빈 껍데기 양산 회피). 부수 발견: `lightning.pdf`는 `lightningAura.pdf`의 **바이트 동일 복제본**(md5 일치) — 로컬 Aura 소스는 사실상 1종, LWC 가이드로 오인 금지. LWC-in-Aura 임베딩 문법은 원 소스가 LWC Dev Guide(로컬 미보유)라 writer가 합성+마커+위임으로 정직 처리.
 
-### 남은 파일럿 (백로그 — 우선순위순, 2026-07-08 등록 / Flow 완료 2026-07-11)
+### 남은 파일럿 (백로그 — 우선순위순, 2026-07-08 등록 / Flow·Aura 완료 2026-07-11)
 
-Integration·Apex·LWC·**Flow** 완료. 다음 도메인을 같은 방법론으로 진행한다(괄호=콘텐츠 노트 수).
+Integration·Apex·LWC·**Flow**·**Aura** 완료. 다음 도메인을 같은 방법론으로 진행한다(괄호=콘텐츠 노트 수).
 
 | # | 도메인 | 규모 | 진단 착안점(예상) |
 |---|---|---|---|
-| ~~–~~ | ~~**Flow**~~ | ~~중~~ | ✅ **완료(2026-07-11)** — 신규 13 + 보강 7. 운영·수명주기 층(배포·버전·테스트·디버깅·한도)·Record-Triggered/Orchestration 전용 노트·Screen 컴포넌트 카탈로그 보충. `extend_click_automate.pdf` Spring '26 첫 채굴 |
-| 1 | **Aura(오라)** (9) | 소 | 레거시 컴포넌트 — LWC와 짝, 마이그레이션 절차·LWC 대비 표 위주 |
-| 2 | **Visualforce(비주얼포스)** (18) | 중 | 레거시 UI — 컨트롤러·표준컴포넌트 레퍼런스 vs 실전 절차 |
-| 3 | **Security(보안)** Secure Coding (26) | 중 | 크로스커팅 위협 모델 — Apex/Security와 구분, 절차·체크리스트 층 |
-| 4 | **DevOps(데브옵스)** (101) | 대 | DX/CI·CD/Metadata/Tooling — 규모 커서 서브클러스터 분할 필수 |
-| 5 | **Admin(어드민)** (47) | 대 | 설정 how-to 위주 — 개념·레퍼런스 대비 절차 층 점검 |
-| 6 | **Service(서비스)** (40) | 대 | Service Cloud — 데이터모델 레퍼런스 vs 구성 절차 |
-| 7 | **Analytics(애널리틱스)** (21) · **sObject**(38, 태생 레퍼런스) · **Architecture(아키텍처)**(24) | 중 | 레퍼런스 성숙, 개념·절차 보강 위주 |
-| 8 | 클라우드/산업: Commerce·Scheduler·FieldService·CPQ·SalesCloud·DataCloud·Agentforce·AgentSkills·ConnectREST | — | 도메인별 소규모 — 필요 시 묶어서 |
+| ~~–~~ | ~~**Flow**~~ | ~~중~~ | ✅ **완료(2026-07-11, `c5ff5d2`)** — 신규 13 + 보강 7. 운영·수명주기 층·Record-Triggered/Orchestration 전용 노트·Screen 컴포넌트 카탈로그 |
+| ~~–~~ | ~~**Aura(오라)**~~ | ~~소~~ | ✅ **완료(2026-07-11)** — 신규 1 + 보강 4. 레거시 규율(유지보수·이관 관점): 서버 액션 데이터층 + 이벤트 모델/force:* 이관 매핑. `lightningAura.pdf`(=`lightning.pdf` 복제본) v67.0 |
+| 1 | **Visualforce(비주얼포스)** (18) | 중 | 레거시 UI — 컨트롤러·표준컴포넌트 레퍼런스 vs 실전 절차 |
+| 2 | **Security(보안)** Secure Coding (26) | 중 | 크로스커팅 위협 모델 — Apex/Security와 구분, 절차·체크리스트 층 |
+| 3 | **DevOps(데브옵스)** (101) | 대 | DX/CI·CD/Metadata/Tooling — 규모 커서 서브클러스터 분할 필수 |
+| 4 | **Admin(어드민)** (47) | 대 | 설정 how-to 위주 — 개념·레퍼런스 대비 절차 층 점검 |
+| 5 | **Service(서비스)** (40) | 대 | Service Cloud — 데이터모델 레퍼런스 vs 구성 절차 |
+| 6 | **Analytics(애널리틱스)** (21) · **sObject**(38, 태생 레퍼런스) · **Architecture(아키텍처)**(24) | 중 | 레퍼런스 성숙, 개념·절차 보강 위주 |
+| 7 | 클라우드/산업: Commerce·Scheduler·FieldService·CPQ·SalesCloud·DataCloud·Agentforce·AgentSkills·ConnectREST | — | 도메인별 소규모 — 필요 시 묶어서 |
 
 - **재실행법**: 다음 세션에서 "[도메인] 3층 파일럿 진행"이라고 하면 방법론 2(클러스터 분할 → 토픽×3층 매트릭스 → 선별 보충)를 그대로 적용. BaseComponents류 "태생이 레퍼런스"인 대량 카탈로그는 진단 제외.
 

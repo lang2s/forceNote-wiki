@@ -1,6 +1,6 @@
 ---
 tags: [aura, lwc, migration, interoperability, bundle-mapping]
-source: developer.salesforce.com (Lightning Web Components Developer Guide — Migrate Aura Components to Lightning Web Components; 라이브 공식 문서, Tier 2, 접속 2026-07-04)
+source: developer.salesforce.com (Lightning Web Components Developer Guide — Migrate Aura Components to Lightning Web Components; 라이브 공식 문서, Tier 2, 접속 2026-07-04) + lightningAura.pdf (Lightning Aura Components Developer Guide v67.0 Summer '26, Ch5 이벤트·Ch6 Lightning Message Service)
 official_doc: https://developer.salesforce.com/docs/platform/lwc/guide/migrate-introduction.html
 created: 2026-07-04
 aliases: [Aura to LWC, Aura LWC 마이그레이션, migrate aura, 번들 파일 매핑, aura:attribute, aura:method, Aura 메서드 노출, cmp html, controller helper renderer, aura interop, Aura LWC 공존, 마이그레이션 치트시트]
@@ -24,6 +24,50 @@ Aura와 LWC는 **interoperability layer** 위에서 한 앱 안에서 함께 동
 > ⚠️ **포함(containment) 방향은 한쪽으로만 열려 있다.**
 > **Aura 컴포넌트는 LWC를 포함할 수 있으나, 반대는 불가** — LWC는 Aura 컴포넌트를 포함할 수 없다.
 > 마이그레이션 순서를 설계할 때 이 비대칭이 핵심이다. LWC 안에 아직 남은 Aura 자식이 필요하면, 그 경계(부모)는 Aura로 유지해야 한다.
+
+### 경계에서의 상호운용 — Aura 부모 ⊃ LWC 자식 (역방향 데이터·이벤트)
+
+점진 교체 중에는 남아있는 Aura 컴포넌트가 새로 만든 LWC를 자식으로 감싸는 구간이 생긴다. 이 경계에서 데이터와 이벤트를 주고받는 방식은 다음과 같다 (부모→자식 직접 임베딩).
+
+- **데이터 down (Aura → LWC):** Aura 마크업에서 LWC를 `<c:myLwcCmp>`로 참조하고, LWC의 **`@api` 퍼블릭 프로퍼티**를 마크업 속성으로 주입한다.
+- **이벤트 up (LWC → Aura):** LWC가 `dispatchEvent(new CustomEvent(...))`로 올린 이벤트를 Aura 부모가 **`on<eventname>` 핸들러**로 수신한다. LWC 이벤트명은 **소문자**여야 하므로 Aura 핸들러도 `onmessagesent`처럼 소문자로 쓴다.
+
+```xml
+<!-- 구조 예시 — 실제 동작 코드 아님 -->
+<!-- Aura 부모(.cmp)가 LWC 자식(c:myLwcCmp)을 포함 — 반대(LWC⊃Aura)는 불가 -->
+<aura:component>
+    <!-- 데이터 down: LWC @api 프로퍼티에 값 주입 / 이벤트 up: on<eventname> 핸들러로 수신 -->
+    <c:myLwcCmp lwcProp="{!v.parentValue}"
+                onmessagesent="{!c.handleFromLwc}"/>
+</aura:component>
+```
+
+```javascript
+// 구조 예시 — 실제 동작 코드 아님
+// LWC 자식 (myLwcCmp.js): @api로 값 받고, CustomEvent로 Aura 부모에 통지
+import { LightningElement, api } from 'lwc';
+
+export default class MyLwcCmp extends LightningElement {
+    @api lwcProp;                 // Aura가 주입한 값 수신
+
+    notifyParent() {
+        // Aura 부모의 onmessagesent 핸들러로 전달 (이벤트명 소문자)
+        this.dispatchEvent(new CustomEvent('messagesent', { detail: { ok: true } }));
+    }
+}
+```
+
+```javascript
+// 구조 예시 — 실제 동작 코드 아님
+// Aura 부모 컨트롤러 (controller.js): LWC 이벤트 수신
+({
+    handleFromLwc: function(cmp, event, helper) {
+        // event.detail 접근 등 세부 규칙은 아래 위임 링크 참조
+    }
+})
+```
+
+> 임베딩 속성 casing·이벤트 `detail` 접근 등 정확한 규칙은 LWC Developer Guide "Add Lightning Web Components to Aura Components" 소관이다. **관계가 없는(형제·원거리) 컴포넌트끼리 통신**해야 하면 이 부모-자식 임베딩 대신 [[Lightning Message Service]]를 쓴다 (아래 이벤트 이관 표 참조).
 
 ---
 
@@ -149,11 +193,27 @@ Aura의 마크업 표현식 문법은 LWC에서 **표현식을 JavaScript(프로
 
 ---
 
-## 3. 기타 영역 매핑 (개념 포인터)
+## 3. 이벤트 이관 (Migrate Events)
+
+Aura의 두 이벤트 종류는 LWC에서 서로 다른 메커니즘으로 옮긴다. **Component Event는 `CustomEvent`로 1:1에 가깝게 대응**되지만, **Application Event는 직접 등가가 없어** 통신 성격에 따라 다른 도구로 재설계해야 한다.
+
+| Aura 이벤트 | LWC 등가 | 매핑 노트 |
+|---|---|---|
+| **Component Event** (`type="component"` · 부모-자식 containment 계층) | **`CustomEvent`** | `this.dispatchEvent(new CustomEvent('name', { detail }))` — 계층 위로 전파. 부모는 `on<eventname>` 핸들러로 수신 |
+| **Application Event** (`type="application"` · 전역 pub/sub) | ⚠️ **직접 등가 없음** → **[[Lightning Message Service]]** (또는 pubsub) | LWC엔 전역 이벤트 버스가 없다. containment 관계가 **없는** 컴포넌트끼리는 LMS(`lightning/messageService`)로 재설계. Aura는 `lightning:messageChannel`, LWC는 `publish`/`subscribe`로 같은 채널에 붙는다 |
+| 이벤트 **phase** (`capture` / `bubble`) — Component Event 2단계, Application Event 3단계(+`default`) | `CustomEvent`의 `bubbles` · `composed` 옵션 (DOM 표준 전파) | Aura의 phase 기반 전파 → DOM 이벤트 전파 모델. **`CustomEvent`는 기본이 `bubbles:false`·`composed:false`** 이므로, Aura처럼 위로 올리려면 `bubbles:true`, shadow 경계를 넘기려면 `composed:true`를 명시한다 |
+
+> ⚠️ **Application Event → CustomEvent 직역 금지.** Aura의 Application Event는 "구독한 모든 컴포넌트"에 전역 전파되지만, LWC `CustomEvent`는 DOM 트리(조상 방향)로만 전파된다. 형제·원거리 컴포넌트 간 전역 통신을 그대로 옮기려면 반드시 **Lightning Message Service**로 대체한다 — `CustomEvent`로는 재현되지 않는다.
+
+Aura의 이벤트 phase·전파·`stopPropagation` 세부 동작은 [[Aura 이벤트]], LWC 측 `CustomEvent` 발행/수신 규칙은 [[CustomEvent 패턴]], 프레임워크 교차 통신 채널은 [[Lightning Message Service]] 소관이다.
+
+---
+
+## 4. 기타 영역 매핑 (개념 포인터)
 
 아래 영역들은 각각 별도 위키 노트가 메커니즘을 보유한다. 이 노트에서는 **Aura → LWC 대응 방향만** 남기고 세부는 위임한다.
 
-- **Events (migrate-events)** — Aura 컴포넌트/애플리케이션 이벤트 → LWC는 **`CustomEvent`**(위로 전파). 관계 없는 컴포넌트 간에는 pubsub / **Lightning Message Service**. → 상세는 [[CustomEvent 패턴]] · [[Lightning Message Service]].
+- **Events (migrate-events)** — 위 **3. 이벤트 이관** 섹션 참조 (Component Event → `CustomEvent`, Application Event → Lightning Message Service).
 - **Methods (`aura:method`)** — Aura의 `<aura:method>`(부모가 자식 컴포넌트의 메서드를 직접 호출하도록 노출) → LWC는 **`@api` 퍼블릭 메서드**로 대응한다. JS 클래스 메서드에 `@api` 데코레이터를 붙이면 부모가 자식 요소 참조로 직접 호출할 수 있다.
 
   ```javascript
@@ -183,7 +243,9 @@ Aura의 마크업 표현식 문법은 LWC에서 **표현식을 JavaScript(프로
 - [[HTML 템플릿 Directives 레퍼런스]] — `lwc:if` · `for:each` · 데이터 바인딩
 - [[CSS 스타일시트와 스코핑]] — CSS 마이그레이션과 스코핑 규칙
 - [[@salesforce Modules 레퍼런스]] — `@AuraEnabled` Apex → `@salesforce/apex`
-- [[CustomEvent 패턴]] — Aura 이벤트 → `CustomEvent`
+- [[Aura 이벤트]] — Aura Component/Application Event·phase 전파의 원본 메커니즘 (이관 전 이해)
+- [[CustomEvent 패턴]] — Aura Component Event → `CustomEvent`
+- [[Lightning Message Service]] — Aura Application Event 직접 등가 없음 → 프레임워크 교차 통신 채널
 - [[@api 패턴]] — `aura:method` → `@api` 퍼블릭 메서드 (호출 방식 상세)
 - [[XML Config File Elements (js-meta.xml) 레퍼런스]] — `design` → `js-meta.xml` · quick action 타깃
 - [[LWC MOC]]

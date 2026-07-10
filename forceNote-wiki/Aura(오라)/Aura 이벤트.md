@@ -228,6 +228,31 @@ capture/bubble 단계에서 계층의 **모든 부모가 이벤트를 처리할 
 
 ---
 
+## force:* 표준 이벤트 → LWC 등가 매핑
+
+Aura가 Salesforce 모바일 앱·Lightning Experience에서 `$A.get("e.force:...")`로 발생시키던 표준 이벤트는 LWC로 이관할 때 대부분 **모듈 import**(`lightning/navigation`·`lightning/platformShowToastEvent` 등)로 대체된다. 아래는 Aura 개발자 가이드(v67.0)가 나열한 표준 이벤트 전수와 LWC 등가다.
+
+| Aura `force:*` 이벤트 | 설명 (PDF 원문) | LWC 등가 |
+|---|---|---|
+| `force:navigateToSObject` | Navigates to an sObject record specified by recordId. | [[NavigationMixin 패턴]] — `standard__recordPage` |
+| `force:navigateToURL` | Navigates to the specified URL. | [[NavigationMixin 패턴]] — `standard__webPage` |
+| `force:navigateToList` | Navigates to the list view specified by listViewId. | [[NavigationMixin 패턴]] — `standard__objectPage` (list view) |
+| `force:navigateToObjectHome` | Navigates to the object home specified by the scope attribute. | [[NavigationMixin 패턴]] — `standard__objectPage` (home) |
+| `force:navigateToRelatedList` | Navigates to the related list specified by parentRecordId. | [[NavigationMixin 패턴]] — `standard__recordRelationshipPage` |
+| `force:navigateToComponent` (Beta) | Navigates from one Aura component to another. | 직접 등가 없음 (Aura 전용 · Beta) |
+| `force:createRecord` | Opens a page to create a record for the specified entityApiName. | [[NavigationMixin 패턴]] — `standard__objectPage`, actionName `new` |
+| `force:editRecord` | Opens the page to edit the record specified by recordId. | [[NavigationMixin 패턴]] — `standard__recordPage`, actionName `edit` |
+| `force:showToast` | Displays a toast notification with a message. (Not available on login pages.) | [[lightning-platform-show-toast-event]] — `ShowToastEvent` (`lightning/platformShowToastEvent`) |
+| `force:refreshView` | Reloads the view. | [[RefreshView API]] (`lightning/refresh`) · record 데이터는 `notifyRecordUpdateAvailable` |
+| `force:recordSave` | Saves a record. | 폼 컴포넌트로 대체 — `lightning-record-form` / `lightning-record-edit-form` submit |
+| `force:recordSaveSuccess` | Indicates that the record has been successfully saved. | 폼의 `onsuccess` 핸들러 |
+| `force:closeQuickAction` | Closes a quick action panel. Only one quick action panel can be open in the app at a time. | `CloseActionScreenEvent` (`lightning/actions`) |
+| `lightning:openFiles` | Opens one or more file records from the ContentDocument and ContentHubItem objects. | 직접 등가 없음 |
+
+> [!note] `force:navigate*` 계열은 LWC에서 모두 **`NavigationMixin.Navigate(pageReference)`** 하나로 통합된다 — 목적지 차이는 `pageReference`의 `type`·`attributes`(actionName 포함)로 표현한다. Aura의 개별 이벤트명이 LWC에서는 pageReference 파라미터로 흡수되는 셈이다. (설명 열은 Aura 개발자 가이드 원문, LWC 등가 매핑은 위 링크 노트 소관.)
+
+---
+
 ## 초기화 / 시스템 이벤트
 
 ```xml
@@ -249,4 +274,5 @@ capture/bubble 단계에서 계층의 **모든 부모가 이벤트를 처리할 
 
 - [[Aura 컴포넌트 구조]] — 컴포넌트 번들 구조
 - [[Aura vs LWC]] — LWC의 CustomEvent와 비교
+- [[Aura → LWC 마이그레이션]] — 이벤트 모델·force:* 이벤트를 LWC로 이관하는 절차
 - [[LWC/Events(이벤트)/index]] — LWC 이벤트 패턴

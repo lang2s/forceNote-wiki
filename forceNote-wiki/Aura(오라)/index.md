@@ -24,6 +24,7 @@ created: 2026-05-19
 | [[Case Feed Visualforce 커스터마이즈]] | apex:emailPublisher·support:caseArticles 등 케이스피드 VF 컴포넌트로 커스터마이즈 | #visualforce |
 | [[Experience Builder Aura 사이트 개발]] | forceCommunity 인터페이스 4종·테마 레이아웃·Aura expression·검색/프로필 메뉴 스왑·PII 가시성 | #experiencecloud |
 | [[Experience Builder 사이트 — Pardot·CMS·Deflection]] | Pardot 추적(head markup+Relaxed CSP)·Salesforce CMS/CMS Connect·lightningcommunity:deflectionSignal 케이스 deflection | #experiencecloud |
+| [[Aura 데이터 연동 — 서버 Apex 액션 · Lightning Data Service]] | `@AuraEnabled` 서버 액션(action state·setStorable 캐시·setBackground·Continuation)·`force:recordData` Lightning Data Service 선언적 CRUD | #server-action #lds #reference |
 
 ---
 
@@ -38,6 +39,7 @@ created: 2026-05-19
 - 케이스피드를 Visualforce로 커스터마이즈? → [[Case Feed Visualforce 커스터마이즈]]
 - Aura 컴포넌트를 Experience Builder용으로 개발? → [[Experience Builder Aura 사이트 개발]]
 - Experience 사이트에 Pardot/CMS/케이스 deflection 붙이기? → [[Experience Builder 사이트 — Pardot·CMS·Deflection]]
+- Aura에서 Apex를 호출하거나 옛 데이터(캐시) 문제를 겪는다면? / 선언적 레코드 CRUD? → [[Aura 데이터 연동 — 서버 Apex 액션 · Lightning Data Service]]
 
 ---
 
