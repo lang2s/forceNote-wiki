@@ -1,9 +1,9 @@
 ---
 tags: [apex, platform-events, pub-sub, trigger, subscribe, event-driven]
-source: platform_events.pdf (Platform Events Developer Guide v67.0, Summer '26, Tier 2)
+source: platform_events.pdf (Platform Events Developer Guide v67.0, Summer '26, Tier 2) · extend_click_automate.pdf (Automate Your Business Processes with Salesforce Flow, Spring '26, Tier 2 — Platform Event-Triggered Flow 소절)
 official_doc: https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/
 created: 2026-06-14
-aliases: [Platform Event 정의, Platform Event 구독, Publish Behavior, high-volume platform event, Low_Ink__e, after insert trigger, ReplayId, EventUuid, setResumeCheckpoint, RetryableException]
+aliases: [Platform Event 정의, Platform Event 구독, Publish Behavior, high-volume platform event, Low_Ink__e, after insert trigger, ReplayId, EventUuid, setResumeCheckpoint, RetryableException, Platform Event-Triggered Flow, 플랫폼 이벤트 트리거 플로우]
 ---
 
 # Platform Event 정의와 구독
@@ -93,6 +93,60 @@ EventBus.TriggerContext.currentContext().setResumeCheckpoint(replayId);
 
 ---
 
+## 구독 — Platform Event-Triggered Flow (선언적)
+
+> 출처: *Automate Your Business Processes with Salesforce Flow* (ECA, Spring '26, Tier 2). Apex `after insert` 트리거 대신 **선언적(no-code)** 으로 플랫폼 이벤트를 구독하는 방식.
+
+**Platform Event-Triggered Flow**는 플랫폼 이벤트가 발생하면 실행되는 플로우 타입이다. ECA 원문:
+
+> "Platform Event Triggered Flow — Launches when a platform event occurs. This type of flow runs in the background without user interaction." (참조: *Platform Events in Setup*)
+
+- **실행 방식** — 사용자 상호작용 없이 **백그라운드**에서 실행된다(화면 없음).
+- **예시(ECA)** — "When an integrated printer is out of ink, it publishes a platform event message." → 이벤트 발행이 플로우를 실행한다.
+- **구독 요소** — 실행 중인 플로우가 이벤트를 기다리게 하려면 **Wait 요소**를 추가한다. 플로우에서 이벤트를 **발행**하려면 대상 객체를 플랫폼 이벤트로 지정한 **Create Records 요소**를 추가한다.
+
+### 실행 사용자 (running user)
+
+ECA 원문 그대로:
+
+> "In event-triggered flows, you can set the flow to run as the **default workflow user**. If the default workflow user gets unset, the flow runs as the **automated process user**."
+
+즉 event-triggered flow의 실행 사용자는 **기본 워크플로 사용자(default workflow user)** 이며, 이 값이 해제되면 **Automated Process User** 로 실행된다. (Apex `after insert` 트리거의 기본 실행 사용자 Automated Process 와는 지정 경로가 다르다 — 위 Apex 트리거 소절 참조.)
+
+### Flow가 구독할 수 있는 표준 플랫폼 이벤트
+
+플로우는 **커스텀 플랫폼 이벤트**와 아래 표준 플랫폼 이벤트를 구독할 수 있다(ECA 전수):
+
+- AIPredictionEvent
+- BatchApexErrorEvent
+- FlowExecutionErrorEvent
+- FOStatusChangedEvent
+- OrderSummaryCreatedEvent
+- OrderSumStatusChangedEvent
+- PlatformStatusAlertEvent
+
+### 고려사항 (ECA)
+
+| 항목 | 내용 |
+|---|---|
+| **Value Truncation** | 플랫폼 이벤트 메시지를 필터링할 때, 조건 값은 **765자**를 넘을 수 없다. |
+| **Subscriptions Related List** | 플랫폼 이벤트 상세 페이지의 *Subscriptions* 관련 목록에 대기 중인 구독 엔터티가 표시된다. 대기 중인 플로우 인터뷰가 있으면 **"Process"** 구독자 1건으로 나타난다. |
+| **Formulas** | 수식에서 플랫폼 이벤트를 참조하려면 Wait 요소에서 이벤트 데이터를 record 변수로 전달한 뒤 그 변수의 필드를 참조한다. |
+| **Uninstalling Events** | 플랫폼 이벤트가 포함된 패키지를 제거하기 전, 그 이벤트를 대기 중인 인터뷰를 먼저 삭제해야 한다. |
+
+### Apex 트리거와의 차이
+
+| 구분 | Apex `after insert` 트리거 | Platform Event-Triggered Flow |
+|---|---|---|
+| 구현 | `__e` 객체의 `after insert` 코드 | 선언적(no-code) 플로우 |
+| 실행 사용자 | 기본 Automated Process (레코드 소유자·실행 사용자 오버라이드 가능) | default workflow user → 미설정 시 Automated Process User |
+| 커스텀 채널 필터 | ❌ 미지원(표준 채널만) | ❌ 미지원(표준 채널만) — 위 "이벤트 스트림 그룹·필터" 참조 |
+| 재시도 제어 | `EventBus.RetryableException` · `setResumeCheckpoint` (위 재시도 소절) | ECA(Spring '26)는 platform-event-triggered flow 고유의 재시도 정책을 명시하지 않음 |
+
+> [!note] **재시도** — ECA는 플로우 트랜잭션 실패 시 "트랜잭션은 플로우 인터뷰를 포함해 어떤 작업도 재시도하지 않는다"고만 서술하며, 플랫폼 이벤트 트리거 플로우 전용 재시도/재전달 정책은 명시하지 않는다. 재시도가 필요한 구독은 위 Apex `EventBus.RetryableException` 방식을 사용한다.
+
+---
+
 ## 관련 노트
 
 - 📖 공식: [Platform Events Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/)
@@ -102,5 +156,6 @@ EventBus.TriggerContext.currentContext().setResumeCheckpoint(replayId);
 - [[Platform Event Apex 테스트]] — Test.getEventBus deliver/fail
 - [[Platform Event 한도와 고려사항]] — allocations·이벤트 종류 비교
 - [[ChangeEventHeader]] — CDC(Change Data Capture) 변경 이벤트
+- [[Record-Triggered Flow]] — 자매 트리거 플로우 타입(레코드 변경 기반). 플랫폼 이벤트 트리거 플로우와 같은 이벤트 기반 선언적 자동화 계열
 - [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — 플랫폼 이벤트 채널·구독 설정의 Tooling sObject 정본(PlatformEventChannel(Member)·PlatformEventSubscriberConfig·EventRelayConfig를 SOQL로 조회).
 - [[integration-eventing-cdc-configure]] (sf-skill — 실행형) — CDC 채널·구독 메타데이터 구성 실행형 스킬

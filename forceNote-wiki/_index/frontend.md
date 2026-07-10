@@ -177,6 +177,19 @@ created: 2026-05-21
 | Flow 베스트 프랙티스, Fast Field Update, Flow 바이패스, 하드코딩 ID 금지, Flow 거버너, Mixed DML, Asynchronous Path, Flow 서킷 브레이커, Entry Criteria, Flow Trigger Explorer | `Flow/Flow 설계 베스트 프랙티스.md` |
 | Flow vs Apex Trigger, Record-Triggered Flow vs Apex, Apex vs Flow, 트리거 자동화 선택, 자동화 밀도, automation density, record-triggered automation decision, 트리거 선택 기준, Flow로 할까 Apex로 할까, 하이브리드 패턴, Flow Apex 혼용, Invocable Apex 오프로딩, 자동화 결정 가이드 | `Flow/Record-Triggered Flow vs Apex Trigger 선택.md` |
 | availableForFlowActions, Flow local action, Aura local action, invoke method, lightning:navigation, navService.navigate, PageReference types, standard__recordPage, standard__objectPage, standard__navItemPage, force:utilityBarAPI, lightning:utilityBarAPI, minimizeUtility, getUtilityInfo, Flow 로컬 액션, 플로우 클라이언트 액션, Flow에서 페이지 이동, 유틸리티바 최소화, Screen Flow 네비게이션, Flow에서 레코드로 이동하려면, Flow에서 유틸리티바 닫는 법, 로컬 액션 vs 인보커블 | `Flow/Aura Flow 로컬 액션 (availableForFlowActions).md` |
+| Record-Triggered Flow, 레코드 트리거 플로우, before-save after-save 실행 모델, Fast Field Update 패스트 필드 업데이트, $Record $Record__Prior, Scheduled Path 스케줄드 패스, Asynchronous Path 비동기 경로, Trigger Order 트리거 순서, entry condition 진입 조건, Flow Trigger Explorer, start XML, 레코드 저장 시 자동 실행되는 플로우 어떻게 만드나 | `Flow/Record-Triggered Flow.md` |
+| Flow Orchestration, 플로우 오케스트레이션, 오케스트레이션, interactive background MuleSoft step, Stage Step Work Item, Evaluation Flow 평가 플로우, Build Deploy, 여러 사용자 다단계 프로세스 오케스트레이션 만들기 | `Flow/Flow Orchestration.md` |
+| Flow Orchestration Run Manage Troubleshoot, 오케스트레이션 실행 운영, Resume Failed Orchestration 실패 오케스트레이션 재개, Orchestration Runs 리스트뷰, Flow Orchestration Limits 한도, Entitlements 엔타이틀먼트, Operators 연산자, 오케스트레이션 문제 해결 레퍼런스 | `Flow/Flow Orchestration - 운영과 레퍼런스.md` |
+| HTTP Callout, Flow HTTP Callout 빌더, HTTP 콜아웃, 무코드 외부 REST 콜아웃, External Service 자동 생성, Named Credential, 샘플 응답 등록, Flow에서 코드 없이 외부 API 호출하려면 | `Flow/Flow HTTP Callout 빌더.md` |
+| Transform Element, Transform 요소, Data Transform, 데이터 변환 요소, 소스 타깃 매핑, 컬렉션 변환, EachItem, Sum Count 집계, Flow에서 컬렉션 필드 매핑·변환 어떻게 | `Flow/Transform 요소.md` |
+| Flow Tests, Flow Test 생성, 플로우 테스트, assertion 어서션, Testing Your Flow, 배포 테스트 커버리지 요건, Record-Triggered Flow 테스트, 플로우 활성화 전 테스트 만들기 | `Flow/Flow Tests (플로우 테스트).md` |
+| Flow Debugging Monitoring, 플로우 디버깅 모니터링, Debug Rollback 모드, Flow 오류 이메일 error email 수신자, Paused Failed Interviews 일시정지 실패 인터뷰, Run flow as another user, Automation Lightning App 자동화 앱, 플로우 오류 어떻게 진단하나 | `Flow/Flow 디버깅과 모니터링 - 오류 이메일·인터뷰.md` |
+| Flow Resources, Flow 리소스 레퍼런스, Flow Global Variables 전역 변수, $Flow $Record $User $Api $Organization, Choice Record Collection Picklist Choice Set, Flow Stage 리소스, Text Template Global Constant, 플로우 전역 변수 전체 목록 | `Flow/Flow 리소스 레퍼런스.md` |
+| Distribute a Flow, Flow 배포 위치 가이드, 플로우 배포 경로, Flow URL /flow/, Flow Quick Action 퀵액션, Lightning 페이지 유틸리티바, Experience Cloud Visualforce 임베드, 완성한 플로우 어디에 심어 노출하나 | `Flow/Flow 배포 위치 가이드.md` |
+| Flow Activation Version, 플로우 버전 관리 활성화, Deploy as Active, Flow Run Context 실행 컨텍스트, change set 패키징, Test Coverage 커버리지 게이트, 배포 시 Inactive 도착, 활성 버전 1개, 인터뷰-버전 관계 | `Flow/Flow 버전 관리와 활성화 - 배포 수명주기.md` |
+| Flow Limits and Considerations, Flow 한도 레퍼런스, 플로우 제한사항, Per-Transaction Flow Limits, paused interview 한도, schedule-triggered 한도, Usage-Based Entitlements, 플로우 거버너 한도 수치 전수 | `Flow/Flow 한도 레퍼런스.md` |
+| Flow Screen Input Components, 표준 화면 입력 컴포넌트 15종, Address Checkbox Currency Date Email Name Number Password Phone Slider Text Toggle URL, Long Text Area, Flow 화면 입력 컴포넌트 속성 레퍼런스 | `Flow/Screen Component 레퍼런스 - 입력.md` |
+| Flow Screen Display Selection Components, 표준 화면 디스플레이·선택 컴포넌트 18종, Action Button Data Table Dependent Picklists Lookup Choice Lookup Picklist Radio Buttons Checkbox Group Multi-Select, Display Text Repeater Section Display Image File Upload, Slack Channel Workspace Selector, Flow 화면 선택·디스플레이 컴포넌트 속성 | `Flow/Screen Component 레퍼런스 - 디스플레이·선택·기타.md` |
 
 ---
 

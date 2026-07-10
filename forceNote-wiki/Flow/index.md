@@ -32,6 +32,19 @@ created: 2026-05-17
 | [[Flow Interview API]] | Flow.Interview — Apex에서 Autolaunched Flow 실행, createInterview, getVariableValue | #reference |
 | [[Aura Flow 로컬 액션 (availableForFlowActions)]] | availableForFlowActions Aura 로컬 액션 — Screen Flow에서 클라이언트 JS 실행(페이지 이동·유틸리티바 최소화), lightning:navigation·force:utilityBarAPI, 로컬 액션 vs @InvocableMethod | #pattern |
 | [[Record-Triggered Flow vs Apex Trigger 선택]] | 레코드 자동화를 Flow로 할지 Apex로 할지 — 자동화 밀도(automation density) 휴리스틱, 역량 비교 매트릭스, 하이브리드 패턴(Flow + Invocable Apex), 비동기 오프로딩 | #decision |
+| [[Record-Triggered Flow]] | before/after-save 실행 모델, entry conditions, $Record/$Record__Prior, Scheduled/Asynchronous Path, Trigger Order, Flow Trigger Explorer | #concept #reference |
+| [[Flow Orchestration]] | 오케스트레이션 개념, 타입 3종(interactive/background/MuleSoft), Stage·Step·Work Item, Build·Deploy | #concept #pattern |
+| [[Flow Orchestration - 운영과 레퍼런스]] | Orchestration Run·Manage·Troubleshoot, 한도·Entitlements, 요소/리소스/연산자 레퍼런스 전수 | #reference |
+| [[Flow HTTP Callout 빌더]] | 무코드 외부 REST 콜아웃 — 요청 구성·샘플 응답 등록, External Service·Invocable·Apex 자동 생성 | #pattern #integration |
+| [[Transform 요소]] | Data Transform 요소 — 소스↔타깃 필드 매핑, 컬렉션 변환, Sum/Count 집계 | #reference #pattern |
+| [[Flow Tests (플로우 테스트)]] | Flow Builder 테스트 생성·assertion, 배포 커버리지 요건, Record-Triggered 활성화 전 검증 | #pattern #testing |
+| [[Flow 디버깅과 모니터링 - 오류 이메일·인터뷰]] | Debug/Rollback 모드, 오류 이메일 수신자, Paused/Failed Interviews 조회, Automation Lightning App | #pattern #operations |
+| [[Flow 리소스 레퍼런스]] | 전역 변수 전수($Flow·$Record·$User 등), Choice 3종, Stage 리소스, Text Template·Global Constant | #reference |
+| [[Flow 배포 위치 가이드]] | 퀵액션·URL(/flow/)·Lightning 페이지·유틸리티바·Experience Cloud 배포 경로 | #pattern #howto |
+| [[Flow 버전 관리와 활성화 - 배포 수명주기]] | 버전 모델, 활성화, change set, 테스트 커버리지 게이트, 인터뷰-버전 관계 | #concept #howto |
+| [[Flow 한도 레퍼런스]] | 인터뷰·paused·schedule-triggered·per-transaction 한도 전수, Usage-Based Entitlements | #reference |
+| [[Screen Component 레퍼런스 - 입력]] | 표준 입력 스크린 컴포넌트 15종 속성 전수(Address·Currency·Date·Email·Name·Slider·Toggle·URL 등) | #reference |
+| [[Screen Component 레퍼런스 - 디스플레이·선택·기타]] | 표준 디스플레이·선택·기타 컴포넌트 18종 속성 전수(Data Table·Lookup·Picklist·Radio·Repeater·Section·Slack Selector 등) | #reference |
 
 ---
 
@@ -54,6 +67,18 @@ created: 2026-05-17
 - Apex 코드에서 Flow를 직접 실행? → [[Flow Interview API]]
 - Flow에서 클라이언트 액션(페이지 이동·유틸리티바 제어)? → [[Aura Flow 로컬 액션 (availableForFlowActions)]]
 - 레코드 자동화를 Flow로 만들지 Apex Trigger로 만들지? → [[Record-Triggered Flow vs Apex Trigger 선택]]
+- 레코드 저장 시 자동 실행(before/after-save)·스케줄 경로? → [[Record-Triggered Flow]]
+- 여러 사용자·시스템이 관여하는 다단계 프로세스? → [[Flow Orchestration]] · 운영/한도는 [[Flow Orchestration - 운영과 레퍼런스]]
+- 코드 없이 외부 REST API 호출? → [[Flow HTTP Callout 빌더]]
+- 컬렉션 필드 매핑·데이터 변환? → [[Transform 요소]]
+- Flow 화면 입력 컴포넌트 속성? → [[Screen Component 레퍼런스 - 입력]]
+- Flow 화면 선택·디스플레이 컴포넌트 속성? → [[Screen Component 레퍼런스 - 디스플레이·선택·기타]]
+- Flow 전역 변수·Choice·Stage 리소스? → [[Flow 리소스 레퍼런스]]
+- Flow 테스트 만들고 커버리지 확보? → [[Flow Tests (플로우 테스트)]]
+- Flow 오류 진단·인터뷰 모니터링? → [[Flow 디버깅과 모니터링 - 오류 이메일·인터뷰]]
+- 완성한 Flow를 어디에 심어 노출? → [[Flow 배포 위치 가이드]]
+- Flow 버전 관리·활성화·다른 조직 배포? → [[Flow 버전 관리와 활성화 - 배포 수명주기]]
+- Flow 한도·거버너 수치? → [[Flow 한도 레퍼런스]]
 
 ---
 

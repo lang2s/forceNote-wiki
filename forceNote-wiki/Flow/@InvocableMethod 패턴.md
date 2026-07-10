@@ -1,6 +1,6 @@
 ---
 tags: [flow, apex, invocable, action, pattern]
-source: automation-components, dreamhouse-lwc-main/force-app/main/default/classes/GeocodingService.cls, agent-script-recipes-main/force-app/main/04_architecturalPatterns/externalAPIIntegration/classes/WeatherService.cls, developer.salesforce.com Apex Reference — InvocableMethod Annotation (Tier 2), help.salesforce.com Article 000385708 — uncommitted work pending (Tier 2)
+source: automation-components, dreamhouse-lwc-main/force-app/main/default/classes/GeocodingService.cls, agent-script-recipes-main/force-app/main/04_architecturalPatterns/externalAPIIntegration/classes/WeatherService.cls, developer.salesforce.com Apex Reference — InvocableMethod Annotation (Tier 2), salesforce_apex_developer_guide.pdf — InvocableMethod Annotation, Supported Modifiers (Tier 2), help.salesforce.com Article 000385708 — uncommitted work pending (Tier 2)
 created: 2026-05-17
 aliases: [InvocableMethod, Flow Action, Invocable Apex, callout=true, Agentforce Apex Action, apex 액션]
 ---
@@ -87,6 +87,32 @@ global with sharing class FilterRecordsWithFieldValue {
 | 입력 파라미터 최대 1개 | 인보커블 메서드의 입력 파라미터는 **최대 1개**(관례상 `List<Input>`). 여러 값은 이너 클래스 필드로 묶는다. |
 
 > 근거: [Salesforce Apex 개발자 가이드 — InvocableMethod Annotation](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableMethod.htm) — "Only one method in a class can have the InvocableMethod annotation." / "The only annotation that can be used with the InvocableMethod annotation is Deprecated." / "There can be at most one input parameter"
+
+---
+
+## @InvocableMethod 수식자 전수 (Supported Modifiers)
+
+`@InvocableMethod`가 지원하는 수식자는 아래 7종이며 **모두 선택(optional)**이다. `label`·`category`·`callout`·`description` 외에 `capabilityType`·`configurationEditor`·`iconName`까지 소스 전수.
+
+| 수식자 | 설명 |
+|---|---|
+| `label` | Flow Builder에서 **액션 이름**으로 표시되는 레이블. 기본값은 메서드 이름이지만, 레이블을 직접 지정할 것을 권장 |
+| `description` | Flow Builder에서 **액션 설명**으로 표시. 기본값은 Null |
+| `callout` | 메서드가 외부 시스템으로 콜아웃하는지 여부. 콜아웃하면 `callout=true`. 기본값 `false` |
+| `capabilityType` | 메서드와 통합되는 capability. 유효 형식은 `Name://Name` — 예: `PromptTemplateType://SalesEmail` |
+| `category` | Flow Builder에서 **액션 카테고리**로 표시. 지정하지 않으면(기본) 액션이 **Uncategorized**에 표시 |
+| `configurationEditor` | 메서드에 등록된 **커스텀 프로퍼티 에디터** — admin이 액션을 구성할 때 Flow Builder에 표시. 미지정 시 Flow Builder가 표준 프로퍼티 에디터 사용 |
+| `iconName` | Flow Builder 캔버스에서 액션의 **커스텀 아이콘** 이름. 정적 리소스로 업로드한 SVG 파일 또는 SLDS 표준 아이콘 지정 가능 |
+
+```apex
+// 정적 리소스 SVG 커스텀 아이콘 (소스 발췌)
+@InvocableMethod(label='myIcon' iconName='resource:myPackageNamespace__google:top')
+
+// SLDS 표준 아이콘 (소스 발췌)
+@InvocableMethod(iconName='slds:standard:choice')
+```
+
+> 근거: [Salesforce Apex 개발자 가이드 — InvocableMethod Annotation](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableMethod.htm), "Supported Modifiers" — All modifiers are optional (label·description·callout·capabilityType·category·configurationEditor·iconName)
 
 ---
 

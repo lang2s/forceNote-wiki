@@ -1,9 +1,9 @@
 ---
 tags: [admin, automation, workflow-rules, migrate-to-flow, legacy]
-source: help.salesforce.com (Salesforce Help — Workflow Rules / Migrate to Flow Tool Considerations; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+source: help.salesforce.com (Salesforce Help — Workflow Rules / Migrate to Flow Tool Considerations; 라이브 공식 문서, Tier 2, 접속 2026-07-03) · extend_click_automate.pdf (Automate Your Business Processes with Salesforce Flow, Spring '26, Tier 2 — Legacy Salesforce Flow Features / Migrate to Flow Tool Considerations)
 official_doc: https://help.salesforce.com/s/articleView?id=platform.migrate_to_flow_tool_considerations.htm&type=5
 created: 2026-07-03
-aliases: [Workflow Rules, 워크플로 규칙, Migrate to Flow, 플로우 이전, Legacy Automation, Time-Dependent Action]
+aliases: [Workflow Rules, 워크플로 규칙, Migrate to Flow, 플로우 이전, Legacy Automation, Time-Dependent Action, Process Builder, 프로세스 빌더, Migrate to Flow Tool]
 ---
 
 # Workflow Rules & Migrate to Flow (워크플로 규칙·플로우 이전)
@@ -46,6 +46,49 @@ Workflow Rule은 레코드 **생성·편집** 시 규칙을 평가해 **액션**
 
 ---
 
+## Process Builder — 은퇴 상태와 Migrate to Flow 절차
+
+> 출처: *Automate Your Business Processes with Salesforce Flow* (ECA, Spring '26, Tier 2) — "Legacy Salesforce Flow Features" / "Migrate to Flow Tool Considerations". Process Builder와 Workflow Rules는 모두 legacy 자동화이며 Migrate to Flow 도구로 함께 이전한다.
+
+### 은퇴 상태 (retirement)
+
+ECA 원문:
+
+> "Starting in **Winter '23**, you can't create new processes or workflow rules. You can still **activate, deactivate, and edit** any existing processes and workflow rules."
+
+- **Winter '23부터 신규 생성 불가** — Process Builder 프로세스·Workflow Rule 모두. 기존 것은 **활성화·비활성화·편집**만 가능하다.
+- Salesforce는 이를 *pending retirement*(은퇴 예정)로 표현하며, **Flow Builder**를 미래 표준으로 권장한다.
+- ⚠️ **구체 하드 종료(삭제) 일자는 Spring '26 ECA 문서에 명시되지 않음** — 문서가 제시하는 확정 사실은 "Winter '23 신규 생성 차단"뿐이다. (그 이후의 완전 종료일은 이 소스에서 확인 불가.)
+- 신규 자동화는 Flow Builder로 만들고, 기존 프로세스/규칙은 **Migrate to Flow 도구**로 sandbox에서 먼저 테스트한 뒤 프로덕션으로 이전한다.
+
+### Migrate to Flow 도구 — Process 마이그레이션
+
+Migrate to Flow 도구는 **Process Builder 프로세스와 workflow rule을 모두** Flow Builder로 변환하며 scheduled actions를 포함해 **부분 마이그레이션**도 지원한다.
+
+**지원 대상 프로세스:** **record-triggered process만** 지원한다. **Custom event · custom invocable type** 프로세스, **custom metadata types**, 관련 객체 필드를 참조하는 criteria(**field traversals**)는 지원하지 않는다.
+
+**추가 설정 없이 마이그레이션되는 액션 타입:**
+- Record update · Record create · Invoke flow · Invoke Apex · Email alert
+
+**마이그레이션 후 원래 위치는 유지되나 추가 설정이 필요한 액션 타입:**
+- Post to Chatter · Quick Action · Submit for Approval · Send Custom Notification · Live Message Notification · Send Surveys · Quip-related action types
+
+**주요 고려사항 (ECA 전수):**
+
+| 항목 | 동작 |
+|---|---|
+| **Recursion** | 완전 지원 안 됨 — recursion 프로세스를 마이그레이션하면 레코드가 **1회만 평가**된다. 마이그레이션 후 의도대로 동작하는지 테스트 필요 |
+| **마이그레이션 형태** | 프로세스는 **Actions and Related Record-optimized(after-save)** flow로 변환된다. 이후 필요 시 **Fast Field Updates(before-save)** 로 최적화 편집 가능 |
+| **Invoke flow 액션** | **subflow 요소**로 마이그레이션(부모 flow와 같은 트랜잭션). 외부 콜아웃·external action·pause를 포함하면 **비동기 경로(async path)로 재설계** 필요 |
+| **Scheduled actions** | 연결된 **단일 criteria를 선택할 때만** 마이그레이션(복수 criteria 선택 시 scheduled action은 마이그레이션 안 됨). 변환 후 Flow의 **scheduled path**(`ScheduledPath__#` 명명)가 됨 |
+| **Cross-object formula 참조** | 마이그레이션 **불가** |
+| **Custom metadata formula 참조** | 마이그레이션 가능하나 마이그레이션 후 resource picker로 구성 불가 |
+| **Time-based process** | 각 outcome을 **자체 scheduled action flow로 개별 마이그레이션** 후 새 flow를 활성화하고 프로세스를 비활성화 |
+
+> Workflow Rule 자체의 마이그레이션 지원/미지원 항목은 위 "## Migrate to Flow 도구" 및 아래 표 참조. Flow의 트리거·before/after-save 개념은 [[Record-Triggered Flow]] 참조.
+
+---
+
 ## 구조 개요
 
 ```
@@ -60,5 +103,6 @@ Workflow Rule(레거시): 레코드 생성/편집 → 규칙 평가 → 액션
 
 ## 관련 노트
 - [[Flow — 선언적 자동화 개요 (플로우)]] — 이전 대상·신규 자동화 표준
+- [[Record-Triggered Flow]] — 마이그레이션 결과물(트리거 flow)·before/after-save 개념
 - [[Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답)]] — 공유되는 Email Alert 액션
 - [[Approval Process (승인 프로세스)]] — 같은 액션 타입(Email Alert·Field Update·Outbound) 공유
