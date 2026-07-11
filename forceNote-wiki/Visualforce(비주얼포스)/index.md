@@ -30,6 +30,7 @@ created: 2026-06-22
 | [[Global Variables·함수·표현식 연산자|Visualforce Global Variables · 함수 · 표현식 연산자]] | `{! }` 표현식 — 전역 변수($User·$Action·$Resource 등)·formula 함수 80개·연산자 (Appendix A) | #reference |
 | [[Lightning Out — Visualforce·외부 페이지에 LWC 임베드]] | `apex:includeLightning`·`$Lightning.use`/`createComponent`·`ltng:outApp`(styled/Unstyled)·`aura:dependency` 의존성 앱으로 VF·외부 비-Salesforce 페이지에 LWC 임베드 | #reference |
 | [[VF AJAX 패턴 → LWC 대응]] | `actionPoller`·`actionFunction`·`actionSupport`·`reRender`·`actionStatus`를 LWC로 이관 — 주기 폴링은 `setInterval`+imperative Apex(해제 `disconnectedCallback`), 가능하면 `lightning/empApi` Platform Events 푸시로 전환 | #migration |
+| [[VF → LWC 마이그레이션 전략]] | VF 페이지를 옮길지 남길지 keep-VF 결정 매트릭스(PDF 렌더·이메일 템플릿·표준 오버라이드는 유지)·데이터접근 이관 매핑(`@RemoteAction`→`@AuraEnabled`·RemoteObjects→`uiRecordApi`/wire·standardController→LDS)·leaf-first 점진 전환 전략 | #migration |
 
 ---
 
@@ -60,6 +61,7 @@ created: 2026-06-22
 - `{! }` 표현식의 전역 변수·함수·연산자 레퍼런스 → [[Global Variables·함수·표현식 연산자|Visualforce Global Variables · 함수 · 표현식 연산자]]
 - VF 페이지나 외부 사이트에 LWC를 임베드 → [[Lightning Out — Visualforce·외부 페이지에 LWC 임베드]]
 - `actionPoller`/`actionFunction`/`reRender` 등 VF AJAX를 LWC로 옮기려면 → [[VF AJAX 패턴 → LWC 대응]]
+- VF 페이지를 LWC로 옮길지 남길지 결정하고 데이터접근·로직 이관을 매핑하려면 → [[VF → LWC 마이그레이션 전략]]
 - 특정 `apex:` 태그 속성을 찾는다 → 레이아웃 [[apex 컴포넌트 — 페이지·레이아웃 구조]] · 입력 [[apex 컴포넌트 — 입력·폼|Visualforce 표준 컴포넌트 레퍼런스 — 입력·폼 (27개)]] · 출력/데이터 [[apex 컴포넌트 — 출력·데이터·반복·차트]] · AJAX [[apex 컴포넌트 — AJAX·액션·Remote Objects·기타]]
 - `chatter:`/`liveAgent`/`messaging:`/`knowledge:` 등 비-`apex:` 컴포넌트 → [[비-apex 표준 컴포넌트 — chatter·support·liveAgent·기타]]
 

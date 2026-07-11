@@ -248,4 +248,5 @@ Aura의 이벤트 phase·전파·`stopPropagation` 세부 동작은 [[Aura 이�
 - [[Lightning Message Service]] — Aura Application Event 직접 등가 없음 → 프레임워크 교차 통신 채널
 - [[@api 패턴]] — `aura:method` → `@api` 퍼블릭 메서드 (호출 방식 상세)
 - [[XML Config File Elements (js-meta.xml) 레퍼런스]] — `design` → `js-meta.xml` · quick action 타깃
+- [[VF → LWC 마이그레이션 전략]] — 대칭 결정 노트 (Visualforce → LWC. Aura와 달리 서버 렌더링 → 클라이언트 렌더링 모델 전환)
 - [[LWC MOC]]

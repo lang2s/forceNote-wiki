@@ -264,6 +264,7 @@ async handleSave() {
 
 ## 관련 노트
 
+- [[VF → LWC 마이그레이션 전략]] — VF를 남길지/옮길지 결정·데이터접근 매핑·leaf-first 전략 (이 노트는 그 중 AJAX/액션 계열 이관 상세)
 - [[apex 컴포넌트 — AJAX·액션·Remote Objects·기타]] — VF 측 원본 레퍼런스 (actionPoller·actionFunction·actionSupport·actionRegion·actionStatus attribute 전수)
 - [[Visualforce 개요 — 도구·퀵스타트]] — 표준 VF 컴포넌트 ↔ base LWC 매핑 표 (출력·입력 계열)
 - [[Imperative 호출 패턴]] — LWC에서 Apex 직접 호출 + debouncing
