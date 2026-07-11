@@ -13,6 +13,7 @@ created: 2026-06-18
 | 키워드 | 파일 |
 |---|---|
 | Secure Coding Guide, 시큐어코딩 개요, 보안 가이드 범위, Flow 보안, 플로우 실행컨텍스트, User Mode System Mode 플로우, OWASP 레퍼런스, 시큐어 코딩 시작점 | `Security(보안)/Secure Coding 개요.md` |
+| secure code review checklist, 시큐어 코드 리뷰, 배포 전 보안 점검, PR 보안 체크리스트, 코드 리뷰 보안, 위협별 점검, XSS SOQL CSRF 점검, Code Analyzer 정적분석, 보안 리뷰 어떻게, 배포 전 뭘 확인 | `Security(보안)/시큐어 코드 리뷰 체크리스트.md` |
 
 ## XSS / 인코딩
 
@@ -57,6 +58,7 @@ created: 2026-06-18
 |---|---|
 | Authorization and Access Control, 권한 접근 제어, CRUD FLS bypass, AccessLevel, USER_MODE 장점, stripInaccessible, with sharing, inherited sharing, privilege escalation, Apex에서 권한 강제하는 법 | `Security(보안)/권한과 접근 제어 위협.md` |
 | DescribeSObjectResult 권한, isAccessible, isCreateable, isUpdateable, isDeletable, sharing violation, 필드 레벨 보안 검사 | `Security(보안)/권한과 접근 제어 위협.md` |
+| CRUD FLS 강제, 접근 제어 강제, WITH USER_MODE vs stripInaccessible, CanTheUser 언제, Safely 언제, with sharing FLS, 접근 제어 언제 뭘 쓰나, USER_MODE 결정, stripInaccessible 언제, sharing 키워드 선택, Apex 보안 강제 결정 | `Security(보안)/CRUD·FLS·공유 강제 결정 가이드.md` |
 
 ## 공유 모델 (OWD / 공유 규칙)
 

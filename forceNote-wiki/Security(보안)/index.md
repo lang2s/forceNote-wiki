@@ -30,6 +30,8 @@ created: 2026-06-18
 | [[Platform Security FAQ]] | 보안 FAQ·HTTP 헤더(HSTS/frame-ancestors/nosniff)·false positive 공식 설명 | #reference |
 | [[Experience Cloud 사이트 보안 — 인증·게스트 사용자]] | 게스트/외부 사용자 접근 제어(declarative vs custom)·게스트 레코드 모드(system mode·without sharing)·Encrypt Record IDs·Apex/Flow 접근 제한·SOQL injection | #experiencecloud |
 | [[Experience Cloud 사이트 — CSP·Locker·LWS]] | Aura 사이트 CSP(Relaxed/Strict)·Lightning Locker·LWS org/site 전환·third-party 컴포넌트 활성화·Adobe Analytics | #experiencecloud |
+| [[시큐어 코드 리뷰 체크리스트]] | 배포/PR 전 위협별 점검표(XSS·SOQLi·CSRF·Redirect·CRUD/FLS·민감데이터·Sharing·세션·TLS) + Code Analyzer 정적분석 연동 — 8개 위협 노트를 묶는 리뷰 hub | #checklist |
+| [[CRUD·FLS·공유 강제 결정 가이드]] | 접근 제어를 언제 무엇으로 강제 — WITH USER_MODE·queryWithBinds·as user/Safely·CanTheUser·stripInaccessible·with sharing 결정 매트릭스 | #decision |
 
 ---
 
@@ -66,6 +68,8 @@ created: 2026-06-18
 - Marketing Cloud API 통합 보안? → [[Marketing Cloud API 보안]]
 - 보안 감사에서 나온 false positive 해명? → [[Platform Security FAQ]]
 - 전체 가이드 범위·Flow 보안 원칙부터? → [[Secure Coding 개요]]
+- 배포/PR 전에 위협별로 뭘 확인해야 하나(보안 리뷰 체크리스트)? → [[시큐어 코드 리뷰 체크리스트]]
+- CRUD/FLS·sharing을 언제 무엇으로 강제하나(USER_MODE vs stripInaccessible vs CanTheUser)? → [[CRUD·FLS·공유 강제 결정 가이드]]
 - Experience Cloud 사이트를 게스트/외부 사용자에게 안전하게 노출? → [[Experience Cloud 사이트 보안 — 인증·게스트 사용자]]
 - Aura 사이트 CSP·Locker·LWS·third-party 컴포넌트 보안? → [[Experience Cloud 사이트 — CSP·Locker·LWS]]
 - 권한을 어디서/무엇으로 관리하나(Profile·Permission Set 큰 그림)? → [[Salesforce 권한 모델 개요]]
