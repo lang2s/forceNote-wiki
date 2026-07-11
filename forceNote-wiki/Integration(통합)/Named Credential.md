@@ -1,8 +1,8 @@
 ---
 tags: [salesforce, integration, named-credential, security, pattern]
-source: apex-recipes/RestClient.cls, NamedCredentialRecipes.cls; help.salesforce.com — Enable External Credential Principals (nc_enable_ext_cred_principal, Tier 2); salesforce_apex_developer_guide.pdf — Merge Fields for Apex Callouts That Use Named Credentials (Tier 2); api_meta.pdf v67.0 — ExternalCredential·ExternalAuthIdentityProvider + salesforce_apex_reference_guide.pdf — ConnectApi NamedCredentials (Tier 2); developer.salesforce.com — Using Certificates for Apex Callouts (client certificate·two-way SSL, Tier 2); developer.salesforce.com — Populate External Credential Principals (Named vs Per-User Principal, Tier 2)
+source: apex-recipes/RestClient.cls, NamedCredentialRecipes.cls; help.salesforce.com — Enable External Credential Principals (nc_enable_ext_cred_principal, Tier 2); salesforce_apex_developer_guide.pdf — Merge Fields for Apex Callouts That Use Named Credentials (Tier 2); api_meta.pdf v67.0 — ExternalCredential·ExternalAuthIdentityProvider + salesforce_apex_reference_guide.pdf — ConnectApi NamedCredentials (Tier 2); developer.salesforce.com — Metadata API ExternalAuthIdentityProvider·ExternalCredential (v62.0 Winter '25, Tier 2); help.salesforce.com — Named Credentials / Create or Edit an External Auth Identity Provider (Tier 2); developer.salesforce.com — Using Certificates for Apex Callouts (client certificate·two-way SSL, Tier 2); developer.salesforce.com — Populate External Credential Principals (Named vs Per-User Principal, Tier 2)
 created: 2026-05-17
-aliases: [Named Credential, 네임드 크레덴셜, callout:, External Credential, OAuth Client Credentials 설정, Credential merge field]
+aliases: [Named Credential, 네임드 크레덴셜, callout:, External Credential, External Auth Identity Provider, ExternalAuthIdentityProvider, 외부 인증 아이덴티티 공급자, OAuth Client Credentials 설정, Credential merge field]
 ---
 
 # Named Credential
@@ -262,6 +262,81 @@ ConnectApi.ExternalCredential cred =
 - **Per-User Principal**과 결합하면 각 사용자가 개별적으로 OAuth 인증을 수행하고, 각자의 토큰으로 callout이 나간다. Named Principal이면 공유 서비스 계정 하나로 최초 1회 관리자가 인증한다.
 
 > 배포 관점: OAuth 엔드포인트 구성은 Metadata API v62.0+에서 `ExternalAuthIdentityProvider` 타입(`authenticationFlow` = `AuthorizationCode` | `ClientCredentials`, `TokenUrl`·`AuthorizeUrl` 파라미터)으로 분리 관리할 수 있고, External Credential(v56.0+, `.externalCredential`)이 이를 참조한다.
+
+---
+
+## External Auth Identity Provider — OAuth 토큰 엔드포인트를 재사용 컴포넌트로 분리
+
+신모델 콜아웃 인증은 **Named Credential → External Credential → External Auth Identity Provider** 3계층이다. 앞의 두 계층(엔드포인트 URL·Principal 자격증명)은 위에서 다뤘고, 이 절은 세 번째 계층인 **External Auth Identity Provider**를 다룬다.
+
+### 무엇 · 왜
+
+**External Auth Identity Provider**는 External Credential에 링크되어 **아웃바운드 콜아웃용 OAuth 토큰을 발급받는** 재사용 컴포넌트다. OAuth의 토큰/인증 엔드포인트(TokenUrl·AuthorizeUrl 등)와 흐름 종류를 한 곳에 정의해 두고, 여러 External Credential이 이를 룩업으로 공유한다.
+
+레거시 [[Auth Provider (인증 공급자)]]도 콜아웃용 토큰을 공급할 수 있지만, External Auth Identity Provider는 두 가지 차별점이 있다.
+
+| 차별점 | 설명 |
+|---|---|
+| **패키징 가능** | 관리형 패키지(2GP/1GP)로 배포 가능. 레거시 Auth Provider는 관리형 패키지에 넣을 수 없었다. |
+| **custom Apex 불필요 옵션** | 표준 OAuth IdP라면 `Auth.AuthProviderPluginClass` 같은 커스텀 Apex 없이 엔드포인트만 배선해 토큰을 받을 수 있다. |
+
+> Salesforce 공식 권고 원문: *"use an externalAuthIdentityProvider instead of an authProvider"* — **신 IdP가 권장 대체제이고 authProvider가 레거시**다. 다만 소셜 로그인·SSO(inbound)나 Registration Handler가 필요하면 그 용도는 여전히 Auth Provider의 몫이다(→ [[Auth Provider (인증 공급자)]]).
+
+### 언제 쓰나
+
+- 표준 OAuth IdP(토큰 엔드포인트가 명확한 서비스)를 **Auth Provider 없이 직접** External Credential에 배선하고 싶을 때.
+- 이 인증 구성을 **관리형 패키지로 배포**해야 할 때(2GP 패키징 대상). Auth Provider는 패키징이 안 되므로 이 컴포넌트가 유일한 선택.
+
+### 도입 버전
+
+Metadata API `ExternalAuthIdentityProvider` 타입은 **v62.0(Winter '25)에 도입**되었고, 관련 릴리즈노트 "Simplify OAuth Configurations with External Auth Identity Provider"는 **Spring '25**에 나왔다. 즉 "Metadata v62.0(Winter '25) 도입, Spring '25 OAuth 구성 간소화"로 이해한다(단일 시즌으로 단정하지 않는다). `ConnectApi.NamedCredentials`는 v66.0+에서 `deleteExternalAuthIdentityProvider`·`updateExternalAuthIdentityProvider`를 추가해 코드로도 관리할 수 있다(→ Release 노트).
+
+### Metadata 구조 (필드·enum)
+
+| 필드 | 필수 | 값 |
+|---|---|---|
+| `label` | ✅ | 표시명 |
+| `description` | — | 설명 |
+| `authenticationFlow` | — | enum: `AuthorizationCode` · `ClientCredentials` · `SalesforceDefined` |
+| `authenticationProtocol` | — | enum: `OAuth` · `SalesforceDefined` |
+| `externalAuthIdentityProviderParameters[]` | — | 엔드포인트·파라미터 목록(아래) |
+
+**⚠️ Token/Authorize URL은 독립 명명 필드가 아니다.** 엔드포인트·설정은 `externalAuthIdentityProviderParameters` 항목의 반복으로 표현되며, 각 항목은 **속성**(`parameterName` · `parameterType` · `parameterValue` · `sequenceNumber` · `description`)을 갖고, 그중 `parameterType`이 아래 **엔드포인트 종류 값**을 취한다:
+
+```
+# parameterType 값 (엔드포인트·요청 파라미터 종류)
+TokenUrl · AuthorizeUrl · UserInfoUrl · ClientAuthentication
+TokenRequestBodyParameter · TokenRequestHttpHeader · TokenRequestQueryParameter
+RefreshRequestBodyParameter · RefreshRequestHttpHeader · RefreshRequestQueryParameter
+IdentityProviderOptions · StandardExternalIdentityProvider
+```
+
+즉 "Token Endpoint URL 필드"처럼 옮겨 적지 말고 **`parameterType=TokenUrl`인 파라미터 항목**으로 이해한다. (파라미터 속성·값 목록이 패키징 맥락으로 [[2GP — Components - Security & Access]]에도 있다.)
+
+### 설정·배선 절차
+
+접근 권한: **Customize Application** 또는 **Manage Named Credentials**.
+
+```
+// 구조 예시 — 실제 org 화면 순서 요약(동작 코드 아님)
+1. Setup → Named Credentials 영역
+   → "Create or Edit an External Auth Identity Provider"
+2. authenticationFlow 선택
+   · AuthorizationCode  (= Browser Flow, 사용자 대화형)
+   · ClientCredentials  (서버-투-서버)
+3. 파라미터 입력 (parameterType 값으로)
+   · TokenUrl     — 필수 (모든 흐름에서 토큰 엔드포인트)
+   · AuthorizeUrl — authenticationFlow=AuthorizationCode일 때 필수
+   · UserInfoUrl·ClientAuthentication 등 — 필요 시
+4. External Credential(OAuth 2.0 프로토콜) 편집 화면에서
+   "External Authentication Identity Provider" 룩업으로 이 컴포넌트를 연결
+   (같은 자리에 있는 Auth Provider 룩업과 택일 — 신모델은 이쪽 권장)
+5. 이후는 위 OAuth 절차와 동일 — Principal·Permission Set 매핑까지 완료하면
+   Apex는 callout:{NC_DeveloperName}만 쓰면 토큰 발급·갱신 자동
+```
+
+> [!note] Setup 라벨은 라이브 org에서 다를 수 있음 (Tier 2)
+> 위 절차의 필드명은 Metadata/Tooling API의 필드·enum 기준으로 기술했다. 실제 Setup UI의 라벨 문구는 릴리스·org에 따라 다를 수 있으므로 화면에 표시된 라벨을 그대로 따른다. 생성 화면의 필드 전수 카탈로그는 [[Named Credential·External Credential 생성 필드 전수 레퍼런스]] §4-1(OAuth 2.0)로 위임한다.
 
 ---
 

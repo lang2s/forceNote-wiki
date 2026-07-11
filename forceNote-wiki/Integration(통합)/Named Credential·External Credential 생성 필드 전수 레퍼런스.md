@@ -1,6 +1,6 @@
 ---
 tags: [salesforce, integration, named-credential, external-credential, setup, field-reference, oauth, security]
-source: developer.salesforce.com — Metadata API NamedCredential·ExternalCredential (meta_namedcredential.htm·meta_externalcredential.htm, Tier 2); help.salesforce.com — Create Named Credentials and External Credentials·Authentication Protocols for Named Credentials (nc_named_creds_and_ext_creds·nc_auth_protocols, Tier 2); developer.salesforce.com — Populate External Credential Principals (nc-populate-external-credentials, Tier 2)
+source: developer.salesforce.com — Metadata API NamedCredential·ExternalCredential·ExternalAuthIdentityProvider (meta_namedcredential.htm·meta_externalcredential.htm, ExternalAuthIdentityProvider v62.0 Winter '25, Tier 2); help.salesforce.com — Create Named Credentials and External Credentials·Authentication Protocols for Named Credentials (nc_named_creds_and_ext_creds·nc_auth_protocols, Tier 2); developer.salesforce.com — Populate External Credential Principals (nc-populate-external-credentials, Tier 2)
 created: 2026-07-07
 aliases: [Named Credential 생성 필드, External Credential 생성 필드, 네임드 크레덴셜 필드 카탈로그, Authentication Protocol 필드, OAuth Authentication Flow Type, Principal Authentication Parameters, Enabled for Callouts, Generate Authorization Header, Allow Formulas in HTTP Header]
 ---
@@ -125,6 +125,19 @@ Setup → Security → Named Credentials → **External Credentials** 탭 → Ne
 - **Authentication Flow Type 옵션 전수**(Tier 2): **Browser Flow**, **Client Credentials with Client Secret**, **Client Credentials with JWT Assertion**, **JWT Bearer Token(JWT Bearer Flow)**. Apex `ConnectApi.CredentialAuthenticationProtocolVariant`의 `ClientCredentialsClientSecret`·`ClientCredentialsClientSecretBasic`·`ClientCredentialsJwtAssertion` variant과 대응.
 - **Browser Flow**: 대화형(Authorization Code) — authorize URL 필요, 콜백 `https://<instance>.salesforce.com/services/authcallback/<NC_Name>`을 IdP에 등록. Per-User Principal과 결합하면 사용자별 개별 인증.
 - **Client Credentials**: 서버-투-서버(사용자 컨텍스트 없음), refresh token 없음.
+
+#### 4-1a. External Authentication Identity Provider 룩업 (신모델 권장)
+
+OAuth 2.0 External Credential은 토큰 공급 IdP를 **Auth Provider 룩업**과 **External Authentication Identity Provider 룩업** 중 하나로 배선한다 — **택일**이며 콜아웃 인증에서는 **신모델인 External Auth Identity Provider가 권장**이다(공식 권고: *"use an externalAuthIdentityProvider instead of an authProvider"*). 이 컴포넌트는 Metadata `ExternalAuthIdentityProvider`(v62.0 Winter '25 도입)로, 토큰/authorize 엔드포인트를 재사용 가능한 별도 레코드로 분리한다.
+
+| 항목 | 값 | 비고 |
+|---|---|---|
+| `authenticationFlow` (enum) | `AuthorizationCode` · `ClientCredentials` · `SalesforceDefined` | OAuth grant 종류 |
+| `authenticationProtocol` (enum) | `OAuth` · `SalesforceDefined` | 프로토콜 |
+| **핵심 `parameterType`** | `TokenUrl`(필수) · `AuthorizeUrl`(`AuthorizationCode`일 때) · `UserInfoUrl` · `ClientAuthentication` | 엔드포인트·인증 파라미터. **독립 필드가 아니라 `externalAuthIdentityProviderParameters`의 `parameterType` 값** |
+
+- ⚠️ Token/Authorize URL은 별도 명명 필드가 아니라 `parameterType` 값(`TokenUrl`·`AuthorizeUrl`)으로 표현된다. 파라미터 전체 목록(약 15개: `UserInfoUrl`·`ClientAuthentication`·`TokenRequestBodyParameter`·`RefreshRequest*` 등)은 패키징 맥락으로 [[2GP — Components - Security & Access]]에, 개념·배선 절차는 [[Named Credential]]의 "External Auth Identity Provider" 절에 있다.
+- 설정 위치는 Setup의 **Named Credentials** 영역("Create or Edit an External Auth Identity Provider"), 접근 권한은 Customize Application 또는 Manage Named Credentials.
 
 ### 4-2. Basic (`Basic`) / Password
 

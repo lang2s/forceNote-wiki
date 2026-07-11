@@ -1,6 +1,6 @@
 ---
 tags: [salesforce, integration, security, identity, auth-provider, sso, oauth, apex]
-source: help.salesforce.com — Authentication Providers·Create a Custom External Authentication Provider (sso_authentication_providers·sso_provider_plugin_custom, Tier 2); developer.salesforce.com Apex Reference — Auth.AuthProviderPluginClass·Auth.RegistrationHandler (Tier 2); Metadata API / Object Reference — AuthProvider ProviderType (Tier 2)
+source: help.salesforce.com — Authentication Providers·Create a Custom External Authentication Provider (sso_authentication_providers·sso_provider_plugin_custom, Tier 2); developer.salesforce.com Apex Reference — Auth.AuthProviderPluginClass·Auth.RegistrationHandler (Tier 2); Metadata API / Object Reference — AuthProvider ProviderType (Tier 2); developer.salesforce.com — Metadata API ExternalAuthIdentityProvider (v62.0 Winter '25 — "use an externalAuthIdentityProvider instead of an authProvider", Tier 2)
 created: 2026-07-06
 aliases: [Auth Provider, Auth. Provider, 인증 공급자, 인증공급자, Authentication Provider, Social Sign-On, 소셜 로그인, Registration Handler, AuthProviderPluginClass, Custom Auth Provider]
 ---
@@ -193,10 +193,26 @@ Auth Provider는 **Salesforce가 OAuth 클라이언트일 때**(외부 IdP에 �
 | 기능 | Salesforce의 역할 | 목적 |
 |---|---|---|
 | **Auth Provider** | OAuth **클라이언트** (외부 IdP를 신뢰) | 외부 계정으로 Salesforce 로그인(SSO), 또는 콜아웃 토큰 공급 |
+| **External Auth Identity Provider** | OAuth **클라이언트** (외부 IdP를 신뢰) | 신모델 콜아웃 전용 OAuth 토큰 엔드포인트 컴포넌트 — External Credential이 참조. **패키징 가능** |
 | **Connected App** | OAuth **서버/리소스** (외부 앱을 신뢰) | 외부 앱이 Salesforce API에 접근하도록 Salesforce가 토큰을 발급 |
-| **Named Credential** | 콜아웃 **발신자** | 외부 시스템 URL+인증정보 저장. OAuth 인증이 필요하면 **Auth Provider를 참조**해 토큰 획득·갱신 |
+| **Named Credential** | 콜아웃 **발신자** | 외부 시스템 URL+인증정보 저장. OAuth 인증이 필요하면 **Auth Provider 또는 External Auth Identity Provider를 참조**해 토큰 획득·갱신 |
 
 핵심 연결: **Named Credential의 인증 방식으로 "Authentication Provider"를 선택하면**, 그 Named Credential을 쓰는 Apex 콜아웃(`callout:NC_Name`)은 Auth Provider가 관리하는 OAuth 토큰을 자동으로 붙이고, 만료 시 `refresh`로 갱신한다. 이 경우 Auth Provider는 로그인용이 아니라 순수 **토큰 공급기**로 동작하며 Registration Handler는 필요 없다.
+
+### Auth Provider vs External Auth Identity Provider — 콜아웃 토큰 공급 갈림길
+
+신모델(Named Credential → External Credential) 콜아웃 인증에서 OAuth 토큰을 공급하는 컴포넌트는 두 가지고, **콜아웃 토큰 공급 용도라면 Salesforce는 External Auth Identity Provider를 권장**한다.
+
+| | **Auth Provider** (레거시 브로커) | **External Auth Identity Provider** (신모델) |
+|---|---|---|
+| 정체 | 인증 브로커. inbound SSO와 outbound 토큰을 겸함 | 콜아웃 전용 OAuth 토큰 엔드포인트 컴포넌트 |
+| 소셜 로그인 / SSO | ✅ (Registration Handler 보유) | ❌ (콜아웃 토큰 공급만) |
+| Registration Handler | 보유 (`Auth.RegistrationHandler`) | 없음 |
+| 관리형 패키지 배포 | ❌ 불가 | ✅ 가능 |
+| custom Apex | Custom 유형은 `Auth.AuthProviderPluginClass` 필요 | 표준 OAuth IdP면 custom Apex 불필요 옵션 |
+| Metadata 타입 | `AuthProvider` | `ExternalAuthIdentityProvider` (v62.0 Winter '25 도입) |
+
+Salesforce 공식 권고 원문은 *"use an externalAuthIdentityProvider instead of an authProvider"* — 즉 콜아웃 인증에서는 **신 External Auth Identity Provider가 권장 대체제, Auth Provider가 레거시**다. 단, **소셜 로그인·SSO(inbound)나 Registration Handler를 통한 사용자 생성·매핑**이 목적이면 그 용도는 여전히 Auth Provider(및 Custom 플러그인)의 몫이다. External Auth Identity Provider의 개념·필드·배선 절차는 [[Named Credential]]의 "External Auth Identity Provider" 절 참조.
 
 ---
 

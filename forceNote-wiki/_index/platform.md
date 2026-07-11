@@ -86,7 +86,7 @@ created: 2026-05-21
 
 | 키워드 | 파일 |
 |---|---|
-| Named Credential, callout:, 네임드 크레덴셜, 외부 URL 인증, mutual TLS, two-way SSL, 상호 TLS, 클라이언트 인증서, setClientCertificateName, Named Principal, Per-User Principal, Custom 인증 프로토콜, named authentication parameter, {!$Credential.ExtCred.Param}, Profile principal 배포 안 됨, Permission Set 매핑 배포 | `Integration(통합)/Named Credential.md` |
+| Named Credential, callout:, 네임드 크레덴셜, 외부 URL 인증, mutual TLS, two-way SSL, 상호 TLS, 클라이언트 인증서, setClientCertificateName, Named Principal, Per-User Principal, Custom 인증 프로토콜, named authentication parameter, {!$Credential.ExtCred.Param}, Profile principal 배포 안 됨, Permission Set 매핑 배포, External Auth Identity Provider, ExternalAuthIdentityProvider, 외부 인증 ID 제공자, OAuth 토큰 발급자, authProvider 대체, External Credential OAuth IdP, TokenUrl AuthorizeUrl 컴포넌트 | `Integration(통합)/Named Credential.md` |
 | Bulk API 2.0, Bulk API, 벌크 API, 대량 데이터 적재, ingest job, query job, 비동기 잡, job state, UploadComplete, PK chunking, lineEnding LF CRLF, CSV 대량 import, 외부 시스템 대량 동기화 | `Integration(통합)/Bulk API 2.0.md` |
 | REST API, 표준 REST API, services/data, sObjects CRUD, query queryAll SOQL REST, Composite Graph Batch, sObject Tree, sObject Collections 200건 allOrNone, Named Query API, OAuth Bearer, 동기 통합, API Enabled, API 접근 권한, API 버전, 하위호환, 버전 은퇴 retirement, 410 GONE, INVALID_SESSION_ID, sObject tree, referenceId, 중첩 레코드 | `Integration(통합)/REST API.md` |
 | Actions API, Invocable Action, 인보커블 액션, actions/standard, actions/custom/apex, inputs JSON, describe 액션, QuickAction StandardButton, Apex 액션 REST 호출, 표준 액션 카탈로그, chatterPost | `Integration(통합)/Actions API.md` |

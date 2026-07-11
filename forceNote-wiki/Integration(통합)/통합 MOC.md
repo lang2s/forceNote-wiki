@@ -26,7 +26,7 @@ aliases: [통합 MOC, Integration Index]
 
 ## 보안 & 설정
 
-- [[Named Credential]] — URL·인증 정보를 코드 밖에서 관리 (Outbound 필수)
+- [[Named Credential]] — URL·인증 정보를 코드 밖에서 관리 (Outbound 필수) · External Auth Identity Provider(외부 OAuth 토큰 발급자)로 authProvider 대체
 - [[Named Credential·External Credential 생성 필드 전수 레퍼런스]] — 생성 화면 모든 필드·프로토콜 분기 카탈로그
 - [[CSP와 RemoteSite]] — LWC 브라우저 callout 및 Apex callout 허용 설정 (+ CORS 인바운드)
 - [[Connected App (연결된 앱) — OAuth 클라이언트]] — OAuth 클라이언트 정의 (Consumer Key/Secret·scope·flow)
