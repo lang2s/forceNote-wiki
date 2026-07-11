@@ -75,7 +75,7 @@ aliases: [인터페이스 검증, Interface Coverage Verification, 통합 답변
 | LWC | 7 (기초·데이터·이벤트·UI/모바일·내부구조·테스트·SLDS) | "이벤트·데이터는 완결, 테스트·절차·SLDS 층 결손" → 신규 20 + 보강 8 | `67278f7` |
 | Flow | 4 (타입·개념 / 설계·운영 / UI·절차 / 연동·액션) | "레퍼런스·설계는 성숙, **운영·수명주기 층이 최대 공백**(배포·버전·테스트·디버깅·한도)·Record-Triggered/Orchestration 전용 노트 부재·표준 Screen 컴포넌트 카탈로그 결손" → 신규 13 + 보강 7 | `c5ff5d2` |
 | Aura (레거시) | 2 (코어·실전 / 마이그레이션) | "**레거시 기준 적용**(신규 앱 아닌 유지보수·이관 관점). 정적 매핑(번들·ui컴포넌트)은 탄탄, **서버 액션 데이터층**(action state·setStorable 캐시)과 **동적 이관축**(이벤트 모델·force:* → LWC 등가·역방향 상호운용)이 공백" → 신규 1 + 보강 4 | `bfa7b2d` |
-| Visualforce (레거시·성숙) | 2 (코어·테스트·보안 / 현대화·이관) | "**이미 전수 인제스트된 성숙 도메인**(18노트). 진단 결과 콘텐츠 갭 거의 0 — 유일한 진짜 갭은 **Aura엔 있고 VF엔 없던 이관 결정 노트**(구조적 비대칭). 나머지는 findability(흩어진 사실 잇기)" → 신규 1 + 보강 4 | (이번 커밋) |
+| Visualforce (레거시·성숙) | 2 (코어·테스트·보안 / 현대화·이관) | "**이미 전수 인제스트된 성숙 도메인**(18노트). 진단 결과 콘텐츠 갭 거의 0 — 유일한 진짜 갭은 **Aura엔 있고 VF엔 없던 이관 결정 노트**(구조적 비대칭). 나머지는 findability(흩어진 사실 잇기)" → 신규 1 + 보강 4 | `53d904f` |
 
 - **재사용**: 새 도메인마다 "클러스터 분할 → 토픽×3층 매트릭스 → 선별 보충"을 반복. 부수 효과로 Tier 3 노트의 오류·낡은 사실이 함께 잡힌다(예: External Services Tier 3→2 오류 정정).
 - **Flow 파일럿 부수 성과**: source-verifier가 pdftotext 붕괴 구간(Orchestration Resume 매트릭스·Entitlements 이례 수치)을 이미지 대조로 확정 / writer가 오케스트레이터 페이지 지시 3건을 소스 우선으로 정정(Actions API의 flow-invoke body는 ECA가 아니라 api_action.pdf 소관 등) / `extend_click_automate.pdf`(Spring '26, 1,027p Flow 종합 가이드)가 위키 콘텐츠 첫 인용 — 그간 미채굴 소스였음.
