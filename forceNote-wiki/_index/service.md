@@ -105,6 +105,8 @@ created: 2026-06-17
 | Service Console, 서비스 콘솔, lightning service console, agent workspace, utility bar, 상담원 콘솔, 에이전트 워크스페이스, 유틸리티 바, 서비스 콘솔이 뭐야, 상담원 화면 어떻게 구성해, 콘솔 앱 어떻게 설정해 | `Service(서비스)/Service Console (서비스 콘솔).md` |
 | Macros, 매크로, macro builder, agent productivity, 반복 작업 자동화, 매크로 빌더, 상담원 생산성, 매크로가 뭐야, 반복 작업 어떻게 자동화해, 케이스 처리 매크로 어떻게 만들어 | `Service(서비스)/Macros (매크로).md` |
 | Open CTI, telephony, 전화 통합, softphone, salesforce voice, call center, CTI, 소프트폰, 콜센터, 전화 통합 어떻게 해, Open CTI가 뭐야, Salesforce Voice로 전환, CTI 은퇴 예정 | `Service(서비스)/Open CTI & Telephony (전화 통합).md` |
+| Messaging for In-App and Web, MIAW, 메시징 채널, In-App Messaging, Web Messaging, WhatsApp, SMS Text, MessagingSession, MessagingChannel, MessagingEndUser, Enhanced Messaging, Enhanced Chat, 실시간 비동기 메시징, 인앱 웹 메시징, Chat 후속, Live Agent 후속, 채팅 대신 뭘 써, WhatsApp SMS 채널 어떻게 통합해, 웹 임베디드 메시징 어떻게 붙여 | `Service(서비스)/Messaging for In-App and Web (MIAW).md` |
+| Service Cloud Voice, 서비스 클라우드 보이스, SCV, 전화 통합, Amazon Connect, Partner Telephony, BYOT, VoiceCall, Contact Center, 통화 전사, call transcription, 클라우드 텔레포니, cloud telephony, Open CTI 후속, 콘솔에서 통화 어떻게 해, 실시간 통화 전사 어떻게 켜, Amazon Connect 통합, 콜센터 클라우드 전화 | `Service(서비스)/Service Cloud Voice.md` |
 
 ## Chat — Developer Guide (chat_dev_guide, Deployment/Pre-Chat/VF · 레거시 Live Agent · 2026-02-14 은퇴)
 

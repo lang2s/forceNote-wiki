@@ -35,6 +35,8 @@ created: 2026-06-17
 | [[Service Console (서비스 콘솔)]] | 에이전트 워크스페이스 — Lightning Service Console·유틸리티 바 |
 | [[Macros (매크로)]] | 반복 작업 자동화로 상담원 생산성 향상 — 매크로 빌더 |
 | [[Open CTI & Telephony (전화 통합)]] | CTI 전화 통합(소프트폰·콜센터) — 은퇴 예정, Salesforce Voice로 전환 |
+| [[Messaging for In-App and Web (MIAW)]] | 은퇴한 Chat(Live Agent)의 공식 후속 채널 — 실시간+비동기 메시징(웹·인앱·WhatsApp·SMS)을 MessagingChannel·MessagingSession으로 통합 |
+| [[Service Cloud Voice]] | 콘솔 네이티브 클라우드 텔레포니 — 통화·실시간 전사·AI 인사이트(Amazon Connect·Partner Telephony·BYOT·VoiceCall), Open CTI 후속 |
 
 ---
 
@@ -55,6 +57,8 @@ created: 2026-06-17
 - SLA(엔타이틀먼트·마일스톤: 첫 응답/해결 시간) → [[Entitlements & Milestones (엔타이틀먼트·마일스톤)]]
 - 상담원 워크스페이스·생산성(콘솔·매크로) → [[Service Console (서비스 콘솔)]] · [[Macros (매크로)]]
 - 전화 통합(Open CTI·소프트폰, Salesforce Voice 전환) → [[Open CTI & Telephony (전화 통합)]]
+- 실시간+비동기 고객 메시징(웹·인앱·WhatsApp·SMS, Chat/Live Agent 후속) → [[Messaging for In-App and Web (MIAW)]]
+- 콘솔 네이티브 클라우드 전화·통화 전사·AI 인사이트(Amazon Connect·Open CTI 후속) → [[Service Cloud Voice]]
 
 ---
 
