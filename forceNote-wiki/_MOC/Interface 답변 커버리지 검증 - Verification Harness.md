@@ -98,8 +98,8 @@ Integration·Apex·LWC·**Flow**·**Aura**·**Visualforce**·**Security**·**Adm
 | ~~–~~ | ~~**Admin(어드민)**~~ | ~~대~~ | ✅ **완료(2026-07-12)** — 3층 파일럿을 넘어선 **ADMIN-EXH 전수 커버리지 이니셔티브**(사용자 "전부 다" 요청). 6웨이브 신규 33 + 보강 10. 위키 4대 구조적 공백(인바운드 아이덴티티·감사 관찰축·어드민 빌드타임·전역 UI) + 이메일 인프라 + 운영. 상세 [[WORK_BACKLOG]] ADMIN-EXH |
 | ~~–~~ | ~~**DevOps(데브옵스)**~~ | ~~대~~ | ✅ **완료(2026-07-12, `267da0a`)** — 신규 4 + 보강 5. 105노트 성숙 도메인. 레퍼런스 카탈로그 진단 제외, 워크플로·배포·패키징 3클러스터 → 남은 갭은 결정층·색인(배포방법·패키징유형·환경선택 결정 + sf CLI 카탈로그). 전부 synthesis |
 | 1 | **Service(서비스)** (40) | 대 | Service Cloud — 데이터모델 레퍼런스 vs 구성 절차 |
-| 4 | **Analytics(애널리틱스)** (21) · **sObject**(38, 태생 레퍼런스) · **Architecture(아키텍처)**(24) | 중 | 레퍼런스 성숙, 개념·절차 보강 위주 |
-| 5 | 클라우드/산업: Commerce·Scheduler·FieldService·CPQ·SalesCloud·DataCloud·Agentforce·AgentSkills·ConnectREST | — | 도메인별 소규모 — 필요 시 묶어서 |
+| 2 | **Analytics(애널리틱스)** (21) · **sObject**(38, 태생 레퍼런스) · **Architecture(아키텍처)**(24) | 중 | 레퍼런스 성숙, 개념·절차 보강 위주 |
+| 3 | 클라우드/산업: Commerce·Scheduler·FieldService·CPQ·SalesCloud·DataCloud·Agentforce·AgentSkills·ConnectREST | — | 도메인별 소규모 — 필요 시 묶어서 |
 
 - **재실행법**: 다음 세션에서 "[도메인] 3층 파일럿 진행"이라고 하면 방법론 2(클러스터 분할 → 토픽×3층 매트릭스 → 선별 보충)를 그대로 적용. BaseComponents류 "태생이 레퍼런스"인 대량 카탈로그는 진단 제외.
 
