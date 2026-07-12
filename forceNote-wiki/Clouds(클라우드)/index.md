@@ -43,4 +43,5 @@ created: 2026-07-03
 - 서비스 심층 → [[Service(서비스)/index|Service Cloud]]
 - 데이터 심층 → [[DataCloud(데이터클라우드)/index|Data Cloud]]
 - 견적 심화(CPQ) → [[CPQ(견적)/index|CPQ]]
+- 견적 제품 선택(표준 Quote vs CPQ vs Revenue Cloud/RLM) 결정 가이드 → [[견적 제품 선택 — 표준 Quote vs CPQ vs Revenue Cloud (RLM)]] (정본: SalesCloud) — Revenue Cloud 신규 권장 경로 판단
 - 분석 REST API → [[Analytics(애널리틱스)/index|Analytics]]

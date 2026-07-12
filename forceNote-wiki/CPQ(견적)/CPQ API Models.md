@@ -429,3 +429,4 @@ public Id id;
 - [[CPQ Plugins — Search·Recommended·Configurator·기타]] — Product Search·Recommended·External Configurator·Custom Action·Electronic Signature 등 9개 plugin. Custom Action Plugin이 위 `QuoteModel`·`QuoteLineModel`을 다룬다
 - [[PlaceQuote Namespace]] — RLM(Revenue Cloud) 견적 namespace. CPQ managed package와 별개 제품
 - [[RevSalesTrxn Namespace]] — RLM(Revenue Cloud) 영업 트랜잭션 namespace. CPQ managed package와 별개 제품
+- [[Quotes (견적)]] — 고급 구성·가격 규칙이 없는 표준 무료 견적 객체(CPQ 도입 전 베이스라인)

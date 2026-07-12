@@ -25,6 +25,7 @@ aliases: [Architecture MOC, 아키텍처 목차, Architecture Map of Content]
 | **구성값 저장 위치** | 설정값을 CMDT vs Custom Setting 어디에 저장할지 | [[Custom Metadata Type vs Custom Setting 결정 가이드]] (Architecture) |
 | **개발 환경** | Scratch Org vs Sandbox vs Developer Edition 중 어느 org로 개발할지 | [[개발 환경 선택 (Scratch Org vs Sandbox vs Developer Edition)]] (DevOps) |
 | **애널리틱스 API** | 표준 리포팅 vs CRM Analytics, 어느 API/도구로 분석 코드를 짤지 | [[Analytics 개요 — 표준 리포팅 vs CRM Analytics·API 선택 가이드]] (Analytics) |
+| **견적 제품 (Quote-to-Cash)** | 표준 Quotes vs Salesforce CPQ(end-of-sale) vs Revenue Cloud/RLM 중 어느 견적 제품으로 구축할지 | [[견적 제품 선택 — 표준 Quote vs CPQ vs Revenue Cloud (RLM)]] (SalesCloud) |
 | **멀티테넌시 "왜" (거버너)** | 거버너 한도가 설계를 제약하는 근거 (배치·bulkification·비동기 오프로딩의 이유) | [[Governor Limits]] (Apex/ExecutionContext) |
 
 ---

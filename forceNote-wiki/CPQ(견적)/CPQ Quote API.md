@@ -951,3 +951,4 @@ System.debug(quoteTerms);
 - [[CPQ API Models]] — 이 API들이 주고받는 QuoteModel·QuoteLineModel·ProductModel·QuoteTermModel·QuoteProposalModel 등 모델 클래스 정의 (Apex 예제 실행 전 org에 추가 필요)
 - [[CPQ Configuration·Contract API]] — Configuration Loader/Configurator·Contract 생성 등 같은 ServiceRouter를 쓰는 자매 API군
 - [[CPQ 기타 API — Document·Router·Quickstart·Triggers·Approvals]] — SBQQ.ServiceRouter 메서드 시그니처 상세·트리거 호출 제약·Quickstart·Approvals
+- [[Quotes (견적)]] — CPQ 없이 쓰는 표준 무료 견적 객체. 구성·가격 규칙이 필요 없는 단순 견적의 베이스라인

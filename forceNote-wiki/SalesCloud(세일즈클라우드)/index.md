@@ -21,6 +21,7 @@ created: 2026-07-03
 | [[Campaigns (캠페인)]] | 캠페인·campaign member·hierarchy·Campaign Influence(first/last-touch) |
 | [[Accounts & Contacts (거래처·연락처)]] | business/person account·contacts to multiple accounts·거래처 계층 |
 | [[Quotes (견적)]] | 견적·quote line item·기회와 견적 동기화(quote sync) |
+| [[견적 제품 선택 — 표준 Quote vs CPQ vs Revenue Cloud (RLM)]] | (결정 가이드) 표준 Quotes vs Salesforce CPQ(end-of-sale) vs Revenue Cloud/RLM — 신규/기존별 견적 제품 선택 |
 | [[Leads (리드)]] | 리드·전환(conversion)·web-to-lead·assignment rules |
 | [[Activities — Tasks & Events (활동)]] | task·event·calendar — 영업 활동 기록 |
 | [[Collaborative Forecasts (예측)]] | 파이프라인 예측·quota·forecast category/type·adjustment |
@@ -38,6 +39,7 @@ created: 2026-07-03
 - 매출을 예측하고 할당량 관리? → [[Collaborative Forecasts (예측)]]
 - 영업 조직을 영역으로 나눠 배정? → [[Territory Management (영역 관리)]]
 - 견적서를 만들고 기회와 동기화? → [[Quotes (견적)]]
+- 어떤 견적 제품을 써야 하나(표준 Quote vs CPQ vs Revenue Cloud)? → [[견적 제품 선택 — 표준 Quote vs CPQ vs Revenue Cloud (RLM)]]
 - 계약·주문 처리? → [[Contracts & Orders (계약·주문)]]
 
 ---

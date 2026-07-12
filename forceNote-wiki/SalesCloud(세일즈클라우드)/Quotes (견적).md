@@ -84,3 +84,4 @@ Opportunity ──(다수 quote 가능, 1개만 sync)──▶ Quote
 - [[Contracts & Orders (계약·주문)]] — 견적 → 주문/계약으로 이어지는 영업 흐름
 - [[CPQ Quote API]] — 고급 견적(구성·가격 규칙)으로의 확장
 - [[Revenue Cloud 개요]] — 구성·가격·청구가 필요할 때의 고급 제품(기본 vs 고급 대비)
+- [[견적 제품 선택 — 표준 Quote vs CPQ vs Revenue Cloud (RLM)]] — 어느 견적 제품을 쓸지 결정 가이드(표준 Quote vs CPQ vs RLM)

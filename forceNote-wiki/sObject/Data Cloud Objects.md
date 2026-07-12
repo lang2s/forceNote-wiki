@@ -224,3 +224,4 @@ List<SalesforceAccount__dlo> lakeDocs = [
 - [[Big Objects]] — Big Object 구현 상세 (OLTP 대용량 오브젝트)
 - [[External Objects]] — External Object OData 연결 방법
 - [[1 Overview]] — Field 타입·Primitive 타입 기초
+- [[Data Cloud 개요]] — 이 오브젝트들이 놓이는 Data Cloud 파이프라인 개념(수집→모델링→통합→활성화)

@@ -47,3 +47,4 @@ Sales Cloud 기본 Quotes보다 고급 · 기술 상세 → CPQ(견적)/ 폴더
 - [[Salesforce 제품 클라우드 개요]] — 전체 클라우드 지도 허브.
 - [[Quotes (견적)]] — Sales Cloud 기본 견적(구분 대상).
 - [[CPQ API Models]] — CPQ 기술 노트(구성·가격·견적 API 모델).
+- [[견적 제품 선택 — 표준 Quote vs CPQ vs Revenue Cloud (RLM)]] — 어느 견적 제품을 쓸지 결정 가이드(표준 Quote vs CPQ vs RLM).

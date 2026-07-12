@@ -58,3 +58,4 @@ Account ──▶ Contract(정의된 조건·기간·갱신)
 - [[Sales Cloud 개요]] — Sales Cloud 시리즈 허브
 - [[Products & Price Books (제품·가격표)]] — order product의 제품·가격 소스
 - [[Quotes (견적)]] — 견적 → 주문/계약으로 이어지는 영업 흐름
+- [[Order Management 개요와 데이터 모델]] — 이름 혼동 주의: 표준 `Order` 객체는 이 노트 / 주문 관리(SOM·OrderSummary)는 Commerce 쪽 노트

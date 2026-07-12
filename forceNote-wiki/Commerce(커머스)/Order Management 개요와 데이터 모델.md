@@ -153,3 +153,4 @@ OM에서 주문 한 건은 하나의 **order summary**(OrderSummary 객체)와 �
 - [[CommercePayments Namespace]]
 - [[Actions API]]
 - [[Platform Event 한도와 고려사항]]
+- [[Contracts & Orders (계약·주문)]] — 이름 혼동 주의: 표준 `Order` 객체(Sales Cloud 영업 흐름)는 여기 / 주문 관리(SOM·OrderSummary·FulfillmentOrder)는 이 노트

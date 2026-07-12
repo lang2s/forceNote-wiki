@@ -46,6 +46,7 @@ created: 2026-07-03
 | 키워드 | 파일 |
 |---|---|
 | Quotes, 견적, quote line item, quote sync, 견적 동기화, 견적 라인 항목, 기회와 견적 동기화, quote PDF, 견적서, 견적을 기회에 동기화하는 법 | `SalesCloud(세일즈클라우드)/Quotes (견적).md` |
+| 견적 제품 선택, 견적 제품 비교, quote product decision, 표준 Quote vs CPQ, CPQ vs Revenue Cloud, CPQ vs RLM, CPQ end of sale, CPQ 신규 판매 종료, SBQQ 신규 도입, Revenue Cloud RLM 선택, 어떤 견적 제품을 써야 하나, 신규 프로젝트에 CPQ 써도 되나, 표준 견적과 CPQ 차이 | `SalesCloud(세일즈클라우드)/견적 제품 선택 — 표준 Quote vs CPQ vs Revenue Cloud (RLM).md` |
 
 ## 리드 (Leads)
 

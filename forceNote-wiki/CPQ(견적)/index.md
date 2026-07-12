@@ -39,6 +39,7 @@ created: 2026-06-21
 
 ## 관련 폴더
 
+- 견적 제품 선택(표준 Quote vs CPQ vs Revenue Cloud/RLM) 결정 가이드 → [[견적 제품 선택 — 표준 Quote vs CPQ vs Revenue Cloud (RLM)]] (정본: SalesCloud). CPQ end-of-sale·신규 도입 판단 근거
 - platform-native 후속 제품 RLM/Revenue Cloud Apex(`PlaceQuote`·`RevSalesTrxn`) — 별개 제품, wiki에 별도 등재 시 참조
 - B2B/B2C Commerce 주문·결제 → [[Commerce(커머스)/index|Commerce(커머스)]]
 - 가격·견적 표준 sObject 인터페이스(PriceAdjustmentGroup·SalesTransaction) → [[sObject/index|sObject Reference]]

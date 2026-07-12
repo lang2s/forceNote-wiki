@@ -83,3 +83,4 @@ Data Cloud는 원시 데이터를 실행 가능한 audience로 바꾸는 일련�
 ## 관련 노트
 - [[Datacloud Namespace]] — Data Cloud를 Apex로 다루는 네임스페이스
 - [[Data Cloud Objects]] — Data Cloud 표준 오브젝트 레퍼런스
+- [[Agentforce Prompt Template 액션 — genAiPromptTemplate·Apex 그라운딩]] — Data Cloud를 RAG 그라운딩 데이터 소스로 프롬프트 템플릿에 주입하는 활용처
