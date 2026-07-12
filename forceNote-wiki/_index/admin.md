@@ -85,6 +85,12 @@ created: 2026-07-03
 | Custom Buttons, 커스텀 버튼, Custom Links, 커스텀 링크, URL button, URL 버튼, Visualforce button, VF 버튼, JavaScript 버튼, 레거시 버튼 | `Admin(어드민)/Custom Buttons & Links (커스텀 버튼·링크).md` |
 | New Button or Link, 버튼 링크 생성, 버튼 만드는 법, Display Type, Detail Page Button, List Button, Behavior, Content Source, URL 버튼 생성, Visualforce 버튼 생성, Window Open Properties, merge field 버튼, Action Type, 액션 타입, Create a Record, Log a Call, Update a Record, Custom Action, object-specific global, 커스텀 버튼 어떻게 만드나, 액션 타입 종류 | `Admin(어드민)/New Button or Link & Action 생성 가이드 (타입·설정·예시).md` |
 | In-App Guidance, In App Guidance, Prompt metadata, promptVersions, displayType, FloatingPanel, DockedComposer, Targeted prompt, displayPosition, elementRelativePosition, targetPageType, targetPageKey1, targetPageKey2, stepNumber, walkthrough, single prompt, uiFormulaRule, userAccess, userProfileAccess, delayDays, timesToDisplay, 인앱 가이던스, 인앱 안내, 프롬프트, 워크스루, 멀티스텝, 사용자 온보딩, 기능 도입, 라이트닝 안내 메시지, 인앱 프롬프트 어떻게 만들어, 사용자 온보딩 투어 만들기, 프롬프트 메타데이터 배포, 특정 페이지에 안내 띄우기, 프로필별 안내 표시 | `Admin(어드민)/In-App Guidance — 프롬프트·워크스루 (사용자 온보딩).md` |
+| User Interface Settings, 사용자 인터페이스 설정, 인라인 편집 안 됨, Inline Editing, Collapsible Sections, Hover Details, Enhanced Lists, 전역 UI 토글, UI 동작 설정, 왜 이 UI 기능이 안 되나, org 전역 UI 켜고 끄기 | `Admin(어드민)/User Interface Settings (사용자 인터페이스 설정).md` |
+| Search Settings, 검색 설정, Search Layouts, 검색 레이아웃, 검색 결과 열, Lookup Dialog, Enhanced Lookups, Global Search, 글로벌 검색, 검색 열 구성, 조회 대화상자, 검색 결과에 어떤 열 나오게 | `Admin(어드민)/Search Settings & Search Layouts (검색 설정·검색 레이아웃).md` |
+| Path, 경로 가이드, Guidance for Success, Sales Path, 단계 안내, Key Fields, PathAssistant, Path Assistant, Opportunity Stage 안내, 셀레브레이션, Celebration, 레코드 단계 안내 만들기 | `Admin(어드민)/Path (경로 가이드).md` |
+| Themes and Branding, 테마 브랜딩, 커스텀 테마, Custom Theme, Rename Tabs, 탭 이름 변경, 오브젝트 라벨 변경, Rename Object Tab Field Labels, Account 거래처, org 브랜딩, 로고, 표준 오브젝트 이름 바꾸기 | `Admin(어드민)/Themes and Branding & Rename Tabs and Labels (테마·브랜딩·라벨 변경).md` |
+| Utility Bar, 유틸리티 바, App Menu, 앱 메뉴, Console Navigation, 콘솔 네비게이션, Split View, 분할 보기, workspace tab, subtab, Standard vs Console, 앱 네비게이션, 콘솔 앱과 표준 앱 차이 | `Admin(어드민)/Utility Bar · App Menu · Console Navigation (유틸리티 바·앱 메뉴·콘솔 네비).md` |
+| Translation Workbench, 번역 워크벤치, Language Settings, 언어 설정, 다국어, fully supported end-user platform-only, 번역 가능 유형, Override 번역, 현지화, localization, org 언어 번역하는 방법, picklist 라벨 번역 | `Admin(어드민)/Translation Workbench & Language Settings (번역 워크벤치·언어 설정).md` |
 
 ## 자동화 (Automation)
 
@@ -93,6 +99,7 @@ created: 2026-07-03
 | Flow, 플로우, Flow Builder, 플로우 빌더, record-triggered flow, 레코드 트리거 플로우, screen flow, 화면 플로우, scheduled flow, 예약 플로우, 선언적 자동화, 자동화 유형 개요 | `Admin(어드민)/Flow — 선언적 자동화 개요 (플로우).md` |
 | Workflow Rules, 워크플로 규칙, Migrate to Flow, 플로우 이전, 레거시 자동화, time-dependent action, 시간 기반 액션, 워크플로 마이그레이션 | `Admin(어드민)/Workflow Rules & Migrate to Flow (워크플로 규칙·플로우 이전).md` |
 | Email Alerts, 이메일 알림, Email Templates, 이메일 템플릿, Auto-Response Rules, 자동 응답 규칙, merge field, 병합 필드, 이메일 발송 액션, 자동 회신 | `Admin(어드민)/Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답).md` |
+| Custom Notification Types, Notification Builder, 커스텀 알림, 알림 유형, Send Custom Notification, Notification Delivery Settings, 알림 전달 설정, 데스크톱 모바일 알림, 커스텀 알림 발송, 커스텀 알림 어떻게 보내나 | `Admin(어드민)/Custom Notification Types (알림 유형·Notification Builder).md` |
 
 ## 이메일 (Email)
 
