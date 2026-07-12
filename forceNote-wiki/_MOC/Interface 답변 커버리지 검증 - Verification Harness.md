@@ -79,16 +79,18 @@ aliases: [인터페이스 검증, Interface Coverage Verification, 통합 답변
 | Security (크로스커팅) | 2 (위협·시큐어코딩 / 플랫폼·강제) | "3-way 분산(Security·Apex/Security·LWC/Security). 개별 위협 방어법·강제 API는 성숙, **크로스커팅 절차 층이 공백** — 위협별 리뷰 체크리스트·접근제어 5수단 결정 가이드. 관찰축(Event Monitoring)은 별도 이니셔티브로 백로그(SEC-MON-1)" → 신규 2 + 후속 백로그 2 | `cb64d21` |
 | DevOps (성숙·대형) | 3 (DX워크플로 / CI·CD·배포 / 패키징) | "**105노트 성숙 도메인**. 레퍼런스 카탈로그(Metadata/Tooling API·2GP 컴포넌트) 진단 제외. 개별 사실은 이미 전수 — 남은 갭이 **전부 크로스커팅 결정층·색인**(3진단이 독립적으로 '결정 가이드' 지목): 배포방법·패키징유형·환경선택 결정 + sf CLI 카탈로그(흩어진 명령 색인 + sfdx→sf 매핑)" → 신규 4 + 보강 5 (전부 synthesis) | `267da0a` |
 | Service (성숙) | 3 (케이스·채널 / 라우팅·Knowledge / 개발자PDF 스카우트) | "**43노트 성숙 도메인**. 케이스 코어·라우팅(Queue/Skills/External)·Knowledge는 3층 완비 — 핵심 갭은 **은퇴 채널의 공식 후속이 통째로 미커버**(forward-looking 공백): Chat(2026-02 은퇴)→MIAW 0커버·Open CTI(2028-02)→Voice 0커버. + 채널 결정표·Cases 라이프사이클. 부수: 백로그 SVC-DEV-1 stale CLOSE(파일명 함정, 이미 전수 채굴). Einstein for Service는 Agentforce 귀속 보류" → 신규 2 + 보강 2 | `3f90c9c` |
+| Analytics·sObject·Architecture (3도메인 묶음) | 3 병렬 (도메인별 토픽×3층) | "**세 도메인이 3층 분포 극단으로 다름**. ① **sObject**(태생 레퍼런스 카탈로그) → 방법론상 진단 제외, 결정층이 이미 `Object Groups`(7축)+CMT-vs-CustomSetting에 분산 완비 → **콘텐츠 갭 0**(과잉생산 회피). ② **Analytics**(21노트 전부 REST 덤프) → 레퍼런스만 두껍고 개념·결정층 부재, 표준 리포팅 개념은 이미 Admin에 존재(중복 회피) → 진짜 갭은 **두 애널리틱스 세계(표준 vs CRM Analytics) 라우팅 synthesis 1** + Admin Reports UI 절차(미채굴 tipsheet). ③ **Architecture**(3층 성숙) → 갭은 콘텐츠 아닌 **findability**: 핵심 결정노트(자동화·거버너·오브젝트타입·비동기·환경)가 타 폴더에 완성됐는데 아키텍트 허브에서 도달 불가 → MOC 결정 가이드 라우팅표(7노트) 신설. **전 도메인 신규 콘텐츠 단 1건**, 나머지는 nav/synthesis" → 신규 1 + 보강 1 + findability(교차링크 6·MOC 결정섹션·샤드) | `022c178` |
 
 - **재사용**: 새 도메인마다 "클러스터 분할 → 토픽×3층 매트릭스 → 선별 보충"을 반복. 부수 효과로 Tier 3 노트의 오류·낡은 사실이 함께 잡힌다(예: External Services Tier 3→2 오류 정정).
 - **Flow 파일럿 부수 성과**: source-verifier가 pdftotext 붕괴 구간(Orchestration Resume 매트릭스·Entitlements 이례 수치)을 이미지 대조로 확정 / writer가 오케스트레이터 페이지 지시 3건을 소스 우선으로 정정(Actions API의 flow-invoke body는 ECA가 아니라 api_action.pdf 소관 등) / `extend_click_automate.pdf`(Spring '26, 1,027p Flow 종합 가이드)가 위키 콘텐츠 첫 인용 — 그간 미채굴 소스였음.
 - **Aura 파일럿 교훈(레거시 도메인 규율)**: 레거시는 "기능 미문서화"가 아니라 "**유지보수·이관에서 실제로 막히는 층**"만 갭으로 잡는다 — 진단이 런타임 에러 사전·LTS·SLDS를 명시적 "건드리지 않음"으로 처리하고 신규 노트를 1개로 억제(빈 껍데기 양산 회피). 부수 발견: `lightning.pdf`는 `lightningAura.pdf`의 **바이트 동일 복제본**(md5 일치) — 로컬 Aura 소스는 사실상 1종, LWC 가이드로 오인 금지. LWC-in-Aura 임베딩 문법은 원 소스가 LWC Dev Guide(로컬 미보유)라 writer가 합성+마커+위임으로 정직 처리.
 - **Visualforce 파일럿 교훈(성숙 도메인의 갭 성격)**: 이미 전수 인제스트된 도메인에서 남는 갭은 "**없는 사실**"이 아니라 (1) **구조적 비대칭**(Aura엔 이관 결정 노트가 있는데 VF엔 없음 → 신규 1) (2) **findability**(getContentAsPDF 테스트 실패 함정이 Apex 노트엔 있으나 VF PDF 노트에서 도달 불가 → 백링크·체크리스트 보강). 진단이 VF 테스트·보안·Appendix B Data Access를 전부 "이미 커버, 신규 만들면 빈 껍데기"로 정직 판정 → 신규 노트 바를 높게 유지. 두 레거시 도메인(Aura·VF)의 마이그레이션 결정 노트를 상호 링크로 대칭화.
 - **Security 파일럿 교훈(크로스커팅 절차 층 + 범위 규율)**: 개별 위협의 방어법(개념·레퍼런스·절차)이 모두 전수여도, **실무 흐름(리뷰·결정)으로 묶는 크로스커팅 절차 층**이 비어 있을 수 있다 — 리뷰 체크리스트(8위협 hub)·접근제어 5수단 결정 매트릭스가 그 갭. 둘 다 재추출 없이 기존 검증 노트 조합(synthesis). **범위 규율**: 진단이 발굴한 Event Monitoring(관찰축)·Health Check는 "빠진 3층"이 아니라 **새 토픽(reference)**이고 help.salesforce.com Tier 2가 필요해, 파일럿 초점(절차·체크리스트)에서 분리하고 백로그(SEC-MON-1·SEC-HC-1)로 등재 — 과잉생산 회피. Event Monitoring은 이 파일럿과 Integration 하네스가 독립적으로 같은 갭을 지목(교차 검증).
+- **Analytics·sObject·Architecture 파일럿 교훈(성숙 도메인 묶음 = findability가 갭)**: 3층이 성숙할수록 갭은 "**없는 사실**"이 아니라 "**도달 불가한 사실**"이다. 세 도메인이 같은 진실을 다른 각도로 보였다 — (1) **태생 레퍼런스 규율의 실증**: sObject는 결정층(`Object Groups` 7축·CMT-vs-CustomSetting)·개념층(`1 Overview`·`Object Types Reference`)이 이미 완비라 **콘텐츠 갭 0**으로 정직 판정, 통합 결정 노트 만들면 재합성 중복(빈 껍데기). Platform Event를 저장-선택축에 넣으면 카테고리 오류라는 지적까지(이벤트≠저장 오브젝트). (2) **중복 회피**: Analytics 폴더에 개념층이 없어도 표준 리포팅 개념은 이미 `Admin`에 존재 → 폴더에 개념 노트 신설 금지, 링크로 연결. 진짜 갭은 **두 애널리틱스 세계(표준 vs CRM Analytics) API 라우팅 synthesis**뿐. (3) **findability = index-manager/cross-linker가 최대 가치**: Architecture는 자동화(Flow vs Trigger)·거버너·오브젝트타입·비동기·환경 결정노트가 전부 타 폴더에 완성됐는데 아키텍트 허브(MOC)에서 링크 안 됨 → MOC "아키텍처 결정 가이드" 라우팅표(7노트)로 해소. **전 파일럿 신규 콘텐츠 단 1건**(Analytics synthesis), 나머지는 nav·교차링크. Security의 "결정 매트릭스 synthesis" 갭과 동형이 반복 확인. 부수: 로컬 `salesforce_analytics_rest_api.pdf`는 이름과 달리 Reports&Dashboards 가이드(이미 채굴), CRM Analytics asset REST API는 로컬 미보유 → 백로그(ANALYTICS-1).
 
 ### 남은 파일럿 (백로그 — 우선순위순, 2026-07-08 등록 / Flow·Aura·VF·Security 완료 2026-07-11)
 
-Integration·Apex·LWC·**Flow**·**Aura**·**Visualforce**·**Security**·**Admin**(ADMIN-EXH)·**DevOps**·**Service** 완료. 다음 도메인을 같은 방법론으로 진행한다(괄호=콘텐츠 노트 수).
+Integration·Apex·LWC·**Flow**·**Aura**·**Visualforce**·**Security**·**Admin**(ADMIN-EXH)·**DevOps**·**Service**·**Analytics·sObject·Architecture** 완료. **대형·중형 도메인 전부 소진** — 남은 건 클라우드/산업 소도메인 묶음뿐(괄호=콘텐츠 노트 수).
 
 | # | 도메인 | 규모 | 진단 착안점(예상) |
 |---|---|---|---|
@@ -99,10 +101,11 @@ Integration·Apex·LWC·**Flow**·**Aura**·**Visualforce**·**Security**·**Adm
 | ~~–~~ | ~~**Admin(어드민)**~~ | ~~대~~ | ✅ **완료(2026-07-12)** — 3층 파일럿을 넘어선 **ADMIN-EXH 전수 커버리지 이니셔티브**(사용자 "전부 다" 요청). 6웨이브 신규 33 + 보강 10. 위키 4대 구조적 공백(인바운드 아이덴티티·감사 관찰축·어드민 빌드타임·전역 UI) + 이메일 인프라 + 운영. 상세 [[WORK_BACKLOG]] ADMIN-EXH |
 | ~~–~~ | ~~**DevOps(데브옵스)**~~ | ~~대~~ | ✅ **완료(2026-07-12, `267da0a`)** — 신규 4 + 보강 5. 105노트 성숙 도메인. 레퍼런스 카탈로그 진단 제외, 워크플로·배포·패키징 3클러스터 → 남은 갭은 결정층·색인(배포방법·패키징유형·환경선택 결정 + sf CLI 카탈로그). 전부 synthesis |
 | ~~–~~ | ~~**Service(서비스)**~~ | ~~대~~ | ✅ **완료(2026-07-12, `3f90c9c`)** — 신규 2 + 보강 2. 은퇴 채널 후속(MIAW·Voice) 0커버 해소 + 채널 결정표·Cases 라이프사이클. SVC-DEV-1 백로그 stale CLOSE |
-| 1 | **Analytics(애널리틱스)** (21) · **sObject**(38, 태생 레퍼런스) · **Architecture(아키텍처)**(24) | 중 | 레퍼런스 성숙, 개념·절차 보강 위주 |
-| 2 | 클라우드/산업: Commerce·Scheduler·FieldService·CPQ·SalesCloud·DataCloud·Agentforce·AgentSkills·ConnectREST | — | 도메인별 소규모 — 필요 시 묶어서 |
+| ~~–~~ | ~~**Analytics·sObject·Architecture**~~ | ~~중~~ | ✅ **완료(2026-07-12)** — 신규 1 + 보강 1 + findability. 성숙 도메인 묶음 → 갭은 "도달 불가한 사실". sObject 콘텐츠 갭 0(태생 레퍼런스·결정층 분산 완비). Analytics=두 세계 API 라우팅 synthesis + Admin Reports UI 절차(tipsheet). Architecture=MOC 결정 가이드 라우팅표(7노트) findability. 미커버 CRM Analytics asset REST는 ANALYTICS-1 백로그 |
+| 1 | 클라우드/산업: Commerce·Scheduler·FieldService·CPQ·SalesCloud·DataCloud·Agentforce·AgentSkills·ConnectREST | — | 도메인별 소규모 — 필요 시 묶어서 |
 
 - **재실행법**: 다음 세션에서 "[도메인] 3층 파일럿 진행"이라고 하면 방법론 2(클러스터 분할 → 토픽×3층 매트릭스 → 선별 보충)를 그대로 적용. BaseComponents류 "태생이 레퍼런스"인 대량 카탈로그는 진단 제외.
+- **대형·중형 도메인 전부 완료(2026-07-12)**: Integration·Apex·LWC·Flow·Aura·VF·Security·Admin·DevOps·Service + Analytics·sObject·Architecture. 남은 파일럿은 **클라우드/산업 소도메인 묶음 1개**뿐.
 
 ---
 
