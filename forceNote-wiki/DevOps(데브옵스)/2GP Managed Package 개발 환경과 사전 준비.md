@@ -361,3 +361,4 @@ managed 2GP는 선형 버전 관리지만 **버전 abandon**과 **이전 버전�
 - [[2GP — Specific Metadata Behavior]] — Agentforce·Data Cloud 패키징 특수 요건·보호 컴포넌트·Platform Cache Provider Free·Permission Set vs Profile 비교·IP 보호·DomainCreator·@NamespaceAccessible·Connected App·New Order Save Behavior
 - [[2GP — Advanced Features Part 1]] — Package Ancestors 상세 업그레이드 경로 테이블·Dependencies 전수·Keywords·Branches
 - [[2GP — Advanced Features Part 2]] — Package IDs·Namespace Collision 설치 조합·Remove Metadata·Transfer Dev Hub
+- [[패키징 유형 결정 가이드 (Unlocked·2GP·1GP·Unmanaged)]] — 4모델 중 무엇을 쓸지 고르는 결정 트리·비교표 (§8 의존성 매트릭스가 이 노트를 정본으로 가리킴)

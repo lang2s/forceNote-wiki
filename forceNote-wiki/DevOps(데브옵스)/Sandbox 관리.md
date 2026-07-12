@@ -288,5 +288,6 @@ sf project deploy start --target-org MyDevSandbox
 - [[Scratch Org 생성과 정의 파일]] — Sandbox 대안으로 Scratch Org 활용
 - [[Metadata API 빌드·릴리스 워크플로]] — Sandbox를 활용한 배포 파이프라인
 - [[DX 데이터 작업]] — Sandbox 간 데이터 이동·로드 (data tree·bulk)
+- [[개발 환경 선택 (Scratch Org vs Sandbox vs Developer Edition)]] — Sandbox vs Scratch Org vs DE 결정 매트릭스 (언제 어떤 환경)
 - [[Change Sets 배포]] — Sandbox를 출발지로 한 Change Set 기반 메타데이터 배포 절차
 - [[Tooling API 객체 — 운영·라이프사이클 (Sandbox·배포·릴리즈)]] — SandboxInfo·SandboxProcess·SandboxProcessStage Tooling sObject로 샌드박스 생성/새로고침/진행 모니터링을 SOQL·API로 제어하는 레퍼런스

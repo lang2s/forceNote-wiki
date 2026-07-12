@@ -222,3 +222,4 @@ managed 2GP와 Unlocked Package는 **둘 다 2GP 패키징 모델**을 공유한
 - [[2GP — Feature Management App]] — Feature Parameters 3종·구독자별 기능 제어·FMA 전체
 - [[2GP — App Analytics Part 1 - Overview & Setup]] — AppExchange App Analytics 개요·ISV 사용량 데이터·CustomInteractions
 - [[Metadata Coverage 보고서]] — 채널별 지원 메타데이터 타입 확인 (§9 기능 갭의 최신 정보 소스)
+- [[패키징 유형 결정 가이드 (Unlocked·2GP·1GP·Unmanaged)]] — 2GP Managed·1GP·Unlocked·Unmanaged 중 무엇을 쓸지 고르는 결정 트리·비교표

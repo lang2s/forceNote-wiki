@@ -161,3 +161,4 @@ sf package list --verbose
 - [[Unlocked Package 패턴]] — 요약 패턴 노트
 - [[Scratch Org 생성과 정의 파일]] — 패키지 개발용 Scratch Org 구성
 - [[2GP Managed Package 개념과 1GP 비교]] — 2GP의 다른 한 갈래(잠긴 매니지드 패키지 / AppExchange 배포용), Unlocked vs Managed 비교 포함
+- [[패키징 유형 결정 가이드 (Unlocked·2GP·1GP·Unmanaged)]] — Unlocked·2GP·1GP·Unmanaged 중 무엇을 쓸지 고르는 결정 트리·비교표

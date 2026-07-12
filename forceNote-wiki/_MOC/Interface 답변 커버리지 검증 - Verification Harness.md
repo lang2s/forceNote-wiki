@@ -94,9 +94,9 @@ Integration·Apex·LWC·**Flow**·**Aura**·**Visualforce**·**Security** 완료
 | ~~–~~ | ~~**Aura(오라)**~~ | ~~소~~ | ✅ **완료(2026-07-11, `bfa7b2d`)** — 신규 1 + 보강 4. 레거시 규율: 서버 액션 데이터층 + 이벤트 모델/force:* 이관 매핑 |
 | ~~–~~ | ~~**Visualforce(비주얼포스)**~~ | ~~중~~ | ✅ **완료(2026-07-11, `53d904f`)** — 신규 1 + 보강 4. 성숙 도메인 → VF→LWC 이관 결정 노트(Aura 대칭) + findability 보강 |
 | ~~–~~ | ~~**Security(보안)**~~ | ~~중~~ | ✅ **완료(2026-07-11)** — 신규 2 + 백로그 2. 크로스커팅 절차 층: 시큐어 코드 리뷰 체크리스트 + 접근제어 5수단 결정 가이드. 관찰축(Event Monitoring)·Health Check는 SEC-MON-1·SEC-HC-1로 분리 |
+| ~~–~~ | ~~**Admin(어드민)**~~ | ~~대~~ | ✅ **완료(2026-07-12)** — 3층 파일럿을 넘어선 **ADMIN-EXH 전수 커버리지 이니셔티브**(사용자 "전부 다" 요청). 6웨이브 신규 33 + 보강 10. 위키 4대 구조적 공백(인바운드 아이덴티티·감사 관찰축·어드민 빌드타임·전역 UI) + 이메일 인프라 + 운영. 상세 [[WORK_BACKLOG]] ADMIN-EXH |
 | 1 | **DevOps(데브옵스)** (101) | 대 | DX/CI·CD/Metadata/Tooling — 규모 커서 서브클러스터 분할 필수 |
-| 2 | **Admin(어드민)** (47) | 대 | 설정 how-to 위주 — 개념·레퍼런스 대비 절차 층 점검 |
-| 3 | **Service(서비스)** (40) | 대 | Service Cloud — 데이터모델 레퍼런스 vs 구성 절차 |
+| 2 | **Service(서비스)** (40) | 대 | Service Cloud — 데이터모델 레퍼런스 vs 구성 절차 |
 | 4 | **Analytics(애널리틱스)** (21) · **sObject**(38, 태생 레퍼런스) · **Architecture(아키텍처)**(24) | 중 | 레퍼런스 성숙, 개념·절차 보강 위주 |
 | 5 | 클라우드/산업: Commerce·Scheduler·FieldService·CPQ·SalesCloud·DataCloud·Agentforce·AgentSkills·ConnectREST | — | 도메인별 소규모 — 필요 시 묶어서 |
 

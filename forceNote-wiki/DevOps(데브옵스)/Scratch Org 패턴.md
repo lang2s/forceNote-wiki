@@ -227,4 +227,5 @@ CI 파이프라인:
 - [[Scratch Org Settings 레퍼런스]] — settings 블록 전수 옵션 (심층 레퍼런스)
 - [[Org Shape와 Snapshot]] — Org Shape 생성·Snapshot 전수 (심층 레퍼런스)
 - [[Scratch Org 배포·유저·에러코드]] — Deploy/Retrieve·Users·Error Codes 전수 (심층 레퍼런스)
+- [[개발 환경 선택 (Scratch Org vs Sandbox vs Developer Edition)]] — Scratch Org vs Sandbox vs DE 결정 매트릭스 (언제 어떤 환경)
 - [[DevOps Center]] — Scratch Org를 파이프라인 스테이지로 활용하는 변경관리 도구
