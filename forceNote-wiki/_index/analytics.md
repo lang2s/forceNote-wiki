@@ -10,6 +10,16 @@ created: 2026-06-21
 
 ---
 
+## 🗺️ 도메인 오리엔테이션 — 표준 리포팅 vs CRM Analytics·API 선택 (여기부터 시작)
+
+> Analytics 도메인 진입점(synthesis). "표준 리포팅(Reports/Dashboards)과 CRM Analytics 두 세계 구분 + 무엇을 코드로 하려는가 → 어느 API/도구"를 라우팅하는 오리엔테이션 허브. 개별 API 상세는 아래 섹션들로 내려간다.
+
+| 키워드 | 파일 |
+|---|---|
+| Analytics overview, Reports API vs Recipe API, CRM Analytics vs 표준 리포팅, Tableau CRM vs Reports, Einstein Analytics, Wave vs Reports, SAQL vs Report, dataset, Data Prep Recipe, Reports&Dashboards REST vs Wave NS, Analytics API 선택, 애널리틱스 개요, 애널리틱스 오리엔테이션, 분석 도구 선택, 어느 API를 언제 써야 하나, 리포트 API 선택, 리포트를 코드로 실행 어떤 API, SAQL/Wave/Recipe 구분, 대시보드 임베드 LWC, 표준 리포팅과 CRM Analytics 차이가 뭐야, CRM Analytics 활성화 전제조건, 표준 리포팅 API 한도 | `Analytics(애널리틱스)/Analytics 개요 — 표준 리포팅 vs CRM Analytics·API 선택 가이드.md` |
+
+---
+
 ## 개요·인증·엔드포인트 — 진입 허브
 
 | 키워드 | 파일 |
@@ -75,5 +85,5 @@ created: 2026-06-21
 
 | 키워드 | 파일 |
 |---|---|
-| Reports, 리포트, 보고서, Report Builder, Report Type, Report Format, tabular summary matrix joined, 리포트 만들기, 리포트 유형, 요약 리포트, 매트릭스 리포트, 조인 리포트, 데이터 조회 분석, "리포트 어떻게 만들어", "Report Builder 사용법", "리포트 포맷 종류" | `Admin(어드민)/Reports (리포트).md` |
+| Reports, 리포트, 보고서, Report Builder, Report Type, Report Format, tabular summary matrix joined, 리포트 만들기, 리포트 유형, 요약 리포트, 매트릭스 리포트, 조인 리포트, 데이터 조회 분석, "리포트 어떻게 만들어", "Report Builder 사용법", "리포트 포맷 종류", 리포트 탭 UI, Reports 탭, 리포트 폴더, 폴더 공유, folder sharing, 리포트 구독, report subscription, 예약 갱신, scheduled refresh, Export Excel, Export CSV, 리포트 내보내기, 리포트 검색, 폴더 간 이동, Unfiled Public Reports, 리포트 폴더 어떻게 공유, 리포트를 엑셀로 내보내기 | `Admin(어드민)/Reports (리포트).md` |
 | Dashboards, 대시보드, dashboard component, chart gauge metric table, dynamic dashboard, Visualforce 컴포넌트, 대시보드 만들기, 동적 대시보드, 차트 게이지 지표, 데이터 시각화, "대시보드 만드는 법", "대시보드 컴포넌트 종류", "리포트를 차트로 시각화" | `Admin(어드민)/Dashboards (대시보드).md` |

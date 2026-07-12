@@ -5,13 +5,23 @@ created: 2026-06-21
 
 # Analytics(애널리틱스) — 로컬 인덱스
 
-> Salesforce Analytics 도메인 — 두 개발자 가이드 기반 21노트:
+> Salesforce Analytics 도메인 — 두 개발자 가이드 기반 21노트 + 오리엔테이션 synthesis 1노트(총 22):
 > (1) **CRM Analytics(Tableau CRM) Data Prep Recipe REST API**(Summer '26) — 레시피로 데이터를 변환·정제하는 REST API의 개요·인증·엔드포인트, 노드 Input 표현형, Response 표현형, Enum까지 10노트
 > (2) **Reports and Dashboards REST API**(v67.0 Summer '26) — 리포트·대시보드 데이터에 프로그래밍 방식으로 접근하는 REST API의 예제 2노트 + 표현형 Reference 9노트
 >
 > ℹ️ Data Prep Recipe는 CRM Analytics에서 dataflow의 후속으로 데이터를 변환·정제하는 파이프라인이다. Reports and Dashboards REST API는 리포트/대시보드 메타데이터·결과 데이터·폴더·알림을 REST로 다룬다.
 
 **상위:** [[00 Home]]
+
+---
+
+## 시작 — 도메인 오리엔테이션 (여기부터)
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[Analytics 개요 — 표준 리포팅 vs CRM Analytics·API 선택 가이드]] | ★오리엔테이션 허브 — 두 애널리틱스 세계(표준 리포팅 vs CRM Analytics/Tableau CRM) 구분 + "무엇을 코드로 하려는가 → 어느 API/도구" 프로그래밍 표면 선택 결정표. 표준 리포팅 개념은 Admin으로 위임 | #overview #decision-guide |
+
+> 처음이라면 여기서 시작해 두 세계를 구분한 뒤, 아래 상세(Recipe REST / Reports&Dashboards REST)로 내려간다.
 
 ---
 

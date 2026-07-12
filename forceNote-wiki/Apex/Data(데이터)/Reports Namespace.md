@@ -1031,3 +1031,4 @@ new Reports.TopRows()  // no-arg, then use setters
 - [[FormulaEval Namespace]] — 수식 기반 동적 계산
 - [[Wave Namespace]] — CRM Analytics SAQL 분석 (표준 보고서 vs CRM Analytics)
 - [[Reports and Dashboards REST API — 개요·Reports 예제]] — 동일 리포트 데이터의 REST 표면(Run·Describe·factMap 디코딩), Apex `Reports` 네임스페이스와 같은 fact map 모델
+- [[Analytics 개요 — 표준 리포팅 vs CRM Analytics·API 선택 가이드]] — 표준 리포팅 vs CRM Analytics 세계 구분·API 선택. "리포트를 코드로 실행할 API를 고를 때" 오리엔테이션

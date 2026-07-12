@@ -13,6 +13,22 @@ aliases: [Architecture MOC, 아키텍처 목차, Architecture Map of Content]
 
 ---
 
+## 아키텍처 결정 가이드
+
+> "무엇을 결정하려는가 → 어느 가이드로". 핵심 아키텍처 결정 노트는 각 도메인 폴더에 정본이 있어 Architecture 허브에서 바로 도달되지 않았다. 결정 축별 라우팅으로 묶는다(각 노트의 정본은 해당 폴더).
+
+| 결정 축 | 무엇을 고르려는가 | 가이드 노트 (정본 폴더) |
+|---|---|---|
+| **자동화 밀도** | 레코드 자동화를 Flow로 vs Apex Trigger로 | [[Record-Triggered Flow vs Apex Trigger 선택]] (Flow) |
+| **실행 컨텍스트 (비동기)** | @future / Queueable / Batch / Scheduled 중 무엇으로 오프로딩 | [[비동기 컨텍스트 선택]] (Apex/Async) |
+| **오브젝트 타입 (저장 위치)** | 데이터를 Custom vs Big Object vs External vs Data Cloud 어디에 둘지 | [[Object Groups]] · [[2 Object Behavior]] · [[External Objects]] (sObject) |
+| **구성값 저장 위치** | 설정값을 CMDT vs Custom Setting 어디에 저장할지 | [[Custom Metadata Type vs Custom Setting 결정 가이드]] (Architecture) |
+| **개발 환경** | Scratch Org vs Sandbox vs Developer Edition 중 어느 org로 개발할지 | [[개발 환경 선택 (Scratch Org vs Sandbox vs Developer Edition)]] (DevOps) |
+| **애널리틱스 API** | 표준 리포팅 vs CRM Analytics, 어느 API/도구로 분석 코드를 짤지 | [[Analytics 개요 — 표준 리포팅 vs CRM Analytics·API 선택 가이드]] (Analytics) |
+| **멀티테넌시 "왜" (거버너)** | 거버너 한도가 설계를 제약하는 근거 (배치·bulkification·비동기 오프로딩의 이유) | [[Governor Limits]] (Apex/ExecutionContext) |
+
+---
+
 ## 설계 패턴
 
 - [[서비스 레이어 패턴]] — TriggerHandler → ServiceLayer 브로커 분리, 비즈니스 로직 재사용 설계

@@ -220,3 +220,4 @@ List<FieldHistoryArchive> history = [
 - [[Big Objects]] — Big Object 구현 상세
 - [[External Objects]] — External Object 연결 방법
 - [[1 Overview]] — Field 타입·Primitive 타입 기초
+- [[Custom Metadata Type vs Custom Setting 결정 가이드]] — 데이터 레코드 저장 오브젝트 선택은 이 노트, 구성·설정값 저장 선택은 CMDT vs Custom Setting 가이드로

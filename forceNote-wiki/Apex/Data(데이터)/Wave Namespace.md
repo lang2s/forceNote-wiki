@@ -332,4 +332,5 @@ QueryBuilder.cogroup(nodes, groups) → QueryNode (코그룹)
 - [[ConnectApi Namespace 개요]] — ConnectApi.LiteralJson 반환 타입 참조
 - [[Datacloud Namespace]] — Duplicate Management API
 - [[Data Prep Recipe REST API — 개요·인증·엔드포인트]] — 같은 CRM Analytics 도메인의 REST API 카운터파트 (레시피로 데이터를 변환·정제)
+- [[Analytics 개요 — 표준 리포팅 vs CRM Analytics·API 선택 가이드]] — 표준 리포팅 vs CRM Analytics 세계 구분·API 선택. SAQL(Wave)이 어느 세계에 속하는지·언제 고르는지 오리엔테이션
 - [[Apex MOC]]

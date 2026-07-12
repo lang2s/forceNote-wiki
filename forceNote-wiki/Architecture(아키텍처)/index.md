@@ -72,6 +72,20 @@ created: 2026-05-17
 - Canvas 앱 커스텀 파라미터 Apex에서 수정? → [[Canvas Namespace]] → EnvironmentContext.setParametersAsJSON
 - CanvasLifecycleHandler 단위 테스트? → [[Canvas Namespace]] → Canvas.Test.mockRenderContext
 
+## 아키텍처 결정 가이드 (교차 도메인 — 정본은 각 폴더)
+
+핵심 설계 결정 노트들은 여러 폴더에 흩어져 있다. 결정 축별 전체 라우팅표는 [[Architecture MOC]]의 "아키텍처 결정 가이드" 참조.
+
+- 자동화 밀도 (Flow vs Apex Trigger) → [[Record-Triggered Flow vs Apex Trigger 선택]]
+- 비동기 컨텍스트 (@future/Queueable/Batch) → [[비동기 컨텍스트 선택]]
+- 오브젝트 타입 (Custom/Big/External/Data Cloud) → [[Object Groups]] · [[2 Object Behavior]] · [[External Objects]]
+- 구성값 저장 (CMDT vs Custom Setting) → [[Custom Metadata Type vs Custom Setting 결정 가이드]]
+- 개발 환경 (Scratch/Sandbox/DE) → [[개발 환경 선택 (Scratch Org vs Sandbox vs Developer Edition)]]
+- 애널리틱스 API (표준 리포팅 vs CRM Analytics) → [[Analytics 개요 — 표준 리포팅 vs CRM Analytics·API 선택 가이드]]
+- 멀티테넌시·거버너 "왜" → [[Governor Limits]]
+
+---
+
 ## 관련 폴더
 
 트리거 구현 세부 → [[Apex/Trigger(트리거)/index|Trigger(트리거)]] | 보안 적용 → [[Apex/Security(보안)/index|Security(보안)]]

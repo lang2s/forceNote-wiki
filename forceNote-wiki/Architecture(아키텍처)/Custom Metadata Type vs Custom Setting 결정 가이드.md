@@ -85,3 +85,4 @@ RateCard__mdt std = RateCard__mdt.getInstance('Standard');
 - [[Custom Metadata Type (__mdt)]] — CMDT Object 필드 참조·`isProtected`·SOQL/`getInstance` 상세(위임 대상)
 - [[Custom Settings (커스텀 설정)]] — List vs Hierarchy·계층 override·생성 방법 상세(위임 대상)
 - [[Custom Metadata Types]] — CMDT Apex 읽기/쓰기(Metadata.Operations)·한도(10M자)·사용 사례 심화
+- [[Object Groups]] — 구성·설정값 저장 선택은 이 노트, 데이터 레코드 저장 오브젝트(Custom/Big/External/Data Cloud) 선택은 Object Groups로
