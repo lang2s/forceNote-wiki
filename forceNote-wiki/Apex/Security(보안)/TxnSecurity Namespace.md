@@ -1,6 +1,6 @@
 ---
 tags: [apex, security, txnsecurity, transaction-security, policy-condition, event-condition, real-time-event-monitoring, shield]
-source: salesforce_apex_reference_guide.pdf (Apex Reference Guide v67.0, p.4445~4453)
+source: salesforce_apex_reference_guide.pdf (Apex Reference Guide v67.0, p.4445~4453); https://help.salesforce.com/s/articleView?id=sf.enhanced_transaction_security_policy_types.htm (Salesforce Help — Enhanced Transaction Security, Tier 2, 2026-07-12)
 created: 2026-05-19
 aliases: [TxnSecurity, TxnSecurity.EventCondition, TxnSecurity.AsyncCondition, TxnSecurity.PolicyCondition, TxnSecurity.Event, Transaction Security Apex, 트랜잭션 보안 정책, EventCondition, 실시간 이벤트 모니터링 보안]
 ---
@@ -34,6 +34,56 @@ Setup > Transaction Security Policies에서 정책을 만들 때, 조건 로직�
 - 외부 데이터(커스텀 오브젝트, 화이트리스트 등)와 대조해 차단 여부를 결정할 때
 - 특정 이벤트 타입(`ApiEvent`, `LoginEvent`, `ListViewEvent` 등)에서 필드 값을 세밀하게 체크할 때
 - 이벤트 발생 시 비동기 처리(외부 callout 등)가 필요할 때 — `AsyncCondition` 병행 구현
+
+---
+
+## Setup의 Transaction Security Policies 빌더 (선언적 정책) — Apex와의 짝
+
+Transaction Security 정책은 **두 가지 방식**으로 조건을 정의한다. 이 노트의 아래 인터페이스(EventCondition·AsyncCondition)는 그중 **Apex(코드) 방식**이고, 대다수 정책은 Setup에서 **선언적 Condition Builder**로 코드 없이 만든다.
+
+| 정책 정의 방식 | 도구 | 특징 |
+|---|---|---|
+| **선언적** | Setup > Transaction Security Policies > New > **Condition Builder** | 클릭만으로 조건 구성. 대량 레코드 리포트 export 자동 차단 등 대부분의 케이스 |
+| **Apex** | `TxnSecurity.EventCondition` (+ `AsyncCondition`) 구현 클래스 연결 | Condition Builder로 표현 못 하는 복합/외부연동 로직 |
+
+### 라이선스·활성화 전제 (Enhanced Transaction Security)
+
+- Enhanced Transaction Security는 **Real-Time Event Monitoring** 기반이다. 사용하려면 **Salesforce Shield** 또는 **Salesforce Shield Event Monitoring** 애드온 구독이 필요하다.
+- 처음 진입 시 `Get Started With Transaction Security` 옆의 **Enable**을 눌러 기능을 켜야 한다.
+
+### Setup 정책 생성 절차
+
+```
+# 구조 예시 — 실제 원본 UI 캡처 아님 (Setup 네비게이션 구조)
+Setup > Quick Find: "Transaction Security" > Transaction Security Policies
+ └─ (최초 1회) Enable "Get Started With Transaction Security"
+ └─ New
+     ├─ 조건 정의 방식 선택: Condition Builder  |  Apex
+     ├─ Event Type 선택 (아래 표)
+     ├─ 조건 지정 (Condition Builder: 필드·연산자·값 / Apex: EventCondition 클래스)
+     └─ Action 지정: Block  |  Multi-Factor Authentication  |  (Do nothing = 테스트용)
+         └─ Notifications: Email  |  In-app  |  Both  (선택)
+```
+
+### 대표 Event Type (Real-Time Event 기반)
+
+| Event Type | 감시 대상 |
+|---|---|
+| **API Event** | 모든 API 쿼리 — 무단 데이터 export 방지 |
+| **Login Event** | 로그인 상세 — 신뢰되지 않은 위치·미지원 브라우저·특정 디바이스 로그인 차단 |
+| **List View Event** | UI·API의 리스트 뷰 접근 추적 |
+| **Report Event** | 리포트 조회·export — 민감 정보 접근 차단/MFA 요구 또는 실행·export 시 알림 |
+
+> 위 4종은 대표 예시이며, org에는 이 외에도 다양한 Real-Time Event 유형이 노출될 수 있다.
+
+### Action과 Notification
+
+- **Block** — 작업 자체를 차단.
+- **Multi-Factor Authentication** — 더 높은 보증 수준(MFA)을 요구.
+- **Do nothing** — 아무 것도 하지 않음(정책 테스트·튜닝용).
+- **Notifications(선택)** — `Email` / Salesforce 앱 `In-app` / `Both`로 이벤트 발생을 관리자에게 통지.
+
+> 선언적 Condition Builder와 Apex `C*` 인터페이스는 **동일한 Transaction Security 정책 프레임워크의 두 진입점**이다: 조건 표현이 Condition Builder로 충분하면 선언적으로, 부족하면 EventCondition/AsyncCondition을 구현해 Apex Class로 연결한다. 액션(Block/MFA/Notify)·활성화·라이선스 전제는 두 방식 공통이다.
 
 ---
 
@@ -260,3 +310,4 @@ private class AccountQueryConditionTest {
 - [[UserProvisioning Namespace]] — 외부 시스템 프로비저닝 (TxnSecurity 정책 트리거 연계)
 - [[Platform Encryption]] — 동일 Salesforce Shield 제품군 — 저장 데이터(at-rest) 암호화
 - [[Lightning Security 모델]] — 정책 기반 보안 강제 모델 (org 보안 정책의 컴포넌트/런타임 적용과 대비)
+- [[Connected Apps OAuth Usage (OAuth 사용 모니터링)]] — connected app OAuth 사용 사후 감사 (실시간 차단인 Transaction Security와 짝)
