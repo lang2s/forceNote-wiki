@@ -100,9 +100,12 @@ created: 2026-07-03
 | Workflow Rules, 워크플로 규칙, Migrate to Flow, 플로우 이전, 레거시 자동화, time-dependent action, 시간 기반 액션, 워크플로 마이그레이션 | `Admin(어드민)/Workflow Rules & Migrate to Flow (워크플로 규칙·플로우 이전).md` |
 | Email Alerts, 이메일 알림, Email Templates, 이메일 템플릿, Auto-Response Rules, 자동 응답 규칙, merge field, 병합 필드, 이메일 발송 액션, 자동 회신 | `Admin(어드민)/Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답).md` |
 | Custom Notification Types, Notification Builder, 커스텀 알림, 알림 유형, Send Custom Notification, Notification Delivery Settings, 알림 전달 설정, 데스크톱 모바일 알림, 커스텀 알림 발송, 커스텀 알림 어떻게 보내나 | `Admin(어드민)/Custom Notification Types (알림 유형·Notification Builder).md` |
+| Process Automation Settings, 프로세스 자동화 설정, Default Workflow User, 기본 워크플로 사용자, Flow 오류 이메일 수신자, Send Process or Flow Email, Flow 오류 이메일 누구에게, 자동화 오류 알림, Let users pause flows, 인터뷰 일시정지, enhanced Flows page, 자동화 org 설정 | `Admin(어드민)/Process Automation Settings (프로세스 자동화 설정).md` |
 
 ## 이메일 (Email)
 
 | 키워드 | 파일 |
 |---|---|
 | Organization-Wide Email Addresses, 조직 전체 이메일 주소, 공통 발신 주소, Deliverability, 전달성, Access to Send Email, 이메일 발송 권한, 이메일 인증, 발송 전달성 | `Admin(어드민)/Organization-Wide Email Addresses & Deliverability (조직 전체 이메일·전달성).md` |
+| 이메일 전달성, Email Deliverability, DKIM Keys, DKIM 서명, DomainKeys Identified Mail, Email Relay, 이메일 릴레이, Bounce Management, 반송 처리, Test Deliverability, 전달성 테스트, SPF, 이메일 스푸핑 방지, Email Security Compliance, Compliance BCC, Email Footers, 이메일이 스팸으로 가요, 회사 SMTP 경유 발송 | `Admin(어드민)/이메일 전달성 인프라 (Deliverability · DKIM · Email Relay · Bounce).md` |
+| Letterheads, 레터헤드, Enhanced Letterheads, Mail Merge, 메일 머지, Extended Mail Merge, Email to Salesforce, My Email to Salesforce, 이메일 활동 로깅, BCC 이메일 로깅, Classic 이메일, 레거시 이메일 도구, Word 문서 병합, 외부 메일 자동 로깅 | `Admin(어드민)/Letterheads · Mail Merge · Email to Salesforce (Classic 이메일 도구).md` |

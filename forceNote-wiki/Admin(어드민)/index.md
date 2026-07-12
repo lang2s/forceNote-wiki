@@ -78,7 +78,10 @@ created: 2026-05-19
 | [[Workflow Rules & Migrate to Flow (워크플로 규칙·플로우 이전)]] | 레거시 워크플로·Migrate to Flow 이전 | #automation |
 | [[Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답)]] | 이메일 발송 액션·템플릿·자동 회신 규칙 | #automation |
 | [[Organization-Wide Email Addresses & Deliverability (조직 전체 이메일·전달성)]] | 공통 발신 주소·발송 전달성·이메일 인증 | #email |
+| [[이메일 전달성 인프라 (Deliverability · DKIM · Email Relay · Bounce)]] | 발신 인증·전달성 인프라 심화 — DKIM 서명(스푸핑 방지)·Email Relay(회사 SMTP 경유)·Bounce 관리·Test Deliverability(IP 차단 진단)·Compliance BCC·Footer | #email |
+| [[Letterheads · Mail Merge · Email to Salesforce (Classic 이메일 도구)]] | Classic 이메일 3대 도구 — Letterhead(HTML 템플릿 브랜딩)·Mail Merge(Word 데이터 병합)·Email to Salesforce(외부 메일 활동 자동 로깅). 각 Lightning 대안 병기 | #email #legacy |
 | [[Custom Notification Types (알림 유형·Notification Builder)]] | Notification Builder로 커스텀 알림 유형을 선언적 정의(채널·API 이름)+Notification Delivery Settings로 유형별 전달 채널 제어. 발송 코드는 Flow/Apex 위임 | #automation #notification |
+| [[Process Automation Settings (프로세스 자동화 설정)]] | org 전체 Flow·Process·Workflow 동작을 한 페이지에서 제어 — 기본 워크플로 사용자·Flow/Process 오류 이메일 수신자·인터뷰 일시정지/공유 재개·enhanced Flows 페이지 | #automation |
 
 ---
 
@@ -144,6 +147,9 @@ created: 2026-05-19
 - 레거시 워크플로를 Flow로 이전? → [[Workflow Rules & Migrate to Flow (워크플로 규칙·플로우 이전)]]
 - 이메일 알림·템플릿·자동 응답 규칙 설정? → [[Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답)]]
 - 조직 전체 발신 주소·이메일 전달성 관리? → [[Organization-Wide Email Addresses & Deliverability (조직 전체 이메일·전달성)]]
+- 이메일이 스팸으로 분류되지 않게 DKIM·Email Relay·반송(Bounce)을 설정? → [[이메일 전달성 인프라 (Deliverability · DKIM · Email Relay · Bounce)]]
+- Classic 레터헤드·메일 머지·Email to Salesforce(외부 메일 자동 로깅)? → [[Letterheads · Mail Merge · Email to Salesforce (Classic 이메일 도구)]]
+- 기본 워크플로 사용자·Flow 오류 이메일 수신자 등 org 자동화 설정? → [[Process Automation Settings (프로세스 자동화 설정)]]
 - Salesforce란 무엇인가? → [[Architecture(아키텍처)/Salesforce 플랫폼 개요]]
 
 ---
