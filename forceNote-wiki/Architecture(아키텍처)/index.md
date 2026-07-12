@@ -34,6 +34,7 @@ created: 2026-05-17
 | [[VisualEditor Namespace]] | Lightning App Builder 동적 피클리스트 — DynamicPickList 상속, DataRow, DynamicPickListRows, DesignTimePageContext | #reference |
 | [[Canvas Namespace]] | 외부 웹 앱 임베드 Apex SDK — CanvasLifecycleHandler(excludeContextTypes/onRender), RenderContext, ApplicationContext, EnvironmentContext, Canvas.Test | #reference |
 | [[Custom Metadata Types]] | CMDT 읽기·쓰기(Metadata.Operations), getInstance, SOQL 조회, isProtected 보호 설정 | #reference |
+| [[Custom Metadata Type vs Custom Setting 결정 가이드]] | 구성값을 어디에 저장할지 — 배포 필요=CMDT, 런타임 수정·사용자별 계층=Custom Setting. getAll SOQL 면제·Hierarchy 등 선택 축 | #decision-guide |
 | [[Validation Rules 예제]] | REGEX, ISBLANK, ISNUMBER, ISCHANGED, PRIORVALUE, VLOOKUP, ISPICKVAL 예제 모음 | #reference |
 | [[DevOps Center]] | Salesforce 릴리즈 관리 도구 — Git 기반 파이프라인, Work Item, Bundle, CLI 배포. DevHubSettings(enableALMDevopsCorePref/enableDevOpsCenterGA), scratch org feature DevOpsCenter, DX MCP devops 툴셋 | #concept |
 | [[Enhanced Domains]] | Winter '24 강제 적용 도메인 정책 — 모든 URL에 My Domain 포함, 서드파티 쿠키 대응 | #concept |
@@ -49,6 +50,7 @@ created: 2026-05-17
 - 일일/동시 API 콜·Bulk·Metadata·SOQL 검색·VF view state 한도 수치? → [[Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)]]
 - Trigger 로직을 어디에 둘지? → [[서비스 레이어 패턴]]
 - 레코드 저장 시 20단계 실행 순서(before/after·workflow·flow·roll-up)? → [[Trigger Order of Execution]]
+- 구성값을 CMDT vs Custom Setting 중 어디에 저장할지 결정? → [[Custom Metadata Type vs Custom Setting 결정 가이드]]
 - 권한 세트 메타데이터 구성? → [[Permission Set 설계]]
 - Apex에서 승인 프로세스 제출? → [[Approval Namespace]]
 - 오브젝트/필드/레코드 타입 메타데이터 조회? → [[Schema Namespace 상세]]

@@ -56,6 +56,10 @@ created: 2026-05-19
 | [[Picklists — Global Value Sets & Dependent Picklists (피클리스트)]] | 피클리스트·전역 값 집합·종속 피클리스트 | #customization |
 | [[Custom Settings (커스텀 설정)]] | List vs Hierarchy 커스텀 설정(캐시 접근) | #customization |
 | [[Custom Labels (커스텀 레이블)]] | 번역 가능한 커스텀 텍스트 | #customization |
+| [[Field Sets (필드 집합)]] | 필드를 논리적으로 묶어 UI(VF·LWC·Apex)가 참조 — 관리자가 필드셋에 추가/제거만으로 코드 수정 없이 화면 노출 필드 변경 | #customization |
+| [[Lookup Filters (룩업 필터)]] | 관계 필드(lookup·master-detail)에서 후보 레코드를 조건으로 제한 — Required/Optional·$Source·종속 룩업·참조 무결성 | #customization |
+| [[Object & Field Limits (오브젝트·필드 한도)]] | 에디션별 정적 설정 한도(오브젝트당 커스텀 필드 900·관계 40·Roll-Up 25 등) — 한도 수치 레퍼런스 | #customization #reference |
+| [[필드 타입 선택 가이드 (어드민 빌드 관점)]] | 커스텀 필드를 만들 때 어떤 타입을 고르나 — 용도·크기·변경 제약(전환 데이터 손실·인덱싱·Encrypted) 결정 가이드 | #customization #decision-guide |
 | [[Lightning App Builder & Pages (라이트닝 앱 빌더·페이지)]] | 커스텀 페이지(App/Home/Record) 조립·활성화(FlexiPage) | #ui-customization |
 | [[Lightning Apps & Tabs (라이트닝 앱·탭)]] | App Manager로 앱 구성·탭 4유형·유틸리티 바 | #ui-customization |
 | [[List Views (리스트 뷰)]] | 필터 목록·버튼 레이아웃·Kanban·mass quick action | #ui-customization |
@@ -111,6 +115,10 @@ created: 2026-05-19
 - 피클리스트·전역 값 집합·종속 피클리스트 설정? → [[Picklists — Global Value Sets & Dependent Picklists (피클리스트)]]
 - List/Hierarchy 커스텀 설정으로 구성 데이터를 캐시 접근? → [[Custom Settings (커스텀 설정)]]
 - 번역 가능한 텍스트를 커스텀 레이블로 관리? → [[Custom Labels (커스텀 레이블)]]
+- 코드 수정 없이 화면 노출 필드를 필드 묶음으로 관리? → [[Field Sets (필드 집합)]]
+- 관계 필드에서 선택 가능한 후보 레코드를 조건으로 제한? → [[Lookup Filters (룩업 필터)]]
+- 오브젝트당 커스텀 필드·관계·Roll-Up 한도 수치 확인? → [[Object & Field Limits (오브젝트·필드 한도)]]
+- 커스텀 필드를 만들 때 어떤 타입을 골라야 하나? → [[필드 타입 선택 가이드 (어드민 빌드 관점)]]
 - 커스텀 페이지(App/Home/Record)를 조립·활성화? → [[Lightning App Builder & Pages (라이트닝 앱 빌더·페이지)]]
 - App Manager로 앱·탭·유틸리티 바 구성? → [[Lightning Apps & Tabs (라이트닝 앱·탭)]]
 - 리스트 뷰 필터·버튼 레이아웃·mass quick action 설정? → [[List Views (리스트 뷰)]]

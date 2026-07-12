@@ -68,6 +68,10 @@ created: 2026-07-03
 | Picklists, 피클리스트, Global Value Set, 전역 값 집합, Dependent Picklist, 종속 피클리스트, controlling field, field dependency, 필드 종속성 | `Admin(어드민)/Picklists — Global Value Sets & Dependent Picklists (피클리스트).md` |
 | Custom Settings, 커스텀 설정, List Custom Setting, Hierarchy Custom Setting, 캐시 설정, 구성 데이터, 리스트 커스텀 설정, 계층 커스텀 설정 | `Admin(어드민)/Custom Settings (커스텀 설정).md` |
 | Custom Labels, 커스텀 레이블, 사용자 정의 레이블, 번역, localization, 지역화, 번역 가능한 텍스트 | `Admin(어드민)/Custom Labels (커스텀 레이블).md` |
+| Field Sets, 필드 집합, 필드셋, 필드 세트, dynamic form, 동적 폼, FieldSet metadata, available fields, displayed fields, LWC VF Apex 필드셋, 필드 묶음 노출, 코드 수정 없이 필드 추가, 화면 필드 관리자가 바꾸기, 필드셋 어떻게 만드나 | `Admin(어드민)/Field Sets (필드 집합).md` |
+| Lookup Filters, 룩업 필터, 조회 필터, 관계 값 제한, 후보 레코드 제한, Required Optional filter, dependent lookup, 종속 룩업, $Source, 참조 무결성, Lightning always required, 룩업에서 특정 레코드만 보이게, 관계 필드 후보 거르기 | `Admin(어드민)/Lookup Filters (룩업 필터).md` |
+| Object Field Limits, 오브젝트 필드 한도, 오브젝트당 커스텀 필드, 커스텀 필드 몇 개까지, 에디션별 한도, edition allocations, relationships per object 40, custom fields 900, Roll-Up 25, 한도 수치 어디서 찾나, 커스텀 오브젝트 몇 개, 정적 설정 한도 | `Admin(어드민)/Object & Field Limits (오브젝트·필드 한도).md` |
+| Custom Field Types, 필드 타입 선택, field type 선택, 어떤 필드 타입 쓰나, Text vs Long Text, Picklist vs Multi-Select, Formula vs Roll-Up, Lookup vs Master-Detail, 타입 변환 데이터 손실, 필드 타입 변경 제약, Encrypted Text 제약, Auto Number, Geolocation, 커스텀 필드 만들 때 타입 고르기 | `Admin(어드민)/필드 타입 선택 가이드 (어드민 빌드 관점).md` |
 
 ## UI 커스터마이제이션 (UI Customization)
 
