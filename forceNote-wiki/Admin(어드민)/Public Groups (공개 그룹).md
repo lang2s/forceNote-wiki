@@ -53,6 +53,28 @@ Public Group "West Sales"
 사용처: Sharing Rule 대상 · Folder/List View 공유 · Manual Sharing
 ```
 
+## Public Group vs Queue (공개 그룹 vs 큐)
+
+Public group과 [[Queues (큐)]]는 둘 다 **사용자·역할·역할과 부하·다른 그룹을 묶은 집합**이라 겉모습이 비슷하지만, **용도가 근본적으로 다르다.** 핵심 차이는 **"레코드를 소유·배정받을 수 있는가"** 다.
+
+| 구분 | **Public Group** | **Queue** |
+|---|---|---|
+| 근본 성격 | **공유(sharing) 대상** | **작업 배분(work distribution)·배정 대상** |
+| 레코드 소유 | ❌ **소유 불가** — 레코드 owner가 될 수 없다 | ✅ **소유 가능** — 큐가 레코드를 임시 소유하고, 멤버가 owner를 가져감(take ownership) |
+| 배정(assignment) 대상 | ❌ 배정 라우팅 대상 아님 | ✅ 케이스·리드·커스텀 오브젝트 등을 큐에 배정(수동/assignment rule/Omni-Channel) |
+| 주 사용처 | Sharing Rule · Folder/List View·Report·Dashboard 공유 · Manual Sharing · (이메일 등 대상) | 팀 공유 워크로드 큐 — pull 또는 Omni-Channel push 라우팅 |
+| 멤버 유형 | Users·Roles·Roles & Subordinates·다른 Public Group(중첩) | Users·Roles·Roles & Subordinates·**Public Group**·territory 등 |
+| 상호 포함 | — | **Public Group을 큐 멤버로 넣을 수 있다** (그 역은 아님) |
+
+### 언제 무엇을
+
+- **레코드를 특정 팀이 "함께 처리·소유·라우팅"** 해야 하면 → **Queue.** 케이스/리드/커스텀 레코드를 큐에 배정하면 큐가 임시 소유하고, 큐 멤버(또는 역할 계층상 상위 사용자)가 소유권을 가져가 처리한다. Assignment rule·Omni-Channel로 자동 라우팅도 큐로 한다.
+- **레코드·폴더에 대한 "접근(공유)만"** 부여하면 되면 → **Public Group.** 공유 규칙·수동 공유·폴더 공유의 "누구에게"를 한 번 정의해 재사용한다. Public group은 **접근을 넓힐 뿐 레코드를 소유하지 않는다.**
+- 둘은 배타적이지 않다 — public group을 큐의 멤버로 넣어 "이 그룹 전원을 이 큐의 처리자"로 지정할 수 있다.
+
+> 요약: **Queue = 소유·배정(라우팅)**, **Public Group = 공유(접근)**. 겹치는 "사용자 묶음" 표현 때문에 혼동하기 쉽지만, 레코드 owner가 될 수 있는 것은 Queue뿐이다.
+
 ## 관련 노트
 - [[조직 전체 공유 기본값(OWD)과 공유 규칙]] — 공유 규칙의 공유 대상으로 public group 사용
 - [[Roles & Role Hierarchy (역할·역할 계층)]] — 그룹 멤버로 role/부하 포함
+- [[Queues (큐)]] — 레코드 소유·배정(라우팅) 대상. public group과 대비되는 짝

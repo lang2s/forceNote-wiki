@@ -171,9 +171,25 @@ updated: 2026-06-27
 | OMNISTUDIO-1 | **OmniStudio 위키 지식 계층** | sf-skills에 OmniStudio 8스킬(OmniScript·FlexCard·DataMapper·Integration Procedure·EPC·DataPack) 존재하나 **위키 콘텐츠 0** — 지식(위키)↔실행(스킬) 레이어에서 지식측 완전 공백([[스킬 ↔ 위키 토픽 맵]] 콘텐츠 갭 항목). 로컬 PDF 없음 → help.salesforce.com Tier 2. 대형 도메인. | ~6–10노트 | 🔲 대기 | 2026-07-03 |
 | AI-CLASSIC-1 | **Einstein 예측형 AI(비-생성형)** — Prediction Builder·Next Best Action·Einstein Discovery | Agentforce/AgentScript(생성형)는 깊으나 **클래식 예측 AI 전용 노트 0**(DevOps 메타데이터 타입 언급만). 로컬 PDF 없음 → help.salesforce.com Tier 2. 니치·저우선. | ~3–4노트 | 🔲 대기 | 2026-07-03 |
 | SEC-MON-1 | **Event Monitoring & 보안 감사(관찰 축)** — EventLogFile·SetupAuditTrail·LoginHistory·Login Forensics·Real-Time Event Monitoring | Security 3층 파일럿(2026-07-11) 진단이 확인: `TxnSecurity`(강제/차단)는 커버되나 **관찰·조회(monitor/query) 레퍼런스가 통째로 부재**. "누가 언제 무엇을 보고/내보냈나"의 감사·이상탐지 표면 전무(릴리즈노트·하네스에 단편 언급뿐). **Integration 하네스도 라운드1부터 "EventLogFile 전용 노트"를 이월** — 두 도메인이 독립적으로 같은 갭 지목. 로컬 PDF 없음 → help.salesforce.com Tier 2 + sObject(EventLogFile 필드). Shield Event Monitoring 제품군. | ~3–5노트 | 🔲 대기 | 2026-07-11 |
-| SEC-HC-1 | **Security Health Check** — org 보안 baseline 점수·세션/비밀번호/인증서 위험 점검 | Security 3층 파일럿(2026-07-11) 진단 B가 확인: 관리자가 보안 posture를 Baseline과 대조·점수화하는 무료 진단 도구가 dedicated 노트로 없음(Admin `Login IP Ranges` 노트에서 스침). "org 보안을 어떻게 점검하나" 절차 갭. 로컬 PDF 없음 → help.salesforce.com Tier 2. 소형·차선. | ~1–2노트 | 🔲 대기 | 2026-07-11 |
+| SEC-HC-1 | ~~Security Health Check~~ | ❌ **취소 — 오탐 (2026-07-11)**. Admin 전수 커버리지 이니셔티브 갭매핑에서 확인: `Admin(어드민)/Security Health Check (보안 상태 점검).md`가 **이미 존재**. Security 파일럿 진단 B가 Admin 폴더를 못 봐서 생긴 false gap. | — | ❌ 취소 | 2026-07-11 |
 
-> **재확인(신규 아님, 이미 등재됨):** ING-13b(Connect/Chatter REST 2350p 초대형)·ING-25(extend_click_automate 1027p 선언적 자동화 레퍼런스)·ING-28(lightning 553p)·pages_dev(817p Visualforce 부분)는 위 INGEST 표에 이미 있음. Marketing Cloud는 `Clouds/Marketing Cloud 개요.md`만 존재(심화는 로컬 PDF 없음·대형 별도 이니셔티브라 미등재 보류). Slack은 `Apex/Integration/Slack Namespace.md`로 Apex측 커버(앱 SDK는 스코프 밖).
+> **재확인(신규 아님, 이미 등재됨):** ING-13b(Connect/Chatter REST 2350p 초대형)·ING-25(extend_click_automate 1027p 선언적 자동화 레퍼런스)·pages_dev(817p Visualforce 부분)는 위 INGEST 표에 이미 있음. **ING-28(lightning 553p)은 de-scope** — Aura 3층 파일럿(2026-07-11)에서 `lightning.pdf` = `lightningAura.pdf` **바이트 동일 복제본**(md5 일치) 확인, 별도 소스 아님. Marketing Cloud는 `Clouds/Marketing Cloud 개요.md`만 존재(심화는 로컬 PDF 없음·대형 별도 이니셔티브라 미등재 보류). Slack은 `Apex/Integration/Slack Namespace.md`로 Apex측 커버(앱 SDK는 스코프 밖).
+
+### 🟨 ADMIN-EXH — Admin/Setup 전수 커버리지 이니셔티브 (갭 매핑 2026-07-11, 사용자 요청 "전부 다")
+
+> **배경:** 사용자가 "org 설정을 전수 조사해 전부 위키화" 요청. 전체 Salesforce Setup 트리를 7슬라이스(사용자·접근 / 보안·아이덴티티 / 오브젝트·필드 / 데이터관리 / UI·앱 / 자동화·이메일 / 회사·모니터링)로 나눠 "있어야 할 것 전수 → 위키 커버 대조" 병렬 갭매핑 수행. **결과: 기존 커버 넓음(Admin 48 + Security 권한 13 + 타폴더)이나, 위키의 구조적 편향 확인 — "객체·로직 만드는 법"은 깊고 "org 설정(전역 토글·인프라·현지화·인바운드 아이덴티티·감사)"은 얇음.** 갭을 6테마 웨이브로 정리. 소스: 로컬 PDF 거의 없음 → help.salesforce.com Tier 2(SPA는 브라우저 렌더).
+> **규율:** 신규 남발 금지 — 이미 있는 것 건드리지 않음. 각 노트 완결성 검증(source-verifier) 필수. index-manager로 admin 샤드 findability 개선(Queues·Territory·Scoping이 admin 샤드 미노출).
+
+| 웨이브 | 테마 | 신규 노트 후보 | 규모 |
+|---|---|---|---|
+| **W1** | 아이덴티티·접근 (인바운드 인증·레코드 접근) | My Domain(로그인정책·브랜딩) · SAML SSO(인바운드) · Salesforce as IdP + Login Flows + OAuth Custom Scopes · Certificate & Key Management · Restriction Rules · User Access Policies · Licenses 개요(User·PSL·Feature) · User Management Settings + Login Access Policies + PublicGroup vs Queue | ~8노트 |
+| **W2** | 감사·모니터링·프라이버시 (관찰축) | Event Monitoring & 보안감사(EventLogFile·RTEM)[=SEC-MON-1] · Login History & Email Log · Monitoring 허브(Scheduled/Apex Jobs·Flex Queue·Background·Bulk Data Load) · Connected Apps OAuth Usage · Data Protection & Privacy(Individual·Consent·RtbF) | ~6노트 |
+| **W3** | 어드민 빌드타임 (오브젝트·필드 도구) | Field Sets · Lookup Filters · Object & Field Limits · CMDT vs Custom Setting 결정(보강) · 어드민 필드타입 선택 가이드 · Field Accessibility 그리드(보강) | ~5노트 |
+| **W4** | UI·현지화·검색 (org 전역 UI 설정) | User Interface Settings · Translation Workbench(+Language) · Search Settings & Layouts · Path · Themes·Branding & Rename Tabs · Utility Bar & App Menu 심화 · Console Navigation & Split View · Notification Builder | ~7노트 |
+| **W5** | 이메일 인프라 & Classic 도구 | Email Administration(Deliverability·DKIM·Email Relay·Bounce·Test·Footer) · Letterheads·Mail Merge·Email to Salesforce · Process Automation Settings | ~3노트 |
+| **W6** | 회사·조직·데이터 운영 (나머지) | Release Updates 처리 메커니즘 · System Overview & Salesforce Optimizer · Installed Packages 관리 · Duplicate Jobs & Record Sets · Mass Reassign Account Teams + Mass Update Addresses · (보강: Data Export/Storage 심화·Fiscal Year 커스텀·ACM·Files Connect·Activity Settings·Maps) | ~5노트+보강 |
+
+> 총 ~34 신규 + ~10 보강. 멀티세션. 웨이브 완료 시마다 커밋·이 표에 상태 갱신. **교차 중복 해소**: My Domain(B+G)·Data Protection(B+D+G)·Optimizer(D+G)·Translation(E+G)·Notification(E+F)·Login History(B+G)는 각 1노트로 통합.
 
 ### ⚪ P4 — 장기 (큰 인프라 결정)
 

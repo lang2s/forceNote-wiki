@@ -69,3 +69,4 @@ Omni-Channel은 큐를 **강화(enhance)** 한다. 큐에 들어온 **work item�
 - [[Service Cloud 개요]] — Service Cloud 시리즈 허브
 - [[Cases (케이스)]] — 큐에 담기는 대상
 - [[Case Assignment & Escalation Rules (케이스 배정·에스컬레이션 규칙)]] — 큐로 배정하는 규칙
+- [[Public Groups (공개 그룹)]] — 겹치는 "사용자 묶음"이나 큐만 레코드 소유·배정, 그룹은 공유 전용 (Public Group vs Queue 비교)
