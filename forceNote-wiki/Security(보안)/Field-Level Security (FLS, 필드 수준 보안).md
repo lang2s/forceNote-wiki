@@ -99,6 +99,37 @@ Page Layout (표현/배치)         ──▶ 레코드 페이지에서 필드 �
 - 제한이 걸릴 수 있는 레벨: **record type · user profile · permission set**
 - **field accessibility grid**에서 각 필드의 접근성을 확인하고, **page layout 수준** 또는 **field-level security 수준**에서 접근성을 변경할 수 있다.
 
+### Field Accessibility 그리드 — 진입점 UI (Setup)
+
+FLS를 개별 필드·프로파일마다 따로 뒤지지 않고 **한 화면에서 교차로 보고 고치는** 어드민 진입점이 **Field Accessibility** 페이지다. 한 필드의 접근이 **여러 레벨(레코드 타입·프로파일·permission set) 중 어디서** 막혔는지 진단할 때 특히 유용하다.
+
+- **위치:** Setup → 오브젝트별 Field Accessibility (Salesforce Classic 계열 진입점). 관리자가 필드 접근성을 한눈에 점검·수정하는 그리드 뷰다.
+- **두 가지 진입 방식:**
+
+| 진입 | 그리드 축 | 무엇을 보나 |
+|---|---|---|
+| **View by Fields** (필드 기준) | 필드 하나 × 프로파일(또는 레코드 타입) | 그 **한 필드**가 각 프로파일/레코드 타입에서 어떤 접근인지 |
+| **View by Profiles** (프로파일 기준) | 프로파일 하나 × 오브젝트의 모든 필드 | 그 **한 프로파일**이 오브젝트 전 필드를 어떻게 보는지 |
+
+- **셀의 접근성 상태:** 각 교차 셀은 필드의 유효 접근을 요약해 보여준다 — 예: **Editable**(읽기+편집), **Read-Only**(읽기만), **Hidden**(숨김), **Required**(필수). 이 값은 **FLS + 페이지 레이아웃 설정이 합쳐진 결과**다.
+- **셀에서 바로 수정:** 셀을 클릭하면 그 접근이 **어느 레벨에서 결정됐는지**(page layout vs field-level security)를 보여주고, 두 레벨 각각에서 값을 바꿀 수 있다. 즉 위 "접근 레벨(3단계)" 표의 Visible/Read-Only/None 설정을 **필드×프로파일 격자 위에서** 직접 조정하는 UI다.
+
+```
+// 구조 예시 — Field Accessibility 그리드(실제 원본 화면 아님)
+                Profile A   Profile B   Profile C
+  Email__c      Editable    Read-Only   Hidden
+  Amount__c     Editable    Editable    Read-Only
+  SSN__c        Hidden      Hidden      Editable
+      │
+      └▶ 셀 클릭 → "Access determined by: Field-Level Security / Page Layout"
+         → 각 레벨에서 Visible·Read-Only·Required 조정
+```
+
+> 진단 순서: 어떤 사용자가 필드를 못 본다고 하면 → Field Accessibility 그리드에서 그 **필드×프로파일 셀**을 열어 **레이아웃 문제인지 FLS 문제인지**를 한 화면에서 구분한다. (프로파일·permission set을 하나씩 열어보는 것보다 빠르다.)
+
+> [!note] 개별 필드에서의 바로가기
+> 특정 커스텀 필드의 상세 페이지에는 **View Field Accessibility** 링크가 있어, 그 필드에 대한 그리드로 바로 진입할 수 있다.
+
 ---
 
 ## 관련 노트
