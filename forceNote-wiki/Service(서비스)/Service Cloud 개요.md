@@ -88,6 +88,27 @@ Service Cloud의 기능은 case를 중심으로 조직된다.
 
 ---
 
+## 채널 선택 결정표 (언제 어느 채널)
+
+고객 접점 채널을 상황에 맞게 고른다. **레거시 채널(Chat·Open CTI)은 은퇴 중이며 후속(Messaging·Voice)이 권장**된다. 각 채널 상세는 해당 노트로 위임한다.
+
+| 채널 | 동기/비동기 | 고객 접점 | 대표 용도 | 레거시 여부 | 상세 |
+|---|---|---|---|---|---|
+| **Email-to-Case** | 비동기 | 이메일 | 기록·첨부가 중요한 문의, 낮은 실시간성 | 현행 | [[Email-to-Case & Web-to-Case (이메일·웹 투 케이스)]] |
+| **Web-to-Case** | 비동기 | 웹 폼 | 셀프 제출·비인증 접수 | 현행 | [[Email-to-Case & Web-to-Case (이메일·웹 투 케이스)]] |
+| **Messaging (MIAW)** | 비동기+실시간 혼합 | In-App(모바일)·Web·WhatsApp·SMS·소셜 | 대화형 지원·모바일 우선·다채널 메시징 | **현행 (Chat 후속)** | Messaging for In-App and Web *(이 파일럿에서 신규 작성 예정)* |
+| **Voice(전화)** | 실시간 | 전화 | 음성 지원·통화 전사·실시간 상담 | **현행 (Open CTI 후속)** | Service Cloud Voice *(이 파일럿에서 신규 작성 예정)* |
+| **Chat** | 실시간 | 웹 채팅 | (레거시) 실시간 웹 채팅 | ⚠️ **은퇴 → Messaging 권장** | [[Chat 개발자 가이드 개요 & Deployment API — 로깅·윈도우·버튼]] |
+| **Open CTI(전화)** | 실시간 | 전화 | (레거시) softphone 통합 | ⚠️ **은퇴 → Voice 권장** | [[Open CTI & Telephony (전화 통합)]] |
+| **Experience Cloud** | 비동기(셀프) | 포털·커뮤니티 | 셀프서비스·Knowledge·case deflection | 현행 | [[Lightning Knowledge 개요 — 계획·비교·한계]] |
+
+> 결정 요약: **비동기·기록 중심 → Email/Web-to-Case**, **대화형·모바일 → Messaging(MIAW)**, **음성 → Voice**, **셀프서비스 → Experience Cloud + Knowledge**. 신규 구축은 레거시(Chat·Open CTI)를 피하고 후속 채널을 쓴다. 라우팅은 [[Omni-Channel 객체·메타데이터·콘솔 컴포넌트]]로 연결한다.
+
+> [!note] 소스
+> 이 결정표는 위키의 개별 채널 노트(Tier 2)를 조합한 synthesis다. 레거시 은퇴·후속 관계는 Chat·Open CTI 노트의 Tier 2 근거를 따른다. Messaging(MIAW)·Voice 전용 노트는 이 파일럿에서 작성 중이며, 작성 후 cross-linker가 이 표에 링크를 연결한다.
+
+---
+
 ## 사용 제한 안내
 
 Agentforce Service의 사용 조건·제한(usage restriction)은 공식 문서를 참조한다. 이 노트는 기능 개요이며 라이선스·사용량 제한의 정본이 아니다.
