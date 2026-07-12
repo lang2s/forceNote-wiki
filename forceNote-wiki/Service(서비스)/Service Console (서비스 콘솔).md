@@ -24,7 +24,7 @@ aliases: [Service Console, 서비스 콘솔, Lightning Service Console, Agent Wo
 - **Omni-Channel** — 담당자에게 작업(case·chat 등)을 실시간 라우팅.
 - **Open CTI Softphone** — 브라우저 내 전화 통합. 세부는 [[Open CTI & Telephony (전화 통합)]] 참조.
 
-> 탭·split view·하이라이트 패널 등 콘솔 세부 구성과 utility bar 전체 컴포넌트 목록은 공식 문서에 위임한다 — 이 노트는 개요 수준이다.
+> 탭·split view·하이라이트 패널 등 콘솔 세부 구성과 utility bar 전체 옵션은 [[Utility Bar · App Menu · Console Navigation (유틸리티 바·앱 메뉴·콘솔 네비)]]에서 심화한다 — 이 노트는 Service Cloud 관점 개요다.
 
 ## 콘솔 구성 (구조 개요)
 
@@ -36,6 +36,7 @@ aliases: [Service Console, 서비스 콘솔, Lightning Service Console, Agent Wo
 ```
 
 ## 관련 노트
+- [[Utility Bar · App Menu · Console Navigation (유틸리티 바·앱 메뉴·콘솔 네비)]] — utility bar·콘솔 네비게이션·split view 심화
 - [[Service Cloud 개요]] — Service Cloud 시리즈 허브
 - [[Macros (매크로)]] — utility bar 도구
 - [[Open CTI & Telephony (전화 통합)]] — utility bar softphone

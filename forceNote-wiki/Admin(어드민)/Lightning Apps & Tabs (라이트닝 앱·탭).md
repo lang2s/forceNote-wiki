@@ -18,7 +18,7 @@ aliases: [Lightning Apps, 라이트닝 앱, App Manager, Tabs, 탭, Custom Tab, 
 
 - **표준 앱과 커스텀 앱**이 있다. 커스텀 앱은 관리자가 직접 만든다.
 - 앱 생성·편집은 **Setup → App Manager**에서 한다.
-- 앱에는 **네비게이션 항목(탭)**과 **utility bar**를 구성한다. (utility bar 세부 옵션은 공식 문서 위임 — 위 `official_doc` 참조.)
+- 앱에는 **네비게이션 항목(탭)**과 **utility bar**를 구성한다. utility bar 세부 옵션·Standard vs Console navigation·Split View는 [[Utility Bar · App Menu · Console Navigation (유틸리티 바·앱 메뉴·콘솔 네비)]] 참조.
 
 ### 앱 배정 (가시성)
 
@@ -56,6 +56,7 @@ Setup → Tabs: 탭 생성
 ---
 
 ## 관련 노트
+- [[Utility Bar · App Menu · Console Navigation (유틸리티 바·앱 메뉴·콘솔 네비)]] — utility bar·네비게이션 유형·콘솔 split view 심화
 - [[Lightning App Builder & Pages (라이트닝 앱 빌더·페이지)]] — 앱 안 페이지 조립
 - [[Profiles (프로파일)]] — 앱·탭 가시성 배정
 - [[Custom Objects & Custom Fields (커스텀 오브젝트·필드)]] — 커스텀 오브젝트 탭
