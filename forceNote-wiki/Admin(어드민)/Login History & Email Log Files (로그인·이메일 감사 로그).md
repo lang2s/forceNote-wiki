@@ -166,3 +166,4 @@ Login History는 **가벼운 로그인 이력**이다. 더 상세한 이벤트 �
 - [[Field History Tracking (필드 이력 추적)]] — **레코드 필드 데이터 변경** 추적(또 다른 감사 축)
 - [[Password Policies (비밀번호 정책)]] — 실패 로그인·잠금 정책 → Login History의 실패 상태와 연계
 - [[Organization-Wide Email Addresses & Deliverability (조직 전체 이메일·전달성)]] — 이메일 전달성 설정 → Email Log로 전달 결과 확인
+- [[이메일 전달성 인프라 (Deliverability · DKIM · Email Relay · Bounce)]] — DKIM·Email Relay·Bounce·Test Deliverability 인프라 → 발신 결과를 Email Log로 감사
