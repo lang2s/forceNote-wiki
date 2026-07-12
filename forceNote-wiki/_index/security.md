@@ -59,6 +59,7 @@ created: 2026-06-18
 | Authorization and Access Control, 권한 접근 제어, CRUD FLS bypass, AccessLevel, USER_MODE 장점, stripInaccessible, with sharing, inherited sharing, privilege escalation, Apex에서 권한 강제하는 법 | `Security(보안)/권한과 접근 제어 위협.md` |
 | DescribeSObjectResult 권한, isAccessible, isCreateable, isUpdateable, isDeletable, sharing violation, 필드 레벨 보안 검사 | `Security(보안)/권한과 접근 제어 위협.md` |
 | CRUD FLS 강제, 접근 제어 강제, WITH USER_MODE vs stripInaccessible, CanTheUser 언제, Safely 언제, with sharing FLS, 접근 제어 언제 뭘 쓰나, USER_MODE 결정, stripInaccessible 언제, sharing 키워드 선택, Apex 보안 강제 결정 | `Security(보안)/CRUD·FLS·공유 강제 결정 가이드.md` |
+| Restriction Rules, 제한 규칙, 레코드 접근 제한, restriction vs scoping, recordFilter, enforcementType, 접근 좁히기, 레코드 숨기기, 강제 접근 제한, View All 우회 | `Security(보안)/Restriction Rules (제한 규칙).md` |
 
 ## 공유 모델 (OWD / 공유 규칙)
 
@@ -81,6 +82,16 @@ created: 2026-06-18
 | Session-Based Permission Sets, 세션 기반 권한 집합, SessionPermSetActivation, session activation required, step-up 접근 | `Security(보안)/Session-Based Permission Sets (세션 기반 권한 집합).md` |
 | App Settings, System Settings, Apex class access, Visualforce page access, setup entity access, connected app access, 접근 설정 | `Security(보안)/Permission Set 접근 설정 (App·System·Apex·VF 접근).md` |
 | Integration User, 통합 사용자, API-Only User, Salesforce Integration License, 통합 라이선스 무료 5개, Minimum Access API Only Integrations, Salesforce API Integration PSL, 통합 사용자 최소권한 설계 | `Security(보안)/Integration User & API-Only User (통합 사용자).md` |
+
+## 아이덴티티 / 로그인 (My Domain · SSO · IdP · 인증서)
+
+| 키워드 | 파일 |
+|---|---|
+| My Domain, 마이 도메인, 로그인 URL, 로그인 정책, 인증 서비스, 로그인 페이지 브랜딩, 리디렉션 정책, my.salesforce.com, SSO 전제, 조직 도메인, 내 도메인으로만 로그인 | `Security(보안)/My Domain (마이 도메인).md` |
+| SAML SSO, Single Sign-On, 인바운드 SSO, SP-initiated, IdP-initiated, JIT provisioning, Just-in-Time, SamlJitHandler, Federation ID, 외부 IdP로 Salesforce 로그인, SAML 설정 | `Security(보안)/Single Sign-On (SAML SSO 인바운드).md` |
+| Salesforce as Identity Provider, SF를 IdP로, SAML IdP, Service Provider, Connected App SAML SSO, IdP 인증서, Salesforce가 IdP, 외부 앱에 SSO 제공 | `Security(보안)/Salesforce as Identity Provider (SF를 IdP로).md` |
+| Login Flows, 로그인 흐름, finishLoginFlow, 로그인 후처리, 강제 MFA 등록, 약관 동의 화면, OAuth Custom Scopes, 커스텀 스코프, 인증 후 커스텀 화면 | `Security(보안)/Login Flows · OAuth Custom Scopes (로그인 흐름·커스텀 스코프).md` |
+| Certificate and Key Management, 인증서 키 관리, self-signed, CA-signed, CSR, mTLS 클라이언트 인증서, SAML 서명 인증서, JWT 서명 인증서, keySize, 인증서 생성 가져오기, 양방향 TLS 인증서 | `Security(보안)/Certificate and Key Management (인증서·키 관리).md` |
 
 ## Lightning 보안
 

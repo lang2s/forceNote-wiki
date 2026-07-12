@@ -39,6 +39,9 @@ created: 2026-05-19
 | [[Roles & Role Hierarchy (역할·역할 계층)]] | 레코드 접근 수직 상속(role≠profile) | #user-mgmt |
 | [[Public Groups (공개 그룹)]] | 사용자·역할 묶음(공유 대상) | #user-mgmt |
 | [[Delegated Administration (위임 관리)]] | 부분 관리 권한 위임 | #user-mgmt |
+| [[User Access Policies (사용자 액세스 정책)]] | 사용자에게 권한집합·그룹·라이선스를 규칙 기반 자동 프로비저닝(grant/revoke)·대량 온보딩 | #user-mgmt |
+| [[User Management Settings · Login Access Policies (사용자 관리 설정·로그인 대행)]] | 사용자 관리 상위 토글(Enhanced Profile UI 등)·관리자/지원사 로그인 대행 정책(log in as) | #user-mgmt |
+| [[User Licenses · Permission Set Licenses · Feature Licenses (라이선스 유형)]] | User(1개 배타)·PSL·Feature(가산) 3층 라이선스 — 유형·여는 기능·소진 확인 | #user-mgmt #license |
 | [[Session Settings (세션 설정)]] | 세션 타임아웃·로그인 보안 수준(High Assurance)·IP 잠금 | #security |
 | [[Password Policies (비밀번호 정책)]] | 복잡도·만료·이력·로그인 실패 잠금(프로파일 override) | #security |
 | [[Login IP Ranges & Login Hours (로그인 IP·시간 제한)]] | 프로파일 IP 하드 거부 vs org Trusted IP 챌린지·로그인 시간 | #security |

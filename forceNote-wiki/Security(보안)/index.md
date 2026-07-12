@@ -32,6 +32,12 @@ created: 2026-06-18
 | [[Experience Cloud 사이트 — CSP·Locker·LWS]] | Aura 사이트 CSP(Relaxed/Strict)·Lightning Locker·LWS org/site 전환·third-party 컴포넌트 활성화·Adobe Analytics | #experiencecloud |
 | [[시큐어 코드 리뷰 체크리스트]] | 배포/PR 전 위협별 점검표(XSS·SOQLi·CSRF·Redirect·CRUD/FLS·민감데이터·Sharing·세션·TLS) + Code Analyzer 정적분석 연동 — 8개 위협 노트를 묶는 리뷰 hub | #checklist |
 | [[CRUD·FLS·공유 강제 결정 가이드]] | 접근 제어를 언제 무엇으로 강제 — WITH USER_MODE·queryWithBinds·as user/Safely·CanTheUser·stripInaccessible·with sharing 결정 매트릭스 | #decision |
+| [[Restriction Rules (제한 규칙)]] | 레코드 접근을 좁히는(제한하는) 규칙 — Scoping Rules(표시 필터)와 구분(enforcementType)·recordFilter EQUALS·지원 오브젝트·View All/System Mode 우회 | #security #access |
+| [[My Domain (마이 도메인)]] | org 고유 로그인 URL·로그인 정책(내 도메인으로만)·인증 서비스 노출·로그인 페이지 브랜딩·리디렉션 정책 | #identity |
+| [[Single Sign-On (SAML SSO 인바운드)]] | 외부 IdP로 Salesforce 로그인 — SP/IdP-initiated 흐름·SAML 필드·JIT 프로비저닝(SamlJitHandler) | #identity #sso |
+| [[Salesforce as Identity Provider (SF를 IdP로)]] | Salesforce를 IdP로 외부 앱에 SSO 제공 — Enable IdP·SP(Connected App) 정의·SAML/OIDC | #identity |
+| [[Login Flows · OAuth Custom Scopes (로그인 흐름·커스텀 스코프)]] | 인증 후 커스텀 로그인 흐름(finishLoginFlow·강제 MFA/동의)·OAuth 커스텀 스코프 정의·할당 | #identity |
+| [[Certificate and Key Management (인증서·키 관리)]] | 자체서명/CA서명 인증서 생성·가져오기 — mTLS 클라이언트·SAML 서명·JWT 서명 용도별 배선 | #security #certificate |
 
 ---
 

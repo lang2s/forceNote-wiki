@@ -31,6 +31,9 @@ created: 2026-07-03
 | Roles, Role Hierarchy, 역할, 역할 계층, 레코드 접근, record access, role vs profile, 역할과 프로파일 차이, 수직 상속, 레코드 접근 확대 | `Admin(어드민)/Roles & Role Hierarchy (역할·역할 계층).md` |
 | Public Groups, 공개 그룹, 공용 그룹, 그룹, sharing 대상, 공유 그룹, 사용자 역할 묶음, 공유 대상 그룹 | `Admin(어드민)/Public Groups (공개 그룹).md` |
 | Delegated Administration, 위임 관리, delegated admin, 부분 관리 권한, 위임 관리자, 관리 권한 위임 | `Admin(어드민)/Delegated Administration (위임 관리).md` |
+| User Access Policies, 사용자 액세스 정책, 자동 프로비저닝, 대량 온보딩, grant revoke, 권한 자동 부여, 규칙 기반 권한 할당, Summer 24 GA, 사용자에게 권한 자동 배정 | `Admin(어드민)/User Access Policies (사용자 액세스 정책).md` |
+| User Management Settings, 사용자 관리 설정, Enhanced Profile User Interface, Enhanced Profile List Views, Login Access Policies, 로그인 대행, log in as, Grant Login Access, 관리자 로그인 대행, 사용자 계정 로그인 | `Admin(어드민)/User Management Settings · Login Access Policies (사용자 관리 설정·로그인 대행).md` |
+| User License, Permission Set License, Feature License, 라이선스 유형, PSL, Salesforce Platform license, Salesforce Integration license, Feature License 종류, 라이선스 소진, 이 기능 무슨 라이선스, 라이선스 층위 | `Admin(어드민)/User Licenses · Permission Set Licenses · Feature Licenses (라이선스 유형).md` |
 
 ## 보안 설정 (Security Settings)
 
