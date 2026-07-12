@@ -45,12 +45,20 @@ created: 2026-07-03
 | Health Check, 보안 상태 점검, Security Health Check, baseline, 보안 점수, security score, 보안 baseline 부합도, 위험 수정 | `Admin(어드민)/Security Health Check (보안 상태 점검).md` |
 | Field History Tracking, 필드 이력 추적, 필드 변경 추적, history related list, Field Audit Trail, 이전 이후 값, 최대 20필드, History 관련목록 | `Admin(어드민)/Field History Tracking (필드 이력 추적).md` |
 
+## 모니터링 (Monitoring)
+
+| 키워드 | 파일 |
+|---|---|
+| Login History, 로그인 이력, 로그인 감사, LoginHistory, Email Log Files, 이메일 로그, 로그인 실패 추적, Login Forensics, 20000 6개월, 이 메일이 전달됐나, 로그인 기록 다운로드 | `Admin(어드민)/Login History & Email Log Files (로그인·이메일 감사 로그).md` |
+| Scheduled Jobs, Apex Jobs, Apex Flex Queue, Background Jobs, Bulk Data Load Jobs, 작업 모니터링, 예약 작업 관리, 배치 잡 중단, Abort Job, Holding, All Scheduled Jobs, 비동기 작업 모니터링, 벌크 로드 잡 | `Admin(어드민)/작업 모니터링 (Scheduled Jobs · Apex Jobs · Flex Queue · Bulk Data Load).md` |
+
 ## 데이터 관리 (Data Management)
 
 | 키워드 | 파일 |
 |---|---|
 | Mass Transfer, 대량 이전, Mass Delete, 대량 삭제, 소유권 이전, 레코드 재배정, 대량 작업, 소유권 대량 이전, 레코드 대량 삭제 | `Admin(어드민)/Mass Transfer & Mass Delete (대량 이전·삭제).md` |
 | Data Export, 데이터 내보내기, export service, 백업, storage, 스토리지, 용량, 주간 내보내기, 데이터 백업, 스토리지 사용량 | `Admin(어드민)/Data Export & Storage (데이터 내보내기·스토리지).md` |
+| Data Protection and Privacy, 개인정보 보호, Individual object, Consent Management, 동의 관리, GDPR CCPA, Right to be Forgotten, ShouldForget, 개인정보 삭제, 프라이버시 선호, ContactPointConsent | `Admin(어드민)/Data Protection & Privacy (개인정보 보호·동의 관리).md` |
 
 ## 오브젝트·필드 커스터마이제이션 (Objects & Fields Customization)
 

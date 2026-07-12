@@ -92,6 +92,14 @@ created: 2026-06-18
 | Salesforce as Identity Provider, SF를 IdP로, SAML IdP, Service Provider, Connected App SAML SSO, IdP 인증서, Salesforce가 IdP, 외부 앱에 SSO 제공 | `Security(보안)/Salesforce as Identity Provider (SF를 IdP로).md` |
 | Login Flows, 로그인 흐름, finishLoginFlow, 로그인 후처리, 강제 MFA 등록, 약관 동의 화면, OAuth Custom Scopes, 커스텀 스코프, 인증 후 커스텀 화면 | `Security(보안)/Login Flows · OAuth Custom Scopes (로그인 흐름·커스텀 스코프).md` |
 | Certificate and Key Management, 인증서 키 관리, self-signed, CA-signed, CSR, mTLS 클라이언트 인증서, SAML 서명 인증서, JWT 서명 인증서, keySize, 인증서 생성 가져오기, 양방향 TLS 인증서 | `Security(보안)/Certificate and Key Management (인증서·키 관리).md` |
+| Connected Apps OAuth Usage, OAuth 사용 모니터링, 앱 차단, Block connected app, Install connected app, Uninstall connected app, OAuth 감사, 사용 중인 앱, 앱 세션 차단, 어떤 앱이 OAuth로 접속하나 | `Security(보안)/Connected Apps OAuth Usage (OAuth 사용 모니터링).md` |
+
+## 감사 / 모니터링 (Event Monitoring · 위협 탐지)
+
+| 키워드 | 파일 |
+|---|---|
+| Event Monitoring, EventLogFile, 보안 감사, 이벤트 로그, LogFile 다운로드, 이벤트 타입, 누가 무엇을 봤나, Shield Event Monitoring, 감사 로그, 이벤트 로그 보존, EventType 카탈로그, 관찰 축 | `Security(보안)/Event Monitoring & 보안 감사 (EventLogFile · Real-Time Event Monitoring).md` |
+| Real-Time Event Monitoring, RTEM, 위협 탐지, Threat Detection, Session Hijacking, Credential Stuffing, Report Anomaly, API Anomaly, LoginEventStream, 실시간 이벤트, 이상 탐지, 스트리밍 이벤트, 실시간 자동 차단 | `Security(보안)/Real-Time Event Monitoring & Threat Detection (실시간 이벤트 모니터링 · 위협 탐지).md` |
 
 ## Lightning 보안
 

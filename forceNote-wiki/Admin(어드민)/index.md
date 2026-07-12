@@ -47,8 +47,11 @@ created: 2026-05-19
 | [[Login IP Ranges & Login Hours (로그인 IP·시간 제한)]] | 프로파일 IP 하드 거부 vs org Trusted IP 챌린지·로그인 시간 | #security |
 | [[Security Health Check (보안 상태 점검)]] | 보안 설정 baseline 부합도 점수·위험 수정 | #security |
 | [[Field History Tracking (필드 이력 추적)]] | 필드 변경 이력(최대 20필드·History 관련목록) | #security |
+| [[Login History & Email Log Files (로그인·이메일 감사 로그)]] | 로그인 이력(20000·6개월)·이메일 로그 — 누가 로그인했나/이 메일이 전달됐나 | #monitoring |
+| [[작업 모니터링 (Scheduled Jobs · Apex Jobs · Flex Queue · Bulk Data Load)]] | Setup 작업 모니터링 5화면(예약·Apex·Flex Queue·Background·Bulk Data Load)·잡 중단(Abort) | #monitoring |
 | [[Mass Transfer & Mass Delete (대량 이전·삭제)]] | 소유권 대량 이전·레코드 대량 삭제 | #data |
 | [[Data Export & Storage (데이터 내보내기·스토리지)]] | 데이터 export 서비스(백업)·스토리지 사용량 | #data |
+| [[Data Protection & Privacy (개인정보 보호·동의 관리)]] | Individual·Consent 오브젝트군으로 프라이버시 선호·채널별 동의 추적(GDPR/CCPA·RtbF) | #data #privacy |
 | [[Custom Objects & Custom Fields (커스텀 오브젝트·필드)]] | Object Manager로 커스텀 오브젝트·필드 생성 | #customization |
 | [[Picklists — Global Value Sets & Dependent Picklists (피클리스트)]] | 피클리스트·전역 값 집합·종속 피클리스트 | #customization |
 | [[Custom Settings (커스텀 설정)]] | List vs Hierarchy 커스텀 설정(캐시 접근) | #customization |
@@ -99,8 +102,11 @@ created: 2026-05-19
 - 로그인 IP·시간을 제한(프로파일 vs Trusted IP)? → [[Login IP Ranges & Login Hours (로그인 IP·시간 제한)]]
 - 보안 설정을 baseline과 비교해 점수 확인? → [[Security Health Check (보안 상태 점검)]]
 - 필드 변경 이력(이전·이후 값) 추적? → [[Field History Tracking (필드 이력 추적)]]
+- 누가 로그인했는지 이력을 조회·다운로드하거나 보낸 메일 전달을 확인? → [[Login History & Email Log Files (로그인·이메일 감사 로그)]]
+- 예약 작업·Apex 잡·Flex Queue·Bulk 로드 잡을 Setup에서 모니터링·중단(Abort)? → [[작업 모니터링 (Scheduled Jobs · Apex Jobs · Flex Queue · Bulk Data Load)]]
 - 소유권을 대량 이전하거나 레코드를 대량 삭제? → [[Mass Transfer & Mass Delete (대량 이전·삭제)]]
 - 데이터를 백업(export)하거나 스토리지 사용량 확인? → [[Data Export & Storage (데이터 내보내기·스토리지)]]
+- GDPR/CCPA 대응으로 개인정보 선호·동의(Consent)·잊혀질 권리(RtbF)를 관리? → [[Data Protection & Privacy (개인정보 보호·동의 관리)]]
 - Object Manager로 커스텀 오브젝트·필드 만들기? → [[Custom Objects & Custom Fields (커스텀 오브젝트·필드)]]
 - 피클리스트·전역 값 집합·종속 피클리스트 설정? → [[Picklists — Global Value Sets & Dependent Picklists (피클리스트)]]
 - List/Hierarchy 커스텀 설정으로 구성 데이터를 캐시 접근? → [[Custom Settings (커스텀 설정)]]

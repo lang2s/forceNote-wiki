@@ -38,6 +38,9 @@ created: 2026-06-18
 | [[Salesforce as Identity Provider (SF를 IdP로)]] | Salesforce를 IdP로 외부 앱에 SSO 제공 — Enable IdP·SP(Connected App) 정의·SAML/OIDC | #identity |
 | [[Login Flows · OAuth Custom Scopes (로그인 흐름·커스텀 스코프)]] | 인증 후 커스텀 로그인 흐름(finishLoginFlow·강제 MFA/동의)·OAuth 커스텀 스코프 정의·할당 | #identity |
 | [[Certificate and Key Management (인증서·키 관리)]] | 자체서명/CA서명 인증서 생성·가져오기 — mTLS 클라이언트·SAML 서명·JWT 서명 용도별 배선 | #security #certificate |
+| [[Connected Apps OAuth Usage (OAuth 사용 모니터링)]] | Setup의 OAuth 사용 앱 현황(사용자 수·설치 상태·세션)·앱별 Install/Block/Uninstall — OAuth 토큰 감사·거버넌스 | #identity #oauth |
+| [[Event Monitoring & 보안 감사 (EventLogFile · Real-Time Event Monitoring)]] | 관찰·감사 축 — EventLogFile(배치 로그) 조회·다운로드·보존·EventType 카탈로그, TxnSecurity 강제의 짝 | #audit #monitoring |
+| [[Real-Time Event Monitoring & Threat Detection (실시간 이벤트 모니터링 · 위협 탐지)]] | 실시간 스트리밍/저장 이벤트 + ML 위협 탐지 5종(Session Hijacking·Credential Stuffing·Report/API Anomaly) | #audit #monitoring |
 
 ---
 
@@ -88,6 +91,9 @@ created: 2026-06-18
 - 세션 동안만 권한을 부여(step-up)? → [[Session-Based Permission Sets (세션 기반 권한 집합)]]
 - permission set에서 Apex 클래스·VF 페이지 접근을 열려면? → [[Permission Set 접근 설정 (App·System·Apex·VF 접근)]]
 - 외부 시스템 통합을 실행할 전용 사용자(무료 통합 라이선스·API 전용·최소권한)를 만들려면? → [[Integration User & API-Only User (통합 사용자)]]
+- 어떤 connected app이 OAuth로 org에 접속 중인지 보고 특정 앱을 차단(Block)하려면? → [[Connected Apps OAuth Usage (OAuth 사용 모니터링)]]
+- 누가 언제 무엇을 보고/내보냈는지 로그로 감사하려면(EventLogFile)? → [[Event Monitoring & 보안 감사 (EventLogFile · Real-Time Event Monitoring)]]
+- 세션 하이재킹·크리덴셜 스터핑 등 위협을 실시간으로 탐지·대응하려면? → [[Real-Time Event Monitoring & Threat Detection (실시간 이벤트 모니터링 · 위협 탐지)]]
 
 ---
 
