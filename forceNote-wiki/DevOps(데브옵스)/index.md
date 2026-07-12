@@ -16,6 +16,10 @@ created: 2026-05-18
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
 | [[Salesforce DX 개요]] | sfdx-project.json, sf CLI 기본 명령, Source Format, .forceignore, JWT 인증 | #overview |
+| [[배포 방법 결정 가이드]] | 6가지 배포 경로(Change Sets·Metadata API·DX·Unlocked Package·Tooling API·DevOps Center)를 결정 축으로 비교·선택 (validation/quick deploy·UI vs CLI·CI) | #decision |
+| [[패키징 유형 결정 가이드 (Unlocked·2GP·1GP·Unmanaged)]] | 4개 패키지 모델(Unlocked·2GP·1GP·Unmanaged)을 배포 대상·잠금·IP 보호·의존성 축으로 비교·선택 | #decision |
+| [[개발 환경 선택 (Scratch Org vs Sandbox vs Developer Edition)]] | 3개 개발 환경(Scratch Org·Sandbox·Developer Edition)을 결정 축별로 비교해 상황에 맞는 org 선택 | #decision |
+| [[sf CLI 명령 카탈로그 · sfdx→sf 매핑]] | DevOps 15개 워크플로 노트의 sf(v2) 명령 주제별 색인 + 레거시 sfdx(v1)→sf(v2) 마이그레이션 매핑 | #reference |
 | [[Scratch Org 패턴]] | Scratch Org 생성·관리, project-scratch-def.json, Org Shape, Snapshot | #pattern |
 | [[Unlocked Package 패턴]] | sf package create/version create/install, 2GP, Org-Dependent, packageAliases | #pattern |
 | [[CI CD 패턴]] | Jenkins Jenkinsfile, CircleCI, JWT 인증 자동화, 패키지 빌드 파이프라인 | #pattern |

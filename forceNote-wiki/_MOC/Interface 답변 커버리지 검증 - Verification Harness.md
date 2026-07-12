@@ -77,6 +77,7 @@ aliases: [인터페이스 검증, Interface Coverage Verification, 통합 답변
 | Aura (레거시) | 2 (코어·실전 / 마이그레이션) | "**레거시 기준 적용**(신규 앱 아닌 유지보수·이관 관점). 정적 매핑(번들·ui컴포넌트)은 탄탄, **서버 액션 데이터층**(action state·setStorable 캐시)과 **동적 이관축**(이벤트 모델·force:* → LWC 등가·역방향 상호운용)이 공백" → 신규 1 + 보강 4 | `bfa7b2d` |
 | Visualforce (레거시·성숙) | 2 (코어·테스트·보안 / 현대화·이관) | "**이미 전수 인제스트된 성숙 도메인**(18노트). 진단 결과 콘텐츠 갭 거의 0 — 유일한 진짜 갭은 **Aura엔 있고 VF엔 없던 이관 결정 노트**(구조적 비대칭). 나머지는 findability(흩어진 사실 잇기)" → 신규 1 + 보강 4 | `53d904f` |
 | Security (크로스커팅) | 2 (위협·시큐어코딩 / 플랫폼·강제) | "3-way 분산(Security·Apex/Security·LWC/Security). 개별 위협 방어법·강제 API는 성숙, **크로스커팅 절차 층이 공백** — 위협별 리뷰 체크리스트·접근제어 5수단 결정 가이드. 관찰축(Event Monitoring)은 별도 이니셔티브로 백로그(SEC-MON-1)" → 신규 2 + 후속 백로그 2 | `cb64d21` |
+| DevOps (성숙·대형) | 3 (DX워크플로 / CI·CD·배포 / 패키징) | "**105노트 성숙 도메인**. 레퍼런스 카탈로그(Metadata/Tooling API·2GP 컴포넌트) 진단 제외. 개별 사실은 이미 전수 — 남은 갭이 **전부 크로스커팅 결정층·색인**(3진단이 독립적으로 '결정 가이드' 지목): 배포방법·패키징유형·환경선택 결정 + sf CLI 카탈로그(흩어진 명령 색인 + sfdx→sf 매핑)" → 신규 4 + 보강 5 (전부 synthesis) | `267da0a` |
 
 - **재사용**: 새 도메인마다 "클러스터 분할 → 토픽×3층 매트릭스 → 선별 보충"을 반복. 부수 효과로 Tier 3 노트의 오류·낡은 사실이 함께 잡힌다(예: External Services Tier 3→2 오류 정정).
 - **Flow 파일럿 부수 성과**: source-verifier가 pdftotext 붕괴 구간(Orchestration Resume 매트릭스·Entitlements 이례 수치)을 이미지 대조로 확정 / writer가 오케스트레이터 페이지 지시 3건을 소스 우선으로 정정(Actions API의 flow-invoke body는 ECA가 아니라 api_action.pdf 소관 등) / `extend_click_automate.pdf`(Spring '26, 1,027p Flow 종합 가이드)가 위키 콘텐츠 첫 인용 — 그간 미채굴 소스였음.
@@ -86,7 +87,7 @@ aliases: [인터페이스 검증, Interface Coverage Verification, 통합 답변
 
 ### 남은 파일럿 (백로그 — 우선순위순, 2026-07-08 등록 / Flow·Aura·VF·Security 완료 2026-07-11)
 
-Integration·Apex·LWC·**Flow**·**Aura**·**Visualforce**·**Security** 완료. 다음 도메인을 같은 방법론으로 진행한다(괄호=콘텐츠 노트 수).
+Integration·Apex·LWC·**Flow**·**Aura**·**Visualforce**·**Security**·**Admin**(ADMIN-EXH)·**DevOps** 완료. 다음 도메인을 같은 방법론으로 진행한다(괄호=콘텐츠 노트 수).
 
 | # | 도메인 | 규모 | 진단 착안점(예상) |
 |---|---|---|---|
@@ -95,8 +96,8 @@ Integration·Apex·LWC·**Flow**·**Aura**·**Visualforce**·**Security** 완료
 | ~~–~~ | ~~**Visualforce(비주얼포스)**~~ | ~~중~~ | ✅ **완료(2026-07-11, `53d904f`)** — 신규 1 + 보강 4. 성숙 도메인 → VF→LWC 이관 결정 노트(Aura 대칭) + findability 보강 |
 | ~~–~~ | ~~**Security(보안)**~~ | ~~중~~ | ✅ **완료(2026-07-11)** — 신규 2 + 백로그 2. 크로스커팅 절차 층: 시큐어 코드 리뷰 체크리스트 + 접근제어 5수단 결정 가이드. 관찰축(Event Monitoring)·Health Check는 SEC-MON-1·SEC-HC-1로 분리 |
 | ~~–~~ | ~~**Admin(어드민)**~~ | ~~대~~ | ✅ **완료(2026-07-12)** — 3층 파일럿을 넘어선 **ADMIN-EXH 전수 커버리지 이니셔티브**(사용자 "전부 다" 요청). 6웨이브 신규 33 + 보강 10. 위키 4대 구조적 공백(인바운드 아이덴티티·감사 관찰축·어드민 빌드타임·전역 UI) + 이메일 인프라 + 운영. 상세 [[WORK_BACKLOG]] ADMIN-EXH |
-| 1 | **DevOps(데브옵스)** (101) | 대 | DX/CI·CD/Metadata/Tooling — 규모 커서 서브클러스터 분할 필수 |
-| 2 | **Service(서비스)** (40) | 대 | Service Cloud — 데이터모델 레퍼런스 vs 구성 절차 |
+| ~~–~~ | ~~**DevOps(데브옵스)**~~ | ~~대~~ | ✅ **완료(2026-07-12, `267da0a`)** — 신규 4 + 보강 5. 105노트 성숙 도메인. 레퍼런스 카탈로그 진단 제외, 워크플로·배포·패키징 3클러스터 → 남은 갭은 결정층·색인(배포방법·패키징유형·환경선택 결정 + sf CLI 카탈로그). 전부 synthesis |
+| 1 | **Service(서비스)** (40) | 대 | Service Cloud — 데이터모델 레퍼런스 vs 구성 절차 |
 | 4 | **Analytics(애널리틱스)** (21) · **sObject**(38, 태생 레퍼런스) · **Architecture(아키텍처)**(24) | 중 | 레퍼런스 성숙, 개념·절차 보강 위주 |
 | 5 | 클라우드/산업: Commerce·Scheduler·FieldService·CPQ·SalesCloud·DataCloud·Agentforce·AgentSkills·ConnectREST | — | 도메인별 소규모 — 필요 시 묶어서 |
 
