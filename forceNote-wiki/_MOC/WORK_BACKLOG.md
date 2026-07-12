@@ -180,16 +180,16 @@ updated: 2026-06-27
 > **배경:** 사용자가 "org 설정을 전수 조사해 전부 위키화" 요청. 전체 Salesforce Setup 트리를 7슬라이스(사용자·접근 / 보안·아이덴티티 / 오브젝트·필드 / 데이터관리 / UI·앱 / 자동화·이메일 / 회사·모니터링)로 나눠 "있어야 할 것 전수 → 위키 커버 대조" 병렬 갭매핑 수행. **결과: 기존 커버 넓음(Admin 48 + Security 권한 13 + 타폴더)이나, 위키의 구조적 편향 확인 — "객체·로직 만드는 법"은 깊고 "org 설정(전역 토글·인프라·현지화·인바운드 아이덴티티·감사)"은 얇음.** 갭을 6테마 웨이브로 정리. 소스: 로컬 PDF 거의 없음 → help.salesforce.com Tier 2(SPA는 브라우저 렌더).
 > **규율:** 신규 남발 금지 — 이미 있는 것 건드리지 않음. 각 노트 완결성 검증(source-verifier) 필수. index-manager로 admin 샤드 findability 개선(Queues·Territory·Scoping이 admin 샤드 미노출).
 
-| 웨이브 | 테마 | 신규 노트 후보 | 규모 |
+| 웨이브 | 테마 | 결과 | 커밋 |
 |---|---|---|---|
-| **W1** | 아이덴티티·접근 (인바운드 인증·레코드 접근) | My Domain(로그인정책·브랜딩) · SAML SSO(인바운드) · Salesforce as IdP + Login Flows + OAuth Custom Scopes · Certificate & Key Management · Restriction Rules · User Access Policies · Licenses 개요(User·PSL·Feature) · User Management Settings + Login Access Policies + PublicGroup vs Queue | ~8노트 |
-| **W2** | 감사·모니터링·프라이버시 (관찰축) | Event Monitoring & 보안감사(EventLogFile·RTEM)[=SEC-MON-1] · Login History & Email Log · Monitoring 허브(Scheduled/Apex Jobs·Flex Queue·Background·Bulk Data Load) · Connected Apps OAuth Usage · Data Protection & Privacy(Individual·Consent·RtbF) | ~6노트 |
-| **W3** | 어드민 빌드타임 (오브젝트·필드 도구) | Field Sets · Lookup Filters · Object & Field Limits · CMDT vs Custom Setting 결정(보강) · 어드민 필드타입 선택 가이드 · Field Accessibility 그리드(보강) | ~5노트 |
-| **W4** | UI·현지화·검색 (org 전역 UI 설정) | User Interface Settings · Translation Workbench(+Language) · Search Settings & Layouts · Path · Themes·Branding & Rename Tabs · Utility Bar & App Menu 심화 · Console Navigation & Split View · Notification Builder | ~7노트 |
-| **W5** | 이메일 인프라 & Classic 도구 | Email Administration(Deliverability·DKIM·Email Relay·Bounce·Test·Footer) · Letterheads·Mail Merge·Email to Salesforce · Process Automation Settings | ~3노트 |
-| **W6** | 회사·조직·데이터 운영 (나머지) | Release Updates 처리 메커니즘 · System Overview & Salesforce Optimizer · Installed Packages 관리 · Duplicate Jobs & Record Sets · Mass Reassign Account Teams + Mass Update Addresses · (보강: Data Export/Storage 심화·Fiscal Year 커스텀·ACM·Files Connect·Activity Settings·Maps) | ~5노트+보강 |
+| ~~W1~~ | 아이덴티티·접근 | ✅ **완료** 신규 9 + 보강 2 (My Domain·SAML SSO·SF as IdP·Login Flows/OAuth Scopes·Certificate·Restriction Rules·User Access Policies·User Mgmt Settings·Licenses / PG vs Queue). 정확성 재검증 PASS | `3da6021`·`a45e61c` |
+| ~~W2~~ | 감사·모니터링·프라이버시 | ✅ **완료** 신규 6 + 보강 1 (Event Monitoring·RTEM·Login History/Email Log·작업 모니터링·Connected Apps OAuth Usage·Data Protection & Privacy / TxnSecurity). **SEC-MON-1 해소** | `7cc30c6`·`04e72dd` |
+| ~~W3~~ | 어드민 빌드타임 | ✅ **완료** 신규 5 + 보강 1 (Field Sets·Lookup Filters·Object & Field Limits·필드타입 선택·CMDT vs Custom Setting / FLS Field Accessibility) | `a293ef6`·`7df96e2` |
+| ~~W4~~ | UI·현지화·검색 | ✅ **완료** 신규 7 + 보강 2 (User Interface Settings·Translation Workbench·Search Settings·Path·Themes/Rename·Utility Bar·Notification Types / Lightning Apps·Service Console deferral 닫음) | `1bddd83`·`4b8c3a7` |
+| ~~W5~~ | 이메일 인프라 | ✅ **완료** 신규 3 (이메일 전달성 인프라·Letterheads/Mail Merge/Email to SF·Process Automation Settings) | `576201d`·`52760a6` |
+| ~~W6~~ | 회사·조직·운영 | ✅ **완료** 신규 3 + 보강 4 (Release Updates 처리·System Overview & Optimizer·Installed Packages / Duplicate Jobs·Mass 도구·Storage 계산·커스텀 회계연도) | `816dd30`·`a7c6c33` |
 
-> 총 ~34 신규 + ~10 보강. 멀티세션. 웨이브 완료 시마다 커밋·이 표에 상태 갱신. **교차 중복 해소**: My Domain(B+G)·Data Protection(B+D+G)·Optimizer(D+G)·Translation(E+G)·Notification(E+F)·Login History(B+G)는 각 1노트로 통합.
+> ✅ **ADMIN-EXH 전체 완료 (2026-07-12).** 총 **신규 33 + 보강 10**. 위키 4대 구조적 공백(인바운드 아이덴티티·감사 관찰축·어드민 빌드타임·전역 UI 설정) + 이메일 인프라 + 운영 도구 완결. 소싱: help.salesforce.com Tier 2 — SPA는 3경로 우회(Chrome shadow-DOM verbatim 추출·Metadata API 정적문서·전용 PDF). **규율 성과**: 오케스트레이터 프롬프트의 부정확 힌트를 에이전트들이 공식 근거로 다수 정정(테마 6→3종·"32개 IP"·필드 라벨 등), 미확인 값은 창작 대신 캐비엇. 부수: SEC-MON-1 해소·SEC-HC-1 오탐 취소·ING-28 de-scope. **잔여 저우선 갭**(별도 등재 불요, 필요 시): Files Connect 셋업·Activity Settings·Maps and Location·Streaming Channels·Data.com·1GP Package Manager·Lightning Bolt — 니치·저가치.
 
 ### ⚪ P4 — 장기 (큰 인프라 결정)
 
