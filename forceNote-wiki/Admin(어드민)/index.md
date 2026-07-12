@@ -35,6 +35,9 @@ created: 2026-05-19
 | [[Business Hours & Holidays (영업 시간·휴일)]] | 지원 시간·휴일(에스컬레이션 경과시간 기준) | #org-setup |
 | [[Multiple Currencies (멀티 통화)]] | 멀티통화(영구·비활성화 불가)·환율·corporate currency | #org-setup |
 | [[Setup Audit Trail (설정 감사 추적)]] | 설정 변경 이력(누가·무엇·언제) | #org-setup |
+| [[Release Updates 처리 (테스트 실행·기한 활성화)]] | Salesforce가 강제 적용하는 org 변경(Critical Updates 후신)을 Setup에서 처리 — Test Run 검증·Complete Steps By 기한·Get Started 라이프사이클 | #org-ops |
+| [[System Overview & Salesforce Optimizer (조직 사용량·최적화 진단)]] | 조직 사용량·한도 진단 두 도구 — System Overview(실시간 사용량 카드)+Salesforce Optimizer(정리·최적화 스캔 리포트) | #org-ops #monitoring |
+| [[Installed Packages 관리 (구독자 어드민 관점)]] | 구독자 org 어드민의 설치 패키지 조회·Manage Licenses(seat 할당)·업그레이드·Uninstall·데이터 export (퍼블리셔 배포 관점은 2GP로 위임) | #org-ops #packages |
 | [[Users (사용자 관리)]] | 사용자 생성·deactivate(라이선스 반환)·freeze(로그인 차단) | #user-mgmt |
 | [[Roles & Role Hierarchy (역할·역할 계층)]] | 레코드 접근 수직 상속(role≠profile) | #user-mgmt |
 | [[Public Groups (공개 그룹)]] | 사용자·역할 묶음(공유 대상) | #user-mgmt |
@@ -107,6 +110,9 @@ created: 2026-05-19
 - 지원 시간·휴일(에스컬레이션 기준) 설정? → [[Business Hours & Holidays (영업 시간·휴일)]]
 - 멀티통화·환율·회사 통화 관리? → [[Multiple Currencies (멀티 통화)]]
 - 설정을 누가·언제 바꿨는지 추적? → [[Setup Audit Trail (설정 감사 추적)]]
+- Salesforce 릴리스 업데이트를 Test Run으로 검증하고 기한(Complete Steps By) 전에 처리? → [[Release Updates 처리 (테스트 실행·기한 활성화)]]
+- 조직 사용량·한도를 진단하거나 정리·최적화 리포트를 받기? → [[System Overview & Salesforce Optimizer (조직 사용량·최적화 진단)]]
+- 설치된 패키지를 조회·라이선스 할당(Manage Licenses)·업그레이드·제거(Uninstall)? → [[Installed Packages 관리 (구독자 어드민 관점)]]
 - 사용자 생성·비활성화·동결(freeze)? → [[Users (사용자 관리)]]
 - 역할 계층으로 레코드 접근 상속 설계? → [[Roles & Role Hierarchy (역할·역할 계층)]]
 - 사용자·역할을 묶어 공유 대상 만들기? → [[Public Groups (공개 그룹)]]

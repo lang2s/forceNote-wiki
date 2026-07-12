@@ -23,6 +23,14 @@ created: 2026-07-03
 | Multiple Currencies, 멀티 통화, multi-currency, corporate currency, 환율, dated exchange rate, 통화 관리, 멀티통화 비활성화 불가, 회사 통화 | `Admin(어드민)/Multiple Currencies (멀티 통화).md` |
 | Setup Audit Trail, 설정 감사 추적, audit trail, 변경 이력, 감사, 누가 바꿨나, 설정 변경 이력, 누가 무엇을 언제 | `Admin(어드민)/Setup Audit Trail (설정 감사 추적).md` |
 
+## 조직 관리·운영 (Org Management & Operations)
+
+| 키워드 | 파일 |
+|---|---|
+| Release Updates, 릴리스 업데이트, Manage Release Updates, Critical Updates 대체, Test Run, 테스트 실행, 기한 활성화, enforced, Complete Steps By, Get Started, 릴리스 업데이트 어떻게 처리, 릴리스 업데이트 강제 적용 | `Admin(어드민)/Release Updates 처리 (테스트 실행·기한 활성화).md` |
+| System Overview, 시스템 개요, 조직 사용량, Salesforce Optimizer, 옵티마이저, 조직 건강 진단, org health, 미사용 필드, 한도 근접, org 정리 리포트, 사용량 카드, 조직 최적화 진단 | `Admin(어드민)/System Overview & Salesforce Optimizer (조직 사용량·최적화 진단).md` |
+| Installed Packages, 설치된 패키지, 패키지 관리, Manage Licenses, 패키지 라이선스 할당, Uninstall package, 패키지 제거, 패키지 업그레이드, 구독자 어드민, subscriber package admin, AppExchange 설치 | `Admin(어드민)/Installed Packages 관리 (구독자 어드민 관점).md` |
+
 ## 사용자 관리 (User Management)
 
 | 키워드 | 파일 |
