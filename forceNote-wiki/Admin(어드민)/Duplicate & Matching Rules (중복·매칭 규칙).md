@@ -1,9 +1,9 @@
 ---
-tags: [admin, duplicate-rules, matching-rules, data-quality, deduplication]
-source: help.salesforce.com (Salesforce Help — Data Quality; Things to Know About Duplicate Rules + Things to Know About Matching Rules; 라이브 공식 문서, Tier 2, 접속 2026-07-03)
+tags: [admin, duplicate-rules, matching-rules, duplicate-jobs, duplicate-record-set, data-quality, deduplication]
+source: help.salesforce.com (Salesforce Help — Data Quality; Things to Know About Duplicate Rules + Things to Know About Matching Rules, 접속 2026-07-03; Find Duplicates Across Your Org Using Duplicate Jobs + Run Duplicate Jobs + Things to Know About Duplicate Jobs + Manage Duplicates Using Duplicate Record Sets, 접속 2026-07-12; developer.salesforce.com Object Reference — DuplicateRecordSet·DuplicateRecordItem; 라이브 공식 문서, Tier 2)
 official_doc: https://help.salesforce.com/s/articleView?id=sales.duplicate_rules_overview.htm&type=5
 created: 2026-07-03
-aliases: [Duplicate Rules, Matching Rules, 중복 규칙, 매칭 규칙, Duplicate Management, Match Key, Matching Method]
+aliases: [Duplicate Rules, Matching Rules, 중복 규칙, 매칭 규칙, Duplicate Management, Match Key, Matching Method, Duplicate Jobs, 중복 작업, Duplicate Record Set, 중복 레코드 세트, DuplicateRecordSet, DuplicateRecordItem]
 ---
 
 # Duplicate & Matching Rules (중복·매칭 규칙)
@@ -116,6 +116,72 @@ duplicate rule의 **Report** 옵션을 선택하면 다음이 일어난다.
 
 - **동시 저장 타이밍:** 여러 레코드를 **동시에 저장**하면서 **block 규칙**이 적용될 때는 타이밍에 주의가 필요하다.
 - **Translation Workbench:** duplicate rule의 커스터마이즈 가능한 **alert 텍스트**는 Translation Workbench에서 지원되지 않는다.
+
+---
+
+## 두 개의 청소 축 — 신규 저장 방지 vs 기존 레코드 청소
+
+Duplicate Rule은 **신규/편집 저장 시점**에 중복을 막는 *예방* 축이다. 그러나 규칙 도입 이전부터 org에 쌓인 **기존 중복 레코드**는 저장 시점 규칙으로는 잡히지 않는다. 이를 사후에 배치로 훑어 청소하는 별도 축이 **Duplicate Jobs**이며, 두 축 모두 결과를 **Duplicate Record Set**으로 모은다.
+
+| 축 | 도구 | 시점 | 결과물 |
+|---|---|---|---|
+| 신규 저장 방지(예방) | **Duplicate Rule** (+ Matching Rule) | 레코드 생성·편집 저장 시 | Alert/Block, Report 시 Duplicate Record Set |
+| 기존 레코드 청소(사후) | **Duplicate Job** (+ Matching Rule) | 관리자가 Setup에서 배치 실행 | Duplicate Record Set + Duplicate Record Item |
+
+---
+
+## Duplicate Jobs — 기존 레코드 배치 스캔
+
+**Duplicate Job**은 표준 또는 커스텀 **matching rule**로 org의 기존 **business/person account·contact·lead**를 스캔해 이미 존재하는 중복을 찾아낸다. Duplicate Rule이 저장 시점 예방이라면, Duplicate Job은 **이미 저장된 데이터를 사후에 훑는** 도구다.
+
+**Available in:** Lightning Experience + Salesforce Classic (not available in all orgs).
+**Editions:** **Performance, Unlimited** 에디션만. (Duplicate Rule/Record Set과 달리 Essentials/Professional/Enterprise/Developer에서는 미제공 — 에디션이 라이선스 전제)
+**필요 권한:** *Customize Application* **AND** *View All Data*.
+
+### Setup 실행 절차
+1. **Setup → Quick Find → Duplicate Jobs**.
+2. **New Job** 클릭.
+3. 오브젝트 선택 → 기존 **matching rule** 선택 또는 새로 생성(선택한 오브젝트의 matching rule만 표시됨).
+4. (선택) 기본 job 이름 편집 → **Run**.
+   - job 생성 후에는 **이름·설명을 삭제·편집할 수 없다**. 데이터 보호/프라이버시 규정 준수 시 이름·설명에 개인정보를 넣지 않도록 고려.
+5. job 요약 페이지가 상태를 표시하며, **완료 시 이메일 알림**을 받는다.
+6. **재실행:** New Job에서 같은 오브젝트 + matching rule 선택.
+7. **중복 확인·병합:** job 요약 페이지 → record set 열기 → **Related** 탭 → **Compare and Merge** 액션. (사용자가 병합하려면 duplicate record set 접근 권한 필요)
+8. **결과 공유:** job이 생성한 duplicate record set에 대해 리포트 실행.
+
+### Duplicate Job 한도·주의 (Things to Know)
+- **커스텀 오브젝트:** job은 커스텀 오브젝트에도 돌릴 수 있으나 **Compare and Merge 미지원**(찾기만 가능, 병합 불가).
+- **덮어쓰기:** 완료된 job과 **같은 설정(오브젝트 + matching rule)**으로 새 job을 만들면 이전 job을 덮어쓴다(실행 전 확인 알림).
+- **matching rule 수정 후 재실행:** 사용한 matching rule을 편집한 뒤 그 rule로 다시 실행하면 **알림 없이 첫 job 결과가 삭제**된다.
+- **1,000,000건 상한:** 모든 완료 job의 중복 총합이 **1,000,000건**에 도달하면 새 job을 실행할 수 없다. duplicate record item이 1,000,000 미만으로 떨어질 때까지 일부 job 결과를 삭제해야 한다.
+- 레코드가 많은 org에서는 duplicate job이 **실패**할 수 있다.
+- **결과 삭제 후에도 job 정보는 보존**된다: 스캔한 레코드 수, 발견한 중복 세트 수, 발견한 개별 중복 수.
+- **list view 연동:** 각 job마다 duplicate record set의 **list view**가 생성된다. list view만 삭제하면 set·item·Setup의 job 정보는 유지되지만, **Setup에서 job 결과를 삭제하면** 해당 list view·duplicate record set·duplicate record item이 **모두 삭제**된다.
+- **필수 커스텀 필드:** job이 생성한 duplicate record set/item 레이아웃에 **required custom field**가 있으면 job이 실패한다.
+
+---
+
+## Duplicate Record Sets — 중복 그룹 오브젝트 (DuplicateRecordSet / DuplicateRecordItem)
+
+**Duplicate Record Set**은 중복으로 식별된 항목들의 목록으로, **duplicate rule(Report 액션) 또는 duplicate job이 실행될 때 생성**된다. 실제 중복 그룹과 그 구성 레코드는 두 표준 오브젝트로 표현된다.
+
+**Available in:** Lightning Experience + Salesforce Classic (not available in all orgs).
+**Editions:** Essentials, Professional, Enterprise, Performance, Unlimited, Developer.
+**필요 권한:** set·item 보기 = account/contact/lead에 *View*; item 병합 = account/contact/lead에 *Edit* 및 *Delete*. 접근 권한은 **Sales Cloud / Service Cloud / Sales & Service Cloud 라이선스** 사용자에게 부여할 수 있다.
+
+### 두 오브젝트
+| 오브젝트 | 표현하는 것 | 핵심 필드 | 생성/접근 전제 |
+|---|---|---|---|
+| **DuplicateRecordSet** | 중복으로 식별된 레코드 **그룹**. 하나 이상의 duplicate record item 포함. custom report type·duplicate job 결과 조회에 사용 | **DuplicateRuleId** (이 목록을 식별한 duplicate rule 참조) | duplicate rule 활성화 필요 |
+| **DuplicateRecordItem** | 중복으로 식별된 **개별 레코드**. DuplicateRecordSet에 포함되며 duplicate job에서 처리됨 | **DuplicateRecordSetId** (소속 set으로의 lookup 관계, Refers To = DuplicateRecordSet) | Duplicate Management 활성화, Sales Cloud/CRM 라이선스 |
+
+지원 호출(두 오브젝트 공통): `create()`, `delete()`, `query()`, `retrieve()`, `update()`, `upsert()`, `describeLayout()`, `describeSObjects()`, `getDeleted()`, `getUpdated()`, `undelete()`.
+
+### 조회·수동 생성·병합
+- **조회:** LEX는 App Launcher → **Duplicate Record Sets**; Classic은 **Duplicate Record Sets** 탭. list view는 **Table view로만** 표시된다.
+- **job 링크:** job이 생성한 record set은 기본적으로 job으로의 링크를 포함하지 않는다 → Lightning App Builder로 레이아웃에 **Parent** 필드를 추가하면 링크가 표시된다.
+- **수동 생성**(규칙이 잡지 못한 중복 관리): DRS list view에서 **New** → **Duplicate Rule** 필드에 duplicate rule 지정 또는 **Parent** 필드에 duplicate job 지정 → Related 탭에서 **New**(item 추가; Classic은 *New Duplicate Record Item*).
+- **병합:** **Lightning Experience에서만** set 안의 중복을 **Compare and Merge** 액션으로 병합한다.
 
 ---
 

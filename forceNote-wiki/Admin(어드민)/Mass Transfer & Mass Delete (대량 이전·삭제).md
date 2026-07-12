@@ -45,6 +45,30 @@ Salesforce는 레코드를 하나씩 다루지 않고 **여러 건을 한 번에
 
 ---
 
+## Mass Reassign Account Teams (계정 팀 일괄 재배정)
+
+계정 팀(그리고 대응 도구로 기회 팀)의 **팀 멤버를 여러 계정에 걸쳐 일괄 재배정**한다. 소유권(owner)을 옮기는 Mass Transfer와 달리, 이쪽은 **레코드에 딸린 팀(team) 멤버 구성**을 바꾼다. 담당자 교체·역할 재편 시 계정을 하나씩 열지 않고 한 번에 처리한다.
+
+- **경로:** Setup → Quick Find `Mass Reassign` → **Mass Reassign Account Teams** (기회 팀은 **Mass Reassign Opportunity Teams**)
+- **선행 조건:** account teams 기능이 활성화돼 있어야 이 도구가 노출된다.
+- **할 수 있는 것:** 기존 팀 멤버를 새 멤버로 **교체** · 기존 멤버의 **역할(role) 변경** · 여러 계정에 새 팀 멤버 **추가** · 여러 계정에서 기존 멤버 **제거**.
+
+> 출처: Salesforce Help — help.salesforce.com (Mass Reassign Account Teams / Maintain Your Users' Account Teams). Setup 라벨은 시점에 따라 달라질 수 있음(캐비엇 2026-07-12).
+
+---
+
+## Mass Update Addresses (주소 일괄 표준화)
+
+표준 주소(address) 필드를 가진 레코드의 **국가/지역(country/territory) 또는 주/도(state/province) 값을 일괄 업데이트**한다. State and Country/Territory 픽리스트로 전환하거나 흩어진 주소 표기를 표준값으로 정리할 때 쓴다.
+
+- **경로:** Setup → Quick Find `Mass Update Addresses` → **Mass Update Addresses** → **Countries** 또는 **State/Province** 선택 (State/Province 선택 시 대상 국가를 먼저 지정)
+- **지원 대상(표준 주소 필드 보유):** accounts · contacts · contracts(activated) · contracts(not activated) · leads · orders(activated) · orders(draft).
+- **모범 순서:** 국가/지역을 먼저 표준화한 뒤, 각 국가 안에서 주/도를 표준화한다.
+
+> 출처: Salesforce Help — help.salesforce.com (`sf.data_updateaddresses.htm` Mass Update Addresses / Tips for Mass Updating Addresses). 지원 오브젝트 목록·모범 순서는 공식 스니펫 기준(접속 2026-07-12).
+
+---
+
 ## Data Loader로 넘어가야 할 때
 
 위 두 Setup 도구가 **지원하지 않는 오브젝트**이거나 처리 규모가 큰 경우, [[Data Loader]]를 사용해 mass delete / mass transfer를 수행한다.
