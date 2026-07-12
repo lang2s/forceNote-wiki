@@ -1,11 +1,11 @@
 ---
 tags: [backlog, coverage, work-tracking]
 created: 2026-05-18
-updated: 2026-06-27
+updated: 2026-07-12
 ---
 
-> **세션 인계 메모 (2026-05-25 세션 종료 시점):**
-> 2GP-12(AppExchange App Analytics, pkg2_dev.pdf p.428-504) 완료 — 4분할(Part1 Overview&Setup·Part2 Best Practices&Query·Part3 Data Types&Schemas·Part4 Developer Cookbook). 전체 스키마 필드 전수(Package Usage Logs ~65개·Summaries 13개·Subscriber Snapshots 12개), log_record_type 20종, SAQL 6개, CRM Analytics 레시피 2개. 역링크 5건·platform.md(4행)·index.md 업데이트. 다음 세션은 **2GP-13**(1GP vs 2GP Feature Gaps, p.505-517)부터 시작.
+> **세션 인계 메모 (2026-07-12 세션 종료 시점):**
+> **3층(Diátaxis) 커버리지 파일럿 프로그램 전체 완료** — 위키 전 도메인(Integration·Apex·LWC·Flow·Aura·VF·Security·Admin·DevOps·Service·Analytics·sObject·Architecture + 클라우드/산업 9소도메인)을 개념·레퍼런스·절차 3층으로 진단하고 실질 갭을 선별 보충. 정본은 [[Interface 답변 커버리지 검증 - Verification Harness]]. 후기 파일럿일수록 신규 콘텐츠가 도메인당 1건으로 수렴하고 findability·결정 가이드 synthesis가 주가 됨. **남은 파일럿 0.** 위키 전체 lint(2026-07-12) 콘텐츠 무결성 5항목 전부 0건. 다음 세션 후보는 아래 열린 항목의 개별 콘텐츠 갭(COVERAGE-GAP: AGENT-CONCEPT-1·ANALYTICS-1·SEC-MON-1·CDC-1·INT-DEEP-1·OMNISTUDIO-1 등) — 방법론 2가 아니라 각각 독립 인제스트.
 
 # WORK_BACKLOG — 활성 작업 추적
 
@@ -238,6 +238,7 @@ updated: 2026-06-27
 | 2026-06-18 | LINT-1~4 해소 워크리스트. 깨진 wikilink(MetadataAPI 경로 prefix 누락 20건, LINT-1)·peer 역링크 3건(LINT-3)은 index-manager/cross-linker가 수정. MOC 누락(SLDS·Enhanced Domains, LINT-2)은 재확인 결과 기해소(LWC MOC L136·138, Architecture MOC L44 존재). questions.md 보조 샤드의 중복/고아 오탐(LINT-4)은 거버넌스 예외 명문화로 해소. | LINT-1·2·3·4 전부 ✅(2026-06-18) → 열린 항목 P0에서 상태 갱신. LINT-4 예외는 AP-07로 프로토콜 이력화(CLAUDE.md + wiki-linter.md). | 없음 |
 | 2026-06-22 | LINT-ELASTIC·LINT-BOM 정비. (1) Governor Limits.md Platform Apex 표에 `DailyAsyncApexElasticExecutions`(beta) 1행 보강 — app_limits 치트시트 `pdftotext -layout` 셀 재추출(컬럼 collapse 우회), source frontmatter에 출처 추가. (2) UTF-8 BOM 제거 — 점검 결과 2건(SOQL 문법 레퍼런스.md + `_index/sobject-reference.md`, 예상 1건보다 많음). | LINT-ELASTIC·LINT-BOM 둘 다 ✅(2026-06-22). wiki-linter에 BOM 검사 추가는 retrospective 권고로 잔존. | 없음 |
 | 2026-06-27 | **백로그 전체 정합화**(mode B, 2단계). "열린 항목"에 🔲/🟡(+❌/⏸️ 블록드)만 남기고 ✅·⛔ 상태 행을 전부 ARCHIVE로 이관. **(1단계)** stale 15행(P0 7: LINT-ELASTIC·LINT-BOM·LINT-1~4 ✅잔존 + 2GP-3 stale→✅ / P2 8: 2GP-4·4b~4h stale→✅, 파일 실재 검증) + 신규 세션 완료분 3건(ING-DC DevOpsCenter 6노트·LINT-SHARD-DEVOPS 샤드분할·LINT-SLDS-CATALOG 코드블록). **(2단계 확장)** ✅/⛔ 64행 추가 이관 — DEC-1·2GP-5~12·기존P2-02·기존P3-05·DEV-GAP-1/2·INGEST ✅ 다수·PARTIAL(APEXLANG-1·UIAPI-1)·RECON 12행·de-scoped 4행(ING-20/30/35/38). 활성 inline-only 35행은 verbatim 보존, 기보존 25행은 제거만, ⛔ 4행은 ARCHIVE de-scoped 섹션. P2/PARTIAL/RECONCILE 빈 표는 archive 포인터 노트로 치환. **결과: 활성 "열린 항목" ✅/⛔ 0건, 최종 26행(🔲 22·🟡 2[ADMIN-4·6]·❌ 1[ING-44]·⏸️ 1[ING-18]).** 활성 총 제거 79행, 신규 archive 항목 그룹 8(1단계)+39행(2단계). | 0(이관/정합 작업, 신규 깨진 링크 없음) | 없음 |
+| 2026-07-12 | **위키 전체 lint**(3층 파일럿 프로그램 완료 직후). 콘텐츠 무결성 5항목 전부 **0건**: 깨진 wikilink 0(12,300 링크)·고아 0(콘텐츠 1,271 전수 샤드 등재)·오래된 경로 0(1,294 경로 실존)·MOC 누락 0·frontmatter 4필드 0. 샤드 건강 ✅(최대 273줄<300·라우터↔샤드 32/32 정합). 단방향: genuine peer 후보 30(콘텐츠 섬 0), 그중 큐레이션 4건 검토→**1건 보강**(이메일 전달성↔Login/Email Log), 3건 hub-spoke 정상 스킵. 오탐 제외: Release MOC 파이프이스케이프·템플릿 예시 링크. | peer 역링크 1건 + `문서/` 트리 lint 스코프 공식 제외(CLAUDE.md 명문화, 비-Salesforce 사내 문서) | 없음 |
 
 ---
 

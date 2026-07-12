@@ -392,13 +392,17 @@ Step 0 검증 + 4단계를 모두 완료해야 추가 작업이 끝난 것으로
 | DevOps(데브옵스)/DevOpsCenter(데브옵스센터) | `DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/index.md` |
 | DevOps(데브옵스)/ToolingAPI(툴링API) | `DevOps(데브옵스)/ToolingAPI(툴링API)/index.md` |
 | Commerce(커머스) | `Commerce(커머스)/index.md` |
+| SalesCloud(세일즈클라우드) | `SalesCloud(세일즈클라우드)/index.md` |
 | Service(서비스) | `Service(서비스)/index.md` |
 | Service(서비스)/OmniChannel(옴니채널) | `Service(서비스)/OmniChannel(옴니채널)/index.md` |
 | Scheduler(스케줄러) | `Scheduler(스케줄러)/index.md` |
 | FieldService(현장서비스) | `FieldService(현장서비스)/index.md` |
 | CPQ(견적) | `CPQ(견적)/index.md` |
+| DataCloud(데이터클라우드) | `DataCloud(데이터클라우드)/index.md` |
+| Clouds(클라우드) | `Clouds(클라우드)/index.md` |
 | Analytics(애널리틱스) | `Analytics(애널리틱스)/index.md` |
 | Security(보안) | `Security(보안)/index.md` |
+| Integration(통합)/ConnectREST(커넥트REST) | `Integration(통합)/ConnectREST(커넥트REST)/index.md` |
 | sObject | `sObject/index.md` |
 | AgentSkills(에이전트스킬) | `AgentSkills(에이전트스킬)/index.md` |
 | AgentSkills(에이전트스킬)/sf-skills | `AgentSkills(에이전트스킬)/sf-skills/index.md` |

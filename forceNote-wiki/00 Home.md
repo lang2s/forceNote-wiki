@@ -110,6 +110,7 @@ Visualforce Developer Guide v67.0 — Salesforce Classic 기반 태그형 마크
 | 하위 주제 | 핵심 키워드 |
 |---|---|
 | 🗺️ [[Sales Cloud 개요]] | Sales Cloud 기능 맵 진입점, 영업 프로세스 전반 |
+| [[견적 제품 선택 — 표준 Quote vs CPQ vs Revenue Cloud (RLM)]] | 견적 제품 결정 가이드, 표준 Quote vs CPQ(end-of-sale) vs RLM, 언제 무엇 |
 | [[Opportunities (기회)]] | sales stage, opportunity product, 파이프라인 |
 | [[Products & Price Books (제품·가격표)]] | 제품 카탈로그, 표준/커스텀 가격표, price book entry |
 | [[Campaigns (캠페인)]] | campaign member, hierarchy, Campaign Influence |
@@ -211,6 +212,7 @@ CRM Analytics(Tableau CRM) Data Prep Recipe REST API(Summer '26) — 레시피�
 
 | 하위 주제 | 핵심 키워드 |
 |---|---|
+| 🗺️ [[Analytics 개요 — 표준 리포팅 vs CRM Analytics·API 선택 가이드]] | 두 애널리틱스 세계 구분, 어느 API를 언제(Reports&Dashboards REST vs Recipe vs Wave NS), 오리엔테이션 |
 | [[Data Prep Recipe REST API — 개요·인증·엔드포인트]] | Recipe REST API, 6개 엔드포인트, OAuth, Examples 워크플로, EOL |
 | [[Recipe REST API — Bucket·Cluster 노드 Input]] | Bucket, Cluster, 버킷팅, 클러스터링, 노드 Input |
 | [[Recipe REST API — Aggregate·Append·Join·Compute·Pivot Input]] | Aggregate, Join, Compute, Pivot, 집계·조인·피벗 |
@@ -307,6 +309,7 @@ Salesforce 연 3회 릴리즈 추적 — 신규 기능, Deprecated, 거버너 �
 | 릴리즈 | API 버전 | 상태 |
 |---|---|---|
 | [[Summer '26]] | v67.0 | ✅ |
+| [[Spring '26]] | v66.0 | ✅ |
 | [[Winter '26]] | v65.0 | ✅ |
 | [[Summer '25]] | v64.0 | ✅ |
 | [[Spring '25]] | v63.0 | ✅ |
