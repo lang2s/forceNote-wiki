@@ -197,3 +197,4 @@ Boolean isDeletable = (Boolean) crudResult.get('isDeletable');
 - [[IndustriesDigitalLending Namespace]]
 - [[industriesNlpSvc Namespace]]
 - [[ConnectApi Namespace 개요]]
+- [[FlexCard]] — 이 Callable 유틸을 소비하는 CashFlow FlexCard의 OmniStudio 지식 계층

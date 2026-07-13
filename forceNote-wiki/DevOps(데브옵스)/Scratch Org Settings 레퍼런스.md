@@ -656,3 +656,4 @@ Scratch org definition file의 `settings` 블록에는 Metadata API Developer Gu
 - [[Org Shape와 Snapshot]] — Org Shape 생성·사용, Snapshot 전수
 - [[Scratch Org 배포·유저·에러코드]] — Deploy/Retrieve, Users 관리, Error Codes
 - [[DevOps Center]] — `devHubSettings.enableDevOpsCenterGA` 등 DevOps Center 활성화 설정
+- [[OmniStudio 셋업·권한·활성화]] — `OmniStudioSettings`·`OmniStudioDesigner`/`OmniStudioRuntime` feature를 켜는 이유·라이선스·권한셋
