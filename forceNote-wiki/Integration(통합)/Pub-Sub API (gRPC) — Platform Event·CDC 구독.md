@@ -186,4 +186,5 @@ CometD의 push와 달리 Pub/Sub API 구독은 **클라이언트가 처리 능�
 - [[Platform Event 한도와 고려사항]]
 - [[ChangeEventHeader]]
 - [[ChangeEvent Objects]]
+- [[Change Data Capture — 개요·채널 구독]] — 이 API로 구독하는 CDC의 개념·구독 채널·트랜잭션 기반 복제 허브
 - [[Named Credential]]

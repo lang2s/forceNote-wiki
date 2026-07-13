@@ -601,3 +601,4 @@ throw new DataSource.DataSourceException('외부 API 응답 오류: ' + statusCo
 - [[Named Credential]] — callout 인증 관리
 - [[Dom Namespace]] — XML 응답 파싱
 - [[SOQL 패턴]] — 내부 데이터 쿼리와 구분
+- [[Salesforce Connect — 어댑터·Cross-Org·writable·External CDC]] — 이 Custom 어댑터가 속한 Salesforce Connect 심화(어댑터 카탈로그·Cross-Org·한도·라이선스)

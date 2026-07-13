@@ -190,3 +190,4 @@ Apex Connector Framework(커스텀 어댑터, `[[DataSource Namespace]]` 참조)
 - [[Big Objects]] — 대용량 데이터 처리를 위한 또 다른 옵션
 - [[Object Groups]] — External Data Objects 그룹 분류
 - [[Object Types Reference]] — __x suffix 및 Zero Copy Objects Cheatsheet
+- [[Salesforce Connect — 어댑터·Cross-Org·writable·External CDC]] — 심화(이 노트의 상위 짝): 어댑터 상세·Cross-Org·writable external objects·External CDC·한도

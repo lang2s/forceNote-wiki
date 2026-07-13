@@ -44,6 +44,7 @@ aliases: [통합 MOC, Integration Index]
 
 - [[RestClient 패턴]] — Named Credential 기반 HTTP 추상화, 서비스 클래스 상속 구조
 - [[Queueable + Callout 패턴]] — DML과 Callout을 한 트랜잭션에서 조합, 체이닝 가능
+- [[Outbound Messaging (아웃바운드 메시지) — SOAP 콜백·WSDL·리스너]] — 워크플로/승인 규칙이 외부 엔드포인트로 `notifications()` SOAP를 push, `<Ack>true</Ack>` 리스너 계약·WSDL·24h 큐+2h 재시도(at-least-once)·Send Session ID (레거시 선언적 outbound)
 
 ## Inbound (외부 → Salesforce)
 
@@ -64,9 +65,20 @@ aliases: [통합 MOC, Integration Index]
 - [[Pub-Sub API 클라이언트 구축 가이드 (gRPC 구독·발행)]] — 외부(Python·Java 등)에서 gRPC로 Platform Event·CDC를 구독/발행하는 클라이언트 구축 how-to(proto stub·credit·Avro)
 - [[Streaming API (CometD·PushTopic·Generic Streaming)]] — CometD/Bayeux long-polling 레거시 push 구독(PushTopic·Generic Streaming·Durable·replayId)
 
+### Change Data Capture (CDC)
+
+> 레코드 변경(생성·수정·삭제·복구)을 change event로 자동 발행해 외부 시스템과 데이터를 동기화. transaction-based replication. `/data/ChangeEvents` 및 객체별 채널로 구독.
+
+- [[Change Data Capture — 개요·채널 구독]] — CDC란·엔티티 선택·구독 채널명 형식·이벤트 버스 저장/전달·transaction-based replication
+- [[Change Data Capture — 커스텀 채널]] — 여러 객체를 한 채널로 묶는 커스텀 채널(`__chn`)·PlatformEventChannel/Member·채널 멤버·ERD
+- [[Change Data Capture — 이벤트 메시지·Gap·Overflow]] — change event 메시지 구조·ChangeEventHeader·changeType enum·merged·gap·overflow·compound fields
+- [[Change Data Capture — Enrichment·필터링]] — enriched(항상 포함) 필드·채널 필터 표현식·연산자·필드 타입·한도
+- [[Change Data Capture — 고려사항·할당량·표준객체]] — allocations·보안(FLS·암호화)·모니터링·표준 객체 특수 동작(Person Account·Lead 전환·Task)
+
 ## 선언적 외부 연동
 
 - [[External Services]] — OpenAPI 스펙 등록으로 Apex 클래스·Flow Action 자동 생성
+- [[Salesforce Connect — 어댑터·Cross-Org·writable·External CDC]] — 외부 데이터를 external object로 실시간 가상화(복제 없음). 어댑터 카탈로그(Cross-Org·OData 2.0/4.0/4.01·Custom·DynamoDB·SQL·GraphQL)·Cross-Org 9 트리거 이벤트·쓰기 가능 외부 객체·External CDC(OData 4.0, 5–30분 폴링)·하드 한도. sObject 기본편은 [[External Objects]]
 
 ## Connect REST API (Chatter/협업 REST)
 

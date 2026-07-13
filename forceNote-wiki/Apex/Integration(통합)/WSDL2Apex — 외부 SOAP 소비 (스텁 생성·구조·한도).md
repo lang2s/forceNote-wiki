@@ -241,3 +241,4 @@ Salesforce 자체가 배포하는 Enterprise/Partner WSDL은 **크기 초과로 
 - [[WebServiceMock]] — 생성 스텁 콜아웃 테스트(Test.setMock, doInvoke)
 - [[Http·HttpRequest·HttpResponse 레퍼런스]] — WSDL 없이 SOAP/REST를 직접 구성하는 대안
 - [[Named Credential]] — endpoint_x = 'callout:...' 인증 위임
+- [[Outbound Messaging (아웃바운드 메시지) — SOAP 콜백·WSDL·리스너]] — 다른 SOAP 방향: 워크플로가 외부로 SOAP push(server-to-server 콜백·Ack)

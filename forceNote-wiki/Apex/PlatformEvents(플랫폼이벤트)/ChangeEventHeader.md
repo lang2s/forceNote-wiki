@@ -200,5 +200,7 @@ static void testCDCTrigger() {
 - [[EventBus Namespace]] — EventBus.publish 메서드 서명, TriggerContext, RetryableException 상세
 - [[3 Associated Objects]] — ChangeEvent Object 패턴 상세 (changeType·changedFields·transactionKey)
 - [[ChangeEvent Objects]] — CDC 지원 오브젝트 목록 전수·JSON 이벤트 메시지 예제·ChangeEventHeader 필드 상세
+- [[Change Data Capture — 개요·채널 구독]] — CDC 개념·엔티티 선택·구독 채널 허브 (이 클래스가 Apex 트리거 구독 경로)
+- [[Change Data Capture — 이벤트 메시지·Gap·Overflow]] — 동일 헤더 필드의 wire-level(메시지) 정의·changeType enum 전수
 - [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — CDC 커스텀 채널을 정의하는 Tooling sObject 정본(PlatformEventChannel·PlatformEventChannelMember로 채널·선택 엔티티 구성).
 - [[integration-eventing-cdc-configure]] (sf-skill — 실행형) — Change Data Capture 활성화 메타데이터 구성 실행형 스킬

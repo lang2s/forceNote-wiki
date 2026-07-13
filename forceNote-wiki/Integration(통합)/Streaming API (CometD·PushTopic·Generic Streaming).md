@@ -217,4 +217,5 @@ Streaming API(CometD)는 **레거시 경로**다. Salesforce는 신규 서버-�
 
 - [[Pub-Sub API (gRPC) — Platform Event·CDC 구독]] — CometD를 대체하는 현대 gRPC 구독 API
 - [[Platform Event 통합 패턴]] — Streaming 위에서 동작하는 이벤트 기반 통합 (empApi 포함)
+- [[Change Data Capture — 개요·채널 구독]] — CometD로 구독하는 CDC(`/data/…ChangeEvent`)의 개념·채널·복제 허브
 - [[통합 MOC]] — Integration 섹션 전체 목차

@@ -246,3 +246,4 @@ External Services 등록 시 자동 생성되는 Apex 클래스 구조. Request�
 - [[ExternalService Namespace]]
 - [[Tooling API 객체 — 통합·데이터·결제·마케팅 (외부서비스·Data Kit·페이먼트·Account Engagement)]] — ExternalServiceRegistration의 Tooling API sObject facet(등록 메타데이터를 API로 조회·관리하는 쪽)
 - [[integration-connectivity-generate]] (sf-skill — 실행형) — External Services·통합 커넥티비티 구성 실행형 스킬
+- [[Salesforce Connect — 어댑터·Cross-Org·writable·External CDC]] — disambiguation: 외부 *데이터*를 external object로 페더레이션(OData). External Services는 외부 *오퍼레이션* 호출(OpenAPI)로 별개 기능

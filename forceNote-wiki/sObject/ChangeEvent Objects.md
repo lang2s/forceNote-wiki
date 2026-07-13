@@ -519,3 +519,5 @@ trigger AccountChangeEventTrigger on AccountChangeEvent (after insert) {
 - [[Feed Objects]] — 피드 연관 Object
 - [[Share Objects]] — 공유 연관 Object
 - [[Trigger 컨텍스트 변수와 이벤트]] — 일반 트리거의 컨텍스트 변수·이벤트 매트릭스 (change event 트리거는 after insert·비동기 실행으로 별개 주제)
+- [[Change Data Capture — 개요·채널 구독]] — CDC 개념·엔티티 선택·구독 채널·트랜잭션 기반 복제 허브
+- [[Change Data Capture — 이벤트 메시지·Gap·Overflow]] — change event 메시지 wire 구조·ChangeEventHeader 필드·Gap/Overflow 이벤트

@@ -31,6 +31,19 @@ updated: 2026-06-27
 
 ## 완료 백로그 (아카이브)
 
+### COVERAGE-GAP — CDC-1 ✅ 완료 (2026-07-13)
+
+**Change Data Capture 개발자 가이드 인제스트** — `salesforce_change_data_capture.pdf`(Change Data Capture Developer Guide v66.0 Spring '26, 112p, Tier 2) 전수 채굴. 신규 **5노트** 모두 `Integration(통합)/`:
+- `Change Data Capture — 개요·채널 구독.md`(허브·246줄) — CDC란/언제·객체지원·엔티티선택(UI+Metadata/Tooling)·구독 채널명 5종 형식·저장/전달(3일 보존·ReplayId)·transaction-based replication 6단계·구독 3갈래 라우팅
+- `Change Data Capture — 커스텀 채널.md`(180줄) — Custom Channels·`__chn`·PlatformEventChannel(Member)·채널멤버 카디널리티 ERD(Pattern C 마커)·예제 3종
+- `Change Data Capture — 이벤트 메시지·Gap·Overflow.md`(646줄) — 메시지구조·ChangeEventHeader 12필드·changeType enum 10종·body(3client×4op)·merged·gap·overflow(100,000 임계)·compound
+- `Change Data Capture — Enrichment·필터링.md`(1,103줄) — enriched 20/filter 21 필드타입·연산자(비교7·논리3)·compound 역전규칙·한도(131,072자·2147483647)·Tooling/Metadata API 예제
+- `Change Data Capture — 고려사항·할당량·표준객체.md`(692줄) — 모니터링(PlatformEventUsageMetric)·보안(권한/FLS/암호화)·할당량 3표 edition별 셀 전수·표준객체 7종 특수동작
+
+**중복 제외(링크 위임):** Apex 트리거 구독→`[[ChangeEventHeader]]`·외부 gRPC 구독→`[[Pub-Sub API (gRPC) — Platform Event·CDC 구독]]`·CometD 구독→`[[Streaming API (CometD·PushTopic·Generic Streaming)]]`·sObject→`[[ChangeEvent Objects]]`. 네 노트에 CDC 허브 역링크 추가.
+**검증:** source-verifier 5 + completeness-validator 2(수치 핵심 ④⑤) 전부 정확·완결 PASS — 할당량 3표 셀별 독립 재추출 오류 0(과거 실패 유형 없음). AP-09 페이지 경계 절단 3건을 researcher가 다음 페이지 추출로 해결. 원문 오타(`sCreatedById`·replication 3.b.iii 절단·malformed JSON)는 날조 없이 마커 보존. qa PASS. nav: `_index/platform.md`(120줄)+통합 MOC. 상세 [[project_cdc_ingest]].
+**부수:** INT-DEEP-1의 Streaming API 갭은 이번 작업 전 이미 `Streaming API (CometD…)` 노트로 해소돼 있었음(부분 잔여=Salesforce Connect/OData·Outbound Messaging).
+
 ### P1 — 즉시 작성 권장 (Apex Ref v67.0)
 
 | # | 네임스페이스 | PDF 페이지 | 권장 파일 경로 | 상태 | 추가일 |
