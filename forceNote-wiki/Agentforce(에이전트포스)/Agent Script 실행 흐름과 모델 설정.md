@@ -250,4 +250,5 @@ EinsteinHyperClassifier를 subagent classification에 사용할 때의 **장점(
 - [[Agent Script 레퍼런스 — 변수·인스트럭션·표현식·연산자]] — 변수·인스트럭션(Logic/Prompt)·표현식·연산자 레퍼런스
 - [[Agent Script 패턴 — 라우팅·전환·필수 워크플로우]] — 이 실행 흐름 위에서 subagent 전환·라우팅·필수 워크플로우를 구성하는 패턴
 - [[Agent Script 메타데이터 배포 (DX·패키징)]] — 배포된 에이전트의 실행 컨텍스트·agent user 설정
+- [[Agentforce 개요 — 제품·에이전트 유형·구성요소]] — 이 실행 흐름의 개념적 상위: Atlas Reasoning Engine plan→reason→act 루프·agent router의 제품 관점 오리엔테이션
 - [[스킬 ↔ 위키 토픽 맵]] — Agentforce 실행 스킬 디스패처

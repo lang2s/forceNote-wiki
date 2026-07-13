@@ -15,6 +15,7 @@ created: 2026-06-30
 
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
+| [[Agentforce 개요 — 제품·에이전트 유형·구성요소]] | 제품 오리엔테이션 — Agentforce란·에이전트 유형·Atlas Reasoning Engine·구성요소(Subagents/Actions)·Agentforce Studio/Builder·Prompt Builder 대비·에이전트 vs Flow 결정 가이드 | #overview #product-concept |
 | [[Agent Script 개요와 언어 특성]] | Agent Script란·작성 3방식·Agentforce DX·언어 특성 9종·토큰 치트시트 | #overview |
 | [[Agent Script 블록 8종 (System·Config·Subagent 등)]] | 블록 8종 목적·문법·속성·예제 전수 + Config 파라미터표 10행 | #reference |
 | [[Agent Script 실행 흐름과 모델 설정]] | 3대 실행 경로(첫 요청·서브에이전트 처리·전환)·프롬프트 구성 11단계 + model_config·모델 우선순위·EinsteinHyperClassifier·model:// 식별자 | #flow #model-config |
@@ -32,6 +33,7 @@ created: 2026-06-30
 
 ## 빠른 선택
 
+- Agentforce가 처음? (제품·에이전트 유형·구성요소·Atlas) → [[Agentforce 개요 — 제품·에이전트 유형·구성요소]]
 - Agent Script가 처음? → [[Agent Script 개요와 언어 특성]]
 - 블록 문법/속성 찾기? → [[Agent Script 블록 8종 (System·Config·Subagent 등)]]
 - 에이전트 액션 입출력에 커스텀 LWC UI 붙이기? → [[Agentforce 커스텀 Lightning Type — 에이전트 액션 입출력 UI]]

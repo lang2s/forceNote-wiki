@@ -299,4 +299,5 @@ Apex   Request.email → SOQL → Response.Prompt
 - [[Agent Script 패턴 — 액션 체이닝·조건·데이터 페치·필터링]] — 추론 전 데이터 페치·액션 순차 실행 패턴
 - [[Agent Script 패턴 — 라우팅·전환·필수 워크플로우]] — 서브에이전트 전환·필수 입력(email) 슬롯 필링 강제
 - [[Data Cloud 개요]] — Apex 그라운딩이 조회하는 데이터 소스 중 하나. 통합 프로파일·CIO를 RAG 그라운딩 컨텍스트로 주입
+- [[Agentforce 개요 — 제품·에이전트 유형·구성요소]] — Prompt Builder vs Agent 구분·프롬프트 템플릿이 제품 구성요소에서 차지하는 위치(단일 생성 vs 자율 다단계 추론)
 - [[Agentforce(에이전트포스)/index|Agentforce(에이전트포스) 인덱스]]

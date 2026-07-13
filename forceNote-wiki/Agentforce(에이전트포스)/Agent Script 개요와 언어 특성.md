@@ -9,6 +9,8 @@ aliases: [Agent Script, 에이전트 스크립트, Agentforce, agent script lang
 
 > Agentforce Builder에서 agent를 정의하는 언어 — 자연어 instruction의 유연성과 programmatic expression의 결정성을 결합한다.
 
+> 제품 관점 오리엔테이션(Agentforce가 무엇이고 에이전트 유형·구성요소·Atlas Reasoning Engine은) → [[Agentforce 개요 — 제품·에이전트 유형·구성요소]] 참조. 이 노트는 그다음 단계인 **언어(Agent Script)** 레퍼런스다.
+
 ---
 
 > [!note] April 2026 명칭 전환 — topic → subagent

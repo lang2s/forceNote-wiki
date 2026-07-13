@@ -286,3 +286,4 @@ subagent routing·filtering에 start agent block을 사용하는 가이드는 Su
 - [[Agent Script 메타데이터 배포 (DX·패키징)]] — `Bot`/`BotVersion`/`AiAuthoringBundle` 메타데이터 ↔ 이 블록 구조의 배포 표현 대응
 - [[스킬 ↔ 위키 토픽 맵]] — Agentforce 실행 스킬(agentforce-generate 등) 디스패처. 지식(이 노트) vs 실행(스킬) 레이어 구분
 - [[Tooling API 객체 — 세일즈·예측·AI (포캐스팅·머신러닝·Einstein·Agentforce)]] — GenAiFunctionDefinition·GenAiPlannerDefinition 등 GenAi 메타데이터를 조회하는 Tooling API sObject(언어가 아닌 다른 API 레이어)
+- [[Agentforce 개요 — 제품·에이전트 유형·구성요소]] — 이 블록들이 구현하는 개념: Subagent·Action·building blocks·start_agent(Agent Router)를 제품 관점에서 정의하는 오리엔테이션(개념↔문법)
