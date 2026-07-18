@@ -155,3 +155,4 @@ prediction definition (컨테이너, 최대 10 active model)
 - [[CRM Analytics 개요]] — 플랫폼·라이선스 상위 컨텍스트
 - [[Recipe REST API — Load·Save·Output·ML 노드 Input]] — 데이터 파이프라인의 ML(예측) 노드 연계
 - [[ConnectApi CdpMachineLearning — Data 360 ML 예측]] — Data 360(Data Cloud) ML 예측 Apex API. Einstein Discovery(`SmartDataDiscovery.predict`)와 별개 계열.
+- [[Einstein Discovery REST — 모델 품질·편향 지표 표현형]] — 이 모델의 품질(RMSE·AUC·GINI 등)·편향(Disparate Impact·Potential Bias) 지표를 REST로 조회하는 응답 표현형 레퍼런스.
