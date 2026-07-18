@@ -25,6 +25,7 @@ created: 2026-07-13
 | [[Integration Procedure]] | 서버사이드 오케스트레이션 — 액션 카탈로그 19·블록 4, 호출(Apex/REST/Flow/Batch), remote action, 캐싱 | #omnistudio #integration-procedure |
 | [[OmniStudio 메타데이터·DataPack 배포]] | 배포 — Salesforce CLI(standard) vs Build Tool/DataPacks(managed), setup/non-setup 제약, LWC 배포, 네임스페이스/버전, Metadata API 네이밍 | #omnistudio #metadata #deploy |
 | [[OmniStudio Formula Functions 레퍼런스]] | Formula 함수 54개(7 카테고리), 연산자, 우선순위, 데이터 타입 | #omnistudio #reference #formula |
+| [[Enterprise Product Catalog (EPC) — 데이터 모델·명명·번들]] | Industries CPQ(CME) 제품 카탈로그 데이터 모델 — Product2 offer·AttributeMetadata·ProductChildItem 번들·명명 규칙·DataPack·120점 루브릭. 지식↔실행(sf-skill) 짝. (Calculation은 OMNISTUDIO-2b 후속) | #omnistudio #epc #industries-cpq |
 
 ---
 
@@ -44,6 +45,9 @@ created: 2026-07-13
 ### 셋업·배포
 - standard vs managed 런타임을 어떻게 배포하나? → [[OmniStudio 메타데이터·DataPack 배포]]
 - Callable/System.Callable로 Apex를 연동하려면? → [[OmniStudio 셋업·권한·활성화]]
+
+### Industries CPQ
+- EPC 제품 카탈로그(Product2 offer·번들·속성)를 어떻게 모델링하나? → [[Enterprise Product Catalog (EPC) — 데이터 모델·명명·번들]]
 
 ---
 

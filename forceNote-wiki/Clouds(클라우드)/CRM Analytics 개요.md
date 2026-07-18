@@ -62,3 +62,4 @@ aliases: [CRM Analytics, 씨알엠 애널리틱스, Tableau CRM, Einstein Analyt
 - [[Salesforce 제품 클라우드 개요]] — 전체 클라우드 지도 허브
 - [[Reports (리포트)]] — 표준 선언적 리포트(구분 대상)
 - [[Dashboards (대시보드)]] — 표준 대시보드(구분 대상)
+- [[Einstein Discovery — Model Builder·예측 모델]] — CRM Analytics의 예측·처방 모델링 엔진

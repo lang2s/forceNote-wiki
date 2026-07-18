@@ -490,6 +490,7 @@ The forecast info for a time series version 2 node in a recipe.
 
 ## 관련 노트
 
+- [[Einstein Discovery — Model Builder·예측 모델]]
 - [[Data Prep Recipe REST API — 개요·인증·엔드포인트]]
 - [[Recipe REST API — Recipe 구성 Input]]
 - [[Recipe REST API — Enums]]

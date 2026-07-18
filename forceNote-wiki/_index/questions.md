@@ -180,3 +180,6 @@ created: 2026-05-21
 | CometD로 이벤트 구독하는 법 / PushTopic Generic Streaming 차이 / replayId로 놓친 이벤트 재생 / 브라우저 Visualforce에서 push 구독 | `Integration(통합)/Streaming API (CometD·PushTopic·Generic Streaming).md` |
 | gRPC로 Platform Event 구독 클라이언트 세우는 법 / Pub/Sub API 파이썬 예제 / proto stub 생성·credit flow control·Avro 디코드 / 외부에서 이벤트 발행 | `Integration(통합)/Pub-Sub API 클라이언트 구축 가이드 (gRPC 구독·발행).md` |
 | 이벤트 기반 통합 처음부터 끝까지 어떻게 / Platform Event 정의→발행→구독→멱등→재시도 / event-driven integration 전체 흐름 | `Integration(통합)/이벤트 기반 통합 구축 가이드 (Platform Event end-to-end).md` |
+| 비밀번호 정책·세션 타임아웃·로그인 IP를 어디서 설정하나 / 계정 잠금·비밀번호 만료 정책 / High Assurance 세션 / 로그인 시간 제한 (org 전역 설정·정책 → Admin) | `Admin(어드민)/Password Policies (비밀번호 정책).md` + `Admin(어드민)/Session Settings (세션 설정).md` + `Admin(어드민)/Login IP Ranges & Login Hours (로그인 IP·시간 제한).md` |
+| 레코드 접근을 제한(좁히는) 규칙 만들기 / 표시 필터로 보이는 레코드 줄이기 / Restriction Rule (접근을 확대·기본값 정하는 OWD·공유 규칙은 [[조직 전체 공유 기본값(OWD)과 공유 규칙]] 참고 → Admin) | `Security(보안)/Restriction Rules (제한 규칙).md` |
+| org 로그인 URL 바꾸기 / My Domain 설정 / SSO·외부 IdP(SAML)로 로그인 / 외부 아이덴티티 공급자 로그인·로그인 정책 | `Security(보안)/My Domain (마이 도메인).md` + `Security(보안)/Single Sign-On (SAML SSO 인바운드).md` |

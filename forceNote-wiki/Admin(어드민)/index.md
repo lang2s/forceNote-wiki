@@ -7,6 +7,8 @@ created: 2026-05-19
 
 > Salesforce 플랫폼 기초 — 어드민·개발자가 알아야 할 핵심 개념, 네비게이션, 보안 인증
 
+> **Admin ↔ Security 경계:** org 전역 설정·정책(OWD·Password/Session Policies·Login IP)은 여기(Admin), 권한 모델·위협 모델(Permission Set·Restriction Rules·SSO·Secure Coding)은 [[Security(보안)/index|Security(보안)]]. 같은 보안 축이라도 "조직 정책"이면 Admin, "누가 무엇에 접근하나(권한)"·"공격 방어(위협)"면 Security.
+
 **상위:** [[00 Home]]
 
 ---
@@ -23,6 +25,7 @@ created: 2026-05-19
 | [[State and Country Picklist]] | AddressSettings 메타데이터 타입 — 국가/주 피클리스트 구성, isoCode/integrationValue, Metadata API 편집 | #metadata-api |
 | [[조직 전체 공유 기본값(OWD)과 공유 규칙]] | OWD로 레코드 기본 접근 수준을 정하고 공유 규칙(소유 기반/기준 기반)으로 접근 확대, Sharing Settings 설정법 | #security |
 | [[Approval Process (승인 프로세스)]] | 레코드 승인 단계·승인자·시점별 자동 액션을 정의하는 선언적 승인 워크플로 — Jump Start/Standard 마법사, 용어 15종, 액션 4타입, Flow 대안 | #automation |
+| [[Approval Process — 운영·엔드유저·레퍼런스]] | 위 개요의 companion — 승인 한도·승인 이력 리포트(ProcessInstance)·응답 채널(이메일/Chatter/Slack)·승인 요청 대량 이전 등 운영·엔드유저·레퍼런스 심화 | #automation #reference |
 | [[Formula 필드]] | 다른 필드로부터 값을 자동 계산하는 read-only 커스텀 필드 — cross-object formula(최대 10관계), Check Syntax, 계산 필드 | #customization |
 | [[Roll-Up Summary 필드]] | master-detail의 master측에서 detail 레코드를 COUNT/SUM/MIN/MAX로 집계하는 필드 | #customization |
 | [[Page Layouts (페이지 레이아웃)]] | 레코드 페이지의 버튼·필드·관련목록 배치 제어 — enhanced editor, mini layout, 프로파일×레코드타입 할당 | #customization |
@@ -97,6 +100,7 @@ created: 2026-05-19
 - 웹 마법사로 CSV 데이터 임포트(최대 5만 건)? → [[Data Import Wizard]]
 - OWD·공유 규칙으로 레코드 접근 설계? → [[조직 전체 공유 기본값(OWD)과 공유 규칙]]
 - 레코드 승인 워크플로(단계·승인자·자동 액션) 만들기? → [[Approval Process (승인 프로세스)]]
+- 승인 한도·승인 이력 리포트·승인 응답 채널(이메일/Chatter/Slack)·승인 요청 대량 이전? → [[Approval Process — 운영·엔드유저·레퍼런스]]
 - 국가/주 피클리스트를 메타데이터로 설정? → [[State and Country Picklist]]
 - 다른 필드로 값을 자동 계산하는 필드? → [[Formula 필드]]
 - 자식 레코드를 COUNT/SUM/MIN/MAX로 집계? → [[Roll-Up Summary 필드]]

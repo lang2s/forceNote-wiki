@@ -5,7 +5,7 @@ created: 2026-05-17
 
 # Salesforce 개발자 두 번째 뇌
 
-> Salesforce 공식 프로젝트(apex-recipes, lwc-recipes, dreamhouse-lwc 등) 분석 기반의 검증된 패턴 모음.
+> Salesforce 백과사전 — 개발자·어드민 전 영역(Apex·LWC·Flow·Admin·Clouds·DevOps·Security·Release 등)을 다루는 ~1,300 콘텐츠 노트. 공식 문서·PDF·오픈소스 샘플을 직접 추출·대조해 작성한 검증 노트 모음.
 
 ---
 
@@ -207,12 +207,27 @@ Salesforce CPQ(`SBQQ` managed package) 개발자 가이드(v65.0 Winter '26) —
 | [[JavaScript Quote Calculator Plugin]] | JSQCP, onAfterCalculate, Page Security, 커스텀 계산 |
 | [[CPQ Plugins — Search·Recommended·Configurator·기타]] | Product Search, Recommended Products, E-Signature, 9개 플러그인 |
 
+### [[OmniStudio(옴니스튜디오)/index|OmniStudio(옴니스튜디오)]]
+Industries 로우코드 개발 도구 모음 — 4개 핵심 도구(OmniScript·FlexCard·Data Mapper(DataRaptor)·Integration Procedure) + 셋업/권한·메타데이터/DataPack 배포·Formula Functions. Standard vs Managed Package(Vlocity) 런타임 병기 (8노트). *Service Cloud Omni-Channel(라우팅·큐)과 무관.*
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| 🗺️ [[OmniStudio 개요·오리엔테이션]] | 진입점 — 4개 도구 지도, Standard vs Managed 런타임, OmniProcess·OmniUiCard sObject |
+| [[OmniStudio 셋업·권한·활성화]] | 권한 세트(Admin/User/Communities), 보안 플래그 3종, Fast Activation, Callable |
+| [[OmniScript]] | 가이드 프로세스 빌더, 엘리먼트 카탈로그, 커스텀 LWC, 다국어 |
+| [[FlexCard]] | 카드 UI(OmniUiCard), states 모델, data source 10종, 예약 이벤트 |
+| [[Data Mapper (DataRaptor)]] | Extract/Turbo/Load/Transform, DRGlobal·executeDataMapper, REST API |
+| [[Integration Procedure]] | 서버사이드 오케스트레이션, 액션 19종, remote action, 캐싱 |
+| [[OmniStudio 메타데이터·DataPack 배포]] | Salesforce CLI(standard) vs Build Tool/DataPacks(managed), LWC 배포 |
+| [[OmniStudio Formula Functions 레퍼런스]] | Formula 함수 54개(7 카테고리), 연산자, 우선순위 |
+
 ### [[Analytics(애널리틱스)/index|Analytics(애널리틱스)]]
-CRM Analytics(Tableau CRM) Data Prep Recipe REST API(Summer '26) — 레시피로 데이터를 변환·정제하는 REST API의 개요·인증·엔드포인트·노드 Input·Response·Enum
+Salesforce Analytics REST — Data Prep Recipe REST API·Reports and Dashboards REST API·CRM Analytics REST API(Wave `/wave/*`). 데이터 변환·리포트/대시보드·CRM Analytics asset/쿼리를 코드로 다룬다
 
 | 하위 주제 | 핵심 키워드 |
 |---|---|
 | 🗺️ [[Analytics 개요 — 표준 리포팅 vs CRM Analytics·API 선택 가이드]] | 두 애널리틱스 세계 구분, 어느 API를 언제(Reports&Dashboards REST vs Recipe vs Wave NS), 오리엔테이션 |
+| 🗺️ [[CRM Analytics REST API — 개요·인증·asset 엔드포인트 지도]] | CRM Analytics(Wave) `/wave/*` REST 진입점 — asset·dataset·XMD·SAQL/SQL 쿼리, `/analytics`와 경계 구분 |
 | [[Data Prep Recipe REST API — 개요·인증·엔드포인트]] | Recipe REST API, 6개 엔드포인트, OAuth, Examples 워크플로, EOL |
 | [[Recipe REST API — Bucket·Cluster 노드 Input]] | Bucket, Cluster, 버킷팅, 클러스터링, 노드 Input |
 | [[Recipe REST API — Aggregate·Append·Join·Compute·Pivot Input]] | Aggregate, Join, Compute, Pivot, 집계·조인·피벗 |
@@ -261,10 +276,11 @@ AI 에이전트가 사용자를 단계별로 안내하기 위해 동봉되는 `S
 | [[SLDS 2 Starter Kit - 저장소 설정과 배포 스킬]] | repo-setup, first-time-deploy, gh CLI 저장소 생성, GitHub Pages, gh-pages 브랜치 |
 
 ### [[Agentforce(에이전트포스)/index|Agentforce(에이전트포스)]]
-Agentforce Agent Script — Agentforce Builder에서 agent를 정의하는 언어. 개요·블록·실행 흐름·레퍼런스(액션/툴/변수)·패턴·메타데이터 배포 (Agent Script 10노트 도메인)
+Agentforce 제품 개념 오리엔테이션 + Agent Script(Agentforce Builder에서 agent를 정의하는 언어) — 개요·블록·실행 흐름·레퍼런스(액션/툴/변수)·패턴·메타데이터 배포
 
 | 하위 주제 | 핵심 키워드 |
 |---|---|
+| 🗺️ [[Agentforce 개요 — 제품·에이전트 유형·구성요소]] | 제품 오리엔테이션 — 에이전트 유형, Atlas Reasoning Engine, Agentforce Studio/Builder, Prompt Builder 대비, 에이전트 vs Flow 결정 가이드 |
 | [[Agent Script 개요와 언어 특성]] | Agent Script란, 작성 3방식, Agentforce DX, 언어 특성 9종, 토큰 치트시트 |
 | [[Agent Script 블록 8종 (System·Config·Subagent 등)]] | system·config·variables·subagent·start_agent, Config 파라미터 |
 | [[Agent Script 실행 흐름과 모델 설정]] | 3대 실행 경로, 프롬프트 구성 11단계, model_config, 모델 우선순위 |
@@ -276,6 +292,16 @@ Agentforce Agent Script — Agentforce Builder에서 agent를 정의하는 언�
 | [[Agent Script 패턴 — 변수·리스트·리소스 참조·시스템 오버라이드]] | 변수 효과적 사용, 리스트 변수, 리소스 직접 참조, 시스템 오버라이드, 멀티턴 |
 | [[Agent Script 메타데이터 배포 (DX·패키징)]] | sf CLI retrieve/deploy, Bot·GenAiPlannerBundle, package.xml, 다른 org로 이동 |
 
+### [[Einstein(아인슈타인)/index|Einstein(예측형 AI)]]
+Einstein의 **예측형(비생성형) AI** 계열 — 코드 없는 커스텀 예측·적시 추천·통계 모델링. *생성형 AI(에이전트·프롬프트)는 위 [[Agentforce(에이전트포스)/index|Agentforce]] 참조 — 예측형 vs 생성형 구분.* (4노트)
+
+| 하위 주제 | 핵심 키워드 |
+|---|---|
+| 🗺️ [[Einstein 예측형 AI 개요 — 예측 vs 생성형·도구 지도]] | 예측형(비생성형) 도구 지도 진입점, 예측형 vs 생성형, Lead/Opportunity Scoring, Forecasting |
+| [[Einstein Prediction Builder]] | 코드 없는 커스텀 예측, likelihood/numeric, 0~100 점수·top predictor |
+| [[Next Best Action — Strategy Builder·Recommendations]] | 적시 맞춤 추천, Strategy Builder, Recommendation 객체, Enhance element |
+| [[Einstein Discovery — Model Builder·예측 모델]] | 통계 모델링·supervised ML, predictive+prescriptive, Story→model 리브랜딩 |
+
 ### [[통합 MOC|Integration(통합)]]
 외부 시스템 연동 — Named Credential, Callout, REST/SOAP
 
@@ -285,6 +311,7 @@ Agentforce Agent Script — Agentforce Builder에서 agent를 정의하는 언�
 | [[RestClient 패턴]] | virtual class, PATCH 우회 |
 | [[CSP와 RemoteSite]] | CspTrustedSite, RemoteSiteSetting, LWC vs Apex 외부 연동 |
 | [[Custom REST Endpoint]] | @RestResource, RestContext |
+| [[Connect REST API 개요]] | Chatter/협업 REST — 피드·그룹·사용자·댓글·파일·토픽 (18노트, [[Integration(통합)/ConnectREST(커넥트REST)/index\|ConnectREST 폴더 인덱스]]) |
 
 ### [[sObject/index|sObject Reference]]
 Salesforce Platform Object Reference v67.0 — Field 타입, Object 그룹, 표준 Object 카탈로그

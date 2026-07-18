@@ -144,6 +144,7 @@ find forceNote-wiki/ -type d | grep -v "\(.*\)"
 - `Apex/Integration(통합)/` vs `Integration(통합)/` — Apex 코드 중심이면 전자, 플랫폼 수준이면 후자
 - `_templates/`, `_index/`, `_MOC/`, `00 Home.md`, `00 SEARCH_INDEX.md` — 위치 검사 제외
 - `index.md` 파일 — 위치 검사 제외 (로컬 인덱스는 폴더에 고정)
+- **`문서/` 트리 전체 — 모든 검사(폴더명·고아·단방향·MOC 누락·frontmatter) 제외.** 비-Salesforce 사내 프로젝트 분석 문서로 위키 콘텐츠가 아니다 (CLAUDE.md "lint 스코프 제외 (공식)" 조항). 순한글 폴더명·샤드 미등재는 의도된 상태 — 위반으로 보고하지 않는다. `_active/`도 동일(작업 중 임시 보관, 샤드 등록 금지가 규칙).
 - 파일 하나가 여러 도메인을 다루는 비교 노트(예: "Flow vs Apex 비교") — ⚠️ 현재 위치 유지 권고로 표시
 
 ## 출력 형식 (CLAUDE.md 기준)

@@ -48,8 +48,9 @@ case "$FILE_PATH" in
 esac
 
 # --- Skip navigation/template/system files ---
+# 문서/ = 비-Salesforce 사내 프로젝트 분석 트리 — CLAUDE.md "lint 스코프 제외 (공식)" 조항
 case "$FILE_PATH" in
-  */_index/*|*/_templates/*|*/_MOC/*|*/.claude/*|*/memory/*|*/scripts/*) exit 0 ;;
+  */_index/*|*/_templates/*|*/_MOC/*|*/.claude/*|*/memory/*|*/scripts/*|*/_active/*|*/문서/*) exit 0 ;;
 esac
 BASENAME=$(basename "$FILE_PATH")
 case "$BASENAME" in
@@ -84,6 +85,12 @@ else
     case "$SRC" in
       ""|"없음"|"일반 지식"|"general"|"unknown")
         ISSUES+=("source 값 부적절: '$SRC' — 파일명·문서명·external-knowledge 중 하나 필요")
+        ;;
+      *external-knowledge*)
+        # Tier 3 노트는 경고 블록 필수 (CLAUDE.md Step 0-1)
+        if ! grep -q '^> \[!warning\]' "$FILE_PATH"; then
+          ISSUES+=("Tier 3(external-knowledge)인데 '> [!warning]' 경고 블록 없음 — 노트 상단에 미검증 경고 필요")
+        fi
         ;;
     esac
   fi

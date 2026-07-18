@@ -4,7 +4,7 @@ created: 2026-06-21
 ---
 
 # SEARCH INDEX — Analytics(애널리틱스) (CRM Analytics Data Prep Recipe REST API + Reports and Dashboards REST API)
-> Salesforce Analytics 도메인 키워드 샤드 — (1) CRM Analytics Data Prep Recipe REST API 10노트, (2) Reports and Dashboards REST API 11노트.
+> Salesforce Analytics 도메인 키워드 샤드 — (1) CRM Analytics Data Prep Recipe REST API 10노트, (2) Reports and Dashboards REST API 11노트, (3) CRM Analytics REST API(Wave `/wave/*`) 3노트.
 > 루트 라우터: `00 SEARCH_INDEX.md` · 다른 샤드는 라우터에서 이동.
 > source: salesforce_recipes_api.pdf (Data Prep Recipe REST API Developer Guide Summer '26, Tier 2) · salesforce_analytics_rest_api.pdf (Reports and Dashboards REST API Developer Guide v67.0 Summer '26, Tier 2)
 
@@ -49,6 +49,18 @@ created: 2026-06-21
 | 키워드 | 파일 |
 |---|---|
 | Recipe API enums, node type enum, action enum, data type enum, join type enum, 47개 enum, 노드 타입 열거형, 액션 열거형, 데이터 타입 허용값, 조인 타입 허용값, 레시피 API enum 목록, 필드에 들어갈 수 있는 값, Recipe enum 전체 | `Analytics(애널리틱스)/Recipe REST API — Enums.md` |
+
+---
+
+# CRM Analytics REST API (v67.0) — Wave 플랫폼 asset·dataset·query REST (`/wave/*`)
+
+> CRM Analytics(구 Tableau CRM/Wave) 플랫폼을 프로그램적으로 다루는 REST API. 프리픽스 `/services/data/vXX.0/wave/*`. 표준 리포트/대시보드를 다루는 Reports and Dashboards REST API(`/analytics/*`, 위 섹션)와 별개다. 지도 노트를 진입점으로 데이터셋·XMD·쿼리 스포크로 내려간다.
+
+| 키워드 | 파일 |
+|---|---|
+| CRM Analytics REST API, Tableau CRM REST, Wave REST, /wave, analytics asset API, /services/data/wave, CRM 애널리틱스 REST, /wave vs /analytics 차이, CRM Analytics를 REST로 조회, Reports REST와 뭐가 다른가, Lens·Dashboard·Folder·Template·Limits·Dependencies asset | `Analytics(애널리틱스)/CRM Analytics REST API — 개요·인증·asset 엔드포인트 지도.md` |
+| CRM Analytics dataset REST, Wave dataset, XMD, Extended Metadata, XmdDimension, XmdMeasure, /wave/datasets, dataset version, 확장 메타데이터, 데이터셋 REST, 데이터셋을 REST로 조회, XMD 속성, dataset version xmd | `Analytics(애널리틱스)/CRM Analytics REST API — Datasets·Versions·XMD 표현형.md` |
+| wave query REST, SAQL query REST, /wave/query, SaqlQueryInput, AnalyticsQueryLanguageEnum, SAQL vs SQL REST, SAQL 쿼리 실행, SAQL을 REST로 실행, /wave/query 요청 형식, Apex Wave와 REST 차이 | `Analytics(애널리틱스)/CRM Analytics REST API — Query 실행 (SAQL·SQL).md` |
 
 ---
 

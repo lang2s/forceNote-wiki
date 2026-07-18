@@ -192,3 +192,4 @@ Atlas가 hybrid reasoning으로 "결정적 규칙 실행 + 확률적 LLM 추론"
 - [[Agent Script 실행 흐름과 모델 설정]]
 - [[Agentforce Prompt Template 액션 — genAiPromptTemplate·Apex 그라운딩]]
 - [[스킬 ↔ 위키 토픽 맵]]
+- [[Einstein 예측형 AI 개요 — 예측 vs 생성형·도구 지도]] — 예측형(비생성형) AI 계열(생성형과 경계 대비)

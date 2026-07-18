@@ -27,6 +27,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **팀 구성 및 워크플로우:** `TEAM_PROTOCOL.md` 참조
 - **에이전트 정의 (15):** `.claude/agents/` 폴더 (pm, question-clarifier, planner, scout, source-coverage-checker, researcher, classifier, writer, completeness-validator, source-verifier, index-manager, cross-linker, wiki-linter, qa, wiki-retrospective)
 
+> ⚠️ **pm은 서브에이전트로 스폰하지 않는다.** 서브에이전트는 다른 에이전트를 스폰할 수 없어 백그라운드 pm은 파이프라인 전체를 정지시킨다(실제 사고 사례). `pm.md`는 **메인 세션이 직접 수행하는 플레이북**이며, 메인 세션이 pm 역할로 나머지 14개 실무 에이전트를 스폰·지휘한다.
+
 ### 팀 투입 기준
 
 | 상황 | 처리 방식 |
@@ -63,60 +65,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ---
 
-## ⚠️ Windows 파일명 제한 주의사항
+## ⚠️ Windows 파일명 제한 (핵심 3줄)
 
-Windows NTFS는 아래 문자를 파일명에 허용하지 않는다. Linux/macOS에서 만들어진 git 저장소에 해당 문자가 포함된 파일이 있으면 **Windows에서 git checkout/clone 시 해당 파일이 자동으로 건너뛰어져 디스크에 생성되지 않는다.**
+1. **금지 문자** `\ / : * ? " < > |` + 제어문자, **예약어** `CON·PRN·AUX·NUL·COM0-9·LPT0-9`, **끝에 `.`/공백** 금지 — 이 문자가 든 파일은 Windows clone 시 디스크에 생성되지 않는다(git 객체엔 존재 → `git show HEAD:<경로>`로만 읽힘).
+2. **부제·구분은 ` - `(공백+하이픈+공백) 또는 ` — `(em dash)** 를 쓴다. 콜론(`:`)은 절대 금지(실사고: DevOps/ 12파일 `: ` → ` - ` 일괄 rename으로 해결).
+3. **사전 확인**: `git ls-tree -r --name-only HEAD | Select-String '[:\\*?"<>|]'`
 
-### 절대 사용 불가 문자
-
-| 문자 | 설명 |
-|---|---|
-| `\` | 백슬래시 (경로 구분자) |
-| `/` | 슬래시 (경로 구분자) |
-| `:` | 콜론 — **이번에 문제가 된 문자** |
-| `*` | 애스터리스크 (와일드카드) |
-| `?` | 물음표 (와일드카드) |
-| `"` | 큰따옴표 |
-| `<` | 작은 부등호 |
-| `>` | 큰 부등호 |
-| `\|` | 파이프 |
-| 제어문자 | ASCII 0x00–0x1F |
-
-### 예약 장치 이름 (확장자 무관, 사용 불가)
-
-`CON`, `PRN`, `AUX`, `NUL`, `COM0`–`COM9`, `LPT0`–`LPT9`
-예: `NUL.txt`, `CON.md` 모두 불가
-
-### 추가 제한
-
-- 파일명 끝에 `.` 또는 공백 사용 불가
-- 전체 경로 260자 제한 (MAX_PATH, 긴 경로 지원 활성화 시 32,767자)
-
-### 사전 확인 명령어
-
-외부 저장소 clone 전에 금지 문자 포함 파일 목록을 미리 확인한다:
-
-```powershell
-git ls-tree -r --name-only HEAD | Select-String '[:\\*?"<>|]'
-```
-
-### 이미 건너뛰어진 경우 — 내용 읽기
-
-```powershell
-git show HEAD:"경로/파일명.md"
-```
-
-git 객체 저장소에는 파일이 존재하므로 `git show`로 내용을 읽을 수 있다.
-
-### 실제 발생 사례 (✅ 2026-06-19 해결)
-
-`forceNote-wiki/DevOps(데브옵스)/` 하위 12개 파일이 파일명에 `: ` 포함했었음  
-예(해결 전): `2GP — App Analytics Part 1: Overview & Setup.md`  
-→ Windows에서 clone 시 전부 건너뛰어져 디스크에 없었음. `git show HEAD:<경로>`로만 접근 가능했음.
-
-**조치:** 12개 파일명의 `: `를 ` - `(공백+하이픈+공백)로 일괄 rename + 관련 wikilink 152개·샤드 경로 12개 동시 치환.  
-예(해결 후): `2GP — App Analytics Part 1 - Overview & Setup.md`  
-**재발 방지 규칙:** 새 파일명에 콜론(`:`) 등 위 금지 문자를 절대 쓰지 않는다. 부제·구분이 필요하면 ` - `(공백+하이픈+공백) 또는 ` — `(em dash)를 쓴다.
+> 금지 문자 전체 표·예약어·복구(PowerShell) 절차·실사고 상세는 → [[Windows 파일명 제한 (상세)]]
 
 ---
 
@@ -130,7 +85,7 @@ git 객체 저장소에는 파일이 존재하므로 `git show`로 내용을 읽
 ```
 Layer 0  00 Home.md              — 전체 진입점 (사람용 큐레이션)
 Layer 1  00 SEARCH_INDEX.md      — 라우터 (도메인 → 샤드 매핑만, 개별 페이지 나열 안 함)
-Layer 2  _index/{도메인}.md      — 키워드 → 파일 경로 샤드 (frontend/frontend-basecomponents/visualforce/apex-core/apex-namespaces/platform/platform-devops/platform-devops-2gp/platform-devops-tooling/release/sobject-reference/service/scheduler/field-service/cpq/analytics/security/admin/sales/clouds/data-cloud/connect-rest/omnistudio/agentforce/agent-skills/agent-skills-refs-{agentforce,diagram,experience,integration,misc,omnistudio,platform}/questions)
+Layer 2  _index/{도메인}.md      — 키워드 → 파일 경로 샤드 (전체 샤드 목록은 라우터 `00 SEARCH_INDEX.md`가 정본 — 여기서 열거하지 않는다)
          Apex/Apex MOC.md        — Apex 섹션 전체 목차 (사람용 브라우즈)
          LWC/LWC MOC.md / Flow/Flow MOC.md / Integration(통합)/통합 MOC.md
 Layer 3  */index.md              — 각 subfolder 로컬 인덱스 (파일 목록 + 빠른 선택)
@@ -147,9 +102,10 @@ Layer 4  개별 패턴 노트 (.md)
 | 규칙 | 내용 |
 |---|---|
 | 라우터 불변 | `00 SEARCH_INDEX.md`는 **도메인→샤드만** 매핑. 개별 페이지를 나열하지 않으므로 크기가 페이지 수와 무관하게 일정. |
-| 샤드 상한 | 각 `_index/*.md`는 **~300줄 / ~12k 토큰** 초과 금지. 초과 시 하위 샤드로 분할(`apex-namespaces-commerce.md` 등)하고 라우터에 1줄 추가. |
+| 샤드 상한 | 각 `_index/*.md`는 **~300줄 또는 ~40k chars(≈12k 토큰) 중 먼저 도달하는 쪽** 초과 금지 — 한국어·긴 키워드 행은 줄수보다 토큰이 먼저 터지므로 chars 기준을 함께 본다(`wc -l -c`). 초과 시 하위 샤드로 분할(`apex-namespaces-commerce.md` 등)하고 라우터에 1줄 추가. |
 | 단일 쓰기 주체 | 라우터·샤드·MOC·index.md 등 모든 탐색 파일은 **index-manager만** 수정. |
 | 1 페이지 = 1 홈 샤드 | 한 노트는 주 도메인 샤드 1곳에만 키워드 행을 둔다. 중복 행 금지. (폴더 배치가 애매하면 주 도메인 기준으로 결정) **예외:** `_index/questions.md`는 교차 도메인 질문 라우팅 보조 샤드로, 다른 도메인 샤드에 이미 등재된 파일을 자연어 질문 형태로 재등재할 수 있다(중복 행 금지의 공식 예외 — 보조 샤드의 의도된 재등재이므로 lint가 중복/고아로 플래그하지 않는다). |
+| questions.md 분할 (사전 규칙) | `questions.md`는 교차 도메인 샤드라 도메인 절단선이 없다. 행은 **도메인 접두어로 그룹핑**해 유지하고, 상한(~300줄 OR ~40k chars) **초과 전에** 접두어 클러스터 기준으로 `questions-{클러스터}.md`(예: `questions-security.md`)로 분할 + 라우터에 1줄 추가한다. (STRUCT-6) |
 
 ---
 
@@ -177,24 +133,12 @@ Layer 4  개별 패턴 노트 (.md)
 |---|---|
 | `보안` | `Security(보안)` |
 | `비동기` | `Async(비동기)` |
-| `데이터` | `Data(데이터)` |
-| `통합` | `Integration(통합)` |
-| `테스트` | `Testing(테스트)` |
-| `트리거` | `Trigger(트리거)` |
-| `컬렉션` | `Collections(컬렉션)` |
-| `아키텍처` | `Architecture(아키텍처)` |
 | `실행컨텍스트` | `ExecutionContext(실행컨텍스트)` |
-| `로깅` | `Logging(로깅)` |
-| `플랫폼이벤트` | `PlatformEvents(플랫폼이벤트)` |
-| `플랫폼캐시` | `PlatformCache(플랫폼캐시)` |
-| `Apex통합` | `ApexIntegration(Apex통합)` |
 | `컴포넌트API` | `ComponentAPI(컴포넌트API)` |
-| `이벤트` | `Events(이벤트)` |
-| `네비게이션` | `Navigation(네비게이션)` |
-| `UI패턴` | `UIPatterns(UI패턴)` |
-| `모바일` | `Mobile(모바일)` |
 
-순수 한글, 영어+한글 혼합 모두 금지. 새 폴더 생성 시 즉시 적용.
+패턴: 영어 `PascalCase`(개념명) + `(한글)`. 순수 한글, 영어+한글 혼합(`Apex통합` 단독) 모두 금지 — 새 폴더 생성 시 즉시 적용.
+
+> **예외 (승인됨):** 고유명사·영문 API명 그대로가 이름인 폴더는 괄호 한글을 생략할 수 있다 — `Apex/`, `LWC/`, `Flow/`, `Release/`, `sObject/`, `LWC/LDS/` 등. 새 폴더는 기본적으로 `English(한글)`을 쓰고, 생략은 제품/API 고유명일 때만. (`문서/`는 위키 콘텐츠가 아닌 사내 문서 트리로 lint 스코프 제외 — 하단 "lint 스코프 제외" 참조.)
 
 ---
 
@@ -259,10 +203,25 @@ aliases: [영어키워드, 한국어키워드, ...]
 | 직접 작성한 다이어그램·ASCII art·트리 그림 | 블록 첫 줄에 `// 구조 예시 — 실제 원본 다이어그램 아님` 주석. PDF의 다이어그램이 pdftotext로 안 잡혀 추측해 그렸다면 **추측이라는 사실 자체를 본문에서도 명시** |
 | 직접 작성한 예시 JSON / 예시 YAML | 첫 줄에 `// 구조 예시 — 실제 동작 설정 아님` 주석 |
 | 매트릭스·비교표 | PDF 원문의 모든 unique 값(예: Yes / No / Not recommended)을 먼저 컨텍스트에 노출 → ✅/❌ 등 기호로 압축하기 전에 셀별 매핑 확인. transpose는 셀 단위 재검증 필수 |
-| 시각 자료가 필요한데 pdftotext가 못 잡는 경우 | `pdftoppm`으로 이미지화 후 Read로 직접 보기 — 추측 fabricate 금지 |
+| 시각 자료가 필요한데 pdftotext가 못 잡는 경우 | `pdftoppm`으로 이미지화 후 Read로 직접 보기 — 추측 fabricate 금지. 텍스트로 재현 불가능한 핵심 다이어그램은 아래 **DEC-2 정책**에 따라 공식 figure를 첨부할 수 있다 |
 
 - API명, 메서드명, 파라미터 순서, 반환 타입은 원본과 **정확히** 일치해야 한다.
 - 확인 없이 기억에 의존해 작성한 코드는 Tier 3 취급.
+
+#### DEC-2 — 이미지 선별 첨부 정책 (정본)
+
+기본은 여전히 **텍스트 재현 우선**(ASCII·표·산문) — 대부분의 다이어그램은 텍스트로 충분하고, vault를 가볍게 유지한다. 단 **텍스트로 재현하면 의미가 손실되는 핵심 시각 자료**(공간 배치가 정보인 아키텍처 플로우·시퀀스·다중 노드 관계도 등)는 아래 기준을 **모두** 충족할 때 공식 figure를 캡처·첨부할 수 있다.
+
+| 판단 | 기준 |
+|---|---|
+| 첨부 조건 (AND) | ① 텍스트/ASCII로 재현 시 정보 손실이 실제로 발생 ② 출처가 **Tier 1·2 공식 소스**(공식 figure 캡처 — 창작 이미지 금지) ③ 텍스트 재현을 **시도한 뒤** 불충분하다고 판정 |
+| 추출 | `pdfimages -png "<pdf>" /tmp/fig` 또는 `pdftoppm -png -f N -l N "<pdf>" /tmp/fig`로 해당 페이지 figure만 |
+| 저장 위치 | vault 루트 `_assets/` (없으면 생성). 위키 콘텐츠 트리 안이지만 nav 스코프 밖 |
+| 파일명 | Windows 안전(금지문자 없음)·설명형 — 예: `field-service-data-model-erd.png` |
+| 삽입 | `![[_assets/<파일>.png]]` 임베드 + 바로 아래 캡션 1줄(`> 출처: <PDF명> p.NN — 공식 figure(Tier 2)`) |
+| git | PNG는 커밋된다. 남발 금지 — 페이지당 꼭 필요한 1장만, 나머지는 텍스트 |
+
+> 이 정책이 이미지 첨부의 **단일 정본**이다. 에이전트 정의는 이 항목을 포인터로만 참조한다(기준을 복제하지 않는다).
 
 #### 0-3. 위키링크 검증
 
@@ -324,6 +283,8 @@ Step 0 검증 + 4단계를 모두 완료해야 추가 작업이 끝난 것으로
 1. 폴더명 규칙 준수     — English(한글) 형식
 2. index.md 생성       — _templates/폴더 인덱스.md 템플릿 사용
 3. 상위 MOC 업데이트    — 섹션 MOC에 새 폴더 섹션 추가
+4. 00 Home.md 갱신     — Layer 0 진입점에 새 폴더 카테고리 섹션/링크 추가 (누락 시 인덱스로는 도달돼도 Home에서 안 보임)
+5. 나브 지도 갱신       — 새 샤드는 라우터 `00 SEARCH_INDEX.md`에, 새 폴더 index.md는 `_MOC/NAV_MAP.md`에 행 추가 (둘 다 index-manager 소유)
 ```
 
 ### 키워드 샤드 작성 원칙
@@ -344,7 +305,7 @@ Step 0 검증 + 4단계를 모두 완료해야 추가 작업이 끝난 것으로
 |---|---|
 | 전체 진입점 | `00 Home.md` |
 | 키워드 라우터 | `00 SEARCH_INDEX.md` (도메인 → 샤드) |
-| 키워드 샤드 | `_index/frontend.md` · `_index/frontend-basecomponents.md` · `_index/visualforce.md` · `_index/apex-core.md` · `_index/apex-namespaces.md` · `_index/platform.md` · `_index/platform-devops.md` · `_index/platform-devops-2gp.md` · `_index/platform-devops-tooling.md` · `_index/release.md` · `_index/sobject-reference.md` · `_index/service.md` · `_index/scheduler.md` · `_index/field-service.md` · `_index/cpq.md` · `_index/analytics.md` · `_index/security.md` · `_index/admin.md` · `_index/sales.md` · `_index/clouds.md` · `_index/data-cloud.md` · `_index/connect-rest.md` · `_index/omnistudio.md` · `_index/agentforce.md` · `_index/agent-skills.md` · `_index/agent-skills-refs-agentforce.md` · `_index/agent-skills-refs-diagram.md` · `_index/agent-skills-refs-experience.md` · `_index/agent-skills-refs-integration.md` · `_index/agent-skills-refs-misc.md` · `_index/agent-skills-refs-omnistudio.md` · `_index/agent-skills-refs-platform.md` · `_index/questions.md` |
+| 키워드 샤드 | `_index/*.md` — **전체 목록·도메인 매핑은 라우터 `00 SEARCH_INDEX.md`가 정본**(신규 샤드는 라우터에만 등재, 여기 열거 안 함) |
 | Apex 섹션 | `Apex/Apex MOC.md` |
 | LWC 섹션 | `LWC/LWC MOC.md` |
 | Flow 섹션 | `Flow/Flow MOC.md` |
@@ -353,63 +314,7 @@ Step 0 검증 + 4단계를 모두 완료해야 추가 작업이 끝난 것으로
 
 ### 폴더 로컬 인덱스 (Layer 3)
 
-| 폴더 | index.md |
-|---|---|
-| Architecture(아키텍처) | `Architecture(아키텍처)/index.md` |
-| Apex/Async(비동기) | `Apex/Async(비동기)/index.md` |
-| Apex/Collections(컬렉션) | `Apex/Collections(컬렉션)/index.md` |
-| Apex/Data(데이터) | `Apex/Data(데이터)/index.md` |
-| Apex/SOQL(SOQL) | `Apex/SOQL(SOQL)/index.md` |
-| Apex/ExecutionContext(실행컨텍스트) | `Apex/ExecutionContext(실행컨텍스트)/index.md` |
-| Apex/Integration(통합) | `Apex/Integration(통합)/index.md` |
-| Apex/Logging(로깅) | `Apex/Logging(로깅)/index.md` |
-| Apex/PlatformCache(플랫폼캐시) | `Apex/PlatformCache(플랫폼캐시)/index.md` |
-| Apex/PlatformEvents(플랫폼이벤트) | `Apex/PlatformEvents(플랫폼이벤트)/index.md` |
-| Apex/Messaging(메시징) | `Apex/Messaging(메시징)/index.md` |
-| Apex/Security(보안) | `Apex/Security(보안)/index.md` |
-| Apex/Testing(테스트) | `Apex/Testing(테스트)/index.md` |
-| Apex/Trigger(트리거) | `Apex/Trigger(트리거)/index.md` |
-| LWC/ApexIntegration(Apex통합) | `LWC/ApexIntegration(Apex통합)/index.md` |
-| LWC/ComponentAPI(컴포넌트API) | `LWC/ComponentAPI(컴포넌트API)/index.md` |
-| LWC/Events(이벤트) | `LWC/Events(이벤트)/index.md` |
-| LWC/LDS | `LWC/LDS/index.md` |
-| LWC/Mobile(모바일) | `LWC/Mobile(모바일)/index.md` |
-| LWC/Navigation(네비게이션) | `LWC/Navigation(네비게이션)/index.md` |
-| LWC/Security(보안) | `LWC/Security(보안)/index.md` |
-| LWC/Testing(테스트) | `LWC/Testing(테스트)/index.md` |
-| LWC/UIPatterns(UI패턴) | `LWC/UIPatterns(UI패턴)/index.md` |
-| LWC/BaseComponents(베이스컴포넌트) | `LWC/BaseComponents(베이스컴포넌트)/index.md` |
-| LWC/Internals(내부구조) | `LWC/Internals(내부구조)/index.md` |
-| LWC/SLDS(디자인시스템) | `LWC/SLDS(디자인시스템)/index.md` |
-| LWC/CreateComponents(컴포넌트작성) | `LWC/CreateComponents(컴포넌트작성)/index.md` |
-| LWC/Reference(레퍼런스) | `LWC/Reference(레퍼런스)/index.md` |
-| Aura(오라) | `Aura(오라)/index.md` |
-| Visualforce(비주얼포스) | `Visualforce(비주얼포스)/index.md` |
-| Flow | `Flow/index.md` |
-| Admin(어드민) | `Admin(어드민)/index.md` |
-| DevOps(데브옵스) | `DevOps(데브옵스)/index.md` |
-| DevOps(데브옵스)/MetadataAPI(메타데이터API) | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/index.md` |
-| DevOps(데브옵스)/DevOpsCenter(데브옵스센터) | `DevOps(데브옵스)/DevOpsCenter(데브옵스센터)/index.md` |
-| DevOps(데브옵스)/ToolingAPI(툴링API) | `DevOps(데브옵스)/ToolingAPI(툴링API)/index.md` |
-| Commerce(커머스) | `Commerce(커머스)/index.md` |
-| SalesCloud(세일즈클라우드) | `SalesCloud(세일즈클라우드)/index.md` |
-| Service(서비스) | `Service(서비스)/index.md` |
-| Service(서비스)/OmniChannel(옴니채널) | `Service(서비스)/OmniChannel(옴니채널)/index.md` |
-| Scheduler(스케줄러) | `Scheduler(스케줄러)/index.md` |
-| FieldService(현장서비스) | `FieldService(현장서비스)/index.md` |
-| CPQ(견적) | `CPQ(견적)/index.md` |
-| OmniStudio(옴니스튜디오) | `OmniStudio(옴니스튜디오)/index.md` |
-| DataCloud(데이터클라우드) | `DataCloud(데이터클라우드)/index.md` |
-| Clouds(클라우드) | `Clouds(클라우드)/index.md` |
-| Analytics(애널리틱스) | `Analytics(애널리틱스)/index.md` |
-| Security(보안) | `Security(보안)/index.md` |
-| Integration(통합)/ConnectREST(커넥트REST) | `Integration(통합)/ConnectREST(커넥트REST)/index.md` |
-| sObject | `sObject/index.md` |
-| AgentSkills(에이전트스킬) | `AgentSkills(에이전트스킬)/index.md` |
-| AgentSkills(에이전트스킬)/sf-skills | `AgentSkills(에이전트스킬)/sf-skills/index.md` |
-| AgentSkills(에이전트스킬)/sf-mcp | `AgentSkills(에이전트스킬)/sf-mcp/index.md` |
-| AgentSkills(에이전트스킬)/sf-skills-samples | `AgentSkills(에이전트스킬)/sf-skills-samples/index.md` |
-| Agentforce(에이전트포스) | `Agentforce(에이전트포스)/index.md` |
+> **전체 폴더→index.md 지도(60행)는 [[NAV_MAP]](`_MOC/NAV_MAP.md`)가 정본** — index-manager 단일 소유. 신규 폴더 생성 시 index-manager가 NAV_MAP에 행을 추가한다(여기서 열거하지 않는다).
 
 ---
 
@@ -445,7 +350,7 @@ Salesforce **실행형/생성형 질문**(예: "테스트 클래스 만들어줘
 3. 고아 파일 탐지       — 어느 `_index/*.md` 샤드에도 등록되지 않은 .md 파일
 4. 오래된 경로 참조     — 샤드/라우터/CLAUDE.md 내 이동·삭제된 파일 경로
 5. MOC 누락 항목       — 파일이 존재하지만 상위 MOC나 index.md에 링크가 없는 경우
-6. 샤드 건강           — 각 `_index/*.md` 가 ~300줄/~12k토큰 상한 이내인지 + 라우터↔샤드 정합성(라우터의 모든 샤드가 실재, 모든 샤드가 라우터에 등재)
+6. 샤드 건강           — 각 `_index/*.md` 가 상한(~300줄 또는 ~40k chars 중 먼저 도달) 이내인지 `wc -l -c`로 확인 + 라우터↔샤드 정합성(라우터의 모든 샤드가 실재, 모든 샤드가 라우터에 등재)
 7. 개선 제안           — 자주 참조되지만 페이지가 없는 개념, 채울 수 있는 데이터 공백
 8. 파일 위치 적절성     — 파일 내용 도메인(tags·제목·키워드)과 현재 폴더가 불일치하는 경우 이동 제안
                          (❌ 명백한 불일치 → 이동 권고 / ⚠️ 경계선 주제 → 검토 제안)

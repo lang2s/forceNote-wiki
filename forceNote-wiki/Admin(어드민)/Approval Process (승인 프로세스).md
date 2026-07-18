@@ -102,5 +102,6 @@ Setup → Quick Find: "Approval Processes" → Approval Processes
 ---
 
 ## 관련 노트
+- [[Approval Process — 운영·엔드유저·레퍼런스]] — companion 심화 노트: org 준비(제출·발신자 재정의·이메일/Chatter/Slack 응답)·승인 한도·샘플 4종·이력 리포트·대량 관리·엔드유저 승인 경험
 - [[Approval Namespace]] — 프로그래밍 방식 승인(Apex `Approval.process()`로 제출·승인·거부). 선언적 승인 프로세스의 코드 짝(declarative ↔ programmatic)
 - [[Email Alerts, Templates & Auto-Response Rules (이메일 알림·템플릿·자동 응답)]] — 승인 단계에서 호출하는 Email Alert 발송 액션

@@ -1002,4 +1002,5 @@ Tabular 리포트는 그룹핑이 없으므로 모든 레코드 레벨 데이터
 - [[Reports and Dashboards REST API — Dashboards·Downloads·Notifications 예제]]
 - [[Reports Namespace]] — Apex `Reports` 네임스페이스(ReportResults·ReportFactWithDetails·factMap 등 Apex 표현형)
 - [[Data Prep Recipe REST API — 개요·인증·엔드포인트]] — 같은 Analytics REST 계열 인접 가이드
+- [[CRM Analytics REST API — 개요·인증·asset 엔드포인트 지도]] — 이름이 비슷하지만 별개인 CRM Analytics(Wave) REST(`/wave/*`). 표준 `/analytics/*`와 혼동 주의
 - [[Analytics 개요 — 표준 리포팅 vs CRM Analytics·API 선택 가이드]] — 표준 리포팅 vs CRM Analytics 세계 구분·API 선택. 이 REST API가 표준 세계에 속함·언제 Apex/CRM Analytics 대신 고르는지 오리엔테이션

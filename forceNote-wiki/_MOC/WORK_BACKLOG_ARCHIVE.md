@@ -627,6 +627,84 @@ updated: 2026-06-27
 
 ---
 
+## 🛠️ STRUCT·PIPE·DEC 발전 항목 완료 (2026-07-18 세션, B→C 순)
+
+> 구조 감사 STRUCT-AUDIT-1 후속 발전 항목 + 파이프라인 프로토콜 갭 일괄 처리. 메인 세션(pm) 오케스트레이션 + index-manager·wiki-retrospective 위임.
+
+| # | 항목 | 결과 |
+|---|---|---|
+| STRUCT-1 | vault CLAUDE.md 감량 | ✅ **479→358줄(−25%)·31.5k→24.2k chars**. Layer 3 표(60행)→신규 `_MOC/NAV_MAP.md`(index-manager 소유) 이전 + CLAUDE.md엔 포인터. Windows 파일명 상세→`_MOC/Windows 파일명 제한 (상세).md` 분리(핵심 3줄만 잔류). 폴더명 예시 18→4행. 샤드 33개 열거 2곳→라우터 위임. 새폴더 필수작업 #5 라우터/NAV_MAP 라우팅으로 갱신 |
+| STRUCT-4 | Admin↔Security 경계 선언 | ✅ 파일 이동 없이 3파일. Admin/index·Security/index 상단에 대칭 경계 blockquote(조직 정책→Admin·권한/위협→Security) + `_index/questions.md` 교차 라우팅 3행(Password/Session/Login IP·Restriction Rules·My Domain/SSO). index-manager |
+| STRUCT-5 | 파이프라인 슬림화(보수적) | ✅ wikilink **기계적 존재검사**를 source-verifier·qa에서 L1 훅 위임(제거), **의미 검사·최종 verdict는 보존**. qa 체크리스트를 "인덱스 등재+종합 verdict"로 집중. classifier 통합(15→14)·writer 사전검증은 **보류/보존**(아키텍처 변경 회피). wiki-retrospective |
+| STRUCT-6 | questions.md 분할 규칙 사전 명문화 | ✅ CLAUDE.md 탐색 인덱스 구조 표에 "도메인 접두어 그룹핑→상한 초과 전 `questions-{클러스터}.md` 분할+라우터 1줄" 행 추가 |
+| STRUCT-8 | L2 결정적 검사 스크립트화 | ✅ 신규 `scripts/wiki-structure-check.sh` — 샤드 상한(wc)·라우터↔샤드 정합·고아 후보. 순수 bash(Mac/Win). 실행 결과 현재 위키 전부 ✅(35샤드 정합·고아 0·상한 이내) |
+| STRUCT-9 | 에이전트 정의 다이어트(scout 우선) | ✅ scout.md **253→147줄(−42%)**, AP-05/06/08/10 규칙 전수 보존(콜드스타트 실행성 유지). 가지치기 출구(AP-11) 첫 적용. **부수: AP-06이 실은 미적용이었음을 발견→scout §3에 신규 반영** |
+| PIPE-3 | researcher 대형 PDF dump 정책 | ✅ researcher.md — 대형 PDF는 청크 분할 또는 파일참조+핵심발췌 하이브리드 허용(전수성 불변·경로 명시 의무) |
+| PIPE-4 | scout↔researcher handoff 계약 | ✅ 시각 자료 경고를 동일 4필드(페이지/유형/pdftotext실패/이미지화필요) 미니 계약 표로 양쪽 정렬(scout 출력·researcher 수신) |
+| PIPE-5 | classifier depth-balance 한계 명시 | ✅ classifier.md D-3에 "미작성 단계라 분량 예측 부정확→completeness-validator 사후 깊이 판정과 병행" 안내 |
+| DEC-2 | 위키 이미지 첨부 정책 | ✅ 사용자 결정 **"선별 첨부 허용"**. CLAUDE.md 0-2에 정본 정책(첨부 3조건 AND·pdfimages/pdftoppm 추출·`_assets/` 저장·Windows 안전 파일명·`![[]]` 임베드+캡션·git 커밋). 에이전트 정의 4곳엔 포인터 1줄만(기준 복제 금지) |
+
+> **남은 STRUCT(설계상 지연):** STRUCT-2(Admin 서브폴더화)·STRUCT-3(DevOps 서브폴더화)·STRUCT-7(apex-core 샤드 분할)은 "다음 대형작업/다음 Apex 이니셔티브와 묶어서" 지정 — 단독 실행 효익 낮아 활성 백로그에 🔲 유지.
+
+---
+
+## 🟩 AI-CLASSIC-1 — Einstein 예측형 AI(비-생성형) 위키화 (2026-07-18 세션, A그룹)
+
+> COVERAGE-GAP A그룹 착수분. 팀 파이프라인 전 단계 가동: planner→(브라우저 소싱 general-purpose)→writer→completeness-validator∥source-verifier→index-manager→cross-linker→qa.
+
+- **결과:** 신규 폴더 `Einstein(아인슈타인)/` **4노트** + 신규 샤드 `_index/einstein.md`(라우터 36샤드).
+  1. `Einstein 예측형 AI 개요 — 예측 vs 생성형·도구 지도.md`(허브) — 예측형↔생성형 경계 + 도구 지도 + Lead Scoring·Opportunity Scoring(1~99)·Forecasting(12개월·80% Amount·sandbox 불가) 흡수. synthesis는 비단정 라벨.
+  2. `Einstein Prediction Builder.md` — likelihood/numeric(Beta), 400레코드·값당 100·top 100 predictor·2년 윈도우·27 표준객체·16단계 셋업·0-100 점수.
+  3. `Next Best Action — Strategy Builder·Recommendations.md` — **저작 측**. Strategy Builder 10요소 전수·Recommendation 객체·현행 권장 경로(Flow Recommendation Strategy). 표시 측 `Lightning Flow for Service (A&R)`와 양방향.
+  4. `Einstein Discovery — Model Builder·예측 모델.md` — stories→models 리브랜딩·3모델타입(Numeric/Binary/Multiclass 3-10)·prediction definition ≤10 active·CRM Analytics 소속. `CRM Analytics 개요`·`Recipe REST ML 노드`와 양방향.
+- **소스:** help.salesforce.com Tier 2 라이브(로컬 PDF 없음 확인). 브라우저 순차 소싱→스크래치패드 verbatim 파일→writer. source frontmatter에 URL+접속일(2026-07-18).
+- **검증:** source-verifier 셀단위 **PASS**(27객체·수치·객체명 불일치 0, fabrication 가드 통과, synthesis 비단정 라벨). completeness-validator **✅ 완전**(silent gap 0·카탈로그 전수 깊이·의도적 제외 4건 정당). qa **PASS**(인덱스 3계층+Home+NAV_MAP 등재·스코프 배너 3중·콘텐츠 섬 0). 구조검사 스크립트 ✅.
+- **규율 성과:** false gap 실측 배제(예측형 전용노트 0 확인 후 착수), 이름/리브랜딩 함정 포착(Discovery=CRM Analytics 소속·NBA 저작 vs 표시 분리), 과다생성 방지(Lead/Opp Scoring·Forecasting은 개요 섹션 흡수, 별도 노트 안 만듦), fabricate 금지(Forecasting 채널 매트릭스 셀값 없어 미작성). NBA 요소 범주는 추론임을 각주 명시.
+- **후속:** AI-CLASSIC-2(심화 — Prediction Service Apex/REST·Scorecard 세부·품질/편향 지표) 활성 백로그 🔲 등재. 상세 [[project_structure_audit]]는 구조 세션이고, 이 콘텐츠 세션 요점은 여기.
+
+---
+
+## 🟩 ANALYTICS-1 — CRM Analytics(Tableau CRM) asset REST API 위키화 (2026-07-18 세션, A그룹)
+
+> COVERAGE-GAP A그룹 2번째. 팀 파이프라인 전 단계 가동.
+
+- **결과:** 기존 폴더 `Analytics(애널리틱스)/` **3노트**(신규 폴더 아님):
+  1. `CRM Analytics REST API — 개요·인증·asset 엔드포인트 지도.md`(진입점) — 두 Analytics REST 경계표(`/wave/*` bi_dev_guide_rest vs `/analytics/*` api_analytics)·인증·베이스URL·18자 ID·asset 리소스 맵·Lens/Dashboard/Folder/Template/Limits/Dependencies 요약(enum 전수: AssetType 27·LimitType 17·LicenseType 5).
+  2. `CRM Analytics REST API — Datasets·Versions·XMD 표현형.md` — Dataset 계열 + XMD 계열 **표현형 26 전수**(property·type·enum 전수: language 33·datasetType·visibility). 예제 JSON verbatim.
+  3. `CRM Analytics REST API — Query 실행 (SAQL·SQL).md` — `POST /wave/query`·SaqlQueryInput·SAQL vs SQL 예제 8개. Apex `Wave Namespace`(빌더)↔REST 직접호출 양방향.
+- **소스:** developer.salesforce.com **CRM Analytics REST API Developer Guide v67.0 Summer '26**(`bi_dev_guide_rest`). content API fetch로 verbatim(표현형 property table 셀단위). source frontmatter에 URL+v67.0+접속일.
+- **이름 함정 실측 배제:** 로컬 `salesforce_analytics_rest_api.pdf`는 실제 **Reports&Dashboards REST**(`api_analytics`, 이미 채굴) — deliverable id로 별개 확정. planner가 false gap 검증(Analytics 21노트 대조).
+- **검증:** source-verifier 셀단위 **PASS**(API·enum 오류 0, 경미 2건[카운트·라벨] 정정). completeness **✅ 완전**(표현형 26/26·enum 전수·얕은 표현형 0, 스코프 밖 16 리소스 계열은 §7 콘텐츠갭 라벨로 정당). qa **PASS**. language enum 노트 33=소스 33 재확인(qa의 34는 오카운트).
+- **규율 성과:** 이름 함정 실측 배제, 중복 제외(Wave NS·Recipe/Reports&Dashboards REST 재작성 0·링크만), REST 레퍼런스 전수 깊이(요약 금지), fabricate 0.
+- **후속:** ANALYTICS-2(미커버 대형 리소스 계열 — Data Connector·Dataflow Job·Collection 등, 추가 소싱 필요) 활성 백로그 🔲 등재. 상세 [[project_einstein_predictive_ingest]]와 동 세션(A그룹).
+
+---
+
+## 🟢 ING-25 — extend_click_automate 챕터 diff·Approval 심화 (2026-07-18 세션, A그룹)
+
+> 대형 PDF(1027p) 인제스트의 모범 스코핑: **챕터 단위 커버리지 diff로 진짜 갭만 추림**(INT-DEEP-1 선례).
+
+- **PDF:** `extend_click_automate.pdf` = "Automate Your Business Processes with Salesforce Flow" (Spring '26, 1027p, Tier 2).
+- **스코프 축소(핵심):** 1027p 중 ~95% 기커버 확인 — Flow(19–664)=Flow 폴더 31노트, **Orchestration(665–751)=이 PDF에서 이미 채굴**(source·created 2026-07-11 실측, false gap 배제), Recommendation Strategies(752–813)=AI-CLASSIC-1 NBA 노트, Legacy Process Builder/Workflow(882+)=저가치 제외. **진짜 갭=Approval 운영·엔드유저·레퍼런스 심화**(기존 개요 노트는 개요·용어·셋업만).
+- **결과:** 1노트 `Admin(어드민)/Approval Process — 운영·엔드유저·레퍼런스.md`(547줄), 물리 846–886. 섹션: Prepare Your Org(Email/Chatter/Slack 활성화 전 채널)·**Limits 표**(Active 1000·Total 2000·per object 300/500·Steps 30·Approvers 25·actions 40·Comments 4000/CJK 1333, **PDF 원문 대조**)·Sample 4종·History Reports(ProcessInstance 13·Node 8필드)·Manage Multiple·**엔드유저 Respond 매트릭스**(6채널×3, pdftoppm 이미지 복원)·History Status·User Preferences·Record Locking. 기존 `Approval Process (승인 프로세스)`와 companion 양방향. 홈샤드 `_index/platform.md`.
+- **AP 실증:** **AP-05 오프셋** — footer=물리−4 실측(planner −3 오판을 researcher가 정정)→878–881 엔드유저 꼬리 보정 추출(경계 누락 차단). **AP-09** — 로컬 PDF라 source-verifier가 dump 아닌 PDF 원문 재추출 대조(필드 표 13/8 확인 후 세션한도 중단). **completeness** Chatter 활성화 4스텝 누락 1건 발견→메인 세션 정정. fabricate 금지(각주 ²·리포트 스크린샷 "미확보" 표시).
+- **⚠️ 세션 한도:** 8:40pm KST 리셋 한도 도달로 source-verifier 조기중단·qa/cross-linker는 메인 세션 직접 수행(한도 수치 PDF 대조·도달성·링크 정합 확인, 구조검사 ✅). **선택 후속:** 각주 ² 본문 pdftoppm 복구(ING-25-fix-2, 니치).
+- 상세 동 세션 A그룹: [[project_einstein_predictive_ingest]]·[[project_crm_analytics_rest_ingest]].
+
+---
+
+## 🟩 OMNISTUDIO-2 (EPC) — Enterprise Product Catalog 지식 노트 (2026-07-18 세션, A그룹)
+
+> 스킬맵의 마지막 OmniStudio 갭(EPC)을 닫음. **세션 한도 상황에서 로컬 Tier-1 소싱으로 전환**한 사례.
+
+- **결과:** `OmniStudio(옴니스튜디오)/Enterprise Product Catalog (EPC) — 데이터 모델·명명·번들.md` 1노트. Product2 오퍼 최소 필드(9)·AttributeMetadata/AttributeDefaultValues 블록·ProductChildItem 번들 모델(루트+자식·min/max/default quantity)·결정적 명명 규칙(ProductCode·Attribute Code·Category)·안티패턴·DataPack 11 템플릿·필드 함정표·**120점 채점 루브릭(6 카테고리)** 전수.
+- **⭐ 소싱 전환(핵심 교훈):** EPC/Calculation은 OmniStudio Standard 문서세트 밖(Industries CPQ/Vlocity 관리형) → 원래 계획은 브라우저 소싱. 그러나 **세션 한도 도달**로 서브에이전트 스폰이 위험해지자, **로컬 Tier-1 소스로 전환** — `AgentSkills(에이전트스킬)/sf-skills/refs/omnistudio-epc-catalog-generate/`(epc-field-guide·naming-conventions·scoring-model, forcedotcom/sf-skills 공식)가 EPC 데이터 모델 지식을 담고 있었다. "지식=위키·실행=스킬" 분리 덕에 스킬 refs를 지식 소스로 재활용(스킬은 실행, 노트는 지식).
+- **지식↔실행:** 대응 스킬 `omnistudio-epc-catalog-generate`와 양방향. 스킬맵(`스킬 ↔ 위키 토픽 맵`) OmniStudio 갭 **1→0**(3곳 갱신).
+- **경계·정직성:** EPC는 Industries CPQ(CME) 소속임을 [!note]로 명시(OmniStudio Standard와 분리). **Calculation Procedures/Matrices는 로컬 소스에도 없어 미작성** → OMNISTUDIO-2b로 분리(fabricate 금지, 커버리지 경계 §에 명시).
+- **실행 방식:** 세션 한도로 메인 세션이 직접 작성·nav(omnistudio 샤드·index.md)·스킬맵 갱신·검증(구조검사 ✅·고아0·링크0·lint 훅 통과). 상세 동 세션 A그룹: [[project_omnistudio_ingest]](OMNISTUDIO-1).
+
+---
+
 ## 관련 에이전트
 
 - [[wiki-retrospective]] — 모드 B에서 이 백로그를 읽고 업데이트하며 에이전트 프로토콜 개선

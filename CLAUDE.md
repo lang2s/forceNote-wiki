@@ -7,14 +7,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 이 저장소의 성격
 
-코드 프로젝트가 아니라 **Salesforce 지식 베이스**다. 빌드/컴파일/런타임 테스트가 없다. 산출물은 검증된 패턴을 담은 Markdown 노트(~1,000개)이며, 소스 PDF/공식 오픈소스를 직접 추출·대조해 작성한다. 위키는 [Obsidian](https://obsidian.md) vault로 열도록 구성돼 있다 (`forceNote-wiki/`를 vault로 open, `00 Home.md`에서 시작).
+코드 프로젝트가 아니라 **Salesforce 지식 베이스**다. 빌드/컴파일/런타임 테스트가 없다. 산출물은 검증된 패턴을 담은 Markdown 노트(1,200개 이상 — 정확 수치는 세지 말고 하한으로 표기)이며, 소스 PDF/공식 오픈소스를 직접 추출·대조해 작성한다. 위키는 [Obsidian](https://obsidian.md) vault로 열도록 구성돼 있다 (`forceNote-wiki/`를 vault로 open, `00 Home.md`에서 시작).
 
 ## 2층 구조 — 가장 흔한 혼동 지점
 
 ```
 <레포 루트 = git 루트 = 현재 작업 디렉터리>
 ├── forceNote-wiki/          ← Obsidian vault = 위키 콘텐츠 트리 (유일). 자체 CLAUDE.md 보유
-├── Salesforce Documents/    ← 소스 PDF 55종 + 학습노트 (.gitignore — 커밋 안 됨)
+│   └── 문서/                ← 예외: 비-Salesforce 사내 분석 문서 (.gitignore, lint 스코프 제외 — vault CLAUDE.md 참조)
+├── Salesforce Documents/    ← 소스 PDF 50여 종 + 학습노트 (.gitignore — 커밋 안 됨. 예외: AgentScriptDocs/는 커밋됨)
 ├── _user-docs/              ← 사용자용 참고 문서 출력 위치 (.gitignore, 필요 시 생성)
 └── CLAUDE.md                ← 이 파일
 ```
@@ -40,7 +41,9 @@ pdftoppm  "Salesforce Documents/<file>.pdf" /tmp/out -png   # pdftotext가 다�
 
 비자명한 위키 작업은 단발 편집이 아니라 **15개 서브에이전트 파이프라인**으로 처리한다. 정의는 `forceNote-wiki/.claude/agents/`, 파이프라인·핸드오프 계약은 `forceNote-wiki/TEAM_PROTOCOL.md`, 책임 지도는 `forceNote-wiki/SEAM_MAP.md`.
 
-- 새 콘텐츠: `pm` → planner → scout → researcher → classifier → (writer ∥ source-coverage-checker) → completeness-validator ∥ source-verifier → index-manager → cross-linker → qa → wiki-retrospective
+> ⚠️ **pm은 서브에이전트로 스폰하지 않는다** — 서브에이전트는 다른 에이전트를 스폰할 수 없어 파이프라인이 멈춘다(실제 사고 사례 있음). `pm.md`는 **메인 세션이 직접 수행하는 오케스트레이션 플레이북**이고, 메인 세션이 나머지 실무 에이전트들을 스폰해 지휘한다.
+
+- 새 콘텐츠: `pm`(=메인 세션) → planner → scout → researcher → classifier → (writer ∥ source-coverage-checker) → completeness-validator ∥ source-verifier → index-manager → cross-linker → qa → wiki-retrospective
 - `/lint` 또는 "위키 점검": `wiki-linter` → `qa`
 - "뭐가 없어?"(큰 그림 공백): `wiki-retrospective`(모드 B) → `pm`
 - 간단한 질문 답변은 팀 없이 직접 답한다 (위키 내용 우선, 외부 지식과 섞지 않음).

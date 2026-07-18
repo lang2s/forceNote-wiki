@@ -456,6 +456,7 @@ RecordAction 접근은 부모 레코드 접근 기반이다 — 위 "Sharing —
 ---
 
 ## 관련 노트
+- [[Next Best Action — Strategy Builder·Recommendations]]
 - [[Screen Flow 설계]]
 - [[Autolaunched Flow 패턴]]
 - [[Flow 종류와 변수]]

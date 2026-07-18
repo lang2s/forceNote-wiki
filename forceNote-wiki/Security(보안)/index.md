@@ -7,6 +7,8 @@ created: 2026-06-18
 
 > Salesforce Secure Coding Guide(v67.0 Summer '26) 기반 위협 모델 — XSS·SOQLi·CSRF·Open Redirect·TLS·민감데이터·CRUD/FLS·Lightning 보안·세션/브라우저 통신·MC API·FAQ. 각 위협 영역마다 "플랫폼이 제공하는 보호 + 개발자가 해야 할 방어"를 정리한다.
 
+> **Security ↔ Admin 경계:** 권한 모델·위협 모델(Permission Set·Restriction Rules·SSO·Secure Coding)은 여기(Security), org 전역 설정·정책(OWD·Password/Session Policies·Login IP)은 [[Admin(어드민)/index|Admin(어드민)]].
+
 **상위:** [[00 Home]]
 
 ---

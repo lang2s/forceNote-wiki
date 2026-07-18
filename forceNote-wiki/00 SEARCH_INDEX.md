@@ -14,8 +14,10 @@ created: 2026-05-17
 
 | 도메인 | 샤드 파일 | 포함 |
 |---|---|---|
-| LWC · Aura · Flow · SLDS · Base Components(카탈로그) | `_index/frontend.md` | 프론트엔드 전반 (개별 lightning-* 레퍼런스 제외) |
+| LWC · Flow · Base Components(카탈로그) | `_index/frontend.md` | 프론트엔드 전반 (Aura·SLDS·개별 lightning-* 레퍼런스 제외) |
 | LWC 베이스 컴포넌트 — lightning-* 개별 컴포넌트 레퍼런스 | `_index/frontend-basecomponents.md` | `LWC/BaseComponents(베이스컴포넌트)/` 개별 페이지 |
+| Aura 컴포넌트 — aura:component·번들·이벤트·Aura↔LWC 마이그레이션·ui deprecated·Quick Action/Publisher JS API·Case Feed VF·Experience Builder Aura 사이트·Aura 데이터 연동(@AuraEnabled·force:recordData) | `_index/frontend-aura.md` | `Aura(오라)/` 폴더 전반 (frontend.md에서 분할) |
+| SLDS · 디자인 시스템 — SLDS 2·스타일링 훅·유틸리티 클래스·아이콘·테마/다크모드·블루프린트·디자인 패턴 21종·design-system-react·SLDS 2 Starter Kit | `_index/frontend-slds.md` | `LWC/SLDS(디자인시스템)/` + SLDS 관련 UIPatterns 노트 (frontend.md에서 분할) |
 | Visualforce — 개념·컨트롤러·동적 VF·JS Remoting·베스트 프랙티스·`apex:`/비-`apex:` 표준 컴포넌트(레거시 UI) | `_index/visualforce.md` | Visualforce(비주얼포스)/ 폴더 전반 (Visualforce Developer Guide v67.0, 16노트) |
 | Apex 언어/코어 — 데이터·SOQL/SOSL·비동기·보안·테스트·System·Schema·트리거·컬렉션·한도·표준클래스 | `_index/apex-core.md` | Apex 개발 핵심 |
 | Apex 네임스페이스 — 통합/HTTP·Commerce·Industries·Metadata | `_index/apex-namespaces.md` | 통합 및 산업 네임스페이스 (Order Management 섹션 포함 — 아래 Commerce 행 참조) |
@@ -38,7 +40,8 @@ created: 2026-05-17
 | Data Cloud · Data 360 — CDP 파이프라인(연결→수집→조화→통합→세그먼트→발행): Data Streams·수집·DLO/DMO 데이터 모델·Identity Resolution·Calculated Insights·Segments·Activations·Data Spaces | `_index/data-cloud.md` | DataCloud(데이터클라우드)/ 폴더 전반 (Salesforce Help — Data 360, 8노트). 어드민/개념 측. **개발자 측 Apex `Datacloud` 네임스페이스(코드)는 `_index/apex-namespaces.md` 샤드** |
 | Salesforce Clouds(제품 클라우드 지도·개요) — 전체 제품 클라우드 지도 허브 + 심층 폴더 없는 클라우드 개요(Experience·Commerce·Marketing·CRM Analytics·Revenue·Net Zero) | `_index/clouds.md` | Clouds(클라우드)/ 폴더 전반 (7노트, 개요·지도). **심층은 전용 샤드로: Sales→`_index/sales.md`, Service→`_index/service.md`, Data→`_index/data-cloud.md`** |
 | OmniStudio · 옴니스튜디오 — Industries 로우코드 도구: OmniScript(가이드 프로세스)·FlexCard(카드 UI)·Data Mapper(DataRaptor)·Integration Procedure(서버사이드 오케스트레이션) + 셋업/권한·메타데이터/DataPack 배포·Formula Functions. Standard vs Managed Package(Vlocity) 런타임 병기 | `_index/omnistudio.md` | OmniStudio(옴니스튜디오)/ 폴더 전반 (8노트, help.salesforce.com Tier 2). **⚠️ Service Cloud Omni-Channel(라우팅/큐)과 무관 — 그건 `_index/service.md`** |
-| Agentforce · Agent Script — Agentforce Builder agent 정의 언어: 개요·언어 특성(컴파일·결정성+추론·`->`/`\|`/`@`/`{!}`)·블록 8종(system·config·variables·language·connection·subagent·connected_subagent[Beta]·start_agent)·실행 흐름·model_config·레퍼런스(액션·툴·유틸·변수)·패턴·메타데이터 배포(Agentforce DX) | `_index/agentforce.md` | `Agentforce(에이전트포스)/` 폴더 전반 (Agent Script Developer Guide 2026-06-17판) |
+| Agentforce · Agent Script(생성형 AI) — Agentforce Builder agent 정의 언어: 개요·언어 특성(컴파일·결정성+추론·`->`/`\|`/`@`/`{!}`)·블록 8종(system·config·variables·language·connection·subagent·connected_subagent[Beta]·start_agent)·실행 흐름·model_config·레퍼런스(액션·툴·유틸·변수)·패턴·메타데이터 배포(Agentforce DX) | `_index/agentforce.md` | `Agentforce(에이전트포스)/` 폴더 전반 (Agent Script Developer Guide 2026-06-17판). **⚠️ 예측형(비생성형) AI — Prediction Builder·Next Best Action·Einstein Discovery·Lead/Opportunity Scoring — 은 `_index/einstein.md`** |
+| Einstein 예측형 AI(비생성형) — Prediction Builder·Next Best Action·Einstein Discovery·Lead/Opportunity Scoring·Forecasting | `_index/einstein.md` | Einstein(아인슈타인)/ 폴더(예측형 전용). **⚠️ 생성형(Agentforce·Prompt Builder)은 `_index/agentforce.md`** |
 | Agent Skills · 에이전트 스킬 — SKILL.md 기반 단계별 안내 절차. SLDS 2 Starter Kit 스킬 + 공식 `forcedotcom/sf-skills` 라이브러리(Platform/Apex·Experience/LWC·Agentforce·Data 360·OmniStudio·Integration·DevOps·Design Systems·Diagram 등 도메인별 스킬) | `_index/agent-skills.md` | AgentSkills(에이전트스킬)/ 폴더 전반 (sf-skills 카탈로그: `AgentSkills(에이전트스킬)/sf-skills/index.md`) |
 | sf-skills refs · 다이어그램 — `external-diagram-mermaid/visual-generate` 스킬 레퍼런스 문서(ERD·OAuth 플로우·Mermaid 문법·비주얼 목업) | `_index/agent-skills-refs-diagram.md` | sf-skills/refs/ 다이어그램(45) (카탈로그: `AgentSkills(에이전트스킬)/sf-skills/refs/index.md`) |
 | sf-skills refs · Agentforce — `agentforce-generate/test/observe/d360-analyze/architecture-analyze` 스킬 레퍼런스 문서(Agent Script·테스트·관측성·STDM) | `_index/agent-skills-refs-agentforce.md` | sf-skills/refs/ Agentforce(43) |

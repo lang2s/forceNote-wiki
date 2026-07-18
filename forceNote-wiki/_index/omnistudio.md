@@ -59,3 +59,9 @@ created: 2026-07-13
 | 키워드 | 파일 |
 |---|---|
 | OmniStudio Formula Functions, 포뮬러 함수, formula, 함수 레퍼런스, 54 functions, operators, 연산자, precedence, 우선순위, data types, 데이터 타입, 7 categories, 수식, 계산, OmniStudio 함수 목록, OmniScript 수식, FlexCard 수식, 포뮬러 연산자 우선순위 | `OmniStudio(옴니스튜디오)/OmniStudio Formula Functions 레퍼런스.md` |
+
+## Enterprise Product Catalog (EPC)
+
+| 키워드 | 파일 |
+|---|---|
+| Enterprise Product Catalog, EPC, Industries CPQ, CME, Communications Media Energy, Vlocity, Product2 offer, ProductChildItem, 오퍼 번들, offer bundle, AttributeMetadata, 속성 메타데이터, ProductCode, GlobalKey, SpecificationType, DataPack 카탈로그, 명명 규칙, naming convention, 120점 채점, scoring rubric, EPC 데이터 모델, EPC란, EPC 필드, 제품 카탈로그 모델링, %vlocity_namespace% | `OmniStudio(옴니스튜디오)/Enterprise Product Catalog (EPC) — 데이터 모델·명명·번들.md` |

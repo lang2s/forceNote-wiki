@@ -5,11 +5,12 @@ created: 2026-06-21
 
 # Analytics(애널리틱스) — 로컬 인덱스
 
-> Salesforce Analytics 도메인 — 두 개발자 가이드 기반 21노트 + 오리엔테이션 synthesis 1노트(총 22):
+> Salesforce Analytics 도메인 — 세 개발자 가이드 기반 24노트 + 오리엔테이션 synthesis 1노트(총 25):
 > (1) **CRM Analytics(Tableau CRM) Data Prep Recipe REST API**(Summer '26) — 레시피로 데이터를 변환·정제하는 REST API의 개요·인증·엔드포인트, 노드 Input 표현형, Response 표현형, Enum까지 10노트
 > (2) **Reports and Dashboards REST API**(v67.0 Summer '26) — 리포트·대시보드 데이터에 프로그래밍 방식으로 접근하는 REST API의 예제 2노트 + 표현형 Reference 9노트
+> (3) **CRM Analytics REST API**(v67.0 Summer '26) — CRM Analytics(Wave) 플랫폼을 프로그램적으로 다루는 REST API(`/wave/*`)의 asset 엔드포인트 지도 + Datasets·XMD·Query 3노트
 >
-> ℹ️ Data Prep Recipe는 CRM Analytics에서 dataflow의 후속으로 데이터를 변환·정제하는 파이프라인이다. Reports and Dashboards REST API는 리포트/대시보드 메타데이터·결과 데이터·폴더·알림을 REST로 다룬다.
+> ℹ️ Data Prep Recipe는 CRM Analytics에서 dataflow의 후속으로 데이터를 변환·정제하는 파이프라인이다. Reports and Dashboards REST API는 리포트/대시보드 메타데이터·결과 데이터·폴더·알림을 REST로 다룬다. CRM Analytics REST API(`/wave/*`)는 CRM Analytics의 dataset·lens·dashboard asset과 SAQL/SQL 쿼리를 다룬다(표준 리포팅의 `/analytics/*`와 별개).
 
 **상위:** [[00 Home]]
 
@@ -94,6 +95,24 @@ created: 2026-06-21
 - 대시보드 표현형 전체(목록·결과·describe·상태·필터·에러) → [[Reports and Dashboards REST API — Dashboards 표현형]]
 - 리포트 폴더·공유·수신자·하위 폴더 REST → [[Reports and Dashboards REST API — Folders 표현형]]
 - 다운로드·알림 목록·한도·필터 연산자 목록 → [[Reports and Dashboards REST API — Analytics Download·Notifications·Filter Operators 표현형]]
+
+---
+
+## CRM Analytics REST API (3노트)
+
+> CRM Analytics(구 Tableau CRM/Wave) 플랫폼을 프로그램적으로 다루는 REST API(`/services/data/vXX.0/wave/*`). **지도** 노트가 진입점(asset 엔드포인트 요약 + 경계 구분)이고, 데이터셋·XMD·쿼리 상세는 스포크로 위임한다. 표준 리포팅의 `/analytics/*`(위 Reports and Dashboards REST API)와 혼동 금지.
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[CRM Analytics REST API — 개요·인증·asset 엔드포인트 지도]] | ★진입점 — 두 Analytics REST API(`/wave` vs `/analytics`) 경계 + 인증 + asset 리소스(Lens·Dashboard·Folder·Template·Limits·Dependencies) 지도. 데이터셋·XMD·쿼리는 스포크로 위임 | #overview #map |
+| [[CRM Analytics REST API — Datasets·Versions·XMD 표현형]] | Dataset·Dataset Version·확장 메타데이터(XMD) 리소스 엔드포인트·응답 표현형·enum 전수 | #reference |
+| [[CRM Analytics REST API — Query 실행 (SAQL·SQL)]] | `POST /wave/query`로 SAQL/SQL 쿼리 직접 실행 — SaqlQueryInput 요청·Literal JSON 응답, Apex Wave 빌더 경로와 대비 | #reference |
+
+### 빠른 선택 — CRM Analytics REST API
+
+- 처음 시작 / `/wave` vs `/analytics` 구분·인증·asset 엔드포인트 큰 그림 → [[CRM Analytics REST API — 개요·인증·asset 엔드포인트 지도]]
+- 데이터셋·데이터셋 버전·XMD 속성을 REST로 조회 → [[CRM Analytics REST API — Datasets·Versions·XMD 표현형]]
+- SAQL/SQL 쿼리를 REST로 실행 (`/wave/query`) → [[CRM Analytics REST API — Query 실행 (SAQL·SQL)]]
 
 ---
 

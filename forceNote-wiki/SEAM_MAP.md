@@ -39,8 +39,8 @@ aliases: [seam map, 핸드오프 계약, 책임 지도, RACI, squad boundary, �
 | 항목 | 정의 |
 |---|---|
 | **입력 계약** | researcher dump + (optional) classifier blueprint (분류·구조·시리즈 위치) |
-| **출력 DoD** | CLAUDE.md 4단계 모두 완료한 .md 파일: ①파일 본문 ②`_index/{샤드}.md` 키워드 행 (잠정) ③폴더 index.md 행 (잠정) ④관련 노트 wikilink. L1 lint 통과 |
-| **경계** | 라우터·샤드의 최종 쓰기는 index-manager만 (writer는 잠정만, index-manager가 최종 정합·키워드 보강) |
+| **출력 DoD** | ①완성된 .md 파일 본문 (Step 0 검증 + 관련 노트 wikilink 포함, L1 lint 통과) ②**키워드·행 후보 목록** — 샤드/index.md 등재용 후보를 **보고서로** 전달 (파일 수정 ❌) |
+| **경계** | 라우터·샤드·MOC·index.md 수정 ❌ — 탐색 파일은 index-manager 단독 쓰기. writer는 키워드 후보만 보고 (writer.md 절대 금지와 일치) |
 | **게이트키퍼** | 검증 스쿼드가 "내용 완전·정확?" 판단. 얕으면 writer 재작업, 틀리면 source-verifier가 수정 의뢰 |
 
 ### 1.4 검증 스쿼드 (completeness-validator, source-verifier, qa)
@@ -104,7 +104,7 @@ aliases: [seam map, 핸드오프 계약, 책임 지도, RACI, squad boundary, �
 | 사용자 → 기획 | 요청 문장 | "목표·범위 1줄 추출 가능?" — 모호하면 question-clarifier |
 | 기획 → 소스 | task spec / research plan | "소스 후보 명시? 깊이 기준 명시?" |
 | 소스 → 작성 | content dump | "전수 추출 (요약 ❌)? 페이지 인용? tier 표시?" |
-| 작성 → 검증 | .md 파일 + 잠정 인덱스 | "CLAUDE.md 4단계 시도? L1 lint 통과? 자체 깊이 점검?" |
+| 작성 → 검증 | .md 파일 + 키워드·행 후보 목록 | "Step 0 검증 완료? L1 lint 통과? 자체 깊이 점검? 키워드 후보 첨부?" |
 | 검증 → 탐색·정비 | 검증 통과 .md + qa verdict | "qa pass? gap·discrepancy 0건?" |
 | 탐색·정비 → 사용자 | 완성 보고 | "라우터→샤드→파일 도달 가능? 양방향 (형제 + 상위 카탈로그)?" |
 | 회고 → 조율층 | 개선 권고 | "재발 방지 룰 1개 구체적으로 명시?" |
@@ -117,7 +117,9 @@ aliases: [seam map, 핸드오프 계약, 책임 지도, RACI, squad boundary, �
 |---|---|---|---|---|
 | 새 콘텐츠 추가 (표준 파이프라인) | writer | qa | researcher, classifier | index-manager |
 | 기존 파일 보완 (빠른 파이프라인) | writer | qa | researcher | cross-linker |
-| 키워드 샤드·라우터 쓰기 | index-manager | index-manager | (writer 잠정 행) | wiki-linter |
+| 키워드 샤드·라우터 쓰기 | index-manager | index-manager | (writer 키워드 후보 보고) | wiki-linter |
+| **파일 이동·rename + 경로 일괄 치환** (샤드 경로·wikilink 포함) | pm(메인 세션 직접 실행) | 사용자 | wiki-linter (대상 목록) | index-manager, writer |
+| **git 커밋·커밋 메시지** (작업 단위 커밋, 사용자 요청 시) | pm(메인 세션 직접 실행) | 사용자 | — | 전 스쿼드 |
 | 형제 노트 역링크 | cross-linker | qa | writer | wiki-linter |
 | **상위 카탈로그 역링크 (허브·MetadataAPI·MOC)** | cross-linker | qa | writer | wiki-linter |
 | L1 구조 lint (PostToolUse 훅) | lint-md-file.sh | writer | — | writer |
@@ -192,6 +194,7 @@ aliases: [seam map, 핸드오프 계약, 책임 지도, RACI, squad boundary, �
 | 2026-05-23 | seam 안전장치 3겹을 SEAM_MAP 한 문서로 통합 결정 (별도 헌장 파일 ❌, 중복·drift 방지) | TEAM_PROTOCOL.md 최초 정의 |
 | 2026-05-24 | **SEAM_MAP.md 파일 생성** — TEAM_PROTOCOL의 4건 참조가 broken link였음. 위 정의를 통합 작성 | wiki-linter 2026-05-24 보고 |
 | 2026-05-24 | RACI에 "상위 카탈로그 역링크" 행 추가 — cross-linker가 시리즈 작업에서 누락하는 경향 발견 | AP-04 회고 (2GP Components 8분할 작업) |
+| 2026-07-17 | §1.3 "writer 잠정 샤드/index 행" 조항 폐기 — writer.md 절대 금지(탐색 파일 수정 ❌)와 모순된 죽은 계약. 키워드 **후보 보고**로 대체. RACI에 "파일 이동·rename"·"git 커밋" 무주공산 행 2개 추가 | 구조 감사 (STRUCT-AUDIT-1) |
 
 ---
 

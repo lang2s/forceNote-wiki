@@ -1,6 +1,7 @@
 # forceNote-wiki 팀 프로토콜
 
-> 이 문서는 PM 에이전트가 작업 시작 시 반드시 읽는다. 모든 에이전트의 역할, 파이프라인, 핸드오프 규칙을 정의한다.
+> 이 문서는 PM 역할 수행자가 작업 시작 시 반드시 읽는다. 모든 에이전트의 역할, 파이프라인, 핸드오프 규칙을 정의한다.
+> ⚠️ **pm은 서브에이전트로 스폰하지 않는다** — 서브에이전트는 다른 에이전트를 스폰할 수 없어 파이프라인이 멈춘다(실제 사고 사례). pm 역할은 **메인 세션이 직접 수행**하며, 아래 파이프라인의 `pm` 표기는 모두 "메인 세션"으로 읽는다. (`pm.md` 실행 형태 조항 참조)
 
 ---
 
@@ -100,8 +101,10 @@ wiki-retrospective (모드 A: 회고 + 찾기 강화)
 
 ```
 planner → scout → researcher → writer → completeness-validator
-       → source-verifier → index-manager → cross-linker → wiki-retrospective(모드 A)
+       → source-verifier → index-manager → cross-linker → qa → wiki-retrospective(모드 A)
 ```
+
+> qa를 생략하지 않는다 — wiki-retrospective(모드 A)는 "qa ✅ 통과 후 실행"이 전제 조건이고(아래 §3), SEAM_MAP RACI의 승인(A)도 qa다. 빠른 파이프라인이라도 승인 게이트는 유지한다.
 
 > 기존 파일을 보완할 때도 cross-linker를 반드시 거친다. 보완으로 새 클래스·개념이 추가되면 그 항목을 다루는 다른 페이지에서 역링크가 필요한데, cross-linker를 빼면 단방향 링크(콘텐츠 섬)가 누적된다.
 
@@ -228,8 +231,9 @@ pdftotext   (PATH에 있음 — Win: /mingw64/bin, Mac: /opt/homebrew/bin)
 
 ## 버전
 
-- 프로토콜 버전: 1.2
+- 프로토콜 버전: 1.3
 - 최초 작성: 2026-05-18
-- 마지막 업데이트: 2026-05-23 (5개 스쿼드 + 조율층 오버레이 도입; seam 안전장치 3겹을 [[SEAM_MAP]] 한 문서로 통합 — 별도 헌장 파일은 두지 않음(중복·드리프트 방지); 백로그 활성/아카이브 분리 — `WORK_BACKLOG` ↔ `WORK_BACKLOG_ARCHIVE`)
+- 마지막 업데이트: 2026-07-17 (구조 감사 STRUCT-AUDIT-1 반영 — pm=메인 세션 직접 수행 명문화; 빠른 파이프라인 B에 qa 게이트 추가(retro 전제 조건·RACI 승인과 정합))
+- 이전 업데이트: 2026-05-23 (5개 스쿼드 + 조율층 오버레이 도입; seam 안전장치 3겹을 [[SEAM_MAP]] 한 문서로 통합 — 별도 헌장 파일은 두지 않음(중복·드리프트 방지); 백로그 활성/아카이브 분리 — `WORK_BACKLOG` ↔ `WORK_BACKLOG_ARCHIVE`)
 - 이전 업데이트: 2026-05-21 (메타 3종(retrospective-analyst·coverage-analyst·agent-improver) → `wiki-retrospective` 통합; SEARCH_INDEX 라우터+샤드 구조 도입; index-manager 항법 단일 쓰기 주체)
 - 다음 검토: 10개 이상 새 작업 완료 후

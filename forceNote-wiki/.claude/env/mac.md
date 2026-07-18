@@ -2,12 +2,12 @@
 
 > `uname -s` → `Darwin` 일 때 이 파일을 참조한다. 진입점: `forceNote-wiki/CLAUDE.local.md`.
 
-## 값 (⚠️ 미검증 — 원래 에이전트 설정 기준 추정값. Mac 접속 시 검증 후 아래 날짜 갱신)
+## 값 (✅ 검증됨 — 2026-07-17 실측: pdftotext=/opt/homebrew/bin, 루트 레벨 PDF 54개, 레포 루트 확인)
 
 | 항목 | 값 |
 |---|---|
 | OS | macOS (`Darwin`) |
-| 레포 루트 (절대, 추정) | `/Users/a/Desktop/Study` |
+| 레포 루트 (절대, 확인됨) | `/Users/a/Desktop/Study` |
 | `$WIKI` | `forceNote-wiki` (레포 루트 기준 상대) |
 | `$DOCS` | `Salesforce Documents` |
 | `$PDF2TXT` | `pdftotext` → `/opt/homebrew/bin/pdftotext` (Homebrew) |

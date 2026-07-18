@@ -526,6 +526,7 @@ Data Prep recipe configuration을 반환하고 수정·삭제한다.
 ## 관련 노트
 
 - [[Analytics 개요 — 표준 리포팅 vs CRM Analytics·API 선택 가이드]] — 표준 리포팅 vs CRM Analytics 세계 구분·API 선택. Recipe(Data Prep)가 어느 세계에 속하는지·언제 고르는지 오리엔테이션
+- [[CRM Analytics REST API — 개요·인증·asset 엔드포인트 지도]] — 같은 `/wave/*` 계열 형제 REST 가이드(dataset·XMD·query·lens·dashboard asset). 이 노트가 "connector·dataset asset 리소스는 Analytics REST API Developer Guide 참조"로 가리키는 대상
 - [[Wave Namespace]] — Apex에서 SAQL 쿼리를 빌드·실행하는 CRM Analytics Analytics SDK (이 REST API의 Apex 카운터파트)
 - [[CRM Analytics 대시보드용 LWC]] — `lightning/analyticsWaveApi` wire adapter(`getRecipes`/`getRecipe`/`deleteRecipe` 등)가 동작하는 LWC 환경
 - [[Recipe REST API — Recipe 구성 Input]] — RecipeInput·Recipe Configuration Input 등 request body 표현형 (모든 노드 Input의 부모 Recipe Node Input)

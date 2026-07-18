@@ -132,6 +132,7 @@ ConnectApi.LiteralJson res = Wave.QueryBuilder
 
 - [[Reports and Dashboards REST API — 개요·Reports 예제]] — 표준 리포트를 REST로 실행·생성·삭제
 - [[Data Prep Recipe REST API — 개요·인증·엔드포인트]] — CRM Analytics Recipe(Data Prep) REST
+- [[CRM Analytics REST API — 개요·인증·asset 엔드포인트 지도]] — CRM Analytics(Wave) dataset·asset·SAQL query를 `/wave/*`로 직접 다루는 REST (Recipe REST의 형제 가이드)
 - [[Reports Namespace]] — Apex에서 리포트 실행·factMap 탐색
 - [[Wave Namespace]] — Apex SAQL 빌더(CRM Analytics)
 - [[CRM Analytics 대시보드용 LWC]] — 대시보드 캔버스에 LWC 위젯 임베드
