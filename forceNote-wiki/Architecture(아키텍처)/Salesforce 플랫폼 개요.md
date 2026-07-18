@@ -109,8 +109,8 @@ Org
 
 ## 관련 노트
 
-- [[Admin(어드민)/Salesforce 네비게이션]] — Lightning Experience 화면 구조
-- [[Admin(어드민)/Salesforce ID 인증]] — MFA 인증 설정
+- [[Admin(어드민)/OrgSetup(조직설정)/Salesforce 네비게이션]] — Lightning Experience 화면 구조
+- [[Admin(어드민)/LoginSecurity(로그인·세션보안)/Salesforce ID 인증]] — MFA 인증 설정
 - [[Architecture(아키텍처)/서비스 레이어 패턴]] — 개발 아키텍처 패턴
 - [[Apex/Security(보안)/index]] — 권한 설계
 - [[2 Object Behavior]] — Object 그룹·타입 상세 (Big Object·Data Cloud·External Object)

@@ -124,4 +124,4 @@ App Launcher
 ## 관련 노트
 
 - [[Salesforce 플랫폼 개요]] — Org/Object/Record 핵심 개념
-- [[Admin(어드민)/Salesforce ID 인증]] — 로그인 보안 설정
+- [[Admin(어드민)/LoginSecurity(로그인·세션보안)/Salesforce ID 인증]] — 로그인 보안 설정

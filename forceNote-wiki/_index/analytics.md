@@ -97,5 +97,5 @@ created: 2026-06-21
 
 | 키워드 | 파일 |
 |---|---|
-| Reports, 리포트, 보고서, Report Builder, Report Type, Report Format, tabular summary matrix joined, 리포트 만들기, 리포트 유형, 요약 리포트, 매트릭스 리포트, 조인 리포트, 데이터 조회 분석, "리포트 어떻게 만들어", "Report Builder 사용법", "리포트 포맷 종류", 리포트 탭 UI, Reports 탭, 리포트 폴더, 폴더 공유, folder sharing, 리포트 구독, report subscription, 예약 갱신, scheduled refresh, Export Excel, Export CSV, 리포트 내보내기, 리포트 검색, 폴더 간 이동, Unfiled Public Reports, 리포트 폴더 어떻게 공유, 리포트를 엑셀로 내보내기 | `Admin(어드민)/Reports (리포트).md` |
-| Dashboards, 대시보드, dashboard component, chart gauge metric table, dynamic dashboard, Visualforce 컴포넌트, 대시보드 만들기, 동적 대시보드, 차트 게이지 지표, 데이터 시각화, "대시보드 만드는 법", "대시보드 컴포넌트 종류", "리포트를 차트로 시각화" | `Admin(어드민)/Dashboards (대시보드).md` |
+| Reports, 리포트, 보고서, Report Builder, Report Type, Report Format, tabular summary matrix joined, 리포트 만들기, 리포트 유형, 요약 리포트, 매트릭스 리포트, 조인 리포트, 데이터 조회 분석, "리포트 어떻게 만들어", "Report Builder 사용법", "리포트 포맷 종류", 리포트 탭 UI, Reports 탭, 리포트 폴더, 폴더 공유, folder sharing, 리포트 구독, report subscription, 예약 갱신, scheduled refresh, Export Excel, Export CSV, 리포트 내보내기, 리포트 검색, 폴더 간 이동, Unfiled Public Reports, 리포트 폴더 어떻게 공유, 리포트를 엑셀로 내보내기 | `Admin(어드민)/EmailAnalytics(이메일·분석)/Reports (리포트).md` |
+| Dashboards, 대시보드, dashboard component, chart gauge metric table, dynamic dashboard, Visualforce 컴포넌트, 대시보드 만들기, 동적 대시보드, 차트 게이지 지표, 데이터 시각화, "대시보드 만드는 법", "대시보드 컴포넌트 종류", "리포트를 차트로 시각화" | `Admin(어드민)/EmailAnalytics(이메일·분석)/Dashboards (대시보드).md` |

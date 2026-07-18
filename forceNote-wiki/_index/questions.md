@@ -82,13 +82,13 @@ created: 2026-05-21
 | Aura 컴포넌트 만드는 방법 | `Aura(오라)/Aura 컴포넌트 구조.md` |
 | Aura에서 LWC로 전환하는 방법 | `Aura(오라)/Aura vs LWC.md` |
 | Salesforce 처음 사용법 | `Architecture(아키텍처)/Salesforce 플랫폼 개요.md` |
-| Salesforce 로그인 MFA 설정 | `Admin(어드민)/Salesforce ID 인증.md` |
-| 앱 런처 사용 방법 | `Admin(어드민)/Salesforce 네비게이션.md` |
+| Salesforce 로그인 MFA 설정 | `Admin(어드민)/LoginSecurity(로그인·세션보안)/Salesforce ID 인증.md` |
+| 앱 런처 사용 방법 | `Admin(어드민)/OrgSetup(조직설정)/Salesforce 네비게이션.md` |
 | Apex에서 Custom Metadata 레코드 만들기 | `Apex/Integration(통합)/Metadata Namespace.md` |
-| DX 프로젝트 시작하는 방법 | `DevOps(데브옵스)/Salesforce DX 개요.md` |
-| Scratch Org 만드는 방법 | `DevOps(데브옵스)/Scratch Org 패턴.md` |
-| Jenkins로 Salesforce CI 구성 | `DevOps(데브옵스)/CI CD 패턴.md` |
-| 패키지 만들고 설치하는 방법 | `DevOps(데브옵스)/Unlocked Package 패턴.md` |
+| DX 프로젝트 시작하는 방법 | `DevOps(데브옵스)/DX(DX개발환경)/Salesforce DX 개요.md` |
+| Scratch Org 만드는 방법 | `DevOps(데브옵스)/DX(DX개발환경)/Scratch Org 패턴.md` |
+| Jenkins로 Salesforce CI 구성 | `DevOps(데브옵스)/Deploy(배포·CICD)/CI CD 패턴.md` |
+| 패키지 만들고 설치하는 방법 | `DevOps(데브옵스)/Packaging2GP(2세대패키징)/Unlocked Package 패턴.md` |
 | DevOps Center를 scratch org에서 어떻게 켜나 / DevOpsCenter feature 활성화 | `Architecture(아키텍처)/DevOps Center.md` |
 | DevOps Center 메타데이터 설정 / DevHubSettings enableDevOpsCenterGA | `Architecture(아키텍처)/DevOps Center.md` |
 | DevOps Center Beta vs GA 차이 / next-generation AI-powered DevOps Center | `Architecture(아키텍처)/DevOps Center.md` |
@@ -127,25 +127,25 @@ created: 2026-05-21
 | 지원되는 메타데이터 타입 목록 조회하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Utility Calls.md` |
 | 배포 결과 파싱하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Result Objects.md` |
 | Metadata API 배포 시 AllOrNone 설정하는 방법 | `DevOps(데브옵스)/MetadataAPI(메타데이터API)/Metadata API Headers.md` |
-| Dev Hub 활성화하는 방법 | `DevOps(데브옵스)/DX 도구 접근 권한.md` |
-| DX 도구 사용자 추가하는 방법 | `DevOps(데브옵스)/DX 도구 접근 권한.md` |
-| Sandbox CLI로 생성하는 방법 | `DevOps(데브옵스)/Sandbox 관리.md` |
-| Sandbox 새로고침 CLI 명령 | `DevOps(데브옵스)/Sandbox 관리.md` |
-| CLI로 레코드 조회하는 방법 | `DevOps(데브옵스)/DX 데이터 작업.md` |
-| Bulk API 2.0 대량 데이터 가져오는 방법 | `DevOps(데브옵스)/DX 데이터 작업.md` |
-| sObject Tree 데이터 import하는 방법 | `DevOps(데브옵스)/DX 데이터 작업.md` |
-| Org Development Model 배포 절차 | `DevOps(데브옵스)/Metadata API 빌드·릴리스 워크플로.md` |
-| 배포 검증만 하는 방법 project deploy validate | `DevOps(데브옵스)/Metadata API 빌드·릴리스 워크플로.md` |
-| Unlocked Package 처음 만드는 방법 | `DevOps(데브옵스)/Unlocked Package 개념과 준비.md` |
-| Org-Dependent Unlocked Package란 | `DevOps(데브옵스)/Unlocked Package 개념과 준비.md` |
-| sfdx-project.json 패키지 파라미터 설명 | `DevOps(데브옵스)/Unlocked Package 생성과 설정.md` |
-| 패키지 버전 번호 NEXT 키워드 쓰는 방법 | `DevOps(데브옵스)/Unlocked Package 개발과 버전.md` |
-| 패키지 버전 릴리스 promote하는 방법 | `DevOps(데브옵스)/Unlocked Package 개발과 버전.md` |
-| 패키지 업그레이드 Push Upgrade하는 방법 | `DevOps(데브옵스)/Unlocked Package 릴리스와 설치.md` |
-| 패키지 설치 sf package install 방법 | `DevOps(데브옵스)/Unlocked Package 릴리스와 설치.md` |
-| CircleCI로 Salesforce 배포 자동화하는 방법 | `DevOps(데브옵스)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |
-| Jenkins Jenkinsfile Salesforce DX 예제 | `DevOps(데브옵스)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |
-| 서버 키 암호화해서 CI에 저장하는 방법 | `DevOps(데브옵스)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |
+| Dev Hub 활성화하는 방법 | `DevOps(데브옵스)/DX(DX개발환경)/DX 도구 접근 권한.md` |
+| DX 도구 사용자 추가하는 방법 | `DevOps(데브옵스)/DX(DX개발환경)/DX 도구 접근 권한.md` |
+| Sandbox CLI로 생성하는 방법 | `DevOps(데브옵스)/DX(DX개발환경)/Sandbox 관리.md` |
+| Sandbox 새로고침 CLI 명령 | `DevOps(데브옵스)/DX(DX개발환경)/Sandbox 관리.md` |
+| CLI로 레코드 조회하는 방법 | `DevOps(데브옵스)/DX(DX개발환경)/DX 데이터 작업.md` |
+| Bulk API 2.0 대량 데이터 가져오는 방법 | `DevOps(데브옵스)/DX(DX개발환경)/DX 데이터 작업.md` |
+| sObject Tree 데이터 import하는 방법 | `DevOps(데브옵스)/DX(DX개발환경)/DX 데이터 작업.md` |
+| Org Development Model 배포 절차 | `DevOps(데브옵스)/Deploy(배포·CICD)/Metadata API 빌드·릴리스 워크플로.md` |
+| 배포 검증만 하는 방법 project deploy validate | `DevOps(데브옵스)/Deploy(배포·CICD)/Metadata API 빌드·릴리스 워크플로.md` |
+| Unlocked Package 처음 만드는 방법 | `DevOps(데브옵스)/Packaging2GP(2세대패키징)/Unlocked Package 개념과 준비.md` |
+| Org-Dependent Unlocked Package란 | `DevOps(데브옵스)/Packaging2GP(2세대패키징)/Unlocked Package 개념과 준비.md` |
+| sfdx-project.json 패키지 파라미터 설명 | `DevOps(데브옵스)/Packaging2GP(2세대패키징)/Unlocked Package 생성과 설정.md` |
+| 패키지 버전 번호 NEXT 키워드 쓰는 방법 | `DevOps(데브옵스)/Packaging2GP(2세대패키징)/Unlocked Package 개발과 버전.md` |
+| 패키지 버전 릴리스 promote하는 방법 | `DevOps(데브옵스)/Packaging2GP(2세대패키징)/Unlocked Package 개발과 버전.md` |
+| 패키지 업그레이드 Push Upgrade하는 방법 | `DevOps(데브옵스)/Packaging2GP(2세대패키징)/Unlocked Package 릴리스와 설치.md` |
+| 패키지 설치 sf package install 방법 | `DevOps(데브옵스)/Packaging2GP(2세대패키징)/Unlocked Package 릴리스와 설치.md` |
+| CircleCI로 Salesforce 배포 자동화하는 방법 | `DevOps(데브옵스)/Deploy(배포·CICD)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |
+| Jenkins Jenkinsfile Salesforce DX 예제 | `DevOps(데브옵스)/Deploy(배포·CICD)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |
+| 서버 키 암호화해서 CI에 저장하는 방법 | `DevOps(데브옵스)/Deploy(배포·CICD)/CI 통합 전수 (CircleCI·Jenkins·Travis).md` |
 | Locker랑 LWS 차이가 뭐야 / Lightning Web Security vs Lightning Locker / LWR 사이트 보안 모델 | `Security(보안)/Lightning Web Security (LWS).md` |
 | LWR 사이트에서 Google Analytics·Tag Manager(third-party 스크립트) 넣는 방법 / Privileged Script Tag x-oasis-script | `Security(보안)/Lightning Web Security (LWS).md` |
 | LWR 사이트 다국어/번역하는 방법·언어 추가·fallback | `LWC/UIPatterns(UI패턴)/LWR 다국어 사이트.md` |
@@ -180,6 +180,6 @@ created: 2026-05-21
 | CometD로 이벤트 구독하는 법 / PushTopic Generic Streaming 차이 / replayId로 놓친 이벤트 재생 / 브라우저 Visualforce에서 push 구독 | `Integration(통합)/Streaming API (CometD·PushTopic·Generic Streaming).md` |
 | gRPC로 Platform Event 구독 클라이언트 세우는 법 / Pub/Sub API 파이썬 예제 / proto stub 생성·credit flow control·Avro 디코드 / 외부에서 이벤트 발행 | `Integration(통합)/Pub-Sub API 클라이언트 구축 가이드 (gRPC 구독·발행).md` |
 | 이벤트 기반 통합 처음부터 끝까지 어떻게 / Platform Event 정의→발행→구독→멱등→재시도 / event-driven integration 전체 흐름 | `Integration(통합)/이벤트 기반 통합 구축 가이드 (Platform Event end-to-end).md` |
-| 비밀번호 정책·세션 타임아웃·로그인 IP를 어디서 설정하나 / 계정 잠금·비밀번호 만료 정책 / High Assurance 세션 / 로그인 시간 제한 (org 전역 설정·정책 → Admin) | `Admin(어드민)/Password Policies (비밀번호 정책).md` + `Admin(어드민)/Session Settings (세션 설정).md` + `Admin(어드민)/Login IP Ranges & Login Hours (로그인 IP·시간 제한).md` |
+| 비밀번호 정책·세션 타임아웃·로그인 IP를 어디서 설정하나 / 계정 잠금·비밀번호 만료 정책 / High Assurance 세션 / 로그인 시간 제한 (org 전역 설정·정책 → Admin) | `Admin(어드민)/LoginSecurity(로그인·세션보안)/Password Policies (비밀번호 정책).md` + `Admin(어드민)/LoginSecurity(로그인·세션보안)/Session Settings (세션 설정).md` + `Admin(어드민)/LoginSecurity(로그인·세션보안)/Login IP Ranges & Login Hours (로그인 IP·시간 제한).md` |
 | 레코드 접근을 제한(좁히는) 규칙 만들기 / 표시 필터로 보이는 레코드 줄이기 / Restriction Rule (접근을 확대·기본값 정하는 OWD·공유 규칙은 [[조직 전체 공유 기본값(OWD)과 공유 규칙]] 참고 → Admin) | `Security(보안)/Restriction Rules (제한 규칙).md` |
 | org 로그인 URL 바꾸기 / My Domain 설정 / SSO·외부 IdP(SAML)로 로그인 / 외부 아이덴티티 공급자 로그인·로그인 정책 | `Security(보안)/My Domain (마이 도메인).md` + `Security(보안)/Single Sign-On (SAML SSO 인바운드).md` |

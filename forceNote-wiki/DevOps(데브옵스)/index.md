@@ -13,16 +13,16 @@ created: 2026-05-18
 
 ## 파일 목록
 
+> 63개 노트가 3개 도메인 서브폴더로 분류됨(STRUCT-3). 각 섹션 헤더의 서브폴더 index 링크로 로컬 탐색. (Metadata API·DevOps Center·Tooling API는 기존 서브폴더 유지.)
+
+### DX 개발환경 (서브폴더 → [[DevOps(데브옵스)/DX(DX개발환경)/index]])
+
 | 파일 | 한 줄 요약 | 태그 |
 |---|---|---|
 | [[Salesforce DX 개요]] | sfdx-project.json, sf CLI 기본 명령, Source Format, .forceignore, JWT 인증 | #overview |
-| [[배포 방법 결정 가이드]] | 6가지 배포 경로(Change Sets·Metadata API·DX·Unlocked Package·Tooling API·DevOps Center)를 결정 축으로 비교·선택 (validation/quick deploy·UI vs CLI·CI) | #decision |
-| [[패키징 유형 결정 가이드 (Unlocked·2GP·1GP·Unmanaged)]] | 4개 패키지 모델(Unlocked·2GP·1GP·Unmanaged)을 배포 대상·잠금·IP 보호·의존성 축으로 비교·선택 | #decision |
 | [[개발 환경 선택 (Scratch Org vs Sandbox vs Developer Edition)]] | 3개 개발 환경(Scratch Org·Sandbox·Developer Edition)을 결정 축별로 비교해 상황에 맞는 org 선택 | #decision |
 | [[sf CLI 명령 카탈로그 · sfdx→sf 매핑]] | DevOps 15개 워크플로 노트의 sf(v2) 명령 주제별 색인 + 레거시 sfdx(v1)→sf(v2) 마이그레이션 매핑 | #reference |
 | [[Scratch Org 패턴]] | Scratch Org 생성·관리, project-scratch-def.json, Org Shape, Snapshot | #pattern |
-| [[Unlocked Package 패턴]] | sf package create/version create/install, 2GP, Org-Dependent, packageAliases | #pattern |
-| [[CI CD 패턴]] | Jenkins Jenkinsfile, CircleCI, JWT 인증 자동화, 패키지 빌드 파이프라인 | #pattern |
 | [[DX 프로젝트 구조와 소스 포맷]] | DX 프로젝트 생성·디렉토리 구조·소스 포맷·정적 리소스·기존 소스 마이그레이션 전수 | #reference |
 | [[메타데이터 분해와 forceignore]] | Decomposed Metadata Types 전수(기본+선택 Beta), .forceignore 문법·예제 전수 | #reference |
 | [[sfdx-project.json 레퍼런스]] | 모든 필드·기본값, Multiple Package Dirs, String Replacement 전수 | #reference |
@@ -36,10 +36,31 @@ created: 2026-05-18
 | [[DX 도구 접근 권한]] | Dev Hub 선택·활성화·추가 기능·라이선스·사용자 추가·Permission Set 권한 전수 | #reference |
 | [[Sandbox 관리]] | org create/clone/refresh/delete sandbox, sandbox-def.json 전체 옵션 전수 | #reference |
 | [[DX 데이터 작업]] | data export/import tree, Bulk API 2.0 전수, record CRUD, SOQL/SOSL CLI, 파일 업로드 | #reference |
+| [[DX 도구 개요와 워크플로 전환]] | DX가 개발 방식을 바꾸는 이유·샘플 레포 시작·신규 프로젝트·마이그레이션 3가지 시작 경로 전수 | #reference |
+| [[DX MCP Server (Beta)]] | VS Code+Copilot Quick Start·60+ MCP 도구·toolset 14개·Core Tools 12개 전수 | #reference |
+| [[DX 트러블슈팅]] | org login web/jwt 오류 전수(12가지)·No default dev hub·포트 점유·consumer key 중복 해결 | #reference |
+| [[DX 제약사항]] | CLI·Dev Hub·Source Management·배포·1GP/2GP·Unlocked Package 알려진 제약 13건 전수 | #reference |
+
+### 배포·CICD (서브폴더 → [[DevOps(데브옵스)/Deploy(배포·CICD)/index]])
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[배포 방법 결정 가이드]] | 6가지 배포 경로(Change Sets·Metadata API·DX·Unlocked Package·Tooling API·DevOps Center)를 결정 축으로 비교·선택 (validation/quick deploy·UI vs CLI·CI) | #decision |
+| [[패키징 유형 결정 가이드 (Unlocked·2GP·1GP·Unmanaged)]] | 4개 패키지 모델(Unlocked·2GP·1GP·Unmanaged)을 배포 대상·잠금·IP 보호·의존성 축으로 비교·선택 | #decision |
+| [[CI CD 패턴]] | Jenkins Jenkinsfile, CircleCI, JWT 인증 자동화, 패키지 빌드 파이프라인 | #pattern |
 | [[Metadata API 빌드·릴리스 워크플로]] | Org Development Model 4단계·배포 검증·빠른 배포·취소 전수 | #reference |
 | [[Apex 배포 방법]] | Apex 배포 5가지 경로(Change Sets·VS Code/Code Builder·Metadata API·Tooling API·DevOps Center)·Compile On Deploy·org 타입별 기본값 전수 | #reference |
 | [[Change Sets 배포]] | Outbound/Inbound Change Set 단계별 배포 — 컴포넌트 담기·Upload·연결된 org 사이 Deploy(sandbox→production) | #reference |
 | [[Tooling API 배포]] | Tooling API 컨테이너 비동기 배포 — MetadataContainer·ContainerAsyncRequest·*Member sObject 6종·State enum 6값·개별 요소(클래스/트리거/VF) 컴파일·배포 워크플로 전수 | #reference |
+| [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] | CircleCI 환경 설정·서버키 암호화·Dev Hub 연결, Jenkins Jenkinsfile 전체 코드, Travis CI, Sample CI 레포 전수 표 | #reference |
+| [[Metadata Coverage 보고서]] | Metadata API·Scratch Org Source Tracking·Unlocked Package 등 채널별 메타데이터 지원 여부 공식 참조 | #reference |
+| [[ExperienceBundle — Experience Builder 사이트 메타데이터]] | ExperienceBundle/DigitalExperienceBundle 폴더 구조·enable·Metadata API/DX 배포·enhanced LWR 마이그레이션·인증 LWR /s URL 배포 고려사항 | #reference |
+
+### 2세대패키징 (서브폴더 → [[DevOps(데브옵스)/Packaging2GP(2세대패키징)/index]])
+
+| 파일 | 한 줄 요약 | 태그 |
+|---|---|---|
+| [[Unlocked Package 패턴]] | sf package create/version create/install, 2GP, Org-Dependent, packageAliases | #pattern |
 | [[Unlocked Package 개념과 준비]] | 패키지 개념·불변 버전·Org 역할·Org-Dependent 비교·사전 준비 체크리스트 전수 | #reference |
 | [[Unlocked Package 생성과 설정]] | sf package create·sfdx-project.json 18개 파라미터·Keywords·Installation Key·Namespace·Profile Settings 전수 | #reference |
 | [[Unlocked Package 개발과 버전]] | 버전 생성 3가지 옵션·버전 번호 가이드·코드 커버리지·브랜치·Hard-Delete 컴포넌트 전수 | #reference |
@@ -48,6 +69,13 @@ created: 2026-05-18
 | [[2GP Managed Package 개발 환경과 사전 준비]] | Limited Access User 추가·Know Your Orgs·namespace 생성과 Link to Dev Hub·Key Concepts(app/package/metadata, version, install/upgrade)·Manageability Rules·Package Ancestry·의존성 매트릭스 전수 | #reference |
 | [[2GP Managed Package Scratch Org 워크플로]] | Develop(namespaced) vs Test(no-namespace)·ancestor seeding·Definition File vs Org Shape·Snapshot(+managed promote 불가)·Agentforce·Data Cloud scratch org·PBO 할당량·Partner edition 전수 | #reference |
 | [[2GP Managed Package — Workflow]] | 2GP 표준 CLI 워크플로 10단계(sf project generate~sf org open)·sfdx-project.json 자동 업데이트·Manageability Rules 4속성·Editable Properties 3카테고리·Supported Components 전수 목록 | #reference |
+| [[2GP — Develop]] | sf package create·sf package version create 3가지 옵션·MAJOR.MINOR.PATCH.BUILD·NEXT 키워드·Project Configuration File 파라미터 전수·Package Ancestor(HIGHEST/NONE)·beta→released 75% 커버리지·sf package version promote 전수 | #reference |
+| [[2GP — Install · Uninstall]] | sf package install·sf package uninstall·--publish-wait/--wait 타임아웃·Installation URL·InstallHandler·InstallContext·System.Version·PostInstallScript·의존성 설치 스크립트·Uninstall 제약사항 전수 | #reference |
+| [[2GP — Prepare to Distribute]] | beta→released 승격 전 코드 커버리지 75%·Installation Key 설정·sf package version promote·Release Notes URL·postInstallUrl·AppExchange 파트너 콘솔 연결·패키지 등록·권장 버전 설정 전수 | #reference |
+| [[2GP — Push Upgrade]] | ISV가 subscriber org에 강제 업그레이드를 Push하는 전 과정·CLI 명령·SOAP API·Customized Push Upgrade·Best Practices 전수 | #reference |
+| [[2GP — Advanced Features Part 1]] | Package Ancestors·비선형 버전·Patch Version 제약·Dependencies·calculateTransitiveDependencies·Advanced sfdx-project.json 파라미터·Keywords(NEXT/LATEST/RELEASED/HIGHEST/NONE)·Target Release·Branches·Unpackaged Metadata 전수 | #reference |
+| [[2GP — Advanced Features Part 2]] | Package IDs 4종(033/04t/0Ho/08c)·Namespace Collision 설치 조합 테이블·Remove Metadata Components deprecated/hard-deleted 전수·Delete Package·Frequently Used Operations·Transfer Dev Hub 전 과정·Partner Support 케이스 | #reference |
+| [[2GP — Best Practices]] | Dev Hub owner 지정·--tag 옵션·Alias 생성·non-GA 컴포넌트 주의·LMA 기능별 접근 요약 | #reference |
 | [[2GP — Components - Apex & Code]] | Apex Class·Trigger·Sharing Reason·Aura·LWC·Static Resource·Visualforce 컴포넌트·페이지 8종 Manageability Rules 4속성 전수·Editable Properties·패키징 고려사항·IP Protection | #reference |
 | [[2GP — Components - Automation]] | Flow·Workflow·Decision Table·Expression Set·Batch·Business Process Group 등 자동화 컴포넌트 Manageability Rules 4속성 전수·IP Protection·2GP-only 제한 | #reference |
 | [[2GP — Components - Einstein & Analytics]] | AffinityScoreDefinition·AIApplication·AIUsecaseDefinition·BotTemplate·Dashboard·DiscoveryAI·GenAiFunction·GenAiPlugin·GenAiPlannerBundle·GenAiPromptTemplate·RecommendationStrategy·Report·ReportType 등 Einstein·Analytics·Agentforce 도메인 Manageability Rules 4속성 전수 | #reference |
@@ -57,27 +85,13 @@ created: 2026-05-18
 | [[2GP — Components - UI & Layout]] | FlexiPage·CustomApplication·CustomTab·BrandingSet·CommunityTemplateDefinition·CommunityThemeDefinition·DigitalExperienceBundle·LightningMessageChannel·LightningBolt·LightningTypeBundle·ManagedContentType·PathAssistant·QuickAction·HomePageComponent·HomePageLayout·Layout·CompactLayout·ActionLinkGroupTemplate·ActionableListDefinition·Prompt 21종 UI 레이아웃 도메인 Manageability Rules 4속성 전수 | #reference |
 | [[2GP — Components - Other]] | FuelType·EmailTemplate·Letterhead·Translation·ServiceCatalog·SlackApp·WebStoreTemplate·SustainabilityUom 등 Other 도메인 컴포넌트 Manageability Rules 4속성 전수 | #reference |
 | [[2GP — Specific Metadata Behavior]] | Agentforce Agent Template 패키징·Data Cloud 패키지 요건·보호 컴포넌트·Platform Cache Provider Free 3MB·Metadata Access Apex·Permission Set vs Profile Settings 전수·IP 보호·Salesforce URL DomainCreator·@NamespaceAccessible·외부 서비스·Connected App 패키징·New Order Save Behavior 대응 | #reference |
-| [[2GP — Develop]] | sf package create·sf package version create 3가지 옵션·MAJOR.MINOR.PATCH.BUILD·NEXT 키워드·Project Configuration File 파라미터 전수·Package Ancestor(HIGHEST/NONE)·beta→released 75% 커버리지·sf package version promote 전수 | #reference |
-| [[2GP — Install · Uninstall]] | sf package install·sf package uninstall·--publish-wait/--wait 타임아웃·Installation URL·InstallHandler·InstallContext·System.Version·PostInstallScript·의존성 설치 스크립트·Uninstall 제약사항 전수 | #reference |
-| [[2GP — Prepare to Distribute]] | beta→released 승격 전 코드 커버리지 75%·Installation Key 설정·sf package version promote·Release Notes URL·postInstallUrl·AppExchange 파트너 콘솔 연결·패키지 등록·권장 버전 설정 전수 | #reference |
-| [[2GP — Push Upgrade]] | ISV가 subscriber org에 강제 업그레이드를 Push하는 전 과정·CLI 명령·SOAP API·Customized Push Upgrade·Best Practices 전수 | #reference |
-| [[2GP — Best Practices]] | Dev Hub owner 지정·--tag 옵션·Alias 생성·non-GA 컴포넌트 주의·LMA 기능별 접근 요약 | #reference |
+| [[2GP — Feature Management App]] | FMA 개요·Feature Parameters 3종·XML 예제·System.FeatureManagement API·Custom Objects 숨기기·Considerations | #reference |
 | [[2GP — LMA Part 1 Get Started]] | LMA 설치·패키지 연결·권한 설정·Lead·License 레코드 관리·License Custom Object Fields 전수 | #reference |
 | [[2GP — LMA Part 2 Troubleshoot]] | LMA 트러블슈팅·구독자 Org 로그인·ISV Customer Debugger·LMA 이전·모범 사례 | #reference |
-| [[2GP — Feature Management App]] | FMA 개요·Feature Parameters 3종·XML 예제·System.FeatureManagement API·Custom Objects 숨기기·Considerations | #reference |
 | [[2GP — App Analytics Part 1 - Overview & Setup]] | AppExchange App Analytics 개요·활성화·Use Cases·제품 기능 매핑·CustomInteractions 구현 (LWC+Apex 전체 예제) | #reference |
 | [[2GP — App Analytics Part 2 - Best Practices & Query Strategy]] | 데이터 흐름·FileType/FileCompression 조합·쿼리 자동화·Catch-Up Queries·AvailableSince·소/중/대 파트너 권장 전수 | #reference |
 | [[2GP — App Analytics Part 3 - Data Types & Schemas]] | Package Usage Logs·Summaries·Subscriber Snapshots 전수 스키마·log_record_type 11종·custom_entity_type 전수·Simulation Mode | #reference |
 | [[2GP — App Analytics Part 4 - Developer Cookbook]] | CRM Analytics 레시피(LMAJoin·DailyAggregation) 전수 단계·Daily/Weekly/Monthly Unique Users SAQL·Custom Object CRUD SAQL | #reference |
-| [[2GP — Advanced Features Part 1]] | Package Ancestors·비선형 버전·Patch Version 제약·Dependencies·calculateTransitiveDependencies·Advanced sfdx-project.json 파라미터·Keywords(NEXT/LATEST/RELEASED/HIGHEST/NONE)·Target Release·Branches·Unpackaged Metadata 전수 | #reference |
-| [[2GP — Advanced Features Part 2]] | Package IDs 4종(033/04t/0Ho/08c)·Namespace Collision 설치 조합 테이블·Remove Metadata Components deprecated/hard-deleted 전수·Delete Package·Frequently Used Operations·Transfer Dev Hub 전 과정·Partner Support 케이스 | #reference |
-| [[CI 통합 전수 (CircleCI·Jenkins·Travis)]] | CircleCI 환경 설정·서버키 암호화·Dev Hub 연결, Jenkins Jenkinsfile 전체 코드, Travis CI, Sample CI 레포 전수 표 | #reference |
-| [[DX 도구 개요와 워크플로 전환]] | DX가 개발 방식을 바꾸는 이유·샘플 레포 시작·신규 프로젝트·마이그레이션 3가지 시작 경로 전수 | #reference |
-| [[Metadata Coverage 보고서]] | Metadata API·Scratch Org Source Tracking·Unlocked Package 등 채널별 메타데이터 지원 여부 공식 참조 | #reference |
-| [[DX MCP Server (Beta)]] | VS Code+Copilot Quick Start·60+ MCP 도구·toolset 14개·Core Tools 12개 전수 | #reference |
-| [[DX 트러블슈팅]] | org login web/jwt 오류 전수(12가지)·No default dev hub·포트 점유·consumer key 중복 해결 | #reference |
-| [[DX 제약사항]] | CLI·Dev Hub·Source Management·배포·1GP/2GP·Unlocked Package 알려진 제약 13건 전수 | #reference |
-| [[ExperienceBundle — Experience Builder 사이트 메타데이터]] | ExperienceBundle/DigitalExperienceBundle 폴더 구조·enable·Metadata API/DX 배포·enhanced LWR 마이그레이션·인증 LWR /s URL 배포 고려사항 | #reference |
 
 ### Metadata API (서브폴더 → [[DevOps(데브옵스)/MetadataAPI(메타데이터API)/index]])
 

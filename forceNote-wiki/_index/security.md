@@ -65,7 +65,7 @@ created: 2026-06-18
 
 | 키워드 | 파일 |
 |---|---|
-| OWD, Organization-Wide Defaults, sharing rules, owner-based, criteria-based sharing rule, Grant Access Using Hierarchies, External Sharing Model, 조직 전체 기본값, 공유 규칙, 소유 기반 공유 규칙, 기준 기반 공유 규칙, OWD 어떻게 설정, 공유 규칙 만드는 법, 외부 사용자 공유 | `Admin(어드민)/조직 전체 공유 기본값(OWD)과 공유 규칙.md` |
+| OWD, Organization-Wide Defaults, sharing rules, owner-based, criteria-based sharing rule, Grant Access Using Hierarchies, External Sharing Model, 조직 전체 기본값, 공유 규칙, 소유 기반 공유 규칙, 기준 기반 공유 규칙, OWD 어떻게 설정, 공유 규칙 만드는 법, 외부 사용자 공유 | `Admin(어드민)/Users(사용자·접근)/조직 전체 공유 기본값(OWD)과 공유 규칙.md` |
 
 ## 권한 모델 (Profile · Permission Set · 권한 종류)
 
