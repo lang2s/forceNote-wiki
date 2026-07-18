@@ -24,6 +24,8 @@ created: 2026-07-18
 | [[Object & Field Limits (오브젝트·필드 한도)]] | 에디션별 정적 설정 한도(오브젝트당 커스텀 필드 900·관계 40·Roll-Up 25 등) — 한도 수치 레퍼런스 | #customization #reference |
 | [[필드 타입 선택 가이드 (어드민 빌드 관점)]] | 커스텀 필드를 만들 때 어떤 타입을 고르나 — 용도·크기·변경 제약(전환 데이터 손실·인덱싱·Encrypted) 결정 가이드 | #customization #decision-guide |
 | [[Formula 필드]] | 다른 필드로부터 값을 자동 계산하는 read-only 커스텀 필드 — cross-object formula(최대 10관계), Check Syntax, 계산 필드 | #customization |
+| [[Formula 필드 예제 카탈로그]] | 18 업무 카테고리 109개 고급 수식 필드 예제(계정·케이스·커미션·연락처·날짜·할인·기회·이미지/통합 링크 등) — 복붙형 실무 수식 모음 | #customization #reference |
+| [[Formula 연산자·함수 레퍼런스]] | 수식 연산자·함수 119종 컨텍스트별 전수(Math/Logical/Text 연산자 + Date&Time·Logical·Math·Text·Summary·Advanced 함수) | #customization #reference |
 | [[Roll-Up Summary 필드]] | master-detail의 master측에서 detail 레코드를 COUNT/SUM/MIN/MAX로 집계하는 필드 | #customization |
 | [[Record Types (레코드 타입)]] | 사용자별 다른 비즈니스 프로세스·피클리스트 값·페이지 레이아웃 제공 — sales/support process, 레코드 타입 할당 | #customization |
 | [[Schema Builder (스키마 빌더)]] | 오브젝트·관계를 시각적으로 보고 드래그앤드롭으로 커스텀 오브젝트·필드·관계 추가 — 데이터 모델 ERD | #customization |
