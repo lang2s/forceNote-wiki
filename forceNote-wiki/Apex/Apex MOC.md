@@ -87,6 +87,7 @@ created: 2026-05-17
 - [[Named Credential]] — External Credential → Principal → NC 순서
 - [[ConnectApi Chatter 패턴]] — postFeedItemWithRichText, @멘션, Flow 리치 텍스트 변환
 - [[ConnectApi Namespace 개요]] — Connect in Apex 전체 클래스 목록, ChatterFeeds/EinsteinLLM/CdpQuery/CommerceCart, 테스트 setTest* 패턴
+- [[ConnectApi CdpMachineLearning — Data 360 ML 예측]] — Data 360(Data Cloud) 배포 ML 모델에 Apex 동기 예측 요청: CdpMachineLearning.predict, CdpMlBasePredictInput/CdpMlPredictSettingsInput 입력, CdpMlPredictResult/CdpMlAggregatePrediction/CdpMlPredictionContributionBase 출력, enum 5종
 - [[Dom Namespace]] — Dom.Document/XmlNode, XML 생성·파싱, HTTP 본문 처리
 - [[XmlStreamReader·XmlStreamWriter (스트리밍 XML)]] — StAX 스타일 스트리밍 XML 파싱(XmlStreamReader)·생성(XmlStreamWriter), getEventType/XmlTag enum, writeStartElement/getXmlString, 대용량 XML 순차 처리, 스트리밍 vs DOM 선택
 - [[DataSource Namespace]] — Salesforce Connect 커스텀 어댑터, Provider/Connection/sync/query/upsert

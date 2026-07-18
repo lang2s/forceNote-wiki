@@ -154,3 +154,4 @@ prediction definition (컨테이너, 최대 10 active model)
 - [[Next Best Action — Strategy Builder·Recommendations]] — Enhance 요소로 Discovery 예측을 추천에 결합
 - [[CRM Analytics 개요]] — 플랫폼·라이선스 상위 컨텍스트
 - [[Recipe REST API — Load·Save·Output·ML 노드 Input]] — 데이터 파이프라인의 ML(예측) 노드 연계
+- [[ConnectApi CdpMachineLearning — Data 360 ML 예측]] — Data 360(Data Cloud) ML 예측 Apex API. Einstein Discovery(`SmartDataDiscovery.predict`)와 별개 계열.

@@ -22,6 +22,7 @@ created: 2026-05-17
 | [[WSDL2Apex — 외부 SOAP 소비 (스텁 생성·구조·한도)]] | Generate from WSDL로 외부 SOAP 서비스 소비 — 생성 스텁 구조(endpoint_x/timeout_x/clientCertName_x), document literal wrapped 지원·RPC encoded 미지원, WSDL 100만자 한도, Unable to find complexType 대응 | #pattern |
 | [[ConnectApi Chatter 패턴]] | postFeedItemWithRichText, @멘션, Flow 리치 텍스트 변환 | #pattern |
 | [[ConnectApi Namespace 개요]] | Connect in Apex 전체 클래스 목록 — ChatterFeeds/EinsteinLLM/CdpQuery/CommerceCart/Communities, setTest* 패턴 | #reference |
+| [[ConnectApi CdpMachineLearning — Data 360 ML 예측]] | Data 360(Data Cloud) 배포 ML 모델에 Apex 동기 예측(predict) — CdpMlBasePredictInput/CdpMlPredictSettingsInput 입력, CdpMlPredictResult/CdpMlAggregatePrediction/CdpMlPredictionContributionBase 출력, enum 5종 | #reference |
 | [[Dom Namespace]] | Dom.Document + Dom.XmlNode — XML 생성·파싱, HTTP 연동 | #reference |
 | [[XmlStreamReader·XmlStreamWriter (스트리밍 XML)]] | StAX 스타일 스트리밍 XML 파싱(XmlStreamReader)·생성(XmlStreamWriter) — getEventType/XmlTag enum, writeStartElement/getXmlString, 대용량 XML 순차 처리, 스트리밍 vs DOM | #reference |
 | [[DataSource Namespace]] | Salesforce Connect 커스텀 어댑터 — Provider/Connection/sync/query/search/upsert | #reference |
