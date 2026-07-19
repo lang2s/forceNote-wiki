@@ -23,6 +23,8 @@ created: 2026-07-18
 | [[Page Layouts (페이지 레이아웃)]] | 레코드 페이지의 버튼·필드·관련목록 배치 제어 — enhanced editor, mini layout, 프로파일×레코드타입 할당 | #customization |
 | [[Custom Buttons & Links (커스텀 버튼·링크)]] | URL·Visualforce 버튼·링크(JS 레거시) | #ui-customization |
 | [[New Button or Link & Action 생성 가이드 (타입·설정·예시)]] | 커스텀 버튼·링크 생성(Display Type·Behavior·Content Source·Window Open Properties·merge field)+Action Type 생성 심층 how-to | #ui-customization |
+| [[표준 버튼·탭 홈 페이지 재정의 (Override Standard Buttons)]] | 표준 버튼(New·View·Edit 등)·탭 홈 페이지를 s-control·Lightning 컴포넌트·Lightning 페이지·Visualforce로 재정의 — 타입 7종·전역 재정의 동작·모바일 제약·Viewing References | #ui-customization |
+| [[Custom Button & Link 샘플 예제]] | 공식 커스텀 버튼/링크 샘플 11종(문서/Chatter/리포트 링크 3종 전문 + 8종 공식 링크) + Add Default Custom Links | #ui-customization |
 | [[In-App Guidance — 프롬프트·워크스루 (사용자 온보딩)]] | 인앱 프롬프트·워크스루로 사용자 온보딩·기능 도입 — Prompt 메타데이터·targetPage·uiFormulaRule·프로필별 표시·delayDays/timesToDisplay | #ui-customization |
 | [[User Interface Settings (사용자 인터페이스 설정)]] | Setup의 User Interface 페이지 — org 전역 UI 동작(인라인 편집·호버 상세·향상된 리스트·섹션 접기 등) 22종 토글 | #ui-customization |
 | [[Search Settings & Search Layouts (검색 설정·검색 레이아웃)]] | Search Settings(org 전역 검색 동작·향상된 조회)+Search Layouts(오브젝트별 검색 결과·조회 대화상자 열·필터·버튼) | #ui-customization |

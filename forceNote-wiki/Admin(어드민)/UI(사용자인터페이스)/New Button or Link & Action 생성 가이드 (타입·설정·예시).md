@@ -383,6 +383,8 @@ Content Source = URL 버튼에서 **URL-addressable Lightning 컴포넌트**(Aur
 
 ## 관련 노트
 - [[Custom Buttons & Links (커스텀 버튼·링크)]] — 버튼·링크 개요(이 노트는 생성 심화).
+- [[Custom Button & Link 샘플 예제]] — 공식 샘플 11종(문서·리포트 링크·Mass Delete 등) + Default Custom Links.
+- [[표준 버튼·탭 홈 페이지 재정의 (Override Standard Buttons)]] — 신규 버튼 **생성**(이 노트) vs 표준 버튼 **재정의**(대비 형제).
 - [[Quick Actions & Global Actions (퀵 액션·글로벌 액션)]] — 액션 개요.
 - [[Page Layouts (페이지 레이아웃)]] — 버튼·액션 배치.
 - [[Flow — 선언적 자동화 개요 (플로우)]] — Custom 액션이 호출하는 Flow.
