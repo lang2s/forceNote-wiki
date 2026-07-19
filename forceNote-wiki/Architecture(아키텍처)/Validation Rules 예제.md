@@ -488,3 +488,4 @@ OR(AnnualRevenue < 0, AnnualRevenue > 100000000000)
 - [[Schema Namespace 상세]] — `REGEX`, 수식 함수 스키마 컨텍스트
 - [[Tooling API 객체 — 자동화 (Flow·Workflow·룰)]] — ValidationRule을 Tooling API sObject로 SOQL 조회·구성(필드·메타데이터 정본)
 - [[Formula 필드 예제 카탈로그]] — 자매 예제집(수식 필드 110+ 예제 — 계산·표시·링크·이미지)
+- [[Formula 연산자·함수 레퍼런스]] — 검증 규칙·수식이 쓰는 연산자·함수 119종 정의

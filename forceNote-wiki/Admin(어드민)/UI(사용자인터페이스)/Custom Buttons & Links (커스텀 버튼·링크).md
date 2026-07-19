@@ -60,3 +60,5 @@ Object Manager → Buttons, Links, and Actions → New
 - [[Page Layouts (페이지 레이아웃)]] — 버튼·링크를 배치하는 레이아웃
 - [[Quick Actions & Global Actions (퀵 액션·글로벌 액션)]] — JavaScript 버튼의 현대적 대체
 - [[New Button or Link & Action 생성 가이드 (타입·설정·예시)]] — Display Type·Behavior·Content Source 등 생성 심화 가이드
+- [[Custom Button & Link 샘플 예제]] — 공식 샘플 11종(문서·리포트 링크·Mass Delete 등) + Default Custom Links
+- [[표준 버튼·탭 홈 페이지 재정의 (Override Standard Buttons)]] — 표준 버튼·탭 홈 재정의(생성과 대비)
