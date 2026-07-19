@@ -560,6 +560,7 @@ model refresh job은 Model Manager에서 구성한다(Configure Automatic Model 
 ## 관련 노트
 
 - [[Einstein Discovery REST — 리소스 엔드포인트 레퍼런스]] — 이 흐름이 호출하는 각 엔드포인트의 URI·HTTP 메서드·request/response 파라미터 정본.
+- [[Einstein Discovery REST — 요청 표현형 (Request Bodies)]] — 이 흐름의 요청 바디(Input) 표현형 86종 프로퍼티 전수.
 - [[Einstein Discovery REST — 모델 품질·편향 지표 표현형]] — 예측·model metrics 응답에 등장하는 품질·편향 지표 표현형 상세.
 - [[Einstein Discovery — Model Builder·예측 모델]] — 이 REST로 소비하는 Discovery 예측 모델의 제품 개념·저작.
 - [[ConnectApi CdpMachineLearning — Data 360 ML 예측]] — 별개 계열 disambiguation(Data 360 `CdpMl` vs Einstein Discovery `SmartDataDiscovery`).

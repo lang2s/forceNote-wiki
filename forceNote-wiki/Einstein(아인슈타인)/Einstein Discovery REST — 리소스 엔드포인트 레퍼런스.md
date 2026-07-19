@@ -763,3 +763,4 @@ Formats JSON · Available Version 51.0 · HTTP Methods GET
 - [[Einstein Discovery REST — 모델 품질·편향 지표 표현형]] — Model Metrics·Residuals·Feature Importances 리소스가 참조하는 지표 표현형의 필드 상세.
 - [[Einstein Discovery — Model Builder·예측 모델]] — 이 REST가 다루는 Discovery 모델·prediction definition의 제품 개념.
 - [[Einstein Discovery REST — 개요·인증·예측 소비 흐름]] — 위 엔드포인트들의 실제 사용 예제(Ch1–2 인증·요청/응답 JSON).
+- [[Einstein Discovery REST — 요청 표현형 (Request Bodies)]] — 이 엔드포인트들이 소비하는 요청 바디(Input) 86종의 프로퍼티 전수.

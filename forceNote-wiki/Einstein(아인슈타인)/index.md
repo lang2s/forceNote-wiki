@@ -24,6 +24,11 @@ Einstein의 예측형(predictive)·처방형(prescriptive) AI 계열 — 코드 
 | [[Einstein Discovery REST — 모델 품질·편향 지표 표현형]] | Discovery 모델 품질 지표(회귀 MAE·RMSE·R²/분류 AUC·GINI·MCC·TP/FP/TN/FN)·라이브 지표·Training Metrics·편향/공정성(Disparate Impact·adverseRatio·Story Potential Bias)의 REST 응답 표현형 13종 | #reference |
 | [[Einstein Discovery REST — 개요·인증·예측 소비 흐름]] | Einstein Discovery REST(`/smartdatadiscovery/*`) 인증·Get Predictions·Prediction Definition/Model/Job/History 관리의 예측 소비 사용 흐름, 요청/응답 JSON 예제 | #pattern |
 | [[Einstein Discovery REST — 리소스 엔드포인트 레퍼런스]] | `/smartdatadiscovery/*` 리소스 32종(Model·Prediction Definition·Predict/Refresh Jobs·Predict History·Stories)의 URI·HTTP 메서드·파라미터·버전 레퍼런스 | #reference |
+| [[Einstein Discovery REST — 요청 표현형 (Request Bodies)]] | Discovery REST 요청 Input 표현형 86종(AI Model·Model Runtime·Predict·Story·Narrative Input 등)의 필드·타입·페이로드 구조 레퍼런스 | #reference |
+| [[Einstein Discovery REST — 응답 표현형 — 모델·필드·소스]] | 응답 Output 표현형 중 모델·필드·소스·변환·설정 계열의 구조·필드 레퍼런스 | #reference |
+| [[Einstein Discovery REST — 응답 표현형 — 예측·잡·내러티브]] | 응답 Output 표현형 중 예측·Prediction Definition·Job·History·Projected·Narrative 계열의 구조·필드 레퍼런스 | #reference |
+| [[Einstein Discovery REST — 응답 표현형 — 스토리·인사이트]] | 응답 Output 표현형 중 Story·Insights·Chart·Field Value 계열의 구조·필드 레퍼런스 | #reference |
+| [[Einstein Discovery REST — Enums]] | Discovery REST(`/smartdatadiscovery/*`) 요청·응답에 쓰이는 enum 64종의 허용 값 전수 레퍼런스 | #reference |
 
 ---
 
