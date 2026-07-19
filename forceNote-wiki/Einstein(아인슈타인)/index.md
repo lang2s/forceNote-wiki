@@ -22,6 +22,8 @@ Einstein의 예측형(predictive)·처방형(prescriptive) AI 계열 — 코드 
 | [[Next Best Action — Strategy Builder·Recommendations]] | 비즈니스 로직(전략)+예측 모델을 결합해 적시 맞춤 추천을 표면화하는 예측형 추천 엔진, Strategy Builder·Recommendation 객체 | #pattern |
 | [[Einstein Discovery — Model Builder·예측 모델]] | 통계 모델링·supervised ML로 예측(predictive)·처방(prescriptive)하는 CRM Analytics AI, "Story"→model 리브랜딩 | #pattern |
 | [[Einstein Discovery REST — 모델 품질·편향 지표 표현형]] | Discovery 모델 품질 지표(회귀 MAE·RMSE·R²/분류 AUC·GINI·MCC·TP/FP/TN/FN)·라이브 지표·Training Metrics·편향/공정성(Disparate Impact·adverseRatio·Story Potential Bias)의 REST 응답 표현형 13종 | #reference |
+| [[Einstein Discovery REST — 개요·인증·예측 소비 흐름]] | Einstein Discovery REST(`/smartdatadiscovery/*`) 인증·Get Predictions·Prediction Definition/Model/Job/History 관리의 예측 소비 사용 흐름, 요청/응답 JSON 예제 | #pattern |
+| [[Einstein Discovery REST — 리소스 엔드포인트 레퍼런스]] | `/smartdatadiscovery/*` 리소스 32종(Model·Prediction Definition·Predict/Refresh Jobs·Predict History·Stories)의 URI·HTTP 메서드·파라미터·버전 레퍼런스 | #reference |
 
 ---
 

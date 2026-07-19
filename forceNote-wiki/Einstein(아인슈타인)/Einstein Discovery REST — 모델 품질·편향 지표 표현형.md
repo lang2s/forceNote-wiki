@@ -217,6 +217,8 @@ A story query diagnostic insights.
 
 ## 관련 노트
 
+- [[Einstein Discovery REST — 개요·인증·예측 소비 흐름]] — 이 지표들이 등장하는 예측·model metrics 응답을 요청·조회하는 REST 사용 흐름. 같은 폴더 형제.
+- [[Einstein Discovery REST — 리소스 엔드포인트 레퍼런스]] — 이 지표 표현형을 반환하는 Model Metrics·Residuals·Feature Importances 리소스의 URI·메서드·파라미터.
 - [[Einstein Discovery — Model Builder·예측 모델]] — 이 지표들이 평가하는 Discovery 모델(개념·저작). 같은 폴더 형제.
 - [[CRM Analytics REST API — 개요·인증·asset 엔드포인트 지도]] — Einstein Discovery REST는 CRM Analytics/BI REST 계열의 형제 가이드.
 - [[ConnectApi CdpMachineLearning — Data 360 ML 예측]] — 예측 소비 Apex(별개 계열: Data 360 `CdpMl` vs Einstein Discovery `SmartDataDiscovery`). disambiguation.
