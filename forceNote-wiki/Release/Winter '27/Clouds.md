@@ -4,12 +4,12 @@ api_version: v68.0
 release_date: 2026-10
 created: 2026-08-25
 source: help.salesforce.com Salesforce Winter '27 Release Notes (release=264, Tier 2)
-aliases: [Winter '27 Clouds, 윈터27 클라우드, Agentforce Sales, Agentforce Revenue Management, Agentforce Commerce, Agentforce Contact Center, Partner Contact Center, Service Assistant 동적 서비스 플랜, Knowledge Blocks, Workforce Management, Marketing Cloud Next, Data 360 Engagement Timeline, Loyalty Management Winter 27, Industries Winter 27, 15000 line items]
+aliases: [Winter '27 Clouds, 윈터27 클라우드, Agentforce Sales, Agentforce Revenue Management, Agentforce Commerce, Agentforce Contact Center, Partner Contact Center, Service Assistant 동적 서비스 플랜, Knowledge Blocks, Workforce Management, Marketing Cloud Next, Data 360 Engagement Timeline, Loyalty Management Winter 27, Industries Winter 27, 15000 line items, Agentforce IT Service, IT Service Management, ITSM Winter 27, 아이티 서비스, Hardware Asset Management, HAM, IT Asset Management, ITAM, CMDB Service Graph, Dynamic Discovery Splunk, IT Compliance, Employee Services 포털, Broadcast Communications, Incident Owner, Assigned User API 불가, Assigned Group 공개 그룹]
 ---
 
 # Winter '27 — Clouds (Sales · Revenue · Service · Commerce · Marketing · Analytics · Data 360 · Industries 등)
 
-> Winter '27(v68.0) 클라우드 영역 **988페이지 중 266페이지만 전문 추출**했고 나머지 **722페이지는 제목만** 확보했다 — 이 노트는 두 계층을 **끝까지 분리해** 적는다. 상세 계층의 핵심은 대규모 제품 리브랜드(Sales Cloud→Agentforce Sales 등), Revenue의 15,000 라인 대형 트랜잭션, Service Assistant 동적 서비스 플랜, Workforce Management 전면 확장이다.
+> Winter '27(v68.0) 클라우드 영역 **988페이지 중 317페이지를 전문 추출**했고 나머지 **671페이지는 제목만** 확보했다 — 이 노트는 두 계층을 **끝까지 분리해** 적는다. 상세 계층의 핵심은 대규모 제품 리브랜드(Sales Cloud→Agentforce Sales 등), Revenue의 15,000 라인 대형 트랜잭션, Service Assistant 동적 서비스 플랜, Workforce Management 전면 확장, **Agentforce IT Service 51페이지 전수**다.
 
 ---
 
@@ -19,21 +19,21 @@ Winter '27 릴리즈 노트의 Clouds 영역은 **988페이지**다. 이 노트�
 
 | 계층 | 페이지 수 | 이 노트에 실린 것 | 이 노트에 **없는** 것 |
 |---|---|---|---|
-| **Tier 상세** (전문 추출) | **266** (배치1 133 + 배치2 133) | 기능 설명 + Where(에디션·라이선스) + How(Setup 경로) + Who(권한 세트) + When(가용 시점) | — |
-| **Tier 랜딩요약** (부모 허브가 담은 자식 요약) | **약 229** — 아래 722의 **부분집합**(합계에 따로 더하지 않는다) | **1~3문장 설명뿐.** 리프 페이지는 미추출이지만 **부모 허브 페이지가 자식 요약을 본문에 담고 있어** 그 요약은 확보됐다 — 아래 클라우드별 상세 섹션에 실려 있다 | **Where(에디션·라이선스)·How(Setup 경로)·Who(권한)·When(가용 시점) 전부 없음** |
-| **Tier 제목만** (미추출) | **722** | **릴리즈 노트 제목과 page id뿐** (그중 약 229건은 위 랜딩요약도 함께 확보) | 랜딩요약조차 없는 나머지는 본문·에디션·Setup 경로·권한·가용 시점 **전부 없음** |
-| 합계 | **988** (266 + 722) | | |
+| **Tier 상세** (전문 추출) | **317** (배치1 133 + 배치2 133 + Agentforce IT Service 51) | 기능 설명 + Where(에디션·라이선스) + How(Setup 경로) + Who(권한 세트) + When(가용 시점) | — |
+| **Tier 랜딩요약** (부모 허브가 담은 자식 요약) | **약 229** — 아래 671의 **부분집합**(합계에 따로 더하지 않는다) | **1~3문장 설명뿐.** 리프 페이지는 미추출이지만 **부모 허브 페이지가 자식 요약을 본문에 담고 있어** 그 요약은 확보됐다 — 아래 클라우드별 상세 섹션에 실려 있다 | **Where(에디션·라이선스)·How(Setup 경로)·Who(권한)·When(가용 시점) 전부 없음** |
+| **Tier 제목만** (미추출) | **671** | **릴리즈 노트 제목과 page id뿐** (그중 약 229건은 위 랜딩요약도 함께 확보) | 랜딩요약조차 없는 나머지는 본문·에디션·Setup 경로·권한·가용 시점 **전부 없음** |
+| 합계 | **988** (317 + 671) | | |
 
-> **"약 229"의 성격:** 원문이 밝힌 수치가 아니라 **이 노트의 상세 섹션 ↔ 카탈로그 page id를 대조해 센 값**이다. 어떤 블록이 랜딩요약 계층인지는 각 섹션에 붙은 **`랜딩 요약(리프 미추출)`** 표시로 판단한다.
+> **"약 229"의 성격:** 원문이 밝힌 수치가 아니라 **이 노트의 상세 섹션 ↔ 카탈로그 page id를 대조해 센 값**이다. 어떤 블록이 랜딩요약 계층인지는 각 섹션에 붙은 **`랜딩 요약(리프 미추출)`** 표시로 판단한다. **Agentforce IT Service 51건은 이 229에 포함되지 않는다** — 이 노트가 그 51건의 랜딩요약을 갖고 있던 적이 없고(허브 요약은 [[Winter '27/Agentforce]] 소관이었다) 지금은 아예 Tier 상세로 올라갔으므로, 제목 계층이 722→671로 줄어도 **229는 그대로다**.
 
 > [!warning] 제목만 있는 항목을 상세 항목처럼 읽지 말 것
-> 아래 **클라우드별 상세 섹션**(`## Sales` ~ `## 그 밖의 영역`)의 내용 중 **`랜딩 요약(리프 미추출)`으로 표시되지 않은 것만** Where/How 수준의 근거가 있다. `랜딩 요약` 표시가 붙은 블록은 **부모 허브가 담은 1~3문장 설명뿐**이고 에디션·Setup 경로·권한·가용 시점이 없다. 아래 **`## 제목 카탈로그 — 미추출 722건`** 섹션의 항목은 원칙적으로 *"이런 제목의 변경이 있었다"* 이상을 말하지 않는다 — **단 그중 약 229건은 위 상세 섹션에 랜딩 요약이 함께 실려 있으므로, 카탈로그에서 제목을 찾았으면 상세 섹션도 한 번 찾아보는 편이 낫다.** 카탈로그 항목에 대해 에디션·설정 절차·동작을 추정해 채우지 않았고, 읽는 쪽에서도 추정하면 안 된다. 확인이 필요하면 page id로 원문을 다시 열어야 한다(`https://help.salesforce.com/s/articleView?id=release-notes.<page_id>.htm&language=en_US&release=264&type=5`).
+> 아래 **클라우드별 상세 섹션**(`## Sales` ~ `## 그 밖의 영역`)의 내용 중 **`랜딩 요약(리프 미추출)`으로 표시되지 않은 것만** Where/How 수준의 근거가 있다. `랜딩 요약` 표시가 붙은 블록은 **부모 허브가 담은 1~3문장 설명뿐**이고 에디션·Setup 경로·권한·가용 시점이 없다. 아래 **`## 제목 카탈로그 — 미추출 671건`** 섹션의 항목은 원칙적으로 *"이런 제목의 변경이 있었다"* 이상을 말하지 않는다 — **단 그중 약 229건은 위 상세 섹션에 랜딩 요약이 함께 실려 있으므로, 카탈로그에서 제목을 찾았으면 상세 섹션도 한 번 찾아보는 편이 낫다.** 카탈로그 항목에 대해 에디션·설정 절차·동작을 추정해 채우지 않았고, 읽는 쪽에서도 추정하면 안 된다. 확인이 필요하면 page id로 원문을 다시 열어야 한다(`https://help.salesforce.com/s/articleView?id=release-notes.<page_id>.htm&language=en_US&release=264&type=5`).
 >
 > 카탈로그의 제목 일부는 소스 목록에서 `...`로 잘려 있다. **자르지 않고 원문 그대로** 옮겼으므로, `...`로 끝나는 제목은 그 자체가 불완전한 상태다.
 
 ### Tier 상세 안에서도 부분 추출인 페이지 4개
 
-전문 추출된 266페이지 중 **아래 4개는 소스 덤프가 앞부분만 담고 절단됐다**(앞 3개는 원문이 너무 길고 반복적이어서, 네 번째는 월별 change log stub 지점에서). 이 노트에서도 전수가 아니다.
+전문 추출된 317페이지 중 **아래 4개는 소스 덤프가 앞부분만 담고 절단됐다**(앞 3개는 원문이 너무 길고 반복적이어서, 네 번째는 월별 change log stub 지점에서). 이 노트에서도 전수가 아니다. (**Agentforce IT Service 51페이지는 절단 없이 전수 확보**됐다 — 실패 0·차단 0.)
 
 | page id | 원문 크기 | 상태 |
 |---|---|---|
@@ -42,17 +42,17 @@ Winter '27 릴리즈 노트의 Clouds 영역은 **988페이지**다. 이 노트�
 | `rn_fieldservice_mobile_patch_notes` — Field Service Mobile Monthly Patch Notes | **17,344자** | 동일. **앞부분 약 1,800자만 확보** |
 | `rn_communications_cloud` — Communications (Industries 랜딩) | **≥1,921자** (절단 지점까지만 확인) | 덤프가 `[truncated at ~1,921 chars total; remaining content is the monthly change log stub]` 로 끝난다. **산업 축 요약(Agentforce for Enterprise Quoting · Communications Insights · Enterprise Sales Management · Revenue Cloud for Communications)은 확보**됐고 잘린 나머지는 **Communications Release Note Changes by Month(월별 change log) stub** 이라 기능 정보 손실은 사실상 없다 |
 
-### 특별 경고 — Agentforce IT Service(`rn_it_*`) 51페이지는 제목만 있다
+### Agentforce IT Service(`rn_it_*`) 51페이지 — 전수 추출 완료 (구 최대 공백)
 
-**Agentforce IT Service는 이번 릴리즈에서 상당한 규모의 제품 영역인데, 51페이지 전부가 제목 계층에 있다.** [[Winter '27/Agentforce]] 노트는 `rn_agentforce_it` **허브 페이지**만 추출해 하위 9개 섹션의 *허브 요약*을 실었고, "실제 기능은 하위 섹션에 있으나 그 노트의 추출 범위 밖"이라고 명시한 뒤 이쪽을 가리킨다. 그런데 이 노트가 확보한 것도 **그 하위 섹션들의 제목뿐**이다.
+**이 51페이지는 더 이상 제목 계층이 아니다.** `rn_it_service_*` 19 + `rn_it_srvcs_*` 32 = **51페이지 전부를 본문까지 추출**해 아래 **`## Agentforce IT Service`** 절에 실었다. 이전 판이 이 자리에 적었던 *"기능 상세는 위키 어디에도 없다"* 는 서술은 **폐기됐다**.
 
 | 구분 | 상태 |
 |---|---|
-| `rn_agentforce_it` 허브 (9개 하위 섹션 요약) | [[Winter '27/Agentforce]]에 있음 |
-| `rn_it_service_*` (19페이지) + `rn_it_srvcs_*` (32페이지) = **51페이지** | **제목만** — 아래 카탈로그 |
-| 결론 | **Agentforce IT Service의 기능 상세는 위키 어디에도 없다** |
+| `rn_agentforce_it` 허브 (9개 하위 섹션 요약) | [[Winter '27/Agentforce]]에 있음 (상위 라우팅 전용) |
+| `rn_it_service_*` (19페이지) + `rn_it_srvcs_*` (32페이지) = **51페이지** | **본문 전수(Tier 상세)** — 이 노트 `## Agentforce IT Service` 절 |
+| 결론 | **Agentforce IT Service 기능 상세의 단일 출처 = 이 노트의 해당 절** |
 
-> **백로그 후보:** Agentforce IT Service 51페이지 전문 추출. 단일 제품 영역으로 미추출 분량이 가장 크고(722건 중 51건), 상위 노트가 이미 이쪽을 가리키고 있어 링크가 실질 내용에 닿지 않는 상태다. Service Management · IT Asset Management · CMDB/Service Graph · Discovery · IT Compliance · AI for IT Teams · Collaboration Channels · Self-Service · Broadcast and Notifications 9개 축이 모두 미커버.
+> **이 51건이 다른 상세 항목과 다른 점 두 가지:** ① **GA·Beta·Pilot·Developer Preview·Release Update 마커가 51건 전체에 하나도 없다**(원문에 없는 것이지 추출 유실이 아니다). ② **에디션이 id 계열마다 갈린다** — `rn_it_service_*`는 Enterprise·Unlimited·**Developer**, `rn_it_srvcs_*`는 Enterprise·**Performance**·Unlimited(반례 1건). 근거는 해당 절 참조.
 
 ---
 
@@ -99,9 +99,9 @@ Winter '27 릴리즈 노트의 Clouds 영역은 **988페이지**다. 이 노트�
 
 ### 등급 마커 일람 — 계층별로 분리
 
-**Tier 상세(266p) 안에서 확인된 마커 전수**와, **제목에 마커가 박혀 있어 제목만으로도 등급을 알 수 있는 항목**을 나눠 적는다. 제목 계층 722건 중 마커가 제목에 없는 항목의 등급은 **알 수 없다**.
+**Tier 상세(317p) 안에서 확인된 마커 전수**와, **제목에 마커가 박혀 있어 제목만으로도 등급을 알 수 있는 항목**을 나눠 적는다. 제목 계층 671건 중 마커가 제목에 없는 항목의 등급은 **알 수 없다**. **Agentforce IT Service 51페이지는 본문까지 확보했는데도 마커가 0건**이라 아래 어느 표에도 오르지 않는다 — 그 절의 `### 등급 마커` 항목 참조.
 
-**A. Tier 상세(266p) — 본문까지 확인된 마커**
+**A. Tier 상세(317p) — 본문까지 확인된 마커**
 
 | 등급 | 항목 | 영역 |
 |---|---|---|
@@ -132,9 +132,9 @@ Winter '27 릴리즈 노트의 Clouds 영역은 **988페이지**다. 이 노트�
 | **Beta** | Embed Lightning Reports in Your Lightning Web Runtime Experience Cloud Sites (Beta) | `rn_rd_embed_reports_lwr` | Reports & Dashboards |
 | **Beta** | Show Only Matching Records Across Blocks in Joined Reports (Beta) | `rn_rd_joined_reports_show_common_rows` | Reports & Dashboards |
 
-> 네 건 모두 **제목 계층(722건)에도 등재**돼 있다. 매트릭스 행이 밝힌 활성화 방식은 이 노트에 옮기지 않았다 — 필요하면 `rn_feature_impact` 원문을 직접 봐야 한다.
+> 네 건 모두 **제목 계층(671건)에도 등재**돼 있다. 매트릭스 행이 밝힌 활성화 방식은 이 노트에 옮기지 않았다 — 필요하면 `rn_feature_impact` 원문을 직접 봐야 한다.
 
-**B. Tier 제목만(722p) — 제목에 마커가 있는 항목 전수**
+**B. Tier 제목만(671p) — 제목에 마커가 있는 항목 전수**
 
 | 등급 | 제목 | page id |
 |---|---|---|
@@ -147,21 +147,22 @@ Winter '27 릴리즈 노트의 Clouds 영역은 **988페이지**다. 이 노트�
 | **Pilot** | Track Supplier Risk Across Your Multi-Tier Supply Chain | `rn_supply_chain_resiliency_pilot` |
 | **Beta 은퇴** | Work Summaries for Case (Beta) Is Being Retired | `rn_work_summaries_case_beta_retirement` |
 
-> 나머지 **708건의 등급은 미상**이다. 제목에 마커가 없다고 GA인 것도 아니고 Beta가 아닌 것도 아니다.
+> 나머지 **657건의 등급은 미상**이다(제목 계층이 722→671로 줄면서 708에서 51 감소 — 빠져나간 51건은 위 어느 마커 표에도 없던 항목이다). 제목에 마커가 없다고 GA인 것도 아니고 Beta가 아닌 것도 아니다.
 
 ### 구조 맵
 
 ```text
 // 구조 예시 — 실제 동작 코드 아님 (Winter '27 Clouds 영역 커버리지 지도)
 Winter '27 Clouds 영역 (988 페이지)
-├── Tier 상세 266p ─ 이 노트의 "## <클라우드>" 섹션들
+├── Tier 상세 317p ─ 이 노트의 "## <클라우드>" 섹션들
 │   ├── Sales            Revenue          Service(+FieldService·Voice·Knowledge)
 │   ├── Commerce         Marketing        Analytics         Data 360
 │   ├── Industries       MuleSoft         Slack             Loyalty·RTOM·Referral
-│   └── 기타(Partner Cloud·AgentExchange·Suites·Scheduler·Advisements)
+│   ├── 기타(Partner Cloud·AgentExchange·Suites·Scheduler·Advisements)
+│   └── Agentforce IT Service(rn_it_* 51p, 허브 9 + 리프 42)
 │
-├── Tier 제목만 722p ─ 이 노트의 "## 제목 카탈로그" 섹션
-│   └── 최대 클러스터: rn_it_*  Agentforce IT Service  51p  ← 백로그 1순위
+├── Tier 제목만 671p ─ 이 노트의 "## 제목 카탈로그" 섹션
+│   └── rn_it_* 51p는 여기서 빠져나가 Tier 상세로 이동 (2026-08 추출 완료)
 │
 └── 소관 밖(위임)
     ├── Release Update 강제 시점 ......... [[Winter '27/Release Updates]]
@@ -402,7 +403,7 @@ Winter '27 Sales에서 분량이 가장 큰 축이다. 원문 논리: Salesforce
 
 ## Service
 
-> Service 랜딩 페이지가 나열한 축: **Contact Center · Agentforce IT Service · AI Agents for Service Cloud · AI Solutions for Service · Case Management · Entitlements and Milestones · HR Service · Knowledge · Self Service**. 이 중 **Agentforce IT Service는 하위 51페이지 전부가 제목 계층**이라 이 노트에는 상세가 없다(위 특별 경고 참조).
+> Service 랜딩 페이지가 나열한 축: **Contact Center · Agentforce IT Service · AI Agents for Service Cloud · AI Solutions for Service · Case Management · Entitlements and Milestones · HR Service · Knowledge · Self Service**. 이 중 **Agentforce IT Service는 51페이지 전수를 본문까지 확보**해 바로 아래 **`## Agentforce IT Service`** 절에 따로 실었다(분량이 커서 이 절에 넣지 않았다).
 
 ### Contact Center — 두 갈래로 갈라진 구조
 
@@ -573,6 +574,234 @@ Winter '27에서 Service Assistant가 **케이스 전용 → 메시징 세션 �
 2. **Workforce Management 21건 전면 확장** — 스킬 기반 workload·capacity plan, Scheduling Agent, 실시간 adherence + **AI workforce 행**.
 3. **Knowledge Blocks(모듈형 재사용 콘텐츠)** + 커스텀 프롬프트 기반 문서 생성 + Knowledge Similarity.
 4. **Contact Center 2제품 분리**(Agentforce Contact Center vs Partner Contact Center) + Amazon Connect Customer **opt-in 전환(2.1배 과금)**.
+
+---
+
+## Agentforce IT Service
+
+> **이 절은 51페이지 전문(全文) 추출분이다 — 제목 계층이 아니다.** `rn_it_service_*` **19**페이지 + `rn_it_srvcs_*` **32**페이지 = **51**페이지를, 소스의 **허브 9 + 리프 42** 구조 그대로 옮겼다. [[Winter '27/Agentforce]]에는 상위 `rn_agentforce_it` 허브가 쓴 9개 축 요약만 있고, **기능 상세(Where·Who·How)는 이 절이 위키 안의 단일 출처**다.
+
+```text
+// 구조 예시 — 실제 동작 코드 아님 (Agentforce IT Service 51페이지 = 허브 9 + 리프 42)
+Agentforce IT Service (51p)
+├── Service Management            rn_it_service_svcmgmt                        13p (허브+12)
+├── IT Asset Management           rn_it_srvcs_asset_management_parent          10p (허브+9)
+├── IT Compliance                 rn_it_service_it_compliance                   6p (허브+5)
+├── Self-Service                  rn_it_srvcs_self_service_parent               5p (허브+4)
+├── Broadcast and Notifications   rn_it_srvcs_broadcast_notifications_parent    5p (허브+4)
+├── Collaboration Channels        rn_it_srvcs_collaboration_parent              4p (허브+3)
+├── Discovery for CMDB & SG       rn_it_srvcs_discovery_overview                3p (허브+2)
+├── AI for IT Teams and Employees rn_it_srvcs_agentforce_parent                 3p (허브+2)
+└── CMDB & Service Graph          rn_it_srvcs_cmdb_overview                     2p (허브+1)
+                                                                          합계  51p
+```
+
+> **소스의 배치 quirk를 그대로 둔다:** CMDB & Service Graph 허브(`rn_it_srvcs_cmdb_overview`)는 자식을 **1건**(Enhanced List Views)만 요약한다. id에 `cmdb`가 들어 있는 `rn_it_srvcs_cmdb_dynamic_discovery`와 `rn_it_srvcs_new_obj_discovery`는 **Discovery 허브 아래**에 요약돼 있다. id 접두어로 묶으면 CMDB가 3건처럼 보이지만 **원문의 실제 소속은 CMDB 2건 / Discovery 3건**이다. 정리하지 않고 원문 배치를 따랐다.
+
+### 등급 마커 — 이 51페이지 전체에 하나도 없다
+
+**51페이지의 제목과 본문 전체를 대소문자 무시로 훑은 결과 `GA` / `Generally Available` / `Beta` / `Pilot` / `Developer Preview` / `Release Update` 문자열이 0건이다.** 추출 과정에서 마커가 유실된 것이 아니라 **원문에 애초에 없다**. 따라서 이 51건의 등급은 *"마커가 없다"* 는 사실까지가 확인된 전부이고, 그 이상(전부 GA다 / 전부 정식 기능이다)을 단정하면 안 된다.
+
+> 이 노트 상단 **`### 등급 마커 일람`** 의 A·A-2·B 표에 이 51건이 한 건도 올라가지 않는 이유가 이것이다. 다른 영역과 달리 **본문까지 확보했는데도** 마커가 없는 케이스이므로, "제목만 있어서 등급 미상"인 항목들과는 성격이 다르다.
+
+### 에디션 — 두 id 계열이 서로 다르다 (한 줄로 합칠 수 없다)
+
+51페이지 중 **Where 문장이 있는 것은 41페이지**다(나머지 10 = 허브 9 + 리프 `rn_it_srvcs_new_obj_discovery` 1 — 원문에 Where 문장 자체가 없다). 그 41을 계열별로 집계하면 아래와 같다. **Developer와 Performance가 계열마다 갈리므로 "Enterprise·Unlimited·Developer·Performance" 같은 통합 한 줄로 쓰면 오답이 된다.**
+
+| id 계열 | Where 있는 페이지 | 에디션 | 예외 |
+|---|---|---|---|
+| `rn_it_service_*` | **17** | **Enterprise · Unlimited · Developer** (17/17, 예외 없음) | — |
+| `rn_it_srvcs_*` | **24** | **Enterprise · Performance · Unlimited** (23/24) | **`rn_it_srvcs_knowledge_generation` 1건만 Enterprise · Unlimited · Developer** — 계열 규칙의 유일한 반례이므로 이 페이지의 에디션을 계열로 추론하면 틀린다 |
+| Where 문장 없음 | **10** | 허브 9 + `rn_it_srvcs_new_obj_discovery` — 원문에 Where 자체가 없다 | 에디션 **미상**(추정 금지) |
+
+> 결과적으로 **한 하위 축 안에서도 에디션이 갈린다.** 예: *AI for IT Teams and Employees* 는 자식 2건 중 `rn_it_service_customizable_ai_actions`가 Developer, `rn_it_srvcs_agentforce_automate_file_analysis`가 Performance다. *Self-Service* 도 자식 4건 중 `rn_it_srvcs_knowledge_generation` 하나만 Developer다. 축 단위로 에디션을 뭉뚱그리면 안 된다.
+
+**제품 조건 문구도 세 갈래로 갈린다** (Where 문장에 박힌 표현 그대로):
+
+| 원문 표현 | 건수 | 해당 계열 |
+|---|---|---|
+| *with Agentforce IT Service **Management*** | **9** | 전부 `rn_it_service_*` |
+| *with Agentforce IT Service* | **17** | `rn_it_srvcs_*` 중심 |
+| *with the Agentforce IT Service **add-on*** | **6** | 전부 `rn_it_srvcs_*` (HAM 계열) |
+| 제품 조건 문구 없이 에디션 + 별도 요건만 | **9** | Service Request 3건 · Compliance 4건 · Notification 2건 |
+
+### ⚠️ 활성화 전제 — Setup 토글 하나로 되는 기능이 거의 없다
+
+이 영역은 **게이트가 겹겹이 쌓인 구조**다. add-on 라이선스 · 선행 기능 활성화 · 권한 세트 라이선스(PSL) · 권한 세트 그룹(PSG) · 사용자 권한 · 사이트 템플릿이 조합으로 걸린다. 아래는 **Where·Who·How 문장에 명시된 것만** 옮긴 표다(문장에 없는 요건은 채우지 않았다).
+
+| page id | 기능 | 명시된 전제 조건 |
+|---|---|---|
+| `rn_it_srvcs_agentforce_ham` | Automate Hardware Lifecycles with Agentforce | **이 세트에서 가장 게이트가 많다.** Agentforce IT Service **add-on** · 포털 AI 기능은 **AI Agent for Employees add-on**(Enterprise·Unlimited에서 제공) · Agentforce를 켜려면 **Manage AI Agents 또는 Customize Application** 권한 · HAM 설정에 접근하려면 **Inventory Management · Inventory Count · Inventory Replenishment · Data Cloud를 먼저 켜야 한다** · 직원이 포털 AI 기능을 쓰고 요청을 올리려면 **AI for Employee Portal 권한 세트 라이선스** 부여 + **Use AI in Employee Portal** 사용자 권한 + **ITAM for Community Users** 및 **ITAM UEL** 권한 세트 부여 |
+| `rn_it_srvcs_cmdb_dynamic_discovery` | Dynamic Discovery for Splunk | **Salesforce CMDB & Service Graph** 와 **Asset Discovery** 가 **둘 다** 활성 + **CMDB Enterprise add-on** 도 필요 + 타깃 생성·구성에 **IT Service Asset Discovery 권한 세트 그룹** |
+| `rn_it_srvcs_cmdb_cienhanced_list` | Enhanced CI List Views | **Salesforce CMDB & Service Graph** 활성 + **CMDB 권한 세트 아무거나** 있으면 사용자가 직접 목록 뷰 구성 가능 |
+| `rn_it_service_cmpl_tableau_dashboards` | Prebuilt IT Compliance Dashboards in Tableau | **IT Service Compliance Analytics 권한 세트 라이선스** |
+| `rn_it_service_cmpl_automated_evidence_collection` | Automated Evidence Collection | **Evidence Management** 활성 |
+| `rn_it_service_cmpl_controls_coverage` | Controls Coverage | **Control Management** 와 **Agentforce** 가 활성 |
+| `rn_it_service_cmpl_ai_policy_authoring` | AI Policy Authoring | **Policy Management** 와 **Agentforce** 가 활성 |
+| `rn_it_service_cmpl_bulk_clause_status` | Bulk Clause Status Update | **Regulation Management** 와 **Policy Management** 가 활성 |
+| `rn_it_srvcs_notifications_custom_related_objects` | 커스텀 오브젝트·관련 레코드 알림 | **Multi-Channel Notification add-on 라이선스** + **Notifications Designer** 권한 세트 |
+| `rn_it_srvcs_interactive_agent_notifications` | Interactive Agent Notifications | **Multi-Channel Notification add-on 라이선스** + **Notifications Designer** 권한 세트 (전달 채널은 Slack) |
+| `rn_it_srvcs_broadcast_communications` | Broadcast Communications | **BroadcastCommsSender 권한 세트 라이선스**를 인시던트·변경 fulfiller에게 부여 |
+| `rn_it_service_incident_privilege_entitlement` | VIP 엔타이틀먼트 자동 할당 | **Person Accounts가 조직에 활성화돼 있어야 한다** + 특권 부여·해제에 **Assign Service Management Privilege User** 권한 |
+| `rn_it_srvcs_autonomous_sourcing` | AI Sourcing Recommendations | Agentforce IT Service **add-on** + **Manage Inventory · Customize Application · Manage Agents** 권한 + Setup에서 **Hardware Asset Management 켜기 → Generative AI 활성화 → sourcing agent preference 켜기** |
+| `rn_it_srvcs_bulk_offboarding` | Bulk Reclamation | Agentforce IT Service **add-on** + 리스트뷰·CSV 오프보딩 실행에 **Hardware Asset Management - Asset Manager** 권한 |
+| `rn_it_srvcs_asset_status_mappings` | Asset Status Mappings | 상태 매핑 규칙 구성에 **Hardware Asset Management - Asset Manager** 권한, 커스텀 자산 상태 생성에 **Customize Application** 권한 |
+| `rn_it_srvcs_asset_eligibility_framework` | IT Hardware Asset Scope 강제 | 라이프사이클 작업 실행에 **Hardware Asset Management 권한 세트** — 원문 예시는 **Asset Manager · Inventory Manager · IT Fulfiller** |
+| `rn_it_srvcs_fast_path_sourcing` | Fast Path 이행 | **Hardware Asset Management 조직** + Agentforce IT Service **add-on** (별도 Who 문장 없음) |
+| `rn_it_srvcs_fulfillment_component` | Fulfillment 컴포넌트 | Agentforce IT Service **add-on** (별도 Who 문장 없음) |
+| `rn_it_srvcs_return_reminders` | 자동 반납 리마인더 | Agentforce IT Service **add-on** (별도 Who 문장 없음 — How는 서비스 요청·반납 주문 양쪽의 기본 알림 템플릿과 SLA 구성) |
+| `rn_it_srvcs_portal_tailor_pages`<br>`rn_it_srvcs_portal_ticket_comments_feed`<br>`rn_it_srvcs_portal_language_selector` | Employee Services 포털 3건 | **Agentforce Employee Center 템플릿을 쓰는** Employee Services 포털 사이트에서만 제공. 다른 템플릿의 사이트는 대상이 아니다 |
+| `rn_it_service_svcreq_omnichannel`<br>`rn_it_service_svcreq_stagemgmt`<br>`rn_it_service_svcreq_path_card` | Service Request 3건 | **IT Service Management + (IT Asset Management 또는 Employee Service)** 조합이 필요 |
+
+> **표에 없는 나머지 페이지**는 Where 문장의 에디션·제품 조건 외에 별도 Who/전제가 원문에 없다. "게이트가 없다"가 아니라 **원문이 밝히지 않았다**는 뜻이다.
+
+### ⚠️ 파괴적 변경 — Assigned User 필드가 API에서 사라진다 (`rn_it_service_simplified_incident_ownership`)
+
+> [!warning] 기존 통합이 조용히 깨질 수 있는 변경
+> **Winter '26 이후에 생성된 신규 조직**에서는 레거시 **Assigned User** 필드가 **기본적으로 숨겨지고, 게다가 API로도 접근할 수 없다**(*"hidden by default and it's also inaccessible via API"*). 원문은 **기존 통합을 Incident Owner로 옮기라**고 명시한다. Assigned User를 읽거나 쓰는 외부 시스템·미들웨어는 신규 조직에서 필드를 찾지 못한 채 실패하며, UI에서만 보면 원인이 드러나지 않는다.
+>
+> **기존 조직**은 Assigned User를 계속 쓸 수 있으나, 원문은 향후 구현에서 새 모델로 전환할 것을 **권고**한다(강제는 아니다).
+
+새 소유권 모델은 두 필드로 갈린다.
+
+| 필드 | 용도 | Winter '27 변경 |
+|---|---|---|
+| **Incident Owner** | 개인 소유권. 원문은 이 필드로 **개별 사용자 또는 큐**에 인시던트를 배정하라고 한다 | 큐 기반 라우팅의 창구로 정리됨 |
+| **Assigned Group** | 그룹(팀) 소유권 | **이제 공개 그룹(public group)만 받는다 — 큐(queue)는 받지 않는다.** 큐 기반 라우팅(Incident Owner)과 팀 단위 작업 배정(Assigned Group)의 구분을 유지하기 위한 변경 |
+| **Assigned User** (레거시) | 구 개인 배정 필드 | 신규 조직에서 숨김 + **API 접근 불가** / 기존 조직은 사용 가능하되 전환 권고 |
+
+> 큐와 공개 그룹의 차이가 이 변경의 핵심이다 — [[Queues (큐)]] · [[Public Groups (공개 그룹)]] 참조.
+
+### Service Management (13p — 허브 `rn_it_service_svcmgmt` + 12)
+
+> 허브 요약: 서비스 데스크 운영을 최적화해 IT 팀이 **고가치 사용자를 우선 처리**하고, **이메일과 코멘트로 인시던트를 더 빨리 해결**하며, **서비스 요청 라이프사이클을 관리**하고, **콘솔 향상으로 종합적 인사이트**를 얻게 한다.
+
+에디션은 자식 12건 중 **11건이 Enterprise·Unlimited·Developer**(`rn_it_service_*`), **1건(`rn_it_srvcs_proactive_svc_ops`)만 Enterprise·Performance·Unlimited**다.
+
+| 기능 (page id) | 내용 | 근거로 확보된 것 |
+|---|---|---|
+| **Proactive Service Operations** — 고객 서비스와 IT 서비스 연결<br>`rn_it_srvcs_proactive_svc_ops` | IT Service Management와 Customer Service Management를 연결해 고객 서비스↔IT 팀 사이의 가시성 공백을 없앤다. 고객이 신고하기 **전에** 고객 영향 인시던트·예정된 변경을 서비스 렙이 다룰 수 있게 한다. **Service Assistant의 AI 제안**으로 고객 케이스를 근본 인시던트에 연결하고, 인시던트·변경 요청에 대해 **CMDB 데이터로 영향받는 거래처·자산·고객을 자동 식별**한다. 브로드캐스트 업데이트로 고객에게 알려 인바운드 티켓량을 줄인다 | Where(E·P·U, Agentforce IT Service) · Why · How(케이스에서 Service Assistant 제안 또는 case-incident 위젯으로 인시던트 연결 / 인시던트·변경 요청에 CMDB의 configuration item을 추가해 영향 고객 노출 후 브로드캐스트 발송) |
+| **Ticket Comments**<br>`rn_it_service_ticket_comments` | 인시던트·서비스 요청에 **전용 티켓 코멘트**. 사람이 의도적으로 남긴 업데이트와 시스템 생성 활동을 분리해 AI 에이전트·요청자·감사자·IT 렙에게 깔끔한 해결 서사를 남긴다. **리치 텍스트 · 파일 첨부 · 가시성 제어 · 1단계 스레딩** 지원 | Where(E·U·D, IT Service **Management**) · How(Comments 탭/패널에서 추가, **Public**(요청자에게 보임)/**Private**(내부 전용) 지정, 리치 텍스트·코드 스니펫 서식, 코멘트당 **다중 파일** 첨부, 새 코멘트 알림, 본인 코멘트 수정·삭제) |
+| **Email-to-Incident 강화**<br>`rn_it_service_email_to_incident_enhancements` | 이메일로 인시던트를 만들고 응답하는 흐름에 리치 HTML · 병합 필드 이메일 템플릿 · 자동 초안 저장 · 예약 발송 · 지능형 오류 처리 추가 | Where(E·U·D, IT Service Management) · Why(라우팅 주소별 기본 이메일 템플릿 + 인시던트 전용 병합 필드, 설명에 HTML·이미지 임베드, **초안 30초마다 자동 저장**, 답장 예약 발송, 동일 이메일 중복 탐지·폴백 큐 라우팅·한도 초과 시 동작 설정·발신자 allowlist·일시 오류 자동 재시도, **이메일 주소 검증이 이제 필수**, 외부 이메일 공급자 장애 시 자동 failover) · How(Setup > Email-to-Incident에서 `Display HTML email in incidents` · `Save unfinished replies as drafts` · `Notify external senders about processing errors` · `Place user signature above the latest email` · `Enable rich text for incident descriptions` 선택/해제, `Unauthorized sender action` · `Email rate limit exceeded action` · `Default incident owner` 값 지정) |
+| **VIP 엔타이틀먼트 자동 할당**<br>`rn_it_service_incident_privilege_entitlement` | VIP 같은 고우선 직원이 신고한 인시던트에 **엔타이틀먼트를 자동 부여**해 더 빠른 지원을 보장. 플로우가 신고 직원의 service management privilege를 확인하고 적절한 엔타이틀먼트를 적용한다. privilege가 **VIP로 태깅**돼 있으면 SLA 응답·해결 시간이 빨라진다 | Where(E·U·D, IT Service Management, **Person Accounts 필수**) · Who(Assign Service Management Privilege User 권한) · How(**Assign Incident Entitlement Based on Privilege** 템플릿으로 플로우 생성 → Update Incident 요소에서 부여할 Entitlement ID 지정 → 저장·활성화. 엔타이틀먼트 없는 인시던트가 생성·수정될 때 자동 실행) |
+| **Simplify Incident Ownership**<br>`rn_it_service_simplified_incident_ownership` | 위 **파괴적 변경 콜아웃** 참조 | Where(E·U·D, IT Service Management) · How(신규 조직 Assigned User 숨김·API 불가 등) |
+| **Console Enhancements**<br>`rn_it_service_console_enhancements` | 케이스·서비스 요청을 인시던트·문제·변경 요청에 연결해 **360도 고객 뷰**를 만든다. 변경 위험을 이력 데이터와 변경 특성으로 계산한 **정규화 위험 점수(1–100 스케일)** 로 비교해 동일 기준으로 우선순위를 매긴다 | Where(E·U·D, IT Service Management)만 — Why·How 없음 |
+| **Field History 리포팅·감사 추적**<br>`rn_it_service_console_history_reporting` | **Incident History · Service Request History · Problem History · Change Request History · Release History** 같은 객체로 필드 변경 감사 리포트를 만든다. 내부·규제 요건 준수 입증과 티켓이 정체되는 지점 파악에 쓴다 | Where(E·U·D, IT Service Management)만. *원문이 "such as"로 예시를 든 목록이므로 이 5개가 전부라는 뜻은 아니다* |
+| **Omni-Channel로 서비스 요청 라우팅**<br>`rn_it_service_svcreq_omnichannel` | 서비스 요청을 스킬·여력에 맞는 렙에게 자동 라우팅. **가이드형 설정 어시스턴트**로 큐 정의, 서비스 담당자 추가, 라우팅·프레즌스 설정을 몇 번의 클릭으로 구성 | Where(E·U·D, **IT Service Management + IT Asset Management 또는 Employee Service 필요**)만 |
+| **Stage Transitions로 서비스 요청 라이프사이클 관리**<br>`rn_it_service_svcreq_stagemgmt` | 각 요청이 **자체 태스크·전환·승인**을 가진 정의된 단계를 거치게 해 일관된 구조적 프로세스를 강제 | Where(E·U·D, 위와 동일 조합 요건)만 |
+| **Service Request에 Path + Employee Profile Card**<br>`rn_it_service_svcreq_path_card` | Service Request 레코드에 **Path 컴포넌트**로 단계와 상태 요건을 시각화. **Employee Profile Card**가 사이드바에 요청자 정보를 표시해 프로세스와 사람을 한 화면에서 본다 | Where(E·U·D, 위와 동일 조합 요건)만 |
+| **Dynamic Dashboards for IT Service**<br>`rn_it_service_dynamic_dashboards` | 사용자가 접근 권한을 가진 데이터만 자동으로 보여주는 **역할 기반 대시보드**. IT 매니저용(인시던트·문제·변경·릴리즈 전반의 추세·SLA 준수·팀 성과)과 fulfiller용(배정 업무·우선순위·해결 진척)을 구성하고, 운영형·개인화 fulfiller 뷰를 **Agentic IT Service Desk 앱** 홈에 추가 | Where(E·U·D, IT Service Management)만 |
+| **IT Leader Dashboard**<br>`rn_it_service_it_leader_dashboard` | 인시던트·변경 관리·CMDB 운영 지표를 하나의 경영진 뷰로 제공 | Where(E·U·D, IT Service Management) · Why(인시던트 지표 = **평균 해결 시간(MTTR) · SLA 준수율 · 메이저 인시던트 건수 · 직원 만족도**, 케이스 해결 지표와 SLA 준수, 변경 관리 효과 = **성공률 · 긴급 변경 · 인시던트를 유발한 변경**, **인시던트·문제 건수 기준 상위 configuration item** 검토) |
+
+### IT Asset Management (10p — 허브 `rn_it_srvcs_asset_management_parent` + 9)
+
+> 허브 요약: **Agentforce AI 에이전트**가 직원 문의·소싱 결정·폐기 정산을 대화형 인터페이스로 처리하는 하드웨어 라이프사이클 자동화. 감사 대응을 위해 모든 재고 변경을 **complete double-entry ledger**로 추적. **Fast Path 이행**으로 모든 액션을 한 페이지에 모으고, 자산 상태 매핑을 조직 프로세스에 맞게 커스터마이즈.
+
+자식 9건 **전부 `rn_it_srvcs_*` = Enterprise · Performance · Unlimited**이며, 6건은 **Agentforce IT Service add-on**을 명시한다.
+
+| 기능 (page id) | 내용 |
+|---|---|
+| **Automate Hardware Lifecycles with Agentforce**<br>`rn_it_srvcs_agentforce_ham` | 직원은 **Slack · Microsoft Teams · Agentforce Employee Portal**에서 자연어로 하드웨어를 요청하고 상태를 확인한다. 원문이 명시한 **전용 AI 에이전트 4종**:<br>· **Employee Asset Management Agent** — *"내 요청 상태는?"* · *"노트북 언제 도착해?"* 같은 자연어 질문을 분류하고 승인·배송 추적·배달 상세 데이터를 가져와 통합 제시<br>· **Sourcing Agent** — 승인된 하드웨어 요청의 최적 이행 경로를 **로컬 재고 → 내부 이전 → 외부 조달** 우선순위로 자율 판단. IT fulfiller는 **Guided Fulfillment 모드**로 Agentforce 패널에서 추천을 검토 후 배송·이전 확정<br>· **Disposal Certificate Agent** — 자산 관리자가 **PDF·JPG·PNG** 벤더 폐기 증명서를 채팅으로 업로드 → 에이전트가 파싱해 일련번호를 열린 폐기 주문과 대조 → **100% 일치면 Success Card**, 불일치면 **Exception Card**. 흔한 수정에는 human-in-the-loop 버튼, 복잡한 해결에는 **Reconciliation Hub 딥링크** 생성<br>· **User Attestation Agent** — 직원에게 대화형으로 접촉해 배정 자산의 **실물 보유 여부를 확인**, 설문 피로 없이 감사 리스크 감소<br>전제 조건은 위 **활성화 전제 표** 참조 (이 세트에서 게이트가 가장 많다) |
+| **IT Hardware Asset Scope 강제**<br>`rn_it_srvcs_asset_eligibility_framework` | 하드웨어 자산 라이프사이클 프로세스가 **적격 IT 하드웨어 자산에서만** 돌도록 울타리를 친다. 흩어진 검증 체크를 중앙 메커니즘으로 대체해 모든 워크플로·API에서 일관성을 확보하고, 비-하드웨어 도메인의 우발적 대량 수정을 막고 **태깅되지 않은 자산이 미터링을 우회하는 것을 차단**한다. Why: 중앙 검증이 표준 refresh·reclaim·disposal 플로우에 직접 통합돼 **대량 작업 중 부적격 레코드를 자동으로 건너뛰고 표시**한다 |
+| **Asset Status Mappings**<br>`rn_it_srvcs_asset_status_mappings` | 커스텀 자산 상태 값을 **표준 카테고리 · 재고 수량 · 라이프사이클 전환 · 검색 필터**에 중앙 Setup 인터페이스에서 매핑. 커스텀 코드 없이 각 상태가 재고 가용성·자동 상태 전환·자산 검색 필터에 어떻게 작용할지 정의. Why: 이전에는 재고 계산·라이프사이클 전환 같은 후속 기능이 **하드코딩된 상태**에 의존해 커스텀 상태를 매핑하려면 **복잡한 Metadata API 구성**이 필요했다 |
+| **AI Sourcing Recommendations**<br>`rn_it_srvcs_autonomous_sourcing` | Sourcing Agent가 **로컬 재고 먼저, 그다음 다른 위치로부터의 내부 이전** 순으로 엄격한 우선순위 평가(내부 이전은 **geocode 근접도**로 계산). **Guided Fulfillment 모드**에서는 Salesforce·Slack·Microsoft Teams의 Agentforce 패널로 추천을 검토하고 배송·이전을 수동 확정하며, fulfiller가 **기반 autolaunch 플로우를 커스터마이즈해 국경 간 로직을 강제**할 수도 있다. **자율 모드**에서는 구성된 기준을 충족하는 요청에 대해 에이전트가 **이행 주문을 자동 생성**한다. 연결 실패·예약 오류는 **Proactive Assistance 인터페이스**에 바로 표시 |
+| **Bulk Reclamation (대량 회수)**<br>`rn_it_srvcs_bulk_offboarding` | 퇴사 직원의 하드웨어 반납을 **단일 액션**으로 처리. 직원 레코드에서 시작하거나, 리스트 뷰에서 다중 선택하거나, **CSV 업로드로 비동기 배치 처리**. 직원은 기기별 개별 알림 대신 **모든 반납 대상 자산을 담은 통합 이메일 1통**을 받는다. 구조: 배치당 **부모 서비스 요청 1건**, 직원당 **자식 서비스 요청 1건 + 반납 주문 1건**(자산은 라인 아이템). 배치 처리 아키텍처가 **직원 100명 이상의 대규모 오프보딩**을 이전에 타임아웃을 유발하던 시스템 한도 없이 처리 |
+| **Fast Path — 서비스 요청에서 이행 처리**<br>`rn_it_srvcs_fast_path_sourcing` | **단일 stockroom 조직**에서는 서비스 요청이 처리 상태에 도달하면 **이행·반납 주문이 자동 생성**된다. 서비스 요청 페이지에서 라인 아이템 상세와 액션 버튼을 보고, 페이지 이동 없이 자산 추가·재고 할당·배송 표시·배달 확인. Why: 서비스 요청이 **Processing 또는 Fulfillment** 상태로 이동할 때 주문이 자동 생성돼 수동 소싱 개시가 불필요해진다. **Fast Path가 활성화되면 표준 Sourcing·Return Planning 버튼은 숨겨지거나 꺼져** 중복 워크플로를 방지한다 |
+| **Fulfillment 컴포넌트**<br>`rn_it_srvcs_fulfillment_component` | 서비스 요청 페이지에서 모든 이행 주문·반납 주문 라인 아이템을 퀵 액션 버튼과 함께 조회. **이행 클릭 수를 약 50% 감소**시킨다. 표시 항목: 제품 · 수량 · 예약 상태 · 만료일 · 자산 일련번호 · 관련 product transfer/product request 정보. 인라인 액션(원문이 *"such as"* 로 든 **예시** — 전수 목록이 아니다): **Reserve Inventory · Add Asset · Allocate Inventory · Ready for Shipment · Items Ready for Pickup · Mark Delivered · Mark Sent · Mark Received**. 컨텍스트를 자동 해석해 이행 주문 페이지에서는 현재 레코드를, 서비스 요청 페이지에서는 **구성된 이행 위치 기준의 관련 이행 주문**을 보여준다. 액션 버튼은 네이티브 이행 주문 버튼과 **동일한 검증 로직**을 써 상태 갱신·재고 트랜잭션이 일관된다 |
+| **Inventory Ledger (자동 트랜잭션 로그)**<br>`rn_it_srvcs_inventory_ledger` | 자산 라이프사이클 전반의 재고 수량 변경을 자동 추적. 각 원장 항목은 **무엇이·언제 변경됐고 어떤 비즈니스 프로세스가 유발했는지** + 관련 이행 주문 라인 아이템·자산 활동·반납 주문 라인 아이템을 담는다.<br>**원문이 명시한 트랜잭션 생성 규칙 전수:** 재고 예약 → **Reserved** · 이행 주문 발송 → **Outbound Shipped** · 이행 주문 수령 → **Delivered** · 반납 주문 수령 → **Order Received** · 자산을 damaged 또는 on hold로 표시 → **Adjusted**.<br>링크는 inventory item reservation이나 product transfer로도 연결돼 **완전한 감사 체인**을 만든다. product item 재고에서 파생한 정확한 가용 수량이 **자산 중복 할당을 방지**한다. 한 작업이 여러 재고 카테고리를 바꾸면 **변경마다 독립 트랜잭션 레코드**가 생성된다.<br>**두 레코드 타입의 역할이 다르다:** **PIT(Product Item Transaction)** = **Quantity On Hand** 변경 기록 / **PIAT(Product Item Additional Transaction)** = **Quantity Allocated · Quantity Soft Reserved · Quantity Damaged · Quantity On Hold** 변경 기록 |
+| **자동 반납 리마인더**<br>`rn_it_srvcs_return_reminders` | reclaim을 시작하면 시스템이 **Draft 상태의 서비스 요청**을 만들고, 직원이 배송지를 확인하고 자산을 반납할 때까지 **이메일 또는 Slack 리마인더**를 보낸다. **SLA가 리마인더 주기를 결정**하고 임계치 위반 시 **직원의 매니저 또는 HR 담당자에게 에스컬레이션**한다.<br>Draft 상태 자체가 미응답 직원을 즉시 드러내는 가시성 장치다. **서비스 요청 SLA는 요청이 Draft에 머무는 동안** 작동해 배송 정보 제출까지 리마인드하고, **반납 주문 SLA는 요청이 New 상태로 옮겨간 뒤** 작동해 발송·드롭오프까지 리마인드한다. **중복 제거 로직**이 Send 다중 클릭 시 중복 요청을 막고, 자산 관리자는 방치된 Draft 서비스 요청을 취소해 SLA를 멈추고 **무한 리마인더 루프를 방지**할 수 있다.<br>How: 서비스 요청과 반납 주문 **양쪽**의 기본 알림 템플릿과 SLA를 구성해 리마인더 주기를 설정 |
+
+### IT Compliance (6p — 허브 `rn_it_service_it_compliance` + 5)
+
+> 허브 요약: **지속적·자동 증거 수집**, **AI 보조 통제 커버리지**, **신뢰할 수 있는 AI 정책 작성**으로 컴플라이언스 프로그램을 강화. **대량 액션**으로 규제·정책 라이프사이클을 가속하고 **사전 구축 Tableau 대시보드**로 태세를 모니터링.
+
+자식 5건 전부 `rn_it_service_cmpl_*` = **Enterprise · Unlimited · Developer**. 다만 **모듈 게이트가 5건 모두 서로 다르다** — 아래 표의 조건 열을 그대로 읽어야 한다.
+
+| 기능 (page id) | 내용 | 모듈 게이트 |
+|---|---|---|
+| **Automated Evidence Collection**<br>`rn_it_service_cmpl_automated_evidence_collection` | 감사 직전의 수작업·시점형 증거 수집에서 **연속 자동 수집**으로 전환. **256개 이상의 사전 구축 커넥터** 중 아무거나 써서 외부 시스템을 연결하고, 정의한 쿼리를 실행해 **감사 대응 가능한 evidence artifact**를 생성한다. How: IT Compliance 앱에서 가이드형 마법사로 **Collection Schedule** 생성 → **256+ 커넥터** 중 선택해 **named credential**로 외부 시스템(원문 예시: **AWS · Splunk · Jira · Tenable**) 연결 → 실행할 쿼리(**SPL · JQL · KQL**) 정의 → 주기 설정. 활성화 후 매 실행마다 **Evidence Artifact 레코드**가 생성돼 검토 후 통제에 첨부 | **Evidence Management** 활성 |
+| **Controls Coverage + AI 통제 제안**<br>`rn_it_service_cmpl_controls_coverage` | 기존 통제가 각 규제를 얼마나 커버하는지 보여주고 공백을 메울 **AI 생성 통제 추천**을 제공. Controls Coverage가 규제를 요구사항으로 분해해 통제에 매칭하고 **커버리지 등급 + 무엇이 빠졌는지 드러내는 상세 breakdown**을 표시. How: 규제를 열어 커버리지 분석 실행 → 등급과 식별된 공백 검토 → 추천 통제를 추가하거나 AI 생성 제안을 수락 | **Control Management** 와 **Agentforce** 활성 |
+| **Tableau 사전 구축 대시보드**<br>`rn_it_service_cmpl_tableau_dashboards` | 대시보드 제작 없이 IT Compliance 대시보드·위젯·메트릭을 Tableau로 제공. 가이드형 설정이 **IT Compliance Data Kit**과 사전 구축 **Tableau 앱**을 배포해 **IT Compliance Analytics 앱**에서 컴플라이언스 태세·통제 유효성·감사 준비도를 본다. How: Setup의 가이드 절차로 Data Kit 배포 → 사전 구축 Tableau 앱 템플릿 설치 → Tableau를 data kit에 연결 → IT Compliance Analytics 앱에서 대시보드 열기 | **IT Service Compliance Analytics 권한 세트 라이선스** |
+| **AI 정책 작성 정밀화**<br>`rn_it_service_cmpl_ai_policy_authoring` | 두 가지 개선. **regulation traceability** — AI가 생성한 모든 정책 조항을 **출처 규제 조항까지 역추적**. **조항 사전 노출** — 선택 전에 규제 조항 전문을 읽을 수 있다. 결과적으로 중복 조항이 줄고 선택이 명확해진다. How: 정책 생성 시 **최대 10개**의 적격 규제 조항 선택 가능. **Published 및 Active 조항만 선택 가능**. 조항을 펼쳐 전문을 읽은 뒤 선택하고, 생성된 각 정책 조항에는 출처 규제 조항으로 연결되는 **citation**이 표시된다 | **Policy Management** 와 **Agentforce** 활성 |
+| **조항 상태 일괄 변경**<br>`rn_it_service_cmpl_bulk_clause_status` | 규제·정책 조항 버전의 상태를 **단일 액션으로 다건 변경**. 원문 예시 라이프사이클: **Draft → Review → Approved → Published**. How: Regulation Clause Versions 또는 Policy Clause Versions 리스트 뷰에서 다중 선택 → 메뉴에서 목표 상태 선택 → 대화상자에서 확인. **진행 바**가 표시되고 **유효하지 않은 전환은 차단**된다 | **Regulation Management** 와 **Policy Management** 활성 |
+
+### Self-Service (5p — 허브 `rn_it_srvcs_self_service_parent` + 4)
+
+> 허브 요약: 팀의 업무 방식에 맞는 **Employee Services 포털** 셀프서비스 경험. 코드 없이 티켓 목록·티켓 상세·승인 목록 페이지의 **필드와 버튼을 제어**. 직원 선호 언어로 포털 제공, 티켓에 **코멘트와 피드**를 붙여 IT와 연결 유지. 해결된 인시던트·문제·변경 요청을 **Agentforce로 재사용 가능한 Knowledge 문서**로 전환.
+
+**에디션이 축 안에서 갈린다:** 포털 3건은 **Enterprise · Performance · Unlimited**, Knowledge 생성 1건만 **Enterprise · Unlimited · Developer**다. 그리고 **포털 3건은 모두 Agentforce Employee Center 템플릿을 쓰는 사이트에서만** 동작한다.
+
+| 기능 (page id) | 내용 |
+|---|---|
+| **포털 페이지 커스터마이즈**<br>`rn_it_srvcs_portal_tailor_pages` | Employee Services 포털의 **티켓 목록 · 티켓 상세 · 승인 목록** 페이지에 무엇이 표시될지 코드 없이 제어. 예: 서비스 모델에 관련된 필드만 노출, 직원이 티켓을 닫거나 다시 열 수 있는지 제어. How: **Experience Builder**에서 해당 컴포넌트를 선택해 설정 구성. **Agentforce Employee Center 템플릿 사이트 전용** |
+| **포털 티켓 코멘트·피드**<br>`rn_it_srvcs_portal_ticket_comments_feed` | **인시던트·케이스·서비스 요청**에서 직원이 **티켓 피드**로 상황을 파악. **인시던트와 케이스**에서는 직원이 **코멘트 작성·답글·삭제**까지 할 수 있고, **인시던트에는 파일 첨부**도 가능하다(객체별로 가능 범위가 다르다 — 원문 구분 그대로). Why: 티켓에 커뮤니케이션을 모아 인바운드 문의를 줄이고, 티켓 담당자가 바뀌어도 **전체 대화 이력이 티켓에 남는다**. 인시던트·서비스 요청의 티켓 피드는 **자동 게시물·시스템 메시지 없이 직원↔IT 대화만** 표시한다. **Agentforce Employee Center 템플릿 사이트 전용** |
+| **포털 언어 선택기**<br>`rn_it_srvcs_portal_language_selector` | 직원이 **Language Selector 컴포넌트**로 포털 표시 언어를 스스로 전환. **인터페이스 언어만 바뀌고 레코드 데이터는 원래 언어 그대로**다. How: Experience Builder 사이트 설정에서 지원할 언어를 추가하고 사이트를 게시 → Experience Builder에서 Language Selector 컴포넌트를 페이지에 드래그. **Agentforce Employee Center 템플릿 사이트 전용** |
+| **Agentforce로 Knowledge 문서 생성**<br>`rn_it_srvcs_knowledge_generation` | 인시던트·문제·변경 요청에서 **그 레코드의 상세에 grounding된 구조화 Salesforce Knowledge 문서**를 초안 생성. 진입점은 레코드의 **Enterprise Knowledge Component** 또는 **Agentforce 에이전트에게 요청**하는 방식 두 가지. Agentforce가 쓰는 내용을 조정하려면 **레코드 타입별로 grounding된 Knowledge Creation 프롬프트 템플릿**을 만든다. **이 세트에서 `rn_it_srvcs_*` 계열 중 유일하게 Enterprise · Unlimited · Developer 에디션** |
+
+### Broadcast and Notifications (5p — 허브 `rn_it_srvcs_broadcast_notifications_parent` + 4)
+
+> 허브 요약: 사용자가 선호하는 채널로 정보를 전달. 메이저 인시던트·변경 요청 시 **이메일·in-app·Slack·Teams로 한 번에** 브로드캐스트. 평문 Slack 알림을 **라벨 구획과 액션 버튼이 있는 구조화 알림**으로 전환. **Agentforce 에이전트를 통해 알림을 전달**해 직원이 Slack 스레드 안에서 후속 질문과 액션을 처리.
+
+자식 4건 전부 **Enterprise · Performance · Unlimited**. 다만 **라이선스 축이 둘로 갈린다** — 2건은 Agentforce IT Service, 2건은 **Multi-Channel Notification add-on 라이선스**다.
+
+| 기능 (page id) | 내용 | 라이선스·권한 |
+|---|---|---|
+| **Broadcast Communications**<br>`rn_it_srvcs_broadcast_communications` | 메이저 인시던트·변경 요청 시 흩어진 수동 업데이트 대신 브로드캐스트 발송. **이메일 · in-app · Slack · Teams**에 한 번의 액션으로 도달. **생성형 AI가 레코드 상세에 grounding된 초안**을 빠르게 작성. 어떤 채널과 어떤 객체에서 브로드캐스트를 쓸지 preference로 제어. **communications history 탭**에서 모든 메시지를 추적해 중복·상충 업데이트 방지. How: Setup > Salesforce Go > Broadcast Communications를 켜고 채널·객체 preference 설정 → 인시던트나 변경 요청 레코드에서 발송 | Agentforce IT Service + **BroadcastCommsSender 권한 세트 라이선스**(인시던트·변경 fulfiller에게) |
+| **구조화 Slack 알림**<br>`rn_it_srvcs_notifications_slack_alerts_to_structured_notification` | 평문 Slack 알림을 **라벨 구획 + 액션 버튼**을 갖춘 구조화 알림으로 대체. 한 번의 클릭으로 알림 상세를 훑고 Slack 안에서 **승인 요청 · 인시던트 확인(acknowledgement) · 상태 업데이트**를 바로 수행. 관리자는 **라이브 프리뷰와 템플릿**으로 알림을 시각적으로 디자인 | Agentforce IT Service (별도 Who 없음) |
+| **커스텀 오브젝트·관련 레코드 알림**<br>`rn_it_srvcs_notifications_custom_related_objects` | 고정된 표준 객체 집합을 넘어 **커스텀 오브젝트에 대한 알림** 발송. **관련 자식 레코드 변경**에도 알림 가능 — 트리거는 **부모 레코드가 업데이트될 때 · 자식 레코드가 연결(associate)되거나 해제(disassociate)될 때**. How: Setup > **Multi-channel Notifications** > New. 커스텀 오브젝트에 알리려면 **Object Manager에서 그 객체를 publish**한 뒤 **Reference Object** 필드에서 선택. 관련 자식 레코드에 알리려면 **Usage Type 필드를 Related Object로** 설정하고 관련 객체 선택 | **Multi-Channel Notification add-on 라이선스** + **Notifications Designer 권한 세트** |
+| **Interactive Agent Notifications**<br>`rn_it_srvcs_interactive_agent_notifications` | 단방향 알림을 **행동 가능한 알림**으로 전환. 알림이 **Slack의 Agentforce 에이전트를 통해 전달**되면 직원이 후속 질문을 하고 **스레드 안에서 우선순위 설정 같은 액션**을 수행해 그 자리에서 해결한다. Why: 이전에는 응답하려면 Salesforce로 전환하거나 별도 답장을 기다려야 했다. 이제 알림 스레드가 작업 공간이 된다. How: Setup > Multi-channel Notifications > New로 Slack용 알림 생성 → **Notification Content and Channel 단계에서 알림을 전달할 Agentforce 에이전트를 선택** | **Multi-Channel Notification add-on 라이선스** + **Notifications Designer 권한 세트**. 선제적 에이전트 알림은 **Slack으로 전달** |
+
+### Collaboration Channels (4p — 허브 `rn_it_srvcs_collaboration_parent` + 3)
+
+> 허브 요약: **Slackbot**과의 자연어 대화로 비밀번호 재설정·소프트웨어 접근·계정 프로비저닝 같은 요청 처리. **Teams 통합 원클릭 배포**와 Teams 리스트 뷰 커스터마이즈.
+
+자식 3건 전부 **Enterprise · Performance · Unlimited + Agentforce IT Service**이며, **셋 다 별도 Who/전제가 원문에 없다.**
+
+| 기능 (page id) | 내용 |
+|---|---|
+| **Teams 뷰 커스터마이즈**<br>`rn_it_srvcs_collaboration_customize_teams_view` | Microsoft Teams의 리스트 뷰에서 **컬럼 추가·제거·순서 변경**. **티켓 · 서비스 카탈로그 · 승인**용 사전 구성 뷰로 빠르게 시작하고 비즈니스 성장에 맞춰 인터페이스 조정 |
+| **Teams 빠른 배포**<br>`rn_it_srvcs_collaboration_quickly_deploy_teams` | Agentforce IT Service 앱을 Microsoft Teams에 설치·구성하고 **단일 클릭으로 서비스 활성화**. 로그인 화면·자격 증명 없이 IT 지원에 접근. Salesforce가 백그라운드에서 **Microsoft Entra ID(구 Azure AD) 앱 등록을 자동 생성**하고 필요한 자격 증명을 배포하며 **CORS allowlist를 갱신**한다 |
+| **Slackbot을 IT 어시스턴트로**<br>`rn_it_srvcs_collaboration_slackbot_it_assistant` | Slackbot과의 자연어 대화로 복잡한 IT 이슈 해결 — **비밀번호 재설정 · 소프트웨어 접근 · 하드웨어 주문 · 계정 프로비저닝**. Agentforce가 백그라운드에서 복잡한 요청을 즉시 완료해 대기 시간과 서비스 데스크 병목을 없앤다 |
+
+### Discovery for Salesforce CMDB & Service Graph (3p — 허브 `rn_it_srvcs_discovery_overview` + 2)
+
+> 허브 요약: 서버·클라우드 인벤토리와 **Splunk** 운영 이벤트로 CMDB 데이터를 최신 상태로 유지. **Dynamic Discovery**로 Splunk discovery target을 만들고, 관련 리소스를 CMDB에 추가하기 전에 **불완전한 CI를 검토**. Dynamic Discovery를 지원하는 **신규 Discovery 오브젝트와 플랫폼 이벤트** 제공.
+
+> **소스 배치 주의:** 이 허브가 요약하는 자식 2건은 id가 각각 `..._cmdb_dynamic_discovery`와 `..._new_obj_discovery`다. **id 접두어와 소속 허브가 어긋나 있으므로 id로 소속을 판단하면 안 된다.**
+
+| 기능 (page id) | 내용 |
+|---|---|
+| **Dynamic Discovery for Splunk**<br>`rn_it_srvcs_cmdb_dynamic_discovery` | **예정된 인벤토리 갱신 + 운영 이벤트**를 결합해 configuration item이 현재 상태를 반영하게 한다. 관리자는 Splunk에서 발견된 **불완전 CI를 검토**한 뒤 관련 리소스를 CMDB에 추가.<br>**전제:** Salesforce CMDB & Service Graph **와** Asset Discovery가 **둘 다** 활성 + **CMDB Enterprise add-on** + **IT Service Asset Discovery 권한 세트 그룹**.<br>**How (원문 절차 전수):** Setup > **Salesforce Go** 검색·선택 → **Splunk CMDB Integration Solution** 검색 후 **Set Up** → **Get Started** → CMDB·Discovery용 Salesforce Go 설정이 완료됐는지 검증 후 **Install** → **Take the Next Steps**에서 **Turn On Splunk Integration** 찾아 **Go to Feature Page** → Discovery 기능 페이지에서 **Set Up the Basics** 펼쳐 **Enable Dynamic Discovery** 켜기 → **Automate Device Discovery and Synchronization**에서 **Integrate Splunk for Comprehensive Asset Visibility** 켜기 → 내비게이션 패널의 **Discovery & Scanning** 펼쳐 **Targets** 선택 → 새 타깃 생성 시 target category = **Observability Tools**, Probe Type = **Splunk** → 디스커버리 시작 후 CMDB and Service Graph 앱에서 **Dynamic Discovery** 펼쳐 **Discovered CI by Source** 선택 → 불완전 CI 검토 후 관련 리소스를 CMDB에 추가 |
+| **신규·변경 오브젝트**<br>`rn_it_srvcs_new_obj_discovery` | **Where 문장이 없는 유일한 리프**다(에디션·라이선스 미상). 원문이 밝힌 **신규 오브젝트 3종 전수**:<br>· **Configuration Management Discovery Target Trigger Template** — 서드파티 시스템이 개시하는 트리거와, discovery target의 configuration item 업데이트 처리에 쓰이는 속성을 정의<br>· **Configuration Management Target Trigger Template Flow** — 트리거 템플릿을 **CMDB의 configuration item 업데이트를 처리·적용하는 플로우**와 연결<br>· **Configuration Management Target Trigger Template Mapping** — 트리거 템플릿 속성을 **CMDB 업데이트용 configuration item 필드에 매핑**<br>*허브는 "신규 Discovery 오브젝트와 플랫폼 이벤트"라고 썼지만, 리프 본문이 명시한 것은 위 오브젝트 3종이다. 플랫폼 이벤트의 이름은 리프 본문에 없다.* |
+
+### AI for IT Teams and Employees (3p — 허브 `rn_it_srvcs_agentforce_parent` + 2)
+
+> 허브 요약: IT 티켓용 **파일 분석 자동화**와, 조직 프로세스에 맞춘 **AI 프롬프트·필드 매핑 커스터마이즈**.
+
+**에디션이 축 안에서 갈린다** — 자식 2건이 서로 다른 id 계열이다.
+
+| 기능 (page id) | 내용 | 에디션 |
+|---|---|---|
+| **Customizable AI Actions**<br>`rn_it_service_customizable_ai_actions` | AI 프롬프트와 필드 매핑을 조직 고유 프로세스·용어에 맞춰 커스터마이즈해 수작업 교정을 줄인다. 기존 레코드로부터 **변경 요청·인시던트·문제**를 AI가 만드는 방식을 구성하고, **내부 팀용·요청자용 이메일 초안**을 커뮤니케이션 기준에 맞춘다. **티켓 필터링 프롬프트**도 조직 워크플로에 맞게 조정. How: Setup에서 **Prompt Templates** 검색·선택 → 템플릿 선택 후 조직 고유 용어·비즈니스 규칙·필드 요건을 담도록 프롬프트 텍스트 수정 → 저장·활성화 | **Enterprise · Unlimited · Developer** (IT Service **Management**) |
+| **Automatic File Analysis**<br>`rn_it_srvcs_agentforce_automate_file_analysis` | **인시던트·문제·변경 요청**에 첨부된 **스크린샷 · 에러 로그 · 구성 파일**에서 Agentforce가 자동으로 핵심 정보를 추출해 **요약 생성 · 근본 원인 식별 · 해결책 제안**. 수동 파일 검토를 없앤다 | **Enterprise · Performance · Unlimited** (Agentforce IT Service) |
+
+### Configuration Management Database and Service Graph (2p — 허브 `rn_it_srvcs_cmdb_overview` + 1)
+
+> 허브 요약: 역할에 맞는 상세 정보를 표시하도록 **configuration item 리스트 뷰를 구성**. 표준·커스텀 참조 필드를 추가하고 리스트에서 관련 레코드를 직접 열어 CI를 더 효율적으로 찾고 관리.
+
+> **이 허브가 요약하는 자식은 1건뿐이다.** Dynamic Discovery와 신규 Discovery 오브젝트는 id에 `cmdb`가 들어 있어도 **Discovery 허브 소관**이다(위 참조).
+
+| 기능 (page id) | 내용 |
+|---|---|
+| **Enhanced CI List Views**<br>`rn_it_srvcs_cmdb_cienhanced_list` | 필요한 정보에 따라 configuration item 리스트 뷰에 표시할 필드를 선택. **표준·커스텀 참조 필드**를 추가하고 **리스트에서 관련 레코드를 직접 열 수 있다**. 사용자 단위 구성이라 **service owner · application owner · database administrator**가 동일한 CMDB 데이터를 각자 필요한 뷰로 본다. **전제:** Salesforce CMDB & Service Graph 활성 + **CMDB 권한 세트 아무거나** 보유. How: Salesforce CMDB & Service Graph 앱 > **All Configuration Items** → 리스트 뷰 구성 액션으로 표시할 필드 선택. 리스트 뷰의 참조 필드는 관련 레코드로 링크된다 |
+
+### ⭐ 대표 신기능
+
+1. **Assigned User 필드의 API 접근 차단** — Winter '26 이후 신규 조직에서 레거시 필드가 숨겨지고 **API로도 못 읽는다**. 이 51건 중 **기존 통합을 실제로 깨뜨릴 수 있는 유일한 변경**(위 콜아웃).
+2. **Agentforce for Hardware Asset Management — AI 에이전트 4종**(Employee Asset Management · Sourcing · Disposal Certificate · User Attestation). 이 세트에서 게이트가 가장 많은 기능이기도 하다.
+3. **Inventory Ledger의 이중 기록 구조** — PIT는 Quantity On Hand, PIAT는 Allocated·Soft Reserved·Damaged·On Hold. 재고 감사 체인의 근간.
+4. **Proactive Service Operations** — CMDB를 매개로 IT 인시던트와 고객 케이스를 연결해 고객이 신고하기 전에 대응.
+5. **IT Compliance의 256+ 커넥터 기반 연속 증거 수집** + Controls Coverage AI 추천 + 규제 조항까지 역추적되는 AI 정책 작성.
 
 ---
 
@@ -1317,11 +1546,11 @@ Salesforce 법무 문서의 시즌 업데이트. 변경 전체 목록은 각 변
 
 ---
 
-## 제목 카탈로그 — 미추출 722건
+## 제목 카탈로그 — 미추출 671건
 
 > [!warning] 이 절의 항목은 **제목과 page id뿐**이다 — 단 일부는 위 상세 섹션에 랜딩 요약이 있다
 > 릴리즈 노트 **제목 문자열**을 그대로 옮긴 것이며 본문·에디션·라이선스·Setup 경로·권한·가용 시점은 **확보하지 않았다**. 제목에서 기능을 유추해 쓰지 않았고, 읽는 쪽에서도 제목 이상을 단정하면 안 된다.
-> **예외 — 랜딩요약 계층(약 229건):** 이 카탈로그 항목 중 상당수는 **부모 허브 페이지가 자식 요약을 담고 있어** 위 클라우드별 상세 섹션에 **1~3문장 설명**이 실려 있다(Loyalty · Real-Time Offer Management · Case Management · Self Service · Industries의 Education·Media·Insurance·Health 등 · Marketing Cloud Next · HR Service · Data 360 4개 축 · Partner Cloud). 그 항목들에 대해 *"본문이 전혀 없다"* 는 서술은 **틀리다** — 다만 그 요약에도 에디션·Setup 경로·권한·가용 시점은 없다. 위 절대 진술은 **랜딩 요약조차 없는 나머지 항목**에 적용된다.
+> **예외 — 랜딩요약 계층(약 229건):** 이 카탈로그 항목 중 상당수는 **부모 허브 페이지가 자식 요약을 담고 있어** 위 클라우드별 상세 섹션에 **1~3문장 설명**이 실려 있다(Loyalty · Real-Time Offer Management · Case Management · Self Service · Industries의 Education·Media·Insurance·Health 등 · Marketing Cloud Next · HR Service · Data 360 4개 축 · Partner Cloud). 그 항목들에 대해 *"본문이 전혀 없다"* 는 서술은 **틀리다** — 다만 그 요약에도 에디션·Setup 경로·권한·가용 시점은 없다. 위 절대 진술은 **랜딩 요약조차 없는 나머지 항목**에 적용된다. **Agentforce IT Service `rn_it_*` 51건은 이 카탈로그에서 빠졌다** — 제목이 아니라 본문까지 확보돼 위 `## Agentforce IT Service` 절로 올라갔기 때문이다(722 → 671).
 > `...` 로 끝나는 제목은 소스 목록에서 이미 잘린 상태이며 **자르지 않고 원문 그대로** 옮겼다.
 > 원문 재조회: `https://help.salesforce.com/s/articleView?id=release-notes.<page_id>.htm&language=en_US&release=264&type=5`
 
@@ -1329,7 +1558,6 @@ Salesforce 법무 문서의 시즌 업데이트. 변경 전체 목록은 각 변
 
 | 그룹 | 건수 |
 |---|---|
-| Agentforce IT Service — `rn_it_*` | **51** |
 | Revenue — Billing·Collections | **31** |
 | Revenue — Product Catalog·Configurator | **16** |
 | Revenue — Pricing·Transaction·Ramp·Usage·Orchestration | **39** |
@@ -1364,62 +1592,8 @@ Salesforce 법무 문서의 시즌 업데이트. 변경 전체 목록은 각 변
 | AgentExchange | **5** |
 | Salesforce Suites · Scheduler · Slack | **6** |
 | Platform·Development 소관 (Clouds 배치에 섞여 들어온 항목) | **24** |
-| **합계** | **722** |
+| **합계** | **671** |
 
-
-### Agentforce IT Service — `rn_it_*` (51건)
-
-- Accelerate IT Resolution with Automatic File Analysis — `rn_it_srvcs_agentforce_automate_file_analysis`
-- Accelerate Support for VIP Employees with Automatic Entitlement... — `rn_it_service_incident_privilege_entitlement`
-- AI for IT Teams and Employees — `rn_it_srvcs_agentforce_parent`
-- Analyze Field History with Reporting and Audit Trails on IT Service... — `rn_it_service_console_history_reporting`
-- Assess Regulation Coverage and Close Gaps with AI-Suggested Controls — `rn_it_service_cmpl_controls_coverage`
-- Author Policies with AI More Precisely and Transparently — `rn_it_service_cmpl_ai_policy_authoring`
-- Automate Hardware Lifecycles with Agentforce — `rn_it_srvcs_agentforce_ham`
-- Broadcast and Notifications — `rn_it_srvcs_broadcast_notifications_parent`
-- Collaborate on Tickets with Comments on the Employee Services Portal — `rn_it_srvcs_portal_ticket_comments_feed`
-- Collaboration Channels — `rn_it_srvcs_collaboration_parent`
-- Collect Compliance Evidence Automatically on a Schedule — `rn_it_service_cmpl_automated_evidence_collection`
-- Complete Fulfillment Tasks Without Switching Pages — `rn_it_srvcs_fulfillment_component`
-- Configuration Management Database and Service Graph — `rn_it_srvcs_cmdb_overview`
-- Deploy IT Service in Microsoft Teams Quickly — `rn_it_srvcs_collaboration_quickly_deploy_teams`
-- Discovery for Salesforce CMDB & Service Graph — `rn_it_srvcs_discovery_overview`
-- Enhance Email-to-Incident with Rich Content, Templates, and Error... — `rn_it_service_email_to_incident_enhancements`
-- Extend Notifications to Custom Objects and Related Records — `rn_it_srvcs_notifications_custom_related_objects`
-- Find and Manage Configuration Items Faster with Enhanced List Views — `rn_it_srvcs_cmdb_cienhanced_list`
-- Gain Executive Visibility with IT Leader Dashboard Metrics — `rn_it_service_it_leader_dashboard`
-- Get Prebuilt IT Compliance Dashboards, Widgets, and Metrics in Tableau — `rn_it_service_cmpl_tableau_dashboards`
-- Guide IT Reps with Process Steps and Employee Context on Service... — `rn_it_service_svcreq_path_card`
-- Help Employees Access the Portal in Their Preferred Language — `rn_it_srvcs_portal_language_selector`
-- Improve Incident Communication with Ticket Comments — `rn_it_service_ticket_comments`
-- Improve Service Desk Visibility with Console Enhancements — `rn_it_service_console_enhancements`
-- IT Asset Management — `rn_it_srvcs_asset_management_parent`
-- IT Compliance — `rn_it_service_it_compliance`
-- Keep Configuration Items Current with Dynamic Discovery for Splunk — `rn_it_srvcs_cmdb_dynamic_discovery`
-- Keep Users Informed Across Channels with Broadcast Communications — `rn_it_srvcs_broadcast_communications`
-- Manage Service Request Lifecycles by Using Stage Transitions — `rn_it_service_svcreq_stagemgmt`
-- Map Asset Statuses to Lifecycle Processes and Inventory Tracking — `rn_it_srvcs_asset_status_mappings`
-- Monitor Service Operations with Dynamic Dashboards for IT Service — `rn_it_service_dynamic_dashboards`
-- Move Beyond Static Alerts to Interactive Agent Notifications in Slack — `rn_it_srvcs_interactive_agent_notifications`
-- New and Changed Objects for Salesforce CMDB and Service Graph — `rn_it_srvcs_new_obj_discovery`
-- Proactively Identify and Communicate Customer Issues by Connecting... — `rn_it_srvcs_proactive_svc_ops`
-- Protect Your Billing Integrity by Enforcing IT Hardware Asset Scope — `rn_it_srvcs_asset_eligibility_framework`
-- Reclaim All Employee Hardware in One Bulk Action — `rn_it_srvcs_bulk_offboarding`
-- Reduce Asset Shrinkage with Automated Return Reminders — `rn_it_srvcs_return_reminders`
-- Route Service Requests to the Right Reps by Using Omni-Channel — `rn_it_service_svcreq_omnichannel`
-- Self-Service — `rn_it_srvcs_self_service_parent`
-- Service Management — `rn_it_service_svcmgmt`
-- Simplify Fulfillment with Actions on the Service Request — `rn_it_srvcs_fast_path_sourcing`
-- Simplify Incident Ownership with Streamlined Assignment Fields — `rn_it_service_simplified_incident_ownership`
-- Speed Fulfillment with AI Sourcing Recommendations — `rn_it_srvcs_autonomous_sourcing`
-- Tailor AI-Generated Content with Customizable AI Actions — `rn_it_service_customizable_ai_actions`
-- Tailor Employee Portal Pages to Your Service Needs — `rn_it_srvcs_portal_tailor_pages`
-- Tailor Microsoft Teams Views to Your Business Needs — `rn_it_srvcs_collaboration_customize_teams_view`
-- Track Inventory Changes with Automated Transaction Logs — `rn_it_srvcs_inventory_ledger`
-- Transform Slack Alerts Into Structured Notifications with Rich Details — `rn_it_srvcs_notifications_slack_alerts_to_structured_notification`
-- Transform Slackbot Into Your IT Assistant — `rn_it_srvcs_collaboration_slackbot_it_assistant`
-- Turn Resolved Incidents, Problems, and Changes into Knowledge... — `rn_it_srvcs_knowledge_generation`
-- Update the Status of Multiple Clauses at Once — `rn_it_service_cmpl_bulk_clause_status`
 
 ### Revenue — Billing·Collections (31건)
 
@@ -2203,7 +2377,7 @@ Salesforce 법무 문서의 시즌 업데이트. 변경 전체 목록은 각 변
 - [[Winter '27/Release Updates]] — **Release Update 강제 적용 시점의 단일 출처**. 이 노트가 "Release Update 있음"으로만 표시한 항목의 날짜는 전부 여기 소관
 - [[Winter '27/Development]] — Apex·LWC·Connect REST·External Services·Scalability·Experience Cloud 등 개발자 표면
 - [[Winter '27/Platform]] — SLDS·Lightning App Builder·권한/공유·라이선싱·Globalization 등 플랫폼 표면
-- [[Winter '27/Agentforce]] — Agentforce & Generative AI 영역. **Agentforce IT Service 허브 요약이 여기 있고 하위 51리프는 이 노트의 제목 카탈로그에만 있다**
+- [[Winter '27/Agentforce]] — Agentforce & Generative AI 영역. **`rn_agentforce_it` 허브 요약이 그쪽에 있고, 하위 51리프의 기능 상세(Where·Who·How)는 이 노트의 `## Agentforce IT Service` 절이 단일 출처**다
 
 **직전 릴리즈 비교**
 - [[Summer '26/Clouds]] — 직전 릴리즈의 Clouds 영역
@@ -2221,3 +2395,10 @@ Salesforce 법무 문서의 시즌 업데이트. 변경 전체 목록은 각 변
 - [[Field Service 개요와 데이터 모델]] — Service Appointment·Work Order·ESO 기반
 - [[Knowledge 데이터 모델 & API 개요]] — Knowledge Blocks·Knowledge Similarity가 얹히는 기반
 - [[OmniStudio 개요·오리엔테이션]] — Flexcard·Omniscript 기반
+
+**Agentforce IT Service 절이 전제하는 개념**
+- [[Queues (큐)]] · [[Public Groups (공개 그룹)]] — Assigned Group이 **공개 그룹만** 받게 바뀌고 큐 라우팅이 Incident Owner로 이동한 변경의 기반
+- [[Omni-Channel 라우팅 유형 — Queue 기반 vs Skills 기반]] — 서비스 요청 Omni-Channel 라우팅(큐·스킬·여력)의 기반
+- [[Entitlements & Milestones (엔타이틀먼트·마일스톤)]] — VIP 특권 기반 엔타이틀먼트 자동 할당이 얹히는 SLA 모델
+- [[User Licenses · Permission Set Licenses · Feature Licenses (라이선스 유형)]] — 이 영역 게이트의 상당수가 **PSL**(AI for Employee Portal · BroadcastCommsSender · IT Service Compliance Analytics)이다
+- [[Permission Set Groups (권한 집합 그룹)]] — Dynamic Discovery가 요구하는 **IT Service Asset Discovery PSG**의 개념

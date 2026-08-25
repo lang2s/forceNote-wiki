@@ -4,7 +4,7 @@ api_version: v68.0
 release_date: 2026-10
 created: 2026-08-24
 source: help.salesforce.com Salesforce Winter '27 Release Notes (release=264, Tier 2) + Winter27-v68-Docs/api_tooling.pdf v68.0 + Winter27-v68-Docs/api_meta.pdf v68.0 Winter '27 (PREVIEW, 2026-08-21, BYOC 텔레포니 4종 부재 대조)
-aliases: [Winter '27 Development, 윈터27 개발, v68 Apex 변경, Apex Symbol API, symbols 리소스, apexCompileResults, Elastic Limits Batch Apex, Apex Integration Tests, LWC API 68.0, testLevel 파라미터, explicitNamespace, SOQL FORMULA, Apex heap 10MB, ApexGuru 중복 코드, Headless 360, Claude Code Plugin, lwc:external]
+aliases: [Winter '27 Development, 윈터27 개발, ConnectApi New and Changed v68, Connect in Apex 새 클래스, ManagedContent deleteContents, exposeContentsAsMetadata, getManagedContentRenditionForChannel, ManagedContentChannelType WebApp, v68 Apex 변경, Apex Symbol API, symbols 리소스, apexCompileResults, Elastic Limits Batch Apex, Apex Integration Tests, LWC API 68.0, testLevel 파라미터, explicitNamespace, SOQL FORMULA, Apex heap 10MB, ApexGuru 중복 코드, Headless 360, Claude Code Plugin, lwc:external]
 ---
 
 # Winter '27 — Development (Apex · LWC · API · 개발 도구)
@@ -31,12 +31,12 @@ aliases: [Winter '27 Development, 윈터27 개발, v68 Apex 변경, Apex Symbol 
 
 | 항목 | 내용 |
 |---|---|
-| 1차 소스 | help.salesforce.com **Salesforce Winter '27 Release Notes**(`release=264`) Development 영역 **62 페이지** — Tier 2 |
+| 1차 소스 | help.salesforce.com **Salesforce Winter '27 Release Notes**(`release=264`) Development 영역 **62 페이지** + 후속 확보한 **ConnectApi (Connect in Apex): New and Changed Classes and Enums 4페이지**(허브 + New Classes · Changed Output Classes · Changed Enums, 2026-08-25 확보) = **66 페이지** — Tier 2 |
 | 보조 소스 | **Tooling API Reference and Developer Guide, Version 68.0, Winter '27** — 파일 경로 **`Salesforce Documents/Winter27-v68-Docs/api_tooling.pdf`**(표지 확인: *Version 68.0, Winter '27* · PREVIEW · Last updated: August 21, 2026 · 1,027쪽) — Tier 2 |
 | ⚠️ **파일 혼동 주의** | 레포에는 **`Salesforce Documents/api_tooling.pdf`** 도 있으나 그 파일은 **Version 67.0, Summer '26**(1,006쪽)이며 **이 노트가 인용한 v68.0 내용을 하나도 담고 있지 않다**(`apexCompileResults` 0회 · `typeStubs` 0회). 이 노트의 **모든 PDF 인용은 `Winter27-v68-Docs/` 하위 v68.0 파일**을 가리키며, 아래 본문의 인용 표기도 전부 `Winter27-v68-Docs/api_tooling.pdf` 로 적었다 |
 | 인용 표기 | PDF 인용은 **인쇄 페이지 번호**(예: 인쇄 p.31 = 물리 43쪽, 오프셋 물리−12). 오프셋은 `Winter27-v68-Docs/api_tooling.pdf` 로 직접 대조 확인했다 |
 
-> ⚠️ **1차 소스 추출 방식 주의.** 릴리즈 노트 62페이지는 *페이지 단위 축자(verbatim) 산문*이 아니라 **밀도 높은 사실 기록** 형태로 확보됐다. API 이름·한도 수치·에디션·Setup 경로·Where/When/Why/How 같은 기술적 실체는 온전하지만 **문장 표현은 압축돼 있다.** 따라서 이 노트에서 릴리즈 노트를 근거로 쓴 서술은 "사실"로는 신뢰할 수 있으나 **축자 인용이 아니다.** 코드 블록만이 소스에서 그대로 확보된 부분이며, 각 블록에 출처 주석을 달았다. Tooling API 관련 축자 인용이 필요한 곳은 PDF(Tier 2 원문)로 대체했다.
+> ⚠️ **1차 소스 추출 방식 주의.** 릴리즈 노트 62페이지는 *페이지 단위 축자(verbatim) 산문*이 아니라 **밀도 높은 사실 기록** 형태로 확보됐다. API 이름·한도 수치·에디션·Setup 경로·Where/When/Why/How 같은 기술적 실체는 온전하지만 **문장 표현은 압축돼 있다.** 따라서 이 노트에서 릴리즈 노트를 근거로 쓴 서술은 "사실"로는 신뢰할 수 있으나 **축자 인용이 아니다.** 코드 블록만이 소스에서 그대로 확보된 부분이며, 각 블록에 출처 주석을 달았다. Tooling API 관련 축자 인용이 필요한 곳은 PDF(Tier 2 원문)로 대체했다. **예외 — 후속 확보한 ConnectApi 카탈로그 4페이지는 본문 전문이 확보됐다.** 그래서 아래 ConnectApi 절의 클래스명·메서드 시그니처·enum 값·프로퍼티 설명은 소스 원문 그대로다.
 
 > ⚠️ **미확보 코드 3건.** 릴리즈 노트 3개 페이지의 코드 샘플이 브라우저 콘텐츠 안전 필터에 걸려 추출되지 않았다(**필터는 우회하지 않았다 — 올바른 처리**). 이 중 Apex Symbol API는 공식 v68.0 PDF로 완전 대체했고, 나머지 2건은 어느 소스에서도 확보되지 않아 **기억으로 재구성하지 않고 동작 설명 + 공식 문서 안내로 남겼다.** 상세는 아래 [#미확보 항목 (소스에서 재현 불가)](#미확보-항목-소스에서-재현-불가) 참조.
 
@@ -1032,7 +1032,7 @@ VS Code 데스크톱과 Agentforce Vibes IDE에서 **VS Code 확장**으로 제�
 
 Headless 360의 다섯 번째 자식 항목이다. **Setup의 새 AI 기반(AI-powered) 에이전트를 사용해 관리 작업(administrative tasks)을 단순화**한다.
 
-> 소스(`rn_headless360`의 자식 항목 목록)가 이 항목에 대해 제공한 서술은 **위 한 줄이 전부**다. Where·When·How·에디션 정보는 추출 범위(62페이지)에 없다 — **지어내지 않는다.** 형제 항목(Salesforce CLI · Agentforce Vibes · Agentforce Vibes IDE · Claude Code Plugin)은 각자 전용 페이지가 있어 아래에서 상세를 다루지만, 이 항목은 전용 페이지가 추출되지 않았다. 어드민 관점 기능이므로 상세가 필요하면 [[Winter '27/Agentforce]] 와 Headless 360 허브 페이지를 확인한다.
+> 소스(`rn_headless360`의 자식 항목 목록)가 이 항목에 대해 제공한 서술은 **위 한 줄이 전부**다. Where·When·How·에디션 정보는 이 노트의 추출 범위에 없다 — **지어내지 않는다.** 형제 항목(Salesforce CLI · Agentforce Vibes · Agentforce Vibes IDE · Claude Code Plugin)은 각자 전용 페이지가 있어 아래에서 상세를 다루지만, 이 항목은 전용 페이지가 추출되지 않았다. 어드민 관점 기능이므로 상세가 필요하면 [[Winter '27/Agentforce]] 와 Headless 360 허브 페이지를 확인한다.
 
 ### Agentforce DX
 
@@ -1058,7 +1058,59 @@ Salesforce Extension 팩은 VS Code 편집기에서 Salesforce 플랫폼 개발�
 
 **ConnectApi 네임스페이스** — 새·변경 클래스·메서드·enum이 있다. Connect REST API 리소스 액션 다수가 ConnectApi 네임스페이스 Apex 클래스의 **static 메서드**로 노출되며, 이 메서드들은 입력·반환에 다른 ConnectApi 클래스를 쓴다. ConnectApi 네임스페이스는 **Connect in Apex**로 불린다.
 
-> ⚠️ 새·변경 ConnectApi 클래스·메서드·enum의 **개별 목록은 별도 페이지**(*ConnectApi (Connect in Apex): New and Changed Classes and Enums*)에 있으며 **이번 추출 범위(62페이지)에 포함되지 않았다.** 목록을 지어내지 않는다 — 필요하면 해당 릴리즈 노트 페이지 또는 [[ConnectApi Namespace 개요]]를 확인한다.
+#### ConnectApi 새·변경 카탈로그 — **이번 릴리즈는 전부 Salesforce CMS다**
+
+> 아래는 별도 리프 페이지 *ConnectApi (Connect in Apex): New and Changed Classes and Enums* 와 그 자식 3페이지(**New Connect in Apex Classes** · **Changed Connect in Apex Output Classes** · **Changed Connect in Apex Enums**)의 **전수**다. 허브 페이지가 붙인 한 줄 설명은 *"Create custom experiences in Salesforce using Connect in Apex."* 이고, 상시 레퍼런스로 *Apex Reference Guide: ConnectApi Namespace* 와 *Connect REST API Developer Guide* 를 가리킨다.
+
+**Chatter·Feed·Group·User 계열 변경은 이번 릴리즈에 하나도 없다.** 새 클래스 5 · 새 메서드 6 · 변경 출력 클래스 2 · 변경 enum 1 — **전부 `ManagedContent*` 계열**이며, 세 자식 페이지가 모두 **`Salesforce CMS` 라는 단 하나의 분류 제목** 아래에만 항목을 나열한다. Chatter 쪽 ConnectApi 변경을 찾아 이 카탈로그에 온 독자에게는 **"이번 릴리즈에는 없다"가 답**이다(상시 Chatter 패턴은 [[ConnectApi Chatter 패턴]], 네임스페이스 전체 지도는 [[ConnectApi Namespace 개요]]).
+
+**새 클래스 (5)** — 독립 기능이 아니라 **전부 아래 새 메서드의 입력·출력 동반 클래스**다. 소스의 *New Connect in Apex Classes* 페이지 자체가 클래스가 아니라 **메서드 단위로** 구성돼 있고, 각 메서드 밑에 "New input class / New output class"를 단다.
+
+| 클래스 | 종류 | 짝이 되는 새 메서드 |
+|---|---|---|
+| `ConnectApi.ManagedContentItemsDeleteInput` | 입력 | `deleteContents(...)` |
+| `ConnectApi.ManagedContentItemsDeleteOutput` | 출력 | `deleteContents(...)` |
+| `ConnectApi.ManagedContentMetadataCollectionInput` | 입력 | `exposeContentsAsMetadata(input)` |
+| `ConnectApi.ManagedContentMetadataCollection` | 출력 | `exposeContentsAsMetadata(input)` |
+| `ConnectApi.ManagedContentDeliveryRendition` | 출력 | `getManagedContentRenditionForChannel(...)` — **3-arg·4-arg 두 오버로드가 공유**하는 단일 출력 클래스 |
+
+**새 메서드 (6)** — 새 클래스가 아니라 **기존 클래스 3개**에 추가된다.
+
+`ConnectApi.ManagedContent` 클래스 (3건):
+
+| 메서드 | 하는 일 (소스 원문) |
+|---|---|
+| `deleteContents(contentSpaceId, ManagedContentItemsDeleteInputParam)` | 관리 콘텐츠 공간의 폴더·항목을 **비동기 대량 삭제** (*"Asynchronously bulk delete managed content folders and items for a managed content space."*) |
+| `exposeContentsAsMetadata(input)` | 관리 콘텐츠를 **메타데이터로 노출** (*"Expose managed content as metadata"*) |
+| `getManagedContentSingleItemContent(contentSpaceId, contentTypeFQN)` | 관리 콘텐츠 공간의 **단일 콘텐츠 항목 조회** (*"Get a single managed content item for a managed content space"*) |
+
+`ConnectApi.ManagedContentDelivery` 클래스 (2건 — 같은 이름의 오버로드):
+
+| 메서드 | 하는 일 (소스 원문) |
+|---|---|
+| `getManagedContentRenditionForChannel(channelId, contentKeyOrId, renditionType)` | 채널의 **관리 콘텐츠 렌디션 조회** (*"Get a managed content rendition for a channel"*) |
+| `getManagedContentRenditionForChannel(channelId, contentKeyOrId, renditionType, language)` | 채널의 **지정 언어 렌디션 조회** — 4번째 인자 `language` 만 추가된 오버로드 (*"Get a managed content rendition in a specified language for a channel"*) |
+
+`ConnectApi.ManagedContentSpaces` 클래스 (1건):
+
+| 메서드 | 하는 일 (소스 원문) |
+|---|---|
+| `deleteManagedContentSpace(contentSpaceId)` | **관리 콘텐츠 공간 삭제** (*"Delete a managed content space"*) |
+
+**변경된 출력 클래스 (2)** — 둘 다 **새 프로퍼티 `source` 하나씩**이고, 설명도 동일하다.
+
+| 출력 클래스 | 새 프로퍼티 | 설명 (소스 원문) |
+|---|---|---|
+| `ConnectApi.ManagedContentDocument` | `source` | *"Source of the managed content."* |
+| `ConnectApi.ManagedContentVariant` | `source` | *"Source of the managed content."* |
+
+**변경된 enum (1)**
+
+| enum | 새 값 | 설명 (소스 원문) |
+|---|---|---|
+| `ConnectApi.ManagedContentChannelType` | `WebApp` | *"Channel served by a web app."* — 웹 앱이 서빙하는 채널 |
+
+> 위 4페이지에는 **거버너 한도·에디션·Where/When 절이 없다** — 카탈로그 페이지라 항목 나열과 한 줄 설명이 전부다. 기능 맥락(어떤 릴리즈 기능이 이 API를 쓰는지)은 이 카탈로그가 제공하지 않는다.
 
 **Database 네임스페이스 — 새 클래스**
 
@@ -1353,7 +1405,7 @@ Apex Symbol API로 내장·커스텀 Apex 타입 정보를 얻고, 무효 Apex �
 | 9 | Request Approvals 컴포넌트의 flow 승인 프로세스 | — | **최대 10개** | [#Customization (General Setup)](#customization-general-setup) |
 | 10 | User 오브젝트 필드 이력 추적 | — | **최대 20개 필드** | [#Enable Field History Tracking for Users (Generally Available)](#enable-field-history-tracking-for-users-generally-available) |
 
-> **fabrication 방지 확인:** 위 10건 외에 이번 추출 범위(62페이지) + v68.0 Tooling API PDF의 해당 절에서 **개발 영역 거버너 수치 한도 변경은 확인되지 않았다.** SOQL row limit · CPU time · DML 행 수 · Queueable 스택 깊이 등에 대한 변경 근거는 없으므로 추가하지 않는다.
+> **fabrication 방지 확인:** 위 10건 외에 이번 추출 범위(62페이지 + 후속 ConnectApi 4페이지) + v68.0 Tooling API PDF의 해당 절에서 **개발 영역 거버너 수치 한도 변경은 확인되지 않았다.** SOQL row limit · CPU time · DML 행 수 · Queueable 스택 깊이 등에 대한 변경 근거는 없으므로 추가하지 않는다.
 
 ---
 
@@ -1364,7 +1416,7 @@ Apex Symbol API로 내장·커스텀 Apex 타입 정보를 얻고, 무효 Apex �
 | `rn_apex_symbol_api` | 요청 라인(85자) + JSON 응답 발췌(861자) — 브라우저 안전 필터가 거부(**우회하지 않음**) | ✅ **해결.** 공식 **Winter27-v68-Docs/api_tooling.pdf v68.0**(인쇄 p.31–37)이 동일 리소스를 더 완전히 문서화한다. 위 Symbol API 절의 요청·응답 코드는 **PDF 원문**이다 |
 | `rn_apex_integration_tests` | 샘플 통합 테스트 클래스(약 850자, 엔드포인트 URL 포함) — 필터가 거부(**우회하지 않음**) | ❌ **미확보.** PDF에도 대응 샘플 없음. **재구성하지 않음** — 동작 설명만 남기고 *Apex Developer Guide: Apex Integration Tests (Developer Preview)* 안내 |
 | `rn_apex_namespace_shadowing_managed_packages` | 동적 SOQL 샘플 2건(246자 · 299자) — 필터가 거부(**우회하지 않음**) | ❌ **미확보.** PDF에도 대응 샘플 없음. **재구성하지 않음** — API 표면 목록과 *Apex Developer Guide: Prevent Field Name Collisions in Managed SOQL Queries* 안내 |
-| `rn_api_nc` → *ConnectApi (Connect in Apex): New and Changed Classes and Enums* | ConnectApi 새·변경 클래스·메서드·enum **개별 목록** | ⛔ **범위 밖.** 이번 62페이지 추출에 미포함. 목록을 지어내지 않는다 |
+| `rn_api_nc` → *ConnectApi (Connect in Apex): New and Changed Classes and Enums* | ConnectApi 새·변경 클래스·메서드·enum **개별 목록** | ✅ **해결(2026-08-25 후속 추출).** 허브 + 자식 3페이지를 확보해 위 [#ConnectApi 새·변경 카탈로그](#connectapi-새변경-카탈로그--이번-릴리즈는-전부-salesforce-cms다) 절에 전수 기록(새 클래스 5 · 새 메서드 6 · 변경 출력 클래스 2 · 변경 enum 1) |
 | `rn_api_tooling_headers_rest_and_soap` | 본문 | ⚠️ **소스가 `TBD`.** 추출 실패가 아니라 **게시된 플레이스홀더** |
 
 ---
@@ -1378,7 +1430,7 @@ Winter '27 릴리즈 노트는 현재 **프리뷰** 상태이며, 프리뷰 기�
    - **충돌 1 — `IsValid` 필드 갱신 여부:** Setup 버튼으로 컴파일에 성공했을 때 필드가 `true`로 갱신되는가.
    - **충돌 2 — 경고만 있는 결과의 반환 여부:** PDF는 `results` 에 반환되지 않는다고 하고, 릴리즈 노트 예제는 `success: true` · `problems: []` 인 항목을 `results` 에 담아 보여준다.
 3. **미확보 코드 2건**(Apex 통합 테스트 샘플 · 동적 SOQL 샘플 2건) — 공식 개발자 가이드에서 확보해 보강.
-4. **ConnectApi New and Changed 목록** — 별도 페이지 전수 추출.
+4. **ConnectApi New and Changed 목록** — ✅ 전수 확보 완료(2026-08-25). GA 시점에는 **프리뷰 기간 중 항목이 추가됐는지**만 재확인한다 — 현재 목록은 전부 Salesforce CMS(`ManagedContent*`)이고 Chatter 계열은 0건이므로, Chatter 항목이 뒤늦게 붙는지가 관전 포인트다.
 5. **Developer Preview / Beta 상태 변화** — Apex Integration Tests · Apex Symbol API · SOQL `FORMULA()` · Batch Elastic Limits의 단계 변경.
 6. **SOQL `FORMULA()` 의 프로덕션 제공 여부** — 현재 beta는 **프로덕션 org 미제공**.
 
@@ -1396,6 +1448,7 @@ Winter '27 릴리즈 노트는 현재 **프리뷰** 상태이며, 프리뷰 기�
 - [[Batch Apex]] · [[Queueable]] · [[Transaction Finalizer]] — Elastic Limits와 CLI `Batchable`/`Queueable` 템플릿
 - [[Dynamic SOQL]] · [[Database Namespace 상세]] — `Database.QueryOptions` · `SET OPTIONS` · `explicitNamespace`
 - [[System Namespace]] — 새 `Limits` 메서드 6개
+- [[ConnectApi Namespace 개요]] · [[ConnectApi Chatter 패턴]] — Connect in Apex 네임스페이스 지도. **v68.0 새·변경은 전부 `ManagedContent*`(Salesforce CMS)이고 Chatter 계열은 0건**
 - [[Apex 버전별 동작 변경 레퍼런스]] — API 9.0–19.0 은퇴 경고 대응
 - [[테스트 전략]] · [[Flowtesting Namespace]] · [[HttpCalloutMock]] — Test Discovery `testLevel`, 통합 테스트에서의 mock 우선순위
 - [[Tooling API — 개요·REST·SOAP 호출 기초]] · [[Tooling API — SOAP·REST 헤더]] · [[Tooling API 객체 — Apex 코드·테스트·커버리지]] — `symbols`·`apexCompileResults`·`tests` 리소스

@@ -208,4 +208,5 @@ SOQL로 접근하기 어려운 Chatter/Community/Commerce 데이터를 Apex에�
 - [[Platform Event 통합 패턴]] — 이벤트 기반 시스템 간 통합
 - [[Custom REST Endpoint]] — @RestResource, inbound REST 패턴
 - [[Spring '26/Development]] — v66.0 신규 Connect in Apex 메서드(`RecordUi.getPicklistValuesByRecordType`·`NamedCredentials` CRUD 등)
+- [[Winter '27/Development]] — v68.0 ConnectApi 새·변경 전수(새 클래스 5·새 메서드 6·변경 출력 클래스 2·변경 enum 1). **전부 `ManagedContent*` 계열 — Chatter 계열 변경 0건**
 - [[Winter '25/Development]] — v62.0 ConnectApi 변경(`CommerceCart`·`EinsteinLlm`·`NamedCredentials`·`ManagedContent`/`ManagedContentChannels`) + rate limit 마이그레이션
