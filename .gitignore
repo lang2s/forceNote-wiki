@@ -32,3 +32,7 @@ scheduled_tasks.lock
 
 # Claude Code 머신별 권한 캐시 (settings.json은 commit, settings.local.json은 제외)
 forceNote-wiki/.claude/settings.local.json
+
+# Salesforce CLI 로컬 상태 (org 인증·추적 정보 — 머신별, 절대 커밋 금지)
+# 앵커 없는 패턴 → 레포 루트·forceNote-wiki/ 어디의 .sf/든 매치
+.sf/
