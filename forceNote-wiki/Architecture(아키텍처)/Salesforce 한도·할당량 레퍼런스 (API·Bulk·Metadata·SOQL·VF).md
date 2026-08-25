@@ -1,13 +1,23 @@
 ---
 tags: [limits, allocations, api-limits, bulk-api, metadata, soql-limits, visualforce, governance, architecture]
-source: salesforce_app_limits_cheatsheet.pdf (Salesforce Developer Limits and Allocations Quick Reference, Last updated May 8 2026, Tier 2)
+source: Salesforce Developer Limits and Allocations Quick Reference — 2개 판 대조 (Tier 2). ① 현행판 `Salesforce Documents/Winter27-v68-Docs/salesforce_app_limits_cheatsheet.pdf` (Last updated August 14, 2026 · 15p) = 이 노트의 API·Bulk·Query Cursor·SOAP·Metadata·SOQL/SOSL·Visualforce 수치 **전건의 현행 확인 근거**. ② 구판 `Salesforce Documents/salesforce_app_limits_cheatsheet.pdf` (Last updated May 8, 2026 · 23p) = 8/14 판에서 **삭제된** Apex 거버너 한도 표·Push Notification 한도의 유일한 근거 (본문에서는 비교표 예시 수치에만 잔존)
 created: 2026-06-20
 aliases: [API Request Limits, Total API Request Allocations, Concurrent API Limits, Bulk API Limits, SOAP Call Limits, Metadata Limits, SOQL Search Limits, Visualforce Limits, API 호출 한도, 동시 API 한도, 벌크 한도, 메타데이터 한도, SOQL 한도, Visualforce 한도, 일일 API 콜 한도, 할당량 레퍼런스]
 ---
 
 # Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF)
 
-> Salesforce **org·edition·플랫폼 레벨 정적 할당량** 레퍼런스 — API 요청(동시·타임아웃·24시간 콜)·Bulk API/2.0·SOAP 콜·Metadata·SOQL/SOSL 검색·Visualforce 한도. (`salesforce_app_limits_cheatsheet.pdf`, Last updated May 8 2026)
+> Salesforce **org·edition·플랫폼 레벨 정적 할당량** 레퍼런스 — API 요청(동시·타임아웃·24시간 콜)·Bulk API/2.0·SOAP 콜·Metadata·SOQL/SOSL 검색·Visualforce 한도. 본문 수치는 전건 **August 14, 2026 판** 대조 완료(2026-08-25).
+
+> [!important] 판(edition) 분리 — **"미수록 ≠ 변경 아님"**
+> 이 치트시트는 **May 8, 2026 판(23p)** → **August 14, 2026 판(15p)** 으로 재편되면서 8페이지가 줄었다. 줄어든 분량은 수치가 바뀌어서가 아니라 **Apex 거버너 한도 표 전체(Per-Transaction·Certified Managed Package·Salesforce Platform·Static·Size-Specific·Push Notification)가 통째로 빠지고** "Execution Governors and Limits를 보라"는 포인터 한 줄로 대체됐기 때문이다.
+>
+> | 표시 | 의미 |
+> |---|---|
+> | (표기 없음) | **8/14 판에서 재확인됨.** 이 노트가 다루는 API·Bulk·Query Cursor·SOAP·Metadata·SOQL/SOSL·Visualforce 수치는 **전건**이 여기 해당한다 — 8/14 판 대비 변경된 숫자는 **0건**이다(2026-08-25 대조). |
+> | `[5/8 판 기준 — 재확인 불가]` | 8/14 판에서 **해당 표가 제거되어** 이 문서로는 재확인할 수 없는 값. **한도가 바뀌었다는 뜻이 아니다.** 문서에서 빠진 것과 한도가 변경된 것은 다르며, 이런 값은 Apex Developer Guide의 Execution Governors and Limits(= [[Governor Limits]])가 현행 정본이다. |
+>
+> ⚠️ **버전 라벨 주의:** August 14, 2026 판에는 표지·본문·XMP 메타데이터 어디에도 `Version 68.0, Winter '27` 문자열이 **없다**. 있는 것은 릴리즈 프리뷰 고지와 `Last updated: August 14, 2026`뿐이므로, 이 판의 수치를 **"v68 기준"이라고 부르지 않는다** — "8/14 판 기준"으로만 표기한다.
 
 > [!note] Apex **트랜잭션 런타임** 거버너 한도(SOQL 100/DML 150·Heap·CPU·비동기)는 [[Governor Limits]] 참조 — 이 노트는 그와 별개의 org/플랫폼 레벨 할당량을 다룬다. 또 이 치트시트는 Storage·Email·Custom Object 수 등 edition 할당량은 **다루지 않는다**(Salesforce "Features and Edition Allocations" 문서 소관).
 
@@ -28,29 +38,52 @@ aliases: [API Request Limits, Total API Request Allocations, Concurrent API Limi
 - Visualforce 한도
 
 **범위 밖 (이 PDF에 없음 — 만들어 넣지 않는다):**
-- Apex 트랜잭션 런타임 거버너 한도 → [[Governor Limits]]
+- Apex 트랜잭션 런타임 거버너 한도 → [[Governor Limits]] (8/14 판에서 표 자체가 삭제되고 포인터만 남음)
+- Push Notification 한도(시간당 iOS 20,000 / Android 10,000 — 5/8 판 p.8) → 5/8 판에는 있었으나 8/14 판에서 삭제되어 Execution Governors and Limits 소관으로 이관. 이 노트는 원래부터 다루지 않는다.
 - Platform Event / Change Data Capture / Pub/Sub API 할당량 → [[Platform Event 한도와 고려사항]]
 - Storage(데이터·파일) 할당량, Email 발송 한도, Custom Object 수 등 edition 기능 할당량 → Salesforce "Features and Edition Allocations" 문서 소관 (이 치트시트에 없음)
 - Experience Cloud 한도 → Salesforce "Experience Cloud User Licenses" 문서
+
+### 원문이 스스로 밝히는 범위 제한 (About This Quick Reference)
+
+> 출처: `Salesforce Documents/Winter27-v68-Docs/salesforce_app_limits_cheatsheet.pdf` p.1 — 5/8 판과 문구 동일
+
+치트시트 스스로가 붙인 단서로, 이 노트의 수치를 읽을 때 함께 적용된다.
+
+- 이 quick reference는 **일반적인** 한도·할당량만 제공하며 **모든** 한도를 다루지 않는다. 내 org에 적용되지 않는 한도·할당량이 포함돼 있을 수 있다.
+- 명시된 한도는 **모든 상황에서 그 한도까지 리소스가 가용하다는 약속이 아니다.** Load·performance·기타 시스템 이슈로 일부 한도에 도달하지 못할 수 있다. **한도는 통보 없이 변경될 수 있다.**
+- 이 가이드가 포함하지 **않는** 것: ① Salesforce 애플리케이션의 **user interface 요소** ② Salesforce object의 **필드 길이** ③ **desktop integration 클라이언트** ④ **내 Salesforce 계약**.
+- org의 총 rule 수·active rule 수 같은 특정 기능 한도는 Salesforce Help의 해당 기능 항목에도 있다. **edition별 할당량**은 "Salesforce Features and Edition Allocations", **Salesforce Functions** 한도는 "Functions Limits" 참조.
+- **계약상 한도(contractual limits)** 가 별도로 적용될 수 있다.
 
 ## 거버너 한도 vs 정적 할당량 구분
 
 | 구분 | Apex 거버너 한도 ([[Governor Limits]]) | 이 노트의 정적 할당량 |
 |---|---|---|
 | 적용 단위 | Apex 트랜잭션 (실행마다 리셋) | org/edition/플랫폼 (24시간 롤링 등) |
-| 예시 | SOQL 100건/트랜잭션, DML 150건, Heap 6/12MB, CPU 10/60초 | 24시간 총 API 콜 15,000~5,000,000, Batch 15,000/24h |
+| 예시 | SOQL 100건/트랜잭션(sync), DML 150건, Heap 6MB(sync)/12MB(async), CPU 10초(sync)/60초(async) `[5/8 판 기준 — 재확인 불가]` | 24시간 총 API 콜 15,000~5,000,000, Batch 15,000/24h (8/14 판 확인) |
 | 초과 시 | 트랜잭션 즉시 실패 (catch 불가 LimitException) | 요청 거부 또는 hard cap (예: `REQUEST_LIMIT_EXCEEDED`) |
-| 소관 | Apex Developer Guide | 이 Quick Reference (`salesforce_app_limits_cheatsheet.pdf`) |
+| 소관 | Apex Developer Guide — Execution Governors and Limits (8/14 판 치트시트는 이쪽으로 위임만) | 이 Quick Reference (`salesforce_app_limits_cheatsheet.pdf`, 8/14 판 p.2–15) |
 
-## ① Apex Governor Limits — 위임
+## ① Apex Governor Limits — 위임 (8/14 판에서 표 삭제됨)
 
 > Apex 트랜잭션 런타임 거버너 한도(SOQL 쿼리 100/DML 150·Heap·CPU 시간·비동기 한도 등)는 [[Governor Limits]] 참조. 이 노트는 표를 재작성하지 않는다.
 
+**판 간 변화 (이 노트에 영향 없음):** 5/8 판은 Apex 한도를 6개 표(Per-Transaction Apex p.1–4 · Per-Transaction Certified Managed Package p.4 · Salesforce Platform Apex p.5 · Static Apex p.7 · Size-Specific Apex p.8 · Push Notification p.8)로 실었으나, **8/14 판은 이 6개 표를 전부 삭제**하고 p.1에 다음 한 문단만 남겼다.
+
+> 원문(8/14 판 p.1): *"For more information about per-transaction Apex limits, per-transaction certified managed package limits, Salesforce Platform Apex limits, static Apex limits, size-specific Apex limits, and push notification limits, see Execution Governors and Limits."*
+
+이 노트의 범위(API·Bulk·Metadata·SOQL·VF)는 원래부터 Apex 표를 쓰지 않았으므로 **삭제의 영향을 받는 본문 수치는 없다.** 위 "거버너 한도 vs 정적 할당량" 비교표의 Apex 쪽 *예시* 숫자만 5/8 판 p.2(Per-Transaction Apex Limits 표)에 근거하며 `[5/8 판 기준 — 재확인 불가]`로 표기했다 — 삭제되었을 뿐 변경된 것이 아니고, 현행 정본은 [[Governor Limits]]다.
+
 ## API 요청 한도와 할당량
+
+> 출처: `Salesforce Documents/Winter27-v68-Docs/salesforce_app_limits_cheatsheet.pdf` (Aug 14, 2026 판) p.1–6 — 전건 8/14 판 확인
+
+이 한도·할당량은 별도 언급이 없는 한 **Salesforce Platform SOAP·REST API 및 그 프레임워크 위에 구축된 모든 API**에 적용된다. 다른 Salesforce API의 한도는 해당 문서를 본다. 최적 성능 유지와 Lightning Platform API의 전 고객 가용성 확보를 위해 Salesforce는 트랜잭션 부하를 **세 종류의 한도**로 분산한다 — ① Concurrent API Request Limits ② API Timeout Limits ③ Total API Request Allocations. 콜이 요청 한도를 초과하면 에러가 반환된다. (p.1)
 
 ### 동시 API 요청 한도
 
-다양한 org 유형에 대해, **20초 이상** 지속되는 인바운드 동시 요청(콜)에 적용되는 한도다.
+다양한 org 유형에 대해, **20초 이상** 지속되는 인바운드 동시 요청(콜)에 적용되는 한도다. (p.2)
 
 | Org 유형 | 한도 |
 |---|---|
@@ -61,7 +94,7 @@ aliases: [API Request Limits, Total API Request Allocations, Concurrent API Limi
 
 **20초 미만**의 동시 요청 수에는 한도가 없다.
 
-### API 타임아웃 한도
+### API 타임아웃 한도 (8/14 판 p.2)
 
 - REST 및 SOAP API 콜의 타임아웃 한도는 **10분**이다. 단 query 콜은 예외 — query 콜의 타임아웃은 SOQL 한도가 결정한다(아래 SOQL 검색 한도 참조).
 - 다른 Salesforce API(예: Bulk API)로 한 콜의 타임아웃은 해당 API 문서를 참조.
@@ -70,7 +103,7 @@ aliases: [API Request Limits, Total API Request Allocations, Concurrent API Limi
 
 ### 총 API 요청 할당량 (edition별)
 
-org당 24시간 기간 동안의 총 인바운드 API 요청(콜) 한도다.
+org당 24시간 기간 동안의 총 인바운드 API 요청(콜) 한도다. (8/14 판 p.2–4 — 라이선스 유형별 값·Full Sandbox 5,000,000 전건 동일)
 
 > [!note] External Identity 라이선스 유형의 한도는 표시된 대로 다양하다(70,000 / 750,000 / 4,000,000 콜). 본인의 한도가 어느 것인지 확실하지 않으면 Salesforce 담당자에게 문의한다.
 
@@ -89,7 +122,7 @@ org당 24시간 기간 동안의 총 인바운드 API 요청(콜) 한도다.
 - 한도·할당량은 24시간 기간 동안 org에 대한 **모든 API 콜의 합계**에 대해 적용된다. 사용자별 단위가 아니다.
 - Load·performance·기타 시스템 이슈로 24시간 기간 동안 전체 할당량을 사용하지 못할 수 있다.
 
-### API 사용량 모니터링
+### API 사용량 모니터링 (8/14 판 p.4–5)
 
 org의 API 사용량·한도를 모니터링하는 리소스:
 - Setup의 System Overview 페이지의 **API Usage** 섹션.
@@ -112,7 +145,7 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN" \
 # DailyBulkV2QueryFileStorageMB 등의 Max/Remaining 값이 포함된다.
 ```
 
-### 한도 초과 시 동작 / 할당량 증설
+### 한도 초과 시 동작 / 할당량 증설 (8/14 판 p.5)
 
 **일일 API 요청 한도에 도달·초과 시:** org가 일일 API 요청 한도에 도달하거나 초과해도, Salesforce는 가능한 경우 일정량까지 작업을 계속 진행시킨다. 예기치 못한 워크로드 급증·간헐적 피크 기간 동안 워크플로 차단을 피하기 위함이다. 단, 플랫폼 리소스 보호를 위해 hard cap이 적용되어 일일 한도를 무제한 초과하지 못하게 한다.
 
@@ -123,13 +156,13 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN" \
 
 API 요청 활동은 계약 시작일 기준 30일 기간으로 집계되며, org의 권한 한도를 초과하는 콜을 포함한다.
 
-**총 API 요청 할당량 증설:** 허용되는 총 API 요청 수는 org 내 사용자 라이선스로 정의된다. 더 많은 API 요청이 필요하면 Your Account App으로 추가 사용자 라이선스나 추가 API 콜을 구매한다(Salesforce Help: Add Products and Licenses with the Your Account App 참조 또는 account executive 문의). 구매 전 현재 사용량을 검토하고 가능하면 총 요청 수를 줄인다 — 클라이언트 앱을 최적화해 더 적은 콜로 동일 작업 수행, REST API Composite Resources로 클라이언트↔서버 왕복 최소화 등.
+**총 API 요청 할당량 증설:** 허용되는 총 API 요청 수는 org 내 사용자 라이선스로 정의된다. 더 많은 API 요청이 필요하면 Your Account App으로 추가 사용자 라이선스나 추가 API 콜을 구매한다(Salesforce Help: Add Products and Licenses with the Your Account App 참조 또는 account executive 문의). 구매 전 현재 사용량을 검토하고 가능하면 총 요청 수를 줄인다 — 자체 또는 파트너 클라이언트 앱을 최적화해 더 적은 콜로 동일 작업 수행, REST API Composite Resources로 클라이언트↔서버 왕복 최소화 등. 파트너 앱을 쓴다면 그 제품이 API를 최적으로 사용하는지 벤더에 확인한다 — API를 비효율적으로 쓰는 제품은 회사에 불필요한 비용을 발생시킨다.
 
 **API 사용량 메터링 계산 예시:**
 - Salesforce 라이선스 15개를 가진 Enterprise Edition org의 경우, 요청 한도는 **115,000 requests**다(100,000 + 15 licenses × 1,000 calls).
 - 수요일 오전 5시에 14,500콜, 수요일 오후 11시에 499콜을 한 Developer Edition org의 경우, 목요일 오전 5시까지 **한 콜만** 더 성공적으로 할 수 있다.
 
-### 요청 크기 한도
+### 요청 크기 한도 (8/14 판 p.6)
 
 | 항목 | 한도 |
 |---|---|
@@ -138,6 +171,8 @@ API 요청 활동은 계약 시작일 기준 30일 기간으로 집계되며, or
 | 저장되는 third-party refresh·access token 길이 | Salesforce는 최대 10,000자 길이의 third-party access·refresh token을 저장한다 |
 
 ## Connect REST API 한도
+
+> 출처: `Salesforce Documents/Winter27-v68-Docs/salesforce_app_limits_cheatsheet.pdf` (Aug 14, 2026 판) p.6 — 전건 8/14 판 확인
 
 한도는 공유 리소스를 보호한다. 이 한도는 Connect REST API 소비자에 적용된다.
 
@@ -149,15 +184,17 @@ API 요청 활동은 계약 시작일 기준 30일 기간으로 집계되며, or
 
 ## Bulk API · Bulk API 2.0 한도와 할당량
 
+> 출처: `Salesforce Documents/Winter27-v68-Docs/salesforce_app_limits_cheatsheet.pdf` (Aug 14, 2026 판) p.6–10 — 전건 8/14 판 확인
+
 2,000건을 초과하는 데이터 작업은 Bulk 프레임워크를 활용해 비동기 워크플로를 준비·실행·관리하는 Bulk API 2.0의 좋은 후보다. 2,000건 미만의 작업은 REST(예: Composite)나 SOAP에서 "bulkified" 동기 콜을 사용해야 한다.
 
-### Batch 할당량
+### Batch 할당량 (8/14 판 p.6)
 
 - 롤링 24시간 기간당 **최대 15,000 batches**를 제출할 수 있다. 이 할당량은 Bulk API와 Bulk API 2.0 간에 **공유**되므로, Bulk API 또는 Bulk API 2.0에서 처리되는 모든 batch가 이 할당량에 카운트된다.
 - Bulk API 2.0에서는 **ingest job만** batch를 소비한다. Query job은 소비하지 않는다.
 - Bulk API 2.0에서는 batch가 자동 생성된다. Bulk API에서는 직접 batch를 생성해야 한다.
 
-### General Limits
+### General Limits (8/14 판 p.7)
 
 | Item | Bulk API Limit | Bulk API 2.0 Limit |
 |---|---|---|
@@ -165,7 +202,7 @@ API 요청 활동은 계약 시작일 기준 30일 기간으로 집계되며, or
 | Binary content | • 파일명 길이는 512 bytes를 초과할 수 없다.<br>• zip 파일은 10 MB를 초과할 수 없다.<br>• 압축 해제된 콘텐츠 총 크기는 20 MB를 초과할 수 없다.<br>• zip 파일에는 최대 1,000개 파일이 포함될 수 있다. 디렉터리는 이 총계에 카운트되지 않는다. | N/A |
 | Maximum time that a job can remain open | 24 hours | The same. (But this only applies to ingest jobs, not query jobs.) |
 
-### Ingest Jobs 한도
+### Ingest Jobs 한도 (8/14 판 p.7–8)
 
 | Item | Bulk API Limit | Bulk API 2.0 Limit |
 |---|---|---|
@@ -180,7 +217,7 @@ API 요청 활동은 계약 시작일 기준 30일 기간으로 집계되며, or
 | Maximum number of records in a batch | 10,000 | N/A |
 | Maximum number of characters for all the data in a batch | 10,000,000 | N/A |
 
-### Query Jobs 한도
+### Query Jobs 한도 (8/14 판 p.9–10)
 
 | Item | Bulk API Limit | Bulk API 2.0 Limit |
 |---|---|---|
@@ -197,11 +234,15 @@ API 요청 활동은 계약 시작일 기준 30일 기간으로 집계되며, or
 
 ## API Query Cursor 한도
 
+> 출처: `Salesforce Documents/Winter27-v68-Docs/salesforce_app_limits_cheatsheet.pdf` (Aug 14, 2026 판) p.10 — 전건 8/14 판 확인
+
 - Cursor와 관련 query 결과는 nested query 결과를 포함해 **2일간** 사용 가능하다. 열린 cursor 수에는 한도가 없다.
 - 대량·복잡한 query 결과를 단일 batch로 반환할 수 없을 때, 하나 이상의 server-side cursor와 대응 query locator가 자동 생성된다. cursor는 DB 내 추가 query 결과의 위치를 표시하고, query locator가 cursor를 찾는다. 추가 결과를 얻으려면 SOAP API의 `queryMore()` 콜이나 REST API의 `nextRecordUrl` 필드 같은 다른 콜 내에서 query locator를 사용한다.
 - Salesforce cursor 한도는 **API 버전 56.0** 릴리스로 변경되었다. 이전에는 사용자당 최대 **10 cursors**가 동시에 접근 가능했고, query 결과·페이지네이션을 사용자당 10 result set으로 제한했다. 가장 오래된 cursor·result set은 15분의 비활성 후 만료되었다. cursor 한도 제거는 보편적이며, 모든 버전의 Apex, SOAP API, REST API, Bulk API, Bulk API 2.0 및 이 기술로 구축된 모든 기능에 적용된다.
 
 ## SOAP API Call 한도
+
+> 출처: `Salesforce Documents/Winter27-v68-Docs/salesforce_app_limits_cheatsheet.pdf` (Aug 14, 2026 판) p.10–11 — 전건 8/14 판 확인
 
 | API Name | API Limit | Limit Description |
 |---|---|---|
@@ -215,6 +256,8 @@ API 요청 활동은 계약 시작일 기준 30일 기간으로 집계되며, or
 
 ## Metadata API 한도
 
+> 출처: `Salesforce Documents/Winter27-v68-Docs/salesforce_app_limits_cheatsheet.pdf` (Aug 14, 2026 판) p.11–12 — 전건 8/14 판 확인
+
 다음 한도는 Salesforce Extensions for Visual Studio Code, Ant Migration Tool, Metadata API에 적용된다.
 
 | Limit | Description |
@@ -227,9 +270,11 @@ API 요청 활동은 계약 시작일 기준 30일 기간으로 집계되며, or
 
 ## SOQL · SOSL 검색 한도
 
+> 출처: `Salesforce Documents/Winter27-v68-Docs/salesforce_app_limits_cheatsheet.pdf` (Aug 14, 2026 판) p.12–14 — 전건 8/14 판 확인
+
 | Feature | Limit | Limit Description |
 |---|---|---|
-| SOQL statements | Maximum length of SOQL statements | 기본 100,000 characters. 긴 복잡한 SOQL 문(예: formula 필드가 많은 문)은 `QUERY_TOO_COMPLICATED` 에러를 일으킬 수 있다 — Salesforce가 처리 시 문을 내부적으로 확장하므로, 원본 SOQL 문이 100,000자 한도 미만이어도 발생한다. 이를 피하려면 SOQL 문의 복잡도를 줄인다. 250개 넘는 필드를 가진 Lightning 페이지 레이아웃도 `QUERY_TOO_COMPLICATED`를 유발할 수 있다(Lightning이 record 페이지 레이아웃 필드 검색에 auto-generated SOQL을 사용하므로 고객 작성 SOQL이 없어도 발생 가능). currency 필드를 너무 많이 포함해도 문자 한도에 도달할 수 있다(currency 필드는 SOQL이 format 메서드를 사용하게 해 currency 필드마다 API 필드명 길이가 대략 두 배가 됨). dynamic Apex로 SOQL을 사용할 때는 SOQL 문 문자 한도가 적용되지 않는다. |
+| SOQL statements | Maximum length of SOQL statements | 기본 100,000 characters. external object가 관여하는 query를 포함한 SOQL 문 한도 상세는 "Understanding Relationship Query Limitations" 참조. 긴 복잡한 SOQL 문(예: formula 필드가 많은 문)은 `QUERY_TOO_COMPLICATED` 에러를 일으킬 수 있다 — Salesforce가 처리 시 문을 내부적으로 확장하므로, 원본 SOQL 문이 100,000자 한도 미만이어도 발생한다. 이를 피하려면 SOQL 문의 복잡도를 줄인다. 250개 넘는 필드를 가진 Lightning 페이지 레이아웃도 `QUERY_TOO_COMPLICATED`를 유발할 수 있다(Lightning이 record 페이지 레이아웃 필드 검색에 auto-generated SOQL을 사용하므로 고객 작성 SOQL이 없어도 발생 가능). currency 필드를 너무 많이 포함해도 문자 한도에 도달할 수 있다(currency 필드는 SOQL이 format 메서드를 사용하게 해 currency 필드마다 API 필드명 길이가 대략 두 배가 됨). dynamic Apex로 SOQL을 사용할 때는 SOQL 문 문자 한도가 적용되지 않는다. |
 | SOQL statements | Maximum number of junction IDs | query당 500 IDs. query가 501개 이상의 junction ID를 포함하면 query가 실패하고 `MALFORMED_QUERY` 예외를 반환한다. |
 | SOQL WHERE clause | Strings in SOQL WHERE clauses | WHERE 절 내 각 문자열당 4,000 characters. |
 | SOQL query results | Maximum rows returned | 요청당 2,000 results(API 버전 28.0 이후), query에 custom limit을 지정하지 않은 한. 이 한도는 child object의 결과를 포함한다. 이전 API 버전은 200 results 반환. Apex 클래스 내에서 query 실행 시 추가 한도가 적용된다(Apex Governor Limits 참조). |
@@ -238,7 +283,7 @@ API 요청 활동은 계약 시작일 기준 30일 기간으로 집계되며, or
 | SOSL statements | Maximum length of SOSL statements | 기본 100,000 characters. 이 한도는 org에 정의된 SOQL 문 문자 한도에 연동된다. |
 | SOSL search query strings | Maximum length of SearchQuery string | SearchQuery 문자열이 10,000자보다 길면 result row가 반환되지 않는다. SearchQuery가 4,000자보다 길면 모든 logical operator가 제거된다. 예를 들어 SearchQuery가 4,001자인 문의 AND operator는 OR operator로 기본 변경되어, 예상보다 많은 결과를 반환할 수 있다. |
 | SOSL query results | Maximum rows returned | 총 2,000 results(API 버전 28.0 이후), query에 custom limit을 지정하지 않은 한. 이 한도는 child object 결과를 포함한다. 이전 API 버전은 200 results 반환. |
-| Relationship queries | Relationship query limits | • 한 query에 55개 넘는 child-to-parent 관계를 지정할 수 없다. custom object는 최대 40개 관계를 허용하므로, 한 query에서 custom object의 모든 child-to-parent 관계를 참조할 수 있다.<br>• polymorphic 필드의 단일 query는 child-to-parent 관계 한도에 여러 번 카운트될 수 있다.<br>• 한 query에 20개 넘는 parent-to-child 관계를 지정할 수 없다.<br>• 각 지정 관계에서 child-to-parent 관계는 5단계를 넘게 지정할 수 없다(예: `Contact.Account.Owner.FirstName` = 3단계).<br>• API 버전 57.0 이전은 query에 parent-to-child 관계 2단계만 지정 가능.<br>• API 버전 58.0 이후는 standard·custom object에 대해 REST·SOAP·Apex query 콜로 최대 5단계 parent-to-child 관계를 query할 수 있다. 5단계 parent-to-child 관계를 가진 SOQL query는 big object·external object·Bulk API·Bulk API 2.0에는 지원되지 않는다. |
+| Relationship queries | Relationship query limits | • 한 query에 55개 넘는 child-to-parent 관계를 지정할 수 없다. custom object는 최대 40개 관계를 허용하므로, 한 query에서 custom object의 모든 child-to-parent 관계를 참조할 수 있다.<br>• polymorphic 필드의 단일 query는 child-to-parent 관계 한도에 여러 번 카운트될 수 있다(상세는 "Understanding Relationship Query Limitations").<br>• 한 query에 20개 넘는 parent-to-child 관계를 지정할 수 없다.<br>• 각 지정 관계에서 child-to-parent 관계는 5단계를 넘게 지정할 수 없다(예: `Contact.Account.Owner.FirstName` = 3단계).<br>• API 버전 57.0 이전은 query에 parent-to-child 관계 2단계만 지정 가능.<br>• API 버전 58.0 이후는 standard·custom object에 대해 REST·SOAP·Apex query 콜로 최대 5단계 parent-to-child 관계를 query할 수 있다. 5단계 parent-to-child 관계를 가진 SOQL query는 big object·external object·Bulk API·Bulk API 2.0에는 지원되지 않는다. |
 | FOR VIEW and FOR REFERENCE | Maximum RecentlyViewed records allowed | RecentlyViewed object는 로그인 사용자가 record를 보거나 참조할 때마다 업데이트된다. SOQL query의 FOR VIEW 또는 FOR REFERENCE 절로 record를 검색할 때도 업데이트된다. 최신 데이터 가용성을 위해 RecentlyViewed 데이터는 object당 200 records로 주기적으로 truncate된다. RecentlyViewed 데이터는 90일간 보관된 후 주기적으로 제거된다. |
 | OFFSET clause | Maximum number of rows skipped by OFFSET | 최대 offset은 2,000 rows다. 2,000을 초과하는 offset을 요청하면 `NUMBER_OUTSIDE_VALID_RANGE` 에러가 발생한다. |
 | ORDER BY clause in SOQL statement | ORDER BY fields limit | SOQL query의 SELECT 문 ORDER BY 절은 query 결과 순서를 제어한다(예: z로 시작하는 알파벳 순). record가 null이면 ORDER BY로 빈 record를 처음 또는 마지막에 표시할 수 있다. |
@@ -246,6 +291,8 @@ API 요청 활동은 계약 시작일 기준 30일 기간으로 집계되며, or
 > SOQL·SOSL 문법은 [[SOQL 문법 레퍼런스]] · [[SOSL 패턴]] 참조.
 
 ## Visualforce 한도
+
+> 출처: `Salesforce Documents/Winter27-v68-Docs/salesforce_app_limits_cheatsheet.pdf` (Aug 14, 2026 판) p.14–15 — 전건 8/14 판 확인. 18개 행 값 전부 5/8 판과 동일
 
 | Limit | Value |
 |---|---|
@@ -272,6 +319,18 @@ API 요청 활동은 계약 시작일 기준 30일 기간으로 집계되며, or
 ## ⑩ Platform Event Allocations — 위임
 
 > Platform Event / Change Data Capture / Pub/Sub API 할당량(이벤트 정의·발행·전달 한도, custom channel 수 등)은 [[Platform Event 한도와 고려사항]] 참조. 이 노트는 표를 재작성하지 않는다.
+
+8/14 판 p.15도 동일하게 표를 싣지 않고 세 문서로 위임한다 — **Platform Event Allocations**(플랫폼 이벤트 정의·발행·전달), **Change Data Capture Allocations**(custom channel 수, channel 내 선택 엔티티, 이벤트 전달), **Pub/Sub API and Event Allocations**(Pub/Sub API로 플랫폼 이벤트·change event를 발행/구독할 때의 할당량). 5/8 판과 동일한 구조다.
+
+## 판 대조 결과 요약 (2026-08-25)
+
+| 구분 | 5/8 판(23p) | 8/14 판(15p) | 이 노트의 처리 |
+|---|---|---|---|
+| Apex 거버너 한도 6개 표 | p.1–8 수록 | **삭제** — p.1 포인터 한 줄로 대체 | 원래 위임 섹션이라 본문 영향 없음. 비교표 예시 숫자만 `[5/8 판 기준 — 재확인 불가]` |
+| Push Notification 한도 | p.8 수록 (시간당 iOS 20,000 / Android 10,000) | **삭제** | 이 노트 범위 밖 — 미수록 사실만 기록 |
+| API 요청·Connect REST·Bulk·Query Cursor·SOAP·Metadata·SOQL/SOSL·Visualforce | p.9–23 (Concurrent API 한도 p.9 시작) | p.1–15 **전건 유지** | **숫자 변경 0건.** 8/14 판 페이지로 인용 갱신 |
+| 문구 변경 | "To determine which APIs affect the allocation, see Monitoring Your API Usage." 문장 존재 | 해당 문장 **삭제**, Batch Allocations 상호참조에 `on page 6` 페이지 번호 추가, 릴리즈 프리뷰 고지 추가 | 수치 무관 — 본문 반영 불필요 |
+| 버전 표기 | `Last updated: May 8, 2026` | `Last updated: August 14, 2026` + 릴리즈 프리뷰 고지. **`Version 68.0, Winter '27` 문자열 없음** | "v68"으로 라벨링하지 않음 |
 
 ## 관련 노트
 - [[Governor Limits]]

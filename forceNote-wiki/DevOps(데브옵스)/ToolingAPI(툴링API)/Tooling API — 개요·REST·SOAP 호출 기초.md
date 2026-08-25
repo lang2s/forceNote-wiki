@@ -1,8 +1,8 @@
 ---
 tags: [tooling-api, devops, rest, soap, unit-testing, composite, executeAnonymous]
-source: api_tooling.pdf (Tooling API Reference and Developer Guide v67.0 Summer '26); Winter27-v68-Docs/api_tooling.pdf (Tooling API Reference and Developer Guide v68.0 Winter '27, 2026-08-21 갱신) 인쇄 p.3–7 — REST 리소스 카탈로그·Test Discovery testLevel
+source: api_tooling.pdf (Tooling API Reference and Developer Guide v67.0 Summer '26); Winter27-v68-Docs/api_tooling.pdf (Tooling API Reference and Developer Guide v68.0 Winter '27, 2026-08-21 갱신) 인쇄 p.3–7 — REST 리소스 카탈로그·Test Discovery testLevel, 인쇄 p.37–38 — API End-of-Life Policy 버전 지원 표(v68.0 판, 2026-08-25 갱신)
 created: 2026-06-27
-aliases: [Tooling API, 툴링 API, REST Resources, REST 리소스, SOAP Calls, SOAP 호출, executeAnonymous, runTestsAsynchronous, runTestsSynchronous, Test Discovery API, Test Runner API, Composite Resource, API End-of-Life, testLevel, showAllMethods deprecated, apexCompileResults 리소스, symbols 리소스, RunAllTestsInOrg, RunLocalTests]
+aliases: [Tooling API, 툴링 API, REST Resources, REST 리소스, SOAP Calls, SOAP 호출, executeAnonymous, runTestsAsynchronous, runTestsSynchronous, Test Discovery API, Test Runner API, Composite Resource, API End-of-Life, testLevel, showAllMethods deprecated, apexCompileResults 리소스, symbols 리소스, RunAllTestsInOrg, RunLocalTests, API 버전 지원 종료, API 버전 은퇴, 410 GONE, UNSUPPORTED_API_VERSION]
 ---
 
 # Tooling API — 개요·REST·SOAP 호출 기초
@@ -873,13 +873,32 @@ Composite Subrequest Result
 
 Salesforce는 각 API 버전을 최초 릴리스로부터 **최소 3년** 지원한다. 품질·성능 개선을 위해 3년 이상 된 버전은 더 이상 지원되지 않을 수 있다. Salesforce는 deprecation 예정 API 버전을 사용하는 고객에게 지원 종료 **최소 1년 전**에 통지한다.
 
-**버전 지원 표** (`-layout`으로 셀 검증 완료)
+**버전 지원 표 — v68.0(Winter '27) 판** (출처: `Winter27-v68-Docs/api_tooling.pdf` 인쇄 **p.37–38**. 표는 p.37에서 시작해 p.38로 이어지며 헤더 행이 반복된다. `-layout`·비-layout 양쪽 추출로 셀별 대조 완료)
 
 | Salesforce API Versions | Version Support Status | Version Retirement Info |
 |---|---|---|
-| Versions 31.0 through 66.0 | Supported. | (none) |
+| Versions 41.0 through 66.0 | Supported. | *(원문 셀 비어 있음)* |
+| Versions 31.0 through 40.0 | Supported.<br>Deprecated and unsupported from Summer '27.<br>Retired from Summer '28. | Salesforce Platform API Versions 31.0 through 40.0 Retirement |
 | Versions 21.0 through 30.0 | As of Summer '25, these versions are retired and unavailable. | Salesforce Platform API Versions 21.0 through 30.0 Retirement |
 | Versions 7.0 through 20.0 | As of Summer '22, these versions are retired and unavailable. | Salesforce Platform API Versions 7.0 through 20.0 Retirement |
+
+> **PDF 원문 (인쇄 p.38, `Versions 31.0 through 40.0` 행)**: *"Supported. / Deprecated and unsupported from Summer '27. / Retired from Summer '28."* — Version Retirement Info 열은 *"Salesforce Platform API Versions 31.0 through 40.0 Retirement"*.
+
+**읽는 법 — 31.0–40.0은 "지금은 지원, 예고된 2단계 종료"다.** v68.0 시점에 31.0–40.0은 여전히 **Supported**이고, ① **Summer '27부터 deprecated·unsupported**, ② **Summer '28부터 retired**(요청 불가)로 두 시점이 따로 예고돼 있다. 41.0–66.0만이 종료 예고 없는 순수 지원 구간이다.
+
+> [!warning] 판(edition) 표시 — 다음 drift를 눈에 보이게
+> 위 표는 **v68.0 (Winter '27) 판**이다. **v67.0(Summer '26) 판에서는 `Versions 31.0 through 66.0 | Supported. | (없음)` 한 행**이었고, v68.0에서 이 행이 **41.0–66.0**과 **31.0–40.0**(신규 종료 예고 포함) **두 행으로 분리**됐다. 다음 릴리즈 PDF에서도 이 표를 최우선으로 재대조한다.
+
+**릴리즈 노트와의 정합성 (교차 확인함)**
+
+| 대역 | v68.0 PDF (인쇄 p.37–38) | Winter '27 릴리즈 노트 | 판정 |
+|---|---|---|---|
+| 41.0–66.0 | Supported. 종료 정보 없음 | 대응 항목 없음 | 상충 없음 |
+| 31.0–40.0 | Supported → Summer '27 deprecated·unsupported → Summer '28 retired | **대응 릴리즈 노트 항목 없음** (Winter '27 노트의 31.0–64.0 항목은 **SOAP `login()` 호출 은퇴**로 *별개 항목*이다 — API 버전 은퇴가 아님) | 상충 없음. 현재는 **PDF만이 소스** |
+| 21.0–30.0 | As of Summer '25, retired and unavailable. | `rn_api_retirement_delay_256rn` — 당초 Summer '23 예정 → **Summer '25로 연기**, Summer '25부터 미지원·사용 불가 ([[Winter '27/Development]], [[Winter '27/Release Updates]]) | **일치** (PDF의 "As of Summer '25" = 릴리즈 노트의 연기 후 확정 시점) |
+| 7.0–20.0 | As of Summer '22, retired and unavailable. | 대응 항목 없음 | 상충 없음 |
+
+> 21.0–30.0의 **연기 이력(Summer '23 → Summer '25)** 과 Test Run 절차는 PDF 표에 없고 릴리즈 노트에만 있다 — [[Winter '27/Development]]의 "API 21.0–30.0 은퇴" 절이 그 정본이다. 31.0–40.0 대역의 은퇴 Release Update가 향후 릴리즈 노트에 등장하면 이 표와 대조한다.
 
 - retired API 버전의 리소스·연산을 요청하면 REST API는 `410:GONE` 에러 코드를 반환한다.
 - retired API 버전의 리소스·연산을 요청하면 SOAP API는 `500:UNSUPPORTED_API_VERSION` 에러 코드를 반환한다.
@@ -1166,3 +1185,4 @@ actionResults[0].errors[0].message + "\n");
 - [[Apex 배포 방법]] — 배포 경로(Metadata API·Tooling API·DX) 비교 허브
 - [[Metadata API 개요]] — Metadata API 타입(declarative) 카탈로그 (Tooling sObject ≠ Metadata type 경계)
 - [[Winter '27/Development]] — v68.0 릴리즈 맥락. Test Discovery API `testLevel` 신설·`showAllMethods` deprecated, 신규 REST 리소스 `symbols`·`apexCompileResults`의 릴리즈 노트 측 서술.
+- [[Winter '27/Release Updates]] — API 버전 은퇴 Release Update의 강제 시점·Test Run 절차 (EOL 표의 21.0–30.0 대역 대조처)
