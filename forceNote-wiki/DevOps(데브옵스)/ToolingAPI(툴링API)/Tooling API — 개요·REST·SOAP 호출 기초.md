@@ -1,8 +1,8 @@
 ---
 tags: [tooling-api, devops, rest, soap, unit-testing, composite, executeAnonymous]
-source: api_tooling.pdf (Tooling API Reference and Developer Guide v67.0 Summer '26)
+source: api_tooling.pdf (Tooling API Reference and Developer Guide v67.0 Summer '26); Winter27-v68-Docs/api_tooling.pdf (Tooling API Reference and Developer Guide v68.0 Winter '27, 2026-08-21 갱신) 인쇄 p.3–7 — REST 리소스 카탈로그·Test Discovery testLevel
 created: 2026-06-27
-aliases: [Tooling API, 툴링 API, REST Resources, REST 리소스, SOAP Calls, SOAP 호출, executeAnonymous, runTestsAsynchronous, runTestsSynchronous, Test Discovery API, Test Runner API, Composite Resource, API End-of-Life]
+aliases: [Tooling API, 툴링 API, REST Resources, REST 리소스, SOAP Calls, SOAP 호출, executeAnonymous, runTestsAsynchronous, runTestsSynchronous, Test Discovery API, Test Runner API, Composite Resource, API End-of-Life, testLevel, showAllMethods deprecated, apexCompileResults 리소스, symbols 리소스, RunAllTestsInOrg, RunLocalTests]
 ---
 
 # Tooling API — 개요·REST·SOAP 호출 기초
@@ -83,6 +83,10 @@ Salesforce Release Notes로 Tooling API의 최신 업데이트·변경을 확인
 - **REST Headers** — strongly typed가 아닌 언어용 REST.
 - **REST Header Examples** — REST 헤더 사용 예.
 - **Improve Performance with the Composite Resource** — `/composite` 리소스로 일련의 Tooling API 요청을 단일 호출로 실행해 클라이언트↔서버 왕복 횟수를 최소화한다. API 버전 40.0 이상.
+- **Retrieve Compilation Results for Invalid Apex with the `apexCompileResults` Resource** *(v68.0 신규)* — validation error가 있는 Apex 클래스·트리거의 컴파일 결과를 retrieve한다. 결과를 정기적으로 모니터링하면 컴파일 이슈를 탐지·대응할 수 있다. API 68.0 이상. **이 리소스는 Author Apex org 권한을 요구한다.**
+- **Retrieve Apex Type Information with the Symbols Resource (Beta)** *(v68.0 신규)* — Apex Symbol API로 built-in·custom·packaged·dynamic Apex 타입(클래스·인터페이스·enum·메서드·트리거 포함)의 상세 메타데이터를 retrieve한다. API 68.0 이상. **이 리소스는 Author Apex org 권한과 View Setup 사용자 권한을 요구한다.**
+
+> 위 두 v68.0 신규 리소스의 **전체 레퍼런스**(파라미터·응답 필드 전수·한도·예제)는 Apex 도메인 노트 [[Tooling API 객체 — Apex 코드·테스트·커버리지]]의 "v68.0 신규 REST 리소스" 절에 있다. 이 노트는 리소스 **카탈로그 등재**만 담당한다.
 
 ---
 
@@ -95,10 +99,11 @@ REST 리소스로 Tooling API 객체에 접근한다. REST 리소스로 쿼리�
 여기서 `domain`은 org의 My Domain 로그인 URL, `vXX.X`는 API 버전이다. 예:
 `https://MyDomainName.my.salesforce.com/services/data/v67.0/tooling/`
 
-### REST Resources Supported by Tooling API (12개 전수)
+### REST Resources Supported by Tooling API (14개 전수 — v68.0 기준)
 
 | REST 리소스 URI | Supported methods | 설명 |
 |---|---|---|
+| `/apexCompileResults/` | POST | **v68.0 신규.** validation error가 있는 Apex 클래스·트리거의 컴파일 결과를 retrieve. API 68.0+. Author Apex org 권한 필요. 상세는 [[Tooling API 객체 — Apex 코드·테스트·커버리지]] 참조. |
 | `/completions?type=` | GET | 참조된 타입의 사용 가능한 code completion을 retrieve. `type=apex`는 Apex system method 심볼 (API 28.0+). `type=visualforce`는 Visualforce 마크업 (API 38.0+). |
 | `/executeAnonymous/?anonymousBody=<url encoded body>` | GET | Apex 코드를 익명 실행. API 29.0+. Salesforce는 managed package 내 컴포넌트의 모든 `/executeanonymous` 요청을 차단한다. Block Execute Anonymous from Managed Packages (Release Update) 참조. |
 | `/query/?q=SOQL_Query_Statement` | GET | 객체에 대해 쿼리를 실행하고 조건에 맞는 데이터를 반환. Tooling API는 EntityDefinition·FieldDefinition처럼 external object framework를 쓰는 객체를 노출한다 — DB에 존재하지 않고 동적으로 구성된다. virtual entity에는 특수 쿼리 규칙이 적용된다. 결과가 너무 크면 batch로 쪼개진다. 응답은 첫 batch와 query identifier를 포함하고, identifier로 다음 batch를 retrieve할 수 있다. |
@@ -110,6 +115,7 @@ REST 리소스로 Tooling API 객체에 접근한다. REST 리소스로 쿼리�
 | `/sobjects/SObjectName/describe/` | GET | 지정 객체의 모든 레벨의 개별 메타데이터를 완전히 describe. 예: Tooling API 객체의 필드·URL·자식 관계를 retrieve. |
 | `/sobjects/SObjectName/id/` | GET, PATCH, DELETE | 지정 객체 ID로 레코드에 접근. GET=레코드/필드 retrieve, DELETE=레코드 삭제, PATCH=레코드 업데이트. |
 | `/sobjects/ApexLog/id/Body/` | GET | ID로 raw debug log를 retrieve. API 28.0+. |
+| `/symbols?category=<builtin, database, or dynamic>` | GET | **v68.0 신규(Beta).** built-in·custom·packaged·dynamic Apex 타입(클래스·인터페이스·enum·메서드·트리거 포함)의 상세 메타데이터를 retrieve. 이 리소스는 API 68.0+. Author Apex org 권한 + View Setup 사용자 권한 필요. 상세는 [[Tooling API 객체 — Apex 코드·테스트·커버리지]] 참조. |
 | `/tests/` | GET | Apex·자동화 flow 테스트를 retrieve. API 65.0+. Retrieve Unit Tests 참조. |
 
 ---
@@ -144,10 +150,13 @@ Test Discovery API는 Apex·자동화 flow 테스트의 상세를 반환한다. 
 | Parameter | Type | Description |
 |---|---|---|
 | `category` | Enum of type String | 테스트를 retrieve할 카테고리 지정. 미지정 시 모든 카테고리의 테스트를 retrieve. 한 호출에 여러 카테고리 지정 불가. API 66.0+. 카테고리: • `apex`—Apex 테스트 클래스만. • `flow`—자동화 flow 테스트 클래스만. |
-| `showAllMethods` | Boolean | 테스트 클래스의 모든 메서드(`true`)인지 visible 메서드만(`false`)인지 지정. 미지정 시 기본값 `false`. 표준 Apex visibility 규칙을 따름(namespace·managed package origin·접근 한정자·사용자 권한 영향). 예: private 테스트 클래스는 `showAllMethods=true`가 아니면 retrieve되지 않는다. |
+| `testLevel` | Enum of type String | **v68.0 신규.** test level 기준으로 retrieve할 테스트를 지정. 생략하면 **`RunAllTestsInOrg`이 기본값**. Test Runner API의 `testLevel` **request body 파라미터와 정렬**된다. API 68.0+이며 **`showAllMethods`를 대체(replaces)** 한다. 유효 값: • `RunAllTestsInOrg` — org의 모든 테스트, namespace 무관. **설치된 managed package의 테스트를 포함**한다. • `RunLocalTests` — org namespace의 테스트 + flow 테스트. **설치된 managed package의 테스트를 제외**한다. |
+| `showAllMethods` | Boolean | **Deprecated. API 67.0 이하에서만 사용 가능.** API 68.0+에서는 대신 `testLevel`을 쓴다. 테스트 클래스의 모든 메서드(`true`)인지 visible 메서드만(`false`)인지 지정. 미지정 시 기본값 `false`. 표준 Apex visibility 규칙을 따름(namespace·managed package origin·접근 한정자·사용자 권한 영향). 예: private 테스트 클래스는 `showAllMethods=true`가 아니면 retrieve되지 않는다. |
 | `namespacePrefix` | String | 테스트를 retrieve할 namespace 지정. 미지정 시 모든 namespace. 모든 자동화 flow 테스트는 FlowTesting namespace에 있다. namespaced 패키지·org에서 자동화 flow 테스트의 full namespace는 `FlowTesting.namespacePrefix`. • API 66.0+: 모든 namespace의 flow 테스트만 쿼리하려면 `category=flow`로 설정하고 `namespacePrefix` 미지정. 특정 namespaced 패키지·org의 flow 테스트만 쿼리하려면 `category=flow` + `namespacePrefix`=namespace. • API 65.0: flow 테스트만 쿼리하려면 `namespacePrefix=FlowTesting`. 특정 namespaced 패키지·org의 flow 테스트는 `namespacePrefix=FlowTesting.namespacePrefix`. |
 | `nextRecord` | String | 다음 결과 페이지에서 retrieve할 첫 테스트 클래스를 지정하는 cursor. 현재 페이지의 `nextRecordUrl` 속성에 포함된 값. |
 | `pageSize` | Integer | 페이지당 retrieve할 테스트 클래스 수. 미지정 시 기본값 1000 클래스. 최대값 10000 클래스. |
+
+> **v68.0 변경 요약** (`Winter27-v68-Docs/api_tooling.pdf` v68.0 인쇄 p.6–7): `testLevel` 파라미터가 추가되고 `showAllMethods`가 **deprecated** 됐다. `category`·`namespacePrefix`·`nextRecord`·`pageSize`와 Syntax(`X-Chatter-Entity-Encoding: false` 포함)·응답 필드는 v67.0과 동일하다. 릴리즈 맥락은 [[Winter '27/Development]] 참조.
 
 **Request Body:** None.
 
@@ -1156,3 +1165,4 @@ actionResults[0].errors[0].message + "\n");
 - [[Tooling API 디버그·로그·리플레이 sObject]] — TraceFlag·ApexLog·ApexExecutionOverlayAction/Result·HeapDump 디버그/로그 패밀리 (이 노트의 위임 대상)
 - [[Apex 배포 방법]] — 배포 경로(Metadata API·Tooling API·DX) 비교 허브
 - [[Metadata API 개요]] — Metadata API 타입(declarative) 카탈로그 (Tooling sObject ≠ Metadata type 경계)
+- [[Winter '27/Development]] — v68.0 릴리즈 맥락. Test Discovery API `testLevel` 신설·`showAllMethods` deprecated, 신규 REST 리소스 `symbols`·`apexCompileResults`의 릴리즈 노트 측 서술.

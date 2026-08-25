@@ -1,8 +1,8 @@
 ---
-tags: [devops, metadata-api, metadata-types, permission-set, profile, sharing-rules, connected-app, v67]
-source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types)
+tags: [devops, metadata-api, metadata-types, permission-set, profile, sharing-rules, connected-app, v67, v68]
+source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types) + Winter27-v68-Docs/api_meta.pdf v68.0 Winter '27 (PREVIEW, 2026-08-21) p.1744
 created: 2026-05-22
-aliases: [PermissionSet 메타데이터, Profile 메타데이터, SharingRules 메타데이터, ConnectedApp 메타데이터, 보안 접근 메타데이터 타입]
+aliases: [PermissionSet 메타데이터, Profile 메타데이터, SharingRules 메타데이터, ConnectedApp 메타데이터, 보안 접근 메타데이터 타입, PermissionSetLicenseDefinition, 커스텀 권한 세트 라이선스 정의, PSLD GA]
 ---
 
 # Metadata Types — Security & Access
@@ -55,7 +55,7 @@ aliases: [PermissionSet 메타데이터, Profile 메타데이터, SharingRules �
 | OauthTokenExchangeHandler | OAuth 2.0 토큰 교환 핸들러 |
 | PermissionSet | 권한 세트 |
 | PermissionSetGroup | 권한 세트 그룹 |
-| PermissionSetLicenseDefinition | 커스텀 권한 세트 라이선스 정의 (Developer Preview) |
+| PermissionSetLicenseDefinition | 커스텀 권한 세트 라이선스 정의 — **Winter '27(v68.0)에 Developer Preview 해제 = GA** (아래 절 참조) |
 | PersonAccountOwnerPowerUser | 대규모 포털 계정 소유 사용자 |
 | PortalDelegablePermissionSet | 외부 사용자 위임 가능 권한 세트 |
 | Profile | 사용자 프로파일 |
@@ -263,9 +263,45 @@ SAML Single Sign-On 설정. `Metadata` 타입을 extends. 서드파티 앱이 Sa
 
 ---
 
+## PermissionSetLicenseDefinition — Winter '27(v68.0)에 Developer Preview → GA
+
+> 출처: `Winter27-v68-Docs/api_meta.pdf` v68.0 Winter '27 (**PREVIEW**) p.1744 / `api_meta.pdf` v67.0 Summer '26 p.1717.
+
+패키지에서 특정 기능을 부여하는 **커스텀 권한 세트 라이선스의 정의**. `Metadata` 타입을 extends하고 `fullName`을 상속한다.
+
+**파일 경로:** `permissionSetLicenseDefinitions/Name.permissionSetLicenseDefinition` (v68 p.1744)
+
+| | v67.0 (Summer '26) | v68.0 (Winter '27) |
+|---|---|---|
+| 섹션 제목 | `PermissionSetLicenseDefinition (Developer Preview)` | `PermissionSetLicenseDefinition` (**Developer Preview 표기 제거 = GA**) |
+| Version 문장 | *"…available in API version **54.0** and later."* | *"…available in API version **66.0** and later."* |
+
+### ⚠️ 문서 드리프트 — 도입 버전이 소급 수정됐다
+
+이 타입의 **명시된 도입 API 버전이 54.0 → 66.0으로 바뀌었다.** 새로 생긴 타입이 아니라 **Salesforce가 기존 문서의 버전 기술을 사후에 고쳐 쓴 것**이다.
+
+- 즉 "v68에서 신규 추가된 타입"이 **아니다.** v68 diff에 잡히더라도 신규로 분류하면 안 된다.
+- 반대로 **v67 문서를 근거로 "API 54.0부터 쓸 수 있다"고 안내해 온 내용은 현재 공식 기술과 어긋난다.** 어느 쪽이 실제 런타임 동작인지는 이 가이드만으로 확정할 수 없다.
+- v68 가이드 표지에 **PREVIEW 배너**가 있으므로 GA(비-PREVIEW) 가이드 배포 시 66.0 기술이 유지되는지 재확인한다.
+
+```xml
+<!-- 구조 예시 — 실제 동작 설정 아님. package.xml에서 이 타입을 지정하는 형태 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <types>
+    <members>MyFeaturePSLD</members>
+    <name>PermissionSetLicenseDefinition</name>
+  </types>
+  <version>68.0</version>
+</Package>
+```
+
+---
+
 ## 관련 노트
 
 - [[Metadata Types — 개요 및 분류]] — 전체 타입 목록
+- [[Winter '27/Development]] — v68.0 Metadata API 변경 릴리즈 노트 원문
 - [[Metadata Types — Objects & Fields]] — CustomObject, CustomField
 - [[Metadata Types — Integration & Platform]] — NamedCredential, RemoteSiteSetting
 - [[Metadata API File-Based 호출]] — Profile, PermissionSet 배포 시 package.xml

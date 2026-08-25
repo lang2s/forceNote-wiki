@@ -1,8 +1,8 @@
 ---
-tags: [devops, metadata-api, metadata-types, apex, lwc, visualforce, v67]
-source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types)
+tags: [devops, metadata-api, metadata-types, apex, lwc, visualforce, debug-log, v67, v68]
+source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types) + Winter27-v68-Docs/api_meta.pdf v68.0 Winter '27 (PREVIEW, 2026-08-21) pp.229–233
 created: 2026-05-22
-aliases: [ApexClass 메타데이터, ApexTrigger 메타데이터, ApexPage 메타데이터, LightningComponentBundle 메타데이터, AuraDefinitionBundle 메타데이터, StaticResource 메타데이터, Apex 코드 메타데이터 타입]
+aliases: [ApexClass 메타데이터, ApexTrigger 메타데이터, ApexPage 메타데이터, LightningComponentBundle 메타데이터, AuraDefinitionBundle 메타데이터, StaticResource 메타데이터, Apex 코드 메타데이터 타입, DebugLevel 메타데이터 타입, debugLevel 파일, debugLevels 폴더, ApexLogLevel]
 ---
 
 # Metadata Types — Apex & Code
@@ -23,6 +23,7 @@ aliases: [ApexClass 메타데이터, ApexTrigger 메타데이터, ApexPage 메�
 | ApexTrigger | `triggers/TriggerName.trigger` + `-meta.xml` | v10.0+ |
 | AuraDefinitionBundle | `aura/BundleName/` | - |
 | DataWeaveResource | - | - |
+| DebugLevel | `debugLevels/LevelName.debugLevel` | **v68.0+** (신규) |
 | FunctionReference | - | - |
 | LightningComponentBundle | `lwc/ComponentName/` | - |
 | LightningMessageChannel | `messageChannels/ChannelName.messageChannel-meta.xml` | - |
@@ -299,6 +300,87 @@ DataWeave 스크립트 리소스. `DataWeaveScriptResource` 클래스가 생성�
 
 ---
 
+## DebugLevel (v68.0 신규)
+
+> **Winter '27 (API 68.0) 신규 최상위 메타데이터 타입.** 출처: `Winter27-v68-Docs/api_meta.pdf` v68.0 Winter '27 (PREVIEW) p.229.
+
+`TraceFlag` 오브젝트에 할당할 **로그 카테고리 레벨 묶음**. 하나의 debug level을 **여러 trace flag가 공유**할 수 있다. `Metadata` 타입을 extends하며 `fullName` 필드를 상속한다.
+
+> PDF 원문(p.229): *"Represents a set of log category levels to assign to a TraceFlag object. Multiple trace flags can use a debug level."*
+
+**파일 경로:** `debugLevels/LevelName.debugLevel` — 확장자 `.debugLevel`, 폴더 `debugLevels` (p.229)
+
+**Version:** *"The DebugLevel metadata type is available in API version 68.0 and later."* (p.229)
+
+### ⚠️ 이름 충돌 — 같은 이름, 다른 API
+
+`DebugLevel`은 **Tooling API sObject**로도 존재한다. 이름만 같고 서로 다른 API의 서로 다른 아티팩트다.
+
+| 구분 | Metadata API `DebugLevel` (이 노트) | Tooling API `DebugLevel` sObject |
+|---|---|---|
+| 성격 | 배포 가능한 선언적 메타데이터 타입 | SOQL 질의·DML 대상 sObject |
+| 형태 | `debugLevels/*.debugLevel` XML 파일 | org 내 레코드 (`Id`로 참조) |
+| 사용처 | `package.xml` retrieve/deploy, 소스 추적 | `TraceFlag.DebugLevelId`로 런타임 로그 활성화 |
+| API 버전 | 68.0+ | [[Tooling API 디버그·로그·리플레이 sObject]] 참조 |
+
+> 두 API의 **필드 집합이 동일하다고 가정하지 말 것.** 이 노트의 표는 v68 Metadata API 기준 `ApexLogLevel` 필드 **11개** + `label`이다. Tooling API sObject 쪽 카테고리 구성은 해당 노트가 정본이다.
+
+### Fields (p.229–232)
+
+`label`을 제외한 모든 필드는 타입이 `ApexLogLevel` (enumeration of type string)이며, 유효 값은 공통으로 **`NONE` · `ERROR` · `WARN` · `INFO` · `DEBUG` · `FINE` · `FINER` · `FINEST`** 8단계다.
+
+| Field Name | Field Type | Required | Description |
+|---|---|---|---|
+| `apexCode` | ApexLogLevel (enum) | **Required** | Apex 코드 로그 카테고리 레벨. Apex 코드 정보 포함. DML 문, 인라인 SOQL·SOSL 쿼리, 트리거의 시작·완료, 테스트 메서드의 시작·완료 등이 생성한 로그 메시지도 포함될 수 있다 |
+| `apexProfiling` | ApexLogLevel (enum) | **Required** | 프로파일링 정보 로그 카테고리 레벨. 네임스페이스의 한도, 발송된 이메일 수 등 누적(cumulative) 프로파일링 정보 포함 |
+| `callout` | ApexLogLevel (enum) | **Required** | 콜아웃 로그 카테고리 레벨. 서버가 외부 웹 서비스와 주고받는 request-response XML 포함. SOAP API 호출 관련 이슈 디버깅에 유용 |
+| `database` | ApexLogLevel (enum) | **Required** | 데이터베이스 활동 로그 카테고리. 모든 DML 문·인라인 SOQL·SOSL 쿼리를 포함한 DB 활동 정보 |
+| `dataAccess` | ApexLogLevel (enum) | - | UI에서 접근한 오브젝트의 **규칙·정책(rules and policy) 정보** 로그 카테고리 레벨. 오브젝트에 접근되지 않는 이유를 판단하는 데 사용. ⚠️ **11개 로그 카테고리 중 유일하게 `Required.` 표기가 없는 필드** (p.230) |
+| `label` | string | **Required** | 디버그 레벨의 이름. Developer Console과 Setup에도 표시된다 |
+| `nba` | ApexLogLevel (enum) | **Required** | Einstein Next Best Action 활동 로그 카테고리 레벨. Strategy Builder의 전략 실행 상세 포함 |
+| `system` | ApexLogLevel (enum) | **Required** | `System.debug` 같은 **모든 system 메서드** 호출 로그 카테고리 레벨 |
+| `validation` | ApexLogLevel (enum) | **Required** | 검증 규칙 로그 카테고리 레벨. 규칙 이름, 규칙이 true/false 중 무엇으로 평가됐는지 등 |
+| `visualforce` | ApexLogLevel (enum) | **Required** | Visualforce 로그 카테고리 레벨. view state의 직렬화·역직렬화, Visualforce 페이지의 수식 필드 평가 등 Visualforce 이벤트 정보 |
+| `wave` | ApexLogLevel (enum) | **Required** | CRM Analytics 로그 카테고리 레벨. 템플릿 처리 오류, 규칙 실행 요약 등 |
+| `workflow` | ApexLogLevel (enum) | **Required** | 워크플로우 규칙 로그 카테고리 레벨. 규칙 이름, 수행된 액션 등 |
+
+### Declarative Metadata 예시 (p.233 원문 발췌)
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<DebugLevel xmlns="http://soap.sforce.com/2006/04/metadata">
+   <label>DebugLevel</label>
+   <apexCode>DEBUG</apexCode>
+   <apexProfiling>INFO</apexProfiling>
+   <callout>FINEST</callout>
+   <database>INFO</database>
+   <dataAccess>INFO</dataAccess>
+   <nba>INFO</nba>
+   <system>DEBUG</system>
+   <validation>INFO</validation>
+   <visualforce>INFO</visualforce>
+   <wave>INFO</wave>
+   <workflow>FINEST</workflow>
+</DebugLevel>
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+   <types>
+       <members>*</members>
+       <name>DebugLevel</name>
+   </types>
+   <version>68.0</version>
+</Package>
+```
+
+**와일드카드(`*`) 지원:** 예 (p.233)
+
+> 릴리즈 노트(`rn_api_meta`)는 이 타입의 목적을 "**에이전틱 도구로 디버그 로그 수준을 구성**"으로 설명한다 → [[Winter '27/Development]].
+
+---
+
 ## FunctionReference
 
 배포된 Salesforce Function 참조 정보. `Metadata` 타입을 extends.
@@ -343,3 +425,6 @@ Lightning Message Channel. LWC, Aura, Visualforce 간 크로스-UI 통신을 위
 - [[Metadata API 에러 처리]] — Apex 배포 오류 처리
 - [[2GP — Components - Apex & Code]] — 동일 컴포넌트의 2GP 패키징 관점 Manageability Rules 전수
 - [[Tooling API 객체 — Apex 코드·테스트·커버리지]] — 동명 `ApexClass`·`ApexTrigger`의 Tooling API **sObject**(질의·저장본). declarative metadata 타입과 별개 — 필드·용법 상이(경계 구분)
+- [[Tooling API 디버그·로그·리플레이 sObject]] — 동명 `DebugLevel`의 Tooling API **sObject**(`TraceFlag.DebugLevelId`로 참조되는 레코드). v68 신규 Metadata API 타입과 이름만 같고 별개
+- [[Apex Debug Log]] — 로그 카테고리·레벨이 실제 로그 출력에 미치는 영향
+- [[Winter '27/Development]] — `DebugLevel` 신규 타입을 포함한 v68.0 Metadata API 변경 릴리즈 노트 원문

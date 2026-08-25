@@ -1,6 +1,6 @@
 ---
 tags: [apex, logging, debugging, tooling-api, trace-flag, debug-level, apex-log, heap-dump, replay-debugger, execute-anonymous, sobject-reference, v67]
-source: api_tooling.pdf — Tooling API Reference and Developer Guide v67.0 Summer '26 (디버그/로그/리플레이 sObject)
+source: api_tooling.pdf — Tooling API Reference and Developer Guide v67.0 Summer '26 (디버그/로그/리플레이 sObject) + 이름 충돌 경계 주석은 Winter27-v68-Docs/api_meta.pdf v68.0 Winter '27 (PREVIEW, 2026-08-21) p.229 · Winter27-v68-Docs/api_tooling.pdf v68.0 Winter '27
 created: 2026-06-20
 aliases: [Tooling API 디버그 sObject, TraceFlag, DebugLevel, ApexLog, HeapDump, ApexExecutionOverlayAction, ApexExecutionOverlayResult, ExecuteAnonymousResult, executeAnonymous REST, 체크포인트, overlay action, 리플레이 디버거, Replay Debugger, 프로그래밍 방식 로그 활성화, trace flag 만들기, TraceFlag 생성, 디버그 로그 API로 켜기, 힙 덤프, heap dump, DebugLevel 카테고리, LogType, executeAnonymous REST 리소스, Tooling API로 로그 레벨 설정, API로 디버그 로그 활성화하려면]
 ---
@@ -88,6 +88,20 @@ executeAnonymous (REST 리소스) ◀──▶ executeAnonymous() / ExecuteAnony
 
 - **Supported SOAP API Calls:** `create()`, `delete()`, `describeSObjects()`, `query()`, `retrieve()`, `update()`, `upsert()`
 - **Supported REST API HTTP Methods:** Query, GET, POST, PATCH, DELETE
+
+> [!warning] 같은 이름, 다른 API — `DebugLevel`은 두 곳에 있다
+> **Winter '27(API 68.0)부터 `DebugLevel`이라는 이름의 Metadata API 타입이 별도로 생겼다.** 이 절이 다루는 것은 **Tooling API sObject**(질의·DML 대상 레코드)이고, 새 것은 **배포 가능한 선언적 메타데이터 타입**이다. 이름만 같고 서로 다른 API의 서로 다른 아티팩트이므로 혼동하지 말 것.
+>
+> | 구분 | Tooling API `DebugLevel` (이 노트) | Metadata API `DebugLevel` (v68.0 신규) |
+> |---|---|---|
+> | 성격 | SOQL 질의·DML 대상 **sObject** | 배포 가능한 **메타데이터 타입** |
+> | 형태 | org 내 레코드 (`Id`로 참조) | `debugLevels/*.debugLevel` XML 파일 |
+> | 사용처 | `TraceFlag.DebugLevelId`로 런타임 로그 활성화 | `package.xml` retrieve/deploy, 소스 추적 |
+> | 로그 카테고리 필드 | 아래 매트릭스 8개 (**v67.0 기준**) | 11개 — `apexCode`·`apexProfiling`·`callout`·`database`·`dataAccess`·`nba`·`system`·`validation`·`visualforce`·`wave`·`workflow` |
+>
+> Metadata API 쪽 필드 표는 [[Metadata Types — Apex & Code]]가 정본이다. **두 API의 필드 집합이 같다고 가정하지 말 것** — 이름은 같아도 배포 단위와 참조 방식이 다르다.
+>
+> 📌 **이 노트의 카테고리 매트릭스는 `api_tooling.pdf` v67.0 기준이다.** v68.0(Winter '27) Tooling 가이드에서는 이 sObject에도 `dataAccess`·`nba`·`Wave` 필드가 추가돼 총 11개가 됐다 — 아래 8개 매트릭스는 **v68에 대해 불완전**하다. v68 Tooling 반영은 별도 작업 대상.
 
 #### DebugLevel 카테고리 — picklist 매트릭스
 
@@ -317,3 +331,5 @@ ExecuteAnonymousResult result = connection.executeAnonymous(apexCode);
 - [[DX 데이터 작업]] — Salesforce CLI로 TraceFlag 레코드 생성 운영 예제
 - [[Log 싱글턴 패턴]] — Apex 로깅 프레임워크(같은 Logging 폴더 형제)
 - [[platform-apex-logs-debug]] (sf-skill — 실행형) — TraceFlag·DebugLevel·ApexLog 기반 로그 디버깅 실행형 스킬
+- [[Metadata Types — Apex & Code]] — **동명** `DebugLevel`의 **Metadata API 타입**(v68.0 신규, `debugLevels/*.debugLevel`). 이 노트의 Tooling sObject와 이름만 같고 별개 — 위 경계 표 참조
+- [[Winter '27/Development]] — Metadata API `DebugLevel` 신규 타입을 포함한 v68.0 변경 릴리즈 노트 원문

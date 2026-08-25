@@ -1,8 +1,8 @@
 ---
-tags: [devops, metadata-api, metadata-types, layout, flexi-page, custom-tab, custom-application, v67]
-source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types)
+tags: [devops, metadata-api, metadata-types, layout, flexi-page, custom-tab, custom-application, v67, v68]
+source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types) + Winter27-v68-Docs/api_meta.pdf v68.0 Winter '27 (PREVIEW, 2026-08-21) p.2484
 created: 2026-05-22
-aliases: [Layout 메타데이터, FlexiPage 메타데이터, CustomApplication 메타데이터, CustomTab 메타데이터, UI 레이아웃 메타데이터 타입]
+aliases: [Layout 메타데이터, FlexiPage 메타데이터, CustomApplication 메타데이터, CustomTab 메타데이터, UI 레이아웃 메타데이터 타입, UIBundle, UIBundle GA, Multi-Framework 앱 메타데이터]
 ---
 
 # Metadata Types — UI & Layout
@@ -63,7 +63,7 @@ aliases: [Layout 메타데이터, FlexiPage 메타데이터, CustomApplication �
 | SiteDotCom | Sites 배포 |
 | SvcCatalogCategory | Service Catalog 카테고리 |
 | SynonymDictionary | 검색 동의어 사전 |
-| UIBundle | Multi-Framework 앱 (React 등) (Beta) |
+| UIBundle | Multi-Framework 앱 (React 등) — **Winter '27(v68.0)에 Beta 해제 = GA** (아래 절 참조) |
 | UiFormatSpecificationSet | Dynamic Forms 조건부 필드 서식 |
 | UIObjectRelationConfig | 오브젝트 관계 UI 컴포넌트 설정 |
 | UiPreviewMessageTabDef | Marketing Cloud Preview 커스텀 탭 등록 |
@@ -247,9 +247,39 @@ Quick Action (생성/업데이트). Chatter 게시자에서 사용 가능.
 
 ---
 
+## UIBundle — Winter '27(v68.0)에 Beta → GA
+
+> 출처: `Winter27-v68-Docs/api_meta.pdf` v68.0 Winter '27 (**PREVIEW**) p.2484 / `api_meta.pdf` v67.0 Summer '26 p.2450.
+
+Salesforce **Multi-Framework 앱(예: React 앱)의 UI**를 나타내는 타입.
+
+| | v67.0 (Summer '26) | v68.0 (Winter '27) |
+|---|---|---|
+| 섹션 제목 | `UIBundle (Beta)` | `UIBundle` (**Beta 표기 제거 = GA**) |
+| Version 문장 | — | *"UIBundle components are available in API version 66.0 and later."* (p.2484) |
+
+> **주의:** GA 전환은 *제목의 Beta 라벨이 사라진 것*으로 확인된 사실이다. **타입이 도입된 API 버전은 66.0으로 그대로**이며 v68에서 새로 생긴 타입이 아니다.
+>
+> v68 가이드 표지에 **PREVIEW 배너**가 있으므로, GA(비-PREVIEW) 가이드 배포 시 Beta 해제가 유지되는지 재확인한다.
+
+```xml
+<!-- 구조 예시 — 실제 동작 설정 아님. package.xml에서 UIBundle을 지정하는 형태 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <types>
+    <members>MyReactApp</members>
+    <name>UIBundle</name>
+  </types>
+  <version>68.0</version>
+</Package>
+```
+
+---
+
 ## 관련 노트
 
 - [[Metadata Types — 개요 및 분류]] — 전체 타입 목록
+- [[Winter '27/Development]] — v68.0 Metadata API 변경 릴리즈 노트 원문
 - [[Metadata Types — Apex & Code]] — LightningComponentBundle, AuraDefinitionBundle
 - [[Metadata Types — Security & Access]] — Profile (레이아웃 배정 관련)
 - [[Metadata Types — Integration & Platform]] — EmbeddedService 관련 타입

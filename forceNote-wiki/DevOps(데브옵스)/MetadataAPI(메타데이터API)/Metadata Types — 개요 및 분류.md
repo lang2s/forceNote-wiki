@@ -1,13 +1,13 @@
 ---
-tags: [devops, metadata-api, metadata-types, ch13, v67]
-source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types)
+tags: [devops, metadata-api, metadata-types, ch13, v67, v68, winter-27]
+source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types) + Winter27-v68-Docs/api_meta.pdf v68.0 Winter '27 (PREVIEW, 2026-08-21) pp.229·1242·1258–1259·1278·1290·2084·1744·2484
 created: 2026-05-22
-aliases: [Metadata Types 개요, 메타데이터 타입 목록, Metadata API 타입 분류, Metadata Components and Types, 메타데이터 컴포넌트]
+aliases: [Metadata Types 개요, 메타데이터 타입 목록, Metadata API 타입 분류, Metadata Components and Types, 메타데이터 컴포넌트, v68 신규 메타데이터 타입, Winter 27 메타데이터 타입, TelephonyProvider 문서 누락, BYOC 텔레포니 메타데이터 타입]
 ---
 
 # Metadata Types — 개요 및 분류
 
-> Salesforce Metadata API v67.0이 지원하는 300개 이상의 메타데이터 타입 전체 목록 및 그룹별 분류. 각 타입의 상세 필드 정의는 그룹별 서브페이지 참조.
+> Salesforce Metadata API가 지원하는 300개 이상의 메타데이터 타입 전체 목록 및 그룹별 분류(v67.0 기준) + **Winter '27(v68.0) 변경 소스 대조 결과**. 각 타입의 상세 필드 정의는 그룹별 서브페이지 참조.
 
 ---
 
@@ -200,6 +200,7 @@ Metadata Coverage report에서 채널별(Metadata API, scratch org source tracki
 | DataCategoryGroup | 데이터 카테고리 그룹 | Objects & Fields |
 | DataObjectSearchIndexConf | Data 360 DMO 검색 인덱스 설정 | Integration & Platform |
 | DataWeaveResource | DataWeave 스크립트 리소스 | Apex & Code |
+| **DebugLevel** | TraceFlag에 할당할 로그 카테고리 레벨 묶음 — **v68.0 신규** | Apex & Code |
 | DecisionTable | 의사결정 테이블 | Automation |
 | DecisionTableDatasetLink | 의사결정 테이블 데이터셋 링크 | Automation |
 | DecisionMatrixDefinition | 의사결정 매트릭스 정의 | Automation |
@@ -366,7 +367,7 @@ Metadata Coverage report에서 채널별(Metadata API, scratch org source tracki
 | PaymentGatewayProvider | 결제 게이트웨이 공급자 | Integration & Platform |
 | PermissionSet | 권한 세트 | Security & Access |
 | PermissionSetGroup | 권한 세트 그룹 | Security & Access |
-| PermissionSetLicenseDefinition | 커스텀 권한 세트 라이선스 정의 (Developer Preview) | Security & Access |
+| PermissionSetLicenseDefinition | 커스텀 권한 세트 라이선스 정의 — **v68.0에 Developer Preview 해제(GA)** | Security & Access |
 | PersonAccountOwnerPowerUser | 대규모 포털 계정 소유 사용자 (v57.0+) | Security & Access |
 | PipelineInspMetricConfig | Pipeline Inspection 예측 카테고리 지표 설정 | Automation |
 | PlatformCachePartition | Platform Cache 파티션 | Integration & Platform |
@@ -451,7 +452,7 @@ Metadata Coverage report에서 채널별(Metadata API, scratch org source tracki
 | TopicsForObjects | 오브젝트 주제 배정/제거 | Objects & Fields |
 | TransactionSecurityPolicy | 트랜잭션 보안 정책 | Security & Access |
 | Translations | 다국어 번역 (Translation Workbench) | Objects & Fields |
-| UIBundle | Salesforce Multi-Framework 앱 (React 등) (Beta) | UI & Layout |
+| UIBundle | Salesforce Multi-Framework 앱 (React 등) — **v68.0에 Beta 해제(GA)** | UI & Layout |
 | UiFormatSpecificationSet | Dynamic Forms 조건부 필드 서식 규칙 | UI & Layout |
 | UIObjectRelationConfig | 오브젝트 관계 UI 컴포넌트 설정 | UI & Layout |
 | UiPreviewMessageTabDef | Marketing Cloud Preview 커스텀 탭 등록 | UI & Layout |
@@ -478,6 +479,90 @@ Metadata Coverage report에서 채널별(Metadata API, scratch org source tracki
 
 ---
 
+## Winter '27 (API v68.0) 변경 — 소스 대조 결과
+
+> 출처: `Winter27-v68-Docs/api_meta.pdf` **Metadata API Developer Guide v68.0, Winter '27** (last updated 2026-08-21).
+> ⚠️ 이 가이드 표지에는 **PREVIEW 배너**가 있다 — *"This release is in preview. Features described in this document don't become generally available until the latest general availability date that Salesforce announces for this release."* 아래 판정은 모두 **PREVIEW 가이드 기준**이며 GA(비-PREVIEW) 가이드 배포 시 재확인 대상이다.
+>
+> ⚠️ 레포의 `Salesforce Documents/api_meta.pdf`는 **v67.0(Summer '26)** 이다. v68 내용을 그 경로로 인용하면 안 된다.
+
+### 신규 타입·서브타입 (가이드가 "68.0 and later"로 명시)
+
+| 이름 | 종류 | 내용 | v68 페이지 | 상세 |
+|---|---|---|---|---|
+| `DebugLevel` | **최상위 타입** | TraceFlag에 할당할 로그 카테고리 레벨 묶음. 접미사 `.debugLevel`, 폴더 `debugLevels` | p.229 | [[Metadata Types — Apex & Code]] |
+| `FlowDataLookup` | 서브타입 | 플로우 Start 요소의 데이터 룩업. 부모 `FlowStart.dataLookups` | p.1278 | [[Metadata Types — Automation]] |
+| `FlowNodeGroup` | 서브타입 | 조직화 목적의 플로우 노드 그룹. 부모 `Flow.groups` (+ 신규 `FlowNode.group`) | p.1290 | [[Metadata Types — Automation]] |
+| `Currency` | 서브타입 | org 통화 타입 목록의 한 엔트리. `CurrencySettings.currency`의 요소 타입 | p.2084 | [[Metadata Types — Integration & Platform]] |
+
+### 상태 전환 (Beta / Developer Preview 해제)
+
+| 타입 | v67.0 | v68.0 | 비고 |
+|---|---|---|---|
+| `UIBundle` | `UIBundle (Beta)` | `UIBundle` | **Beta → GA.** 도입 버전은 66.0 그대로 |
+| `CustomNotificationActionGroup` | `(Beta)` + Beta 법적 고지 문단 | 제목·고지 문단 모두 Beta 제거 | **Beta → GA.** 단, 부모 필드 `CustomNotificationType.actionGroups`의 `(Beta)` 라벨은 v68에도 남아 있음 |
+| `PermissionSetLicenseDefinition` | `(Developer Preview)`, "API version **54.0** and later" | Preview 표기 제거, "API version **66.0** and later" | **DP → GA** + **도입 버전 소급 수정**(문서 드리프트). 신규 타입 아님 |
+
+### 🚨 릴리즈 노트 ↔ 레퍼런스 가이드 모순 (BYOC 텔레포니 4종)
+
+Winter '27 릴리즈 노트 페이지 `rn_api_meta`는 **신규 메타데이터 타입 4개**를 선언한다.
+
+| 릴리즈 노트가 선언한 타입 | 릴리즈 노트 설명 |
+|---|---|
+| `TelephonyProvider` | Agentforce Contact Center의 BYOC 텔레포니·신뢰 설정 관리 |
+| `SecondaryTelephonyProvider` | BYOC 보조 텔레포니 통합용 SIP 설정 구성 |
+| `TrustedTelephonyProvider` | 조직을 신뢰된 텔레포니 통신사 구성에 매핑 |
+| `ScndTelephPrvdOtbdDtl` | BYOC 보조 텔레포니의 아웃바운드 SIP 라우팅 관리 |
+
+**그런데 v68.0 PREVIEW 가이드에는 이 4개가 전혀 없다.** 정확 일치·대소문자 무시·토큰 분할(`telephonyprovider` · `scndteleph` · `otbddtl` · `byoc`) 검색을 모두 수행했으나 **출현 0회**였다. 접미사(suffix)도, 디렉터리도, 필드 표도 없다.
+
+| 항목 | 상태 |
+|---|---|
+| 릴리즈 노트 `rn_api_meta` | 신규 타입 4개로 **선언함** |
+| v68.0 PREVIEW **Metadata API** 가이드 | **문서화 안 됨 (0회 출현)** |
+| v68.0 PREVIEW **Tooling API** 가이드 | **역시 0회 출현** — "실은 Metadata 타입이 아니라 Tooling 오브젝트였다"는 해석도 성립하지 않는다 |
+| 대조군 | 같은 릴리즈 노트가 함께 선언한 `VoiceTelephonyDefinition`은 v68 Tooling 가이드에 **실제 섹션이 있다**(p.962). 즉 "프리뷰 가이드에는 원래 신규 항목이 안 실린다"는 설명으로 넘길 수 없다 — **이 4개만 선별적으로 빠져 있다** |
+| 이 위키의 처리 | **필드 표를 만들지 않는다.** 근거 없는 필드 표는 없는 것보다 해롭다 |
+| 재확인 시점 | **GA(비-PREVIEW) 가이드 배포 시** — 그때 실려 있으면 정식 타입 문서화, 없으면 릴리즈 노트 오기(誤記)로 확정 |
+
+> 릴리즈 노트 원문 기술은 [[Winter '27/Development]]에 그대로 보존돼 있다. 이 노트는 **"릴리즈 노트가 그렇게 말했다"와 "레퍼런스가 그렇게 정의한다"를 구분**하기 위한 판정 기록이다.
+
+### 반대 방향 — 가이드에는 있고 릴리즈 노트가 빠뜨린 것
+
+| 항목 | 내용 | v68 페이지 |
+|---|---|---|
+| `FlowNodeGroup` | 서브타입 신설 + `Flow.groups`가 "Reserved for future use" → 실기능 전환 | p.1242 · p.1290 |
+| Commerce Checkout Flow 액션 타입 6개 | `b2cGetShippingMethods` · `b2cSetShippingAddress` · `b2cSetShippingMethod` · `b2cInitiatePayment` · `b2cPreProcessPayment` · `b2cPostProcessPayment` (`InvocableActionType` enum) | pp.1258–1259 |
+
+### ⚠️ v68 신규로 오인하기 쉬운 것 (문서 지연 · 오탐)
+
+정규식 diff로 v67↔v68을 비교하면 아래 항목들이 "신규"로 잡히지만 **신규가 아니다.** Winter '27 추가라고 부르면 안 된다.
+
+**문서 지연(doc-lag) — 실제 타입이지만 도입은 그 이전:**
+
+| 타입 | 가이드가 명시한 도입 버전 |
+|---|---|
+| `AiPlannerVoiceDef` | 63.0 |
+| `AgentforceAccountManagementSettings` | 65.0 |
+| `DashboardComponentTranslation` · `DashboardTranslation` · `ReportTranslation` | 67.0 |
+| `DecisionTableFileImportVersion` | 67.0 |
+| `BatchCalcJobHierarchyPathAggregateField` | 67.0 |
+
+**판정 불가:** `AnalyticsNavWidgetDef` · `FlowValueMapEntry` — v67에는 없으나 v68에 **버전 문장이 없다.** 신규인지 아닌지 어느 쪽으로도 단정하지 않는다.
+
+**오탐(false positive) — 타입이 아님:**
+
+| 잡힌 문자열 | 실제 정체 |
+|---|---|
+| `PREVIEW` | 표지 배너 문구 |
+| `Values` | 산문 단어 |
+| `GroupType` · `FlowValueMapDataType` | enum (타입 아님) |
+| `DCRPref` · `HierarchyInDCRPref` · `FileImportVersions` | pdftotext **줄바꿈 절단 조각** |
+| `AppContainer` · `AppSpace` | site workspace `content.json`의 **JSON 프로퍼티** |
+| `RunTestResult` | **Salesforce 자신의 v68 산문 오타.** 실제 오브젝트는 `RunTestsResult`이며 v68의 섹션 제목·샘플 코드에는 올바르게 표기돼 있다 |
+
+---
+
 ## 그룹별 서브페이지
 
 | 그룹 | 파일 |
@@ -501,3 +586,4 @@ Metadata Coverage report에서 채널별(Metadata API, scratch org source tracki
 - [[Metadata API CRUD 호출]] — 개별 타입 CRUD
 - [[Metadata API MCP Tool]] — AI 도구로 타입 컨텍스트 조회
 - [[platform-metadata-api-context-get]] (sf-skill — 실행형) — 604개 메타타입 컨텍스트 조회 실행형 스킬
+- [[Winter '27/Development]] — v68.0 Metadata API 변경 릴리즈 노트 원문 (⚠️ BYOC 텔레포니 4종은 릴리즈 노트에만 있고 v68 PREVIEW 가이드에는 없음 — 위 "모순" 절 참조)

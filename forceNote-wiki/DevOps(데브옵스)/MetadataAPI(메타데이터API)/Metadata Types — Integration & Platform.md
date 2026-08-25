@@ -1,13 +1,13 @@
 ---
-tags: [devops, metadata-api, metadata-types, named-credential, remote-site, connected-app, platform-event, v67]
-source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types)
+tags: [devops, metadata-api, metadata-types, named-credential, remote-site, connected-app, platform-event, settings, multi-currency, v67, v68]
+source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types) + Winter27-v68-Docs/api_meta.pdf v68.0 Winter '27 (PREVIEW, 2026-08-21) pp.2082–2085
 created: 2026-05-22
-aliases: [NamedCredential 메타데이터, RemoteSiteSetting 메타데이터, PlatformEventChannel 메타데이터, ConnectedApp 메타데이터, 통합 플랫폼 메타데이터 타입]
+aliases: [NamedCredential 메타데이터, RemoteSiteSetting 메타데이터, PlatformEventChannel 메타데이터, ConnectedApp 메타데이터, 통합 플랫폼 메타데이터 타입, CurrencySettings, Currency 서브타입, enableMultiCurrency, corporateCurrency, 다중 통화 배포, 다중 통화 비가역, Currency.settings]
 ---
 
 # Metadata Types — Integration & Platform
 
-> NamedCredential, RemoteSiteSetting, ConnectedApp, PlatformEvent, InstalledPackage, Settings 등 통합·플랫폼 관련 메타데이터 타입.
+> NamedCredential, RemoteSiteSetting, ConnectedApp, PlatformEvent, InstalledPackage, Settings(CurrencySettings 포함) 등 통합·플랫폼 관련 메타데이터 타입.
 
 ---
 
@@ -222,6 +222,88 @@ Platform Cache 파티션. `Metadata` 타입을 extends.
 </Package>
 ```
 
+### CurrencySettings — 다중 통화 설정 (v68.0에서 대폭 확장)
+
+> 출처: `Winter27-v68-Docs/api_meta.pdf` v68.0 Winter '27 (**PREVIEW**) pp.2082–2085.
+
+조직의 **통화 설정** — 다중 통화 켜기, 활성 통화 구성, 법인(corporate) 통화 설정, 통화 유효일자(effective dates) 활성화. `Metadata` 타입을 extends하고 `fullName`을 상속한다.
+
+**파일 경로:** `settings/Currency.settings` — package manifest에서는 다른 조직 설정과 마찬가지로 **`Settings` 이름**으로 접근한다 (`<members>Currency</members>` + `<name>Settings</name>`).
+
+**Version 원문(p.2082):** *"CurrencySettings is available in API version 47.0 and later. The corporateCurrency and currency fields, and the deploy behavior for enableMultiCurrency, are available in API version 68.0 and later."*
+→ 타입 자체는 v47.0부터, **`corporateCurrency`·`currency` 필드와 `enableMultiCurrency`의 배포 동작이 v68.0 신규**다.
+
+#### Fields (pp.2082–2084)
+
+| Field Name | Field Type | Description |
+|---|---|---|
+| `corporateCurrency` | string | **v68.0+.** org 법인 통화의 ISO 4217 코드(`USD`, `EUR` 등). 법인 통화의 환율은 **1.0으로 고정**되며 나머지 모든 통화가 이 통화를 기준으로 표시된다. 배포에서 이 필드를 설정하면 org의 법인 통화가 **전환**되어 기존 법인 통화가 강등되고 환율이 재기준화(rebase)된다. 새 법인 통화는 **이미 org에 등록돼 있고 active여야 한다.** `enableMultiCurrency`가 (이전에든 같은 배포에서든) `true`가 아니면 효과 없음 |
+| `currency` | Currency[] | **v68.0+.** 하나 이상의 통화 엔트리. **새 통화는 삽입되고, `isoCode`로 기존 통화와 매칭되는 엔트리는 그 `active`·`scale`·`conversionRate` 값을 갱신**한다. `enableMultiCurrency`가 (이전에든 같은 배포에서든) `true`가 아니면 효과 없음 |
+| `enableCurrencyEffectiveDates` | boolean | 유효일자 기반 통화(effective dated currency) 활성화 여부. 기본값 `false`. 이 설정을 켜려면 `enableMultiCurrency`가 `true`여야 한다 |
+| `enableCurrencySymbolWithMultiCurrency` | boolean | 다중 통화 org에서 **통화 기호(`true`)** 를 표시할지 **ISO 코드(`false`)** 를 표시할지. 기본값 `false`. `enableMultiCurrency`가 `false`면 효과 없음 |
+| `enableMultiCurrency` | boolean | 다중 통화 활성화 여부. 기본값 `false`. **API 68.0부터**, 다중 통화가 켜져 있지 않은 org에 `true`를 배포하면 **해당 org의 다중 통화가 켜진다.** 이미 켜져 있는 org에 `true`를 배포하면 no-op. 다중 통화가 켜질 때 법인 통화는 같은 배포에 `corporateCurrency`가 있으면 그 값에서 가져오고, 없으면 org의 **로케일 파생 통화**로 기본 설정된다 |
+| `isMultiCurrencyActivationAllowed` | boolean | **API 49.0 이상에서 Deprecated.** 이 필드 값과 무관하게 Salesforce 관리자가 다중 통화를 활성화할 수 있다. API 48.0 이하에서는, Customizable Forecasting이 활성화된 경우 Salesforce Customer Support가 다중 통화를 활성화할 수 있는지(`true`) 아니면 기능을 활성화할 수 없는지(`false`)를 나타냈다. 이 필드는 다중 통화가 비활성일 때만 보이며, Customizable Forecasting이 켜진 상태에서 실수로 다중 통화를 켜는 것을 막는 추가 보호 장치로 기본값이 `false`였다. API 48.0 이하에서 org에 Customizable Forecasting이 켜진 고객은 다중 통화 활성화를 위해 Salesforce Customer Support에 문의해야 했고, Support가 요청 검증을 위해 요구할 때 이 필드를 `true`로 설정했다. ⓘ Customizable Forecasting은 **Summer '20에 은퇴**했다 — 사용자는 UI·API로 이 기능과 기반 데이터에 접근할 수 없으며, 파이프라인 기반 매출·수량 예측에는 Salesforce Forecasting을 쓴다 |
+| `isParenCurrencyConvDisabled` | boolean | 괄호 통화 환산(parenthetical currency conversion) 비활성화 여부. **기본값 `true`.** `false`로 설정하면, 보고 있는 레코드의 통화와 개인 통화가 다른 사용자에게 Salesforce가 환산된 통화 금액을 표시한다 |
+
+#### 🚨 다중 통화 전환은 되돌릴 수 없다 (p.2083 Important)
+
+> PDF 원문: *"**Important:** Turning on multi-currency is irreversible. After you deploy `enableMultiCurrency=true`, the org can't return to single-currency operation through Metadata API. Deploying `enableMultiCurrency=false` against an org that has multi-currency enabled **returns an error**. See Considerations for Enabling Multiple Currencies for more information."*
+
+| 상황 | 결과 |
+|---|---|
+| 다중 통화 **꺼진** org에 `true` 배포 | 다중 통화가 **켜진다** (v68.0+ 신규 배포 동작) |
+| 다중 통화 **켜진** org에 `true` 배포 | **no-op** (아무 일도 일어나지 않음) |
+| 다중 통화 **켜진** org에 `false` 배포 | **에러 반환** — 단일 통화로 되돌릴 수 없다 |
+
+#### Currency 서브타입 (v68.0 신규, p.2084)
+
+org의 **통화 타입 목록의 한 엔트리**를 나타낸다. `CurrencySettings.currency` 컬렉션의 **요소 타입**이다. *"Available in API version 68.0 and later."*
+
+| Field Name | Field Type | Required | Description |
+|---|---|---|---|
+| `active` | boolean | Optional | 사용자가 이 통화를 레코드에 할당할 수 있는지(`true`) 여부. **비활성 통화는 법인 통화로 설정할 수 없다.** 새 통화는 기본값 `true` |
+| `conversionRate` | double | 새 통화에는 Required | 이 통화 → 법인 통화 환율. 이 엔트리가 **법인 통화면 반드시 `1.0`** 이어야 한다 |
+| `isoCode` | string | **Required** | 통화의 ISO 4217 코드(`USD`, `JPY`, `EUR` 등). **Salesforce가 지원하는 ISO 코드 중 하나여야 하며, 지원하지 않는 코드는 에러를 반환**한다 |
+| `scale` | int | Optional | 이 통화에 사용할 소수 자릿수. 유효 값은 **0 ~ 6** |
+
+#### Declarative Metadata 예시 (p.2084–2085 원문 발췌)
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<CurrencySettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableMultiCurrency>true</enableMultiCurrency>
+    <corporateCurrency>USD</corporateCurrency>
+    <currency>
+        <isoCode>USD</isoCode>
+        <active>true</active>
+        <conversionRate>1.0</conversionRate>
+        <scale>2</scale>
+    </currency>
+    <currency>
+        <isoCode>JPY</isoCode>
+        <active>true</active>
+        <conversionRate>110.0</conversionRate>
+        <scale>0</scale>
+    </currency>
+    <enableCurrencyEffectiveDates>false</enableCurrencyEffectiveDates>
+    <enableCurrencySymbolWithMultiCurrency>false</enableCurrencySymbolWithMultiCurrency>
+    <isParenCurrencyConvDisabled>false</isParenCurrencyConvDisabled>
+</CurrencySettings>
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Currency</members>
+        <name>Settings</name>
+    </types>
+    <version>47.0</version>
+</Package>
+```
+
+**와일드카드(`*`) 지원:** 기능 설정 메타데이터 타입에는 와일드카드가 **적용되지 않는다.** 와일드카드는 개별 설정이 아니라 **모든 설정을 retrieve할 때만** 적용된다 (p.2085).
+
 ---
 
 ## EventRelayConfig
@@ -251,3 +333,4 @@ Platform Cache 파티션. `Metadata` 타입을 extends.
 - [[2GP — Components - Integration & Platform]] — 같은 타입의 2GP 패키징 동작 (Manageability Rules·Editable Properties)
 - [[Knowledge Metadata API 타입 — 데이터카테고리·검색·외부소스]] — ExternalDataSource(Salesforce Connect adapter) 등 Knowledge 통합 메타데이터 타입 상세
 - [[integration-eventing-cdc-configure]] (sf-skill — 실행형) — PlatformEventChannel(CDC) 메타데이터 구성 실행형 스킬
+- [[Winter '27/Development]] — `CurrencySettings`의 `corporateCurrency`·`currency`·`Currency` 서브타입을 포함한 v68.0 Metadata API 변경 릴리즈 노트 원문

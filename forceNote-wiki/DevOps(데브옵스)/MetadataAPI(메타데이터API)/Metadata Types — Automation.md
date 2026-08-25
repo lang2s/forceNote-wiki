@@ -1,8 +1,8 @@
 ---
-tags: [devops, metadata-api, metadata-types, flow, workflow, approval-process, assignment-rules, v67]
-source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types)
+tags: [devops, metadata-api, metadata-types, flow, workflow, approval-process, assignment-rules, v67, v68]
+source: api_meta.pdf v67.0 Summer '26 — Chapter 13 (Metadata Types) + Winter27-v68-Docs/api_meta.pdf v68.0 Winter '27 (PREVIEW, 2026-08-21) pp.1242·1258–1259·1278·1290–1291·1319
 created: 2026-05-22
-aliases: [Flow 메타데이터, WorkflowRule 메타데이터, ApprovalProcess 메타데이터, AssignmentRules 메타데이터, AutoResponseRules 메타데이터, 자동화 메타데이터 타입]
+aliases: [Flow 메타데이터, WorkflowRule 메타데이터, ApprovalProcess 메타데이터, AssignmentRules 메타데이터, AutoResponseRules 메타데이터, 자동화 메타데이터 타입, FlowDataLookup, FlowNodeGroup, FlowNode group, Flow 노드 그룹, 데이터 룩업 Start 요소, Commerce Checkout Flow 액션 타입, b2cGetShippingMethods, b2cInitiatePayment]
 ---
 
 # Metadata Types — Automation
@@ -117,7 +117,7 @@ aliases: [Flow 메타데이터, WorkflowRule 메타데이터, ApprovalProcess �
 | `experiments` | FlowExperiment[] | - | 실험 배열 (v61.0+) |
 | `formulas` | FlowFormula[] | - | 수식 배열 |
 | `fullName` | string | Required | 플로우 고유 이름. 버전 지정: `sampleFlow-3`. v44.0+에서 버전 번호 미포함 |
-| `groups` | FlowNodeGroup[] | - | Reserved for future use |
+| `groups` | FlowNodeGroup[] | - | **그룹 노드 배열 (v68.0+).** v67까지 "Reserved for future use"였다가 v68에서 실제 기능으로 전환 (아래 `FlowNodeGroup` 절 참조) |
 | `interviewLabel` | string | - | 인터뷰 레이블 (일시 중단 인터뷰 구분용) |
 | `isAdditionalPermissionRequiredToRun` | boolean | - | 프로파일/권한 세트 접근 제한 여부 (기본: false, v47.0+) |
 | `isTemplate` | boolean | - | 템플릿 여부. 관리 패키지 구독자가 복제·수정 가능 (기본: false, v45.0+) |
@@ -163,6 +163,92 @@ aliases: [Flow 메타데이터, WorkflowRule 메타데이터, ApprovalProcess �
 | `CheckoutFlow` | Lightning B2B Commerce 체크아웃 | v48.0+ |
 | `Orchestrator` | 오케스트레이션 | v53.0+ |
 | `ApprovalWorkflow` | 승인 프로세스 오케스트레이션 | v63.0+ |
+
+---
+
+## Flow 서브타입 — v68.0 (Winter '27) 신규
+
+> 출처: `Winter27-v68-Docs/api_meta.pdf` v68.0 Winter '27 (**PREVIEW**) pp.1242 · 1278 · 1290–1291 · 1319. 표지에 PREVIEW 배너가 있으므로 GA 가이드 배포 시 재확인 대상.
+
+v68에서 Flow 메타데이터에 서브타입 2개(`FlowDataLookup` · `FlowNodeGroup`)와 이를 참조하는 부모 필드 3개(`Flow.groups` · `FlowNode.group` · `FlowStart.dataLookups`)가 추가됐다.
+
+### FlowDataLookup 서브타입 (v68.0 신규)
+
+플로우의 **Start 요소에서의 데이터 룩업**을 정의한다. `FlowElement`를 extends하고 그 모든 필드를 상속한다. (p.1278)
+
+**부모 필드:** `FlowStart.dataLookups` — `FlowDataLookup[]`, *"런타임에 관련 레코드를 어떻게 조회할지 정의하는 데이터 룩업 배열"* (p.1319, v68.0+)
+
+| Field Name | Field Type | Required | Description |
+|---|---|---|---|
+| `lookupField` | string | **Required** | `sourceApiName`으로 지정된 오브젝트에서 **lookup join에 사용할 필드** |
+| `lookupReference` | string | **Required** | 기본(primary) 레코드로부터의 lookup 관계에 대한 **참조 표현식** |
+| `sourceApiName` | string | **Required** | 데이터 룩업이 정의된 **오브젝트의 API 이름** |
+| `sourceType` | string | **Required** | `sourceApiName`으로 지정된 오브젝트의 타입. 유효 값은 `DataModelObject` |
+
+> ⚠️ `sourceType`은 enum이 아니라 **`string` 타입**이며, 가이드가 명시한 유효 값은 `DataModelObject` **하나뿐**이다 (p.1278).
+
+### FlowNodeGroup 서브타입 (v68.0 신규)
+
+**조직화 목적의 플로우 노드 그룹.** `FlowNode`를 extends하고 그 모든 필드를 상속한다. (p.1290)
+
+**부모 필드:** `Flow.groups` — `FlowNodeGroup[]`, *"An array of group nodes. Available in API version 68.0 and later."* (p.1242)
+
+| Field Name | Field Type | Required | Description |
+|---|---|---|---|
+| `faultConnector` | FlowConnector | - | **Reserved for future use.** (v68에서도 아직 미사용) |
+| `groupType` | GroupType (enum of type string) | **Required** | 그룹의 타입. 유효 값은 **`generic` 하나뿐** |
+| `sourceBranchApiName` | string | - | 그룹이 위치한 커넥터 분기. 유효 값은 `sourceReference` 값에 따라 달라진다 (아래 표) |
+| `sourceReference` | string | - | 그룹 **바로 앞** 노드의 이름. 앞 노드가 Start 요소면 `__Start`를 사용 |
+
+**`sourceBranchApiName` 유효 값 — `sourceReference`가 가리키는 노드 종류별 (p.1291)**
+
+| `sourceReference`가 가리키는 노드 | `sourceBranchApiName` 값 |
+|---|---|
+| Start (immediate path) | `immediate` |
+| Start (scheduled path) | 해당 path의 API 이름 |
+| Standard element | `regular` |
+| Decision (outcome) | 해당 outcome의 API 이름 |
+| Decision (default path) | `default` |
+| Loop (for each item) | `forEach` |
+| Loop (after last item) | `noMoreValues` |
+| Fault path | `fault` |
+
+**같이 추가된 `FlowNode.group` 필드 (p.1290)**
+
+| Field Name | Field Type | Description |
+|---|---|---|
+| `group` | string | 이 노드가 속한 **그룹의 이름**. v68.0+ |
+
+#### 📌 "Reserved for future use" → 실제 기능 전환 사례
+
+`FlowNodeGroup` 토큰 자체는 **v67에도 존재했다.** 다만 v67에서는 `Flow.groups` 필드 설명이 그냥 `Reserved for future use.` 였고 **`FlowNodeGroup` 서브타입 섹션 자체가 없었다.**
+
+| | v67.0 (Summer '26) | v68.0 (Winter '27) |
+|---|---|---|
+| `Flow.groups` 설명 | `Reserved for future use.` | "An array of group nodes. Available in API version 68.0 and later." |
+| `FlowNodeGroup` 서브타입 섹션 | **없음** | 있음 (필드 4개, p.1290–1291) |
+| `FlowNode.group` 필드 | 없음 | 있음 (v68.0+) |
+
+> **읽는 법:** 예약 자리표시자(placeholder)가 실제 기능으로 승격된 케이스다. "타입 이름이 v67 PDF에도 grep된다"는 사실만으로 "신규 아님"이라 판정하면 이런 전환을 놓친다. **토큰 존재 여부가 아니라 섹션·필드 설명의 실질**을 봐야 한다.
+>
+> 또한 이 전환은 Winter '27 릴리즈 노트(`rn_api_meta`)에 **언급되지 않는다** — 가이드에는 있고 릴리즈 노트에는 없는 항목. → [[Winter '27/Development]]
+
+### Commerce Checkout Flow 액션 타입 — v68.0 신규 값 6개
+
+`FlowActionCall.actionType`(`InvocableActionType` enum, p.1251)의 **Commerce Checkout Flow 그룹**에 B2C Commerce 배송·결제 값 6개가 추가됐다. (pp.1258–1259)
+
+> 그룹 머리말 원문: *"These values are used in the Commerce Checkout Flow. If no version is specified, the value is available in API version 55.0 and later."* — 아래 6개는 모두 **"available in API version 68.0 and later"** 로 개별 명시돼 있다.
+
+| Valid Value | 설명 |
+|---|---|
+| `b2cGetShippingMethods` | B2C Commerce 바스켓의 **기본 shipment**에 사용 가능한 **배송 방법을 조회** |
+| `b2cSetShippingAddress` | B2C Commerce 바스켓의 기본 shipment에 **배송 주소를 설정** |
+| `b2cSetShippingMethod` | B2C Commerce 바스켓의 기본 shipment에 **배송 방법을 설정** |
+| `b2cInitiatePayment` | 바스켓이 체크아웃 준비 상태인지 검증하고 **Apple Pay 결제 요청을 개시** |
+| `b2cPreProcessPayment` | **결제 전(pre-payment) 훅** 실행 — 초안 주문 생성 같은 결제 전 로직을 Apex가 수행하게 함 |
+| `b2cPostProcessPayment` | **결제 후(post-payment) 훅** 실행 — 주문 상태 업데이트 같은 결제 후 로직을 Apex가 수행하게 함 |
+
+> 이 6개 값 역시 Winter '27 릴리즈 노트에 **언급되지 않는다** (가이드 전용 변경).
 
 ---
 
@@ -286,10 +372,15 @@ aliases: [Flow 메타데이터, WorkflowRule 메타데이터, ApprovalProcess �
 
 | Field Name | Field Type | Required | Description |
 |---|---|---|---|
-| `customNotifTypeName` | string | Required | 알림 타입 이름 |
-| `desktop` | boolean | Required | 데스크탑 알림 활성화 여부 |
+| `actionGroups` | CustomNotificationActionGroup[] | Optional | 모바일 액션 그룹 활성화 여부 — 사용자가 **모바일 알림에서 직접 액션을 수행**하게 한다. 필드 표기는 v68에서도 여전히 `(Beta)` (v68 p.759) |
+| `customNotifTypeName` | string | Required | 알림 타입 이름. 최대 80자 (v68 p.759) |
+| `description` | string | - | 알림 타입 이름과 함께 표시되는 일반 설명. 최대 255자 (v68 p.759) |
+| `desktop` | boolean | Required | 데스크탑 전달 채널 활성화 여부 |
 | `masterLabel` | string | Required | 마스터 레이블 |
-| `mobile` | boolean | Required | 모바일 알림 활성화 여부 |
+| `mobile` | boolean | Required | 모바일 전달 채널 활성화 여부 |
+| `slack` | boolean | - | **Reserved for future use.** (v68 p.759) |
+
+**Version:** `CustomNotificationType` components are available in API version 46.0 and later. (v68 p.759)
 
 ```xml
 <!-- 예시 -->
@@ -300,6 +391,25 @@ aliases: [Flow 메타데이터, WorkflowRule 메타데이터, ApprovalProcess �
   <mobile>true</mobile>
 </CustomNotificationType>
 ```
+
+### CustomNotificationActionGroup 서브타입 — Winter '27에 Beta → GA
+
+`CustomNotificationActionGroup`은 **액션 그룹**을 나타내는 서브타입이다.
+
+| Field Name | Field Type | Required | Description |
+|---|---|---|---|
+| `actions` | CustomNotificationActionDefinition[] | - | 모바일 액션 그룹 안의 액션들 |
+| `groupName` | string | **Required** | 모바일 액션 그룹의 **고유 이름** |
+
+**상태 전환 (v67 → v68)**
+
+| | v67.0 (Summer '26) | v68.0 (Winter '27) |
+|---|---|---|
+| 섹션 제목 | `CustomNotificationActionGroup (Beta)` | `CustomNotificationActionGroup` (**Beta 표기 제거 = GA**) |
+| Beta 법적 고지 문단 | 있음 (Beta Services Terms 문단) | **삭제됨** |
+| 부모 필드 `CustomNotificationType.actionGroups` 표기 | `actionGroups (Beta)` | `actionGroups (Beta)` — **그대로 남아 있음** |
+
+> ⚠️ **문서 드리프트:** 서브타입 제목에서는 Beta가 걷혔는데 **부모 필드 행의 `(Beta)` 라벨은 v68에서도 남아 있다**(v68 p.759). 두 표기가 어긋난 상태이므로, GA(비-PREVIEW) 가이드가 나오면 어느 쪽이 정정되는지 재확인한다.
 
 ---
 
@@ -384,3 +494,4 @@ Lightning Bolt Solution에 포함되는 플로우 카테고리. `Metadata` 타�
 - [[Metadata API File-Based 호출]] — package.xml Flow 배포
 - [[Metadata API 에러 처리]] — 배포 오류 처리
 - [[2GP — Components - Automation]] — Flow·Workflow·Decision Table·Batch 등 자동화 컴포넌트 2GP Manageability Rules 전수
+- [[Winter '27/Development]] — v68.0 Metadata API 변경 릴리즈 노트 원문 (⚠️ `FlowNodeGroup`·Commerce Checkout 액션 값 6개는 릴리즈 노트에 **없는** 가이드 전용 변경)

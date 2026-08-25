@@ -1,8 +1,8 @@
 ---
 tags: [tooling-api, devops, apex, test, coverage]
-source: api_tooling.pdf v67.0 (Summer '26); Tier2 help.salesforce.com rn_deployment_ant_migration_tool_eol (Ant Migration Tool EOL Spring '24)
+source: api_tooling.pdf v67.0 (Summer '26); Winter27-v68-Docs/api_tooling.pdf (Tooling API Reference and Developer Guide v68.0 Winter '27, 2026-08-21 갱신) 인쇄 p.29–37 — symbols·apexCompileResults 절; Tier2 help.salesforce.com rn_deployment_ant_migration_tool_eol (Ant Migration Tool EOL Spring '24)
 created: 2026-06-27
-aliases: [ApexClass, ApexTrigger, ApexComponent, ApexPage, ApexPageInfo, ApexCodeCoverage, ApexCodeCoverageAggregate, ApexOrgWideCoverage, ApexTestQueueItem, ApexTestResult, ApexTestResultLimits, ApexTestRunResult, ApexTestSuite, TestSuiteMembership, ApexEmailNotification, ApexResult, SymbolTable, 코드 커버리지, 테스트 결과, 테스트 큐, 심볼 테이블, Apex 트리거 sObject]
+aliases: [ApexClass, ApexTrigger, ApexComponent, ApexPage, ApexPageInfo, ApexCodeCoverage, ApexCodeCoverageAggregate, ApexOrgWideCoverage, ApexTestQueueItem, ApexTestResult, ApexTestResultLimits, ApexTestRunResult, ApexTestSuite, TestSuiteMembership, ApexEmailNotification, ApexResult, SymbolTable, Apex Symbol API, symbols 리소스, typeStubs, apexCompileResults, type reference, compileError, 심볼 API, 무효 Apex 재컴파일, 컴파일 결과 조회, 코드 커버리지, 테스트 결과, 테스트 큐, 심볼 테이블, Apex 트리거 sObject]
 ---
 
 # Tooling API 객체 — Apex 코드·테스트·커버리지
@@ -10,6 +10,8 @@ aliases: [ApexClass, ApexTrigger, ApexComponent, ApexPage, ApexPageInfo, ApexCod
 > Apex 클래스/트리거/Visualforce 컴포넌트·페이지의 저장본 sObject, 코드 커버리지, 테스트 실행·결과·한도, 그리고 SymbolTable 복합 타입까지 — Tooling API로 SOQL 조회·관리하는 Apex 코드 군 17객체 전수.
 
 이 노트는 Tooling API Reference & Developer Guide v67.0(Summer '26)의 "Tooling API Objects" 챕터 중 **Apex 코드·테스트·커버리지 도메인 17객체**를 다룬다. 각 객체는 SOQL/SOSL로 조회 가능한 Tooling sObject다.
+
+여기에 더해, **Winter '27(API 68.0)에서 신설된 Apex 도메인 REST 리소스 2개**(`/tooling/symbols` Beta · `/tooling/apexCompileResults`)의 레퍼런스를 노트 후반 [v68.0 신규 REST 리소스](#v680-신규-rest-리소스--apex-심볼컴파일-결과-winter-27) 절에 함께 둔다. 출처는 `Winter27-v68-Docs/api_tooling.pdf`(v68.0 Winter '27) 인쇄 p.29–37이다.
 
 > [!note] 위임 경계 — 이 노트가 다루지 **않는** Apex 관련 객체
 > 아래 객체는 다른 권위 노트가 소관한다. 여기서는 필드표를 복제하지 않고 링크만 둔다.
@@ -46,6 +48,13 @@ aliases: [ApexClass, ApexTrigger, ApexComponent, ApexPage, ApexPageInfo, ApexCod
 | [ApexEmailNotification](#apexemailnotification) | 예외 알림 | 2 | 35.0 |
 | [ApexResult](#apexresult) | 복합 타입 | 2 | 28.0 |
 | [SymbolTable](#symboltable) | 복합 타입 | 11 | — |
+
+**v68.0(Winter '27) 신규 — 이 노트가 함께 다루는 REST 리소스 2개** (sObject가 아니라 REST 엔드포인트)
+
+| 리소스 | 메서드 | 최소 API | 상태 |
+|---|---|---|---|
+| [Apex Symbol API — `/tooling/symbols`](#apex-symbol-api-beta--get-toolingsymbols) | GET | 68.0 | Beta |
+| [`/tooling/apexCompileResults`](#무효-apex-컴파일-결과--post-toolingapexcompileresults) | POST | 68.0 | (Beta 표기 없음) |
 
 ---
 
@@ -650,6 +659,383 @@ Apex 클래스를 ApexTestSuite에 연결하는 정션 객체. Tooling API 36.0 
 
 ---
 
+## v68.0 신규 REST 리소스 — Apex 심볼·컴파일 결과 (Winter '27)
+
+Winter '27(API 68.0)에서 Apex 코드 도메인에 **REST 리소스 2개**가 추가됐다. 둘 다 sObject가 아니라 `/services/data/vXX.X/tooling/` 하위 REST 엔드포인트지만, 대상이 Apex 클래스·트리거이고 위 [SymbolTable](#symboltable)·[ApexClass](#apexclass)의 `IsValid`와 직접 맞물리는 영역이라 **레퍼런스 본문을 이 노트에 둔다**. REST 리소스 **카탈로그 목록**(전체 리소스 표·base URI 규칙)은 [[Tooling API — 개요·REST·SOAP 호출 기초]] 소관이다.
+
+| 리소스 | 메서드 | 최소 API | 필요 권한 | 상태 |
+|---|---|---|---|---|
+| `/tooling/symbols` — Apex Symbol API | GET | 68.0 | **Author Apex**(org) + **View Setup**(user) | **Beta** |
+| `/tooling/apexCompileResults` | POST | 68.0 | **Author Apex**(org) | (PDF에 Beta·pilot 표기 없음) |
+
+> 출처: `Winter27-v68-Docs/api_tooling.pdf` (Tooling API Reference and Developer Guide **v68.0, Winter '27**, 2026-08-21 갱신) 인쇄 p.29–37.
+> ⚠️ 레포의 `Salesforce Documents/api_tooling.pdf`(v67.0 Summer '26)에는 이 두 리소스가 **전혀 없다**(`apexCompileResults` 0회 · `typeStubs` 0회). 인용 경로는 항상 `Winter27-v68-Docs/` 하위 파일이다.
+
+---
+
+### Apex Symbol API (Beta) — `GET /tooling/symbols`
+
+Apex Symbol API로 **built-in·custom·packaged·dynamic Apex 타입**의 상세 메타데이터(클래스·인터페이스·enum·메서드·트리거 포함)를 retrieve한다. API 68.0 이상. 이 리소스는 **Author Apex org 권한**과 **View Setup 사용자 권한**을 요구한다.
+
+> [!important] Beta 서비스
+> *Apex Symbol API is a pilot or beta service that is subject to the Beta Services Terms at Agreements and Terms or a written Unified Pilot Agreement if executed by Customer, and applicable terms in the Product Terms Directory. Use of this pilot or beta service is at the Customer's sole discretion.* (인쇄 p.31 원문)
+
+#### Syntax
+
+- **URI:** `/services/data/vXX.X/tooling/symbols/`
+- **HTTPS Method:** GET
+- **Authentication:** `Authorization: Bearer token`
+- **Format:** JSON
+
+> `/tests`와 달리 Syntax 목록에 **Response Encoding(`X-Chatter-Entity-Encoding`) 항목이 없다** — PDF 인쇄 p.31에는 URI·Method·Authentication·Format 4개만 기재돼 있다(없는 항목을 채워 넣지 않는다).
+
+#### Request Query Parameters (인쇄 p.32 — 전수 3개)
+
+| Name | Type | Description |
+|---|---|---|
+| `category` | String | **Required.** retrieve할 Apex 타입의 카테고리. 가능한 값: • `builtin` — standard Apex types, such as types in the System, Database, and Messaging namespaces. • `database` — custom and packaged Apex types. • `dynamic` — dynamic Apex types. |
+| `namespace` | String | **Optional.** 결과를 특정 namespace로 필터. **local org namespace의 타입만 retrieve하려면 빈 문자열을 전달한다(`namespace=`).** 이 파라미터를 생략하면 해당 category의 **모든 namespace** Apex 타입이 반환된다. |
+| `name` | String | **Optional.** 결과를 지정한 Apex 타입 이름으로 필터. `namespace`와 `name`을 **둘 다** 지정하면 결과는 **두 조건을 모두 만족**해야 한다. |
+
+**Request Body Properties:** None.
+
+#### Response Body Properties (인쇄 p.32)
+
+| Name | Type | Description |
+|---|---|---|
+| `typeStubs` | Object[] | Apex 타입 배열. 각 객체는 Apex 클래스·인터페이스·enum·트리거 **하나**를 기술하며, 가능한 경우 field·property·method·annotation·documentation 같은 멤버를 포함한다. |
+
+#### `typeStubs` 배열 요소 속성 (인쇄 p.32–33 — 전수 15개)
+
+| Name | Type | Description |
+|---|---|---|
+| `name` | String | Apex 타입 stub의 developer name. |
+| `namespacePrefix` | String | Apex 타입의 namespace. 타입에 namespace가 없으면 `null`. |
+| `kind` | String | Apex 타입의 종류. 가능한 값은 `CLASS`, `INTERFACE`, `ENUM`, `TRIGGER`. |
+| `modifiers` | String[] | 타입에 적용된 modifier — 예: `public`, `global`, `virtual`, `abstract`. |
+| `annotations` | Object[] | 타입에 적용된 annotation — 예: `AuraEnabled`, `IsTest`, `NamespaceAccessible`. |
+| `superClass` | Object | superclass에 대한 **type reference**. 타입에 superclass가 없으면 `null`. |
+| `interfaces` | Object[] | 타입이 구현하는 인터페이스들의 **type reference**. |
+| `fields` | Object[] | 타입에 선언된 field. field는 메서드 내부가 아니라 **타입 레벨에 선언된 변수**다. |
+| `properties` | Object[] | 타입에 선언된 property. |
+| `methods` | Object[] | 타입에 선언된 **메서드와 생성자**. |
+| `innerTypes` | Object[] | 타입 내부에 선언된 중첩 Apex 타입. 각 중첩 타입은 **최상위 type stub과 동일한 구조**를 사용한다(재귀). |
+| `triggerOperations` | String[] | 트리거의 경우 트리거 operation — 예: `BEFORE UPDATE`. 트리거가 아닌 타입에서는 `null`. |
+| `documentation` | String | 타입의 문서. **built-in 타입**에서는 공식 usage guidance를 포함할 수 있고, **custom 타입**에서는 ApexDoc 주석을 포함할 수 있다. **API 68.0에서는 managed package의 ApexDoc 주석이 반환되지 않는다.** |
+| `triggerObjectType` | Object | 트리거의 경우 트리거가 정의된 sObject에 대한 **type reference**. 트리거가 아닌 타입에서는 `null`. |
+| `compileError` | String | 해당 타입의 심볼 추출 중 **컴파일 오류가 발생한 경우** 그 오류 메시지. 그렇지 않으면 `null`. |
+
+#### Annotations 배열 속성 (인쇄 p.33)
+
+`annotations` 배열의 각 객체가 가질 수 있는 속성.
+
+| Name | Type | Description |
+|---|---|---|
+| `name` | String | annotation 이름. |
+| `parameters` | Object[] | annotation 파라미터. |
+| `documentation` | String | annotation 문서(있는 경우). |
+
+#### Annotation Parameters 배열 속성 (인쇄 p.33–34)
+
+annotation의 `parameters` 배열의 각 객체가 가질 수 있는 속성.
+
+| Name | Type | Description |
+|---|---|---|
+| `name` | String | 파라미터 이름. |
+| `type` | Object | 파라미터 타입에 대한 **type reference**. |
+| `value` | String | 파라미터 값. |
+
+#### Fields 배열 속성 (인쇄 p.34)
+
+`fields` 배열의 각 객체가 가질 수 있는 속성.
+
+| Name | Type | Description |
+|---|---|---|
+| `name` | String | field 이름. |
+| `type` | Object | field 타입에 대한 **type reference**. |
+| `modifiers` | String[] | field modifier. |
+| `annotations` | Object[] | field annotation. |
+| `documentation` | String | field 문서(있는 경우). |
+| `definingType` | Object | 이 field를 **원래 선언한** Apex 타입에 대한 type reference. **상속된 field에만 설정**되며, field가 감싸는 타입에 직접 선언된 경우에는 **생략(omitted)** 된다. |
+
+#### Properties 배열 속성 (인쇄 p.34)
+
+`properties` 배열의 각 객체가 가질 수 있는 속성.
+
+| Name | Type | Description |
+|---|---|---|
+| `name` | String | property 이름. |
+| `type` | Object | property 타입에 대한 **type reference**. |
+| `modifiers` | String[] | property modifier. |
+| `annotations` | Object[] | property annotation. |
+| `getter` | Object | property에 **get accessor가 있으면 존재**. 객체는 `modifiers` 배열과 `documentation` 속성을 포함한다. |
+| `setter` | Object | property에 **set accessor가 있으면 존재**. 객체는 `modifiers` 배열과 `documentation` 속성을 포함한다. |
+| `documentation` | String | property 문서(있는 경우). |
+| `definingType` | Object | 이 property를 원래 선언한 Apex 타입에 대한 type reference. **상속된 property에만 설정**되며, 직접 선언된 경우 생략된다. |
+
+#### Methods 배열 속성 (인쇄 p.35)
+
+`methods` 배열의 각 객체가 가질 수 있는 속성.
+
+| Name | Type | Description |
+|---|---|---|
+| `name` | String | 메서드 또는 생성자 이름. |
+| `isConstructor` | Boolean | 멤버가 생성자면 `true`, 그렇지 않으면 **`null`**. |
+| `returnType` | Object | 반환 타입에 대한 **type reference**. **생성자에서는 `null`**. |
+| `modifiers` | String[] | 메서드 modifier. |
+| `annotations` | Object[] | 메서드 annotation. |
+| `parameters` | Object[] | 메서드 파라미터. |
+| `documentation` | String | 메서드 문서(있는 경우). |
+| `definingType` | Object | 이 메서드를 원래 선언한 Apex 타입에 대한 type reference. **상속된 메서드에만 설정**되며, 직접 선언된 경우 생략된다. |
+
+#### Methods Parameter 배열 속성 (인쇄 p.35)
+
+메서드의 `parameters` 배열의 각 객체가 가질 수 있는 속성.
+
+| Name | Type | Description |
+|---|---|---|
+| `name` | String | 파라미터 이름. |
+| `type` | Object | 파라미터 타입에 대한 **type reference**. |
+| `annotations` | Object[] | 파라미터 annotation. |
+| `documentation` | String | 파라미터 문서(있는 경우). |
+
+#### Type Reference 속성 (인쇄 p.35–36)
+
+응답의 여러 속성은 타입을 **문자열로 반환하지 않고 중첩 type reference 객체**로 반환한다. 이 구조는 타입을 개발 도구가 소비할 수 있는 조각으로 분리한다.
+
+type reference가 나타나는 속성 (전수 7곳):
+
+- `superClass`
+- `interfaces` 배열의 객체
+- field 또는 property의 `type` 속성
+- 메서드의 `returnType` 속성
+- 상속된 field·method·property의 `definingType` 속성
+- 파라미터의 `type` 속성
+- `triggerObjectType`
+
+각 type reference 객체가 가질 수 있는 속성.
+
+| Name | Type | Description |
+|---|---|---|
+| `namespacePrefix` | String | 참조된 타입의 namespace. 타입에 namespace가 없으면 `null`. |
+| `name` | String | 참조된 타입의 이름. |
+| `typeParameters` | Object[] | generic 타입 인자에 대한 type reference — 예: `List<String>`의 `String`. 타입이 parameterize되지 않았으면 `null`. |
+
+#### Usage (인쇄 p.36)
+
+Apex Symbol API로 다음과 같은 도구를 만든다.
+
+- **full generic type support를 갖춘 code completion 제공.** 예: `List<Account>`가 내부 인코딩 대신 읽기 쉬운 타입 파라미터로 표시된다.
+- built-in 타입의 **공식 문서(usage guidance·예제 포함) 표시**.
+- custom 타입의 **ApexDoc 주석 표시**.
+- **생성자 시그니처**를 파라미터 타입·annotation·modifier와 함께 표시.
+- 소스 코드를 파싱하지 않고 **트리거 operation 식별**(예: `before insert`, `after update`).
+- **모든 표준 Apex namespace**(예: System·Database·Messaging)의 타입 정보 접근.
+
+#### Considerations (인쇄 p.36 — 전수 2건)
+
+- **동시성 한도: org당 요청 1건.** 요청이 진행 중인 상태에서 같은 org에 대해 두 번째 요청이 들어오면 **두 번째 요청은 실패**한다. 같은 org에서 이 API를 **병렬 호출하지 않는다.**
+- **API 68.0에서는 managed package의 ApexDoc 주석이 반환되지 않는다.** global identifier에 대한 packaged ApexDoc 주석은 **이후 API 버전에 예정**돼 있다.
+
+#### Example (인쇄 p.36–37)
+
+**Example Request** — System namespace의 built-in `ApexPages` 타입을 retrieve한다.
+
+```bash
+# Winter27-v68-Docs/api_tooling.pdf (v68.0) p.36 — Example Request 원문
+GET
+"https://MyDomain.my.salesforce.com/services/data/v68.0/tooling/symbols?category=builtin&namespace=System&name=ApexPages"
+```
+
+**Example Response Body (excerpt)** — PDF가 `(excerpt)`라고 명시한 발췌본이며, `documentation` 값도 원문에서 `...`으로 잘려 있다(그대로 옮긴다).
+
+```json
+// Winter27-v68-Docs/api_tooling.pdf (v68.0) p.36–37 — Example Response Body (excerpt) 원문
+{
+  "typeStubs": [
+    {
+      "name": "ApexPages",
+      "namespacePrefix": "System",
+      "kind": "CLASS",
+      "modifiers": [
+        "global"
+      ],
+      "annotations": [],
+      "superClass": null,
+      "interfaces": [],
+      "fields": [],
+      "properties": [],
+      "methods": [
+        {
+          "name": "addMessage",
+          "isConstructor": null,
+          "returnType": {
+            "namespacePrefix": null,
+            "name": "void",
+            "typeParameters": null
+          },
+          "modifiers": [
+            "global",
+            "static"
+          ],
+          "annotations": [],
+          "parameters": [
+            {
+              "name": "message",
+              "type": {
+                "namespacePrefix": "ApexPages",
+                "name": "Message",
+                "typeParameters": null
+              },
+              "annotations": [],
+              "documentation": ""
+            }
+          ],
+          "documentation": "Add a message to the current page context."
+        }
+      ],
+      "innerTypes": [],
+      "triggerOperations": null,
+      "documentation": "Use ApexPages to add and check for messages associated...",
+      "triggerObjectType": null,
+      "compileError": null
+    }
+  ]
+}
+```
+
+#### Symbol API vs. `SymbolTable` 복합 타입 — 무엇을 쓰나
+
+둘 다 Apex 타입의 심볼 정보를 주지만 **획득 경로와 커버리지가 다르다.**
+
+| 관점 | `SymbolTable` (복합 타입) | Apex Symbol API (`/tooling/symbols`) |
+|---|---|---|
+| 획득 방법 | `ApexClass`·`ApexClassMember`·`ApexTriggerMember`의 필드로 반환 (SOQL/컨테이너 경유) | 전용 REST GET 리소스 직접 호출 |
+| 대상 범위 | org의 **사용자 정의** 클래스·트리거 Body의 토큰 | `category`로 **built-in / custom·packaged / dynamic** 타입 |
+| generic 표현 | `interfaces`가 `['System.Batchable', ...]` 문자열 집합 | **type reference 객체**(`typeParameters`로 `List<String>` 분해) |
+| 문서 | 없음 | `documentation`(built-in usage guidance·custom ApexDoc) |
+| 트리거 | Body 토큰 위주 | `triggerOperations`·`triggerObjectType` 명시 |
+| API 버전 | 기존 | **68.0+ (Beta)** |
+
+> 릴리즈 노트(help.salesforce.com `rn_apex_symbol_api`)는 이 API가 **Apex 컴파일러가 사용하는 것과 동일한 타입 정보**를 노출해 기존 `/completions` 엔드포인트와 `SymbolTable` 오브젝트가 남긴 공백을 메운다고 설명한다 — [[Winter '27/Development]] 참조. (이 문장의 출처는 PDF가 아니라 릴리즈 노트다.)
+
+---
+
+### 무효 Apex 컴파일 결과 — `POST /tooling/apexCompileResults`
+
+**validation error가 있는** Apex 클래스·트리거의 컴파일 결과를 retrieve한다. 결과를 정기적으로 모니터링하면 컴파일 이슈를 탐지·대응할 수 있다. API 68.0 이상. 이 리소스는 **Author Apex org 권한**을 요구한다.
+
+#### Syntax (인쇄 p.29)
+
+- **URI:** `/services/data/vXX.X/tooling/apexCompileResults/`
+- **HTTPS Method:** POST
+- **Authentication:** `Authorization: Bearer token`
+- **Format:** JSON
+
+**Request Parameters:** None.
+
+**Request Body:** 요청 본문은 **빈 JSON 객체(`{}`)여야 한다. 어떤 필드든 지정하면 오류가 반환된다.**
+
+#### Response Body Properties (인쇄 p.29)
+
+| Name | Type | Description |
+|---|---|---|
+| `status` | String | 컴파일의 **operation-level** 결과. 가능한 값: • `OK` — 모든 무효 Apex 클래스·트리거가 성공적으로 컴파일됐거나, 재컴파일이 필요한 무효 클래스·트리거가 **없었다**. • `PARTIAL_FAILURE` — **최소 하나**의 무효 Apex 클래스 또는 트리거가 컴파일에 실패했다. |
+| `results` | Object[] | **컴파일에 실패한** Apex 클래스·트리거의 컴파일 결과 배열. 각 객체는 클래스·트리거 이름, namespace, 성공 지시자, 오류, 경고를 포함한다. **성공적으로 컴파일된 클래스·트리거는 포함되지 않는다.** **경고(warnings)는 해당 클래스·트리거에 컴파일 오류도 함께 있을 때만 포함된다.** 전체 컴파일이 실패 없이 성공하면 이 배열은 비어 있다. |
+
+#### `results` 배열 요소 속성 (인쇄 p.30)
+
+| Name | Type | Description |
+|---|---|---|
+| `name` | String | Apex 클래스 또는 트리거의 developer name. |
+| `namespace` | String | Apex 클래스 또는 트리거의 namespace. **default namespace면 빈 문자열**. |
+| `success` | Boolean | Apex 클래스·트리거가 성공적으로 컴파일됐는지 여부. 컴파일 문제가 **없으면 `true`**, 문제가 **하나 이상 있으면 `false`**. **경고만 있는 결과(warning-only outcomes)는 여전히 성공으로 간주되므로 `results` 배열에 반환되지 않는다.** |
+| `problems` | Object[] | Apex 클래스·트리거의 컴파일 **오류** 배열. `success`가 `true`면 비어 있다. |
+| `warnings` | Object[] | Apex 클래스·트리거의 컴파일 **경고** 배열. 경고는 **컴파일 오류도 함께 있는** 클래스·트리거에 대해서만 반환된다. |
+
+#### `problems`·`warnings` 배열 요소 속성 (인쇄 p.30)
+
+| Name | Type | Description |
+|---|---|---|
+| `line` | Integer | 오류·경고가 발생한 소스 **행**. 행이 해당되지 않으면 값은 `0`. |
+| `column` | Integer | 문제·경고의 소스 **열**. 열이 해당되지 않으면 값은 `0`. |
+| `message` | String | 컴파일 오류·경고에 대한 설명. |
+
+#### Usage (인쇄 p.30 — 전수 2건)
+
+- `apexCompileResults` 리소스는 **무효 Apex 클래스·트리거의 컴파일 결과를 retrieve**하는 용도다. 무효 클래스·트리거를 **재컴파일하려면** Setup의 Apex Classes / Apex Triggers 페이지에 있는 **"Compile only invalid classes"·"Compile only invalid triggers" 버튼**을 사용한다. PDF는 *"Setup 버튼을 통한 컴파일 성공은 해당 Apex 클래스·트리거의 `IsValid` 필드를 `true`로 갱신한다. `apexCompileResults`로 컴파일 결과를 retrieve하는 것은 이 필드를 갱신하지 않는다"* 고 기술한다.
+  > ⚠️ **소스 충돌** — 릴리즈 노트는 이와 **정반대**(Setup 버튼으로 성공해도 `isValid`가 갱신되지 않고 `false`로 남는다)로 서술한다. 상세 대조는 [[Winter '27/Development]]에 기록돼 있으며, 여기서 임의로 한쪽을 채택하지 않는다. **API 조회가 필드를 갱신하지 않는다는 점만 양측이 일치**한다.
+- **요청은 동기(synchronous)** 다.
+
+관련 필드: 이 리소스가 말하는 "무효(invalid)" 상태와 맞물리는 sObject 필드는 [ApexClass](#apexclass)·[ApexTrigger](#apextrigger)의 `IsValid`다 — 각 필드 표의 원문 설명을 참조한다.
+
+#### Example (인쇄 p.30–31)
+
+**Example Request Body**
+
+```json
+// Winter27-v68-Docs/api_tooling.pdf (v68.0) p.30 — Example Request Body 원문
+{}
+```
+
+**Example Response Body on Successful Compilation** — 모든 무효 Apex 클래스·트리거가 성공적으로 컴파일됐거나, 재컴파일이 필요한 것이 없을 때 반환된다.
+
+```json
+// Winter27-v68-Docs/api_tooling.pdf (v68.0) p.30 — Example Response Body (OK) 원문
+{
+  "status": "OK",
+  "results": []
+}
+```
+
+**Example Response Body on Partial Failure** — 최소 하나의 무효 Apex 클래스·트리거가 컴파일에 실패했을 때 반환된다.
+
+```json
+// Winter27-v68-Docs/api_tooling.pdf (v68.0) p.31 — Example Response Body (PARTIAL_FAILURE) 원문
+{
+  "status": "PARTIAL_FAILURE",
+  "results": [
+    {
+      "name": "MyInvalidClass",
+      "namespace": "MyNamespace",
+      "success": false,
+      "problems": [
+        {
+          "line": 14,
+          "column": 9,
+          "message": "Variable does not exist: var1"
+        }
+      ],
+      "warnings": [
+        {
+          "line": 0,
+          "column": 0,
+          "message": "Apex API version 18.0 is scheduled for retirement. Update to the
+latest API version to avoid compile failures."
+        }
+      ]
+    }
+  ]
+}
+```
+
+> 위 코드 블록의 `message` 값이 두 줄로 끊긴 것은 **PDF 원문의 줄바꿈 그대로**다(임의로 잇지 않았다).
+
+#### ⚠️ 미해결 소스 충돌 — "경고만 있는 결과"가 `results`에 반환되는가
+
+두 Tier 2 공식 소스가 **정면으로 충돌**한다. 어느 쪽이 최종인지 임의로 판단하지 않고 양쪽을 그대로 기록한다(2026년 10월 GA 시점 재확인 대상).
+
+| 소스 | 서술 |
+|---|---|
+| **`Winter27-v68-Docs/api_tooling.pdf` v68.0 (인쇄 p.29–30)** | `results`는 **컴파일에 실패한** 클래스·트리거만 담는다. `success`는 문제가 없으면 `true`이며, *"Warning-only outcomes are still considered successful, so these outcomes aren't returned in the `results` array."* — 즉 **경고만 있는 결과는 반환되지 않는다.** `warnings`는 **컴파일 오류가 함께 있을 때만** 반환된다. |
+| **릴리즈 노트 (help.salesforce.com `rn_apex_recompile_invalid_apex`)** | 같은 `PARTIAL_FAILURE` 응답 예제에 결과가 **2건** 들어 있고, 그중 하나가 **`"success": true` · `"problems": []` · `warnings`만 채워진 항목**이다 — 즉 **경고만 있는 결과가 `results`에 그대로 반환된다.** |
+
+- 두 소스는 같은 시나리오의 **예제 값도 다르다** — PDF 예제의 경고 메시지는 *"Apex API version 18.0 …"*, 릴리즈 노트 예제는 *"Apex API version 16.0 …"* 이다(둘 다 원문 그대로). 동일 응답의 서로 다른 판본으로 보인다.
+- **실무 함의:** 클라이언트를 만들 때 `results` 항목에 `success == true`가 **올 수 있다고 가정하고 방어적으로** 처리하는 편이 안전하다(PDF 규칙이 맞더라도 손해가 없다).
+- 충돌하는 **릴리즈 노트 측 예제 응답 원문**과 `IsValid` 충돌(충돌 1)의 전문은 [[Winter '27/Development]]에 기록돼 있다.
+
+---
+
 ## 관련 노트
 
 - [[Tooling API — 개요·REST·SOAP 호출 기초]] — 폴더 허브(REST/SOAP 호출 기초·When to Use)
@@ -667,3 +1053,4 @@ Apex 클래스를 ApexTestSuite에 연결하는 정션 객체. Tooling API 36.0 
 - [[Tooling API 객체 — User·플랫폼이벤트 (이벤트·CDC 채널)]] — User·플랫폼이벤트·CDC 채널·이벤트 릴레이 sObject 7종 형제 Ch4 도메인 노트.
 - [[Tooling API 객체 — 통합·데이터·결제·마케팅 (외부서비스·Data Kit·페이먼트·Account Engagement)]] — SOQLResult 등 종속 복합타입의 Tooling API 정의(ApexExecutionOverlayResult 본체는 본 노트군).
 - [[테스트 전략]] — Apex 테스트 작성·커버리지 패턴(질의가 아닌 작성 관점)
+- [[Winter '27/Development]] — v68.0 릴리즈 맥락. Apex Symbol API(Beta)·`apexCompileResults`의 릴리즈 노트 측 서술과 **PDF와 충돌하는 2건**(`IsValid` 갱신 여부 · 경고만 있는 결과의 반환 여부) 전문이 여기 기록돼 있다.
