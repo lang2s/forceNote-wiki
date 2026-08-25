@@ -4,7 +4,7 @@ created: 2026-05-21
 ---
 
 # SEARCH INDEX — 릴리즈 노트
-> Salesforce 릴리즈별(Spring/Summer/Winter, v59~v67) 키워드 → 파일
+> Salesforce 릴리즈별(Spring/Summer/Winter, v59~v68) 키워드 → 파일
 > 루트 라우터: `00 SEARCH_INDEX.md` · 다른 샤드는 라우터에서 이동.
 
 ## Release Notes (릴리즈 노트)
@@ -121,6 +121,32 @@ created: 2026-05-21
 | Summer 26 강제 적용 SAML 다중구성, Blob.toPdf, Sort Batch, 서머 26 의무화 업데이트 | `Release/Summer '26/Release Updates.md` |
 | Winter 27 Profile Filtering, OAuth username-password 폐기, 윈터 27 폐기 예정, 사용자명 비밀번호 흐름 종료 | `Release/Summer '26/Release Updates.md` |
 | Edge Network Release Update, 엣지 네트워크 릴리즈 업데이트 강제, Edge Network 의무화 일정 | `Release/Summer '26/Release Updates.md` |
+| Winter '27, 윈터 27, v68.0, API 68, 2026년 10월 릴리즈, 프리뷰 릴리즈 preview, 윈터 27 분할 허브, Winter 27 커버리지 519 1241 페이지 | `Release/Winter '27.md` |
+| Apex heap 10MB 25MB, 힙 한도 인상, 동기 6MB→10MB 비동기 12MB→25MB, 비프로덕션 구 한도 되돌리기, Spring 27 전역 강제, Winter 27 heap 얼마나 늘었나 | `Release/Winter '27/Development.md` |
+| Batch Elastic Limits Beta, 배치 잡 탄력 한도, elastic limits Batch 확대, 프로덕션 추가 용량 캡 200만, 비동기 한도 override, 비동기 Apex 한도 더 쓰려면 | `Release/Winter '27/Development.md` |
+| Apex Symbol API Beta, /tooling/symbols, symbols 리소스, typeStubs, Apex 타입 메타데이터 조회, IDE 코드 완성 AI 그라운딩, org당 동시 1건, Apex 심볼 API 어떻게 쓰나 | `Release/Winter '27/Development.md` |
+| apexCompileResults, 무효 Apex 재컴파일, invalid Apex 컴파일 결과, 무효 클래스만 다시 컴파일하려면 | `Release/Winter '27/Development.md` |
+| Apex Integration Tests Developer Preview, Apex 통합 테스트, External Services HTTP 콜아웃 테스트, 비동기 1건 동기 미제공 | `Release/Winter '27/Development.md` |
+| Test Discovery testLevel 파라미터, 테스트 레벨 필터, RunLocalTests RunAllTestsInOrg, showAllMethods 폐기, 테스트 검색 API 레벨 지정 | `Release/Winter '27/Development.md` |
+| LWC API 68.0 버전별 변경 없음, 컴포넌트 apiVersion 일괄 업그레이드 적기, v68 LWC 뭐가 바뀌나, LWC 버전 올리기 좋은 릴리즈 | `Release/Winter '27/Development.md` |
+| LWC 복합 템플릿 표현식 GA, compound template expression, lwc:external 서드파티 웹 컴포넌트 GA, third-party web components, apiVersion 66.0 이상 필요, LWC 템플릿에서 JS 표현식 쓰기 | `Release/Winter '27/Development.md` |
+| SOQL FORMULA() Beta, 필드 간 비교, WHERE 절 산술 계산, 샌드박스 Developer Edition 스크래치 전용 프로덕션 미제공, SOQL로 두 필드 비교하려면 | `Release/Winter '27/Development.md` |
+| Agentforce Vibes, Salesforce Development Claude Code Plugin, DX MCP Server, Headless 360 섹션 이동, Winter 27 개발 도구 변경 | `Release/Winter '27/Development.md` |
+| Connected App → External Client App 이행, 커넥티드 앱 마이그레이션, 외부 클라이언트 앱 전환, Winter 27 연결된 앱 어떻게 되나 | `Release/Winter '27/Platform.md` |
+| Flow Builder 전면 개편, Salesforce Cosmos 테마 플로우, Edit History 저장 타임라인 복원, 요소 그룹화, Flow Tags 분류, 자동 생성 라벨, 플로우 빌더 뭐가 바뀌나 | `Release/Winter '27/Platform.md` |
+| Flow Test Mode Beta, Mock Outputs Beta, Action Subflow mock 출력, 플로우 시나리오 저장 assertion 커버리지, 콜아웃 없이 Flow 테스트하려면 | `Release/Winter '27/Platform.md` |
+| User Context Enforces User Permissions, 실행 사용자 권한 강제 실행 컨텍스트, API 68.0 이상 플로우, system context 상승 권한 상속 안 함 | `Release/Winter '27/Platform.md` |
+| Tenant-Specific Trust Store, 테넌트 전용 신뢰 저장소, Security Health Review, 보안 상태 검토, Winter 27 보안 변경 | `Release/Winter '27/Platform.md` |
+| Data Detect Data 360 확장, 민감 데이터 탐지 확대, Hyperforce 18개국 GovCloud, 하이퍼포스 리전 확장, Winter 27 인프라 변경 | `Release/Winter '27/Platform.md` |
+| Experience Delivery Beta 단종 2026년 10월, 익스피리언스 딜리버리 중단, Experience Cloud 폐기 예정 | `Release/Winter '27/Platform.md` |
+| Winter 27 클라우드 상세, Sales Revenue Service Field Service Commerce Marketing Analytics Data 360 Industries, Agentforce Sales Revenue Commerce 리브랜드, 15000 라인 대형 트랜잭션, Service Assistant 동적 서비스 플랜, Workforce Management 확장, Winter 27 클라우드 제품 변경 | `Release/Winter '27/Clouds.md` |
+| Winter 27 제목 카탈로그 722건, 미추출 제목만 목록, title-only 카탈로그, page id로 원문 열기, Agentforce IT Service 51페이지 제목만, Winter 27에서 못 찾은 클라우드 항목 어디 있나 | `Release/Winter '27/Clouds.md` |
+| Gemini 2.5 → 3.5 리라우트 2026-10-20, 모델 리라우팅, Winter 27 지원 모델 변경 | `Release/Winter '27/Agentforce.md` |
+| Agentforce Contact Center AFCC, Salesforce Voice 네이티브 텔레포니 편입, Agentforce Voice, 에이전트포스 컨택센터 | `Release/Winter '27/Agentforce.md` |
+| Approval Agent 승인 에이전트, Recall Approval Submission, 승인 표준 액션 4종, 에이전트로 승인 처리 | `Release/Winter '27/Agentforce.md` |
+| Work Summaries for Case Beta 은퇴 2026-09-30, 케이스 작업 요약 종료, Winter 27 AI 기능 폐기 | `Release/Winter '27/Agentforce.md` |
+| Winter 27 강제 적용 5건, Profile Filtering 강제, SOAP login() Use Any API Auth 권한 필수, WCAG 2.2 Resize and Reflow 접근성 3건, 윈터 27 의무화 업데이트 뭐가 있나 | `Release/Winter '27/Release Updates.md` |
+| OAuth username-password 은퇴 2027-02-20, OAuth 2.0 Device Flow 로컬 External Client App 제한 2026-11-30, 이메일 검증 예외 2026-12-01, Spring 27 강제 10건 Summer 27 3건, Winter 27 폐기 일정 시점 맵 | `Release/Winter '27/Release Updates.md` |
 
 ---
 

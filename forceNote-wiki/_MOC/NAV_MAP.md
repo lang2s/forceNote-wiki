@@ -83,7 +83,7 @@ created: 2026-07-18
 | AgentSkills(에이전트스킬)/sf-skills/refs | `AgentSkills(에이전트스킬)/sf-skills/refs/index.md` (하위 45개 스킬별 폴더는 이 index + refs 샤드 7개가 커버) |
 | Agentforce(에이전트포스) | `Agentforce(에이전트포스)/index.md` |
 | Einstein(아인슈타인) | `Einstein(아인슈타인)/index.md` |
-| Release/{시즌} '{YY}' | 시즌별 index.md 9개 — `Release/Winter '24/index.md` ~ `Release/Summer '26/index.md` (Winter·Spring·Summer × '24·'25·'26) |
+| Release/{시즌} '{YY}' | 시즌별 index.md 10개 — `Release/Winter '24/index.md` ~ `Release/Winter '27/index.md` (Winter·Spring·Summer × '24·'25·'26 + Winter '27) |
 | _active | `_active/index.md` (작업 중 임시 보관 — PARA Projects, 샤드 등록 금지) |
 
 ---

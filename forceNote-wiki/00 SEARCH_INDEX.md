@@ -28,7 +28,7 @@ created: 2026-05-17
 | 플랫폼 DevOps / DX — Salesforce DX · Scratch Org · Sandbox · Source Tracking · DX 인증 · CI/CD · Metadata API · DevOps Center (패키징·Tooling API 제외) | `_index/platform-devops.md` | `DevOps(데브옵스)/` 폴더 — DX 코어·Metadata API·DevOps Center |
 | 플랫폼 DevOps 패키징 — Unlocked Package · 2GP Managed Package · 컴포넌트 Manageability Rules · Push Upgrade · AppExchange · LMA · Feature Management App · App Analytics | `_index/platform-devops-2gp.md` | `DevOps(데브옵스)/` 폴더 — 패키징(2GP/Unlocked) 클러스터 (platform-devops.md에서 분할) |
 | 플랫폼 DevOps Tooling API — 개발 도구용 메타데이터 API: 개요·REST/SOAP 호출·헤더·네임스페이스 분류 + 도메인별 Tooling sObject(Apex·스키마·보안·자동화·UI·Lightning·운영·패키징·이벤트·Service·세일즈/AI·Experience·통합) 전수 | `_index/platform-devops-tooling.md` | `DevOps(데브옵스)/ToolingAPI(툴링API)/` 폴더 — Tooling API 클러스터 (platform-devops.md에서 분할) |
-| 릴리즈 노트 — Spring/Summer/Winter (v59~v67) | `_index/release.md` | 릴리즈별 변경 |
+| 릴리즈 노트 — Spring/Summer/Winter (v59~v68) | `_index/release.md` | 릴리즈별 변경 |
 | sObject Reference — Field 타입·Object 그룹·Associated Objects·Custom Objects·Object Interfaces·표준 Object 카탈로그 | `_index/sobject-reference.md` | Object Reference v67.0 |
 | Sales Cloud · Agentforce Sales — 영업 표준 기능: 기회(Opportunities)·제품/가격표·캠페인·거래처/연락처·견적(Quotes)·리드·활동(Task/Event)·예측(Collaborative Forecasts)·영역 관리(ETM)·계약/주문 | `_index/sales.md` | SalesCloud(세일즈클라우드)/ 폴더 전반 (Salesforce Help — Sales Basics, 11노트). CPQ 심화는 cpq 샤드, 주문관리(SOM)는 apex-namespaces 샤드 |
 | Service Cloud · Knowledge — 데이터모델·SOAP/REST/Metadata/UI API·아티클·데이터카테고리 | `_index/service.md` | Service(서비스)/ 폴더 전반 |
