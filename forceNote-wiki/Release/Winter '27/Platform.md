@@ -17,7 +17,7 @@ aliases: [Winter '27 Platform, 윈터27 플랫폼, Flow Test Mode Beta, Mock Out
 
 이 노트는 **정책·설정·인프라(Security/Identity/Privacy, Automation/Flow, Hyperforce, Salesforce Overall, Experience Cloud, Setup with Agentforce, Mobile, CMS, Connect, Contracts, Document Generation, Knowledge, Pricing)** 관점의 Winter '27 변경을 다룬다. 근거는 help.salesforce.com Winter '27 릴리즈 노트(`release=264`)에서 추출한 **140개 페이지(리프 및 허브)**다.
 
-- **상위 허브:** [[Winter '27]] — 전체 릴리즈 요약 (아직 미작성)
+- **상위 허브:** [[Winter '27]] — 전체 릴리즈 요약·커버리지·주요 신기능
 - **개발자(코드·클래스·API) 변경:** [[Winter '27/Development]] — Apex heap 한도·Elastic Limits(Beta)·Apex Symbol API(Beta)·LWC v68.0·API/Metadata/Tooling 카탈로그
 - **강제 적용(Release Update) 시점:** [[Winter '27/Release Updates]] — **강제 시점 단일 출처.** 본 노트의 Release Update 항목은 내용만 요약하고 **날짜·강제 릴리즈는 일절 적지 않는다**(OAuth 항목처럼 양쪽에 등장하는 것은 그쪽 표가 정본)
 - **AI/에이전트 변경:** [[Winter '27/Agentforce]] — Agentforce 빌더·모델·Voice 등
@@ -654,7 +654,7 @@ pricing recipe를 **pricing recipe table mapping 레코드와 함께 복제**하
 
 ## 관련 노트
 
-- [[Winter '27]] — 상위 릴리즈 허브 (전체 요약·주요 신기능) — **아직 미작성**
+- [[Winter '27]] — 상위 릴리즈 허브 (전체 요약·커버리지·주요 신기능)
 - [[Winter '27/Release Updates]] — **강제 적용(Release Update) 시점 단일 출처.** 본 노트의 OAuth 플로 은퇴·Connected App 이행·Setup Audit Trail 권한·게스트 사용자 개인정보 은폐·WCAG 2.2 접근성 4건의 날짜는 모두 그쪽 표가 정본
 - [[Winter '27/Development]] — 개발자 spoke (Apex heap 한도·Elastic Limits(Beta)·Apex Symbol API(Beta)·LWC v68.0·API/Metadata/Tooling 카탈로그)
 - [[Winter '27/Agentforce]] — AI/에이전트 spoke (Agentforce 빌더·모델·Voice)

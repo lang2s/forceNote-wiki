@@ -1,7 +1,7 @@
 ---
 tags: [backlog, coverage, work-tracking]
 created: 2026-05-18
-updated: 2026-06-27
+updated: 2026-08-26
 ---
 
 # WORK_BACKLOG_ARCHIVE — 완료 작업 영속 대장
@@ -702,6 +702,58 @@ updated: 2026-06-27
 - **지식↔실행:** 대응 스킬 `omnistudio-epc-catalog-generate`와 양방향. 스킬맵(`스킬 ↔ 위키 토픽 맵`) OmniStudio 갭 **1→0**(3곳 갱신).
 - **경계·정직성:** EPC는 Industries CPQ(CME) 소속임을 [!note]로 명시(OmniStudio Standard와 분리). **Calculation Procedures/Matrices는 로컬 소스에도 없어 미작성** → OMNISTUDIO-2b로 분리(fabricate 금지, 커버리지 경계 §에 명시).
 - **실행 방식:** 세션 한도로 메인 세션이 직접 작성·nav(omnistudio 샤드·index.md)·스킬맵 갱신·검증(구조검사 ✅·고아0·링크0·lint 훅 통과). 상세 동 세션 A그룹: [[project_omnistudio_ingest]](OMNISTUDIO-1).
+
+---
+
+## 🟠 W27 — Winter '27 (v68.0) 릴리즈 후속 완료분 6건 (2026-08-26 세션, wiki-retrospective 모드 B 이관)
+
+> 활성 백로그 `### 🟠 W27` 의 W27-BL-1·2·5·6·7·8 완료 이관. **이 6건 중 2건(BL-5·BL-6)은 "위키를 바꾸지 않는 것이 정답"이었던 조사 항목**이라 결론과 근거를 여기 남긴다 — 근거가 없으면 다음 세션이 같은 조사를 반복한다.
+> 잔여 W27 항목(BL-3 부분 해소 · BL-4·9 10월 GA 게이트 · 신규 BL-10~13)은 활성 [[WORK_BACKLOG]] 참조.
+
+### W27-BL-1 — Clouds 롱테일 671페이지 전수 추출 ✅
+
+- **결과:** Clouds 영역 **988페이지 전부 본문 확보**. 커버리지 **317 / 671 / 988 → 988 / 0 / 988**. `Release/Winter '27/Clouds.md` **2,404 → 3,260줄**. 롱테일 671은 **실패 0 · 차단 0 · 페이지 단위 절단 0**.
+- **`## 제목 카탈로그` 절 삭제.** 존재 이유(*"본문이 없으니 제목만이라도"*)가 소멸했다. ⚠️ **다른 문서가 이 절을 page id 정본으로 가리키고 있었으므로**(활성 백로그 재추출 레시피) 포인터를 함께 갱신했다 — 절을 지울 때 **그 절을 정본으로 지목한 참조부터 찾는다**.
+- **부수 ①`Tier 랜딩요약` 계층 폐기:** 재정의(*"리프 본문은 있으나 허브 요약이 더 상세한 항목"*)를 시도했으나 **검증 결과 그런 항목이 0건**. 허브 요약은 예외 없이 리프 첫 문단의 축약이고 **Where·How·Who·When은 리프에만** 있었다. **성립하지 않는 계층을 이름만 남기는 것이 더 해롭다**고 보고 되살리지 않았다.
+- **부수 ②미상 등급 657 → 4:** 숫자가 준 것이 아니라 **정의가 바뀌었다.** *"본문을 다 본 뒤의 마커 부재"* 는 **"모름"이 아니라 확정된 사실**(마커 없음)이다. 남은 4건은 소스 덤프가 앞부분에서 절단된 페이지뿐 — **미상은 근거 부족일 때만 쓴다.**
+
+### W27-BL-2 — Agentforce IT Service 51페이지 전수 ✅
+
+- **결과:** `rn_it_service_*` 19 + `rn_it_srvcs_*` 32 = **51페이지 전문** → `Clouds.md`의 **`## Agentforce IT Service`** 절(허브 9 + 리프 42 구조 그대로). 위키 내 **기능 상세(Where·Who·How)의 단일 출처**. `Agentforce.md`에는 상위 `rn_agentforce_it` 허브의 9축 요약만 유지(고도 분리).
+- **마커 0건이 실제 사실임을 본문에 명시** — 51페이지를 다 본 뒤의 부재 선언이므로 "미확인"과 구분된다.
+- **에디션 축이 갈린다:** `rn_it_service_*` 계열과 `rn_it_srvcs_*` 계열이 id로 갈리되 **`rn_it_srvcs_knowledge_generation` 반례 존재** → id 접두어로 에디션을 추론하지 말 것.
+- **⭐ 근본 원인 = 파티션 오배치:** 접두어가 `rn_it_*`이라 **주제상 Agentforce인데 Clouds 파티션으로 떨어졌다.** → AP-13 §8 "귀속은 접두어가 아니라 주제로 판정"의 근거 사례.
+
+### W27-BL-5 — 한도 레퍼런스 8/14판 대조 ✅ (결론: 바뀐 숫자 0)
+
+- **결과:** `Architecture(아키텍처)/Salesforce 한도·할당량 레퍼런스 (API·Bulk·Metadata·SOQL·VF).md` 를 **August 14, 2026 판**과 전수 대조 — **92개 수치 중 바뀐 값 0건.** source frontmatter를 2판 대조 형식으로 갱신.
+- **23p → 15p 축소의 정체:** 감소분은 **전량 Apex 거버너 한도 블록 제거**였다. 이 노트의 범위(API·Bulk·Metadata·SOQL·VF)는 원래 Apex 표를 쓰지 않으므로 **본문 영향 0**.
+- **⚠️ 미수록 ≠ 반박:** 8월판에 표가 없는 Apex 예시 4건은 **값을 지우거나 내리지 않고** `[5/8 판 기준 — 재확인 불가]` 로 표기한 뒤 현행 정본 [[Governor Limits]]로 위임했다. **문서에서 빠진 것과 한도가 변경된 것은 다르다** — 판본 대조 작업의 기본 규율.
+
+### W27-BL-6 — REST API 문서 20페이지 감소 ✅ (결론: 조판 아티팩트 · 위키 변경 불필요)
+
+- **판정: 기능 제거가 아니라 조판(typesetting) 아티팩트.** 근거 3중:
+  | 지표 | 값 | 해석 |
+  |---|---|---|
+  | 페이지 | 430 → 410 (**−4.7%**) | 감소 |
+  | 단어 수 | **−0.14%** | 사실상 불변 → 내용은 그대로 |
+  | ToC 307항목 | **바이트 동일** | 섹션 구조 불변 |
+  | 297개 섹션 페이지 증감 합산 | **정확히 −20** | 재조판이 전 문서에 분산됨 |
+- **실제 제거는 Scheduler 요청/응답 바디 표 4개뿐** — 제목은 남고 표만 사라진 **문서 빌드 결함**으로 보인다. 그 필드를 쓰는 위키 노트 5개는 **전부 `salesforce_scheduler_dev_guide.pdf`를 인용 중**이라 영향 없음 → **위키 변경 불필요.**
+- **⭐ 교훈:** *파일 크기·페이지 수 diff는 후보 신호일 뿐 결론이 아니다.* 단어 수·ToC 바이트·섹션별 증감 합산 같은 **직교 지표로 교차 확인**해야 조판 변화와 내용 변화가 갈린다. (AP-13 부수 교훈 ⓑ와 동류)
+
+### W27-BL-7 — Tooling API End-of-Life 표 v68 갱신 ✅
+
+- **결과:** `DevOps(데브옵스)/ToolingAPI(툴링API)/Tooling API — 개요·REST·SOAP 호출 기초.md` 의 버전 지원 표를 **v68.0 판**(`Winter27-v68-Docs/api_tooling.pdf` 인쇄 p.37–38, 표가 p.37→p.38로 이어지며 헤더 반복 · `-layout`/비-layout 양쪽으로 셀별 대조)으로 교체.
+- **⭐ 릴리즈 노트에 없는 실제 변경 발견:** v67의 **`31.0~66.0 Supported` 한 행이 v68에서 두 행으로 분리**되고, **31.0~40.0에 2단계 종료 일정이 신설**됐다 — **Supported → Summer '27 deprecated → Summer '28 retired.** 릴리즈 노트만 읽었으면 놓쳤을 변경이다. **판본 간 레퍼런스 표 직접 대조는 릴리즈 노트로 대체되지 않는다.**
+- **잔여:** 같은 노트의 REST 예제 URL은 여전히 v67 (15곳) → 신규 **W27-BL-11**로 등재(이 작업의 범위 밖이었음을 명시).
+
+### W27-BL-8 — ConnectApi 카탈로그 + Work Summaries 리프 4건 ✅
+
+- **결과 ①:** *ConnectApi (Connect in Apex): New and Changed Classes and Enums* 허브 + 자식 3(New Classes · Changed Output Classes · Changed Enums) = **4페이지 본문 전문** → `Release/Winter '27/Development.md`(62 → **66페이지** 근거). 이 절의 클래스명·시그니처·enum 값·프로퍼티 설명은 **소스 원문 그대로**(노트의 다른 부분은 압축 기록이라 이 예외를 본문에 명시했다).
+- **⭐ 발견:** Winter '27 ConnectApi 변경은 **전부 Salesforce CMS**다 — **Chatter·Feed·Group·User 0건.** ConnectApi = 협업 API라는 통념과 어긋나므로 노트에 소절 제목으로 못박았다.
+- **결과 ②:** `rn_einstein_work_summaries` **리프 4페이지**(case_beta_retirement · auto_messaging · auto_voice · additional_languages) → `Agentforce.md`(31 → **35페이지** 근거). **분모가 31→35로 커졌는데도 "GA 0건 · Release Update 0건"은 그대로** — 부재 선언이 새 증거로 흔들리지 않음을 명시적으로 확인했다(유일한 등급 표시는 은퇴 페이지의 Beta).
+- W27-BL-3의 28리프 중 **4건 해소** (나머지 9건은 BL-2가 해소 → 잔여 15).
 
 ---
 

@@ -9,7 +9,7 @@ aliases: [Winter '27 Agentforce, 윈터27 에이전트포스, Automatically Gene
 
 # Winter '27 — Agentforce & Generative AI
 
-> 이 노트는 Agentforce & Generative AI 영역에서 **추출된 35페이지**를 근거로 한다 — **영역 자체는 최소 59페이지**이고, 이 영역 안에 있는 하위 리프 **24개가 아직 미추출**이다(최초 추출 31 + Einstein Work Summaries 리프 4 = **35**, 미추출 28 − 4 = **24**). 따라서 아래의 GA 0건 · Release Update 0건 · 신규 모델 0건은 모두 **추출된 35페이지 기준**이다. 확보된 내용은 Gemini 2.5→3.5 리라우트(2026-10-20), Agentforce Voice 3건(2026-09-07 주), Agentforce Contact Center(AFCC)로 편입된 Salesforce Voice, 표준 액션 카탈로그 4항목(전부 승인 관련), Work Summaries for Case (Beta) 은퇴(2026-09-30)다.
+> 이 노트는 Agentforce & Generative AI 영역에서 **추출된 35페이지**를 근거로 한다 — **영역 자체는 최소 59페이지**이고, 이 영역 안에 있는 하위 리프 **15개가 아직 미추출**이다(최초 추출 31 + Einstein Work Summaries 리프 4 = **35**, 최초 미추출 28 − Work Summaries 확보 4 − [[Winter '27/Clouds]]가 확보한 `rn_agentforce_it` 9 = **15**). 따라서 아래의 GA 0건 · Release Update 0건 · 신규 모델 0건은 모두 **추출된 35페이지 기준**이다. 확보된 내용은 Gemini 2.5→3.5 리라우트(2026-10-20), Agentforce Voice 3건(2026-09-07 주), Agentforce Contact Center(AFCC)로 편입된 Salesforce Voice, 표준 액션 카탈로그 4항목(전부 승인 관련), Work Summaries for Case (Beta) 은퇴(2026-09-30)다.
 
 ---
 
@@ -20,24 +20,24 @@ aliases: [Winter '27 Agentforce, 윈터27 에이전트포스, Automatically Gene
 | 부모 페이지 | 최초 배치에 미할당됐던 자식 리프 | 현재 상태 |
 |---|---|---|
 | `rn_afcc_voice` | **3** | ⛔ 미추출 |
-| `rn_agentforce_it` | **9** | ↗ **이 노트 범위 밖이지만 위키에는 있다** — 9개 하위 축과 그 아래 리프를 합친 **51페이지 전문이 [[Winter '27/Clouds]]의 `## Agentforce IT Service` 절**에 있다(2026-08-25 확보). 아래 35/24 산식은 *이 노트의* 추출 범위 기준이라 그대로 둔다 |
+| `rn_agentforce_it` | **9** | ↗ **이 노트 범위 밖이지만 위키에는 있다** — 9개 하위 축과 그 아래 리프를 합친 **51페이지 전문이 [[Winter '27/Clouds]]의 `## Agentforce IT Service` 절**에 있다(2026-08-25 확보). 따라서 아래 산식에서 이 9건은 **미추출이 아니라 Clouds 소관**으로 따로 센다 |
 | `rn_ai_agents_sa` | **12** | ⛔ 미추출 |
 | `rn_einstein_work_summaries` | **4** | ✅ **확보 완료 (2026-08-25)** — Where/How 전문 반영 |
-| **최초 합계** | **28** | **남은 미추출 = 28 − 4 = 24** |
+| **최초 합계** | **28** | **남은 미추출 = 28 − Work Summaries 확보 4 − Clouds 소관 9 = 15** |
 
-이 리프들은 Workforce Engagement Management·Partner Contact Center와 **달리** 다른 제품 영역으로 옮겨간 게 아니라 **이 영역 자체의 자식**이다. 따라서 **Agentforce & Generative AI 영역은 최소 59페이지(현재 추출 35 + 미추출 24)** 이고, 이 노트는 그중 35페이지의 추출본 위에 서 있다. **총계 59는 후속 추출로 변하지 않는다** — 확보는 4건을 "미추출" 열에서 "추출" 열로 옮겼을 뿐이다.
+이 리프들은 Workforce Engagement Management·Partner Contact Center와 **달리** 다른 제품 영역으로 옮겨간 게 아니라 **이 영역 자체의 자식**이다. 따라서 **Agentforce & Generative AI 영역은 최소 59페이지**(이 노트의 추출 **35** + [[Winter '27/Clouds]] 소관 **9** + 미추출 **15**)이고, 이 노트는 그중 35페이지의 추출본 위에 서 있다. **총계 59는 후속 확보로 변하지 않는다** — 확보는 항목을 "미추출" 열에서 "추출"·"Clouds 소관" 열로 옮길 뿐이다.
 
 **그래서 이 노트의 모든 "0건"은 범위 한정 진술이다:**
 
-- **추출된 35페이지 안에** **GA(Generally Available) 항목이 하나도 없다.** 미추출 24리프는 미확인 — **단 그중 `rn_agentforce_it` 9건과 그 하위 42리프는 [[Winter '27/Clouds]]가 전수 확인해 GA·Beta·Pilot·Developer Preview 마커가 0건**이다.
-- **추출된 35페이지 안에** **Release Update(강제 적용) 항목이 하나도 없다.** 미추출 24리프는 미확인 — **단 `rn_agentforce_it` 9건과 그 하위 42리프에는 Release Update 표기가 없음이 [[Winter '27/Clouds]]에서 확인됐다**(강제 시점은 여전히 [[Winter '27/Release Updates]] 소관).
+- **추출된 35페이지 안에** **GA(Generally Available) 항목이 하나도 없다.** 미추출 15리프는 미확인 — **단 이 노트 범위 밖이던 `rn_agentforce_it` 9건과 그 하위 42리프는 [[Winter '27/Clouds]]가 전수 확인해 GA·Beta·Pilot·Developer Preview 마커가 0건**이다.
+- **추출된 35페이지 안에** **Release Update(강제 적용) 항목이 하나도 없다.** 미추출 15리프는 미확인 — **단 `rn_agentforce_it` 9건과 그 하위 42리프에는 Release Update 표기가 없음이 [[Winter '27/Clouds]]에서 확인됐다**(강제 시점은 여전히 [[Winter '27/Release Updates]] 소관).
 - **새로 확보한 Work Summaries 리프 4페이지에도 GA · Pilot · Developer Preview · Release Update 마커는 없었다.** 즉 분모가 31→35로 커졌는데도 위 두 0건은 그대로다(유일한 등급 표시는 은퇴 페이지의 **Beta**).
 - **추출된 35페이지 안에** **신규 지원 모델(GA/Beta) 항목이 없다.** 모델 관련 항목은 기존 Gemini 2.5 계열의 **리라우트 공지 1건**뿐이다.
 - **추출 범위 안에서** Pilot은 **1건**(Voice Call 레코드 변경 감사 추적), Beta 마커 항목은 **은퇴 대상 1건**(Work Summaries for Case)이다.
 
 **이 한정이 형식적인 게 아니라는 직접 증거가 이 노트 안에 있다.** 유일하게 확인된 Pilot 항목(**Keep an Audit Trail of Voice Call Record Changes**)은 **리프 페이지가 미추출**이라 상위 TOC의 설명문(blurb)에서만 잡혔다. 즉 등급(Pilot/Beta/GA) 표시가 붙은 항목이 미추출 리프 쪽에 더 있을 수 있다.
 
-> **직전 릴리즈와의 규모 비교는 이 노트에서 하지 않는다.** 분모(영역 전체 페이지 수)가 확정되지 않은 상태라 "이번 영역이 작다/크다"는 판정할 수 없다. 남은 미추출 24리프를 확보한 뒤 [[Winter '26/Agentforce]]와 비교하는 것을 **GA 시점 재점검의 열린 과제**로 남긴다.
+> **직전 릴리즈와의 규모 비교는 이 노트에서 하지 않는다.** 분모(영역 전체 페이지 수)가 확정되지 않은 상태라 "이번 영역이 작다/크다"는 판정할 수 없다. 남은 미추출 15리프를 확보한 뒤 [[Winter '26/Agentforce]]와 비교하는 것을 **GA 시점 재점검의 열린 과제**로 남긴다.
 
 > 상위 허브: [[Winter '27]]
 > 형제 spoke: [[Winter '27/Development]] · [[Winter '27/Platform]] · [[Winter '27/Clouds]] · [[Winter '27/Release Updates]]
@@ -66,7 +66,7 @@ aliases: [Winter '27 Agentforce, 윈터27 에이전트포스, Automatically Gene
                    Gemini 3.5 Pro / Flash / Flash-Lite 로 리라우트
                    (※ 소스 내 문구 불일치 — 아래 "모델" 섹션 참조)
 Pilot         ──► VoiceCall 필드 변경 감사 추적 (최대 20필드, Activity 필드 미지원)
-GA            ──► (추출 35페이지 내 0건 — 미추출 24리프는 미확인)
+GA            ──► (추출 35페이지 내 0건 — 미추출 15리프는 미확인)
 Release Update──► (추출 35페이지 내 0건) → [[Winter '27/Release Updates]] 소관
 ```
 
@@ -296,7 +296,7 @@ IVR 프롬프트를 **유럽 4개 언어 추가** 지원: **Finnish, Swedish, Da
 
 ### AFCC Voice — 이 영역 안이지만 리프가 미추출인 3항목
 
-아래 3건은 `rn_afcc_voice` TOC에 **완전한 설명문이 포함**돼 있으나, **개별 리프 페이지가 이 노트의 추출 범위에 들어 있지 않다.** 다른 영역으로 간 게 아니라 **이 영역의 자식인데 미추출**이다(위 미추출 24리프 중 3건). **그래서 Where/Who/How 세부가 없다** — 아래 TOC 설명문이 확보 가능한 전부이며, 리프를 확보하면 내용이 늘어날 자리다.
+아래 3건은 `rn_afcc_voice` TOC에 **완전한 설명문이 포함**돼 있으나, **개별 리프 페이지가 이 노트의 추출 범위에 들어 있지 않다.** 다른 영역으로 간 게 아니라 **이 영역의 자식인데 미추출**이다(위 미추출 15리프 중 3건). **그래서 Where/Who/How 세부가 없다** — 아래 TOC 설명문이 확보 가능한 전부이며, 리프를 확보하면 내용이 늘어날 자리다.
 
 **Find Available Reps Faster During Call Transfers**
 통화를 전환할 때 서비스 담당자에게 **Omni-Channel 위젯에서 가용한 담당자만 필터링된 목록**이 보인다. 전체 전화번호부 대신 **통화를 수락할 수 있는 사람만** 표시되어 스크롤이 줄고 전환 속도가 빨라진다. Omni-Channel 설정에서 **Direct-to-Agent Routing** 을 켜면 이 필터가 기본 적용된다.
@@ -322,7 +322,7 @@ Agentforce Contact Center에서 담당자가 소프트폰의 빠른 컨트롤용
 
 Voice 통화와 Enhanced Messaging 세션의 작업 요약(work summary)을 자동 생성·저장한다. 이번 릴리즈의 핵심은 **자동 생성 기본 활성화**, **5개 언어 추가**, 그리고 **Case용 Beta의 은퇴**다.
 
-> **근거 범위 (2026-08-25 갱신):** 아래 4건은 **개별 리프 페이지 4개를 직접 확보해** 다시 썼다. 이전 판은 허브 `rn_einstein_work_summaries` 의 TOC 설명문만 근거여서 "Where/How/Who 세부는 확보되지 않았다"고 적었으나, **그 진술은 이제 유효하지 않다** — 아래 Where·How는 각 리프 원문이다. 이 4건이 빠지면서 이 노트의 근거는 **추출 35페이지 / 미추출 24리프**가 됐다(위 개요의 산식 참조).
+> **근거 범위 (2026-08-25 갱신):** 아래 4건은 **개별 리프 페이지 4개를 직접 확보해** 다시 썼다. 이전 판은 허브 `rn_einstein_work_summaries` 의 TOC 설명문만 근거여서 "Where/How/Who 세부는 확보되지 않았다"고 적었으나, **그 진술은 이제 유효하지 않다** — 아래 Where·How는 각 리프 원문이다. 이 4건이 빠지면서 이 노트의 근거는 **추출 35페이지 / 미추출 15리프**가 됐다(위 개요의 산식 참조).
 
 > **등급 마커 — 이 4페이지 전체 스캔 결과:** GA · Pilot · Developer Preview · Release Update 마커는 **하나도 없다.** 유일한 등급 표시는 **은퇴 페이지의 Beta**이고, 그 페이지만 전체 **Beta Services Terms** 고지를 싣는다. 즉 이 4건 확보로 이 노트의 GA 0건 · Release Update 0건 집계는 **바뀌지 않는다**(분모만 31→35로 커졌다).
 
@@ -447,7 +447,7 @@ Enhanced Messaging·Voice 통화용 Work Summaries가 기존 지원 언어에 �
 
 ### 월간 릴리즈 — 7·8월 노트가 Winter '27로 접혀 들어왔다
 
-Service Assistant는 **월 단위로 기능을 릴리즈**한다. 소스는 **2026년 7·8월에 이미 제공된 기능의 릴리즈 노트를 가시성 확보 목적으로 Winter '27에 함께 싣는다**고 밝히며, 각 노트의 **When 섹션이 실제 제공 시점**을 나타낸다고 안내한다. 아래 **12건**이 그 표다. 12건 모두 **이 영역 안의 개별 리프 페이지이지만 이 노트의 추출 범위 밖**(위 미추출 24리프 중 12건)이라 **제목만** 라우팅용으로 기록한다 — 각 항목의 When·Where·상세는 확보되지 않았다.
+Service Assistant는 **월 단위로 기능을 릴리즈**한다. 소스는 **2026년 7·8월에 이미 제공된 기능의 릴리즈 노트를 가시성 확보 목적으로 Winter '27에 함께 싣는다**고 밝히며, 각 노트의 **When 섹션이 실제 제공 시점**을 나타낸다고 안내한다. 아래 **12건**이 그 표다. 12건 모두 **이 영역 안의 개별 리프 페이지이지만 이 노트의 추출 범위 밖**(위 미추출 15리프 중 12건)이라 **제목만** 라우팅용으로 기록한다 — 각 항목의 When·Where·상세는 확보되지 않았다.
 
 | 월 | Feature Releases |
 |---|---|
@@ -494,12 +494,12 @@ Service Assistant는 **월 단위로 기능을 릴리즈**한다. 소스는 **20
 
 ## 등급별 집계 — **추출된 35페이지 기준**의 부재 기록
 
-"없다"를 남겨야 다음 릴리즈와 비교할 수 있다. 다만 아래 표의 **0건은 영역 전체가 아니라 이 노트가 근거로 삼은 35페이지 안에서의 0건**이다. 남은 미추출 24리프에 해당 등급 항목이 있는지는 **확인되지 않았다** — 유일한 Pilot 항목조차 리프가 미추출이라 TOC 설명문에서만 잡혔다는 사실이 그 위험을 그대로 보여준다.
+"없다"를 남겨야 다음 릴리즈와 비교할 수 있다. 다만 아래 표의 **0건은 영역 전체가 아니라 이 노트가 근거로 삼은 35페이지 안에서의 0건**이다. 남은 미추출 15리프에 해당 등급 항목이 있는지는 **확인되지 않았다** — 유일한 Pilot 항목조차 리프가 미추출이라 TOC 설명문에서만 잡혔다는 사실이 그 위험을 그대로 보여준다.
 
 | 카테고리 | 추출된 35페이지 안 | 비고 |
 |---|---|---|
-| **GA (Generally Available)** | **0건** (추출 범위 내) | 새로 확보한 Work Summaries 리프 4건에도 GA 없음. 남은 미추출 24리프 미확인. 직전 릴리즈와의 규모 비교는 분모 미확정이라 **보류** — GA 시점 재추출 후 [[Winter '26/Agentforce]]와 비교 |
-| **Release Update (강제 적용)** | **0건** (추출 범위 내) | 새로 확보한 Work Summaries 리프 4건에도 Release Update 없음. 남은 미추출 24리프 미확인. 강제 시점은 [[Winter '27/Release Updates]] 소관 |
+| **GA (Generally Available)** | **0건** (추출 범위 내) | 새로 확보한 Work Summaries 리프 4건에도 GA 없음. 남은 미추출 15리프 미확인. 직전 릴리즈와의 규모 비교는 분모 미확정이라 **보류** — GA 시점 재추출 후 [[Winter '26/Agentforce]]와 비교 |
+| **Release Update (강제 적용)** | **0건** (추출 범위 내) | 새로 확보한 Work Summaries 리프 4건에도 Release Update 없음. 남은 미추출 15리프 미확인. 강제 시점은 [[Winter '27/Release Updates]] 소관 |
 | **신규 지원 모델 (GA/Beta)** | **0건** (추출 범위 내) | 모델 항목은 Gemini 2.5→3.5 **리라우트 공지 1건**뿐 |
 | **Pilot** | **1건** (추출 범위 내) | Keep an Audit Trail of Voice Call Record Changes — **리프는 미추출**, 상위 TOC 설명문에서만 확인 |
 | **Beta 마커 항목** | **1건** (추출 범위 내) | Work Summaries for Case (Beta) — **은퇴 대상**이라 신규가 아님. **리프 확보(2026-08-25)**: 전체 Beta Services Terms 고지 포함, Where는 옛 **Einstein for Service / Einstein 1** 표기 |
@@ -515,15 +515,15 @@ Service Assistant는 **월 단위로 기능을 릴리즈**한다. 소스는 **20
 | **Workforce Engagement Management** | **Service Cloud 영역** | `rn_afcc` 허브가 자식으로 나열하되 리프는 그쪽 (설명문은 위 AFCC 섹션에 보존) |
 | **Partner Contact Center** (서드파티 텔레포니·CCaaS) | **Service Cloud 영역** | `rn_afcc_voice` 본문이 *"...see Partner Contact Center"* 로 명시 리다이렉트 |
 
-**B. 이 영역 안에 있는데 아직 추출하지 않은 것 (24리프 — 최초 28에서 Work Summaries 4건 확보분을 뺀 값)** — 다른 영역으로 간 게 **아니다.** 전부 이 영역의 자식이며, **다음 추출 대상**이다. 여기 있는 등급·날짜·Where/Who/How는 아직 아무것도 확인되지 않았다.
+**B. 이 영역 안에 있는데 위키 어디에도 본문이 없는 것 (15리프 — 최초 28에서 Work Summaries 확보 4와 Clouds 소관 9를 뺀 값)** — 다른 영역으로 간 게 **아니다.** 전부 이 영역의 자식이며, **다음 추출 대상**이다. 여기 있는 등급·날짜·Where/Who/How는 아직 아무것도 확인되지 않았다.
 
 | 부모 페이지 | 미추출 리프 | 이 노트에 남은 근거 |
 |---|---|---|
 | `rn_afcc_voice` | **3** | TOC 설명문 전문 — Find Available Reps · Keyboard Shortcuts · Audit Trail (Pilot). Where/Who/How 없음 |
-| `rn_agentforce_it` | **9** | 허브가 쓴 하위 섹션 요약. ↗ **이 노트 기준으로만 미추출** — 이 9축과 그 아래 리프 합계 **51페이지의 전문은 [[Winter '27/Clouds]]의 `## Agentforce IT Service` 절**에 있다(2026-08-25). 이 표의 24는 *이 노트의* 추출 범위 기준이므로 숫자는 그대로다 |
+| ~~`rn_agentforce_it`~~ | ~~9~~ → **0** | ✅ **Clouds 소관으로 확보 (2026-08-25)** — 이 9축과 그 아래 리프 합계 **51페이지의 전문이 [[Winter '27/Clouds]]의 `## Agentforce IT Service` 절**에 있다. 이 노트에는 허브가 쓴 축 요약만 남는다 |
 | `rn_ai_agents_sa` | **12** | 월별 표의 **제목만** |
 | ~~`rn_einstein_work_summaries`~~ | ~~4~~ → **0** | ✅ **2026-08-25 확보** — 리프 4개 Where/How 전문이 위 Einstein Work Summaries 절에 있다 |
-| **합계** | **24** | **추출 35 + 미추출 24 = 영역 최소 59페이지** (총계 59 불변) |
+| **합계** | **15** | **이 노트 추출 35 + Clouds 소관 9 + 미추출 15 = 영역 최소 59페이지** (총계 59 불변) |
 
 ---
 
@@ -535,7 +535,7 @@ Service Assistant는 **월 단위로 기능을 릴리즈**한다. 소스는 **20
 - [[Winter '27/Platform]] — 플랫폼·Setup·보안 변경
 - [[Winter '27/Clouds]] — 클라우드별 변경 (분산 배치된 AI 기능 다수가 여기 소관). **Agentforce IT Service 9개 축 아래 51페이지의 기능 상세도 그쪽 `## Agentforce IT Service` 절에 있다**
 - [[Summer '26/Agentforce]] — 직전 릴리즈의 Agentforce 영역
-- [[Winter '26/Agentforce]] — Winter '26 Agentforce 영역 (영역 규모 비교는 남은 미추출 24리프 확보 후 재점검할 열린 과제)
+- [[Winter '26/Agentforce]] — Winter '26 Agentforce 영역 (영역 규모 비교는 남은 미추출 15리프 확보 후 재점검할 열린 과제)
 - [[Service Cloud Voice]] — VoiceCall 오브젝트·텔레포니 데이터 모델 (Pilot 감사 추적·Voice 기능 맥락)
 - [[Agentforce 개요 — 제품·에이전트 유형·구성요소]] — 에이전트·서브에이전트·빌더 개념
 - [[Approval Process (승인 프로세스)]] — Approval Agent가 다루는 승인 프로세스 기반
